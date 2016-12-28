@@ -1,0 +1,14 @@
+---
+title: "Biology 381 - Computational Biology"
+author: ""
+date: ""
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: vignette
+---
+
+## Course Materials
+
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2017
+
