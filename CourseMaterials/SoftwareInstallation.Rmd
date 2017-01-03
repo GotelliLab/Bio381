@@ -1,0 +1,52 @@
+---
+title: "Software Installation"
+author: "Biology 381 - Computational Biology"
+date: "2 January 2017"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+---
+Here are the software packages you need to load onto your computer for this course. These programs work on Mac or Windows computers. They are free, safe, and do not take up much disk space. If you already have some of these programs installed, please check to make sure you are using the latest versions.
+
+Go to each page, follow the instructions for downloading the installer. Once you have downloaded the package to your desktop or other place on your hard drive, double-click it to begin the installation. The installer will go through a number of steps. Always use the complete installation with the default choices at each step. 
+
+## Github
+
+GitHub is a free web-based repository for storing and updating your computer code, collaborating with others on documents and coding, and hosting your webpages. We will use GitHub extensively in this course. During the first week of class, you will start by building your own GitHub repository and website, and you will post all of your homeworks and exercises to this website during the semester. It will be an on-line "portfolio" of your work. Register for free GitHub account below, and be sure to record your user name and password for future use.
+
+[register For GitHub](https://github.com/)
+
+## GitHub Desktop
+
+Until very recently, you could only use GitHub from the command line, which was a bit finnicky (especially on a Windows machine). GitHub has recently introduced GitHub Desktop, which is an easy to use Graphical User Interface (GUI). All of the basic functions we need for GitHub can be accessed with simple point-and-click operations. After you download and install GitHub Desktop, you will use your GitHub user name and password to set things up.
+
+[download GitHub Desktop](https://desktop.github.com/)
+
+## R
+R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. At one point you may be asked whether you are installing on a 32-bit or a 64-bit Windows machine. Use the 32-bit option. For Mac, use the R 3.2.3 package (unless your machine is older). 
+
+[download R](https://www.r-project.org/)
+
+## R Studio
+R studio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. Make sure you have installed R first before you install R studio. Choose either the Windows or Mac OS installer.
+
+[download R Studio](https://www.rstudio.com/products/rstudio/download/)
+
+## MikTeX
+MikTex is a version of the LaTeX type-setting system. With MikTeX installed, you will be able to create pdf documents using R studio. 
+
+
+
+[download MikTeX 2.9 Net Installer Windows 32-bit for Windows, third box down from the top](http://miktex.org/2.9/setup)
+
+[download MacTex-2016 (full version, not the "smaller BasicTeX") for Mac](http://tug.org/mactex/)
+
+## Text editors
+We will occasionally need to use a simple plain-text editor, and the editors that are installed by default on your Mac or Windows machines are not useful. RStudio has a very powerful text editor that we will use for learning "regular expressions". However, you may decide you want to use a dedicated text editors. There are many good editors out there to choose from, but here are two to consider:
+
+
+[download Notepad++ for Windows](https://notepad-plus-plus.org/)
+
+
+[download BBEdit for Mac](http://www.barebones.com/products/bbedit/demo.html)
