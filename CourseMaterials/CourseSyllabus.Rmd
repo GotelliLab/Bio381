@@ -1,0 +1,50 @@
+---
+title: "Biology 381 - Computational Biology"
+author: "Course Syllabus"
+date: "January 4, 2017"
+output:
+  html_document:
+    highlight: haddock
+    theme: united
+  pdf_document: default
+---
+
+___
+
+## Meetings
+
+**Lecture:** Tuesday, Thursday 4:25 - 5:40 pm 129 Marsh Life Science   
+**Lab:** Wednesday, 12:00 pm - 2:30 pm 129 Marsh Life Science
+
+## Instructors
+
+**Lecture:** Nick Gotelli   
+209 Marsh Life Science   
+ngotelli@uvm.edu   
+Office hours by appointment
+
+**Lab:** Lauren Ash   
+211 Marsh Life Science   
+Lauren.V.Ash@uvm.edu   
+Office hours by appointment
+
+## Pre-Requisites
+* A personal laptop computer that you bring to all lecture and lab meetings
+    - Mac or Windows
+    - all [required software packages](CourseMaterials/SoftwareInstallation.html) installed and working
+    - wireless access and an active UVM mail account
+* Graduate standing as a PhD or MS student at UVM
+* Undergraduates by invitation only after consultation with the instructor
+* An ongoing research project for which you are collecting and analyzing data
+* Knowledge of basic statistics (p-values, means, variances, hypothesis testing)
+* No prior knowledge of computer programming is required
+
+## Course Content
+This course is designed to teach you four things:
+
+1. How to "think on paper" and use flow charts, logic trees, look-up tables, and data simulation to organize your ideas and data analysis.
+2. How to use modern computational tools to make your analysis, writing, graphics, and presentations more efficient and attractive, and to make your analyses transparent and repeatable.
+3. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
+4. Practice and practical advice to improve your scientific presentations and your classroom teaching skills.
+
+
