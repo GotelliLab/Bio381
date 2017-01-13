@@ -22,12 +22,14 @@ This site contains course materials, scripts, homeworks, and resources for Compu
 
 ___
 
-## Weekly Lecture Outlines, R-Scripts, & Homework Assignments
+## Lecture Outlines, R-Scripts, & Homework Assignments
 
-Week Of...  | Lecture Outline | R-Scripts  | Homework Assignments
+Date  | Lecture | Scripts  | Homework
 ------------- | --------------|----------- | -------------
-January 16  | Lecture Outline | R-Scripts  | Homework Assignments
-January 23  | Lecture Outline | R-Scripts  | Homework Assignments
+January 16  | [GitHub](Lectures/Lecture01.html) | -  | Homework #1
+January 18  | Lecture #2 | -  | -
+January 23  | Lecture #3 | R-Scripts  | Homework #2
+January 25  | Lecture Outline | R-Scripts  | Homework Assignments
 January 30  | Lecture Outline | R-Scripts  | Homework Assignments
 February 6  | Lecture Outline | R-Scripts  | Homework Assignments
 February 13  | Lecture Outline | R-Scripts  | Homework Assignments

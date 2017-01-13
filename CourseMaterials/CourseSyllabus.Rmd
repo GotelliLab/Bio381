@@ -1,12 +1,12 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "January 4, 2017"
+date: "January 12, 2017"
 output:
-  pdf_document: default
   html_document:
-    highlight: haddock
+    highlight: tango
     theme: united
+  pdf_document: default
 ---
 
 ___
