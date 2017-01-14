@@ -26,7 +26,7 @@ ___
 
 Date  | Lecture | Scripts  | Homework
 ------------- | --------------|----------- | -------------
-January 16  | [GitHub](Lectures/Lecture01.html) | -  | Homework #1
+January 16  | [GitHub](Lectures/Lecture01.html) | -  | [Homework #1](Homeworks/Homework01.html)
 January 18  | Lecture #2 | -  | -
 January 23  | Lecture #3 | R-Scripts  | Homework #2
 January 25  | Lecture Outline | R-Scripts  | Homework Assignments
