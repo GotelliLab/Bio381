@@ -42,7 +42,7 @@ Office hours by appointment
 ## Course Content
 This course is designed to teach you four things:
 
-1. How to "think on paper" to organize your ideas into explicit hypotheses and interpretations of your data. These methods will allow you to focus and improve your entire thesis in a signle morning.  
+1. How to "think on paper" to organize your ideas into explicit hypotheses and interpretations of your data. These methods will allow you to focus and improve your entire thesis in a single morning.  
 2. How to use modern computational tools to make your analysis, writing, graphics, and presentations more efficient and attractive, and to make your analyses transparent and repeatable.
 3. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
 4. Practice and practical advice to improve your scientific presentations and your classroom teaching skills.
