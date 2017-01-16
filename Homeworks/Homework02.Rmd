@@ -1,0 +1,30 @@
+---
+title: 'Homework #2'
+author: "Nicholas J. Gotelli"
+date: "January 25, 2017"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+
+1. Take a broad, self-critical look at your own thesis/honors project. What are the big questions you are asking, and what are the specific hypotheses and mechanisms that your experiments and sampling are trying to address? How will you interpret the different possible results from your activities? Be explicit and detailed; do not hide behind jargon or vague statements.  
+
+2. Translate your answers to these questions into the 4 diagrams we discussed in class: a) path diagram; b) logic tree; c) look-up table; d) mock data. You may have to try several versions to get a satisfying result.
+
+3. Make a neat pen-and-ink drawing of each Figure on a separate sheet of paper.
+
+4. Using your smartphone (or borrowing a friend's), take a sharp close-up photo of each of the 4 sheets and mail it as an attachment .jpeg to yourself.
+
+5. At your index page, build a link to a page called `Homework02`.
+
+6. Create `Homework02.Rmd` as a new Markdown file.
+
+7. Insert each of the images into the file and compile as an .html
+
+8. Use GitHub to make frequent commits and sync your repo to update your webpages.
+
+9. Add Markdown titles and text, and write a paragraph or two on each of the figures you have created.
+
+10. As your project progresses, you may want to return to this webpage to update (and hopefully improve!) your diagrams and interpretations.

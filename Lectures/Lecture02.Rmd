@@ -58,7 +58,7 @@ How to sketch out ideas and make questions and analyses clear
 - what unique predictions does it make?
 - example: Gotelli & Ellison (2006) Sarracenia Food Webs
 
-### Logic Tree (Branching Decision Tree)
+#### Logic Tree (Branching Decision Tree)
 - Each fork represents a decision, framed as a question
 - branches below the fork are possible answers (usually 2, but may be more)
 - each branch is labelled with an "answer" to the question (usually yes/no but other choices are possible)
@@ -72,7 +72,7 @@ How to sketch out ideas and make questions and analyses clear
 - post hoc tree to organize and interpret different tests (easier, but also rare)
 - example: Gotelli et al. (in review) Community-Level Regulation
 
-### Look-Up Table (DIP-Switch Test For Multiple Tests)
+#### Look-Up Table (DIP-Switch Test For Multiple Tests)
 - Rosenzweig and Abramsky (1997) refers to Dual InLine Package Switch
 - Each column represents a different (statistical) test or comparison
 - Each row represents a unique outcome based on all of the tests
@@ -84,7 +84,7 @@ How to sketch out ideas and make questions and analyses clear
 - As in the logic tree, some rows may yield the same interpretation (i.e., incomplete data)
 - example: Chase et al. (in prep) MoB Measurement of Biodiversity Data
 
-### Mock Data (Predicted versus Observed Outcome Graphs)
+#### Mock Data (Predicted versus Observed Outcome Graphs)
 - Simple statistical null hypothesis (i.e., no effect) usually not interesting
 - Choose a single hypothesis, possibly a more "interesting" null hypothesis
 - Outcomes correspond to a row of the Look-Up Table or a branch tip in the Logic Tree
@@ -97,7 +97,7 @@ How to sketch out ideas and make questions and analyses clear
     - apocryphal Schoener dissertation study
 - example: Diamond et al. (2016) Climate Warming Destabilizes Forest Ant Communities 
 
-## Problems
+### Problems
 - Study may be just figuring out initial patterns
 - Hypotheses not clearly stated in the literature (but  you can do better!)
 - Hypotheses may seem too humble or trivial (still worth doing)
