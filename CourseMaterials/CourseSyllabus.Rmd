@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "January 12, 2017"
+date: "Spring 2017"
 output:
   html_document:
     highlight: tango

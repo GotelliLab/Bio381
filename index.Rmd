@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "2 January 2017"
+date: "Spring 2017"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -26,11 +26,12 @@ ___
 
 Date  | Lecture | Scripts  | Homework
 ------------- | --------------|----------- | -------------
-January 16  | [GitHub](Lectures/Lecture01.html) | -  | [Homework #1](Homeworks/Homework01.html)
-January 18  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
-January 23  | Lecture #3 | R-Scripts  | Homework #2
-January 25  | Lecture Outline | R-Scripts  | Homework Assignments
-January 30  | Lecture Outline | R-Scripts  | Homework Assignments
+January 17  | [GitHub](Lectures/Lecture01.html) | -  | -
+January 18  | - | -  | [Homework #1](Homeworks/Homework01.html)
+January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
+January 24  | Lecture #3 | R-Scripts  | -
+January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
+January 26  | Lecture #4 | R-Scripts  | -
 February 6  | Lecture Outline | R-Scripts  | Homework Assignments
 February 13  | Lecture Outline | R-Scripts  | Homework Assignments
 February 20  | Lecture Outline | R-Scripts  | Homework Assignments
