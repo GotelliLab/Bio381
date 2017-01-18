@@ -1,0 +1,36 @@
+---
+title: 'Lecture #3: Working With R Studio'
+author: "Nicholas J. Gotelli"
+date: "January 24, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Window appearance
+- sizing of window boundaries
+- window screens
+
+### Options to set
+- `general` set default directory
+- restore project and documents
+- `code` do not insert matching parentheses and quotes
+- default keybindings (not Vim or eMacs)
+- `pane layout` - as set up
+- `appearance` - choices for color, font, size
+
+### File Names and Types
+- `Plain Text` human-readable characters (none are unprinted)
+    - not proprietary
+    - readable by any computer system
+    - readable wtih any `Plain Text Editor`
+- `WYSIWYG` what you see is what you get
+- `Markdown` a language of simple plain text codes for rendering (= "knitting" a file into a different output format (`.html`,`.pdf`, and `.doc`)
+
+- `.Rmd` is Rstudio's special blend of Markdown (a text rendering language)
+
+

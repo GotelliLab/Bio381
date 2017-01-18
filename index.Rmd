@@ -29,7 +29,7 @@ Date  | Lecture | Scripts  | Homework
 January 17  | [GitHub](Lectures/Lecture01.html) | -  | -
 January 18  | - | -  | [Homework #1](Homeworks/Homework01.html)
 January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
-January 24  | Lecture #3 | R-Scripts  | -
+January 24  | [RStudio](Lectures/Lecture03.html) | - | -
 January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
 January 26  | Lecture #4 | R-Scripts  | -
 February 6  | Lecture Outline | R-Scripts  | Homework Assignments
