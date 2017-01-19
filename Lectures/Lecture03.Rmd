@@ -29,8 +29,38 @@ ___
     - readable by any computer system
     - readable wtih any `Plain Text Editor`
 - `WYSIWYG` what you see is what you get
+- `WYSIWYW` what you see is what you want
+    - plain text codes to indicate formatting
+    - no time lost using the mouse
+    - separates writing from formatting, allowing you to concentrate on the former
 - `Markdown` a language of simple plain text codes for rendering (= "knitting" a file into a different output format (`.html`,`.pdf`, and `.doc`)
 
 - `.Rmd` is Rstudio's special blend of Markdown (a text rendering language)
+- `.md` is the more generic Markdown file type. In RStudio, the intermediate `.md` files are not (in the default state) preserved.
 
+### Languages
+- `LaTeX` Typesetting language invented in the 1970s by computer programmer Donald Knuth for proper rendering of text and equations. Hundreds of commands. Precise, but somewhat complicated to use.
+- `Markdown` Greatly simplified version of LaTeX with a small number of commands to master. Easy to use, text looks great.
+- `yaml`^[Originally "Yet Another Markdown Language", but more recently "YAML Ain't no Markdown Language", which is a self-referencing acronym]. Header material for `.Rmd` files that can be changed manually or by selecting options.
+- `R` Computer language for manipulating numbers, text, graphics, statistics.
+
+### Using R-markdown
+- pull up cheatsheet
+- headers
+- text
+- line spacing effects
+- extra spaces for single lines
+- quotations
+- lists
+    * indented
+    * numbered
+- links
+- images
+- tables
+- equations
+    * in-line `$`
+    * centered `$$`
+- in-line plain text
+- `as is` fencing
+- R code
 
