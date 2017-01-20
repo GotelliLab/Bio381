@@ -32,14 +32,33 @@ January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
 January 24  | [RStudio](Lectures/Lecture03.html) | - | -
 January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
 January 26  | Lecture #4 | R-Scripts  | -
-February 6  | Lecture Outline | R-Scripts  | Homework Assignments
-February 13  | Lecture Outline | R-Scripts  | Homework Assignments
-February 20  | Lecture Outline | R-Scripts  | Homework Assignments
-February 27  | Lecture Outline | R-Scripts  | Homework Assignments
-March 6  | Lecture Outline | R-Scripts  | Homework Assignments
-March 13  | Lecture Outline | R-Scripts  | Homework Assignments
-March 20  | Lecture Outline | R-Scripts  | Homework Assignments
-March 27  | Lecture Outline | R-Scripts  | Homework Assignments
+January 31  | Lecture #4 | R-Scripts  | -
+February 1  | Lecture Outline | R-Scripts  | Homework Assignments
+February 2  | Lecture Outline | R-Scripts  | Homework Assignments
+February 7  | Lecture Outline | R-Scripts  | Homework Assignments
+February 8  | Lecture Outline | R-Scripts  | Homework Assignments
+February 9  | Lecture Outline | R-Scripts  | Homework Assignments
+February 14  | Lecture Outline | R-Scripts  | Homework Assignments
+February 15  | Lecture Outline | R-Scripts  | Homework Assignments
+February 16  | Lecture Outline | R-Scripts  | Homework Assignments
+February 21  | Lecture Outline | R-Scripts  | Homework Assignments
+February 22  | Lecture Outline | R-Scripts  | Homework Assignments
+February 23  | Lecture Outline | R-Scripts  | Homework Assignments
+February 28  | Lecture Outline | R-Scripts  | Homework Assignments
+March 1  | Lecture Outline | R-Scripts  | Homework Assignments
+March 2  | Lecture Outline | R-Scripts  | Homework Assignments
+March 7  | Lecture Outline | R-Scripts  | Homework Assignments
+March 8  | Lecture Outline | R-Scripts  | Homework Assignments
+March 9  | Lecture Outline | R-Scripts  | Homework Assignments
+March 14  | Lecture Outline | R-Scripts  | Homework Assignments
+March 15  | Lecture Outline | R-Scripts  | Homework Assignments
+March 16  | Lecture Outline | R-Scripts  | Homework Assignments
+March 21  | Lecture Outline | R-Scripts  | Homework Assignments
+March 22  | Lecture Outline | R-Scripts  | Homework Assignments
+March 23  | Lecture Outline | R-Scripts  | Homework Assignments
+March 28  | Lecture Outline | R-Scripts  | Homework Assignments
+March 29  | Lecture Outline | R-Scripts  | Homework Assignments
+March 30  | Lecture Outline | R-Scripts  | Homework Assignments
 April 3  | Lecture Outline | R-Scripts  | Homework Assignments
 April 10  | Lecture Outline | R-Scripts  | Homework Assignments
 April 17  | Lecture Outline | R-Scripts  | Homework Assignments
