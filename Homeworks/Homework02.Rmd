@@ -23,10 +23,10 @@ output:
 
 7. Create `Homework02.Rmd` as a new Markdown file.
 
-8. Insert each of the images into the file and compile as an .html
+8. Insert each of the images into the file and compile as an `.html`.
 
 9. Use GitHub to make frequent commits, and sync your repo to update your webpages.
 
-10. Add Markdown titles and text, and write a paragraph or two on each of the figures you have created.
+10. Add Markdown titles, formatting, and text, and develop a narrative to explain each figure, the hypotheses they elaborate, and the expected outcomes of your experiments and observations. If you hit a wall in developing your hypotheses, try to write some text explaining what the issues are. 
 
 11. As your project progresses, you may want to return to this webpage to update (and hopefully improve!) your diagrams and interpretations.
