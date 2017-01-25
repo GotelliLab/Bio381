@@ -3,10 +3,10 @@ title: 'Lecture #3: Working With R Studio'
 author: "Nicholas J. Gotelli"
 date: "January 24, 2017"
 output:
+  pdf_document: default
   html_document:
     highlight: tango
     theme: united
-  pdf_document: default
 ---
 
 ___
@@ -186,3 +186,18 @@ plot(x=Time,y=Resp,type="b")
 ### Converting `.R` files to `.html` (creating an R notebook)
 - use notebook script
 - roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
+### Bonus: A Cool New Markdown Editor!
+
+- Demo of `Typora` a WYSIWYG text editor at https://typora.io/
+
