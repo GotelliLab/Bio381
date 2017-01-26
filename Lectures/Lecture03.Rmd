@@ -3,10 +3,10 @@ title: 'Lecture #3: Working With R Studio'
 author: "Nicholas J. Gotelli"
 date: "January 24, 2017"
 output:
-  pdf_document: default
   html_document:
     highlight: tango
     theme: united
+  pdf_document: default
 ---
 
 ___
@@ -84,10 +84,15 @@ Content Cell  | Content Cell
 ```
 
 - also the `kable` package for later
-
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
 
 ```{r, echo=TRUE, results='asis'}
-knitr::kable(head(iris, 10))
+library(knitr)
+kable(head(iris))
 ```
 
 
@@ -104,25 +109,69 @@ knitr::kable(head(iris, 10))
 
 - basic math and text spacing handled by LateX
 
-$$y = a + b$$
 ```
 $$y = a + b$$
 ```
+
+$$y = a + b$$
 
 #### Subcripts
 
+```
+$$H_0 = Z_{a + b}$$
+```
+
 $$H_0 = Z_{a + b}$$
 
-```
-$$H_0 = Z_{a + b}$$
-```
 ####Superscripts
 
-$$S = cA^z$$
 ```
 $$S = cA^z$$
 
 ```
+
+$$S = cA^z$$
+
+
+Contrast this with the construction of superscripts in Markdown
+
+```
+
+```
+```
+Markdown z^x^
+```
+
+z^x^
+
+```
+LaTeX: $z^x$
+```
+$z^x$
+
+```
+Markdown: z^x + 1^
+```
+
+z^x + 1^
+
+```
+LaTeX: $z^{x + 1}$
+```
+
+$z^{x + 1}$
+
+```
+Markdown: z^x+1^
+```
+z^x+1^
+
+```
+LaTeX: $z^{x+1}$
+```
+$z^{x+1}$
+
+
 - elements can be coupled and nested
 
 $$S=cA^z_1 + z_{2 + x}$$
@@ -149,6 +198,31 @@ $$z = \sum_{i=1}^X{K}$$
 $$z = \sum_{i=1}^X{K}$$
 
 ```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
 ### R Code in Chunks
 
 * `CTRL-ALT-I` inserts a new "chunk" of R code
@@ -162,6 +236,12 @@ print(Res)
 
 # plot the graph
 plot(x=Pred,y=Res,type="b")
+```
+
+### Using chunk options to control printing of code and output
+```{r}
+plot(runif(50),cex=10*runif(50),col="goldenrod")
+print(rnorm(n=10, mean=10, sd=2))
 ```
 
 ### Writing R scripts
