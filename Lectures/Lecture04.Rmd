@@ -1,0 +1,85 @@
+---
+title: 'Lecture #4: Beamer Slide Presentations'
+author: "Nicholas J. Gotelli"
+date: "January 26, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Beamer Slides - A Preview
+- Better fonts and styles
+- Avoids corporate odor of Microsoft
+- Frequency dependent selection
+- Cachet of "hard science" LaTeX users (computer science, physics, chemistry, stats)
+- Completely stable and reliable appearance from pdf
+- No need to bring your own computer
+
+
+### Importance of Giving Good Talks
+- Talks at UVM Biolunch/EEB/Comprehensive Exams/Dissertation Defense
+- Talks at meetings
+- Job seminars
+- Teaching
+- The Public
+
+### Presentation Critique
+- "uhms" and "uhs"
+    - high frequency of 20/minute in guest speaker
+- Too much mumbling and rushing
+- Introductory material
+    - too much (EEB)
+    - too little (CMB)
+- "Uptalk"
+    * origin with Moon Zappa and Frank Zappa's hit single "Valley Girl" 1982
+    * coined in 1993, starts showing up among young female graduate students at this time
+        - conveys insecurity
+        - sociologists think it conveys engagement
+    * everyone talks this way now
+    * ruins your seminar
+    * Trump times - great speaker, no uptalk here!
+    * be a credible spokesperson for your discipline
+    * You are the expert so be confident
+    * OK to be nervous just channel your energy
+- Don't start your talk with a request for feedback and comments
+    * Good talks - silence until you finish
+    * Bad talks - sympathy questions and suggestions for improvement
+    * Very bad talks - confusion and interruption questions
+        - FSU Mafia
+
+### Good Things To Do
+- Make eye contact
+- Project your voice - speak from your gut
+- Use the stage - this is a performance (Vermeij story)
+- Keep it short
+- Use lots of slides
+- Don't spend very long on each slide
+    - ESA "ignite" talks 5 minutes, slides change automatically every 15 seconds
+    - my talk: 40 minutes, 110 slides 
+- Use sequential bullet points
+- Don't read your slides
+- Create good graphics with large readable axes
+- Explain variables on x and y axis and units of measurement
+- Control your lights and audio-visual
+- Don't use a light pointer
+    - point with your arms or finger
+    - add a duplicate slide with an arrow or text highlight
+- Figure out your own style; play to strengths, cover weaknesses    
+    - Karel Liem at Harvard
+    - Myself at Harvard
+    
+### How To Practice
+- Out loud and standing up
+- Videotape yourself
+    - my experience at FSU
+- Speak and look into the mirror
+- Memorize your slides, but not your words
+- Possibly memorize your first few sentences to get started
+- Use your slides to remind you of your content
+- Show some enthusiasm for your work
+- Refine your teaching skills as a graduate TA
+    * An audience to practice on every week
+    * Less hassles and better performance from your class
+
+### Creating a Beamer Presentation
