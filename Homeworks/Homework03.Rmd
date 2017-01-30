@@ -14,7 +14,7 @@ output:
 
 2. Open the *Typora* editor. Under `Help`, go to `More topics...` and select `Draw Diagrams With Markdown`. 
 
-3. Study the code example and additional links for `Flowchart` and `Mermaid -> Flowchart` packages. Follow the links to   http://support.typora.io/Draw-Diagrams-With-Markdown/  and https://knsv.github.io/mermaid/#mermaid for additional details on building flowcharts.
+3. Study the code example and additional links for `Flowchart` and `Mermaid -> Flowchart` packages. Follow the links to   [Draw Diagrams With Markdown](http://support.typora.io/Draw-Diagrams-With-Markdown/)  and [Mermaid](https://knsv.github.io/mermaid/#mermaid) for additional details on building flowcharts.
 
 4. Try creating a new `.html` page using Typora (instead of RStudio!).
 
@@ -29,7 +29,7 @@ output:
 
 2. Spend a bit of time exploring the different themes, colors, and fonts available in Beamer, and set up something that looks nice to you.
 
-3. The only real challenge will be to to get your images and captions properly sized and placed in the Bamer slides. I have posted some code for you to use on the [R Scripts](address) page. Lauren will go over this code with you in the lab.
+3. The only real challenge will be to to get your images and captions properly sized and placed in the Bamer slides. I have posted some code for you to use on the [R Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) page. Lauren will go over this code with you in the lab.
 
 4. Be sure to post both your `.Rmd` file and your `.pdf` to your portfolio. For contrast, go ahead and post your original `.pptx` Powerpoint presentation as well.
 
