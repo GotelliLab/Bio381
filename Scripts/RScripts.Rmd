@@ -1,0 +1,15 @@
+---
+title: "R Scripts and Vignettes"
+author: "Biology 381 - Computational Biology"
+date: "Spring 2017"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+---
+### 1 February 2017
+[BeamerImages.Rmd](BeamerImages.Rmd)
+
+[BeamerImages.pdf](BeamerImages.pdf)
+
+[celtic.jpg (needed for figure insertion)](celtic.jpg)

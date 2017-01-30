@@ -1,0 +1,283 @@
+---
+title: 'Lecture #3,4: Working With R Studio'
+author: "Nicholas J. Gotelli"
+date: "January 24,26 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Window appearance
+- sizing of window boundaries
+- window screens
+
+### Options to set
+- `general` set default directory
+- restore project and documents
+- `code` do not insert matching parentheses and quotes
+- default keybindings (not Vim or eMacs)
+- `pane layout` - as set up
+- `appearance` - choices for color, font, size
+
+### File Names and Types
+- `Plain Text` human-readable characters (none are unprinted)
+    - not proprietary
+    - readable by any computer system
+    - readable wtih any `Plain Text Editor`
+- `WYSIWYG` what you see is what you get
+- `WYSIWYW` what you see is what you want
+    - plain text codes to indicate formatting
+    - no time lost using the mouse
+    - separates writing from formatting, allowing you to concentrate on the former
+- `Markdown` a language of simple plain text codes for rendering (= "knitting" a file into a different output format (`.html`,`.pdf`, and `.doc`)
+
+- `.Rmd` is Rstudio's special blend of Markdown (a text rendering language)
+- `.md` is the more generic Markdown file type. In RStudio, the intermediate `.md` files are not (in the default state) preserved.
+
+### Languages
+- `LaTeX` Typesetting language invented in the 1970s by computer programmer Donald Knuth for proper rendering of text and equations. Hundreds of commands. Precise, but somewhat complicated to use.
+- `Markdown` Greatly simplified version of LaTeX with a small number of commands to master. Easy to use, text looks great.
+- `yaml`^[Originally "Yet Another Markdown Language", but more recently "YAML Ain't no Markdown Language", which is a self-referencing acronym]. Header material for `.Rmd` files that can be changed manually or by selecting options.
+- `R` Computer language for manipulating numbers, text, graphics, statistics.
+
+### Using R-markdown
+- pull up cheatsheet
+- new `.Rmd` file
+
+### Basic text formatting
+- headers
+- text
+- markup
+    * italic
+    * bold-face
+    * subscript
+    * superscript
+    * strikethrough
+    * quotations
+    
+### Spacing, manual breaks, lines
+- line spacing effects
+- two extra spaces at the end of a line for a manual break
+- lists
+    * indented
+    * numbered
+    
+### Links  
+- links [linking text](website address)
+- footnotes^[Footnoted text, consecutively at bottom of page]
+- images 
+```
+![image link](website address)
+```
+
+### Tables
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+- also the `kable` package for later
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+```{r, echo=TRUE, results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+
+### Fencing
+- in line fencing `to shade`
+- in line R code for calculations `r 3 + pi`
+- simple fencing to set off large chunks of plain text
+
+
+### Equations
+
+* in-line `$`
+* centered `$$`
+
+- basic math and text spacing handled by LateX
+
+```
+$$y = a + b$$
+```
+
+$$y = a + b$$
+
+#### Subcripts
+
+```
+$$H_0 = Z_{a + b}$$
+```
+
+$$H_0 = Z_{a + b}$$
+
+####Superscripts
+
+```
+$$S = cA^z$$
+
+```
+
+$$S = cA^z$$
+
+
+Contrast this with the construction of superscripts in Markdown
+
+```
+
+```
+```
+Markdown z^x^
+```
+
+z^x^
+
+```
+LaTeX: $z^x$
+```
+$z^x$
+
+```
+Markdown: z^x + 1^
+```
+
+z^x + 1^
+
+```
+LaTeX: $z^{x + 1}$
+```
+
+$z^{x + 1}$
+
+```
+Markdown: z^x+1^
+```
+z^x+1^
+
+```
+LaTeX: $z^{x+1}$
+```
+$z^{x+1}$
+
+
+- elements can be coupled and nested
+
+$$S=cA^z_1 + z_{2 + x}$$
+
+
+```
+$$S=cA^z_1 + z_{2 + x}$$
+
+```
+
+#### Fractions and Greek Symbols
+
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+```
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+
+```
+
+#### Summation signs
+
+$$z = \sum_{i=1}^X{K}$$
+
+```
+$$z = \sum_{i=1}^X{K}$$
+
+```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
+### R Code in Chunks
+
+* `CTRL-ALT-I` inserts a new "chunk" of R code
+```{r}
+# Use comments extensively in ALL of your coding!
+Pred <- seq(1,10)     # make a vector of integers from 1 to 10
+Res <- runif(10)      # generate 10 draws from a random uniform (0,1) distribution
+
+# print the random numbers
+print(Res)
+
+# plot the graph
+plot(x=Pred,y=Res,type="b")
+```
+
+### Using chunk options to control printing of code and output
+```{r}
+plot(runif(50),cex=10*runif(50),col="goldenrod")
+print(rnorm(n=10, mean=10, sd=2))
+```
+
+### Writing R scripts
+
+- new script
+- code executes and prints in console
+- graphs in output window
+- `CTRL - ENTER` to run a single line of code
+- `CTRL - SHIFT - ENTER` to source the entire script
+- code to illustrate:
+```
+# Use comments extensively throughout your code
+Time <- seq(1,10) # Create a vector of integers, 1 to 10
+Resp <- runif(10) # Create 10 random uniform (0,1) variates
+#
+print(Time)
+print(Resp)
+#
+# Plot the data
+plot(x=Time,y=Resp,type="b")
+```
+### Converting `.R` files to `.html` (creating an R notebook)
+- use notebook script
+- roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
+### Bonus: A Cool New Markdown Editor!
+
+- Demo of `Typora` a WYSIWYG text editor at https://typora.io/
+

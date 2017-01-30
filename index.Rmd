@@ -13,10 +13,14 @@ This site contains course materials, scripts, homeworks, and resources for Compu
 
 ## Course Materials
 
+[Software Installation](CourseMaterials/SoftwareInstallation.html)
+
 [Course Syllabus](CourseMaterials/CourseSyllabus.html)   
 [Course Syllabus (pdf)](CourseMaterials/CourseSyllabus.pdf)   
 
-[Software Installation](CourseMaterials/SoftwareInstallation.html)
+[Lecture Outlines](Lectures/LectureOutlines.html)   
+
+[R Scripts](Scripts/RScripts.html)
 
 [Cheat Sheets & Programming Resources](CheatSheets/CheatSheets.html)
 
@@ -25,14 +29,14 @@ ___
 ## Lecture Outlines, R-Scripts, & Homework Assignments
 
 Date  | Lecture | Scripts  | Homework
-------------- | --------------|----------- | -------------
+------------- | -------------- |----------- | -------------
 January 17  | [GitHub](Lectures/Lecture01.html) | -  | -
 January 18  | - | -  | [Homework #1](Homeworks/Homework01.html)
 January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
-January 24  | [RStudio](Lectures/Lecture03.html) | - | -
+January 24  | [RStudio](Lectures/Lecture03_4.html) | - | -
 January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
-January 26  | [RStudio II](Lectures/Lecture03.html) | R-Scripts  | -
-January 31  | [Beamer Slides](Lectures/Lecture04.html) | R-Scripts  | -
+January 26  | [RStudio II](Lectures/Lecture03_4.html) | -| -
+January 31  | [Beamer Slides](Lectures/Lecture05.html) | R-Scripts  | -
 February 1  | - | -  | [Homework #3](Homeworks/Homework03.html)
 February 2  | Lecture Outline | R-Scripts  | -
 February 7  | Lecture Outline | R-Scripts  | -
