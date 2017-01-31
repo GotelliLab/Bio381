@@ -8,23 +8,6 @@ output:
     theme: united
 ---
 
-#### Logic Trees in Typora
-
-1. Make sure you have downloaded and installed the *Typora* editor, which is available from https://typora.io/
-
-2. Open the *Typora* editor. Under `Help`, go to `More topics...` and select `Draw Diagrams With Markdown`. 
-
-3. Study the code example and additional links for `Flowchart` and `Mermaid -> Flowchart` packages. Follow the links to   [Draw Diagrams With Markdown](http://support.typora.io/Draw-Diagrams-With-Markdown/)  and [Mermaid](https://knsv.github.io/mermaid/#mermaid) for additional details on building flowcharts.
-
-4. Try creating a new `.html` page using Typora (instead of RStudio!).
-
-5. Once the page is created, use the coding examples to recreate your hand-drawn logic tree and flow chart.
-
-6. Save the `.html` page in your Rstudio project and incorporate it into your portfolio, remembering to commit and synch to post the new page.
-
-
-#### Beamer Slides
-
 1. Take one of your previously created Powerpoint slides, and try recreating it in Beamer. Note that you will need to save the images to `.tiff`. or `.jpeg` or other digital formats and put them in a folder that can be linked to from your Beamer code.
 
 2. Spend a bit of time exploring the different themes, colors, and fonts available in Beamer, and set up something that looks nice to you.
