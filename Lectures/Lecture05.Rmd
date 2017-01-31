@@ -8,6 +8,27 @@ output:
     theme: united
   pdf_document: default
 ---
+### Typora
+- Plain text editing demonstration
+- illustrate `<CTRL \>` for hiding and showing code
+- illustrate saving file to `.md` file type
+- illustrate saving file to `.pdf`
+- illustrate preferences and set up of `flow` code for diagram
+
+### Using Pieces Of Different Tools
+
+#### Pulling a style sheet from Typora for Rmarkdown
+- `.css` stylesheet in Typora
+- copy preferred style and subfolder to desktop
+- create Rstudio new markdown and link to new `.css`
+
+#### Creating the `.md` file from RStudio for Typora 
+- now show saving of `.Rmd` to generate intermediate `.md` markdown file.
+- open the new markdown file and play with it in Typora
+
+#### "Sharing" the `.md` file between RStudio and Typora 
+- open the `.md` file in both editors and move back and forth
+
 ### Beamer Slides - A Preview
 - Better fonts and styles
 - Avoids corporate odor of Microsoft
@@ -16,6 +37,26 @@ output:
 - Completely stable and reliable appearance from pdf
 - No need to bring your own computer
 
+### Creating Basic Beamer Slides
+- always show bullets incrementally
+- choose among styles, colors, and fonts
+- show `Madrid`, `beaver`, `bold` on fonts
+- use two `##` to denote a new slide
+- use `{r, echo=FALSE}` to just show your graphs
+
+### Demonstrate Colors And Bullets
+- Use `> - ` to override the incremental bullets
+- Use `\color{gray}` to color a bullet point
+- Illustrate building of red/gray bullet points in a list
+
+### Demonstrate Adjustment of Text Placement
+- Illustrate use of `\bigskip` to adjust spacing of words
+
+### Dealing with images
+- must be placed in folder and references
+- use image code that is posted 
+
+___
 
 ### Importance of Giving Good Talks
 - Talks at UVM Biolunch/EEB/Comprehensive Exams/Dissertation Defense
@@ -82,4 +123,3 @@ output:
     * An audience to practice on every week
     * Less hassles and better performance from your class
 
-### Creating a Beamer Presentation
