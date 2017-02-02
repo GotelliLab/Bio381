@@ -1,0 +1,79 @@
+---
+title: 'Data Formatting'
+author: "Nicholas J. Gotelli"
+date: "February 2, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+This vignette gives some simple code for reformatting data sets into the long format.
+```{r}
+library(reshape)
+library(xtable)
+set.seed=100 # for reproducible results
+```
+
+
+# Community Ecology Abundance Matrices
+
+A very commmon data format for community ecologists is an abundance or incidence matrix in which the rows are species or taxa, the columns are sites or samples, and the entries are abundance or incidence of a taxa in a site. Here is an example of a tiny data set in this format:
+```{r,results='asis'}
+MyData <- matrix(rpois(50,lambda=1),nrow=5) # create a matrix of random integers, including some zeroes
+rownames(MyData) <- paste("Species",as.character(1:5),sep="")
+colnames(MyData) <-paste("Site",LETTERS[1:10],sep="")
+
+print(xtable(MyData), type = "html",
+     html.table.attributes = "align = 'center'") #demo for basic use of xtable package with html
+
+
+```
+# Converting an Abundance Matrix into the Long Format
+Here we will use the `reshape` package to turn this matrix into a data frame in the more usable long format:
+
+```{r}
+MyData.Long <- melt(MyData,id=colnames(MyData))
+print(MyData.Long)
+```
+
+Let's rename the variables and then check the structure:
+```{r}
+MyData.Long <- rename(MyData.Long,c(X1="Species",X2="Site",value="Abundance"))
+head(MyData.Long) # print the first 6 lines
+str(MyData.Long)
+```
+
+Notice how the `reshape` package has converted the data from a matrix to a data frame, with factors properly set up for `Species` and `Site`. Very nice! In this format, it is easy, for example, to conduct a one-way analysis of variance to test for differences in average abundance among species and then plot the results in a boxplot.
+```{r}
+attach(MyData.Long)
+Species.ANOVA <- aov(Abundance~Species)
+summary(Species.ANOVA)
+boxplot(Abundance~Species,col="goldenrod")
+```
+
+# Converting from the Long Format Back to a Species Abundance Matrix
+Once your data are in the long format, it is easy to convert them to other structures. For example, to recreate the original data matrix we use the `cast` function:
+```{r}
+Abundance.Matrix <- cast(MyData.Long,Species~Site,value="Abundance")
+print(Abundance.Matrix)
+```
+# Converting From the Long Format with Aggregation
+Often when we convert the data from the long format, we will want to aggregate. For example, here is an aggregated table giving the mean abundances of each species:
+```{r}
+Species.Means <- cast(MyData.Long,Species~.,value="Abundance",mean)
+print(Species.Means)
+
+```
+Alternatively, we could use this function to calculate the total abundance in each of the samples
+```{r}
+Site.Abundance <- cast(MyData.Long, Site~., value = "Abundance", sum)
+print(Site.Abundance)
+```
+The `aggregate` function works the same way (and maintains the variable label for abundance):
+```{r}
+Species.Means2 <- aggregate(Abundance ~ Species, data = MyData.Long, mean) 
+print(Species.Means2)
+
+```

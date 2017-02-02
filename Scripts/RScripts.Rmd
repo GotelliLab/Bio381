@@ -7,9 +7,18 @@ output:
     theme: hpstr
     highlight: github
 ---
-### 1 February 2017
+### 31 January 2017
 [BeamerImages.Rmd](BeamerImages.Rmd)
 
 [BeamerImages.pdf](BeamerImages.pdf)
 
 [celtic.jpg (needed for figure insertion)](celtic.jpg)
+
+___
+
+### 2 February 2017
+[Data Formatting](DataFormatting.html)
+
+[Excel Data Template](ExcelDataTemplate.xlsx)
+
+[Regular Expressions](RegularExpressions.html)
