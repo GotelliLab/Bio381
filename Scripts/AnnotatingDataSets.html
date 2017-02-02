@@ -151,10 +151,6 @@ $(document).ready(function () {
 </div>
 
 
-<div id="annotating-data-sets" class="section level1">
-<h1>Annotating Data Sets</h1>
-<p>27 December 2013<br />
-NJG</p>
 <p>Annotation of data sets with proper meta-data is essential. The best way to do this is to embed the meta-data at the start of the data file itself. In R, this is easy to do by using the <code>#</code> comment and then whatever follows in that line will be skipped when R reads in the data. Here is a template for meta-data and the data that follows:</p>
 <pre><code>#/////////////////////////////////////
 # -----START OF METADATA -----
@@ -208,7 +204,6 @@ ID VarName1 VarName2 VarName3
 <p>A better solution is to use the <code>read.table</code> command, and insert the needed delimiter:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="st">&quot;Input_File.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</code></pre></div>
 <p>In this way, all of the comments are skipped, and you don’t have to worry about how many lines of meta-data are contained in the file.</p>
-</div>
 
 
 

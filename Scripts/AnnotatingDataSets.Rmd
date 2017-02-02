@@ -9,10 +9,6 @@ output:
   pdf_document: default
 ---
     
-# Annotating Data Sets
-27 December 2013  
-NJG
-
 Annotation of data sets with proper meta-data is essential. The best way to do this is to embed the meta-data at the start of the data file itself. In R, this is easy to do by using the `#` comment and then whatever follows in that line will be skipped when R reads in the data. Here is a template for meta-data and the data that follows:
 
 ```
@@ -78,7 +74,7 @@ This will indeed skip the first 10 lines of this file and begin reading where it
 A better solution is to use the `read.table` command, and insert the needed delimiter:
 
 ```{r, eval=FALSE}
-read.table("Input_File.csv",header=TRUE,row.names=1,sep=",")
+read.table("Input_File.csv",header=TRUE,row.names=1,sep=",",stringsAsFactors = FALSE)
 ```
 
-In this way, all of the comments are skipped, and you don't have to worry about how many lines of meta-data are contained in the file. 
+In this way, all of the comments are skipped, and you don't have to worry about how many lines of meta-data are contained in the file. Always keep `stringsAsFactors=FALSE` so that strings come in as characters at first.
