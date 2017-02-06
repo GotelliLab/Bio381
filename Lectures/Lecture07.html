@@ -135,7 +135,7 @@ RESULT: finds every consecutive character and space!</code></pre>
 <div id="escaping-a-metacharacter" class="section level3">
 <h3>Escaping a metacharacter</h3>
 <ul>
-<li>insert a ’' before special characters for a literal search in regex</li>
+<li>insert a <code>\</code> before special characters for a literal search in regex</li>
 </ul>
 <pre><code>STRING: A sentence. Another. And a third.
 SEARCH: \.
@@ -187,25 +187,30 @@ Cutting and pasting from pdf is a mess. Sentences are all chopped up. It is hard
 <pre><code>STRING: crow, raven ,grackle,starling  ,    robin
 SEARCH: \s*,\s*
 REPLACE: , 
-RESULT: </code></pre>
+RESULT: crow,raven,grackle,starling,robin</code></pre>
 </div>
 <div id="using-.-for-all-the-rest" class="section level4">
 <h4>Using .* for “all the rest”</h4>
 <pre><code>STRING: 
-x, MyWord xx y, 1,,, x ,
-111111123a,AnotherOfMyWords
-5,   MyThirdWord,,,  ......zz.
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
 xxx,LastWord     x.
-SEARCH: \w+,\s*\w+.*</code></pre>
+
+SEARCH: \w+,\s*\w+.*
+RESULT: Matches each line completely!</code></pre>
 </div>
 <div id="captures-for-the-replacement-string" class="section level4">
 <h4>Captures for the replacement string</h4>
 <pre><code>STRING: 
-x, MyWord xx y, 1,,, x ,
-111111123a,AnotherOfMyWords
-5,   MyThirdWord,,,  ......zz.
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
 xxx,LastWord     x.
-SEARCH: \w+,\s*(\w+).*
+
+SEARCH: \w+,\s*\w+.*
+
+SEARCH (with capture): \w+,\s*(\w+).*
 REPLACE: \1
 RESULT:
 MyWord
@@ -216,16 +221,18 @@ MyThirdWord</code></pre>
 <div id="adding-multiple-captures-and-literal-text" class="section level3">
 <h3>Adding multiple captures and literal text</h3>
 <pre><code>STRING: 
-x, MyWord xx y, 1,,, x ,
-111111123a,AnotherOfMyWords
-5,   MyThirdWord,,,  ......zz.
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
 xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
 SEARCH: \w+,\s*(\w+)(.*)
 REPLACE: MY WORD: \1\s LEFTOVER: \2
 RESULT:
-MY WORD: MyWord LEFTOVER:  xx y, 1,,, x ,
-MY WORD: AnotherOfMyWords LEFTOVER:
-MY WORD: MyThirdWord LEFTOVER: ,,,  ......zz.
+MY WORD: MyWord LEFTOVER:  OtherJunk. ,
+MY WORD: MyWord2 LEFTOVER:
+MY WORD: MyThirdWord LEFTOVER: ,        MoreTrash,!##
 MY WORD: LastWord LEFTOVER:      x.</code></pre>
 </div>
 <div id="join-genus-and-species-names" class="section level3">
@@ -254,7 +261,65 @@ M_lobifrons</code></pre>
 <div id="boundary-stakes" class="section level3">
 <h3>Boundary stakes</h3>
 <pre><code>^ # outside of character set indicates start of line
-$ # indicates end of line</code></pre>
+$ # indicates end of line
+- `\&lt;` Start of a word (but not in BBedit)
+- `\&gt;` End of a word (but not in BBedit)</code></pre>
+</div>
+<div id="e11-search-for-whole-words-within-regex" class="section level3">
+<h3>E11: Search for whole words within regex</h3>
+<pre><code>STRING:
+Try to ascertain a kind of karma.
+SEARCH:
+a
+RESULT: finds 5 matches
+
+Search:
+a 
+RESULT: finds 1 match (whole word)
+
+Search:
+a\w
+RESULT: finds 1 match (start of word)
+
+Search:
+\wa
+RESULT: finds 1 match (end of word)
+
+Search:
+\wa\w
+RESULT: finds 2 matches (middle of word)</code></pre>
+</div>
+<div id="e12-simplify-column-searches-by-staking-to-the-beginning-or-end-of-the-line" class="section level3">
+<h3>E12: Simplify column searches by staking to the beginning or end of the line</h3>
+<pre><code>STRING:
+a,b,c,d,e,f,MyFirstWord,g,MyLastWord
+ee,f,FirstKeeper,xx,LastKeeper
+SEARCH:
+\w+,\w+,\w+$
+SEARCH (with capture):
+(\w+),\w+,(\w+)$
+REPLACE:
+\1 \2
+RESULT:
+a,b,c,d,e,f,MyFirstWord MyLastWord
+ee,f,FirstKeeper LastKeeper
+# Perhaps not exactly what we wanted!
+
+ALTERNATE SEARCH: 
+.*,\w+,\w+,\w+$
+ALTERNATE SEARCH: (with capture):
+(.*),(\w+),(\w+),(\w+)$
+REPLACE:
+\2\s\4
+RESULT:
+MyFirstWord MyLastWord
+FirstKeeper LastKeeper
+
+ALTERNATIVE REPLACE:
+\1,\2
+ALTERNATIVE RESULT:
+a,b,c,d,e,f,g
+ee,f,xx</code></pre>
 </div>
 <div id="finding-bad-characters" class="section level3">
 <h3>Finding bad characters</h3>
