@@ -24,6 +24,8 @@ ___
 
 [Excel Data Template](ExcelDataTemplate.xlsx)
 
-[Regular Expressions](RegularExpressions.html)
-
 [New England Ant County Data](antcountydata.csv)
+
+### 7 February 2017
+
+[Regular Expressions](RegularExpressions.html)

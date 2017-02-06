@@ -196,14 +196,15 @@ ID VarName1 VarName2 VarName3
 # ----- END OF DATA -----
 
 </code></pre>
-<p>R should be able to read this, but if you try the following, the file will not be read properly:</p>
+<p>If you save this as a <code>.csv</code> file from Excel, you should first be aware that Excel will mangle your text, introducing quotation marks and optional extra commas in each comment row. The file will need to be cleaned up in a text editor, and then you should avoid opening it again in Excel.</p>
+<p>When the file is cleaned up, R should be able to read it, but if you try the following, the file will not be read properly:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;Input_File.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</code></pre></div>
 <p>Perversely, the <code>read.csv</code> command has the comment character disabled. You could do this by skipping the proper number of lines:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;Input_Data.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">skip=</span><span class="dv">10</span>)</code></pre></div>
 <p>This will indeed skip the first 10 lines of this file and begin reading where it should. However, each data set would need to be hand-wired in this way, which is problematic for batch processing.</p>
 <p>A better solution is to use the <code>read.table</code> command, and insert the needed delimiter:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="st">&quot;Input_File.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</code></pre></div>
-<p>In this way, all of the comments are skipped, and you don’t have to worry about how many lines of meta-data are contained in the file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="st">&quot;Input_File.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>In this way, all of the comments are skipped, and you don’t have to worry about how many lines of meta-data are contained in the file. Always keep <code>stringsAsFactors=FALSE</code> so that strings come in as characters at first.</p>
 
 
 

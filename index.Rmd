@@ -36,10 +36,10 @@ January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
 January 24  | [RStudio](Lectures/Lecture03_4.html) | - | -
 January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
 January 26  | [RStudio II](Lectures/Lecture03_4.html) | -| -
-January 31  | [Beamer Slides](Lectures/Lecture05.html) | R-Scripts  | -
+January 31  | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
 February 1  | - | -  | [Homework #3](Homeworks/Homework03.html)
-February 2  | Lecture Outline | R-Scripts  | -
-February 7  | Lecture Outline | R-Scripts  | -
+February 2  | [Importing Data](Lectures/Lecture06.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 7  | [Regular Expressions](Lectures/Lecture07.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 8  | - | -  | [Homework #4](Homeworks/Homework04.html)
 February 9  | Lecture Outline | R-Scripts  | -
 February 14  | Lecture Outline | R-Scripts  | -

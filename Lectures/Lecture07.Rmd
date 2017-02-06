@@ -1,0 +1,173 @@
+---
+title: 'Lecture #7: Regular Expressions'
+author: "Nicholas J. Gotelli"
+date: "February 5, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+## Regular Expressions
+
+### Set up for BBedit
+- increase font size
+- soft wrap on screen
+- regex on
+- case sensitive on
+- wrap off
+
+### Use of literals in searches
+```
+STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds the periods
+
+with Regex (or grep) search
+
+STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds every consecutive character and space!
+```
+### Escaping a metacharacter
+
+- insert a '\' before special characters for a literal search in regex
+
+```
+STRING: A sentence. Another. And a third.
+SEARCH: \.
+RESULT: finds the periods
+```
+### Wildcards
+- `\w` a single word character [letter,number or `_`]
+- `\d` a single number character [0-9]
+- `\t` a single tab space
+- `\s` a single space, tab, or line break
+- `\n` a single line break (or try `\r`)
+
+```
+STRING: crow raven grackle
+SEARCH: \s
+REPLACE: \n
+RESULT: 
+crow
+raven
+grackle
+```
+
+#### Repairing pdf cut and paste
+```
+STRING:
+Cutting and
+pasting from pdf is
+a mess. Sentences
+are
+all chopped up. It is
+hard
+to repair.
+
+SEARCH: \n
+REPLACE: (replace with nothing)
+RESULT: 
+Cutting and pasting from pdf is a mess. Sentences are all chopped up. It is hard to repair. 
+```
+- TRY THIS WITH AN ACTUAL PDF PARAGRAPH
+### Quantifiers
+- add these on to any of the wildcards
+
+- `\w+` one or more consecutive word characters
+- `\w*` zero or more consecutive word characters
+- `\w{3}` exactly 3 consecutive word characters
+- `\w{3,}` 3 or more consecutive word characters
+- `\w{3,5}` 3, 4, or 5 consecutive word characters
+
+#### Using a zero or more * quantifier
+
+```
+STRING: crow, raven ,grackle,starling  ,    robin
+SEARCH: \s*,\s*
+REPLACE: , 
+RESULT: 
+```
+#### Using .* for "all the rest"
+
+```
+STRING: 
+x, MyWord xx y, 1,,, x ,
+111111123a,AnotherOfMyWords
+5,   MyThirdWord,,,  ......zz.
+xxx,LastWord     x.
+SEARCH: \w+,\s*\w+.*
+```
+#### Captures for the replacement string
+
+```
+STRING: 
+x, MyWord xx y, 1,,, x ,
+111111123a,AnotherOfMyWords
+5,   MyThirdWord,,,  ......zz.
+xxx,LastWord     x.
+SEARCH: \w+,\s*(\w+).*
+REPLACE: \1
+RESULT:
+MyWord
+AnotherOfMyWords
+MyThirdWord
+```
+### Adding multiple captures and literal text
+```
+STRING: 
+x, MyWord xx y, 1,,, x ,
+111111123a,AnotherOfMyWords
+5,   MyThirdWord,,,  ......zz.
+xxx,LastWord     x.
+SEARCH: \w+,\s*(\w+)(.*)
+REPLACE: MY WORD: \1\s LEFTOVER: \2
+RESULT:
+MY WORD: MyWord LEFTOVER:  xx y, 1,,, x ,
+MY WORD: AnotherOfMyWords LEFTOVER:
+MY WORD: MyThirdWord LEFTOVER: ,,,  ......zz.
+MY WORD: LastWord LEFTOVER:      x.
+```
+### Join Genus and species names
+```
+STRING: 
+Lasius neoniger
+Lasius umbratus
+Myrmica lobifrons
+SEARCH: (\w)\w+ (\w+)
+REPLACE: \1_\2
+RESULT:
+L_neoniger
+L_umbratus
+M_lobifrons
+```
+### Custom character sets
+
+```
+[ATCG] # single character that is A T C or G
+[ATCG]+ # DNA sequence
+```
+### Negated character sets
+```
+[^XY]  # a single character that is anything but X OR Y
+[^0-9.]+ one or more characters that are not numbers of decimals
+```
+### Boundary stakes
+```
+^ # outside of character set indicates start of line
+$ # indicates end of line
+```
+### Finding bad characters
+```
+STRING: 
+LC1 11101 xxx
+LC345 11101 204
+LCx 11l01 1x5
+SEARCH: ^(\w+) \d*([^0-9]*)\d* \w+$
+RESULT:
+LC1
+LC345
+LCx l
+Finds "bad" lines with non-numeric characters in second slot
+```

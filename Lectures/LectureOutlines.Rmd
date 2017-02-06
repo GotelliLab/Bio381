@@ -17,8 +17,8 @@ January 19 | 02 | [Thinking On Paper](Lecture02.html)
 January 24 | 03 | [RStudio](Lecture03_4.html) 
 January 26 | 04 | [RStudio II](Lecture03_4.html) 
 January 31 | 05 | [Beamer Slides](Lecture05.html) 
-February 2 | 06  | Lecture Outline 
-February 7 | 07  | Lecture Outline 
+February 2 | 06  | [Importing Data](Lecture06.html) 
+February 7 | 07  | [Regular Expressions](Lecture07.html) 
 February 9 | 08 | Lecture Outline 
 February 14 | 09 | Lecture Outline 
 February 16 | 10 | Lecture Outline 

@@ -57,7 +57,9 @@ ID VarName1 VarName2 VarName3
 
 
 ```
-R should be able to read this, but if you try the following, the file will not be read properly:
+If you save this as a `.csv` file from Excel, you should first be aware that Excel will mangle your text, introducing quotation marks and optional extra commas in each comment row. The file will need to be cleaned up in a text editor, and then you should avoid opening it again in Excel.
+
+When the file is cleaned up, R should be able to read it, but if you try the following, the file will not be read properly:
 
 ```{r, eval=FALSE}
 read.csv("Input_File.csv",header=TRUE,row.names=1)
