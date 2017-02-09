@@ -1,0 +1,58 @@
+---
+title: 'Lecture #8: Data Structures in R'
+author: "Nicholas J. Gotelli"
+date: "February 9, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+## History of R
+- Early languages FORTRAN, C
+- S language in 1970s; programming plus stats, matrix algebra, graphics later
+- Open-source R in 1992; first stable version in 2000
+
+## Advantages of R
+- interpreted (for interactive use)
+- graphics, statistics
+- very active community of contributors
+- works on multiple platforms
+
+## Disadvantages of R
+- interpreted (slow speed)
+- lazy evaluation
+- functions hard to learn
+- poorly documented
+- unreliable packages
+- problems with big data
+   - subroutines coded for C or Fortran
+   - Julia?
+
+## R as a general programming language
+- data structures and types
+- writing functions
+- for loops
+- if..then, while statements
+- structured programming
+- annotation
+- naming of variables
+- using random numbers
+- structured programming
+- pseudocode
+
+## Rs Four Data Types
+
+Dimensions  | Homogeneous | Heterogeneous
+------------- | ------------- | -------------
+1-dimension  | Atomic Vector | List
+2-dimensions  | Matrix | Data Frame
+n-dimenions   | (array) |          |
+
+## Types of Atomic Vectors
+- character strings
+- integers
+- double
+- integers, doubles are "numeric"
+- boolean
+- (factor)
