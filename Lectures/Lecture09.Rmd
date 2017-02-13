@@ -1,11 +1,10 @@
 ---
-title: 'Lecture #8: Data Structures in R'
+title: 'Lecture #9: Data Structures in R'
 author: "Nicholas J. Gotelli"
 date: "February 9, 2017"
 output:
   html_document:
     highlight: tango
-    keep_md: yes
     theme: united
   pdf_document: default
 ---
@@ -42,8 +41,9 @@ output:
 - structured programming
 - pseudocode
 
+### Using the assignment operator
+
 ```{r}
-#--------------------------------------------------
 # Using the assignment operator
 x <- 5 # preferred
 y = 4 # legal but not used except in function defaults
@@ -51,25 +51,17 @@ y = y + 1.1
 print(y)
 y <- y + 1.1
 print(y)
-#--------------------------------------------------
-# Variable names
+```
 
+# Variable names
+```{r}
 z <- 3 # Begin with lower case letter 
 plant_height <- 3.3  # a bit long
 plant.height <- 4.2 # avoid periods
 plantHeight <- 10 # best option "camelCaseFormatting"
-#--------------------------------------------------
-# One dimensional atomic vectors
-
-z <- c(3.2, 5, 5, 6) # c "combine" function to string together
-print(z)
-#--------------------------------------------------
-
 ```
 
 ## R's Four Data Types
-
-
 
 Dimensions  | Homogeneous | Heterogeneous
 ------------- | ------------- | -------------
@@ -85,3 +77,8 @@ n-dimenions   | (array) |          |
 - boolean
 - (factor)
 
+### One dimensional atomic vectors
+```{r}
+z <- c(3.2, 5, 5, 6) # c "combine" function to string together
+print(z)
+```

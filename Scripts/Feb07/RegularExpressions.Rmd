@@ -1,0 +1,160 @@
+---
+title: 'Regular Expressions'
+author: "Nicholas J. Gotelli"
+date: "February 2, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+This vignette summarizes examples from:
+
+> Haddock, S.H.D., and C.W. Dunn. 2011. **Practical Computing For Biologists**. Sinauer Associates, Sunderland, MA.
+
+### Using wildcards
+* Use `\w` for a single character
+* Use `\w+` for one or more characters
+* Use `(\w+)` to capture the first word
+* Use `\1` to replace with the first capture
+
+```
+find: (\w)(\w+) (\w+)
+Myrmica lobrifons
+
+replace: \1. \3
+M. lobifrons
+
+replace: \1. \3 \1_\3
+M. lobifrons M_lobifrons
+
+replace: \1\2 \3 \1_\3
+Myrmica lobifrons M_lobifrons
+```
+
+
+### Escaping punctuation characters with `\`
+In a text editor, duplicate two lines of text and progressively do the search on 1 line to get it correct. Then build up the replace terms. Use `\` to escape special characters
+
+```
+Original text         Myrmica punctiventris (Wheeler)
+Search with matches   \w+ \w+ \( \w+ \)
+Text with captures    (\w+) (\w+) \( (\w+) \)
+Remove extra space    (\w+) (\w+) \((\w+)\)
+Replacement text      \1_\2_\3
+Result                Myrmica_punctiventris_Wheeler
+```
+
+### Commonly used wild cards
+```
+\w  A word character, including letters, numbers, & underscore
+\t  A tab character (can also be used in replacements)
+\s  A white space character, including tabs, spaces, and the end of the line
+\n  End-of-line marker (can also be used in replacements)
+\r  Carriage return
+\d  A digit from 0 to 9
+.   Any letter, number or symbol except end-of-line characters
+```
+
+Use these in combination for more general searches
+```
+Original text                         +38 30.5'N
+Mark captures                         (+38) (30.5)'N
+Regular expressions with wild cards   (.\d+) (\d+.\d+).\w+
+Replacement text                      \1\t\2\t
+Result                                38  30.5
+```
+
+### Create character sets with `[]`
+Use a pair of brackets to create a custom character set
+```
+[AGCT]+                 finds one or more A G C or T
+[0-9\.]                 finds any digit or decimal point
+[A-Za-z]                finds lower or upper case letters
+[A-Z\-]                 finds upper case letters and dash
+```
+
+Use character sets to find ending marks and fuse lines
+```
+Original text                     21 17`24.69"N
+                                  157 51`41.50"W
+Mark captures                     (\"[NS]}\r
+Replacement text                  \1\t
+Result                            21 17`24.69"N  157 51`41.50"W
+```
+
+### Negations: Defining custom character sets with [\^]
+```
+Search                           [^A-Z\r]
+Replace                          x
+Result                           Anything except a capital letter and end of line is an `x`
+Search                           ([^\t]+)\t
+Result                           Captures a column of tab-delimited text
+```
+
+### Boundaries: beginnings `\` and endings `$`
+Use the `^` and the `$` to mark the boundary at the beginning and the end of a line, respectively.
+
+```
+Original text                    Myrmica lobifrons
+Mark captures                    ^(\w)\w+
+Replacement text                 \1\.
+Result                           M. lobifrons
+```
+
+### Adding more precision to quantifiers
+Use `*` as a quantifier for 0 or more, in contrast to `+` for one or more. Thus, the all-inclusive wildcard `.*` should grab any leftovers up to the end of the line following specific text. 
+```
+Original text                    Myrmica lobifrons
+Mark captures                    (Myr).*
+Replacement text                 \1
+Result                           Myr
+```
+
+### Modifying greediness with `?`
+Whereas `+` captures 1 or more elements, and `*` captures 0 or more elements, adding `?` after the modifier captures the *minimum* number of elements. Use this to capture text before a repeat. For example, to capture everything but a terminal string of `A`, use
+```
+Original text                  CCTCAAGTAAAAA
+Search                         (\w+?)A*$
+Replacement text               \1
+Result                         CCTCAAGT
+```
+
+### Controlling the number of matches with `{}`
+Follow an expression with curly brackets to indicate the exact number of matches. For example `A{5}` searches for a string of 5 `A`s, whereas `C{2,6}` searches for the a string of `C`s that is at least 2 but no more than 6 in length. And a search for `G{6,}` looks for a minimum of 6, but more if it can find them. Here are two other examples:
+
+```
+Original text                 CTAAGAGAAAAAAAA
+Search                        A{8,}
+Replacement text              -nothing-
+Result                        CTAAGAG
+
+Original text                 34.23457444 
+Search                        (\d*\.}(\d{3})d+
+Replacement text              \1\2
+Result                        34.234
+```
+
+### Common operations with regular expressions
+```
+OPERATION                                       FIND                       REPLACE
+Split elements like nano_128.dat                (\w+)_(\d+)\.(\w+)         \1\t\2\t\3
+Merge or rearrange columns of values            (\w+)\t(\w+)               \2 \1
+Join multiple lines into one                    \n [or maybe \r]            ,
+Split a single line into multiple lines         ,                          \n
+Convert a list of names to move the first       (.*) (\w+)$                \2 \1
+name and initials to the end, separated by
+a comma (won't work with "Jr.," etc.)
+```
+
+### Delete text relative to the occurrence of `X`
+```
+Beginning to last occurrence                     ^.*X(.*)
+Beginning to first occurrence                    ^[^X\r]*(X)
+Beginning to first occurrence (alternate)        ^.*(X)
+After the first occurrence to the end            (X).*?$
+Up to the last occurrence                        ^.*(X)
+(CAUTION: Finding no match for x deletes the line)
+```
+
