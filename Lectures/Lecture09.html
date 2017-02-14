@@ -201,11 +201,9 @@ $(document).ready(function () {
 x &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># preferred</span>
 y =<span class="st"> </span><span class="dv">4</span> <span class="co"># legal but not used except in function defaults</span>
 y =<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="fl">1.1</span>
+<span class="kw">print</span>(y)
+y &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="fl">1.1</span>
 <span class="kw">print</span>(y)</code></pre></div>
-<pre><code>## [1] 5.1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="fl">1.1</span>
-<span class="kw">print</span>(y)</code></pre></div>
-<pre><code>## [1] 6.2</code></pre>
 </div>
 </div>
 <div id="variable-names" class="section level1">
@@ -250,14 +248,189 @@ plantHeight &lt;-<span class="st"> </span><span class="dv">10</span> <span class
 <li>integers</li>
 <li>double</li>
 <li>integers, doubles are “numeric”</li>
-<li>boolean</li>
+<li>logical</li>
 <li>(factor)</li>
 </ul>
 <div id="one-dimensional-atomic-vectors" class="section level3">
 <h3>One dimensional atomic vectors</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.2</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="co"># c &quot;combine&quot; function to string together</span>
-<span class="kw">print</span>(z)</code></pre></div>
-<pre><code>## [1] 3.2 5.0 5.0 6.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the combine function</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.2</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>) 
+<span class="kw">print</span>(z)
+<span class="kw">typeof</span>(z)
+<span class="kw">is.numeric</span>(z)
+
+<span class="co"># c() always &quot;flattens&quot; to an atomic vector</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)) 
+<span class="kw">print</span>(z)
+
+<span class="co"># character strings with single or double quotes</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;perch&quot;</span>,<span class="st">&quot;bass&quot;</span>,<span class="st">'trout'</span>) 
+<span class="kw">print</span>(z)
+
+<span class="co"># use both with an internal quote</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;This is only 'one' character string&quot;</span>, <span class="st">'a second'</span>)
+<span class="kw">print</span>(z)
+<span class="kw">typeof</span>(z)
+<span class="kw">is.character</span>(z)
+
+<span class="co"># building logicals</span>
+<span class="co"># Boolean, not with quotes, all caps</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>) 
+<span class="co"># avoid abbreviations T, F which will work</span>
+<span class="kw">print</span>(z)
+<span class="kw">typeof</span>(z)
+<span class="kw">is.logical</span>(z)
+<span class="kw">is.integer</span>(z)</code></pre></div>
+</div>
+<div id="three-properties-of-a-vector" class="section level3">
+<h3>Three Properties of a Vector</h3>
+<div id="type" class="section level4">
+<h4>Type</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="dv">3</span>, <span class="fl">4.4</span>)
+<span class="kw">typeof</span>(z) <span class="co"># gives type</span>
+<span class="kw">is.numeric</span>(z) <span class="co"># is. gives logical</span>
+<span class="kw">as.character</span>(z) <span class="co"># as. coerces variable</span>
+<span class="kw">print</span>(z)
+<span class="kw">typeof</span>(z)</code></pre></div>
+</div>
+<div id="length" class="section level4">
+<h4>Length</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(z) <span class="co"># gives number of elements</span>
+<span class="kw">length</span>(y) <span class="co"># throws error if variable does not exist</span></code></pre></div>
+</div>
+<div id="names" class="section level4">
+<h4>Names</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+<span class="co"># optional attribute not initially assigned</span>
+<span class="kw">names</span>(z) 
+<span class="kw">print</span>(z)
+<span class="co"># add names later after variable is created</span>
+<span class="kw">names</span>(z) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;chow&quot;</span>,<span class="st">&quot;pug&quot;</span>,<span class="st">&quot;beagle&quot;</span>,<span class="st">&quot;greyhound&quot;</span>,<span class="st">&quot;akita&quot;</span>)
+<span class="kw">print</span>(z)
+
+<span class="co"># add names when variable is built (with or without quotes)</span>
+ z2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">gold=</span><span class="fl">3.3</span>, <span class="dt">silver=</span><span class="dv">10</span>, <span class="dt">lead=</span><span class="dv">2</span>)
+<span class="kw">print</span>(z2)
+
+<span class="co"># reset names</span>
+<span class="kw">names</span>(z2) &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># names can be added for only a few elements</span>
+<span class="co"># names do not have to be distinct, but often are</span>
+<span class="kw">names</span>(z2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;copper&quot;</span>,<span class="st">&quot;zinc&quot;</span>)
+<span class="kw">print</span>(z2)</code></pre></div>
+</div>
+</div>
+<div id="three-notable-features-of-atomic-vectors" class="section level3">
+<h3>Three Notable Features of Atomic Vectors</h3>
+<div id="coercion" class="section level4">
+<h4>Coercion</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># All atomics are of the same type</span>
+<span class="co"># if they are different, R coerces them</span>
+<span class="co"># logical -&gt; integer -&gt; double -&gt; character</span>
+
+a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="fl">2.0</span>)
+<span class="kw">print</span>(a)
+<span class="kw">typeof</span>(a)
+
+b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;green&quot;</span>)
+<span class="kw">typeof</span>(b)
+
+d &lt;-<span class="st"> </span><span class="kw">c</span>(a,b)
+<span class="kw">print</span>(d)
+<span class="kw">typeof</span>(d)
+
+<span class="co"># &quot;Mistakes&quot; in numeric variables convert to strings</span>
+<span class="co"># Very useful when working with logical variables</span>
+
+a &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
+<span class="kw">print</span>(a)
+
+<span class="co"># Comparison operators yield a logical result</span>
+a <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>
+
+<span class="co"># do math on a logical and it converts to an integer!</span>
+
+<span class="co"># How many elements are greater than 0.5?</span>
+<span class="kw">sum</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>)
+
+<span class="co"># What proportion of the vector elements are greater than 0.5?</span>
+
+<span class="kw">mean</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>)
+
+<span class="co">#Qualifying exam question! Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?</span>
+
+<span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+</div>
+<div id="vectorization" class="section level4">
+<h4>Vectorization</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># adding a constant to a vector</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>)
+z <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># what happens when vectors are added?</span>
+
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+z <span class="op">+</span><span class="st"> </span>y
+
+<span class="co"># results is an &quot;element by element&quot; operation on the vector</span>
+<span class="co"># most vector operations can be done this way</span>
+
+z<span class="op">^</span><span class="dv">2</span></code></pre></div>
+</div>
+<div id="recycling" class="section level4">
+<h4>Recycling</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># but what if vector lengths are not equal?</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
+z <span class="op">+</span><span class="st"> </span>x
+
+<span class="co"># warning is issued by calculation is still made</span>
+<span class="co"># shorter vector is always &quot;recycled&quot;</span>
+<span class="co"># works with scalars (= vector of length(1))</span></code></pre></div>
+</div>
+</div>
+<div id="creating-vectors" class="section level3">
+<h3>Creating Vectors</h3>
+<div id="creating-an-empty-vector-and-adding-to-it-avoid" class="section level4">
+<h4>Creating an empty vector and adding to it (avoid)</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create an empty vector, specify mode &amp; length</span>
+z &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;numeric&quot;</span>,<span class="dt">length=</span><span class="dv">0</span>)  
+<span class="kw">print</span>(z)
+
+<span class="co"># now add elements to it</span>
+
+z &lt;-<span class="st"> </span><span class="kw">c</span>(z,<span class="dv">5</span>)
+<span class="kw">print</span>(z)
+<span class="co"># This &quot;dynamic sizing&quot; is very SLOW!</span></code></pre></div>
+</div>
+<div id="creating-a-vector-of-predefined-length-preferred" class="section level4">
+<h4>Creating a vector of predefined length (preferred)</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Better to create a vector of pre-defined length
+
+<span class="co"># has 100 0s in a numeric vector</span>
+z &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100</span>) 
+<span class="kw">head</span>(z)
+
+<span class="co"># but would be better to start with NAs</span>
+z &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,<span class="dv">100</span>)
+<span class="kw">head</span>(z)
+
+<span class="co"># but what is its type?</span>
+<span class="kw">typeof</span>(z)
+
+<span class="co"># take advantage of coercion!</span>
+z[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Washington&quot;</span>
+<span class="kw">head</span>(z)
+<span class="kw">typeof</span>(z)</code></pre></div>
+</div>
+<div id="efficiently-creating-a-vector-with-many-names" class="section level4">
+<h4>Efficiently creating a vector with many names</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MyVector &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
+MyNames &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(MyVector)),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
+<span class="kw">names</span>(MyVector) &lt;-<span class="st"> </span>MyNames
+<span class="kw">str</span>(MyVector)</code></pre></div>
+</div>
 </div>
 </div>
 </div>
