@@ -1,7 +1,7 @@
 ---
-title: 'Lecture #9: Data Structures in R'
+title: 'Lecture #9: Atomic Vectors'
 author: "Nicholas J. Gotelli"
-date: "February 9, 2017"
+date: "February 14, 2017"
 output:
   html_document:
     highlight: tango

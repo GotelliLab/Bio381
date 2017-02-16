@@ -1,0 +1,30 @@
+---
+title: 'Lecture #10: Data Structures'
+author: "Nicholas J. Gotelli"
+date: "February 16, 2017"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+### Matrices
+
+### Lists
+
+### Data Frames
+
+### Subsetting
+
+### Functions
+
+#### `seq()`
+
+#### `rep()`
+
+#### Typical Script
+
+#### Functions
+
+#### Structured Programming

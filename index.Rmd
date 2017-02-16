@@ -42,9 +42,9 @@ February 2  | [Importing Data](Lectures/Lecture06.html) | [R-Scripts](https://go
 February 7  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 8  | - | -  | [Homework #4](Homeworks/Homework04.html)
 February 9  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 14  | [Data Structures](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 14  | [Atomic Vectors](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 15  | - | -  | [Homework #5](Homeworks/Homework05.html)
-February 16  | Lecture Outline | R-Scripts  | -
+February 16  |[Data Structures](Lectures/Lecture10.html)| R-Scripts  | -
 February 21  | Lecture Outline | R-Scripts  | -
 February 22  | - | -  | [Homework #6](Homeworks/Homework06.html)
 February 23  | Lecture Outline | R-Scripts  | -
