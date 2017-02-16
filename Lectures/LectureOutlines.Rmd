@@ -20,8 +20,8 @@ January 31 | 05 | [Beamer Slides](Lecture05.html)
 February 2 | 06  | [Importing Data](Lecture06.html) 
 February 7 | 07  | [Regular Expressions](Lecture07_8.html) 
 February 9 | 08 | [Regular Expressions II](Lecture07_8.html)
-February 14 | 09 | [Data Structures](Lecture09.html)
-February 16 | 10 | Lecture Outline 
+February 14 | 09 | [Atomic Vectors](Lecture09.html)
+February 16 | 10 | [Data Structures](Lecture10.html)
 February 21 | 11 | Lecture Outline 
 February 23 | 12| Lecture Outline 
 February 28 | 13   | Lecture Outline 
