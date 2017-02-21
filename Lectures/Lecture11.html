@@ -157,35 +157,188 @@ $(document).ready(function () {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.1</span>, <span class="fl">9.2</span>, <span class="fl">1.3</span>, <span class="fl">0.4</span>, <span class="fl">7.5</span>)
 
 <span class="co"># positive index values</span>
-z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</code></pre></div>
-<pre><code>## [1] 9.2 1.3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># negative index values to exclude elements</span>
-z[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</code></pre></div>
-<pre><code>## [1] 3.1 0.4 7.5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a vector of logical elements to select conditions</span>
+z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]
 
-z[z<span class="op">&lt;</span><span class="dv">3</span>]</code></pre></div>
-<pre><code>## [1] 1.3 0.4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># equivalent to the following</span>
+<span class="co"># negative index values to exclude elements</span>
+z[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]
+
+<span class="co"># create a vector of logical elements to select conditions</span>
+
+z[z<span class="op">&lt;</span><span class="dv">3</span>]
+
+<span class="co"># equivalent to the following</span>
 tester &lt;-<span class="st"> </span>z<span class="op">&lt;</span><span class="dv">3</span>
-<span class="kw">print</span>(tester)</code></pre></div>
-<pre><code>## [1] FALSE FALSE  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z[tester]</code></pre></div>
-<pre><code>## [1] 1.3 0.4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># also use which() function to find subscript indicators</span>
-<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this works, but is overkill; just use the boolean operator</span>
-z[<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)]</code></pre></div>
-<pre><code>## [1] 1.3 0.4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># can also use length() for relative positioning to last element</span>
-z[<span class="op">-</span>(<span class="kw">length</span>(z)<span class="op">:</span>(<span class="kw">length</span>(z)<span class="op">-</span><span class="dv">2</span>))]</code></pre></div>
-<pre><code>## [1] 3.1 9.2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># also can subset using named vector elements</span>
+<span class="kw">print</span>(tester)
+z[tester]
+
+<span class="co"># also use which() function to find subscript indicators</span>
+<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)
+
+<span class="co"># this works, but is overkill; just use the boolean operator</span>
+z[<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)]
+
+<span class="co"># can also use length() for relative positioning to last element</span>
+z[<span class="op">-</span>(<span class="kw">length</span>(z)<span class="op">:</span>(<span class="kw">length</span>(z)<span class="op">-</span><span class="dv">2</span>))]
+
+<span class="co"># also can subset using named vector elements</span>
 <span class="kw">names</span>(z) &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
 z[<span class="kw">c</span>(<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)]</code></pre></div>
-<pre><code>##   b   c 
-## 9.2 1.3</code></pre>
+</div>
+<div id="techniques-for-assignments-and-subsetting-matrices-and-data-frames" class="section level3">
+<h3>Techniques for assignments and subsetting matrices and data frames</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># same principle applied to both dimensions of a matrix</span>
+m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span>,<span class="dt">nrow=</span><span class="dv">3</span>)
+<span class="kw">dimnames</span>(m) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,LETTERS[<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)],<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;Site&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>))
+<span class="kw">print</span>(m)
+
+<span class="co"># subsetting based on elements</span>
+m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]
+<span class="co"># same subsetting based on character strings (but no negative elements)</span>
+m[<span class="kw">c</span>(<span class="st">&quot;SpeciesA&quot;</span>,<span class="st">&quot;SpeciesB&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;Site3&quot;</span>,<span class="st">&quot;Site4&quot;</span>)]
+
+<span class="co"># use blanks before or after comma to indicate full rows or columns</span>
+m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ]    
+
+m[ ,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]
+
+<span class="co"># use logicals for more complex subsetting</span>
+
+<span class="co"># e.g. select all columns for which the totals are &gt; 15</span>
+
+<span class="co"># first try this logical</span>
+<span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>
+m[ , <span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>]
+
+
+<span class="co"># e.g. select all rows for which the row total is 22</span>
+m[<span class="kw">rowSums</span>(m)<span class="op">==</span><span class="dv">22</span>, ]
+
+<span class="co"># note == for logical equal and != for logical NOT equal</span>
+m[<span class="kw">rowSums</span>(m)<span class="op">!=</span><span class="dv">22</span>, ]
+
+<span class="co"># e.g., choose all rows for which numbers for site 1 are less than 3</span>
+<span class="co"># AND choose all columns for which the numbers for species A are less than 5</span>
+
+<span class="co"># first, try out this logical for rows</span>
+m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>
+
+<span class="co"># add this in and select with all columns</span>
+m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>, ]
+
+<span class="co"># and try this logical for columns</span>
+m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>
+
+<span class="co"># add this in and select with all rows</span>
+m[ ,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]
+
+<span class="co"># now combine both</span>
+m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]
+
+<span class="co"># and compare with full m</span>
+<span class="kw">print</span>(m)
+
+
+<span class="co"># caution! simple subscripting to a vector changes the data type!</span>
+z &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ]
+<span class="kw">print</span>(z)
+<span class="kw">str</span>(z)
+
+<span class="co"># to keep this as a matrix, must add the drop=FALSE option</span>
+
+z2 &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ,drop=<span class="ot">FALSE</span>]
+<span class="kw">print</span>(z2)
+<span class="kw">str</span>(z2)
+
+<span class="co"># caution #2, always use both dimensions, or you will select a single matrix element</span>
+
+m2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="kw">runif</span>(<span class="dv">9</span>),<span class="dt">nrow=</span><span class="dv">3</span>)
+<span class="kw">print</span>(m2)
+m2[<span class="dv">2</span>, ]
+
+<span class="co"># but now this will just pull the second element</span>
+m2[<span class="dv">2</span>]
+
+<span class="co"># probably should specify row and column indicators</span>
+m2[<span class="dv">2</span>,<span class="dv">1</span>]
+<span class="co"># also use logicals for assignments, not just subsetting</span>
+m2[m2<span class="op">&gt;</span><span class="fl">0.6</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="kw">print</span>(m2)
+
+
+<span class="co"># A few changes for working with data frames:</span>
+
+data &lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)
+<span class="kw">str</span>(data)
+
+<span class="co"># the data frame is a list of vectors, so it is set up like a matrix</span>
+data[<span class="dv">3</span>,<span class="dv">2</span>]
+
+<span class="co"># you can specify just the column names</span>
+
+dataNames &lt;-<span class="st"> </span>data[<span class="kw">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]
+<span class="kw">str</span>(dataNames)
+
+<span class="co"># or in matrix style</span>
+dataNames &lt;-<span class="st"> </span>data[ ,<span class="kw">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]
+<span class="kw">str</span>(dataNames)
+
+
+<span class="co"># as before, with matrices, selecting only a single column changes it</span>
+<span class="co"># from a data frame to a vector</span>
+dataNames &lt;-<span class="st"> </span>data[ ,<span class="st">&quot;county&quot;</span>]
+<span class="kw">str</span>(dataNames)</code></pre></div>
+</div>
+<div id="random-subsetting" class="section level3">
+<h3>Random Subsetting</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">littleData &lt;-<span class="st"> </span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]
+
+<span class="co"># using the sample function</span>
+
+<span class="co"># with an integer it reorders elements 1:n</span>
+<span class="kw">sample</span>(<span class="dv">10</span>)
+
+<span class="co"># with a vector, it reorders elements</span>
+<span class="kw">print</span>(littleData<span class="op">$</span>n.species)
+<span class="kw">sample</span>(littleData<span class="op">$</span>n.species)
+
+
+<span class="co"># size input gives the number to sample</span>
+<span class="kw">sample</span>(<span class="dt">x=</span>littleData<span class="op">$</span>n.species,<span class="dt">size=</span><span class="dv">3</span>)
+
+
+<span class="co"># for bootstrapping (repeated sampling)</span>
+
+<span class="kw">sample</span>(<span class="dt">x=</span>littleData<span class="op">$</span>n.species,<span class="dt">size=</span><span class="dv">20</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+
+<span class="co"># but for default replace=FALSE, size must be &lt;= x</span>
+<span class="co"># sample(x=littleData$n.species,size=20,replace=FALSE)</span>
+
+<span class="co"># What is sampling is not equiprobable?</span>
+<span class="co"># Community assembly model</span>
+mainlandSpecies &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
+popSizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">500</span>,<span class="dv">100</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+
+<span class="co"># default is equiprobable sampling of each species</span>
+islandA &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">5</span>)
+<span class="kw">print</span>(islandA)
+
+<span class="co"># but suppose probability of occurrence is proportional to population size</span>
+islandB &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span>popSizes)
+<span class="kw">print</span>(islandB)
+
+<span class="co"># now suppose we draw individuals instead of species</span>
+islandC &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">100</span>,<span class="dt">prob=</span>popSizes,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+<span class="kw">table</span>(islandC)
+<span class="kw">head</span>(islandC)
+<span class="kw">unique</span>(islandC)
+<span class="kw">length</span>(<span class="kw">unique</span>(islandC))
+
+<span class="co"># repeat but assume species are equiprobable</span>
+islandC &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">100</span>,<span class="dt">prob=</span><span class="ot">NULL</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
+<span class="kw">table</span>(islandC)
+<span class="kw">head</span>(islandC)
+<span class="kw">unique</span>(islandC)
+<span class="kw">length</span>(<span class="kw">unique</span>(islandC))</code></pre></div>
 </div>
 
 

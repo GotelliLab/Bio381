@@ -10,7 +10,7 @@ output:
 ---
 ### Techniques for subsetting atomic vectors
 
-```{r}
+```{r,eval=FALSE}
 z <- c(3.1, 9.2, 1.3, 0.4, 7.5)
 
 # positive index values
@@ -44,5 +44,164 @@ z[c("b","c")]
 
 ```
 
+### Techniques for assignments and subsetting matrices and data frames
+```{r,eval=FALSE}
+# same principle applied to both dimensions of a matrix
+m <- matrix(data=1:12,nrow=3)
+dimnames(m) <- list(paste("Species",LETTERS[1:nrow(m)],sep=""),paste("Site",1:ncol(m),sep=""))
+print(m)
+
+# subsetting based on elements
+m[1:2,3:4]
+# same subsetting based on character strings (but no negative elements)
+m[c("SpeciesA","SpeciesB"), c("Site3","Site4")]
+
+# use blanks before or after comma to indicate full rows or columns
+m[1:2, ]    
+
+m[ ,3:4]
+
+# use logicals for more complex subsetting
+
+# e.g. select all columns for which the totals are > 15
+
+# first try this logical
+colSums(m) > 15
+m[ , colSums(m) > 15]
+
+
+# e.g. select all rows for which the row total is 22
+m[rowSums(m)==22, ]
+
+# note == for logical equal and != for logical NOT equal
+m[rowSums(m)!=22, ]
+
+# e.g., choose all rows for which numbers for site 1 are less than 3
+# AND choose all columns for which the numbers for species A are less than 5
+
+# first, try out this logical for rows
+m[ ,"Site1"]<3
+
+# add this in and select with all columns
+m[m[ ,"Site1"]<3, ]
+
+# and try this logical for columns
+m["SpeciesA", ]<5
+
+# add this in and select with all rows
+m[ ,m["SpeciesA", ]<5]
+
+# now combine both
+m[m[ ,"Site1"]<3,m["SpeciesA", ]<5]
+
+# and compare with full m
+print(m)
+
+
+# caution! simple subscripting to a vector changes the data type!
+z <- m[1, ]
+print(z)
+str(z)
+
+# to keep this as a matrix, must add the drop=FALSE option
+
+z2 <- m[1, ,drop=FALSE]
+print(z2)
+str(z2)
+
+# caution #2, always use both dimensions, or you will select a single matrix element
+
+m2 <- matrix(data=runif(9),nrow=3)
+print(m2)
+m2[2, ]
+
+# but now this will just pull the second element
+m2[2]
+
+# probably should specify row and column indicators
+m2[2,1]
+# also use logicals for assignments, not just subsetting
+m2[m2>0.6] <- NA
+print(m2)
+
+
+# A few changes for working with data frames:
+
+data <-read.csv(file="antcountydata.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+str(data)
+
+# the data frame is a list of vectors, so it is set up like a matrix
+data[3,2]
+
+# you can specify just the column names
+
+dataNames <- data[c("state","county")]
+str(dataNames)
+
+# or in matrix style
+dataNames <- data[ ,c("county", "ecoregion")]
+str(dataNames)
+
+
+# as before, with matrices, selecting only a single column changes it
+# from a data frame to a vector
+dataNames <- data[ ,"county"]
+str(dataNames)
+
+```
+
+### Random Subsetting
+
+```{r,eval=FALSE}
+littleData <- data[1:8,3:6]
+
+# using the sample function
+
+# with an integer it reorders elements 1:n
+sample(10)
+
+# with a vector, it reorders elements
+print(littleData$n.species)
+sample(littleData$n.species)
+
+
+# size input gives the number to sample
+sample(x=littleData$n.species,size=3)
+
+
+# for bootstrapping (repeated sampling)
+
+sample(x=littleData$n.species,size=20,replace=TRUE)
+
+# but for default replace=FALSE, size must be <= x
+# sample(x=littleData$n.species,size=20,replace=FALSE)
+
+# What is sampling is not equiprobable?
+# Community assembly model
+mainlandSpecies <- paste("Species",1:10,sep="")
+popSizes <- c(1000,500,100,20,10,5,5,5,1,1)
+
+# default is equiprobable sampling of each species
+islandA <- sample(x=mainlandSpecies,size=5)
+print(islandA)
+
+# but suppose probability of occurrence is proportional to population size
+islandB <- sample(x=mainlandSpecies,size=5,prob=popSizes)
+print(islandB)
+
+# now suppose we draw individuals instead of species
+islandC <- sample(x=mainlandSpecies,size=100,prob=popSizes,replace=TRUE)
+table(islandC)
+head(islandC)
+unique(islandC)
+length(unique(islandC))
+
+# repeat but assume species are equiprobable
+islandC <- sample(x=mainlandSpecies,size=100,prob=NULL,replace=TRUE)
+table(islandC)
+head(islandC)
+unique(islandC)
+length(unique(islandC))
+```
 
 
