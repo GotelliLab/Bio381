@@ -1,0 +1,48 @@
+---
+title: 'Lecture #11: Subsetting'
+author: "Nicholas J. Gotelli"
+date: "February 21, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Techniques for subsetting atomic vectors
+
+```{r}
+z <- c(3.1, 9.2, 1.3, 0.4, 7.5)
+
+# positive index values
+z[c(2,3)]
+
+# negative index values to exclude elements
+z[-c(2,3)]
+
+# create a vector of logical elements to select conditions
+
+z[z<3]
+
+# equivalent to the following
+tester <- z<3
+print(tester)
+z[tester]
+
+# also use which() function to find subscript indicators
+which(z<3)
+
+# this works, but is overkill; just use the boolean operator
+z[which(z<3)]
+
+# can also use length() for relative positioning to last element
+z[-(length(z):(length(z)-2))]
+
+# also can subset using named vector elements
+names(z) <- letters[1:5]
+z[c("b","c")]
+
+
+```
+
+
+
