@@ -288,58 +288,6 @@ dataNames &lt;-<span class="st"> </span>data[ ,<span class="kw">c</span>(<span c
 dataNames &lt;-<span class="st"> </span>data[ ,<span class="st">&quot;county&quot;</span>]
 <span class="kw">str</span>(dataNames)</code></pre></div>
 </div>
-<div id="random-subsetting" class="section level3">
-<h3>Random Subsetting</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">littleData &lt;-<span class="st"> </span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]
-
-<span class="co"># using the sample function</span>
-
-<span class="co"># with an integer it reorders elements 1:n</span>
-<span class="kw">sample</span>(<span class="dv">10</span>)
-
-<span class="co"># with a vector, it reorders elements</span>
-<span class="kw">print</span>(littleData<span class="op">$</span>n.species)
-<span class="kw">sample</span>(littleData<span class="op">$</span>n.species)
-
-
-<span class="co"># size input gives the number to sample</span>
-<span class="kw">sample</span>(<span class="dt">x=</span>littleData<span class="op">$</span>n.species,<span class="dt">size=</span><span class="dv">3</span>)
-
-
-<span class="co"># for bootstrapping (repeated sampling)</span>
-
-<span class="kw">sample</span>(<span class="dt">x=</span>littleData<span class="op">$</span>n.species,<span class="dt">size=</span><span class="dv">20</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
-
-<span class="co"># but for default replace=FALSE, size must be &lt;= x</span>
-<span class="co"># sample(x=littleData$n.species,size=20,replace=FALSE)</span>
-
-<span class="co"># What is sampling is not equiprobable?</span>
-<span class="co"># Community assembly model</span>
-mainlandSpecies &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
-popSizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">500</span>,<span class="dv">100</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>)
-
-<span class="co"># default is equiprobable sampling of each species</span>
-islandA &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">5</span>)
-<span class="kw">print</span>(islandA)
-
-<span class="co"># but suppose probability of occurrence is proportional to population size</span>
-islandB &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">prob=</span>popSizes)
-<span class="kw">print</span>(islandB)
-
-<span class="co"># now suppose we draw individuals instead of species</span>
-islandC &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">100</span>,<span class="dt">prob=</span>popSizes,<span class="dt">replace=</span><span class="ot">TRUE</span>)
-<span class="kw">table</span>(islandC)
-<span class="kw">head</span>(islandC)
-<span class="kw">unique</span>(islandC)
-<span class="kw">length</span>(<span class="kw">unique</span>(islandC))
-
-<span class="co"># repeat but assume species are equiprobable</span>
-islandC &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>mainlandSpecies,<span class="dt">size=</span><span class="dv">100</span>,<span class="dt">prob=</span><span class="ot">NULL</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
-<span class="kw">table</span>(islandC)
-<span class="kw">head</span>(islandC)
-<span class="kw">unique</span>(islandC)
-<span class="kw">length</span>(<span class="kw">unique</span>(islandC))</code></pre></div>
-</div>
 
 
 
