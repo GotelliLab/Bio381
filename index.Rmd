@@ -50,7 +50,7 @@ February 22  | - | -  | [Homework #6](Homeworks/Homework06.html)
 February 23  | [Probability Distributions](Lectures/Lecture12_13.html)| R-Scripts  | -
 February 28  | [Probability Distributions II](Lectures/Lecture12_13.html)| R-Scripts  | -
 March 1  | - | -  | [Homework #7](Homeworks/Homework07.html)
-March 2  | Lecture Outline | R-Scripts  | -
+March 2  | [Functions](Lectures/Lecture14.html)| R-Scripts  | -
 March 7  | *TOWN MEETING DAY RECESS* | -  | -
 March 8  | - | -  | [Homework #8](Homeworks/Homework08.html)
 March 9  | Lecture Outline | R-Scripts  | -
