@@ -45,10 +45,10 @@ February 9  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](h
 February 14  | [Atomic Vectors](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 15  | - | -  | [Homework #5](Homeworks/Homework05.html)
 February 16  |[Data Structures](Lectures/Lecture10.html)| R-Scripts  | -
-February 21  | Lecture Outline | R-Scripts  | -
+February 21  | [Subsetting](Lectures/Lecture11.html)| R-Scripts  | -
 February 22  | - | -  | [Homework #6](Homeworks/Homework06.html)
-February 23  | Lecture Outline | R-Scripts  | -
-February 28  | Lecture Outline | R-Scripts  | -
+February 23  | [Probability Distributions](Lectures/Lecture12_13.html)| R-Scripts  | -
+February 28  | [Probability Distributions II](Lectures/Lecture12_13.html)| R-Scripts  | -
 March 1  | - | -  | [Homework #7](Homeworks/Homework07.html)
 March 2  | Lecture Outline | R-Scripts  | -
 March 7  | *TOWN MEETING DAY RECESS* | -  | -

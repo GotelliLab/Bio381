@@ -1,7 +1,7 @@
 ---
 title: 'Homework #6'
 author: "Nicholas J. Gotelli"
-date: 'February 22, 2017'
+date: 'February 21, 2017'
 output:
   html_document:
     highlight: tango
@@ -75,5 +75,4 @@ functionsFinal <- data.frame(functionAssignments,RFunctions)
 
 5. After your paragraph of explanation, add a chunk of R code, and illustrate the use of the function using some simple inputs and outputs. Annotate your code with comments, especially to illustrate some of the variations on the inputs and how they affect what you get.
 
-Do this on a single html page for each of the 13 functions that have been assigned to you. Some will be very easy and simple, but others may be more complex. Do the easy ones first, and then circle back to study and work on the tough ones. Don't be shy about asking for help from Lauren if you get stumped. 
-
+6. Do this on a single html page for all 13 of the functions that have been assigned to you. Some will be very easy and simple, but others may be more complex. Do the easy ones first, and then circle back to study and work on the tough ones. Don't be shy about asking for help from Lauren if you get stumped. 
