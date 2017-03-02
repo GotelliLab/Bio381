@@ -199,11 +199,25 @@ functionName()
 # calls the function with user-specified values for each paramater
 functionName(parX=myMatrix,parY=&quot;Order&quot;,parZ=c(0.3,1.6,2,6))</code></pre>
 </div>
+<div id="stylistic-conventions-for-programming-functions" class="section level3">
+<h3>Stylistic Conventions For Programming Functions</h3>
+<ul>
+<li>Use prominent hash character fencing at start and at finish</li>
+<li>Give a header with the function name, description input, and output</li>
+<li>names inside functions can be short</li>
+<li>functions should be simple and short, no more than a screenful</li>
+<li>if too complex, break into multiple shorter functions</li>
+<li>provide default values for all function arguments</li>
+<li>ideally use random numbers as defaults for rapid testing</li>
+</ul>
+</div>
 <div id="a-sample-function-for-hardy-weinberg-equilibrium" class="section level3">
 <h3>A Sample Function For Hardy-Weinberg Equilibrium</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Function HardyWeinberg</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: HardyWeinberg</span>
 <span class="co"># input: an allele frequency p (0,1)</span>
 <span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span>
+<span class="co">#------------------------------------------------- </span>
 HardyWeinberg &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">p=</span><span class="kw">runif</span>(<span class="dv">1</span>)) {
   q &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p
   fAA &lt;-<span class="st"> </span>p<span class="op">^</span><span class="dv">2</span>
@@ -212,6 +226,7 @@ HardyWeinberg &lt;-<span class="st"> </span><span class="cf">function</span>(<sp
  vecOut &lt;-<span class="st"> </span><span class="kw">signif</span>(<span class="kw">c</span>(<span class="dt">p=</span>p,<span class="dt">AA=</span>fAA,<span class="dt">AB=</span>fAB,<span class="dt">BB=</span>fBB),<span class="dt">digits=</span><span class="dv">3</span>)
  <span class="kw">return</span>(vecOut)
 }
+##################################################
  <span class="kw">HardyWeinberg</span>()
  <span class="kw">HardyWeinberg</span>(<span class="dt">p=</span><span class="fl">0.5</span>) <span class="co"># pass to the parameter the value p</span>
  <span class="co"># print(p) # error because p does not exist in the global environment</span>
@@ -219,11 +234,13 @@ HardyWeinberg &lt;-<span class="st"> </span><span class="cf">function</span>(<sp
  <span class="kw">HardyWeinberg</span>(<span class="dt">p=</span>pp) <span class="co"># pass contents of variable pp to function parameter p</span>
  <span class="kw">print</span>(pp) <span class="co"># variable pp is still stored in memory</span></code></pre></div>
 </div>
-<div id="use-multiple-return-statements-for-pseudo-error-trapping" class="section level3">
-<h3>Use Multiple <code>return()</code> Statements For Pseudo Error Trapping</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Function HardyWeinberg2</span>
+<div id="use-multiple-return-statements-for-different-possible-return-values" class="section level3">
+<h3>Use Multiple <code>return()</code> Statements For Different Possible Return Values</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: HardyWeinberg2</span>
 <span class="co"># input: an allele frequency p (0,1)</span>
 <span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span>
+<span class="co">#------------------------------------------------- </span>
 HardyWeinberg2&lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">p=</span><span class="kw">runif</span>(<span class="dv">1</span>)) {
   <span class="cf">if</span> (p <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.0</span> <span class="op">|</span><span class="st"> </span>p <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.0</span>) {
     <span class="kw">return</span>(<span class="st">&quot;Function failure: p must be &gt;= 0.0 and &lt;= 1.0&quot;</span>)
@@ -235,6 +252,7 @@ HardyWeinberg2&lt;-<span class="st"> </span><span class="cf">function</span>(<sp
  vecOut &lt;-<span class="st"> </span><span class="kw">signif</span>(<span class="kw">c</span>(<span class="dt">p=</span>p,<span class="dt">AA=</span>fAA,<span class="dt">AB=</span>fAB,<span class="dt">BB=</span>fBB),<span class="dt">digits=</span><span class="dv">3</span>)
  <span class="kw">return</span>(vecOut)
   }
+##################################################
   <span class="kw">HardyWeinberg2</span>()
   <span class="kw">HardyWeinberg2</span>(<span class="fl">1.1</span>) <span class="co"># OK, print error to screen</span>
   z &lt;-<span class="st"> </span><span class="kw">HardyWeinberg2</span>(<span class="fl">1.1</span>) <span class="co"># uggh no error printed</span>
@@ -242,12 +260,14 @@ HardyWeinberg2&lt;-<span class="st"> </span><span class="cf">function</span>(<sp
 </div>
 <div id="use-stop-for-true-error-trapping" class="section level3">
 <h3>Use <code>Stop</code> For True Error Trapping</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Function HardyWeinberg3</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################  
+<span class="co"># FUNCTION: HardyWeinberg3</span>
 <span class="co"># input: an allele frequency p (0,1)</span>
 <span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span>
+<span class="co">#-------------------------------------------------</span>
 HardyWeinberg3&lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">p=</span><span class="kw">runif</span>(<span class="dv">1</span>)) {
   <span class="cf">if</span> (p <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.0</span> <span class="op">|</span><span class="st"> </span>p <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.0</span>) {
-    <span class="kw">stop</span>(<span class="st">&quot;Oh wow, that number was, like, funny, you know? So, could you, like, try something else?&quot;</span>)
+    <span class="kw">stop</span>(<span class="st">&quot;Function failure: p must be &gt;= 0.0 and &lt;= 1.0&quot;</span>)
   }
   q &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p
   fAA &lt;-<span class="st"> </span>p<span class="op">^</span><span class="dv">2</span>
@@ -256,11 +276,12 @@ HardyWeinberg3&lt;-<span class="st"> </span><span class="cf">function</span>(<sp
  vecOut &lt;-<span class="st"> </span><span class="kw">signif</span>(<span class="kw">c</span>(<span class="dt">p=</span>p,<span class="dt">AA=</span>fAA,<span class="dt">AB=</span>fAB,<span class="dt">BB=</span>fBB),<span class="dt">digits=</span><span class="dv">3</span>)
  <span class="kw">return</span>(vecOut)
   }
+##################################################  
   <span class="kw">HardyWeinberg3</span>()
 <span class="co">#  z &lt;- HardyWeinberg3(1.1) </span></code></pre></div>
 </div>
 <div id="scoping-in-functions" class="section level3">
-<h3>Scoping in functions</h3>
+<h3>Scoping In Functions</h3>
 <ul>
 <li>global variables: visible to all parts of the code; declared in main body</li>
 <li>local variables: visible only within function; declared in function or passed to function through parameters</li>
@@ -277,9 +298,9 @@ myFuncBad &lt;-<span class="cf">function</span>(<span class="dt">a=</span><span 
   z &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span>b
   <span class="kw">return</span>(z)
 }
-<span class="kw">myFuncBad</span>()
+<span class="kw">myFuncBad</span>() <span class="co"># crashes because it can't find b</span>
 b &lt;-<span class="st"> </span><span class="dv">100</span>
-<span class="kw">myFuncBad</span>()
+<span class="kw">myFuncBad</span>() <span class="co"># OK now because b exists as a global variable</span>
 
 <span class="co"># But it is fine to create variables locally</span>
 myFuncOK &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">3</span>) {
@@ -289,7 +310,57 @@ myFuncOK &lt;-<span class="st"> </span><span class="cf">function</span>(<span cl
 }
 
 <span class="kw">myFuncOK</span>() <span class="co"># no problems now</span>
-<span class="co"># print(bb) # but this variable is still hidden from the global environment</span></code></pre></div>
+<span class="kw">print</span>(bb) <span class="co"># but this variable is still hidden from the global environment</span></code></pre></div>
+</div>
+<div id="simple-regression-function" class="section level3">
+<h3>Simple regression function</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: fitLinear </span>
+<span class="co"># fits simple regression line</span>
+<span class="co"># inputs: numeric vector of predictor (x) and response (y)</span>
+<span class="co"># outputs: slope and p-value</span>
+<span class="co">#------------------------------------------------- </span>
+fitLinear &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x=</span><span class="kw">runif</span>(<span class="dv">20</span>),<span class="dt">y=</span><span class="kw">runif</span>(<span class="dv">20</span>)) {
+  myMod &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x) <span class="co"># fit the model</span>
+  myOut &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">slope=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],
+             <span class="dt">pValue=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])
+  <span class="kw">plot</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y) <span class="co"># quick and dirty plot to check output</span>
+  <span class="kw">return</span>(myOut)
+}
+##################################################
+<span class="kw">fitLinear</span>()</code></pre></div>
+</div>
+<div id="creating-a-more-complex-default-value" class="section level3">
+<h3>Creating a more complex default value</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: fitLinear2       </span>
+<span class="co"># fits simple regression line</span>
+<span class="co"># inputs: numeric vector of predictor (x) and response (y)</span>
+<span class="co"># outputs: slope and p-value</span>
+<span class="co">#------------------------------------------------- </span>
+fitLinear2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x=</span><span class="ot">NULL</span>,<span class="dt">y=</span><span class="ot">NULL</span>) {
+  <span class="cf">if</span>(<span class="kw">is.null</span>(x) <span class="op">&amp;</span><span class="st"> </span><span class="kw">is.null</span>(y)) {
+     x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>)
+     y &lt;-<span class="st"> </span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">20</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.2</span>)
+  }
+  myMod &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x) <span class="co"># fit the model</span>
+  myOut &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">slope=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],
+             <span class="dt">pValue=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])
+  <span class="kw">plot</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y) <span class="co"># quick and dirty plot to check output</span>
+  <span class="kw">return</span>(myOut)
+}
+##################################################
+<span class="kw">fitLinear2</span>()
+<span class="kw">fitLinear2</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">y=</span><span class="kw">runif</span>(<span class="dv">10</span>))</code></pre></div>
+</div>
+<div id="using-do.call-to-pass-a-list-of-parameters-to-a-function" class="section level1">
+<h1>Using <code>do.call</code> To Pass A List Of Parameters To A Function</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">99</span>),<span class="ot">NA</span>)
+<span class="kw">mean</span>(z) <span class="co"># oops, mean doesn't work if there is an NA</span>
+<span class="kw">mean</span>(<span class="dt">x=</span>z,<span class="dt">na.rm=</span><span class="ot">TRUE</span>) <span class="co"># change the default value for na.rm</span>
+<span class="kw">mean</span>(<span class="dt">x=</span>z,<span class="dt">na.rm=</span><span class="ot">TRUE</span>,<span class="dt">trim=</span><span class="fl">0.05</span>) <span class="co"># check out the &quot;trim&quot; option in help</span>
+l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span>z,<span class="dt">na.rm=</span><span class="ot">TRUE</span>,<span class="dt">trim=</span><span class="fl">0.05</span>) <span class="co"># bundle paramaters as a list</span>
+<span class="kw">do.call</span>(mean,l) <span class="co"># use the do.call function with the function name and the parameter list</span></code></pre></div>
 </div>
 
 

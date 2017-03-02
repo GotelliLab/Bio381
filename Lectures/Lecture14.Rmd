@@ -55,11 +55,22 @@ functionName()
 # calls the function with user-specified values for each paramater
 functionName(parX=myMatrix,parY="Order",parZ=c(0.3,1.6,2,6))
 ```
+### Stylistic Conventions For Programming Functions
+- Use prominent hash character fencing at start and at finish
+- Give a header with the function name, description input, and output
+- names inside functions can be short
+- functions should be simple and short, no more than a screenful
+- if too complex, break into multiple shorter functions
+- provide default values for all function arguments
+- ideally use random numbers as defaults for rapid testing
+
 ### A Sample Function For Hardy-Weinberg Equilibrium
 ```{r, eval=FALSE}
-# Function HardyWeinberg
+##################################################
+# FUNCTION: HardyWeinberg
 # input: an allele frequency p (0,1)
 # output: p and the frequencies of the 3 genotypes AA, AB, BB
+#------------------------------------------------- 
 HardyWeinberg <- function(p=runif(1)) {
   q <- 1 - p
   fAA <- p^2
@@ -68,6 +79,7 @@ HardyWeinberg <- function(p=runif(1)) {
  vecOut <- signif(c(p=p,AA=fAA,AB=fAB,BB=fBB),digits=3)
  return(vecOut)
 }
+##################################################
  HardyWeinberg()
  HardyWeinberg(p=0.5) # pass to the parameter the value p
  # print(p) # error because p does not exist in the global environment
@@ -76,12 +88,13 @@ HardyWeinberg <- function(p=runif(1)) {
  print(pp) # variable pp is still stored in memory
 ```
 
-### Use Multiple `return()` Statements For Pseudo Error Trapping
+### Use Multiple `return()` Statements For Different Possible Return Values
 ```{r, eval=FALSE}
-
-# Function HardyWeinberg2
+##################################################
+# FUNCTION: HardyWeinberg2
 # input: an allele frequency p (0,1)
 # output: p and the frequencies of the 3 genotypes AA, AB, BB
+#------------------------------------------------- 
 HardyWeinberg2<- function(p=runif(1)) {
   if (p > 1.0 | p < 0.0) {
     return("Function failure: p must be >= 0.0 and <= 1.0")
@@ -93,6 +106,7 @@ HardyWeinberg2<- function(p=runif(1)) {
  vecOut <- signif(c(p=p,AA=fAA,AB=fAB,BB=fBB),digits=3)
  return(vecOut)
   }
+##################################################
   HardyWeinberg2()
   HardyWeinberg2(1.1) # OK, print error to screen
   z <- HardyWeinberg2(1.1) # uggh no error printed
@@ -101,12 +115,14 @@ HardyWeinberg2<- function(p=runif(1)) {
 
 ### Use `Stop` For True Error Trapping
 ```{r, eval=FALSE}
-# Function HardyWeinberg3
+##################################################  
+# FUNCTION: HardyWeinberg3
 # input: an allele frequency p (0,1)
 # output: p and the frequencies of the 3 genotypes AA, AB, BB
+#-------------------------------------------------
 HardyWeinberg3<- function(p=runif(1)) {
   if (p > 1.0 | p < 0.0) {
-    stop("Oh wow, that number was, like, funny, you know? So, could you, like, try something else?")
+    stop("Function failure: p must be >= 0.0 and <= 1.0")
   }
   q <- 1 - p
   fAA <- p^2
@@ -115,12 +131,13 @@ HardyWeinberg3<- function(p=runif(1)) {
  vecOut <- signif(c(p=p,AA=fAA,AB=fAB,BB=fBB),digits=3)
  return(vecOut)
   }
+##################################################  
   HardyWeinberg3()
 #  z <- HardyWeinberg3(1.1) 
 
 ```
 
-### Scoping in functions
+### Scoping In Functions
 - global variables: visible to all parts of the code; declared in main body
 - local variables: visible only within function; declared in function or passed to function through parameters
 - functions "can" see variables in global environment
@@ -137,9 +154,9 @@ myFuncBad <-function(a=3) {
   z <- a + b
   return(z)
 }
-myFuncBad()
+myFuncBad() # crashes because it can't find b
 b <- 100
-myFuncBad()
+myFuncBad() # OK now because b exists as a global variable
 
 # But it is fine to create variables locally
 myFuncOK <- function(a=3) {
@@ -149,7 +166,60 @@ myFuncOK <- function(a=3) {
 }
 
 myFuncOK() # no problems now
-# print(bb) # but this variable is still hidden from the global environment
+print(bb) # but this variable is still hidden from the global environment
 ```
 
+### Simple regression function
+
+```{r, eval=FALSE}
+##################################################
+# FUNCTION: fitLinear 
+# fits simple regression line
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: slope and p-value
+#------------------------------------------------- 
+fitLinear <- function(x=runif(20),y=runif(20)) {
+  myMod <- lm(y~x) # fit the model
+  myOut <- c(slope=summary(myMod)$coefficients[2,1],
+             pValue=summary(myMod)$coefficients[2,4])
+  plot(x=x,y=y) # quick and dirty plot to check output
+  return(myOut)
+}
+##################################################
+fitLinear()
+```
+
+### Creating a more complex default value
+```{r, eval=FALSE}
+##################################################
+# FUNCTION: fitLinear2       
+# fits simple regression line
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: slope and p-value
+#------------------------------------------------- 
+fitLinear2 <- function(x=NULL,y=NULL) {
+  if(is.null(x) & is.null(y)) {
+     x <- runif(20)
+     y <- 0.5 + 2*x + rnorm(n=20,mean=0,sd=0.2)
+  }
+  myMod <- lm(y~x) # fit the model
+  myOut <- c(slope=summary(myMod)$coefficients[2,1],
+             pValue=summary(myMod)$coefficients[2,4])
+  plot(x=x,y=y) # quick and dirty plot to check output
+  return(myOut)
+}
+##################################################
+fitLinear2()
+fitLinear2(x=1:10,y=runif(10))
+```
+
+# Using `do.call` To Pass A List Of Parameters To A Function
+```{r, eval=FALSE}
+z <- c(runif(99),NA)
+mean(z) # oops, mean doesn't work if there is an NA
+mean(x=z,na.rm=TRUE) # change the default value for na.rm
+mean(x=z,na.rm=TRUE,trim=0.05) # check out the "trim" option in help
+l <- list(x=z,na.rm=TRUE,trim=0.05) # bundle paramaters as a list
+do.call(mean,l) # use the do.call function with the function name and the parameter list
+```
 
