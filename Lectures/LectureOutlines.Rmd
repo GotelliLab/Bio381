@@ -23,9 +23,9 @@ February 9 | 08 | [Regular Expressions II](Lecture07_8.html)
 February 14 | 09 | [Atomic Vectors](Lecture09.html)
 February 16 | 10 | [Data Structures](Lecture10.html)
 February 21 | 11 | [Subsetting](Lecture11.html)
-February 23 | 12| [Probability Distributions](lecture12_13.html)
-February 28 | 13   | [Probability Distributions II](lecture12_13.html)
-March 2 | 14  | [Functions](lecture14.html)
+February 23 | 12| [Probability Distributions](Lecture12_13.html)
+February 28 | 13   | [Probability Distributions II](Lecture12_13.html)
+March 2 | 14  | [Functions](Lecture14.html)
 March 7 |  -  | *TOWN MEETING DAY RECESS* 
 March 9 | 15  | Lecture Outline 
 March 14 | -  | *SPRING RECESS* 
