@@ -1,0 +1,27 @@
+---
+title: 'Homework #9'
+author: "Nicholas J. Gotelli"
+date: 'March 15, 2017'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+We now have learned the tools for you to begin analyzing and plotting your data, and seeing how your model performs on some random data.
+
+1. Create a new markdown file and import the data set that you created in Homework #4.
+
+2. Using (and possibly modifying) some of the functions you created last week in Homework #8, carry out some basic analyses of your data. For this exercise, it is not necessary to fit fancy or complex ANOVA models (although you certainly can do so if you are already at that stage). You can fit basic models by simply ignoring some of the factors (such as time or subsample) in your design.
+
+3. Be sure you set up your analysis so that you call data into your functions like this `fitReg(myData)`.
+
+
+4. Do the same thing to create basic plots of your data. If you already know how to work with some of R's graphics parameters (through the `plot` or `par` functions), go ahead and modify your functions to spiff up your graphs.
+
+5. Next, build some functions to construct a random data set `randomData` that has the same structure as your original data. Use `dgamma` to simulate continuous variables that are > 0. If you have any integer variables try simulating them with `rpois` or `rnbinom`. Use the parts of your original data frame that specify the factors, plots, and replicates. In this way you will preserve the sample size and structure of your original data set.
+
+6. You will need to choose paramaters (such as `shape` and `scale` for the gamma) that seem realistic and appropriate for your data. In your markdown narrative, explain how you arrived at these choices, and illustrate a couple of "experiments" as you tinker with your parameters. You should calculate the mean and variance of any simulated data set to make sure it gives you something realistic. You may want to compare with some published values from the literature. You could also try using `dfit` on parts of your data 
+
+
