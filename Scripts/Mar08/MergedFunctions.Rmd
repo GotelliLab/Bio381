@@ -1,6 +1,6 @@
 ---
 title: "Merged Functions"
-author: "Samantha Alger, Lauren Ash, Lauren Ashlock, Alex Burnham, Peter Clark, Melanie Kazenal, Erin Keller, Alex Looi, April Makukhov, Emily Makucki Mathias Nevins, Morgan Southgate"
+author: "Samantha Alger, Lauren Ash, Lauren Ashlock, Alex Burnham, Peter Clark, Melanie Kazenal, Erin Keller, Alex Looi, April Makukhov, Emily Makucki, Mathias Nevins, Morgan Southgate"
 date: "March 8, 2017"
 output: 
   html_document: 

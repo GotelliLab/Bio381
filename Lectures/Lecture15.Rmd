@@ -1,0 +1,138 @@
+---
+title: 'Lecture #15: Structured Programming'
+author: "Nicholas J. Gotelli"
+date: "March 9, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Building a Function Template
+
+Save the following as `FunctionTemplate.txt`
+
+```
+##################################################
+# FUNCTION: FunctionName
+# one line description
+# input: x
+# output: x 
+#------------------------------------------------- 
+FunctionName <- function() {
+
+
+ return("testing..............FunctionName")
+}
+##################################################
+```
+### Pseudocode 
+
+*pseudocode* is a simple list of instructions that gives the overall flow of the program without (yet) specifying the exact language and functions. At the most basic, it is just a list of what a program will do. Here, for example is generic pseudocode that describes about 95% of the programming chores we face:
+
+```
+Get data
+Calculate stuff
+Summarize output
+Graph results
+```
+### Structured Programming With PseudoCode And Functions
+
+Let's use the pseudocode to build a program. 
+
+```
+GetData()
+CalculateStuff()
+SummarizeOutput()
+GraphResults()
+```
+
+Now we use our template to build 3 functions and then run them
+
+```{r}
+# Sample program to illustrate structured programming with functions
+# 9 March 2017
+# NJG
+
+# All functions must be declared at the top before they are used
+##################################################
+# FUNCTION: GetData
+# one line description
+# input: x
+# output: x 
+#------------------------------------------------- 
+GetData <- function() {
+
+
+ return("testing..............GetData")
+}
+##################################################
+# FUNCTION: CalculateStuff
+# one line description
+# input: x
+# output: x 
+#------------------------------------------------- 
+CalculateStuff <- function() {
+
+
+ return("testing..............CalculateStuff")
+}
+##################################################
+# FUNCTION: SummarizeOutput
+# one line description
+# input: x
+# output: x 
+#------------------------------------------------- 
+SummarizeOutput <- function() {
+
+
+ return("testing..............SummarizeOutput")
+}
+##################################################
+# FUNCTION: GraphResults
+# one line description
+# input: x
+# output: x 
+#------------------------------------------------- 
+GraphResults <- function() {
+
+
+ return("testing..............GraphResults")
+}
+##################################################
+GetData()
+CalculateStuff()
+SummarizeOutput()
+GraphResults()
+
+```
+### Sourcing Functions In A Separate Script File
+1. Cut and copy all functions to new Rscript `MyFunctions.R`
+2. Create new file called `MyShortProgram.R`
+3. Add following code to the new program:
+
+```
+source("MyFunctions.R")
+GetData()
+CalculateStuff()
+SummarizeOutput()
+GraphResults()
+```
+the `source` function runs a specified R script file automatically. It is equivalent to running `<Control><Shift><Enter>` from within a script file.
+
+#### Advantages of Sourcing
+
+1. Let's you build a library of reusable functions
+2. Corrections can be made once and then applied to all programs that use them
+
+#### Disadvantages of Sourcing
+
+1. Breaks code into two separate files, both of which must be present.
+2. Discourages minor tweaks to functions because they will affect other programs.
+
+#### Compromise solution
+
+1. Maintain a single R script that contains the functions you have built.
+2. Cut and paste functions that you want from your function file to your script file.
+3. When you create new functions that are useful, append a copy to your function file.
+
