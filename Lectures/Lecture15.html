@@ -164,8 +164,7 @@ FunctionName &lt;- function() {
 
 
  return(&quot;testing..............FunctionName&quot;)
-}
-##################################################</code></pre>
+}</code></pre>
 </div>
 <div id="pseudocode" class="section level3">
 <h3>Pseudocode</h3>
@@ -182,7 +181,7 @@ Graph results</code></pre>
 CalculateStuff()
 SummarizeOutput()
 GraphResults()</code></pre>
-<p>Now we use our template to build 3 functions and then run them</p>
+<p>Now we use our template to build 4 functions and then run them</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sample program to illustrate structured programming with functions</span>
 <span class="co"># 9 March 2017</span>
 <span class="co"># NJG</span>
@@ -233,14 +232,10 @@ GraphResults &lt;-<span class="st"> </span><span class="cf">function</span>() {
  <span class="kw">return</span>(<span class="st">&quot;testing..............GraphResults&quot;</span>)
 }
 ##################################################
-<span class="kw">GetData</span>()</code></pre></div>
-<pre><code>## [1] &quot;testing..............GetData&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">CalculateStuff</span>()</code></pre></div>
-<pre><code>## [1] &quot;testing..............CalculateStuff&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SummarizeOutput</span>()</code></pre></div>
-<pre><code>## [1] &quot;testing..............SummarizeOutput&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">GraphResults</span>()</code></pre></div>
-<pre><code>## [1] &quot;testing..............GraphResults&quot;</code></pre>
+<span class="kw">GetData</span>()
+<span class="kw">CalculateStuff</span>()
+<span class="kw">SummarizeOutput</span>()
+<span class="kw">GraphResults</span>()</code></pre></div>
 </div>
 <div id="sourcing-functions-in-a-separate-script-file" class="section level3">
 <h3>Sourcing Functions In A Separate Script File</h3>
@@ -276,6 +271,114 @@ GraphResults()</code></pre>
 <li>Cut and paste functions that you want from your function file to your script file.</li>
 <li>When you create new functions that are useful, append a copy to your function file.</li>
 </ol>
+</div>
+<div id="building-the-calculatestuff-function" class="section level4">
+<h4>Building the <code>CalculateStuff()</code> Function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: FitRegressionModel</span>
+<span class="co"># Fits an ordinary least squares regression model</span>
+<span class="co"># input: x and y vectors of numeric. Must be same length</span>
+<span class="co"># output: entire model summary from lm </span>
+<span class="co">#------------------------------------------------- </span>
+FitRegressionModel &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">xVar=</span><span class="kw">runif</span>(<span class="dv">10</span>),<span class="dt">yVar=</span><span class="kw">runif</span>(<span class="dv">10</span>)) {
+dataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(xVar,yVar)
+regModel &lt;-<span class="st"> </span><span class="kw">lm</span>(yVar<span class="op">~</span>xVar,<span class="dt">data=</span>dataFrame)
+<span class="kw">return</span>(<span class="kw">summary</span>(regModel))
+}
+<span class="kw">FitRegressionModel</span>()</code></pre></div>
+</div>
+<div id="building-the-summarizeoutput-function" class="section level4">
+<h4>Building the <code>SummarizeOutput()</code> Function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: SummarizeOutput</span>
+<span class="co"># pull elements from model summary list</span>
+<span class="co"># input: list from summary call of lm</span>
+<span class="co"># output: vector of regression residuals </span>
+<span class="co">#------------------------------------------------- </span>
+SummarizeOutput &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">z=</span><span class="ot">NULL</span>) {
+<span class="cf">if</span>(<span class="kw">is.null</span>(z)) {
+  z &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">runif</span>(<span class="dv">10</span>)<span class="op">~</span><span class="kw">runif</span>(<span class="dv">10</span>)))
+}  
+  <span class="kw">return</span>(z<span class="op">$</span>residuals)
+}
+<span class="kw">SummarizeOutput</span>()</code></pre></div>
+</div>
+<div id="building-the-graphresults-function" class="section level4">
+<h4>Building the <code>GraphResults()</code> Function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: GraphResults</span>
+<span class="co"># graph data and fitted OLS line</span>
+<span class="co"># input: x and y vectors of numeric. Must be same length</span>
+<span class="co"># output: creates graph </span>
+<span class="co">#------------------------------------------------- </span>
+GraphResults &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">xVar=</span><span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">yVar=</span><span class="kw">runif</span>(<span class="dv">10</span>)) {
+dataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(xVar,yVar)
+<span class="kw">plot</span>(<span class="dt">y=</span>dataFrame<span class="op">$</span>yVar,
+     <span class="dt">x=</span>dataFrame<span class="op">$</span>xVar,
+     <span class="dt">pch=</span><span class="dv">21</span>,
+     <span class="dt">bg=</span><span class="st">&quot;lightblue&quot;</span>,
+     <span class="dt">cex=</span><span class="dv">2</span>)
+
+regModel &lt;-<span class="st"> </span><span class="kw">lm</span>(yVar<span class="op">~</span>xVar,<span class="dt">data=</span>dataFrame)
+<span class="kw">abline</span>(regModel)
+<span class="kw">message</span>(<span class="st">&quot;Message: Regression graph created&quot;</span>)
+}
+<span class="kw">GraphResults</span>()
+<span class="kw">str</span>(<span class="kw">GraphResults</span>())</code></pre></div>
+</div>
+<div id="building-the-getdata-function" class="section level4">
+<h4>Building the <code>GetData()</code> Function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># FUNCTION: GetData</span>
+<span class="co"># read in a .csv file</span>
+<span class="co"># input: .csv file</span>
+<span class="co"># output: data frame</span>
+<span class="co">#------------------------------------------------- </span>
+GetData &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">fileName=</span><span class="ot">NULL</span>) {
+<span class="cf">if</span>(<span class="kw">is.null</span>(fileName)) {
+  dataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID=</span><span class="dv">101</span><span class="op">:</span><span class="dv">110</span>,
+                          <span class="dt">varA=</span><span class="kw">runif</span>(<span class="dv">10</span>),
+                          <span class="dt">varB=</span><span class="kw">runif</span>(<span class="dv">10</span>))
+}  <span class="cf">else</span> {
+  dataFrame &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>fileName,
+                          <span class="dt">header=</span><span class="ot">TRUE</span>,
+                          <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,
+                          <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>) 
+  }
+  <span class="kw">return</span>(dataFrame)
+}
+
+
+<span class="kw">GetData</span>()</code></pre></div>
+</div>
+<div id="linking-each-of-the-functions" class="section level4">
+<h4>Linking each of the functions</h4>
+<p>Now each function works, but they are all using their defaults and are not “talking” to each other. To link them, we first must create a very small number of <strong>global variables</strong> which can be passed down to some of our functions as parameters. In this case, we need 3 of them:</p>
+<ol style="list-style-type: decimal">
+<li>The name of the inputdata file</li>
+<li>The column of data in the data frame that contains the x variable</li>
+<li>The column of data in the data frame that contains the y variable</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Global variables</span>
+<span class="co">#----------------------------------------------</span>
+antFile &lt;-<span class="st"> &quot;antcountydata.csv&quot;</span> <span class="co"># New England ant county data</span>
+xCol &lt;-<span class="st"> </span><span class="dv">7</span> <span class="co"># column 7, latitude center of each county</span>
+yCol &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># column 5, number of ant species</span>
+<span class="co">#----------------------------------------------</span>
+
+<span class="co"># Program body</span>
+temp1 &lt;-<span class="st"> </span><span class="kw">GetData</span>(<span class="dt">fileName=</span>antFile) <span class="co"># construct the data frame</span>
+
+x &lt;-<span class="st"> </span>temp1[,xCol] <span class="co"># extract the predictor variable</span>
+y &lt;-<span class="st"> </span>temp1[,yCol] <span class="co"># extract the response variable</span>
+
+temp2 &lt;-<span class="st"> </span><span class="kw">FitRegressionModel</span>(<span class="dt">xVar=</span>x,<span class="dt">yVar=</span>y) <span class="co"># fit the model</span>
+temp3 &lt;-<span class="st"> </span><span class="kw">SummarizeOutput</span>(temp2) <span class="co"># extract the residuals</span>
+
+<span class="kw">GraphResults</span>(<span class="dt">xVar=</span>x, <span class="dt">yVar=</span>y) <span class="co"># create graph</span>
+
+<span class="kw">print</span>(temp3) <span class="co"># show the residuals</span>
+<span class="kw">print</span>(temp2) <span class="co"># show the model summary</span></code></pre></div>
 </div>
 </div>
 
