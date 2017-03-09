@@ -53,13 +53,13 @@ March 1  | - | -  | [Homework #7](Homeworks/Homework07.html)
 March 2  | [Functions](Lectures/Lecture14.html)| R-Scripts  | -
 March 7  | *TOWN MEETING DAY RECESS* | -  | -
 March 8  | - | -  | [Homework #8](Homeworks/Homework08.html)
-March 9  | Lecture Outline | R-Scripts  | -
+March 9  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 March 14  | *SPRING RECESS* | -  | -
 March 15  | *SPRING RECESS* | -  | -
 March 16  | *SPRING RECESS* | -  | -
-March 21  | Lecture Outline | R-Scripts  | -
+March 21  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
 March 22  | - | -  | [Homework #9](Homeworks/Homework09.html)
-March 23  | Lecture Outline | R-Scripts  | -
+March 23  | *NO CLASS* | - | -
 March 28  | Lecture Outline | R-Scripts  | -
 March 29  | - | -  | [Homework #10](Homeworks/Homework10.html)
 March 30  | Lecture Outline | R-Scripts  | -

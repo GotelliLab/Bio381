@@ -37,3 +37,6 @@ ___
 [Handling Strings In R.pdf](Feb07/HandlingAndProcessingStringsInR.pdf)
 
 ___
+
+### 8 March 2017
+[Function Dictionary](Mar08/MergedFunctions.html)

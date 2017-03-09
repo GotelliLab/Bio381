@@ -27,11 +27,11 @@ February 23 | 12| [Probability Distributions](Lecture12_13.html)
 February 28 | 13   | [Probability Distributions II](Lecture12_13.html)
 March 2 | 14  | [Functions](Lecture14.html)
 March 7 |  -  | *TOWN MEETING DAY RECESS* 
-March 9 | 15  | Lecture Outline 
+March 9 | 15  | [Structured Programming](Lecture15.html)
 March 14 | -  | *SPRING RECESS* 
 March 16 | -  | *SPRING RECESS* 
-March 21 | 16  | Lecture Outline 
-March 23 | 17  | Lecture Outline 
+March 21 | 16  | Guest Lecture: Dr. Brandon Ogbunugafor
+March 23 | 17  | *NO CLASS*
 March 28 | 18  | Lecture Outline 
 March 30 | 19  | Lecture Outline 
 April 4 | 20  | Lecture Outline 
