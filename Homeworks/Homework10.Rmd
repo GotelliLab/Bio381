@@ -1,0 +1,25 @@
+---
+title: 'Homework #10'
+author: "Nicholas J. Gotelli"
+date: 'March 29, 2017'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+This week, let's start using `for` loops and other control structures to make your programs more usable and general.
+
+1. Modify the regression program you created in Homework #8 to take as input a vector of predictor variables and a vector of response variables.
+
+2. Construct a double `for` loop so that a separate analysis is created in which every response variable is regressed against every possible predictor variable. 
+
+3. Take a look at the ant data set (or use your own data!) to pick the variables you want to include.
+
+4. You will have to create a new output structure with columns to hold the x and y variables (it is easy to print out the variable number, but can you figure out how to print the variable name?), the slope, and the p value.
+
+5. Before you begin modifying existing functions, copy them and rename them. That way you always have the original functions to go back to. It is fine to keep the unused functions there, and is actually useful if you decide later you want to modify the program to do something else.
+
+6. If this exercise proves too easy, try writing a program in which you use as inputs for a regression model a single y-variable, and a vector of x variables. Can you set this up to run a multiple regression (regardless of how many variables the user provides)? Even more challenging, can you set this up to run all possible regression models with the different unique combinations of x variables? You will have to dig into the details of the linear model formula structure and perhaps root around on the web. At this point in our work, there is no single "right" way to solve a particular problem. But your solution should use functions, control structures, pseudocode, annotation, global variables, and other tools to make your code simple, readable, and general.
+
