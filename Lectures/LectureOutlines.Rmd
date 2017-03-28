@@ -30,17 +30,17 @@ March 7 |  -  | *TOWN MEETING DAY RECESS*
 March 9 | 15  | [Structured Programming](Lecture15.html)
 March 14 | -  | *SPRING RECESS* 
 March 16 | -  | *SPRING RECESS* 
-March 21 | 16  | Guest Lecture: Dr. Brandon Ogbunugafor
-March 23 | 17  | *NO CLASS*
-March 28 | 18  | Lecture Outline 
-March 30 | 19  | Lecture Outline 
-April 4 | 20  | Lecture Outline 
-April 6 | 21  | Lecture Outline 
-April 11 | 22  | Lecture Outline
-April 13 | 23  | Lecture Outline
-April 18 | 24  | Lecture Outline
-April 20 | 25  | Lecture Outline
-April 25 | 26  | Lecture Outline
-April 27 | 27  | Lecture Outline 
+March 21 | -  | Guest Lecture: Dr. Brandon Ogbunugafor
+March 23 | -  | *NO CLASS*
+March 28 | 16  | [Control Structures](Lecture16.html) 
+March 30 | 17  | Lecture Outline 
+April 4 | 18  | Lecture Outline 
+April 6 | 19  | Lecture Outline 
+April 11 | 20  | Lecture Outline
+April 13 | 21  | Lecture Outline
+April 18 | 22  | Lecture Outline
+April 20 | 23  | Lecture Outline
+April 25 | 24  | Lecture Outline
+April 27 | 25  | Lecture Outline 
 May 2  | **Research Presentations [4]** |
 May 4  | **Research Presentations [4]** |

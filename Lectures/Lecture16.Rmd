@@ -1,0 +1,289 @@
+---
+title: 'Lecture #16: Control Structures'
+author: "Nicholas J. Gotelli"
+date: "March 28, 2017"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+### Logical operators
+
+```{r, eval=FALSE}
+# Simple inequalities
+5 > 3
+5 < 3
+5 >= 5
+5 <= 5
+5 == 3
+5 != 3
+
+# use & for AND
+5 > 3 & 1!=2
+1==2 & 1!=2
+
+# use | for OR
+1==2 | 1!=2
+
+# works with vectors
+
+1:5 > 3
+
+a <- 1:10
+b <- 10:1
+
+a > 4 & b > 4
+
+# use "long form" to evaluate left to write until a the first true/false is evaluated
+
+# evaluates all elements and gives a vector of results
+a < 4 & b > 4
+
+# evaluates until the first logical result is created
+a < 4 && b > 4
+
+# similar format for "long form" for OR
+
+# vector result
+a < 4 | b > 4
+
+# single result
+a < 4 || b > 4
+
+
+# can test any statement is vector of length 1 that has value TRUE
+
+z <- 0
+isTRUE(z)
+
+z <- 1
+isTRUE(z)
+
+z <- 3 # this also coerces to a logical true
+isTRUE(z)
+
+z <- NA
+isTRUE(z)
+
+# xor for exclusive or testing of vectors
+# works for (TRUE FALSE) but not (FALSE FALSE) or (TRUE TRUE)
+
+a <- c(0,0,1)
+b <- c(0,1,1)
+xor(a,b)
+
+# compare with a | b
+# works for (TRUE FALSE) or (TRUE TRUE)
+a | b
+```
+### Set Operations
+```{r, eval=FALSE}
+# boolean algebra on sets of atomic vectors (logical,numeric, character strings)
+
+a <- 1:7
+b <- 5:10
+
+# union to get all elements
+union(a,b)
+
+# intersect to get common elements
+intersect(a,b)
+
+# setdiff to get distinct elements in a
+setdiff(a,b)
+
+setdiff(b,a)
+
+# setequal to check for identical elements
+setequal(a,b)
+
+# more generally, to compare any two objects
+z <- matrix(1:12,nrow=4,byrow=TRUE)
+z1 <- matrix(1:12,nrow=4,byrow=FALSE)
+
+# This just compares element by element
+z==z1
+
+# Use identical for entire structures
+identical(z,z1)
+z1 <- z
+identical(z,z1)
+
+# most useful for if statements is %in% or is.element
+# these two are equivalent, but I prefer the %in% for readability
+d <- 12
+d %in% union(a,b)
+is.element(d,union(a,b))
+
+# check for partial matching with vector comparisons
+
+d <- c(10,12)
+d %in% union(a,b)
+d %in% a
+```
+
+
+
+### `If` statements
+
+```
+if (condition) expression
+
+if (condition) expression1 else expression2
+
+if (condition1) expression1 else
+if (condition2) expression2 else
+```
+* note that final unspecified `else` captures rest of the (unspecified) conditions
+* `else` statement must appear on the same line as the expression
+* typically enclose multiple statements in brackets `{}` for compound expression
+
+```{r, eval=FALSE}
+z <- signif(runif(1),digits=2)
+print(z)
+z > 0.5
+if (z > 0.5) cat(z, "is a bigger than average number","\n")
+
+if (z > 0.8) cat(z,"is a large number","\n") else 
+if (z < 0.2) cat(z,"is a small number","\n") else
+   {cat(z,"is a number of typical size","\n")
+    cat("z^2 =",z^2,"\n")}
+
+# if statement requires a single logical value. With a vector,
+# it will assign TRUE/FALSE based on very first element only.
+
+z <- 1:10
+
+# this does not do anything
+if (z > 7) print(z)
+
+# probably not what you want 
+if (z < 7) print(z)
+
+# use subsetting!
+print(z[z < 7])
+
+   
+```
+
+# `ifelse` to fill vectors
+```
+ifelse(test,yes,no)
+
+test is an object that can be coerced to a logical yes/no
+yes return values for true elements of test
+false return vales for false elements of test
+```
+Suppose we have an insect population in which each female lays, on average, 10.2 eggs, following a Poisson distribution with $\lambda = 50$. However, there is a 35% chance of parasitism, in which case no eggs are laid. Here is the distribution of eggs laid for 1000 individuals:
+```{r, eval=FALSE}
+tester <- runif(1000) # start with random uniform elements
+eggs <- ifelse(tester>0.35,rpois(n=1000,lambda=10.2),0)
+hist(eggs)
+```
+
+### `for` loops
+* The workhorse function for doing repetitive tasks
+* Universal in all computer languages
+* Controversial in R
+    - often not necessary (use vectorized operations!)
+    - very slow with binding operations (c,rbind,cbind,list) 
+    - many operations can be handled by special faimly of `apply` functions
+    
+#### Anatomy of a `for` loop
+```
+for (var in seq) { # start of for loop
+
+# body of for loop 
+
+} # end of for loop
+
+var is a counter variable that will hold the current value of the loop
+seq is an integer vector (or a vector of character strings) that defines the starting and ending values of the loop
+```
+It is traditional in the statistics literature to use variables `i,j,k` to indicate counters. e.g.
+
+$$A = \sum_{i=1}^S n_i$$
+
+You can also use `t` for time, but remember that `t()` is also an R function that transposes a matrix. R is smart enough to recognize the difference, but it could cause problems for others.
+
+There are many ways to indicate the sequence, and the length of our loops will almost always be related to the size of a vector that we are working with. The most efficient structure to to create the sequence is `seq_along(x)` where x is the vector whose length defines the number of repetitions
+
+Let's see a simple example:
+
+```{r, eval=FALSE}
+myDat <- signif(runif(10),digits=2)
+for (i in seq_along(myDat)) {
+  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+}
+```
+
+#### Tip #1: Don't do things in the loop if you do not need to!
+```{r, eval=FALSE}
+myDat <- vector(mode="numeric",length=10)
+for (i in seq_along(myDat)) {
+  myDat[i] <- signif(runif(1),digits=2) # do this outside of the loop!
+  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+}
+```
+
+#### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
+```{r, eval=FALSE}
+myDat <- runif(1)
+for (i in 2:10) {
+  temp <- signif(runif(1),digits=2) # do this outside of the loop!
+  myDat <- c(myDat,temp) # do not change vector size in the loop!
+  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+}
+
+```
+
+#### Tip #3: Do not write a loop if you can vectorize an operation
+```{r, eval=FALSE}
+myDat <- 1:10
+for (i in seq_along(myDat)) {
+  myDat[i] <-  myDat[i] + myDat[i]^2
+  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+}
+
+# No loop is needed here!
+z <- 1:10
+z <- z + z^2
+print(z)
+
+
+```
+#### Tip #4: Always be alert to the distinction between the counter variable `i` and the vector element `z[i]`
+```{r, eval=FALSE}
+z <- c(10,2,4)
+for (i in seq_along(z)) {
+  cat("i =",i,"z[i] = ",z[i],"\n")
+}
+# What is value of i at this point?
+print(i)
+```
+
+#### Tip #5: Use `next` to skip certain elements in the loop
+
+```{r, eval=FALSE}
+z <- 1:20
+# What if we want to work with only the odd-numbered elements?
+
+for (i in seq_along(z)) {
+  if(i %% 2==0) next
+  print(i)
+}
+
+# Another method, probably faster (why?)
+z <- 1:20
+z <- z[z %% 2!=0] # contrast with logical expression in previous if statement!
+length(z)
+for (i in seq_along(z)) {
+  cat("i = ",i,"z[i] = ",z[i],"\n")
+}
+```
+
+# Tip #6: Use `break` to set up a conditional to break out of loop early
+
+
