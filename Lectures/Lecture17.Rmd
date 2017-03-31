@@ -61,7 +61,7 @@ for (i in 2:10) {
   myDat <- c(myDat,temp) # do not change vector size in the loop!
   cat("loop number = ",i,"vector element = ", myDat[i],"\n")
 }
-
+print(myDat)
 ```
 
 #### Tip #3: Do not write a loop if you can vectorize an operation
@@ -102,13 +102,118 @@ for (i in seq_along(z)) {
 
 # Another method, probably faster (why?)
 z <- 1:20
-z <- z[z %% 2!=0] # contrast with logical expression in previous if statement!
+zsub <- z[z %% 2!=0] # contrast with logical expression in previous if statement!
 length(z)
-for (i in seq_along(z)) {
-  cat("i = ",i,"z[i] = ",z[i],"\n")
+for (i in seq_along(zsub)) {
+  cat("i = ",i,"zsub[i] = ",zsub[i],"\n")
 }
 ```
 
-# Tip #6: Use `break` to set up a conditional to break out of loop early
+### Tip #6: Use `break` to set up a conditional to break out of loop early
 
+```{r, eval=FALSE}
+# create a simple random growth population model function
+
+##################################################
+# FUNCTION: RanWalk
+# stochastic random walk 
+# input: times = number of time steps
+#        n1 = initial population size (= n[1])
+#        lambda = finite rate of increase
+#        noiseSD = sd of a normal distribution with mean 0
+# output: vector n with population sizes > 0 
+#         until extinction, then NA 
+#------------------------------------------------- 
+library(tcltk)
+RanWalk <- function(times=100,n1=50,lambda=1.00,noiseSD=10) {
+                n <- rep(NA,times)  # create output vector
+                n[1] <- n1 # initialize with starting population size
+                noise <- rnorm(n=times,mean=0,sd=noiseSD) # create noise vector
+                for(i in 1:(times-1)) {
+                  n[i + 1] <- lambda*n[i] + noise[i]
+                  if(n[i + 1] <=0) {
+                    n[i + 1] <- NA
+                    cat("Population extinction at time")
+                    # tkbell()
+                    break}
+                }
+
+return(n)
+}
+plot(RanWalk(),type="o")
+```
+### Using double for loops
+
+```{r, eval=FALSE}
+m <- matrix(round(runif(20),digits=1),nrow=5)
+# loop over rows
+for (i in 1:nrow(m)) {
+  m[i,] <- m[i,] + i
+} 
+print(m)
+
+# Loop over columns
+m <- matrix(round(runif(20),digits=1),nrow=5)
+for (j in 1:ncol(m)) {
+  m[,j] <- m[,j] + j
+}
+print(m)
+
+# Loop over rows and columns
+m <- matrix(round(runif(20),digits=1),nrow=5)
+for (i in 1:nrow(m)) {
+  for (j in 1:ncol(m)) {
+    m[i,j] <- m[i,j] + i + j
+  } # end of column j loop
+} # end or row i loop
+ print(m) 
+```
+### Writing functions for equations and sweeping over parameters
+
+```{r, eval=TRUE}
+# S = cA^z species area function, but what does it look like??
+
+##################################################
+# function: SpeciesAreaCurve
+# creates power function relationship for S and A
+# input: A is a vector of island areas
+#        c is the intercept constant
+#        z is the slope constant
+# output: S is a vector of species richness values
+#------------------------------------------------- 
+SpeciesAreaCurve <- function(A=1:5000,c= 0.5,z=0.26){
+  
+  S <- c*(A^z)
+return(S)
+}
+head(SpeciesAreaCurve())
+
+##################################################
+# function: SpeciesAreaPlot
+# plot species area curves with parameter values
+# input: A = vector of areas
+#        c = single value for c parameter
+#        z = single value for z parameter
+
+# output: smoothed curve with parameters in graph
+#------------------------------------------------- 
+SpeciesAreaPlot <- function(A=1:5000,c= 0.5,z=0.26) {
+plot(x=A,y=SpeciesAreaCurve(A,c,z),type="l",xlab="Island Area",ylab="S",ylim=c(0,1000))
+mtext(paste("c =", c,"  z =",z),cex=0.7) 
+      return()
+}
+SpeciesAreaPlot()
+```
+### now build a grid of plots!
+```{r}
+# global variables
+cPars <- c(100,150,175)
+zPars <- c(0.10, 0.16, 0.26, 0.3)
+par(mfrow=c(3,4))
+for (i in seq_along(cPars)) {
+  for (j in seq_along(zPars)) {
+    SpeciesAreaPlot(c=cPars[i],z=zPars[j])
+  }
+} 
+```
 
