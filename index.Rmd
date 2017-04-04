@@ -61,10 +61,10 @@ March 21  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
 March 22  | - | -  | [Homework #9](Homeworks/Homework09.html)
 March 23  | *NO CLASS* | - | -
 March 28  | [Control Structures](Lectures/Lecture16.html) | R-Scripts  | -
-March 29  | - | -  | [Homework #10](Homeworks/Homework10.html)
+March 29  | - | -  | Catch-up Day 
 March 30  | [Control Structures II](Lectures/Lecture17.html) | R-Scripts  | -
 April 4  | Lecture Outline | R-Scripts  | -
-April 5  | - | -  | Catch-up Day in Lab
+April 5  | - | -  | [Homework #10](Homeworks/Homework10.html)
 April 6  | Lecture Outline | R-Scripts  | -
 April 11  | Lecture Outline | R-Scripts  | -
 April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
