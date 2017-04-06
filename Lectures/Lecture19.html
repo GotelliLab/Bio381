@@ -167,25 +167,11 @@ SpeciesAreaCurve &lt;-<span class="st"> </span><span class="cf">function</span>(
 <span class="kw">return</span>(S)
 }
 <span class="kw">head</span>(<span class="kw">SpeciesAreaCurve</span>())</code></pre></div>
-<pre><code>## [1] 0.5000000 0.5987394 0.6653061 0.7169776 0.7598051 0.7966899</code></pre>
 <div id="using-the-expand.grid-function-to-create-a-dataframe-with-parameter-combinations" class="section level3">
 <h3>Using the <code>expand.grid()</code> function to create a dataframe with parameter combinations</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cPars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">175</span>)
 zPars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.10</span>, <span class="fl">0.16</span>, <span class="fl">0.26</span>, <span class="fl">0.3</span>)
 <span class="kw">expand.grid</span>(cPars,zPars)</code></pre></div>
-<pre><code>##    Var1 Var2
-## 1   100 0.10
-## 2   150 0.10
-## 3   175 0.10
-## 4   100 0.16
-## 5   150 0.16
-## 6   175 0.16
-## 7   100 0.26
-## 8   150 0.26
-## 9   175 0.26
-## 10  100 0.30
-## 11  150 0.30
-## 12  175 0.30</code></pre>
 </div>
 <div id="building-your-own-expand-grid-function" class="section level3">
 <h3>Building your own “expand grid” function</h3>
@@ -201,11 +187,6 @@ Factor2 &lt;-<span class="st"> </span><span class="kw">rep</span>(b,<span class=
 <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">varA=</span>Factor1,<span class="dt">varB=</span>Factor2))
 }
 <span class="kw">myExpandGrid</span>()</code></pre></div>
-<pre><code>## $varA
-##  [1] 1 2 3 4 1 2 3 4 1 2 3 4
-## 
-## $varB
-##  [1] 300 300 300 300 400 400 400 400 500 500 500 500</code></pre>
 </div>
 <div id="extract-output-from-speciesarea" class="section level3">
 <h3>Extract output from SpeciesArea</h3>
@@ -222,11 +203,6 @@ sumStats &lt;-<span class="st"> </span><span class="kw">list</span>(<span class=
 <span class="kw">return</span>(sumStats)
 }
 <span class="kw">SA_Output</span>()</code></pre></div>
-<pre><code>## $SGain
-## [1] 0.7183798
-## 
-## $SCV
-## [1] 0.5027016</code></pre>
 </div>
 <div id="build-program-body-with-a-single-loop-through-the-parameters-in-modelframe" class="section level3">
 <h3>Build program body with a single loop through the parameters in modelFrame</h3>
@@ -239,21 +215,9 @@ zPars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0
 modelFrame &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">c=</span>cPars,<span class="dt">z=</span>zPars)
 modelFrame<span class="op">$</span>SGain &lt;-<span class="st"> </span><span class="ot">NA</span>
 modelFrame<span class="op">$</span>SCV &lt;-<span class="st"> </span><span class="ot">NA</span>
-<span class="kw">print</span>(modelFrame)</code></pre></div>
-<pre><code>##      c    z SGain SCV
-## 1  100 0.10    NA  NA
-## 2  150 0.10    NA  NA
-## 3  175 0.10    NA  NA
-## 4  100 0.16    NA  NA
-## 5  150 0.16    NA  NA
-## 6  175 0.16    NA  NA
-## 7  100 0.26    NA  NA
-## 8  150 0.26    NA  NA
-## 9  175 0.26    NA  NA
-## 10 100 0.30    NA  NA
-## 11 150 0.30    NA  NA
-## 12 175 0.30    NA  NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cycle through model calculations</span>
+<span class="kw">print</span>(modelFrame)
+
+<span class="co"># cycle through model calculations</span>
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(modelFrame)) {
   
   <span class="co"># generate S vector</span>
@@ -266,26 +230,99 @@ modelFrame<span class="op">$</span>SCV &lt;-<span class="st"> </span><span class
   modelFrame[i,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)] &lt;-<span class="st"> </span>temp2
   
 }
-<span class="kw">print</span>(modelFrame)</code></pre></div>
-<pre><code>##      c    z     SGain        SCV
-## 1  100 0.10  134.3673 0.09109192
-## 2  150 0.10  201.5509 0.09109192
-## 3  175 0.10  235.1428 0.09109192
-## 4  100 0.16  290.6926 0.13905495
-## 5  150 0.16  436.0389 0.13905495
-## 6  175 0.16  508.7121 0.13905495
-## 7  100 0.26  815.6557 0.21070232
-## 8  150 0.26 1223.4835 0.21070232
-## 9  175 0.26 1427.3975 0.21070232
-## 10 100 0.30 1187.3333 0.23699746
-## 11 150 0.30 1780.9999 0.23699746
-## 12 175 0.30 2077.8333 0.23699746</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use cex expansion to show a third variable with symbol size</span>
+<span class="kw">print</span>(modelFrame)
+
+<span class="co"># use cex expansion to show a third variable with symbol size</span>
 <span class="kw">plot</span>(<span class="dt">x=</span>modelFrame<span class="op">$</span>c,<span class="dt">y=</span>modelFrame<span class="op">$</span>SGain,<span class="dt">cex=</span><span class="dv">10</span><span class="op">*</span>modelFrame<span class="op">$</span>z)</code></pre></div>
-<p><img src="data:image/png;base64,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" width="672" /></p>
 </div>
-<div id="sweeping-parameters-for-a-stochastic-model" class="section level3">
-<h3>Sweeping parameters for a stochastic model</h3>
+<div id="sweeping-parameters-for-replication-of-a-stochastic-model" class="section level3">
+<h3>Sweeping parameters for replication of a stochastic model</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a simple random growth population model function</span>
+
+##################################################
+<span class="co"># FUNCTION: RanWalk</span>
+<span class="co"># stochastic random walk </span>
+<span class="co"># input: times = number of time steps</span>
+<span class="co">#        n1 = initial population size (= n[1])</span>
+<span class="co">#        lambda = finite rate of increase</span>
+<span class="co">#        noiseSD = sd of a normal distribution with mean 0</span>
+<span class="co"># output: vector n with population sizes &gt; 0 </span>
+<span class="co">#         until extinction, then NA </span>
+<span class="co">#------------------------------------------------- </span>
+<span class="kw">library</span>(tcltk)
+RanWalk &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">times=</span><span class="dv">100</span>,<span class="dt">n1=</span><span class="dv">50</span>,<span class="dt">lambda=</span><span class="fl">1.00</span>,<span class="dt">noiseSD=</span><span class="dv">10</span>) {
+                n &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,times)  <span class="co"># create output vector</span>
+                n[<span class="dv">1</span>] &lt;-<span class="st"> </span>n1 <span class="co"># initialize with starting population size</span>
+                noise &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>times,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span>noiseSD) <span class="co"># create noise vector</span>
+                <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(times<span class="op">-</span><span class="dv">1</span>)) {
+                  n[i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] &lt;-<span class="st"> </span>lambda<span class="op">*</span>n[i] <span class="op">+</span><span class="st"> </span>noise[i]
+                  <span class="cf">if</span>(n[i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] <span class="op">&lt;=</span><span class="dv">0</span>) {
+                    n[i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="co">#                    cat(&quot;Population extinction at time&quot;,i-1,&quot;\n&quot;)</span>
+                    <span class="co"># tkbell()</span>
+                    <span class="cf">break</span>}
+                }
+
+<span class="kw">return</span>(n)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##################################################
+<span class="co"># function: rWalkOutput</span>
+<span class="co"># summarizes univariate metric to describe population trajectory</span>
+<span class="co"># input: vector of population sizes generated by population model</span>
+<span class="co"># output: length of positive elements in vector</span>
+<span class="co">#------------------------------------------------- </span>
+rWalkOutput &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">v=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>))) {
+lenPop &lt;-<span class="st"> </span><span class="kw">length</span>(v[<span class="kw">is.na</span>(v)<span class="op">==</span><span class="ot">FALSE</span>])
+
+<span class="kw">return</span>(lenPop)
+}
+##################################################
+<span class="co"># function: rWalkOutput2</span>
+<span class="co"># summarizes univariate metric to describe population trajectory</span>
+<span class="co"># input: vector of population sizes generated by population model</span>
+<span class="co"># output: length of positive elements in vector</span>
+<span class="co">#------------------------------------------------- </span>
+rWalkOutput2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">v=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>))) {
+lenPop &lt;-<span class="st"> </span><span class="kw">max</span>(v[<span class="kw">is.na</span>(v)<span class="op">==</span><span class="ot">FALSE</span>])
+
+<span class="kw">return</span>(lenPop)
+}
+<span class="co"># global variables</span>
+SerLen =<span class="st"> </span><span class="dv">500</span> <span class="co"># length of each time series</span>
+lambda &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.95</span>, <span class="fl">0.99</span>, <span class="fl">1.00</span>, <span class="fl">1.01</span>, <span class="fl">1.05</span>) <span class="co"># constant multiplier</span>
+noiseSD &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">20</span>) <span class="co"># sd of Gaussian noise</span>
+n1 &lt;-<span class="st"> </span><span class="dv">50</span> <span class="co"># initial population size</span>
+reps &lt;-<span class="st"> </span><span class="dv">20</span> <span class="co"># number of replicates per treatment combination</span>
+
+<span class="co"># create output structure</span>
+ranOut &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">n1=</span>n1,<span class="dt">reps=</span>reps, <span class="dt">SerLen=</span>SerLen,<span class="dt">lambda=</span>lambda,<span class="dt">noiseSD=</span>noiseSD)
+
+<span class="co"># add summary response variables</span>
+ranOut<span class="op">$</span>meanLen &lt;-<span class="st"> </span><span class="ot">NA</span>
+ranOut<span class="op">$</span>sdLen &lt;-<span class="st"> </span><span class="ot">NA</span>
+SurvTime &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,reps) <span class="co"># vector to hold survival times</span>
+<span class="kw">print</span>(ranOut)
+
+<span class="co"># begin program body</span>
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(ranOut)) { <span class="co"># start parameter loop</span>
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>reps) { <span class="co"># start individual replicate loop</span>
+  temp &lt;-<span class="st"> </span><span class="kw">RanWalk</span>(<span class="dt">times=</span>ranOut<span class="op">$</span>SerLen[i],
+                   <span class="dt">n1=</span>ranOut<span class="op">$</span>n1[i],
+                   <span class="dt">lambda=</span>ranOut<span class="op">$</span>lambda[i], 
+                   <span class="dt">noiseSD=</span>ranOut<span class="op">$</span>noiseSD[i])
+  SurvTime[j] &lt;-<span class="st"> </span><span class="kw">rWalkOutput2</span>(temp) <span class="co"># operate on time series for series in temp</span>
+                        
+  } <span class="co"># end individual replicate loop</span>
+  
+  <span class="co"># now get mean and sd of the vector of the response variable</span>
+  ranOut<span class="op">$</span>meanLen[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(SurvTime)
+  ranOut<span class="op">$</span>sdLen[i] &lt;-<span class="st"> </span><span class="kw">sd</span>(SurvTime)
+  
+} <span class="co"># end of parameter loop</span>
+<span class="kw">print</span>(ranOut)</code></pre></div>
+</div>
+<div id="quickly-change-the-program-with-a-new-output-variable" class="section level3">
+<h3>quickly change the program with a new output variable!</h3>
 </div>
 
 
