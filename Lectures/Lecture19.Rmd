@@ -1,0 +1,107 @@
+---
+title: 'Lecture #19: Control Structures IV'
+author: "Nicholas J. Gotelli"
+date: "April 6, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+```{r, eval=TRUE}
+# S = cA^z species area function, but what does it look like??
+
+##################################################
+# function: SpeciesAreaCurve
+# creates power function relationship for S and A
+# input: A is a vector of island areas
+#        c is the intercept constant
+#        z is the slope constant
+# output: S is a vector of species richness values
+#------------------------------------------------- 
+SpeciesAreaCurve <- function(A=1:5000,c= 0.5,z=0.26){
+  
+  S <- c*(A^z)
+return(S)
+}
+head(SpeciesAreaCurve())
+```
+
+### Using the `expand.grid()` function to create a dataframe with parameter combinations
+
+```{r, eval=TRUE}
+cPars <- c(100,150,175)
+zPars <- c(0.10, 0.16, 0.26, 0.3)
+expand.grid(cPars,zPars)
+```
+
+### Building your own "expand grid" function
+
+```{r, eval=TRUE}
+##################################################
+# function: myExpandGrid
+# create expand.grid from base functions
+# input: 2 atomic vectors of any length
+# output: data frame
+#------------------------------------------------- 
+myExpandGrid <- function(a=1:4,b=c(300,400,500)) {
+Factor1 <- rep(a,times=length(b))
+Factor2 <- rep(b,each=length(a))
+return(list(varA=Factor1,varB=Factor2))
+}
+myExpandGrid()
+```
+
+### Extract output from SpeciesArea
+
+```{r,eval=TRUE}
+##################################################
+# function: SA_Output
+# Summary stats for species-area power function
+# input: vector of predicted species richness 
+# output: list of max-min, coefficient of variation 
+#------------------------------------------------- 
+SA_Output <- function(S=runif(1:10)) {
+
+sumStats <- list(SGain=max(S)-min(S),SCV=sd(S)/mean(S))
+
+return(sumStats)
+}
+SA_Output()
+```
+
+### Build program body with a single loop through the parameters in modelFrame
+
+```{r,eval=TRUE}
+# Global variables
+Area <- 1:5000
+cPars <- c(100,150,175)
+zPars <- c(0.10, 0.16, 0.26, 0.3)
+
+# set up model frame
+modelFrame <- expand.grid(c=cPars,z=zPars)
+modelFrame$SGain <- NA
+modelFrame$SCV <- NA
+print(modelFrame)
+
+# cycle through model calculations
+for (i in 1:nrow(modelFrame)) {
+  
+  # generate S vector
+  temp1 <- SpeciesAreaCurve(A=Area,
+                            c=modelFrame[i,1],
+                            z=modelFrame[i,2])
+  # calculate output stats
+  temp2 <- SA_Output(temp1)
+  # pass results to columns in data frame
+  modelFrame[i,c(3,4)] <- temp2
+  
+}
+print(modelFrame)
+
+# use cex expansion to show a third variable with symbol size
+plot(x=modelFrame$c,y=modelFrame$SGain,cex=10*modelFrame$z)
+```
+
+
+### Sweeping parameters for a stochastic model
