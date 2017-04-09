@@ -34,8 +34,8 @@ March 21 | -  | Guest Lecture: Dr. Brandon Ogbunugafor
 March 23 | -  | *NO CLASS*
 March 28 | 16  | [Control Structures](Lecture16.html) 
 March 30 | 17  | [Control Structures II](Lecture17.html) 
-April 4 | 18  | Lecture Outline 
-April 6 | 19  | Lecture Outline 
+April 4 | 18  | [Control Structures III](Lecture18.html) 
+April 6 | 19  | [Control Structures IV](Lecture19.html) 
 April 11 | 20  | Lecture Outline
 April 13 | 21  | Lecture Outline
 April 18 | 22  | Lecture Outline
