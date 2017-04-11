@@ -66,7 +66,7 @@ March 30  | [Control Structures II](Lectures/Lecture17.html) | R-Scripts  | -
 April 4  | [Control Structures III](Lectures/Lecture18.html) | R-Scripts  | -
 April 5  | - | -  | [Homework #10](Homeworks/Homework10.html)
 April 6  | [Control Structures IV](Lectures/Lecture19.html) | R-Scripts  | -
-April 11  | Lecture Outline | R-Scripts  | -
+April 11  | [Randomization Tests](Lectures/Lecture20.html) | R-Scripts  | -
 April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
 April 13  | Lecture Outline | R-Scripts  | -
 April 18  | Lecture Outline | R-Scripts  | -

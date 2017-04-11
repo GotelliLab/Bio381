@@ -1,0 +1,169 @@
+---
+title: 'Lecture #20: Randomization Tests'
+author: "Nicholas J. Gotelli"
+date: "April 11, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Pseudocode outline for randomization tests
+1. Define univariate metric X
+2. Calculate X for observed data X~obs~
+3. Randomize observed data, subject to constraints
+4. Calculate X for simulated data X~sim~
+5. Repeat (4) many times to generate distribution of X~sim~, which is H~0~
+6. Estimate P(X~obs~|H~0~)
+7. Draw biological inference
+
+### Compare Species Richness Among New England Ecotypes
+```{r, eval=FALSE}
+data <- read.table(file="antcountydata.csv",
+                   header=TRUE,
+                   sep=",",
+                   stringsAsFactors=FALSE)
+
+data$ecoregion <- as.factor(data$ecoregion) # create model factor
+boxplot(data$n.species~data$ecoregion,col="indianred") # plot data
+myModel <- aov(n.species~ecoregion,data=data)
+summary(myModel)
+
+```
+### Define response metric
+Use the variance among treatment means as the factor
+
+```{r, eval=FALSE}
+
+##################################################
+# function: VarMeans
+# Calculates variance among treatment means
+# input: vector of groups, vector of values
+# output: among group variance of means
+#------------------------------------------------- 
+VarMeans <- function(fac=NULL,res=runif(25)) {
+if(is.null(fac)){
+  fac <- as.factor(rep(LETTERS[1:5],each=5))
+}
+temp <- aggregate(x=res,by=list(fac),FUN=mean)
+return(var(temp$x))
+# return(var(temp[,2]))
+}
+```
+
+### Specify treatment randomization
+
+
+```{r, eval=FALSE}
+##################################################
+# function: TreatRan
+# Randomize assignment of replicates to treatments
+# input: vector of treatment assignments, vector of response variable
+# output: vector of randomized treatment assignments
+#------------------------------------------------- 
+TreatRan <- function(fac=NULL) {
+if(is.null(fac)){
+  fac <- as.factor(rep(LETTERS[1:5],each=5))
+}
+fac <- sample(fac, replace=FALSE) # reshuffle factor labels 
+
+
+return(fac)
+}
+```
+### Summarize output
+```{r, eval=FALSE}
+##################################################
+# function: randomizeSummary
+# give summary stats and histogram plot from randomization test
+# input: vector of simulated values, observed value
+# output: list of null model statistics, histogram, box plots
+#------------------------------------------------- 
+randomizeSummary <- function(obsX=runif(1),
+                             simX=runif(1000), 
+                             fac=NULL,
+                             res=runif(25)) {
+  
+if(is.null(fac)){
+  fac <- as.factor(rep(LETTERS[1:5],each=5))
+} 
+  pLow <- mean(simX <= obsX)
+  pHigh <- mean(simX >= obsX)
+  meanSimX <- mean(simX)
+  varSimX <- var(simX)
+  SES <- (obsX - mean(simX))/sd(simX)
+  
+  
+  
+  outList <- list(stat=list(obsX=obsX,
+                  meanSimX=meanSimX,
+                  varSimX=varSimX,
+                  pLow=pLow,
+                  pHigh=pHigh,
+                  SES=SES,
+                  reps=length(simX)),
+                  raw=simX)
+par(mfrow=c(1,3))  
+
+# Show boxplot of real data
+boxplot(res~fac,col="indianred")
+mtext("Observed Data",side=3,font=2,cex=0.75)
+
+# Show boxplot of simulated data
+boxplot(res~sample(fac),col="goldenrod")
+mtext("Simulated Data",side=3,font=2,cex=0.75)
+
+
+
+# Show histogram of simulated and observed values
+hist(simX, breaks=25, 
+           col="goldenrod",
+           main="Null Distribution",
+           xlab="Simulated Response",
+           xlim=c(0,max(c(simX,obsX))))  # make sure histogram includes observed
+
+Interval95 <- quantile(x=simX, probs=c(0.05,0.95))
+Interval975 <- quantile(x=simX, probs=c(0.025,0.975))
+abline(v = obsX,col="indianred",lwd=2)
+abline(v = Interval95,col="black",lwd=2,lty="dotted")
+abline(v = Interval975,col="black",lwd=2,lty="dashed")
+par(mfrow=c(1,1))
+return(outList)
+}
+# z <- randomizeSummary()
+```
+
+### Create program body to use these functions
+
+```{r, eval=FALSE}
+# global variables
+filename <- "antcountydata.csv"
+data <- read.table(file=filename,
+                   header=TRUE,
+                   sep=",",
+                   stringsAsFactors=FALSE)
+
+data$ecoregion <- as.factor(data$ecoregion) # create model factor
+grps <- data$ecoregion # grouping factor (ecoregions)
+richness <- data$n.species # response variable
+nreps <- 1000 # number of repetitions for randomization
+outVec <- vector(mode="numeric",length=nreps) # storage variable for simulated
+obsX <- VarMeans(fac=grps,res=richness) # observed index (variance among means)
+
+
+# for (i in 1:nreps) {
+#  outVec[i] <- VarMeans(fac=TreatRan(grps),res=richness)
+# }
+
+# runif(1)
+# runif(5)
+# replicate(5,runif(1))
+# replicate(3,runif(5))
+
+outVec <- replicate(nreps,VarMeans(fac=TreatRan(grps),res=richness))
+
+z <- randomizeSummary(obsX=obsX,simX=outVec,fac=grps,res=richness)
+z$stat #print statistics
+```
+
+
