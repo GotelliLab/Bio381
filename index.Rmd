@@ -68,7 +68,7 @@ April 5  | - | -  | [Homework #10](Homeworks/Homework10.html)
 April 6  | [Control Structures IV](Lectures/Lecture19.html) | R-Scripts  | -
 April 11  | [Randomization Tests](Lectures/Lecture20.html) | R-Scripts  | -
 April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
-April 13  | Lecture Outline | R-Scripts  | -
+April 13  | [Markov Models](Lectures/Lecture21.html) | R-Scripts  | -
 April 18  | Lecture Outline | R-Scripts  | -
 April 19  | - | -  | **R Presentations: Makukhov, Mickuki, Southgate, Kazenal**
 April 20  | Lecture Outline | R-Scripts  | -

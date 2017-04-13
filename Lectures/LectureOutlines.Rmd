@@ -37,7 +37,7 @@ March 30 | 17  | [Control Structures II](Lecture17.html)
 April 4 | 18  | [Control Structures III](Lecture18.html) 
 April 6 | 19  | [Control Structures IV](Lecture19.html) 
 April 11 | 20  | [Randomization Tests](Lecture20.html) 
-April 13 | 21  | Lecture Outline
+April 13 | 21  | [Markov Models](Lecture21.html) 
 April 18 | 22  | Lecture Outline
 April 20 | 23  | Lecture Outline
 April 25 | 24  | Lecture Outline
