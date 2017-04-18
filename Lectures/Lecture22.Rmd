@@ -1,0 +1,11 @@
+---
+title: 'Lecture #22: Markov Models II'
+author: "Nicholas J. Gotelli"
+date: "April 18, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Start coding...
