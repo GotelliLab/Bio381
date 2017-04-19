@@ -83,7 +83,7 @@ May 4  | **Research Presentations: Alger, Mickuki, Burnham, Ashlock** | -  | -
 
 Student  | GitHub | Portfolio  | Research Presentation | R Presentation | Fun Fact
 ------------- | --------------|----------- | ---------- | ------------- | --------------
-Samantha Alger  | [GitHub](https://github.com/samanthaannalger) | [Portfolio](https://samanthaannalger.github.io/CompBio/)  | Research | R | I am a beekeeper.
+Samantha Alger  | [GitHub](https://github.com/samanthaannalger) | [Portfolio](https://samanthaannalger.github.io/compbio/)  | Research | R | I am a beekeeper.
 Lauren Ash  | [GitHub](https://github.com/lvash) | [Portfolio](https://lvash.github.io/Bio381/)  | Research | R | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Lauren Ashlock  | [GitHub](https://github.com/lashlock) | [Portfolio](https://lashlock.github.io/compbio/)  | Research | R | I have a 13 year old cockatiel named Rosie. 
 Alex Burnham  | [GitHub](https://github.com/alexburn17) | [Portfolio](https://alexburn17.github.io/CompBio/)  | Research | R | I used to own a business called "Burnham Custom Amplification" where I hand built boutique custom speaker cabinets for guitar and bass players.
