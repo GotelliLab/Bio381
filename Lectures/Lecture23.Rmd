@@ -1,0 +1,11 @@
+---
+title: 'Lecture #23: Apply Functions'
+author: "Nicholas J. Gotelli"
+date: "April 20, 2017"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### `Apply` Functions

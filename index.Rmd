@@ -71,7 +71,7 @@ April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
 April 13  | [Markov Models](Lectures/Lecture21.html) | R-Scripts  | -
 April 18  | [Markov Models II](Lectures/Lecture22.html) | R-Scripts  | -
 April 19  | - | -  | **R Presentations: Makukhov, Mickuki, Southgate, Kazenal**
-April 20  | Lecture Outline | R-Scripts  | -
+April 20  | [Apply Functions](Lectures/Lecture23.html) | R-Scripts  | -
 April 25  | Lecture Outline | R-Scripts  | -
 April 26  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
 April 27  | Lecture Outline | R-Scripts  | -
