@@ -5,7 +5,295 @@ date: "April 20, 2017"
 output:
   html_document:
     highlight: tango
+    keep_md: yes
     theme: united
   pdf_document: default
 ---
+### On-line resources
+
+- [Advanced R](http://adv-r.had.co.nz/)
+- [R Inferno](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf)
+- [Bioinformatics Zen](http://www.bioinformaticszen.com/faq/)
+- [R grouping functions: sapply vs. lapply vs. apply vs. tapply vs. by vs. aggregate](http://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega)
+- [ The R apply function - a tutorial with examples](https://www.r-bloggers.com/the-r-apply-function-a-tutorial-with-examples/)
+- [The infamous apply function](http://rforpublichealth.blogspot.com/2012/09/the-infamous-apply-function.html)
+- [Using apply, sapply, lapply in R](https://www.r-bloggers.com/using-apply-sapply-lapply-in-r/)
+
+
+
+
 ### `Apply` Functions
+sapply
+lapply
+apply
+tapply
+vapply
+mapply
+rapply
+Map
+by
+aggregate
+sweep
+replicate
+doBy
+data.table
+
+ase function   Input   Output   plyr function 
+
+---------------------------------------
+aggregate        d       d       ddply + colwise 
+apply            a       a/l     aaply / alply 
+by               d       l       dlply 
+lapply           l       l       llply  
+mapply           a       a/l     maply / mlply 
+replicate        r       a/l     raply / rlply 
+sapply           l       a       laply 
+
+
+### The `apply` function
+
+```
+apply(x, margin, fun,...)
+x : a vector, matrix, or array (all elements of same type)
+margin: 1 for first dimension, 2 for second dimension, c(1,2) for both dimensions
+fun: the function that is to be applied over the margin
+...: additional optional arguments that can be applied to the function
+```
+```{r,eval=FALSE}
+m <- matrix(1:12,3,4,byrow=TRUE) # short-hand for a 3 x 4 matrix; fill rows
+print(m)
+
+
+myCV <- function(x=runif(5)) {
+  x <- sd(x)/mean(x)  # rescale proportions
+  return(x)
+}
+myCV()
+
+# get cvs of the rows with a for loop
+myOut <- vector(mode="numeric",length=nrow(m))
+for (i in 1:nrow(m)){
+  myOut[i] <- myCV(m[i,]) # operate on all columns in row i
+}
+print(myOut)
+# get cvs of the rows with apply; no need to create output structure!
+mO <- apply(m,1,myCV)
+print(mO) 
+
+# get cvs of the columns
+mO <- apply(m,2,myCV) 
+print(mO)
+
+# what happens applying the function over both margins?
+mO <- apply(m,c(1,2),myCV)
+print(mO)
+
+# Not what we expected, but the input to myCV is now 
+# one number:
+myCV(3)
+sd(3)
+
+# so how do we get CV for the entire matrix?
+myCV(m)
+
+# no need to call the myCV function
+# write an anonymous (=unnamed) function on the fly
+mO <- apply(m,1, function(x) sd(x)/mean(x))
+print(mO)        
+
+# problems with dimension of output
+# first, a simple rescaling of column totals:
+
+mO <- apply(m,2,function(x) x/sum(x))
+print(mO)
+
+# but now try this for rows
+mO <- apply(m,1,function(x) x/sum(x))
+print(mO)
+
+# what happened?
+# output from apply is given in each column of output structure!
+
+mO <- t(apply(m,1,function(x) x/sum(x)))
+print(mO)
+
+# how do we rescale to the matrix total?
+
+mO <- apply(m,c(1,2),function(x) x/sum(x))
+print(mO)
+# because we are operating on elements, not rows or columns
+# just use a vector operation
+
+mO <- m/sum(m)
+print(mO)
+
+mO0 <- m/sum(m)
+print(mO0)
+
+# EcoSimR sim2 reshuffles row values
+mO <- t(apply(m,1,function(x) sample(x)))
+print(mO)
+print(m)
+
+# shuffle columns
+mO <- apply(m,2,function(x) sample(x))
+print(mO)
+
+# shuffle all elements
+mO <- sample(m)
+print(mO)
+
+mO <- matrix(sample(m),3,4,byrow=TRUE)
+print(mO)
+
+# alternatively, we could set up the structure for 
+# the receiving variable
+
+mO <- m
+mO[,] <- sample(m)
+print(mO)
+
+# what if the output from apply is not always the same length?
+
+print(m)
+mO <- apply(m,c(1,2),function(x) runif(x))
+
+print(mO)
+str(mO)
+# now we have a list, and each element is a vector of random numbers
+mO[[2]]
+
+```
+### The `replicate` function
+
+```
+replicate(n,expression,simplify)
+n : number of replications
+expression : any r expression, including a function or operation
+simplify : default="array", which will generate an array with dimensions 1 higher than output structure. simplify=TRUE will generate a matrix or vector. simplify=FALSE will generate a list)
+```
+
+```{r,eval=FALSE}
+
+# first set this up as a matrix
+
+myOut <- matrix(data=0,3,5)
+
+# fill with a for loop
+for (i in 1:nrow(myOut)) {
+  for (j in 1:ncol(myOut)) {
+   myOut[i,j] <- runif(1)
+  }
+}
+print(myOut)
+
+# silly to loop here. Just create myOut and fill directly
+myOut <- matrix(data=runif(15),3,5)
+print(myOut)
+
+# each column of output is one of the replicates
+mO <- replicate(5, 100 + runif(3),simplify=TRUE)
+print(mO)
+
+# try making random matrices
+mO <- replicate(5,matrix(runif(6),3,2),simplify="array")
+print(mO)
+
+# what if the output is not all of the same length? 
+#  in that case, replicate will always make a list, 
+# regardless of setting for simplify
+mO <- replicate(5, 100 + runif(sample.int(10,1)),simplify=TRUE)
+print(mO)
+```
+### The `lapply` function
+
+```
+lapply(x,fun,...)
+x : a vector or list (or an expression that generates this)
+fun : a function that is applied to each element of x
+... : optional arguments to the function
+```
+```{r,eval=FALSE}
+# since a data frame is a list of vectors, this is a common
+# application
+
+d <- read.table(file="antcountydata.csv",
+                header=TRUE,
+                sep=",",
+                stringsAsFactors=FALSE)
+str(d)
+
+# with a for loop, calculate the mean of variables 6 and 7
+
+myMeans <- vector(mode="numeric",length=2)
+z <- 0 # uggh, need to set up another counter!
+for (i in 5:6) {
+  z <- z + 1
+  myMeans[z] <-mean(d[[i]])
+}
+print(myMeans)
+
+myMeans <- lapply(d[c(5,6)],mean)
+print(myMeans) # now a list with names!
+print(unlist(myMeans)) # use unlist to put back in simple vector
+
+```
+### The `sapply` function
+
+```
+sapply(x,fun,...,simplify=TRUE,USE.NAMES=TRUE)
+
+Behaves just like lapply, but the output is more user-friendly,
+with labels. If simplify=FALSE and USE.NAMES=TRUE you have lapply, which gives you a named list as output.
+```
+```{r,eval=FALSE}
+
+myMeans <- sapply(d[c(5,6)],mean)
+print(myMeans) # now a vector with names!
+```
+
+### The `aggregate` function
+
+```
+aggregate(x,by,fun)
+x : vector or list
+by : list of grouping elements each as long as the data frame
+fun : a function to apply to the data in each of the groups
+```
+```{r,eval=FALSE}
+# Calculate group means for ecoregions
+myMeans <- matrix(0,5,2) #set up with zeroes
+myFac <- as.numeric(as.factor(d$ecoregion))
+
+# brittle double for-loop
+z <- 0
+for (i in 5:6) {
+    z <- z + 1
+  for (j in 1:5) {
+    myMeans[j,z] <- mean(d[myFac==j,i])
+  }
+}
+print(myMeans)
+    
+# easier with aggregate, which gives a data frame    
+myMeans <- aggregate(d[c(5,6)],by=list(d$ecoregion),mean)
+print(myMeans)
+str(myMeans)
+
+```
+### The `tapply` function
+
+```
+Behaves like aggregate but operates on vectors not lists
+tapply(x,index,fun)
+```
+
+```{r,eval=FALSE}
+myMeans <- tapply(d[,6],d$ecoregion,mean)
+#myMeans <- tapply(d$ecoregion,as.matrix(d[,c(5,6)]),mean)
+print(myMeans)
+str(myMeans)
+
+```
+
+
