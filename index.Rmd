@@ -101,4 +101,5 @@ Morgan Southgate  | [GitHub](https://github.com/mws19) | [Portfolio](https://mws
 
 Author | Title
 -------| --------
-Morgan Southgate | [Null Model Analysis With EcoSimR](StudentPresentations/EcoSimRPres_MSouthgate.html)
+Morgan Southgate | [Null Model Analysis With `EcoSimR`](StudentPresentations/EcoSimRPres_MSouthgate.html)
+Melanie Kazenal | [Data Wrangling with `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
