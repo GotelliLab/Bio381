@@ -39,8 +39,8 @@ April 6 | 19  | [Control Structures IV](Lecture19.html)
 April 11 | 20  | [Randomization Tests](Lecture20.html) 
 April 13 | 21  | [Markov Models](Lecture21.html) 
 April 18 | 22  | [Markov Models II](Lecture22.html) 
-April 20 | 23  | [Aply Functions](Lecture23.html) 
-April 25 | 24  | Lecture Outline
+April 20 | 23  | [Apply Functions](Lecture23.html) 
+April 25 | 24  | [Base Graphics I](Lecture24.html) 
 April 27 | 25  | Lecture Outline 
 May 2  | **Research Presentations [4]** |
 May 4  | **Research Presentations [4]** |
