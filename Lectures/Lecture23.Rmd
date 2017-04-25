@@ -271,7 +271,7 @@ str(myMeans)
 
 ### The `Map` function
 
-```{r}
+```{r, eval=FALSE}
 # set up parameter sweep for species-area model
 # first illustrate with for loop
 
