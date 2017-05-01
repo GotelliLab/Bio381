@@ -41,6 +41,6 @@ April 13 | 21  | [Markov Models](Lecture21.html)
 April 18 | 22  | [Markov Models II](Lecture22.html) 
 April 20 | 23  | [Apply Functions](Lecture23.html) 
 April 25 | 24  | [Base Graphics I](Lecture24.html) 
-April 27 | 25  | Lecture Outline 
+April 27 | 25  | [Base Graphics II](Lecture24.html) 
 May 2  | **Research Presentations [4]** |
 May 4  | **Research Presentations [4]** |

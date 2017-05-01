@@ -44,13 +44,13 @@ February 8  | - | -  | [Homework #4](Homeworks/Homework04.html)
 February 9  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 14  | [Atomic Vectors](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 15  | - | -  | [Homework #5](Homeworks/Homework05.html)
-February 16  |[Data Structures](Lectures/Lecture10.html)| R-Scripts  | -
-February 21  | [Subsetting](Lectures/Lecture11.html)| R-Scripts  | -
+February 16  |[Data Structures](Lectures/Lecture10.html)| -  | -
+February 21  | [Subsetting](Lectures/Lecture11.html)| -  | -
 February 22  | - | -  | [Homework #6](Homeworks/Homework06.html)
-February 23  | [Probability Distributions](Lectures/Lecture12_13.html)| R-Scripts  | -
-February 28  | [Probability Distributions II](Lectures/Lecture12_13.html)| R-Scripts  | -
+February 23  | [Probability Distributions](Lectures/Lecture12_13.html)| -  | -
+February 28  | [Probability Distributions II](Lectures/Lecture12_13.html)| -  | -
 March 1  | - | -  | [Homework #7](Homeworks/Homework07.html)
-March 2  | [Functions](Lectures/Lecture14.html)| R-Scripts  | -
+March 2  | [Functions](Lectures/Lecture14.html)| -  | -
 March 7  | *TOWN MEETING DAY RECESS* | -  | -
 March 8  | - | -  | [Homework #8](Homeworks/Homework08.html)
 March 9  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
@@ -60,24 +60,24 @@ March 16  | *SPRING RECESS* | -  | -
 March 21  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
 March 22  | - | -  | [Homework #9](Homeworks/Homework09.html)
 March 23  | *NO CLASS* | - | -
-March 28  | [Control Structures](Lectures/Lecture16.html) | R-Scripts  | -
+March 28  | [Control Structures](Lectures/Lecture16.html) | -  | -
 March 29  | - | -  | Catch-up Day 
-March 30  | [Control Structures II](Lectures/Lecture17.html) | R-Scripts  | -
-April 4  | [Control Structures III](Lectures/Lecture18.html) | R-Scripts  | -
+March 30  | [Control Structures II](Lectures/Lecture17.html) | -  | -
+April 4  | [Control Structures III](Lectures/Lecture18.html) | -  | -
 April 5  | - | -  | [Homework #10](Homeworks/Homework10.html)
-April 6  | [Control Structures IV](Lectures/Lecture19.html) | R-Scripts  | -
-April 11  | [Randomization Tests](Lectures/Lecture20.html) | R-Scripts  | -
+April 6  | [Control Structures IV](Lectures/Lecture19.html) | -  | -
+April 11  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
 April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
-April 13  | [Markov Models](Lectures/Lecture21.html) | R-Scripts  | -
-April 18  | [Markov Models II](Lectures/Lecture22.html) | R-Scripts  | -
-April 19  | - | -  | **R Presentations: Makukhov, Mickuki, Southgate, Kazenal**
-April 20  | [Apply Functions](Lectures/Lecture23.html) | R-Scripts  | -
-April 25  | [Base Graphics I](Lectures/Lecture24.html) | R-Scripts  | -
+April 13  | [Markov Models](Lectures/Lecture21.html) | -  | -
+April 18  | [Markov Models II](Lectures/Lecture22.html) | -  | -
+April 19  | - | -  | **R Presentations: Makukhov, Mikucki, Southgate, Kazenal**
+April 20  | [Apply Functions](Lectures/Lecture23.html) | -  | -
+April 25  | [Base Graphics I](Lectures/Lecture24.html) | -  | -
 April 26  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
-April 27  | Lecture Outline | R-Scripts  | -
+April 27  | [Base Graphics II](Lectures/Lecture24.html) | -  | -
 May 2  | **Research Presentations: Clark, Southgate, Keller, Looi** | -  | -
 May 3  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Makukhov, Kazenal**
-May 4  | **Research Presentations: Alger, Mickuki, Burnham, Ashlock** | -  | -
+May 4  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 
 ### Class Work
 
@@ -101,5 +101,7 @@ Morgan Southgate  | [GitHub](https://github.com/mws19) | [Portfolio](https://mws
 
 Author | Title
 -------| --------
-Morgan Southgate | [Null Model Analysis With `EcoSimR`](StudentPresentations/EcoSimRPres_MSouthgate.html)
 Melanie Kazenal | [Data Wrangling with `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
+Emily Mikucki | [Animated graphics with `animation`](StudentPresentations/R_Animation_Package_Presentation.html)
+Matthias Nevins | [Random Forest Trees with `randomForest`](StudentPresentations/randomForest_demo.html)
+Morgan Southgate | [Null Model Analysis With `EcoSimR`](StudentPresentations/EcoSimRPres_MSouthgate.html)
