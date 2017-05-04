@@ -101,7 +101,12 @@ Morgan Southgate  | [GitHub](https://github.com/mws19) | [Portfolio](https://mws
 
 Author | Title
 -------| --------
-Melanie Kazenal | [Data Wrangling with `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
-Emily Mikucki | [Animated graphics with `animation`](StudentPresentations/R_Animation_Package_Presentation.html)
-Matthias Nevins | [Random Forest Trees with `randomForest`](StudentPresentations/randomForest_demo.html)
+Samantha Alger | [Spatial Mapping With `tmap`](StudentPresentations/SpatialDataTutorial.html)
+Lauren Ash| [Spatial Analysis With `ggmap`](StudentPresentations/AshSpatialAnalysis.html)
+Alex Burnham | [Improved Graphics With `ggplot`](StudentPresentations/ggplot2pres.html)
+Melanie Kazenal | [Data Wrangling With `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
+Erin Keller | [Interactive Web Pages With `shiny`](https://erinlkeller.shinyapps.io/ShinyTutorial/)
+Alex Looi | [Data Scraping From The Web With Custom Functions](StudentPresentations/Templates_RTools.html)
+Emily Mikucki | [Animated Graphics With `animation`](StudentPresentations/R_Animation_Package_Presentation.html)
+Matthias Nevins | [Random Forest Trees With `randomForest`](StudentPresentations/randomForest_demo.html)
 Morgan Southgate | [Null Model Analysis With `EcoSimR`](StudentPresentations/EcoSimRPres_MSouthgate.html)
