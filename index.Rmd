@@ -81,21 +81,21 @@ May 4  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 
 ### Class Work
 
-Student  | GitHub | Portfolio  | Research Presentation | R Presentation | Fun Fact
-------------- | --------------|----------- | ---------- | ------------- | --------------
-Samantha Alger  | [GitHub](https://github.com/samanthaannalger) | [Portfolio](https://samanthaannalger.github.io/compbio/)  | Research | R | I am a beekeeper.
-Lauren Ash  | [GitHub](https://github.com/lvash) | [Portfolio](https://lvash.github.io/Bio381/)  | Research | R | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Lauren Ashlock  | [GitHub](https://github.com/lashlock) | [Portfolio](https://lashlock.github.io/compbio/)  | Research | R | I have a 13 year old cockatiel named Rosie. 
-Alex Burnham  | [GitHub](https://github.com/alexburn17) | [Portfolio](https://alexburn17.github.io/CompBio/)  | Research | R | I used to own a business called "Burnham Custom Amplification" where I hand built boutique custom speaker cabinets for guitar and bass players.
-Peter Clark  | [GitHub](https://github.com/Peat-Clark) | [Portfolio](https://peat-clark.github.io/BIO381/)  | Research | R | I enjoy [plants that grow on cliffs](https://cliffecology.com).
-Nick Gotelli | [GitHub](https://github.com/GotelliLab) | [Portfolio](https://gotellilab.github.io/Bio381/)  | Research | R | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
-Melanie Kazenal  | [GitHub](https://github.com/mkazenel) | [Portfolio](https://mkazenel.github.io/Bio381/ )  | Research | R | After completing my undergraduate degree, I worked for two years as an immigration law paralegal.
-Erin Keller  | [GitHub](https://github.com/ErinKeller) | [Portfolio](https://erinkeller.github.io/Bio381/)  | Research | R | I can speak Norwegian! Jeg kan snakker norsk!
-Alex Looi  | [GitHub](https://github.com/LooiXIV/Bio381) | [Portfolio](https://looixiv.github.io/Bio381/)  | Research | R | I like to run, a lot, and I have a personal running coach who lives in San Fran.  
-April Makukhov  | [GitHub](https://github.com/amakukhov) | [Portfolio](https://amakukhov.github.io/Bio381/)  | Research | R |  As a reward for getting through Comps at the end of this semester, I plan to enroll in River Dancing classes in Colchester starting this summer.
-Emily Mickuki  | [GitHub](https://github.com/emikucki) | [Portfolio](https://emikucki.github.io/Bio381/)  | Research | R | I have scars on my arm from being bitten by a sloth! 
-Matthias Nevins  | [GitHub](https://github.com/MtNevins) | [Portfolio](https://mtnevins.github.io/BIO381/)  | Research | R | I was home-schooled until 8th grade. 
-Morgan Southgate  | [GitHub](https://github.com/mws19) | [Portfolio](https://mws19.github.io/Bio381/)  | Research | R | Over this winter break, I attended Dave Barrington’s Tropical Plant Systematics field course in Costa Rica. 
+Student  | Fun Fact
+------------- | --------------
+Samantha Alger  [GitHub](https://github.com/samanthaannalger) [Portfolio](https://samanthaannalger.github.io/compbio/)  | I am a beekeeper.
+Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
+Lauren Ashlock  [GitHub](https://github.com/lashlock) [Portfolio](https://lashlock.github.io/compbio/)  | I have a 13 year old cockatiel named Rosie. 
+Alex Burnham  [GitHub](https://github.com/alexburn17) [Portfolio](https://alexburn17.github.io/CompBio/)  | I used to own a business called "Burnham Custom Amplification" where I hand built boutique custom speaker cabinets for guitar and bass players.
+Peter Clark  [GitHub](https://github.com/Peat-Clark) [Portfolio](https://peat-clark.github.io/BIO381/)  | I enjoy [plants that grow on cliffs](https://cliffecology.com).
+Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
+Melanie Kazenal  [GitHub](https://github.com/mkazenel) [Portfolio](https://mkazenel.github.io/Bio381/ )  | After completing my undergraduate degree, I worked for two years as an immigration law paralegal.
+Erin Keller  [GitHub](https://github.com/ErinKeller) [Portfolio](https://erinkeller.github.io/Bio381/)  | I can speak Norwegian! Jeg kan snakker norsk!
+Alex Looi  [GitHub](https://github.com/LooiXIV/Bio381) [Portfolio](https://looixiv.github.io/Bio381/)  | I like to run, a lot, and I have a personal running coach who lives in San Fran.  
+April Makukhov  [GitHub](https://github.com/amakukhov) [Portfolio](https://amakukhov.github.io/Bio381/)  | As a reward for getting through Comps at the end of this semester, I plan to enroll in River Dancing classes in Colchester starting this summer.
+Emily Mickuki  [GitHub](https://github.com/emikucki) [Portfolio](https://emikucki.github.io/Bio381/)  | I have scars on my arm from being bitten by a sloth! 
+Matthias Nevins  [GitHub](https://github.com/MtNevins) [Portfolio](https://mtnevins.github.io/BIO381/)  | I was home-schooled until 8th grade. 
+Morgan Southgate  [GitHub](https://github.com/mws19) [Portfolio](https://mws19.github.io/Bio381/)  | Over this winter break, I attended Dave Barrington’s Tropical Plant Systematics field course in Costa Rica. 
 
 ### Class R Presentations
 
@@ -104,6 +104,7 @@ Author | Title
 Samantha Alger | [Spatial Mapping With `tmap`](StudentPresentations/SpatialDataTutorial.html)
 Lauren Ash| [Spatial Analysis With `ggmap`](StudentPresentations/AshSpatialAnalysis.html)
 Alex Burnham | [Improved Graphics With `ggplot`](StudentPresentations/ggplot2pres.html)
+Peter Clark | [Biodiversity Metrics With `vegan`](StudentPresentations/VeganTutorial.html)
 Melanie Kazenal | [Data Wrangling With `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
 Erin Keller | [Interactive Web Pages With `shiny`](https://erinlkeller.shinyapps.io/ShinyTutorial/)
 Alex Looi | [Data Scraping From The Web With Custom Functions](StudentPresentations/Templates_RTools.html)
