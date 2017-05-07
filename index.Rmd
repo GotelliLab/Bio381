@@ -70,13 +70,13 @@ April 11  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
 April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
 April 13  | [Markov Models](Lectures/Lecture21.html) | -  | -
 April 18  | [Markov Models II](Lectures/Lecture22.html) | -  | -
-April 19  | - | -  | **R Presentations: Makukhov, Mikucki, Southgate, Kazenal**
+April 19  | - | -  | **R Presentations: Garrett, Mikucki, Southgate, Kazenal**
 April 20  | [Apply Functions](Lectures/Lecture23.html) | -  | -
 April 25  | [Base Graphics I](Lectures/Lecture24.html) | -  | -
 April 26  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
 April 27  | [Base Graphics II](Lectures/Lecture24.html) | -  | -
 May 2  | **Research Presentations: Clark, Southgate, Keller, Looi** | -  | -
-May 3  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Makukhov, Kazenal**
+May 3  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Garrett, Kazenal**
 May 4  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 
 ### Class Work
@@ -88,11 +88,11 @@ Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.
 Lauren Ashlock  [GitHub](https://github.com/lashlock) [Portfolio](https://lashlock.github.io/compbio/)  | I have a 13 year old cockatiel named Rosie. 
 Alex Burnham  [GitHub](https://github.com/alexburn17) [Portfolio](https://alexburn17.github.io/CompBio/)  | I used to own a business called "Burnham Custom Amplification" where I hand built boutique custom speaker cabinets for guitar and bass players.
 Peter Clark  [GitHub](https://github.com/Peat-Clark) [Portfolio](https://peat-clark.github.io/BIO381/)  | I enjoy [plants that grow on cliffs](https://cliffecology.com).
+April Garrett  [GitHub](https://github.com/amakukhov) [Portfolio](https://amakukhov.github.io/Bio381/)  | As a reward for getting through Comps at the end of this semester, I plan to enroll in River Dancing classes in Colchester starting this summer.
 Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
 Melanie Kazenal  [GitHub](https://github.com/mkazenel) [Portfolio](https://mkazenel.github.io/Bio381/ )  | After completing my undergraduate degree, I worked for two years as an immigration law paralegal.
 Erin Keller  [GitHub](https://github.com/ErinKeller) [Portfolio](https://erinkeller.github.io/Bio381/)  | I can speak Norwegian! Jeg kan snakker norsk!
 Alex Looi  [GitHub](https://github.com/LooiXIV/Bio381) [Portfolio](https://looixiv.github.io/Bio381/)  | I like to run, a lot, and I have a personal running coach who lives in San Fran.  
-April Makukhov  [GitHub](https://github.com/amakukhov) [Portfolio](https://amakukhov.github.io/Bio381/)  | As a reward for getting through Comps at the end of this semester, I plan to enroll in River Dancing classes in Colchester starting this summer.
 Emily Mickuki  [GitHub](https://github.com/emikucki) [Portfolio](https://emikucki.github.io/Bio381/)  | I have scars on my arm from being bitten by a sloth! 
 Matthias Nevins  [GitHub](https://github.com/MtNevins) [Portfolio](https://mtnevins.github.io/BIO381/)  | I was home-schooled until 8th grade. 
 Morgan Southgate  [GitHub](https://github.com/mws19) [Portfolio](https://mws19.github.io/Bio381/)  | Over this winter break, I attended Dave Barrington’s Tropical Plant Systematics field course in Costa Rica. 
@@ -103,8 +103,10 @@ Author | Title
 -------| --------
 Samantha Alger | [Spatial Mapping With `tmap`](StudentPresentations/SpatialDataTutorial.html)
 Lauren Ash| [Spatial Analysis With `ggmap`](StudentPresentations/AshSpatialAnalysis.html)
+Lauren Ashlock| [RNA-Seq Analysis With `DESEQ2`](StudentPresentations/AshlockDESQ2.html)
 Alex Burnham | [Improved Graphics With `ggplot`](StudentPresentations/ggplot2pres.html)
 Peter Clark | [Biodiversity Metrics With `vegan`](StudentPresentations/VeganTutorial.html)
+April Garrett | [SNP Data analysis with `bioconductor`](StudentPresentations/RPresentationCode_04_19_17.html)
 Melanie Kazenal | [Data Wrangling With `plyr`](StudentPresentations/Kazenal_plyr_tutorial.html)
 Erin Keller | [Interactive Web Pages With `shiny`](https://erinlkeller.shinyapps.io/ShinyTutorial/)
 Alex Looi | [Data Scraping From The Web With Custom Functions](StudentPresentations/Templates_RTools.html)
