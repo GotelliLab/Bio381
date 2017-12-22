@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2017: Archival Version"
+date: "Spring 2018"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -9,7 +9,7 @@ output:
 ---
 
 
-This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2017.
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2018.
 
 ## Course Materials
 
@@ -30,72 +30,81 @@ ___
 
 Date  | Lecture | Scripts  | Homework
 ------------- | -------------- |----------- | -------------
-January 17  | [GitHub](Lectures/Lecture01.html) | -  | -
-January 18  | - | -  | [Homework #1](Homeworks/Homework01.html)
-January 19  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
-January 24  | [RStudio](Lectures/Lecture03_4.html) | - | -
-January 25  | - | -  | [Homework #2](Homeworks/Homework02.html)
-January 26  | [RStudio II](Lectures/Lecture03_4.html) | -| -
-January 31  | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
-February 1  | - | -  | [Homework #3](Homeworks/Homework03.html)
-February 2  | [Importing Data](Lectures/Lecture06.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 7  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 8  | - | -  | [Homework #4](Homeworks/Homework04.html)
-February 9  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 14  | [Atomic Vectors](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 15  | - | -  | [Homework #5](Homeworks/Homework05.html)
-February 16  |[Data Structures](Lectures/Lecture10.html)| -  | -
-February 21  | [Subsetting](Lectures/Lecture11.html)| -  | -
-February 22  | - | -  | [Homework #6](Homeworks/Homework06.html)
-February 23  | [Probability Distributions](Lectures/Lecture12_13.html)| -  | -
-February 28  | [Probability Distributions II](Lectures/Lecture12_13.html)| -  | -
-March 1  | - | -  | [Homework #7](Homeworks/Homework07.html)
-March 2  | [Functions](Lectures/Lecture14.html)| -  | -
-March 7  | *TOWN MEETING DAY RECESS* | -  | -
-March 8  | - | -  | [Homework #8](Homeworks/Homework08.html)
-March 9  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+January 16  | [GitHub](Lectures/Lecture01.html) | -  | -
+January 17  | - | -  | [Homework #1](Homeworks/Homework01.html)
+January 18  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
+January 23  | [RStudio](Lectures/Lecture03_4.html) | - | -
+January 24  | - | -  | [Homework #2](Homeworks/Homework02.html)
+January 25  | [RStudio II](Lectures/Lecture03_4.html) | -| -
+January 30  | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
+January 31  | - | -  | [Homework #3](Homeworks/Homework03.html)
+February 1  | [Importing Data](Lectures/Lecture06.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 6  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 7  | - | -  | [Homework #4](Homeworks/Homework04.html)
+February 8  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 13  | [Atomic Vectors](Lectures/Lecture09.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+February 14  | - | -  | [Homework #5](Homeworks/Homework05.html)
+February 15  |[Data Structures](Lectures/Lecture10.html)| -  | -
+February 20  | [Subsetting](Lectures/Lecture11.html)| -  | -
+February 21  | - | -  | [Homework #6](Homeworks/Homework06.html)
+February 22  | [Probability Distributions](Lectures/Lecture12_13.html)| -  | -
+February 27  | [Probability Distributions II](Lectures/Lecture12_13.html)| -  | -
+February 28  | - | -  | [Homework #7](Homeworks/Homework07.html)
+March 1  | [Functions](Lectures/Lecture14.html)| -  | -
+March 6  | *TOWN MEETING DAY RECESS* | -  | -
+March 7  | - | -  | [Homework #8](Homeworks/Homework08.html)
+March 8  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+March 13  | *SPRING RECESS* | -  | -
 March 14  | *SPRING RECESS* | -  | -
 March 15  | *SPRING RECESS* | -  | -
-March 16  | *SPRING RECESS* | -  | -
-March 21  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
-March 22  | - | -  | [Homework #9](Homeworks/Homework09.html)
-March 23  | *NO CLASS* | - | -
-March 28  | [Control Structures](Lectures/Lecture16.html) | -  | -
-March 29  | - | -  | Catch-up Day 
-March 30  | [Control Structures II](Lectures/Lecture17.html) | -  | -
-April 4  | [Control Structures III](Lectures/Lecture18.html) | -  | -
-April 5  | - | -  | [Homework #10](Homeworks/Homework10.html)
-April 6  | [Control Structures IV](Lectures/Lecture19.html) | -  | -
-April 11  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
-April 12  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
-April 13  | [Markov Models](Lectures/Lecture21.html) | -  | -
-April 18  | [Markov Models II](Lectures/Lecture22.html) | -  | -
-April 19  | - | -  | **R Presentations: Garrett, Mikucki, Southgate, Kazenal**
-April 20  | [Apply Functions](Lectures/Lecture23.html) | -  | -
-April 25  | [Base Graphics I](Lectures/Lecture24.html) | -  | -
-April 26  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
-April 27  | [Base Graphics II](Lectures/Lecture24.html) | -  | -
-May 2  | **Research Presentations: Clark, Southgate, Keller, Looi** | -  | -
-May 3  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Garrett, Kazenal**
-May 4  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
+March 20  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
+March 21  | - | -  | [Homework #9](Homeworks/Homework09.html)
+March 22  | *NO CLASS* | - | -
+March 27  | [Control Structures](Lectures/Lecture16.html) | -  | -
+March 28  | - | -  | Catch-up Day 
+March 29  | [Control Structures II](Lectures/Lecture17.html) | -  | -
+April 3  | [Control Structures III](Lectures/Lecture18.html) | -  | -
+April 4  | - | -  | [Homework #10](Homeworks/Homework10.html)
+April 5  | [Control Structures IV](Lectures/Lecture19.html) | -  | -
+April 10  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
+April 11  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
+April 12  | [Markov Models](Lectures/Lecture21.html) | -  | -
+April 17  | [Markov Models II](Lectures/Lecture22.html) | -  | -
+April 18  | - | -  | **R Presentations: Garrett, Mikucki, Southgate, Kazenal**
+April 19  | [Apply Functions](Lectures/Lecture23.html) | -  | -
+April 24  | [Base Graphics I](Lectures/Lecture24.html) | -  | -
+April 25  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
+April 26  | [Base Graphics II](Lectures/Lecture24.html) | -  | -
+May 1  | **Research Presentations: Clark, Southgate, Keller, Looi** | -  | -
+May 2  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Garrett, Kazenal**
+May 3  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 
 ### Class Work
 
 Student  | Fun Fact
 ------------- | --------------
-Samantha Alger  [GitHub](https://github.com/samanthaannalger) [Portfolio](https://samanthaannalger.github.io/compbio/)  | I am a beekeeper.
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Lauren Ashlock  [GitHub](https://github.com/lashlock) [Portfolio](https://lashlock.github.io/compbio/)  | I have a 13 year old cockatiel named Rosie. 
-Alex Burnham  [GitHub](https://github.com/alexburn17) [Portfolio](https://alexburn17.github.io/CompBio/)  | I used to own a business called "Burnham Custom Amplification" where I hand built boutique custom speaker cabinets for guitar and bass players.
-Peter Clark  [GitHub](https://github.com/Peat-Clark) [Portfolio](https://peat-clark.github.io/BIO381/)  | I enjoy [plants that grow on cliffs](https://cliffecology.com).
-April Garrett  [GitHub](https://github.com/amakukhov) [Portfolio](https://amakukhov.github.io/Bio381/)  | As a reward for getting through Comps at the end of this semester, I plan to enroll in River Dancing classes in Colchester starting this summer.
+Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Kristian Brevik [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Wilton Burns[GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Luke Daniels [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Kyle Dittmer [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
 Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
-Melanie Kazenal  [GitHub](https://github.com/mkazenel) [Portfolio](https://mkazenel.github.io/Bio381/ )  | After completing my undergraduate degree, I worked for two years as an immigration law paralegal.
-Erin Keller  [GitHub](https://github.com/ErinKeller) [Portfolio](https://erinkeller.github.io/Bio381/)  | I can speak Norwegian! Jeg kan snakker norsk!
-Alex Looi  [GitHub](https://github.com/LooiXIV/Bio381) [Portfolio](https://looixiv.github.io/Bio381/)  | I like to run, a lot, and I have a personal running coach who lives in San Fran.  
-Emily Mickuki  [GitHub](https://github.com/emikucki) [Portfolio](https://emikucki.github.io/Bio381/)  | I have scars on my arm from being bitten by a sloth! 
-Matthias Nevins  [GitHub](https://github.com/MtNevins) [Portfolio](https://mtnevins.github.io/BIO381/)  | I was home-schooled until 8th grade. 
-Morgan Southgate  [GitHub](https://github.com/mws19) [Portfolio](https://mws19.github.io/Bio381/)  | Over this winter break, I attended Dave Barrington’s Tropical Plant Systematics field course in Costa Rica. 
+Diana Hackenberg [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the French Horn.
+Raymond Looney [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Alex Neidermeier [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Owen Page [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Kunal Palawat [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Lindsey Pett [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Kenna Rewcastle [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Jorge Ruizarocho [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Anna Schmoker [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Anya Steinhart [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Ethan Thibault [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Kirsten Tyler [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Brittany Verrico [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Adria Wiegman [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Colleen Yancey [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
 
 ### Class R Presentations
 
