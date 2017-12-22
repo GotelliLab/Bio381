@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2017"
+date: "Spring 2017: Archival Version"
 output:
   prettydoc::html_pretty:
     theme: hpstr
