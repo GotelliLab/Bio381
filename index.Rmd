@@ -57,7 +57,7 @@ March 8  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https
 March 13  | *SPRING RECESS* | -  | -
 March 14  | *SPRING RECESS* | -  | -
 March 15  | *SPRING RECESS* | -  | -
-March 20  | Guest Lecture: Dr. Brandon Ogbunugafor | -  | -
+March 20  | TBA | -  | -
 March 21  | - | -  | [Homework #9](Homeworks/Homework09.html)
 March 22  | *NO CLASS* | - | -
 March 27  | [Control Structures](Lectures/Lecture16.html) | -  | -
