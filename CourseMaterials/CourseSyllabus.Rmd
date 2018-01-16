@@ -47,6 +47,37 @@ This course is designed to teach you four things:
 3. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
 4. How to recognize, use, and analyze 4 archetypal experimental designs for biologists, apply them to real and simulated data, and create publication quality graphs with the `ggplot2()` package in R.
 
+#### Traditional and Modern Computational Tools
+- Traditional
+    + Word/Excel/Powerpoint
+    + SAS/SPSS/JMP for stats
+    + Sigmaplot
+
+- Commercial
+- Proprietary
+
+- Expensive, availability of updates
+- Code not available to modify, improve
+- File formats usually not compatable
+- Poor tools for documentation, transparency
+
+- Modern
+    + LaTeX/Markdown/Typora/Overleaf (instead of Word)
+    + plain-text editors (instead of Excel)
+    + Beamer slides (instead of Powerpoint)
+    + R (instead of stats and graphics packages)
+    
+- Advantages of Modern
+    + free, open source
+    + files always usable and readable
+    + huge network of expert users (Wikipedia style)
+    + less vulnerable to hackers and malware
+    
+- Learning to code
+    + deeper understanding of problem
+    + hypothesis testing
+    + life long habit of learning and staying abreast of field
+    
 #### Thinking On Paper
 - the logic tree (the basis for "strong inference" that is rarely used explicitly)
 - the look-up table (organize the results of multiple statistical analyses with a "dip-switch" test)
