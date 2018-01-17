@@ -85,15 +85,15 @@ Student  | Fun Fact
 ------------- | --------------
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
-Kristian Brevik [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
-Wilton Burns[GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
+John Barlow [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once gave a snake an enema.
+Wilton Burns [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
 Luke Daniels [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I met Matthew Perry (Chandler from the T.V show Friends), and I play the guitar.
 Kyle Dittmer [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | This is my first winter ever living in snow!
 Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
 Diana Hackenberg [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the French Horn.
 Raymond Looney [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I'm an actor, and in a play I was in last year I got so committed to a scene that I broke my foot while kicking a box and continued the performance for 3 more days.
 Alex Neidermeier [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | While in the Peace Corps in Burkina Faso, my main project was, bizarrely enough, working with a women’s group on making and selling tofu kebobs at a local bar.
-Owen Page [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Owen Page [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I am a pretty big Newcastle United fan and used to play classical guitar.
 Kunal Palawat [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I have been consistently vegetarian and inconsistently vegan since birth.
 Lindsey Pett [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I just became a pet parent to 3 dwarf puffer fish.
 Kenna Rewcastle [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My most epic `#fieldworkfail` involved a bike wreck with a reindeer.
@@ -104,7 +104,7 @@ Ethan Thibault [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/
 Kirsten Tyler [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
 Brittany Verrico [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I primarily read WWII literature for pleasure.
 Adrian Wiegman [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once caught about 20 speckled trout and redfish in 1 hour while fishing under a spotlight on a dock at night in Grand Isle Louisiana. Other than that I am a rather terrible fisherman.
-Colleen Yancey [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Colleen Yancey [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My dad is a Commander in the Navy which means I had moved 6 times before I turned 8 years old.
 
 ### Class R Presentations
 
