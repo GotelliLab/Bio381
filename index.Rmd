@@ -84,7 +84,7 @@ May 3  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 Student  | Fun Fact
 ------------- | --------------
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
+Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I have jumped off the most southern point of the US (south point, big island of Hawaii).
 John Barlow [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once gave a snake an enema.
 Wilton Burns [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
 Luke Daniels [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I met Matthew Perry (Chandler from the T.V show Friends), and I play the guitar.
@@ -101,7 +101,6 @@ Jorge Ruizarocho [GitHub](https://github.com/x) [Portfolio](https://x.github.io/
 Anna Schmoker [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I teach ballet and worked as a professional ballet dancer before coming to UVM.
 Anya Steinhart [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I am a certified yoga instructor.
 Ethan Thibault [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  |I have helped my dad with his landscaping business for nine years and as a result can operate commercial landscaping equipment such as zero-turn mowers, leaf-vacs, gas powered backpack blowers, hedge trimmers, etc.
-Kirsten Tyler [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | FUNFACT.
 Brittany Verrico [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I primarily read WWII literature for pleasure.
 Adrian Wiegman [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once caught about 20 speckled trout and redfish in 1 hour while fishing under a spotlight on a dock at night in Grand Isle Louisiana. Other than that I am a rather terrible fisherman.
 Colleen Yancey [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My dad is a Commander in the Navy which means I had moved 6 times before I turned 8 years old.
