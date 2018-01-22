@@ -1,7 +1,7 @@
 ---
 title: 'Homework #2'
 author: "Nicholas J. Gotelli"
-date: "January 25, 2017"
+date: "January 24, 2018"
 output: 
   html_document: 
     highlight: tango
@@ -11,22 +11,20 @@ output:
 
 1. Take a broad, self-critical look at your entire thesis/honors project. What are the big questions you are asking, and what are the specific hypotheses and mechanisms that your experiments and sampling are trying to address? How will you interpret the different possible results from your activities? Be explicit and detailed; do not hide behind jargon or vague statements.  
 
-2. Translate your answers to these questions into the 4 diagrams we discussed in class: a) path diagram; b) logic tree; c) look-up table; d) mock data. You may have to try several versions to get a satisfying result.
+2. Translate your answers to these questions into any 2 of the 4 diagrams we discussed in class: a) cause-and-effect diagram; b) pre-graph; c) DIPSwitch table c) logic tree. You may have to try several versions to get a satisfying result.
 
-3. Make a neat pen-and-ink drawing of each Figure on a separate sheet of paper.
+3. Lauren will illustrate a simple programmming language embedded within Typora that will allow you to create a flowchart diagram of your figure. Alternatively, you could also make a neat pen and ink drawing of your figure, photograph it with your iphone, and send it to your computer.
 
 4. After an hour or devoted to working on these diagrams, Lauren will ask you to volunteer to bring your diagram up to the overhead projector. Show it to the class, and explain the mechanisms and links you are working with. The class should ask questions and give you feedback for improving the figure.
 
-5. Using your smartphone (or borrowing a friend's), take a sharp close-up photo of each of the 4 sheets and mail it as an attachment .jpeg to yourself.
+5. At your index page, build a link to a page called `Homework02`.
 
-6. At your index page, build a link to a page called `Homework02`.
+6. Create `Homework02.Rmd` as a new Markdown file.
 
-7. Create `Homework02.Rmd` as a new Markdown file.
+7. Insert each of the images into the file and compile as an `.html`.
 
-8. Insert each of the images into the file and compile as an `.html`.
+8. Use GitHub to make frequent commits, and sync your repo to update your webpages.
 
-9. Use GitHub to make frequent commits, and sync your repo to update your webpages.
+9. Add Markdown titles, formatting, and text, and develop a narrative to explain each figure, the hypotheses they elaborate, and the expected outcomes of your experiments and observations. If you hit a wall in developing your hypotheses, try to write some text explaining what the issues are. 
 
-10. Add Markdown titles, formatting, and text, and develop a narrative to explain each figure, the hypotheses they elaborate, and the expected outcomes of your experiments and observations. If you hit a wall in developing your hypotheses, try to write some text explaining what the issues are. 
-
-11. As your project progresses, you may want to return to this webpage to update (and hopefully improve!) your diagrams and interpretations.
+10. As your project progresses, you may want to return to this webpage to update (and hopefully improve!) your diagrams and interpretations.

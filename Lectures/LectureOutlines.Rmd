@@ -1,7 +1,7 @@
 ---
 title: "Lecture Outlines"
 author: "Biology 381 - Computational Biology"
-date: "Spring 2017"
+date: "Spring 2018"
 output:
   prettydoc::html_pretty:
     theme: hpstr
