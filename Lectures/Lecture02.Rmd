@@ -1,7 +1,7 @@
 ---
 title: 'Lecture #2: Thinking On Paper'
 author: "Nicholas J. Gotelli"
-date: "January 19, 2017"
+date: "January 18, 2018"
 output:
   html_document:
     highlight: tango
