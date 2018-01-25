@@ -84,26 +84,26 @@ May 3  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
 Student  | Fun Fact
 ------------- | --------------
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I have jumped off the most southern point of the US (south point, big island of Hawaii).
-John Barlow [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once gave a snake an enema.
-Wilton Burns [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
-Luke Daniels [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I met Matthew Perry (Chandler from the T.V show Friends), and I play the guitar.
-Kyle Dittmer [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | This is my first winter ever living in snow!
+John Barlow [GitHub](https://github.com/johnbarlowvt) [Portfolio](https://johnbarlowvt.github.io/Bio381_2018/)  | I once gave a snake an enema.
+Lauren Bomeisl [GitHub](https://github.com/x) [Portfolio](https://laurenbomeisl.github.io/Bio381_2018/)  | I have jumped off the most southern point of the US (south point, big island of Hawaii).
+Wilton Burns [GitHub](https://github.com/x) [Portfolio](https://wgburns.github.io/Bio381_2018/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
+Luke Daniels [GitHub](https://github.com/x) [Portfolio](https://lukedaniels1.github.io/Bio381_2018/)  | I met Matthew Perry (Chandler from the T.V show Friends), and I play the guitar.
+Kyle Dittmer [GitHub](https://github.com/x) [Portfolio](https://kyledittmer.github.io/Bio381_2018/)  | This is my first winter ever living in snow!
 Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
-Diana Hackenberg [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I play the French Horn.
-Raymond Looney [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I'm an actor, and in a play I was in last year I got so committed to a scene that I broke my foot while kicking a box and continued the performance for 3 more days.
-Alex Neidermeier [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | While in the Peace Corps in Burkina Faso, my main project was, bizarrely enough, working with a women’s group on making and selling tofu kebobs at a local bar.
-Owen Page [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I am a pretty big Newcastle United fan and used to play classical guitar.
-Kunal Palawat [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I have been consistently vegetarian and inconsistently vegan since birth.
-Lindsey Pett [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I just became a pet parent to 3 dwarf puffer fish.
-Kenna Rewcastle [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My most epic `#fieldworkfail` involved a bike wreck with a reindeer.
-Jorge Ruizarocho [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My native language is Spanish and I am a mixture of Europeans, Africans and Native Americans (aka. a Puerto Rican).
-Anna Schmoker [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I teach ballet and worked as a professional ballet dancer before coming to UVM.
-Anya Steinhart [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I am a certified yoga instructor.
-Ethan Thibault [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  |I have helped my dad with his landscaping business for nine years and as a result can operate commercial landscaping equipment such as zero-turn mowers, leaf-vacs, gas powered backpack blowers, hedge trimmers, etc.
-Brittany Verrico [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I primarily read WWII literature for pleasure.
-Adrian Wiegman [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | I once caught about 20 speckled trout and redfish in 1 hour while fishing under a spotlight on a dock at night in Grand Isle Louisiana. Other than that I am a rather terrible fisherman.
-Colleen Yancey [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | My dad is a Commander in the Navy which means I had moved 6 times before I turned 8 years old.
+Diana Hackenberg [GitHub](https://github.com/x) [Portfolio](https://dhackenburg.github.io/Bio381_2018/)  | I play the French Horn.
+Raymond Looney [GitHub](https://github.com/x) [Portfolio](https://rlooney.github.io/Bio381_2018/)  | I'm an actor, and in a play I was in last year I got so committed to a scene that I broke my foot while kicking a box and continued the performance for 3 more days.
+Alex Neidermeier [GitHub](https://github.com/x) [Portfolio](https://aneiderm.github.io/NeiderBio381/)  | While in the Peace Corps in Burkina Faso, my main project was, bizarrely enough, working with a women’s group on making and selling tofu kebobs at a local bar.
+Owen Page [GitHub](https://github.com/owenrpage/Biol381_2018/) [Portfolio](https://owenrpage.github.io/Biol381_2018/)  | I am a pretty big Newcastle United fan and used to play classical guitar.
+Kunal Palawat [GitHub](https://github.com/x) [Portfolio](https://kpalawat223.github.io/CompBiol381/)  | I have been consistently vegetarian and inconsistently vegan since birth.
+Lindsey Pett [GitHub](https://github.com/x) [Portfolio](https://lpett.github.io/Bio381_2018/)  | I just became a pet parent to 3 dwarf puffer fish.
+Kenna Rewcastle [GitHub](https://github.com/x) [Portfolio](https://kennarewcastle.github.io/RewcastleBio381/)  | My most epic `#fieldworkfail` involved a bike wreck with a reindeer.
+Jorge Ruizarocho [GitHub](https://github.com/x) [Portfolio](https://jorgeruizarocho.github.io/Bio381_2018/)  | My native language is Spanish and I am a mixture of Europeans, Africans and Native Americans (aka. a Puerto Rican).
+Anna Schmoker [GitHub](https://github.com/aschmoke) [Portfolio](https://aschmoke.github.io/Bio381_2018/)  | I teach ballet and worked as a professional ballet dancer before coming to UVM.
+Anya Steinhart [GitHub](https://github.com/x) [Portfolio](https://anyasteinhart9898.github.io/BIOL-381/)  | I am a certified yoga instructor.
+Ethan Thibault [GitHub](https://github.com/x) [Portfolio](https://ethanthibault.github.io/BIO381/)  |I have helped my dad with his landscaping business for nine years and as a result can operate commercial landscaping equipment such as zero-turn mowers, leaf-vacs, gas powered backpack blowers, hedge trimmers, etc.
+Brittany Verrico [GitHub](https://github.com/x) [Portfolio](https://bmverrico.github.io/Bio381_ComputationalBiology/)  | I primarily read WWII literature for pleasure.
+Adrian Wiegman [GitHub](https://github.com/x) [Portfolio](https://arhwiegman.github.io/Bio318_2018)  | I once caught about 20 speckled trout and redfish in 1 hour while fishing under a spotlight on a dock at night in Grand Isle Louisiana. Other than that I am a rather terrible fisherman.
+Colleen Yancey [GitHub](https://github.com/cyancey95/CompBiol_2018) [Portfolio](https://cyancey95.github.io/CompBiol_2018/)  | My dad is a Commander in the Navy which means I had moved 6 times before I turned 8 years old.
 
 ### Class R Presentations
 
