@@ -1,0 +1,191 @@
+---
+title: 'Lecture #4: Working With R Studio'
+author: "Nicholas J. Gotelli"
+date: "January 25 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Equations
+
+* in-line `$`
+* centered `$$`
+
+- basic math and text spacing handled by LateX
+
+```
+$$y = a + b$$
+```
+
+$$y = a + b$$
+
+#### Subcripts
+
+```
+$$H_0 = Z_{a + b}$$
+```
+
+$$H_0 = Z_{a + b}$$
+
+####Superscripts
+
+```
+$$S = cA^z$$
+
+```
+
+$$S = cA^z$$
+
+
+Contrast this with the construction of superscripts in Markdown
+
+```
+
+```
+```
+Markdown z^x^
+```
+
+z^x^
+
+```
+LaTeX: $z^x$
+```
+$z^x$
+
+```
+Markdown: z^x + 1^
+```
+
+z^x + 1^
+
+```
+LaTeX: $z^{x + 1}$
+```
+
+$z^{x + 1}$
+
+```
+Markdown: z^x+1^
+```
+z^x+1^
+
+```
+LaTeX: $z^{x+1}$
+```
+$z^{x+1}$
+
+
+- elements can be coupled and nested
+
+$$S=cA^z_1 + z_{2 + x}$$
+
+
+```
+$$S=cA^z_1 + z_{2 + x}$$
+
+```
+
+#### Fractions and Greek Symbols
+
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+```
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+
+```
+
+#### Summation signs
+
+$$z = \sum_{i=1}^X{K}$$
+
+```
+$$z = \sum_{i=1}^X{K}$$
+
+```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
+### R Code in Chunks
+
+* `CTRL-ALT-I` inserts a new "chunk" of R code
+```{r}
+# Use comments extensively in ALL of your coding!
+library(ggplot2)      # load a package (already installed)
+Pred <- seq(1,50)     # make a vector of integers from 1 to 10
+Res <- runif(50)      # generate 10 draws from a random uniform (0,1) distribution
+
+# print the random numbers
+print(Res)
+
+# plot the graph
+qplot(x=Pred,y=Res)
+```
+
+### Using chunk options to control printing of code and output
+```{r, eval=TRUE,echo=TRUE,message=FALSE}
+qplot(x=runif(50))
+print(head(Res))
+print(summary(Res))
+```
+
+### Writing R scripts
+
+- new script
+- code executes and prints in console
+- graphs in output window
+- `CTRL - ENTER` to run a single line of code
+- `CTRL - SHIFT - ENTER` to source the entire script
+- code to illustrate:
+```
+# Use comments extensively throughout your code
+Time <- seq(1,10) # Create a vector of integers, 1 to 10
+Resp <- runif(10) # Create 10 random uniform (0,1) variates
+#
+print(Time)
+print(Resp)
+#
+# Plot the data
+plot(x=Time,y=Resp,type="b")
+```
+### Converting `.R` files to `.html` (creating an R notebook)
+- use notebook script
+- roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
+
