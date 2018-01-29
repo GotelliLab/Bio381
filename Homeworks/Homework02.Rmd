@@ -28,3 +28,17 @@ output:
 9. Add Markdown titles, formatting, and text, and develop a narrative to explain each figure, the hypotheses they elaborate, and the expected outcomes of your experiments and observations. If you hit a wall in developing your hypotheses, try to write some text explaining what the issues are. 
 
 10. As your project progresses, you may want to return to this webpage to update (and hopefully improve!) your diagrams and interpretations.
+
+### Building a Flowchart in Typora
+
+1. In Typora, go to `preferences` (under the `file` or `edit` pull-down menu) and check the `Diagrams` option.
+
+2. In Typora help, go to `More Topics...` and `Draw Diagrams With Markdown`
+
+3. Scroll down to `Flowchart` and copy the code snippet into a fresh Typora file.
+
+4. Click outside the box and you should see this code rendered as a nice flow chart.
+
+5. Now study the code to understand how it works, and then modify it to recreate your flow chart or logic tree diagram from last week. 
+
+6. Add some text and pick a nice theme, and then render the Typora `.md` file to `.html` and push the changes to your repo.
