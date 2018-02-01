@@ -398,6 +398,36 @@ z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE<
 <span class="kw">names</span>(z2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;copper&quot;</span>,<span class="st">&quot;zinc&quot;</span>)
 <span class="kw">print</span>(z2)</code></pre></div>
 </div>
+<div id="special-data-types" class="section level4">
+<h4>Special Data Types</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># NA values for missing data</span>
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.2</span>,<span class="fl">3.3</span>,<span class="ot">NA</span>) <span class="co"># NA is a missing value</span>
+<span class="kw">typeof</span>(z)
+<span class="kw">length</span>(z)
+<span class="kw">typeof</span>(z[<span class="dv">3</span>]) <span class="co"># what is the type of third element</span>
+
+z1 &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="kw">typeof</span>(z1) <span class="co">#different NA types</span>
+
+<span class="kw">is.na</span>(z) <span class="co"># logical operator to find missing values</span>
+<span class="kw">mean</span>(z) <span class="co"># won't work because of NA</span>
+<span class="kw">is.na</span>(z)<span class="co"># evaluate to find midding values</span>
+<span class="op">!</span><span class="kw">is.na</span>(z) <span class="co"># use ! for NOT missing values</span>
+<span class="kw">mean</span>(<span class="op">!</span><span class="kw">is.na</span>(z)) <span class="co"># wrong answer based on TRUE FALSE!!</span>
+<span class="kw">mean</span>(z[<span class="op">!</span><span class="kw">is.na</span>(z)]) <span class="co"># correct use of indexing</span>
+<span class="co">#-----------------------------</span>
+
+<span class="co"># NaN, -Inf, and Inf from numeric division</span>
+z &lt;-<span class="st">  </span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span>   <span class="co"># NaN</span>
+<span class="kw">typeof</span>(z)
+z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">0</span>   <span class="co"># Inf</span>
+<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">0</span>  <span class="co"># - Inf</span>
+<span class="co">#-------------------------------</span>
+<span class="co"># NULL is an object that is nothing!</span>
+z &lt;-<span class="st"> </span><span class="ot">NULL</span>
+<span class="kw">typeof</span>(z)
+<span class="kw">length</span>(z)</code></pre></div>
+</div>
 </div>
 <div id="three-notable-features-of-atomic-vectors" class="section level3">
 <h3>Three Notable Features of Atomic Vectors</h3>
@@ -427,7 +457,7 @@ a &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1
 <span class="co"># Comparison operators yield a logical result</span>
 a <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>
 
-<span class="co"># do math on a logical and it converts to an integer!</span>
+<span class="co"># do math on a logical and it coerces to an integer!</span>
 
 <span class="co"># How many elements are greater than 0.5?</span>
 <span class="kw">sum</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>)
