@@ -424,9 +424,11 @@ z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</spa
 <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">0</span>  <span class="co"># - Inf</span>
 <span class="co">#-------------------------------</span>
 <span class="co"># NULL is an object that is nothing!</span>
+<span class="co"># a reserved word in R</span>
 z &lt;-<span class="st"> </span><span class="ot">NULL</span>
 <span class="kw">typeof</span>(z)
-<span class="kw">length</span>(z)</code></pre></div>
+<span class="kw">length</span>(z)
+<span class="kw">is.null</span>(z) <span class="co"># only operation that works on a null</span></code></pre></div>
 </div>
 </div>
 <div id="three-notable-features-of-atomic-vectors" class="section level3">
@@ -439,7 +441,7 @@ z &lt;-<span class="st"> </span><span class="ot">NULL</span>
 
 a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="fl">2.0</span>)
 <span class="kw">print</span>(a)
-<span class="kw">typeof</span>(a)
+<span class="kw">typeof</span>(a) <span class="co"># technically integer coerced to numeric</span>
 
 b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;green&quot;</span>)
 <span class="kw">typeof</span>(b)
@@ -568,7 +570,14 @@ myVec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:<
 <span class="kw">runif</span>(<span class="dt">n=</span><span class="dv">3</span>,<span class="dt">min=</span><span class="dv">100</span>, <span class="dt">max=</span><span class="dv">101</span>) <span class="co"># 3 random uniform values between 100 and 101</span>
 
 <span class="kw">rnorm</span>(<span class="dv">6</span>) <span class="co"># 6 random normal values with mean 0 and standard deviation 1</span>
-<span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">30</span>) <span class="co"># 5 random normal values with mean 100 and sd 30</span></code></pre></div>
+<span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">30</span>) <span class="co"># 5 random normal values with mean 100 and sd 30</span>
+
+## Explore distributions by sampling and plotting
+<span class="kw">library</span>(ggplot2) <span class="co"># do this at the very start</span>
+z &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000</span>) <span class="co">#default uniform (0,1)</span>
+<span class="kw">qplot</span>(<span class="dt">x=</span>z)
+z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co">#default normal (0,1)</span>
+<span class="kw">qplot</span>(<span class="dt">x=</span>z)</code></pre></div>
 </div>
 <div id="using-sample-to-draw-random-values-from-an-existing-vector" class="section level4">
 <h4>Using <code>sample</code> to draw random values from an existing vector</h4>
