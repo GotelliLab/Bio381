@@ -52,7 +52,7 @@ print(p1)
 
 #### Add empirical density curve
 
-Now modify the code to add in a density plot of the data. This is an empirical curve that is fitted to the data. It does not assume any particular probability distribution, but it smooths out the shape of the histogram:
+Now modify the code to add in a kernel density plot of the data. This is an empirical curve that is fitted to the data. It does not assume any particular probability distribution, but it smooths out the shape of the histogram:
 
 ```{r}
 p1 <-  p1 +  geom_density(linetype="dotted",size=0.75)
