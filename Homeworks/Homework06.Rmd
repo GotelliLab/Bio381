@@ -35,11 +35,12 @@ Lauren will be able to help you if you are having trouble reading in the data.
 
 How do the two histogram profiles compare? Do you think the model is doing a good job of simulating realistic data that match your original measurements? Why or why not?
 
+If you have entered a large data frame with many columns, try running all of the code on a different variable to see how the simulation performs.
+
 Once we get a little bit more R coding under our belts, we will return to the problem of simulating data and use some of this code again.
 
 ___
 
-___
 
 
 #### Open libraries

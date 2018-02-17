@@ -23,7 +23,7 @@ Don't worry about how many tab spaces are needed to set this up, just make sure 
 ```
 First String,Second,1.2,3.4
 Second,More Text,1.55555,2.2220
-Third,x3,124
+Third,x,3,124
 ```
 
 2. A True Regex Story. I am preparing a collaborative NSF grant with a colleague at another university. One of the pieces of an NSF grant is a listing of potential conflicts of interest. NSF wants to know the first and last name of the collaborator and their institution.
@@ -51,7 +51,7 @@ Write a single regular expression that will make the change.
 The list of tunes (shown here as a single line of text) looks like this:
 
 ```
-0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 003 Cherokee Shuffle.mp3 0004 Walking Cane.mp3
+0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Cherokee Shuffle.mp3 0004 Walking Cane.mp3
 ```
 Unfortunately, in this form, you can't re-order the file names to put them in alphabetical order. I thought I could just strip out the leading numbers, but this will cause a conflict, because, for wildly popular tunes such as "Shove That Pig's Foot A Little Further In The Fire", there are multiple copies somewhere in the list.
 
@@ -91,7 +91,7 @@ M_punctiventris,4
 L_neoniger,55
 ```
 
-Beginning with the original expression, rearrange it to abbreviate the species name like this:
+Beginning with the original data set, rearrange it to abbreviate the species name like this:
 
 ```
 C_penn,44
