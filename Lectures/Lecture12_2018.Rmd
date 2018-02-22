@@ -59,9 +59,8 @@ dataCleanCols <-data[complete.cases(data[,5:6]),]
 ```{r}
 library(ggplot2)
 library(TeachingDemos)
-temp <- char2seed('espresso',set=FALSE)
-print(temp)
-set.seed(temp)
+char2seed('espresso',set=FALSE)
+char2seed('espresso')
 ```
 
 
@@ -85,13 +84,46 @@ str(regData)
 regModel <- lm(varB~varA,data=regData)
 
 # model output
-str(regModel)
-print(regModel)
-print(summary(regModel))
-head(regModel$residuals)
+regModel # printed output is sparse
+str(regModel) # complicated, but has "coefficients"
+head(regModel$residuals) # contains residuals
+
+# 'summary' of model has elements
+summary(regModel) # 
+summary(regModel)$coefficients
 str(summary(regModel))
+
+# can pull results from this, but it is tedious!
+summary(regModel)$coefficients[1,4]   #p value for intercept
+summary(regModel)$coefficients["(Intercept)","Pr(>|t|)"] # uggh
+
+
+# unfurl this into a 1D atomic vector with names
 z <- unlist(summary(regModel))
 str(z)
+z
+z$coefficients7
 
+# grab what we need and put into a little list
+
+regSum <- list(intercept=z$coefficients1,
+               slope=z$coefficients2,
+               interceptP=z$coefficients7,
+               slopeP=z$coefficients8,
+               r2=z$r.squared)
+print(regSum)
+regSum$r2
+regSum[[5]]
+
+```
+
+### Basic ggplot of regression model
+
+```{r}
+regPlot <- ggplot(data=regData,aes(x=varA,y=varB)) +
+           geom_point() +
+           stat_smooth(method=lm,se=0.99)
+print(regPlot)
+# ggsave(filename="Plot1.pdf",plot=regPlot,device="pdf")
 ```
 
