@@ -1,0 +1,44 @@
+---
+title: 'Lecture #12: Data Entry, Experimental Designs'
+author: "Nicholas J. Gotelli"
+date: "February 22, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Data analysis recap
+1. Begin with observed data
+2. Choose an appropriate distribution
+  - bounded versus unbounded distributions
+  - continuous versus integer variables
+3. Use `fitdistr` to get MLE parameters for data
+4. Examine mean and variance
+5. What would mean and variances and sample sizes be for groups in your experiment?
+6. Simulate a data set with these values
+7. Use simple ANOVA/regression tests for p value
+8. Explore effects of increasing/decreasing sample sizes
+9. Explore effects of increasing/decreasing differences among mean (= effect size)
+
+### Data Curation
+- GitHub repository
+- Student contract
+- Metadata
+- Metadata template
+- example of Lauren's data
+
+### Data Read Statement
+```{r,eval=FALSE}
+data <-read.table(file="FileName.csv",row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
+```
+
+### Omitting NA values
+```{r, eval= FALSE}
+dataClean <- data[complete.cases(data),] # removes all rows with NA values
+
+# to get complete cases for just certain columns 
+dataCleanCols <-data[complete.cases(data[,5:6]),]
+                                   
+```
+ 

@@ -47,7 +47,7 @@ February 14  | - | -  | [Homework #5](Homeworks/Homework05.html)
 February 15  |[Data Structures](Lectures/Lecture10.html)| -  | -
 February 20  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
 February 21  | - | -  | [Homework #6](Homeworks/Homework06.html)
-February 22  | [Probability Distributions](Lectures/Lecture12_13.html)| -  | -
+February 22  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
 February 27  | [Probability Distributions II](Lectures/Lecture12_13.html)| -  | -
 February 28  | - | -  | [Homework #7](Homeworks/Homework07.html)
 March 1  | [Functions](Lectures/Lecture14.html)| -  | -
