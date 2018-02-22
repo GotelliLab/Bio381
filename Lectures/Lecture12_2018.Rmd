@@ -42,3 +42,56 @@ dataCleanCols <-data[complete.cases(data[,5:6]),]
                                    
 ```
  
+### Archetype Data Designs
+- independent versus dependent variables
+- discrete versus continuous variables
+- continuous variables (integer and real)
+- direction of cause and effect, x axis is independent
+- continuous versus discrete (natural or arbitrary or statistical bins)
+
+### Regression (dependent: continuous, independent: continuous)
+- linear model of $y = a + bx$
+- statistical tests for null of hypothesis of slope and/or intercept = 0
+- confidence and prediction intervals of uncertainty
+- goodness of fit tests for linearity
+
+### Set-up
+```{r}
+library(ggplot2)
+library(TeachingDemos)
+temp <- char2seed('espresso',set=FALSE)
+print(temp)
+set.seed(temp)
+```
+
+
+### Data Frame construction for Regression Data
+
+```{r}
+n = 50  # number of observations (rows)
+
+varA <- runif(n) # random uniform values (independent)
+varB <- runif(n) # a second random column (dependent)
+varC <- 5.5 + varA*10 # a noisy linear relationship with varA
+ID <- seq_len(n) # creates a sequence from 1:n (if n > 0!)
+regData <- data.frame(ID,varA,varB,varC)
+head(regData)
+str(regData)
+```
+
+# Basic regression analysis in R
+```{r}
+# model
+regModel <- lm(varB~varA,data=regData)
+
+# model output
+str(regModel)
+print(regModel)
+print(summary(regModel))
+head(regModel$residuals)
+str(summary(regModel))
+z <- unlist(summary(regModel))
+str(z)
+
+```
+

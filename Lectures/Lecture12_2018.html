@@ -193,6 +193,280 @@ $(document).ready(function () {
 <span class="co"># to get complete cases for just certain columns </span>
 dataCleanCols &lt;-data[<span class="kw">complete.cases</span>(data[,<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>]),]</code></pre></div>
 </div>
+<div id="archetype-data-designs" class="section level3">
+<h3>Archetype Data Designs</h3>
+<ul>
+<li>independent versus dependent variables</li>
+<li>discrete versus continuous variables</li>
+<li>continuous variables (integer and real)</li>
+<li>direction of cause and effect, x axis is independent</li>
+<li>continuous versus discrete (natural or arbitrary or statistical bins)</li>
+</ul>
+</div>
+<div id="regression-dependent-continuous-independent-continuous" class="section level3">
+<h3>Regression (dependent: continuous, independent: continuous)</h3>
+<ul>
+<li>linear model of <span class="math inline">\(y = a + bx\)</span></li>
+<li>statistical tests for null of hypothesis of slope and/or intercept = 0</li>
+<li>confidence and prediction intervals of uncertainty</li>
+<li>goodness of fit tests for linearity</li>
+</ul>
+</div>
+<div id="set-up" class="section level3">
+<h3>Set-up</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(TeachingDemos)
+temp &lt;-<span class="st"> </span><span class="kw">char2seed</span>(<span class="st">'espresso'</span>,<span class="dt">set=</span><span class="ot">FALSE</span>)
+<span class="kw">print</span>(temp)</code></pre></div>
+<pre><code>## [1] 5707170</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(temp)</code></pre></div>
+</div>
+<div id="data-frame-construction-for-regression-data" class="section level3">
+<h3>Data Frame construction for Regression Data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n =<span class="st"> </span><span class="dv">50</span>  <span class="co"># number of observations (rows)</span>
+
+varA &lt;-<span class="st"> </span><span class="kw">runif</span>(n) <span class="co"># random uniform values (independent)</span>
+varB &lt;-<span class="st"> </span><span class="kw">runif</span>(n) <span class="co"># a second random column (dependent)</span>
+varC &lt;-<span class="st"> </span><span class="fl">5.5</span> <span class="op">+</span><span class="st"> </span>varA<span class="op">*</span><span class="dv">10</span> <span class="co"># a noisy linear relationship with varA</span>
+ID &lt;-<span class="st"> </span><span class="kw">seq_len</span>(n) <span class="co"># creates a sequence from 1:n (if n &gt; 0!)</span>
+regData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ID,varA,varB,varC)
+<span class="kw">head</span>(regData)</code></pre></div>
+<pre><code>##   ID      varA      varB      varC
+## 1  1 0.0480827 0.8079703  5.980827
+## 2  2 0.4680220 0.5237167 10.180220
+## 3  3 0.6147099 0.1506399 11.647099
+## 4  4 0.3087620 0.0221688  8.587620
+## 5  5 0.1143333 0.1253735  6.643333
+## 6  6 0.5901363 0.5466848 11.401363</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(regData)</code></pre></div>
+<pre><code>## 'data.frame':    50 obs. of  4 variables:
+##  $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ varA: num  0.0481 0.468 0.6147 0.3088 0.1143 ...
+##  $ varB: num  0.808 0.5237 0.1506 0.0222 0.1254 ...
+##  $ varC: num  5.98 10.18 11.65 8.59 6.64 ...</code></pre>
+</div>
+<div id="basic-regression-analysis-in-r" class="section level1">
+<h1>Basic regression analysis in R</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># model</span>
+regModel &lt;-<span class="st"> </span><span class="kw">lm</span>(varB<span class="op">~</span>varA,<span class="dt">data=</span>regData)
+
+<span class="co"># model output</span>
+<span class="kw">str</span>(regModel)</code></pre></div>
+<pre><code>## List of 12
+##  $ coefficients : Named num [1:2] 0.5101 -0.0927
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##  $ residuals    : Named num [1:50] 0.302 0.057 -0.302 -0.459 -0.374 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:50] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ effects      : Named num [1:50] -3.297 0.185 -0.342 -0.496 -0.409 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:50] &quot;(Intercept)&quot; &quot;varA&quot; &quot;&quot; &quot;&quot; ...
+##  $ rank         : int 2
+##  $ fitted.values: Named num [1:50] 0.506 0.467 0.453 0.481 0.5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:50] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ assign       : int [1:2] 0 1
+##  $ qr           :List of 5
+##   ..$ qr   : num [1:50, 1:2] -7.071 0.141 0.141 0.141 0.141 ...
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr [1:50] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##   .. .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##   .. ..- attr(*, &quot;assign&quot;)= int [1:2] 0 1
+##   ..$ qraux: num [1:2] 1.14 1.02
+##   ..$ pivot: int [1:2] 1 2
+##   ..$ tol  : num 1e-07
+##   ..$ rank : int 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;qr&quot;
+##  $ df.residual  : int 48
+##  $ xlevels      : Named list()
+##  $ call         : language lm(formula = varB ~ varA, data = regData)
+##  $ terms        :Classes 'terms', 'formula'  language varB ~ varA
+##   .. ..- attr(*, &quot;variables&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##   .. .. .. ..$ : chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##  $ model        :'data.frame':   50 obs. of  2 variables:
+##   ..$ varB: num [1:50] 0.808 0.5237 0.1506 0.0222 0.1254 ...
+##   ..$ varA: num [1:50] 0.0481 0.468 0.6147 0.3088 0.1143 ...
+##   ..- attr(*, &quot;terms&quot;)=Classes 'terms', 'formula'  language varB ~ varA
+##   .. .. ..- attr(*, &quot;variables&quot;)= language list(varB, varA)
+##   .. .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. ..$ : chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##   .. .. .. .. ..$ : chr &quot;varA&quot;
+##   .. .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;varA&quot;
+##   .. .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(varB, varA)
+##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;lm&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(regModel)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = varB ~ varA, data = regData)
+## 
+## Coefficients:
+## (Intercept)         varA  
+##     0.51011     -0.09268</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(regModel))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = varB ~ varA, data = regData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.4593 -0.2427 -0.0217  0.2818  0.5054 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.51011    0.08253   6.181 1.33e-07 ***
+## varA        -0.09268    0.14969  -0.619    0.539    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2985 on 48 degrees of freedom
+## Multiple R-squared:  0.007924,   Adjusted R-squared:  -0.01274 
+## F-statistic: 0.3834 on 1 and 48 DF,  p-value: 0.5387</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(regModel<span class="op">$</span>residuals)</code></pre></div>
+<pre><code>##           1           2           3           4           5           6 
+##  0.30231880  0.05698715 -0.30249401 -0.45932175 -0.37413765  0.09127329</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(<span class="kw">summary</span>(regModel))</code></pre></div>
+<pre><code>## List of 11
+##  $ call         : language lm(formula = varB ~ varA, data = regData)
+##  $ terms        :Classes 'terms', 'formula'  language varB ~ varA
+##   .. ..- attr(*, &quot;variables&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##   .. .. .. ..$ : chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##  $ residuals    : Named num [1:50] 0.302 0.057 -0.302 -0.459 -0.374 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:50] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ coefficients : num [1:2, 1:4] 0.5101 -0.0927 0.0825 0.1497 6.1808 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##   .. ..$ : chr [1:4] &quot;Estimate&quot; &quot;Std. Error&quot; &quot;t value&quot; &quot;Pr(&gt;|t|)&quot;
+##  $ aliased      : Named logi [1:2] FALSE FALSE
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##  $ sigma        : num 0.298
+##  $ df           : int [1:3] 2 48 2
+##  $ r.squared    : num 0.00792
+##  $ adj.r.squared: num -0.0127
+##  $ fstatistic   : Named num [1:3] 0.383 1 48
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;value&quot; &quot;numdf&quot; &quot;dendf&quot;
+##  $ cov.unscaled : num [1:2, 1:2] 0.0765 -0.1192 -0.1192 0.2515
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;varA&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;summary.lm&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">summary</span>(regModel))
+<span class="kw">str</span>(z)</code></pre></div>
+<pre><code>## List of 75
+##  $ call               : language lm(formula = varB ~ varA, data = regData)
+##  $ terms              :Classes 'terms', 'formula'  language varB ~ varA
+##   .. ..- attr(*, &quot;variables&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##   .. .. .. ..$ : chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;varA&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(varB, varA)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;varB&quot; &quot;varA&quot;
+##  $ residuals.1        : num 0.302
+##  $ residuals.2        : num 0.057
+##  $ residuals.3        : num -0.302
+##  $ residuals.4        : num -0.459
+##  $ residuals.5        : num -0.374
+##  $ residuals.6        : num 0.0913
+##  $ residuals.7        : num -0.223
+##  $ residuals.8        : num 0.259
+##  $ residuals.9        : num 0.438
+##  $ residuals.10       : num 0.31
+##  $ residuals.11       : num -0.409
+##  $ residuals.12       : num -0.153
+##  $ residuals.13       : num 0.213
+##  $ residuals.14       : num -0.135
+##  $ residuals.15       : num 0.296
+##  $ residuals.16       : num -0.327
+##  $ residuals.17       : num 0.502
+##  $ residuals.18       : num 0.505
+##  $ residuals.19       : num -0.343
+##  $ residuals.20       : num -0.0242
+##  $ residuals.21       : num 0.0475
+##  $ residuals.22       : num -0.447
+##  $ residuals.23       : num 0.429
+##  $ residuals.24       : num 0.058
+##  $ residuals.25       : num -0.12
+##  $ residuals.26       : num -0.244
+##  $ residuals.27       : num -0.276
+##  $ residuals.28       : num 0.501
+##  $ residuals.29       : num -0.406
+##  $ residuals.30       : num -0.414
+##  $ residuals.31       : num -0.0675
+##  $ residuals.32       : num 0.308
+##  $ residuals.33       : num -0.34
+##  $ residuals.34       : num 0.362
+##  $ residuals.35       : num 0.366
+##  $ residuals.36       : num 0.201
+##  $ residuals.37       : num -0.361
+##  $ residuals.38       : num 0.2
+##  $ residuals.39       : num 0.29
+##  $ residuals.40       : num -0.17
+##  $ residuals.41       : num -0.08
+##  $ residuals.42       : num -0.0985
+##  $ residuals.43       : num -0.0192
+##  $ residuals.44       : num -0.119
+##  $ residuals.45       : num -0.000521
+##  $ residuals.46       : num 0.162
+##  $ residuals.47       : num 0.1
+##  $ residuals.48       : num -0.228
+##  $ residuals.49       : num 0.383
+##  $ residuals.50       : num -0.238
+##  $ coefficients1      : num 0.51
+##  $ coefficients2      : num -0.0927
+##  $ coefficients3      : num 0.0825
+##  $ coefficients4      : num 0.15
+##  $ coefficients5      : num 6.18
+##  $ coefficients6      : num -0.619
+##  $ coefficients7      : num 1.33e-07
+##  $ coefficients8      : num 0.539
+##  $ aliased.(Intercept): logi FALSE
+##  $ aliased.varA       : logi FALSE
+##  $ sigma              : num 0.298
+##  $ df1                : int 2
+##  $ df2                : int 48
+##  $ df3                : int 2
+##  $ r.squared          : num 0.00792
+##  $ adj.r.squared      : num -0.0127
+##  $ fstatistic.value   : num 0.383
+##  $ fstatistic.numdf   : num 1
+##  $ fstatistic.dendf   : num 48
+##  $ cov.unscaled1      : num 0.0765
+##  $ cov.unscaled2      : num -0.119
+##  $ cov.unscaled3      : num -0.119
+##  $ cov.unscaled4      : num 0.252</code></pre>
+</div>
 
 
 
