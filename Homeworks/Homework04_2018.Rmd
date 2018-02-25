@@ -1,0 +1,53 @@
+---
+title: 'Homework #4'
+author: "Nicholas J. Gotelli"
+date: 'February 7, 2018'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+
+Some of these problems are adapted from:
+
+> Jones, O., R. Maillardet, and A. Robinson. 2009. Scientific Programming and Simulation Using R. CRC Press, Boca Raton.
+
+1. Suppose *x* = 1.1, *a* = 2.2, and *b* = 3.3. Assign each expression to the value of the variable *z*and print the value stored in *z*.
+
+    a) $x^{a^b}$
+    b) $(x^{a})^b$
+    c) $3x^3 + 2x^2 + 1$
+    d) The digit in the second place of *z* (hint: use `floor()` and/or `&&`)
+
+2. Using the `rep` and `seq` functions, create the following vectors:
+
+    a) $(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1)$
+    b) $(1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)$
+    c) $(5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)$
+    
+3. Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as *x* and *y* coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R's inverse trigonometry functions (`asin()`, `acos()`, or `atan()`), convert these numbers into polar coordinates (If you don't know what polar coordinates are, read about them on the web or in your calculus textbook).
+
+4. Suppose that `queue <- c("sheep", "fox", "owl", "ant")` and that `queue` represents the animals that are lined up to enter Noah's Ark, with the sheep at the front of the line. Using R expressions, update the queue successively as 
+
+    a) the serpent arrives;
+    b) the sheep enters the ark;
+    c) the donkey arrives and talks his way to the front of the line;
+    d) the serpent gets impatient and leaves;
+    e) the owl gets bored and leaves;
+    f) the aphid arrives and the ant invites him to cut in line.
+    g) Finally, determine the position of the aphid in the line.
+
+5. Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7.
+
+6. Create a vector `z` of 1000 random uniform numbers. 
+    a) create a vector that contains 3 numbers: the proportion of the numbers in *z* that are less than 0.10, greater than 0.90, and
+    between 0.45 and 0.55.
+    b) Making successive copies of *z*, transform your vector of uniform numbers in the following ways:
+        - *log (base 10)* of *z*
+        - *z^2^*
+        - *e^z^* 
+        - *square root of z*
+     c) for each case calculate your vector of 3 numbers to get the new proportions.
+   

@@ -1,0 +1,35 @@
+---
+title: 'Homework #3'
+author: "Nicholas J. Gotelli"
+date: "January 29, 2018"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+### Thinking on Paper (continued)
+
+1. As needed, continue your work with `Tyopora` to develop your flow chart and your hypotheses. 
+
+2. If you are already an R programmer, you might want to explore the `diagram` package for much finer control over flow charts. However, the program has a lot of options and details, so it is not as simple and easy to use as the code in `Typora.`
+
+
+### Creating a Beamer Presentation
+
+1. Following the notes in class, create a short `Beamer` presentation (6 to 12 slides). Note that you will need to save your images to `.tiff`. or `.jpeg` or other digital formats and put them in a folder that can be linked to from your Beamer code.
+
+2. Spend a bit of time exploring the different themes, colors, and fonts available in Beamer, and set up something that looks nice to you.
+
+3. Your presentation should include the following:
+- sequential bullet points
+- simultaneous bullet points
+- colored text
+- images
+- images with captions
+- images with a caption overlaid (you may need to change the text color for better contrast)
+
+4. The only real challenge will be to to get your images and captions properly sized and placed in the Bamer slides. I have posted some code for you to use on the [R Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) page. 
+
+
+
+

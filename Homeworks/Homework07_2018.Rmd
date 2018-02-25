@@ -1,0 +1,10 @@
+---
+title: 'Homework #7'
+author: "Nicholas J. Gotelli"
+date: 'February 28, 2018'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---

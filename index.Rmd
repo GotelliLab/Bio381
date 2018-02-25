@@ -31,25 +31,25 @@ ___
 Date  | Lecture | Scripts  | Homework
 ------------- | -------------- |----------- | -------------
 January 16  | [GitHub](Lectures/Lecture01.html) | -  | -
-January 17  | - | -  | [Homework #1](Homeworks/Homework01.html)
+January 17  | - | -  | [Homework #1](Homeworks/Homework01_2018.html)
 January 18  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
 January 23  | [RStudio](Lectures/Lecture03_4.html) | - | -
-January 24  | - | -  | [Homework #2](Homeworks/Homework02.html)
+January 24  | - | -  | [Homework #2](Homeworks/Homework02_2018.html)
 January 25  | [RStudio II](Lectures/Lecture03_4.html) | -| -
 January 30  | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
-January 31  | - | -  | [Homework #3](Homeworks/Homework03.html)
+January 31  | - | -  | [Homework #3](Homeworks/Homework03_2018.html)
 February 1  | [Importing Data](Lectures/Lecture06.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 6  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 7  | - | -  | [Homework #4](Homeworks/Homework04.html)
+February 7  | - | -  | [Homework #4](Homeworks/Homework04_2018.html)
 February 8  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 February 13  | [Probability Distributions I](Lectures/Lecture08_2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 14  | - | -  | [Homework #5](Homeworks/Homework05.html)
+February 14  | - | -  | [Homework #5](Homeworks/Homework05_2018.html)
 February 15  |[Data Structures](Lectures/Lecture10.html)| -  | -
 February 20  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
-February 21  | - | -  | [Homework #6](Homeworks/Homework06.html)
+February 21  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
 February 22  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
 February 27  | [Probability Distributions II](Lectures/Lecture12_13.html)| -  | -
-February 28  | - | -  | [Homework #7](Homeworks/Homework07.html)
+February 28  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
 March 1  | [Functions](Lectures/Lecture14.html)| -  | -
 March 6  | *TOWN MEETING DAY RECESS* | -  | -
 March 7  | - | -  | [Homework #8](Homeworks/Homework08.html)
