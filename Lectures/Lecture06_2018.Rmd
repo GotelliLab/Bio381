@@ -1,0 +1,369 @@
+---
+title: 'Lecture #6: Atomic Vectors'
+author: "Nicholas J. Gotelli"
+date: "February 1, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+## History of R
+- Early languages FORTRAN, C
+- S language in 1970s; programming plus stats, matrix algebra, graphics later
+- Open-source R in 1992; first stable version in 2000
+
+## Advantages of R
+- interpreted (for interactive use)
+- graphics, statistics
+- very active community of contributors
+- works on multiple platforms
+
+## Disadvantages of R
+- interpreted (slow speed)
+- lazy evaluation
+- functions hard to learn
+- poorly documented
+- unreliable packages
+- problems with big data
+   - subroutines coded for C or Fortran
+   - Julia?
+
+## R as a general programming language
+- data structures and types
+- writing functions
+- for loops
+- if..then, while statements
+- structured programming
+- annotation
+- naming of variables
+- using random numbers
+- structured programming
+- pseudocode
+
+### Using the assignment operator
+
+```{r, eval=FALSE}
+# Using the assignment operator
+x <- 5 # preferred
+y = 4 # legal but not used except in function defaults
+y = y + 1.1
+print(y)
+y <- y + 1.1
+print(y)
+```
+
+# Variable names
+
+```{r}
+z <- 3 # Begin with lower case letter 
+plant_height <- 3.3  # a bit long
+plant.height <- 4.2 # avoid periods
+plantHeight <- 10 # best option "camelCaseFormatting"
+```
+
+## R's Four Data Types
+
+Dimensions  | Homogeneous | Heterogeneous
+------------- | ------------- | -------------
+1-dimension  | Atomic Vector | List
+2-dimensions  | Matrix | Data Frame
+n-dimenions   | (array) |          |
+
+## Types of Atomic Vectors
+- character strings
+- integers
+- double
+- integers, doubles are "numeric"
+- logical
+- (factor)
+
+### One dimensional atomic vectors
+```{r, eval=FALSE}
+# the combine function
+z <- c(3.2, 5, 5, 6) 
+print(z)
+typeof(z)
+is.numeric(z)
+
+# c() always "flattens" to an atomic vector
+z <- c(c(3,4),c(5,6)) 
+print(z)
+
+# character strings with single or double quotes
+z <- c("perch","bass",'trout') 
+print(z)
+
+# use both with an internal quote
+z <- c("This is only 'one' character string", 'a second')
+print(z)
+typeof(z)
+is.character(z)
+
+# building logicals
+# Boolean, not with quotes, all caps
+z <- c(TRUE,TRUE,FALSE) 
+# avoid abbreviations T, F which will work
+print(z)
+typeof(z)
+is.logical(z)
+is.integer(z)
+
+```
+### Three Properties of a Vector
+
+#### Type
+
+```{r, eval=FALSE}
+z <- c(1.1, 1.2, 3, 4.4)
+typeof(z) # gives type
+is.numeric(z) # is. gives logical
+as.character(z) # as. coerces variable
+print(z)
+typeof(z)
+
+```
+
+#### Length
+```{r, eval=FALSE}
+length(z) # gives number of elements
+length(y) # throws error if variable does not exist
+
+```
+
+#### Names
+```{r, eval=FALSE}
+z <- runif(5)
+# optional attribute not initially assigned
+names(z) 
+print(z)
+# add names later after variable is created
+names(z) <- c("chow","pug","beagle","greyhound","akita")
+print(z)
+
+# add names when variable is built (with or without quotes)
+ z2 <- c(gold=3.3, silver=10, lead=2)
+print(z2)
+
+# reset names
+names(z2) <- NULL
+
+# names can be added for only a few elements
+# names do not have to be distinct, but often are
+names(z2) <- c("copper","zinc")
+print(z2)
+
+```
+
+#### Special Data Types
+```{r, eval=FALSE}
+
+# NA values for missing data
+z <- c(3.2,3.3,NA) # NA is a missing value
+typeof(z)
+length(z)
+typeof(z[3]) # what is the type of third element
+
+z1 <- NA
+typeof(z1) #different NA types
+
+is.na(z) # logical operator to find missing values
+mean(z) # won't work because of NA
+is.na(z)# evaluate to find midding values
+!is.na(z) # use ! for NOT missing values
+mean(!is.na(z)) # wrong answer based on TRUE FALSE!!
+mean(z[!is.na(z)]) # correct use of indexing
+#-----------------------------
+
+# NaN, -Inf, and Inf from numeric division
+z <-  0/0   # NaN
+typeof(z)
+z <- 1/0   # Inf
+-1/0  # - Inf
+#-------------------------------
+# NULL is an object that is nothing!
+# a reserved word in R
+z <- NULL
+typeof(z)
+length(z)
+is.null(z) # only operation that works on a null
+```
+### Three Notable Features of Atomic Vectors
+
+#### Coercion
+
+```{r, eval=FALSE}
+# All atomics are of the same type
+# if they are different, R coerces them
+# logical -> integer -> double -> character
+
+a <- c(2, 2.0)
+print(a)
+typeof(a) # technically integer coerced to numeric
+
+b <- c("purple","green")
+typeof(b)
+
+d <- c(a,b)
+print(d)
+typeof(d)
+
+# "Mistakes" in numeric variables convert to strings
+# Very useful when working with logical variables
+
+a <- runif(10)
+print(a)
+
+# Comparison operators yield a logical result
+a > 0.5
+
+# do math on a logical and it coerces to an integer!
+
+# How many elements are greater than 0.5?
+sum(a > 0.5)
+
+# What proportion of the vector elements are greater than 0.5?
+
+mean(a > 0.5)
+
+#Qualifying exam question! Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?
+
+mean(rnorm(1000) > 2)
+```
+
+
+#### Vectorization
+
+```{r, eval=FALSE}
+# adding a constant to a vector
+z <- c(10,20,30)
+z + 1
+
+# what happens when vectors are added?
+
+y <- c(1,2,3)
+z + y
+
+# results is an "element by element" operation on the vector
+# most vector operations can be done this way
+
+z^2
+
+```
+
+
+
+#### Recycling
+```{r, eval=FALSE}
+# but what if vector lengths are not equal?
+z <- c(10,20,30)
+x <- c(1,2)
+z + x
+
+# warning is issued by calculation is still made
+# shorter vector is always "recycled"
+# works with scalars (= vector of length(1))
+
+```
+
+### Creating Vectors
+#### Creating an empty vector and adding to it (avoid)
+```{r,eval=FALSE}
+# create an empty vector, specify mode & length
+z <- vector(mode="numeric",length=0)  
+print(z)
+
+# now add elements to it
+
+z <- c(z,5)
+print(z)
+# This "dynamic sizing" is very SLOW!
+```
+
+#### Creating a vector of predefined length (preferred)
+```{r, eval=FALSE}
+### Better to create a vector of pre-defined length
+
+# has 100 0s in a numeric vector
+z <- rep(0,100) 
+head(z)
+
+# but would be better to start with NAs
+z <- rep(NA,100)
+head(z)
+
+# but what is its type?
+typeof(z)
+
+# take advantage of coercion!
+z[1] <- "Washington"
+head(z)
+typeof(z)
+```
+
+#### Efficiently creating a vector with many names
+```{r, eval=FALSE}
+MyVector <- runif(100)
+MyNames <- paste("Species",seq(1:length(MyVector)),sep="")
+names(MyVector) <- MyNames
+str(MyVector)
+```
+
+#### Using `rep` to repeat elements and create vectors
+```{r, eval=FALSE}
+# rep for repeating elements
+rep(0.5,6) # give the element (or vector!) and number of times to repeat
+rep(x=0.5,times=6) # using the argument names is always prudent
+rep(times=6,x=0.5) # with argument names, order is not important
+myVec <- c(1,2,3)
+rep(x=myVec,times=2) # applies to entire vectors
+rep(x=myVec,each=2) # repeat each element individually
+rep(x=myVec,times=myVec) # what does this do?
+rep(x=myVec,each=myVec) # and this?
+```
+
+#### Using `seq` to create regular sequences
+```{r,eval=FALSE}
+seq(from=2, to=4) # set limits for integer sequences
+2:4 # very common short cut with no explicit function wrappers
+seq(from=2,to=4,by=0.5) # use a by function can generate real numbers
+x <- seq(from=2, to=4,length=7) # sometimes easier to just specify the length
+myVec <- 1:length(x) # commonly used, but actually slow
+print(myVec)
+seq_along(myVec) # much faster for models and big data!
+seq_len(5) # this is also faster than 1:5
+```
+
+#### Using `rnorm` and `runif` to create vectors of random numbers
+```{r,eval=FALSE}
+runif(5) # 5 random uniform values betweeon 0 and 1
+runif(n=3,min=100, max=101) # 3 random uniform values between 100 and 101
+
+rnorm(6) # 6 random normal values with mean 0 and standard deviation 1
+rnorm(n=5, mean=100, sd=30) # 5 random normal values with mean 100 and sd 30
+
+## Explore distributions by sampling and plotting
+library(ggplot2) # do this at the very start
+z <- runif(1000) #default uniform (0,1)
+qplot(x=z)
+z <- rnorm(1000) #default normal (0,1)
+qplot(x=z)
+```
+
+#### Using `sample` to draw random values from an existing vector
+
+```{r,eval=FALSE}
+longVec <- seq_len(10)
+typeof(longVec)
+str(longVec)
+
+sample(x=longVec) # with no other params, this reorders the vector
+sample(x=longVec, size=3) # specify a number (sampling without replacement)
+sample(x=longVec,size=16,replace=TRUE) # can generate duplicates
+myWeights <- c(rep(20,5),rep(100,5)) # create a set of non-zero positive weights (integer or real)
+print(myWeights)
+sample(x=longVec,replace=TRUE,prob=myWeights) # sampling with replacement and weights
+sample(x=longVec,replace=FALSE,prob=myWeights) # sampling without replacement and weights
+sample(x=longVec,replace=TRUE,prob=longVec) # what does this do?
+```
+
