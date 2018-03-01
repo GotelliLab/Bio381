@@ -50,7 +50,7 @@ February 21  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
 February 22  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
 February 27  | [Regression,ANOVA Designs](Lectures/Lecture13_2018.html)| -  | -
 February 28  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
-March 1  | [Functions](Lectures/Lecture14.html)| -  | -
+March 1  | [Functions](Lectures/Lecture14_2018.html)| -  | -
 March 6  | *TOWN MEETING DAY RECESS* | -  | -
 March 7  | - | -  | [Homework #8](Homeworks/Homework08.html)
 March 8  | [Structured Programming](Lectures/Lecture15.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
