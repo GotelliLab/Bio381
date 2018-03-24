@@ -70,14 +70,14 @@ April 10  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
 April 11  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
 April 12  | [Markov Models](Lectures/Lecture21.html) | -  | -
 April 17  | [Markov Models II](Lectures/Lecture22.html) | -  | -
-April 18  | - | -  | **R Presentations: Garrett, Mikucki, Southgate, Kazenal**
+April 18  | - | -  | 
 April 19  | [Apply Functions](Lectures/Lecture23.html) | -  | -
-April 24  | [Base Graphics I](Lectures/Lecture24.html) | -  | -
-April 25  | - | -  | **R Presentations: Nevins, Clark, Keller, Looi**
-April 26  | [Base Graphics II](Lectures/Lecture24.html) | -  | -
-May 1  | **Research Presentations: Clark, Southgate, Keller, Looi** | -  | -
-May 2  | -  | -  | **R Presentations: Alger, Burnham, Ashlock; Research Presentations: Nevins, Garrett, Kazenal**
-May 3  | **Research Presentations: Alger, Mikucki, Burnham, Ashlock** | -  | -
+April 24  |**Presentations: Barlow, Rewcastle, Looney** | -  | -
+April 25  | - | -  | ** Presentations: Burns, Daniels, Neidermeier, Page, Pett**
+April 26  |**Presentations: Thibault, Yancey** | -  | -
+May 1  | **Presentations: Bomeisl,, Verrico**| -  | -
+May 2  | -  | -  | **Presentations: Dittmer, Hackenberg, Ruizarocho, Schmoker, Steinhart**
+May 3  | **Palawat, Wiegman ** | -  | -
 
 ### Class Work
 
