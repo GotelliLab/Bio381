@@ -58,10 +58,10 @@ March 13  | *SPRING RECESS* | -  | -
 March 14  | *SPRING RECESS* | -  | -
 March 15  | *SPRING RECESS* | -  | -
 March 20  | [Control Structures I](Lectures/Lecture16_2018.html) | -  | -
-March 21  | - | -  | [homework #9](homeworks/homework09_2018.html)
+March 21  | - | -  | [homework #9](homeworks/Homework09_2018.html)
 March 22  | [Control Structures II](Lectures/Lecture17_2018.html) | - | -
 March 27  | [Control Structures III](Lectures/Lecture18_2018.html) | -  | -
-March 28  | - | -  | [homework #10](homeworks/homework10_2018.html)
+March 28  | - | -  | [homework #10](homeworks/Homework10_2018.html)
 March 29  | [Control Structures II](Lectures/Lecture17.html) | -  | -
 April 3  | [Control Structures III](Lectures/Lecture18.html) | -  | -
 April 4  | - | -  | [Homework #10](Homeworks/Homework10.html)
