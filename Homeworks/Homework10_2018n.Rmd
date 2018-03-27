@@ -1,0 +1,71 @@
+---
+title: 'Homework #10'
+author: "Nicholas J. Gotelli"
+date: 'March 28, 2018'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+### Batch processing (continued)
+
+1. Go to the main course webpage, and follow the link to yesterday's `Batch Processing` lecture. Scroll down near the end of that markdown file to find the code we were working on and the place we left off. The next line of code you should be entering is:
+
+```{r,eval=FALSE}
+fileNames <- list.files(path=fileFolder)
+```
+
+(Ignore all the lines of `## ""`) Read in the help system about `list.files()`, which is a very useful function for working with batches of files in a folder.
+
+2. Finish your program by adding in the rest of the code. You can quickly cut and paste everything in, although you won't learn much that way. A better and slower approach is to type in each line (as we do in class), get it to work, and see if you can understand what each line is doing. Lauren can help explain any of the lines of code that are not clear.
+
+3. When the script is complete, throw out the files in the `RandomFiles` folder and then run the script. It should generate 100 random data files in the folder. In the root of the project directory, you should find the file `StatsSummary.csv`. Open these files (they will open in Excel if you double click them) and make sure you understand what they contain, and how they are organized.
+
+4. Try "breaking" the program by decreasing the range of possible row numbers in each random file, and/or increasing the number of NA values that are randomly created (what will you have to change in the code to achieve this?). Change parameters gradually until you create a data file that cannot be fit with `lm` because there aren't enough data. What happens? Does the program fail entirely or create some of the output? Are there any error messages? Be sure to delete the files within the `RandomFiles` folder (but do not delete the folder itself!), and also delete the `StatsSummary.csv` file before you run each of your "experiments".
+
+5. If time permits, try modifying the code to add two columns to the `StatsSummary.csv`:
+
+a) The number of rows in the original data set
+b) The number of rows in the "clean" data set (with NAs stripped out)
+
+These values should appear in columns 6 and 7 of the `StatsSummary.csv`. Remember that in the summary file, each row corresponds to a different data set, and each of these data sets will have different numbers of observations before and after cleaning.
+
+
+#### Steps In A Randomization Test
+
+1. Define a metrix $X$, a single number that defines a pattern
+2. Quantify the pattern for the observed data with $X_{obs}$
+3. Randomize or reshuffle the observed data to destroy existing patterns.
+4. For the randomized data set, calculate $X_{sim}$
+5. Repeat (in a `for` loop) steps 3-4 with 1000 replicate randomizations
+6. Create the histogram of 1000 $X_{sim}$ values
+7. Estimate the tail probability of the observed data in this distribution as the proportion of simulated $X_{sim}$ values that are greater or less than the observed (hint: use `mean(Xran >= Xobs)` and `mean(Xran <= Xobs)`).
+
+### Homework
+
+1. Go back to your code for last week's homework in which you wrote functions to analyze a pattern in your own data. Combine this with the material from Monday's lecture on batch processing to run an analysis on a number of files.
+
+2. Combine functions from these previous exercises to create what you need.
+
+3. Begin by writing a function to calculate $X$. For a regression analysis, $X$ should be the slope of the regression. For an ANOVA, $X$ should be the variance (calculated among groups) of the average of the response variable. You will use this function to calculate $X_{obs}$ (one time), and also $X_{sim}$ (1000 times).
+
+5. Also write a randomization function that reshuffles the data frame in appropriate way. If the null hypothesis is true, what is an appropriate randomization to use? Check with Lauren and with your classmates to make sure you are on the right track.
+
+6. Create an empty vector to store each of the 1000 simulated values you are going to create. 
+
+7. Once your functions are written, set up a large `for` loop to generate the vector of 1000 simulated values of $X_{sim}$.
+
+8. Outside of the loop, write a function to calculate the tail probability of $X_{obs}$ relative to the distribution of $X_{sim}$ values. 
+
+9. Finally, try writing a function to generate a histogram of $X_{sim}$, with an arrow or line indicating the value of $X_{obs}$.
+
+10. How does the probability value you calculated from your simulation compare with the probability value calculated from the standard statistical analysis of your data? What factors might cause these two estimates to be different from one another?
+
+11. If you don't finish the exercise this week, we will continue to work on it in lab next week.
+
+12. If you do finish, take a look at the `EcoSimR` package (available from CRAN), which conducts null model simulation tests. These are very similar to the randomization test you have just programmed, except they test for patterns within a single matrix or group, rather than comparing patterns among groups. Read the documentation for more detail on these kinds of tests.
+
+
+
