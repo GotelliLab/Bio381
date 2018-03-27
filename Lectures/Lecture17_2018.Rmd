@@ -1,7 +1,7 @@
 ---
 title: 'Lecture #17: Control Structures II'
 author: "Nicholas J. Gotelli"
-date: "March 20, 2018"
+date: "March 22, 2018"
 output:
   html_document:
     highlight: tango
