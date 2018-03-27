@@ -162,7 +162,7 @@ $(document).ready(function () {
 <ol start="2" style="list-style-type: decimal">
 <li><p>Finish your program by adding in the rest of the code. You can quickly cut and paste everything in, although you won’t learn much that way. A better and slower approach is to type in each line (as we do in class), get it to work, and see if you can understand what each line is doing. Lauren can help explain any of the lines of code that are not clear.</p></li>
 <li><p>When the script is complete, throw out the files in the <code>RandomFiles</code> folder and then run the script. It should generate 100 random data files in the folder. In the root of the project directory, you should find the file <code>StatsSummary.csv</code>. Open these files (they will open in Excel if you double click them) and make sure you understand what they contain, and how they are organized.</p></li>
-<li><p>Try “breaking” the program by decreasing the range of possible row numbers in each random file, and/or increasing the number of NA values that are randomly created (what will you have to change in the code to achieve this?). Change parameters gradually until you create a data file that cannot be fit with <code>lm</code> because there isn’t enough data. What happens? Does the program fail entirely or create some of the output? Are there any error messages? Be sure to delete the files within the <code>RandomFiles</code> folder (but do not delete the folder itself!), and also delete the <code>StatsSummary.csv</code> file before you run each of your “experiments”.</p></li>
+<li><p>Try “breaking” the program by decreasing the range of possible row numbers in each random file, and/or increasing the number of NA values that are randomly created (what will you have to change in the code to achieve this?). Change parameters gradually until you create a data file that cannot be fit with <code>lm</code> because there aren’t enough data. What happens? Does the program fail entirely or create some of the output? Are there any error messages? Be sure to delete the files within the <code>RandomFiles</code> folder (but do not delete the folder itself!), and also delete the <code>StatsSummary.csv</code> file before you run each of your “experiments”.</p></li>
 <li><p>If time permits, try modifying the code to add two columns to the <code>StatsSummary.csv</code>:</p></li>
 </ol>
 <ol style="list-style-type: lower-alpha">
@@ -170,33 +170,8 @@ $(document).ready(function () {
 <li>The number of rows in the “clean” data set (with NAs stripped out)</li>
 </ol>
 <p>These values should appear in columns 6 and 7 of the <code>StatsSummary.csv</code>. Remember that in the summary file, each row corresponds to a different data set, and each of these data sets will have different numbers of observations before and after cleaning.</p>
-<div id="steps-in-a-randomization-test" class="section level4">
-<h4>Steps In A Randomization Test</h4>
-<ol style="list-style-type: decimal">
-<li>Define a metrix <span class="math inline">\(X\)</span>, a single number that defines a pattern</li>
-<li>Quantify the pattern for the observed data with <span class="math inline">\(X_{obs}\)</span></li>
-<li>Randomize or reshuffle the observed data to destroy existing patterns.</li>
-<li>For the randomized data set, calculate <span class="math inline">\(X_{sim}\)</span></li>
-<li>Repeat (in a <code>for</code> loop) steps 3-4 with 1000 replicate randomizations</li>
-<li>Create the histogram of 1000 <span class="math inline">\(X_{sim}\)</span> values</li>
-<li>Estimate the tail probability of the observed data in this distribution as the proportion of simulated <span class="math inline">\(X_{sim}\)</span> values that are greater or less than the observed (hint: use <code>mean(Xran &gt;= Xobs)</code> and <code>mean(Xran &lt;= Xobs)</code>).</li>
-</ol>
-</div>
-</div>
-<div id="homework" class="section level3">
-<h3>Homework</h3>
-<ol style="list-style-type: decimal">
-<li><p>Go back to your code for last week’s homework in which you wrote functions to analyze a pattern in your own data. Combine this with the material from Monday’s lecture on batch processing to run an analysis on a number of files.</p></li>
-<li><p>Combine functions from these previous exercises to create what you need.</p></li>
-<li><p>Begin by writing a function to calculate <span class="math inline">\(X\)</span>. For a regression analysis, <span class="math inline">\(X\)</span> should be the slope of the regression. For an ANOVA, <span class="math inline">\(X\)</span> should be the variance (calculated among groups) of the average of the response variable. You will use this function to calculate <span class="math inline">\(X_{obs}\)</span> (one time), and also <span class="math inline">\(X_{sim}\)</span> (1000 times).</p></li>
-<li><p>Also write a randomization function that reshuffles the data frame in appropriate way. If the null hypothesis is true, what is an appropriate randomization to use? Check with Lauren and with your classmates to make sure you are on the right track.</p></li>
-<li><p>Create an empty vector to store each of the 1000 simulated values you are going to create.</p></li>
-<li><p>Once your functions are written, set up a large <code>for</code> loop to generate the vector of 1000 simulated values of <span class="math inline">\(X_{sim}\)</span>.</p></li>
-<li><p>Outside of the loop, write a function to calculate the tail probability of <span class="math inline">\(X_{obs}\)</span> relative to the distribution of <span class="math inline">\(X_{sim}\)</span> values.</p></li>
-<li><p>Finally, try writing a function to generate a histogram of <span class="math inline">\(X_{sim}\)</span>, with an arrow or line indicating the value of <span class="math inline">\(X_{obs}\)</span>.</p></li>
-<li><p>How does the probability value you calculated from your simulation compare with the probability value calculated from the standard statistical analysis of your data? What factors might cause these two estimates to be different from one another?</p></li>
-<li><p>If you don’t finish the exercise this week, we will continue to work on it in lab next week.</p></li>
-<li><p>If you do finish, take a look at the <code>EcoSimR</code> package (available from CRAN), which conducts null model simulation tests. These are very similar to the randomization test you have just programmed, except they test for patterns within a single matrix or group, rather than comparing patterns among groups. Read the documentation for more detail on these kinds of tests.</p></li>
+<ol start="6" style="list-style-type: decimal">
+<li>For your homework posting on your webpage, copy your final R script into a single R chunk (no need to run it). Describe what happened when you “broke” the program, and also describe how you modified the code to add te sample sizes (if you get that far).</li>
 </ol>
 </div>
 
