@@ -332,10 +332,10 @@ sumStats &lt;-<span class="st"> </span><span class="kw">list</span>(<span class=
 }
 <span class="kw">SA_Output</span>()</code></pre></div>
 <pre><code>## $SGain
-## [1] 0.9078158
+## [1] 0.6184167
 ## 
 ## $SCV
-## [1] 0.4918212</code></pre>
+## [1] 0.4664083</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Build program body with a single loop through </span>
 <span class="co"># the parameters in modelFrame</span>
 
@@ -418,16 +418,33 @@ dF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(varX,varY) <
 badVals &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">lambda=</span>fileNA) <span class="co"># determine NA number</span>
 dF[<span class="kw">sample</span>(<span class="kw">nrow</span>(dF),<span class="dt">size=</span>badVals),<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> <span class="co"># random NA in varX</span>
 dF[<span class="kw">sample</span>(<span class="kw">nrow</span>(dF),<span class="dt">size=</span>badVals),<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> <span class="co"># random NA in varY</span>
-<span class="kw">write.table</span>(<span class="dt">x=</span>dF,
-            <span class="dt">file=</span><span class="kw">paste</span>(fileFolder,
+
+<span class="co"># create label for file name with padded zeroes</span>
+fileLabel &lt;-<span class="st"> </span><span class="kw">paste</span>(fileFolder,
                        <span class="st">&quot;ranFile&quot;</span>,
                        <span class="kw">formatC</span>(i,
                        <span class="dt">width=</span><span class="dv">3</span>,
                        <span class="dt">format=</span><span class="st">&quot;d&quot;</span>,
                        <span class="dt">flag=</span><span class="st">&quot;0&quot;</span>),
-                       <span class="st">&quot;.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),
-                       <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,
-                       <span class="dt">row.names=</span><span class="ot">FALSE</span>)
+                       <span class="st">&quot;.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
+
+<span class="co"># set up data file and incorporate time stamp and minimal metadata</span>
+<span class="kw">write.table</span>(<span class="kw">cat</span>(<span class="st">&quot;# Simulated random data file for batch processing&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# timestamp: &quot;</span>,<span class="kw">as.character</span>(<span class="kw">Sys.time</span>()),<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# NJG&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# ------------------------&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="dt">file=</span>fileLabel,
+                    <span class="dt">row.names=</span><span class="st">&quot;&quot;</span>,
+                    <span class="dt">col.names=</span><span class="st">&quot;&quot;</span>,
+                    <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))
+
+<span class="co"># now add the data frame</span>
+<span class="kw">write.table</span>(<span class="dt">x=</span>dF,
+            <span class="dt">file=</span>fileLabel,
+            <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,
+            <span class="dt">row.names=</span><span class="ot">FALSE</span>,
+            <span class="dt">append=</span><span class="ot">TRUE</span>)
 
 
 }
@@ -469,8 +486,108 @@ fileOut &lt;-<span class="st"> &quot;StatsSummary.csv&quot;</span>
 <span class="co">#--------------------------------------------</span>
 
 <span class="co"># Create 100 random data sets</span>
-<span class="kw">FileBuilder</span>(<span class="dt">fileN=</span>nFiles)
-fileNames &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span>fileFolder)
+<span class="kw">FileBuilder</span>(<span class="dt">fileN=</span>nFiles)</code></pre></div>
+<pre><code>## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;
+## &quot;&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fileNames &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span>fileFolder)
 
 <span class="co"># Create data frame to hold file summary statistics</span>
 ID &lt;-<span class="st"> </span><span class="kw">seq_along</span>(fileNames)
@@ -492,8 +609,26 @@ statsOut &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ID,fil
   . &lt;-<span class="st"> </span><span class="kw">regStats</span>(dClean) <span class="co"># pull regression stats from clean file</span>
   statsOut[i,<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">unlist</span>(.) <span class="co"># unlist, copy into last 3 columns</span>
   
-  <span class="kw">write.table</span>(statsOut,<span class="dt">file=</span>fileOut,<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)
-}</code></pre></div>
+}
+<span class="co"># set up output file and incorporate time stamp and minimal metadata</span>
+  <span class="kw">write.table</span>(<span class="kw">cat</span>(<span class="st">&quot;# Summary stats for &quot;</span>,
+                    <span class="st">&quot;batch processing of regression models&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# timestamp: &quot;</span>,<span class="kw">as.character</span>(<span class="kw">Sys.time</span>()),<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# NJG&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;# ------------------------&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+                    <span class="dt">file=</span>fileOut,
+                    <span class="dt">row.names=</span><span class="st">&quot;&quot;</span>,
+                    <span class="dt">col.names=</span><span class="st">&quot;&quot;</span>,
+                    <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</code></pre></div>
+<pre><code>## &quot;&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now add the data frame</span>
+  <span class="kw">write.table</span>(<span class="dt">x=</span>statsOut,
+              <span class="dt">file=</span>fileOut,
+              <span class="dt">row.names=</span><span class="ot">FALSE</span>,
+              <span class="dt">col.names=</span><span class="ot">TRUE</span>,
+              <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,
+              <span class="dt">append=</span><span class="ot">TRUE</span>)</code></pre></div>
 </div>
 </div>
 

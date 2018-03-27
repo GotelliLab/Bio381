@@ -243,16 +243,33 @@ dF <- data.frame(varX,varY) # bind into a data frame
 badVals <- rpois(n=1,lambda=fileNA) # determine NA number
 dF[sample(nrow(dF),size=badVals),1] <- NA # random NA in varX
 dF[sample(nrow(dF),size=badVals),2] <- NA # random NA in varY
-write.table(x=dF,
-            file=paste(fileFolder,
+
+# create label for file name with padded zeroes
+fileLabel <- paste(fileFolder,
                        "ranFile",
                        formatC(i,
                        width=3,
                        format="d",
                        flag="0"),
-                       ".csv",sep=""),
-                       sep=",",
-                       row.names=FALSE)
+                       ".csv",sep="")
+
+# set up data file and incorporate time stamp and minimal metadata
+write.table(cat("# Simulated random data file for batch processing","\n",
+                    "# timestamp: ",as.character(Sys.time()),"\n",
+                    "# NJG","\n",
+                    "# ------------------------", "\n",
+                    "\n",
+                    file=fileLabel,
+                    row.names="",
+                    col.names="",
+                    sep=""))
+
+# now add the data frame
+write.table(x=dF,
+            file=fileLabel,
+            sep=",",
+            row.names=FALSE,
+            append=TRUE)
 
 
 }
@@ -285,7 +302,7 @@ regStats <- function(d=NULL) {
 ```
 
 ### Body of script for batch processing of regression models
-```{r}
+```{r, warning=FALSE}
 library(TeachingDemos)
 char2seed("Freezing March")
 
@@ -320,8 +337,26 @@ for (i in seq_along(fileNames)) {
   . <- regStats(dClean) # pull regression stats from clean file
   statsOut[i,3:5] <- unlist(.) # unlist, copy into last 3 columns
   
-  write.table(statsOut,file=fileOut,row.names=FALSE,sep=",")
 }
+# set up output file and incorporate time stamp and minimal metadata
+  write.table(cat("# Summary stats for ",
+                    "batch processing of regression models","\n",
+                    "# timestamp: ",as.character(Sys.time()),"\n",
+                    "# NJG","\n",
+                    "# ------------------------", "\n",
+                    "\n",
+                    file=fileOut,
+                    row.names="",
+                    col.names="",
+                    sep=""))
+  
+# now add the data frame
+  write.table(x=statsOut,
+              file=fileOut,
+              row.names=FALSE,
+              col.names=TRUE,
+              sep=",",
+              append=TRUE)
 
 ```
 
