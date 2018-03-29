@@ -114,7 +114,7 @@ head(SpeciesAreaCurve())
 # output: smoothed curve with parameters in graph
 #------------------------------------------------- 
 SpeciesAreaPlot <- function(A=1:5000,c= 0.5,z=0.26) {
-plot(x=A,y=SpeciesAreaCurve(A,c,z),type="l",xlab="Island Area",ylab="S",ylim=c(0,1000))
+plot(x=A,y=SpeciesAreaCurve(A,c,z),type="l",xlab="Island Area",ylab="S",ylim=c(0,2500))
 mtext(paste("c =", c,"  z =",z),cex=0.7) 
       return()
 }
@@ -131,6 +131,7 @@ for (i in seq_along(cPars)) {
     SpeciesAreaPlot(c=cPars[i],z=zPars[j])
   }
 } 
+par(mfrow=c(1,1))
 ```
 ### Looping with `while` or `repeat`
 ```{r, eval=FALSE}
@@ -229,5 +230,43 @@ print(modelFrame)
 
 # use cex expansion to show a third variable with symbol size
 plot(x=modelFrame$c,y=modelFrame$SGain,cex=10*modelFrame$z)
+```
+
+### Parameter sweeping redux with `ggplot` graphics
+
+```{r}
+library(ggplot2)
+
+Area <- 1:5 #keep this very small initially
+cPars <- c(100,150,175)
+zPars <- c(0.10, 0.16, 0.26, 0.3)
+
+# set up model frame
+modelFrame <- expand.grid(c=cPars,z=zPars,A=Area)
+modelFrame$S <- NA
+
+
+# loop through the parameters and fill with SA function
+
+for (i in 1:length(cPars)) {
+  for (j in 1:length(zPars)) {
+    modelFrame[modelFrame$c==cPars[i] & modelFrame$z==zPars[j],"S"] <-   SpeciesAreaCurve(A=Area,c=cPars[i],z=zPars[j])
+  }
+}
+# print(modelFrame) # check by printing a data frame with limited parameter values
+
+library(ggplot2)
+
+p1 <- ggplot(data=modelFrame)
+p1 + geom_line(mapping= aes(x=A,y=S)) +
+  facet_grid(c~z)
+
+p2 <- p1
+p2 + geom_line(mapping=aes(x=A,y=S,group=z)) +
+  facet_grid(.~c)
+
+p3 <- p1
+p3 + geom_line(mapping=aes(x=A,y=S,group=c)) +
+  facet_grid(z~.)
 ```
 
