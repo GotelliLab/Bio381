@@ -45,25 +45,38 @@ plot(RanWalk(),type="o")
 plot(RanWalk(lambda=1.00,noiseSD=0),type="o")
 ```
 
+### A tip for working with matrices
+
+```{r}
+# create test matrices of different row and column numbers
+z <- matrix(runif(9),nrow=3)
+z[3,3]
+z <- matrix(runif(20),nrow=5)
+z[5,4]
+# z[4,5] # throws subscript out of bounds error
+
+```
+
+
 ### Using double for loops
 
-```{r, eval=FALSE}
-m <- matrix(round(runif(20),digits=3),nrow=5)
+```{r, eval=TRUE}
+m <- matrix(round(runif(20),digits=2),nrow=5)
 # loop over rows
-for (i in 1:nrow(m)) {
+for (i in 1:nrow(m)) { # could use for (i in seq_len(nrow(m)))
   m[i,] <- m[i,] + i
 } 
 print(m)
 
 # Loop over columns
-m <- matrix(round(runif(20),digits=3),nrow=5)
+m <- matrix(round(runif(20),digits=2),nrow=5)
 for (j in 1:ncol(m)) {
   m[,j] <- m[,j] + j
 }
 print(m)
 
 # Loop over rows and columns
-m <- matrix(round(runif(20),digits=3),nrow=5)
+m <- matrix(round(runif(20),digits=2),nrow=5)
 for (i in 1:nrow(m)) {
   for (j in 1:ncol(m)) {
     m[i,j] <- m[i,j] + i + j

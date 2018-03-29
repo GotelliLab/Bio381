@@ -194,16 +194,26 @@ RanWalk &lt;-<span class="st"> </span><span class="cf">function</span>(<span cla
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)) {
   m[i,] &lt;-<span class="st"> </span>m[i,] <span class="op">+</span><span class="st"> </span>i
 } 
-<span class="kw">print</span>(m)
-
-<span class="co"># Loop over columns</span>
+<span class="kw">print</span>(m)</code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]  [,4]
+## [1,] 1.843 1.196 1.450 1.821
+## [2,] 2.791 2.659 2.616 2.272
+## [3,] 3.465 3.627 3.961 3.901
+## [4,] 4.366 4.354 4.288 4.028
+## [5,] 5.191 5.914 5.218 5.995</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Loop over columns</span>
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>),<span class="dt">digits=</span><span class="dv">3</span>),<span class="dt">nrow=</span><span class="dv">5</span>)
 <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m)) {
   m[,j] &lt;-<span class="st"> </span>m[,j] <span class="op">+</span><span class="st"> </span>j
 }
-<span class="kw">print</span>(m)
-
-<span class="co"># Loop over rows and columns</span>
+<span class="kw">print</span>(m)</code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]  [,4]
+## [1,] 1.702 2.991 3.638 4.044
+## [2,] 1.051 2.239 3.366 4.139
+## [3,] 1.393 2.892 3.003 4.442
+## [4,] 1.944 2.957 3.689 4.472
+## [5,] 1.089 2.008 3.458 4.457</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Loop over rows and columns</span>
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>),<span class="dt">digits=</span><span class="dv">3</span>),<span class="dt">nrow=</span><span class="dv">5</span>)
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)) {
   <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m)) {
@@ -211,6 +221,12 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">
   } <span class="co"># end of column j loop</span>
 } <span class="co"># end or row i loop</span>
  <span class="kw">print</span>(m) </code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]  [,4]
+## [1,] 2.419 3.116 4.007 5.845
+## [2,] 3.542 4.455 5.791 6.982
+## [3,] 4.005 5.093 6.572 7.614
+## [4,] 5.470 6.172 7.655 8.225
+## [5,] 6.997 7.886 8.480 9.978</code></pre>
 </div>
 <div id="writing-functions-for-equations-and-sweeping-over-parameters" class="section level3">
 <h3>Writing functions for equations and sweeping over parameters</h3>
@@ -332,10 +348,10 @@ sumStats &lt;-<span class="st"> </span><span class="kw">list</span>(<span class=
 }
 <span class="kw">SA_Output</span>()</code></pre></div>
 <pre><code>## $SGain
-## [1] 0.7880663
+## [1] 0.8639739
 ## 
 ## $SCV
-## [1] 0.582992</code></pre>
+## [1] 0.5424322</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Build program body with a single loop through </span>
 <span class="co"># the parameters in modelFrame</span>
 
