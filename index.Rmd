@@ -62,8 +62,8 @@ March 21  | - | -  | [Homework #9](Homeworks/Homework09_2018.html)
 March 22  | [Control Structures II](Lectures/Lecture17_2018.html) | - | -
 March 27  | [Batch Processing](Lectures/Lecture18_2018.html) | -  | -
 March 28  | - | -  | [Homework #10](Homeworks/Homework10_2018n.html)
-March 29  | [Control Structures II](Lectures/Lecture17.html) | -  | -
-April 3  | [Control Structures III](Lectures/Lecture18.html) | -  | -
+March 29  | [Plotting Mathematical Functions](Lectures/Lecture19_2018.html) | -  | -
+April 3  | [Randomization Tests](Lectures/Lecture18.html) | -  | -
 April 4  | - | -  | [Homework #10](Homeworks/Homework10.html)
 April 5  | [Control Structures IV](Lectures/Lecture19.html) | -  | -
 April 10  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
