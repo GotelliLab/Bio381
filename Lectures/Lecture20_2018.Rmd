@@ -1,0 +1,69 @@
+---
+title: 'Lecture #20: Randomization Tests'
+author: "Nicholas J. Gotelli"
+date: "April 3, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### General Steps in a Randomization Test
+1. Define a metric $X$ as a single number to represent pattern
+2. Calculate $X_{obs}$, the metric for the empirical (= observed) data
+3. Randomize or reshuffle the data in a way that would uncouple association between the observed data and their assignment to treatments. Otherwise, the randomized data set should have the same dimensions and properties as the original data set.
+4. For this single randomization, calculate $X_{sim}$, the metric for the simulated (= randomized) data.
+5. Repeat steps (3) and (4) 1000 (or more times) to get a distribution for $H_{sim}$
+6. Estimate the tail probability of the observed metric, given the null distribution $(p(X_{obs}|H_0))$.
+
+#### Preliminaries
+```{r}
+library(ggplot2)
+library(TeachingDemos)
+char2seed("Cruel April")
+```
+#### Read in data
+```{r}
+
+##################################################
+# function: readData
+# read in (or generate) data set for analysis
+# input: file name (or nothing, for this demo)
+# output: 2 column data frame of observed data
+#------------------------------------------------- 
+readData <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <- xObs + 3*rnorm(20)
+                  dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+ print(qplot(x=xObs,y=yObs)) # peek at input data
+return(dF)
+}
+readData()
+```
+
+#### Calculate Metric
+```{r}
+
+##################################################
+# function: getMetric
+# calculate metric for randomization test
+# input: 2-column data frame for regression
+# output: regression slope
+#------------------------------------------------- 
+getMetric <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <- xObs + 3*rnorm(20)
+                  dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+. <- lm(dF[,3]~dF[,2])
+. <- summary(.)
+. <- .$coefficients[2,1]
+
+slope <- .
+return(slope)
+}
+getMetric()
+```
+
+
