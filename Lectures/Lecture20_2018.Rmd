@@ -20,26 +20,25 @@ output:
 ```{r}
 library(ggplot2)
 library(TeachingDemos)
-char2seed("Cruel April")
+#char2seed("Cruel April")
 ```
 #### Read in data
 ```{r}
 
-##################################################
+####### ###########################################
 # function: readData
 # read in (or generate) data set for analysis
 # input: file name (or nothing, for this demo)
-# output: 2 column data frame of observed data
+# output: 3 column data frame of observed data (ID,x,y)
 #------------------------------------------------- 
 readData <- function(z=NULL) {
                 if(is.null(z)){
                   xObs <- 1:20
-                  yObs <- xObs + 3*rnorm(20)
+                  yObs <- xObs + 10*rnorm(20)
                   dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
- print(qplot(x=xObs,y=yObs)) # peek at input data
+# print(qplot(x=xObs,y=yObs)) # peek at input data
 return(dF)
 }
-readData()
 ```
 
 #### Calculate Metric
@@ -54,16 +53,86 @@ readData()
 getMetric <- function(z=NULL) {
                 if(is.null(z)){
                   xObs <- 1:20
-                  yObs <- xObs + 3*rnorm(20)
-                  dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
-. <- lm(dF[,3]~dF[,2])
+                  yObs <-  xObs + 10*rnorm(20)
+                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+. <- lm(z[,3]~z[,2])
 . <- summary(.)
 . <- .$coefficients[2,1]
 
 slope <- .
 return(slope)
 }
-getMetric()
+```
+### Create randomization
+```{r}
+
+##################################################
+# function: shuffleData
+# randomize data for regression analysis
+# input: 3-column data frame (ID,xVar,yVar)
+# output: 3-column data frame (ID,xVar,yVar)
+#------------------------------------------------- 
+shuffleData <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <- xObs + 3*rnorm(20)
+                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+z[,3] <- sample(z[,3]) # use sample function with defaults to reshuffle column
+
+return(z)
+}
 ```
 
+#### Calculate p value from simulated metrics
+
+```{r}
+##################################################
+# function: getPVal
+# calculate p value from simulation
+# input: list of observed metric, and vector of simulated metrics
+# output: lower, upper tail probability values
+#------------------------------------------------- 
+getPVal <- function(z=NULL) {
+                    if(is.null(z)){
+                      z <- list(xObs=runif(1),xSim=runif(1000))}
+                      pLower <- mean(z[[2]]<=z[[1]])
+                      pUpper <- mean(z[[2]]>=z[[1]])
+return(c(pL=pLower,pU=pUpper))
+                    }
+```
+#### Create histogram of simulated and observed metric
+
+```{r}
+##################################################
+# function: plotRanTest
+# create ggplot of histogram of simulated values
+# input: list of observed metric and vector of simulated metrics
+# output: saved ggplot graph
+#------------------------------------------------- 
+plotRanTest <- function(z=NULL) {
+                if(is.null(z)){
+                  z <- list(rnorm(1),rnorm(1000)) }
+dF <- data.frame(ID=seq_along(z[[2]]),simX=z[[2]])
+p1 <- ggplot(data=dF,mapping=aes(x=simX))
+p1 + geom_histogram(mapping=aes(fill=I("goldenrod"),color=I("black"))) +
+geom_vline(aes(xintercept=z[[1]],col="blue")) 
+
+                  }
+```
+#### Now use functions to do the work
+
+```{r}
+nSim <- 1000
+Xsim <- rep(NA,nSim)
+dF <- readData()
+Xobs <- getMetric(dF)
+
+for (i in seq_len(nSim)) {
+Xsim[i] <- getMetric(shuffleData(dF))
+}
+
+slopes <- list(Xobs,Xsim)
+getPVal(slopes)
+plotRanTest(slopes)
+```
 
