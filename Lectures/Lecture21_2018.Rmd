@@ -9,3 +9,167 @@ output:
   pdf_document: default
 ---
 ### Introduction to ggplot
+
+#### Components of a ggplot layer
+1. data (in a data frame)
+2. aesthetic mappings (variables are mapped to aesthetics)
+3. geom (the geometric used to draw the layer; has specific aesthetics)
+4. stat (takes raw data and transforms it for useful plotting)
+5. position (adjustment to prevent overplotting)
+
+#### Template for ggplot components
+```
+p1 <- ggplot(data= <DATA>) + 
+<GEOM_FUNCTION>(mapping=aes(<MAPPINGS>),
+                stat=<STAT>,
+                position=<POSITION>) +
+                <COORDINATE_FUNCTION> +
+                <FACET_FUNCTION>
+
+print(p1)
+ggsave(filename="MyPlot",device="pdf")
+```
+
+#### Preliminaries
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(TeachingDemos)
+char2seed("10th Avenue Freeze-Out")
+d <- mpg # use built in mpg data frame
+str(d)
+table(d$fl)
+
+```
+
+#### use `qplot` for fast plotting while coding
+
+```{r,warning=FALSE,message=FALSE}
+# basic histogram
+qplot(x=d$hwy)
+qplot(x=d$hwy,fill=I("khaki"),color=I("black"))
+
+# basic density plot
+qplot(x=d$hwy,geom="density")
+
+# basic scatter plot
+qplot(x=d$displ,y=d$hwy,geom=c("smooth","point"))
+qplot(x=d$displ,y=d$hwy,geom=c("smooth","point"),method="lm")
+
+# basic boxplot
+qplot(x=d$fl, y=d$cty,geom="boxplot",fill=I("green"))       
+
+# basic barplot
+qplot(x=d$fl,geom="bar",fill=I("green"))
+qplot(x=d$fl,geom="bar",fill="green")
+
+# basic curves and functions
+myVec <- seq(1,100,by=0.1)
+myFun <- function(x) sin(x) + 0.1*x
+qplot(x=myVec,y=sin(myVec),geom="line") # built in functions
+qplot(x=myVec,y=dgamma(myVec,shape=5, scale=3),geom="line") # stats d functions
+qplot(x=myVec,y=myFun(myVec),geom="line") # user-defined functions
+
+```
+
+### Themes and fonts
+
+```{r,warning=FALSE,message=FALSE}
+ p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + geom_point()
+ print(p1)
+ 
+ p1 + theme_classic() # no grid lines
+ p1 + theme_linedraw() # black frame
+ p1 + theme_dark() # good for brightly colored points
+ p1 + theme_base() # mimics base R
+ p1 + theme_par() # matches current par settings in base
+ p1 + theme_void() # shows data only
+ p1 + theme_solarized() # good for web pages
+ p1 + theme_economist() # many specialized themes
+ p1 + theme_grey() # ggplots default theme
+``` 
+
+### Major theme modifications 
+
+```{r, warning=FALSE,message=FALSE}
+ # use theme parameters to modify font and font size
+ p1 + theme_classic(base_size=40,base_family="serif")
+ # defaults: theme_grey, base_size=16,base_family="Helvetica")
+ # font families (Mac): Times, Ariel, Monaco, Courier, Helvetica, serif,sans
+ 
+# use coordinate_flip to invert entire plot
+ p2 <- ggplot(data=d, mapping=aes(x=fl,fill=fl)) + geom_bar()
+ print(p2)
+ p2 + coord_flip() + theme_grey(base_size=20,base_family="sans")
+```
+
+### Minor theme modifications
+```{r, warning=FALSE, message=FALSE}
+
+ p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + 
+ geom_point(size=5,shape=21,color="black",fill="coral") +
+ ggtitle("My graph title here") +
+ xlab("My x axis label") + ylab("My y axis label") +
+ xlim(0,4) + ylim(0,20)
+ print(p1)
+ 
+```
+
+### Plotting multiple panel graphs with `patchwork`
+```{r,message=FALSE,warning=FALSE}
+g1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + 
+  geom_point() + 
+  geom_smooth()
+print(g1)
+
+g2 <- ggplot(data=d,
+             mapping=aes(x=fl,fill=I("tomato"),color=I("black"))) +              geom_bar(stat="count") + 
+             theme(legend.position="none")
+print(g2)
+
+g3 <- ggplot(data=d,
+             mapping=aes(x=displ,fill=I("royalblue"),color=I("black"))) + 
+  geom_histogram()
+ print(g3)
+ 
+  g4 <- ggplot(data=d, 
+               mapping=aes(x=fl,y=cty,fill=fl)) + 
+    geom_boxplot() + 
+             theme(legend.position="none")
+  
+  print(g4)
+
+# place two plots horizontally
+  g1 + g2
+
+# place 3 plots vertically
+  g1 + g2 + g3 + plot_layout(ncol=1)
+  
+# change relative area of each plot
+  g1 + g2 + plot_layout(ncol=1,heights=c(2,1))
+  
+  g1 + g2 + plot_layout(ncol=2,widths=c(1,2))
+  
+# add a spacer plot (under construction)
+  g1 + plot_spacer() + g2
+  
+# use nested layouts
+  g1 + {
+    g2 + {
+      g3 +
+        g4 +
+        plot_layout(ncol=1)
+    }
+  } +
+    plot_layout(ncol=1)
+  
+# - operator for subtrack placement
+  g1 + g2 - g3 + plot_layout(ncol=1)
+  
+# \ and | for intuitive layouts
+  (g1 | g2 | g3)/g4
+  
+  (g1 | g2)/(g3 | g4)
+```
+
