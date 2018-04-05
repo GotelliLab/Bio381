@@ -1,0 +1,11 @@
+---
+title: 'Lecture #21: ggplot I'
+author: "Nicholas J. Gotelli"
+date: "April 5, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### Introduction to ggplot
