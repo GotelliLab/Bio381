@@ -66,7 +66,7 @@ March 29  | [Plotting Mathematical Functions](Lectures/Lecture19_2018.html) | - 
 April 3  | [Randomization Tests](Lectures/Lecture20_2018.html) | -  | -
 April 4  | - | -  | [Homework #11](Homeworks/Homework11_2018.html)
 April 5  | [ggplot I](Lectures/Lecture21_2018.html) | -  | -
-April 10  | [Randomization Tests](Lectures/Lecture20.html) | -  | -
+April 10  | [ggplot II](Lectures/Lecture22_2018.html) | -  | -
 April 11  | - | -  | [Spatial Analysis](Homeworks/SpatialAnalysis.html)
 April 12  | [Markov Models](Lectures/Lecture21.html) | -  | -
 April 17  | [Markov Models II](Lectures/Lecture22.html) | -  | -

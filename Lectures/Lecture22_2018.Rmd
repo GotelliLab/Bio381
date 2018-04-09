@@ -1,0 +1,82 @@
+---
+title: 'Lecture #22 ggplot II'
+author: "Nicholas J. Gotelli"
+date: "April 10, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### ggplot (continued)
+
+#### Preliminaries
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(TeachingDemos)
+char2seed("10th Avenue Freeze-Out")
+d <- mpg # use built in mpg data frame
+str(d)
+table(d$fl)
+
+```
+
+### Plotting multiple panel graphs with `patchwork`
+```{r,message=FALSE,warning=FALSE}
+g1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + 
+  geom_point() + 
+  geom_smooth()
+print(g1)
+
+g2 <- ggplot(data=d,
+             mapping=aes(x=fl,fill=I("tomato"),color=I("black"))) +              geom_bar(stat="count") + 
+             theme(legend.position="none")
+print(g2)
+
+g3 <- ggplot(data=d,
+             mapping=aes(x=displ,fill=I("royalblue"),color=I("black"))) + 
+  geom_histogram()
+ print(g3)
+ 
+  g4 <- ggplot(data=d, 
+               mapping=aes(x=fl,y=cty,fill=fl)) + 
+    geom_boxplot() + 
+             theme(legend.position="none")
+  
+  print(g4)
+
+# place two plots horizontally
+  g1 + g2
+
+# place 3 plots vertically
+  g1 + g2 + g3 + plot_layout(ncol=1)
+  
+# change relative area of each plot
+  g1 + g2 + plot_layout(ncol=1,heights=c(2,1))
+  
+  g1 + g2 + plot_layout(ncol=2,widths=c(1,2))
+  
+# add a spacer plot (under construction)
+  g1 + plot_spacer() + g2
+  
+# use nested layouts
+  g1 + {
+    g2 + {
+      g3 +
+        g4 +
+        plot_layout(ncol=1)
+    }
+  } +
+    plot_layout(ncol=1)
+  
+# - operator for subtrack placement
+  g1 + g2 - g3 + plot_layout(ncol=1)
+  
+# \ and | for intuitive layouts
+  (g1 | g2 | g3)/g4
+  
+  (g1 | g2)/(g3 | g4)
+```
+
