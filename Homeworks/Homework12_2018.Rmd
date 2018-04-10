@@ -1,0 +1,20 @@
+---
+title: 'Homework #12'
+author: "Nicholas J. Gotelli"
+date: 'April 11, 2018'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+### Function plotting and randomization tests
+
+1. For this week in lab, use your newly-developed `ggplot` chops to create some nice graphs from your own data (If you do not have a good data frame to use for graphics, use one of the many built-in data frames from R (other than `mpg`, which we are using in class)). Experiment with different themes, theme base sizes, aesthetics, mappings, and faceting. When you are finished, try exporting them to high quality pdfs, jpgs, eps files, or other formats that you would use for submission to a journal.
+
+In this exercise, I encourage you to improve your graphics with elements that we have not (yet) covered in ggplot. For example, can you change the labels on a facet plot so that they are more informative than the variable names that are supplied from your data frame? Can you figure out how to add text annotations, lines and arrows to your graph? Can you figure out how to use custom colors that you have chosen for your fills and lines? Your resources for these explorations are google, Stack Overflow -- and Lauren!
+
+2. This is our last scheduled lab, but the lab will be open next week, and Lauren will be there to give you any help you may need as you prepare for your upcoming preentation. You may want to try hooking up your computer and seeing how it feels to type an R script in front of the class (it's trickier than you might think!).
+
+By the end of the semester, you will need to have your homework portfolio up to date. Most of you have done an excellent job of keeping up with the weekly assignments, so you are in a good shape. But a few of you are badly behind and will have to work a lot to complete your portfolio in time. The last day of class is May 4th. I will check your portfolio and assign final course grades at 5:00 pm on Wednesday May 9th. 'nuff said!
