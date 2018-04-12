@@ -1,0 +1,33 @@
+---
+title: 'Lecture #23 ggplot III'
+author: "Nicholas J. Gotelli"
+date: "April 12, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### ggplot (continued)
+
+#### Preliminaries
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(TeachingDemos)
+char2seed("Dark Star")
+d <- mpg # use built in mpg data frame
+str(d)
+table(d$fl)
+
+```
+#### Mapping aesthetics within geoms
+
+#### Bar plots
+
+#### Alternatives to bar plots
+
+#### Working with color
+
+#### Overplotting
