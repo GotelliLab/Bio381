@@ -167,12 +167,3 @@ p1 <- ggplot(data=d,mapping=aes(x=fl,y=hwy,fill=fl)) +
 #position=position_jitter("width=0.2, height=0.7)
 print(p1)
 ```
-
-
-#### Working with color
-
-#### Function for R color palettes 
-
-#### setting alpha levels
-
-#### Overplotting

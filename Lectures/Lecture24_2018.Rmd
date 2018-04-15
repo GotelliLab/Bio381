@@ -1,0 +1,30 @@
+---
+title: 'Lecture #23 ggplot IV'
+author: "Nicholas J. Gotelli"
+date: "April 17, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### ggplot (continued)
+
+#### Preliminaries
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(TeachingDemos)
+char2seed("Dark Star")
+
+d <- mpg # use built in mpg data frame
+
+```
+#### Working with color
+
+#### Function for R color palettes 
+
+#### setting alpha levels
+
+#### Overplotting
