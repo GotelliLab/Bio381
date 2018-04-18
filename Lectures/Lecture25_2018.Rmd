@@ -1,0 +1,12 @@
+---
+title: 'Lecture #25: dplyr'
+author: "Nicholas J. Gotelli"
+date: "April 19, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### dplyr
+

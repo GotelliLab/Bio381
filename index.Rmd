@@ -71,7 +71,7 @@ April 11  | - | -  | [ggplot Graphing](Homeworks/Homework12_2018.html)
 April 12  | [ggplot III](Lectures/Lecture23_2018.html) | -  | -
 April 17  | [ggplot IV](Lectures/Lecture24_2018.html) | -  | -
 April 18  | - | -  | Catch-up Day (no homework assignment)
-April 19  | [Apply Functions](Lectures/Lecture23.html) | -  | -
+April 19  | [dplyr and Apply Functions](Lectures/Lecture25_2018.html) | -  | -
 April 24  |**Presentations: Barlow, Rewcastle, Looney** | -  | -
 April 25  | - | -  |**Presentations: Burns, Daniels, Neidermeier, Page, Pett**
 April 26  |**Presentations: Thibault, Yancey** | -  | -
