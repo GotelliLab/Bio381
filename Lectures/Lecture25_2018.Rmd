@@ -37,7 +37,7 @@ output:
 
 ### Preliminaries
 
-```{r}
+```{r, message=FALSE,warning=FALSE}
 library(reshape2)
 library(tidyr)
 library(ggplot2)
