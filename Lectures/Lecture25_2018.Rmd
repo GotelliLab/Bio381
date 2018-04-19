@@ -10,3 +10,103 @@ output:
 ---
 ### dplyr
 
+#### Wrangling tools
+##### Regular Expressions
+- good for manipulating strings and cleaning data
+- find and replace, but mostly for manipulating columns, not rows
+#### Subsetting rows and columns
+- create a boolean expression for selection
+- apply to rows or columns to generate an n-element boolean vector
+- use this vector to select and subset rows and columns
+
+#### dplyr
+- consistent set of grammar
+- use to modify actual layout of the data
+
+### tidy data
+- need to be in the "long" form
+- each cell is a value (= smallest object of measurement)
+- each row is a unique observation
+- each column is an attribute of the observation
+
+### why not tidy?
+- no consistent formatting structure
+- alternate forms required for some programs
+- ease of input in spreadsheets
+- storage and size
+
+### Preliminaries
+
+```{r}
+library(reshape2)
+library(tidyr)
+library(ggplot2)
+library(TeachingDemos)
+char2seed("sharpei")
+```
+### Build species x site matrix
+
+```{r, message=FALSE,warning=FALSE}
+species <- 5
+sites <- 8
+abundanceRange <- 1:10
+mFill <- 0.4
+
+vec <- rep(0,species*sites)  # set up empty vector
+abun <- sample(x=abundanceRange,
+               size=round(mFill*length(vec)),
+               replace=TRUE) # sample abundance counts
+vec[seq_along(abun)] <- abun # fill initial cells with counts
+vec <- sample(vec) # reshuffle the values
+aMat <- matrix(vec,nrow=species)
+rownames(aMat) <- rownames(aMat, 
+                           do.NULL=FALSE, 
+                           prefix="Species")
+colnames(aMat) <- colnames(aMat, 
+                           do.NULL=FALSE, 
+                           prefix="Site")
+print(aMat)
+```
+#### Convert to long form
+
+```{r,warning=FALSE,message=FALSE}
+# using melt function from reshape2 for matrices and arrays
+. <- melt(aMat)
+print(.)
+. <- melt(aMat,varnames=c("Species","Site"),value.name="Abundance")
+print(.)
+
+# now convert to a data frame
+aFrame <- data.frame(cbind(Species=rownames(aMat),aMat))
+print(aFrame)
+
+# use gather function from tidyr for data frames
+ . <- gather(aFrame,Site1:Site8,key="Site",value="Abundance")
+ print(.)
+```
+#### Build a Subject x Time Experimental Matrix
+
+```{r}
+
+# construct data frame; typical excel spreadsheet format
+Treatment <- rep(c("Control","Treatment"),each=5)
+Subject <- 1:10
+T1 <- rnorm(10)
+T2 <- rnorm(10)
+T3 <- rnorm(10)
+eFrame <- data.frame(Treatment=Treatment,Subject=Subject,T1=T1,T2=T2,T3=T3)
+str(eFrame)
+eFrame$Subject <- as.character(eFrame$Subject)
+str(eFrame)
+print(eFrame)
+
+# now use gather to turn this into long format
+. <- gather(eFrame,T1:T3,key="Time",value="Response")
+print(.)
+str(.)
+# set up new variable "Time" as a factor
+.$Time <- as.factor(.$Time)
+str(.)
+```
+Abundance.Matrix <- cast(MyData.Long,Species~Site,value="Abundance")
+print(Abundance.Matrix)
