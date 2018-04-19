@@ -8,7 +8,7 @@ output:
     theme: united
   pdf_document: default
 ---
-### dplyr
+### tidyr, dplyr
 
 #### Wrangling tools
 ##### Regular Expressions
@@ -42,8 +42,9 @@ library(reshape2)
 library(tidyr)
 library(ggplot2)
 library(TeachingDemos)
-char2seed("sharpei")
+char2seed("Sharpei")
 ```
+
 ### Build species x site matrix
 
 ```{r, message=FALSE,warning=FALSE}
@@ -67,6 +68,7 @@ colnames(aMat) <- colnames(aMat,
                            prefix="Site")
 print(aMat)
 ```
+
 #### Convert to long form
 
 ```{r,warning=FALSE,message=FALSE}
@@ -83,7 +85,18 @@ print(aFrame)
 # use gather function from tidyr for data frames
  . <- gather(aFrame,Site1:Site8,key="Site",value="Abundance")
  print(.)
+ str(.)
+ .$Abundance <- as.numeric(.$Abundance)
+ str(.)
+ aFrameL <- .
+# now it is ready for a barplot in ggplot
+ 
+ ggplot(aFrameL,aes(x=Site,y=Abundance,fill=Species)) +
+   geom_bar(position="dodge",stat="identity",color="black") 
+ 
+ 
 ```
+
 #### Build a Subject x Time Experimental Matrix
 
 ```{r}
@@ -96,8 +109,6 @@ T2 <- rnorm(10)
 T3 <- rnorm(10)
 eFrame <- data.frame(Treatment=Treatment,Subject=Subject,T1=T1,T2=T2,T3=T3)
 str(eFrame)
-eFrame$Subject <- as.character(eFrame$Subject)
-str(eFrame)
 print(eFrame)
 
 # now use gather to turn this into long format
@@ -107,6 +118,33 @@ str(.)
 # set up new variable "Time" as a factor
 .$Time <- as.factor(.$Time)
 str(.)
+eFrameL <- .
+# now a quick boxplot
+
+ggplot(eFrameL,aes(x=Treatment,y=Response,fill=Time)) +
+  geom_boxplot()
 ```
-Abundance.Matrix <- cast(MyData.Long,Species~Site,value="Abundance")
-print(Abundance.Matrix)
+
+#### Going from long back to wide formats: `recast` and `spread`
+
+```{r}
+. <- dcast(aFrameL,Species~Site,value="Abundance")
+str(.)
+print(.)
+
+. <- spread(aFrameL,key=Site,value=Abundance)
+str(.)
+print(.)
+
+. <- spread(aFrameL,key=Species,value=Abundance)
+str(.)
+print(.)
+
+. <- spread(eFrameL,key=Time,value=Response)
+str(.)
+print(.)
+```
+
+#### Using dplyr functions to summarize and group data
+
+
