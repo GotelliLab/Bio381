@@ -40,6 +40,7 @@ output:
 ```{r, message=FALSE,warning=FALSE}
 library(reshape2)
 library(tidyr)
+library(dplyr)
 library(ggplot2)
 library(TeachingDemos)
 char2seed("Sharpei")
@@ -99,7 +100,7 @@ print(aFrame)
 
 #### Build a Subject x Time Experimental Matrix
 
-```{r}
+```{r, warning=FALSE,message=FALSE}
 
 # construct data frame; typical excel spreadsheet format
 Treatment <- rep(c("Control","Treatment"),each=5)
@@ -127,7 +128,7 @@ ggplot(eFrameL,aes(x=Treatment,y=Response,fill=Time)) +
 
 #### Going from long back to wide formats: `recast` and `spread`
 
-```{r}
+```{r,message=FALSE,warning=FALSE}
 . <- dcast(aFrameL,Species~Site,value="Abundance")
 str(.)
 print(.)
@@ -147,4 +148,105 @@ print(.)
 
 #### Using dplyr functions to summarize and group data
 
+```{r, warning=FALSE,MESSAGE=FALSE}
+
+# summarize gives column means for an entire data frame
+as.data.frame(summarize(mpg,ctyM=mean(cty), ctySD=sd(cty)))
+
+# not helpful, but almost always used with group_by function
+. <- group_by(mpg,fl)
+summarize(.,ctyM=mean(cty), ctySD=sd(cty))
+
+# can also group by multiple classifications
+. <- group_by(mpg,fl,class)
+summarize(.,ctyM=mean(cty), ctySD=sd(cty))
+
+# let's add in the sample size 
+. <- group_by(mpg,fl,class)
+summarize(.,ctyM=mean(cty), ctySD=sd(cty),n=length(cty))
+
+# finally, let's filter and remove all of the suvs
+. <- filter(mpg,class!="suv")
+. <- group_by(.,fl,class)
+summarize(.,ctyM=mean(cty), ctySD=sd(cty),n=length(cty))
+
+```
+
+#### Introducing the apply family
+
+```
+replicate(n,expression,simplify)
+n : number of replications
+expression : any r expression, including a function or operation
+simplify : default="array", which will generate an array with dimensions 1 higher than output structure. simplify=TRUE will generate a matrix or vector. simplify=FALSE will generate a list)
+```
+
+```{r, message=FALSE,warning=FALSE}
+# first set this up as a matrix
+
+myOut <- matrix(data=0,nrow=3,ncol=5)
+print(myOut)
+
+# fill with a for loop
+for (i in 1:nrow(myOut)) {
+  for (j in 1:ncol(myOut)) {
+   myOut[i,j] <- runif(1)
+  }
+}
+print(myOut)
+
+# silly to loop here. Just create myOut and fill directly
+myOut <- matrix(data=runif(15),nrow=3,ncol=5)
+print(myOut)
+
+# each column of output is one of the replicates
+mO <- replicate(n=5, 
+                100 + runif(3),
+                simplify=TRUE)
+print(mO)
+
+# try making random matrices
+mO <- replicate(n=5,
+                matrix(runif(6),3,2),
+                simplify="array")
+print(mO)       # print 3-D array
+print(mO[,,2]) # print all rows and columns of second matrix
+print(mO[2,1,3]) # print row 2, column1 of matrix 3
+
+# what if the output is not all of the same length? 
+#  in that case, replicate will always make a list, 
+# regardless of setting for simplify
+mO <- replicate(n=5, 
+                100 + runif(sample.int(10,1)),
+                simplify=TRUE)
+print(mO)
+print(mO[[3]][4]) # print the 4th element from the third vector
+```
+
+#### The `tapply` function
+
+```
+Behaves like summarize() and by_group but operates on vectors not data frames
+
+tapply(x,index,fun)
+X = vector of values to operate on
+INDEX = grouping factor (elements coerced to factor)
+FUN = function to be applied to the elements from x in each of the index groups
+```
+
+```{r, warning=FALSE,message=FALSE}
+myMeans <- tapply(X=mpg$cty,
+                  INDEX=mpg$class,
+                  FUN=mean)
+print(myMeans)
+str(myMeans)
+
+# can also use with implicit functions, but not expressions
+
+myMeans <- tapply(X=mpg$cty,
+                  INDEX=mpg$class,
+                  FUN= function(x) mean(x)/100)
+print(myMeans)
+str(myMeans)
+```
 

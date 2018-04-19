@@ -197,6 +197,7 @@ $(document).ready(function () {
 <h3>Preliminaries</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
 <span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(TeachingDemos)
 <span class="kw">char2seed</span>(<span class="st">&quot;Sharpei&quot;</span>)</code></pre></div>
@@ -473,9 +474,8 @@ eFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span cl
 </div>
 <div id="going-from-long-back-to-wide-formats-recast-and-spread" class="section level4">
 <h4>Going from long back to wide formats: <code>recast</code> and <code>spread</code></h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">. &lt;-<span class="st"> </span><span class="kw">dcast</span>(aFrameL,Species<span class="op">~</span>Site,<span class="dt">value=</span><span class="st">&quot;Abundance&quot;</span>)</code></pre></div>
-<pre><code>## Using Abundance as value column: use value.var to override.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(.)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">. &lt;-<span class="st"> </span><span class="kw">dcast</span>(aFrameL,Species<span class="op">~</span>Site,<span class="dt">value=</span><span class="st">&quot;Abundance&quot;</span>)
+<span class="kw">str</span>(.)</code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  9 variables:
 ##  $ Species: Factor w/ 5 levels &quot;Species1&quot;,&quot;Species2&quot;,..: 1 2 3 4 5
 ##  $ Site1  : num  1 0 0 0 0
@@ -554,6 +554,239 @@ eFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span cl
 </div>
 <div id="using-dplyr-functions-to-summarize-and-group-data" class="section level4">
 <h4>Using dplyr functions to summarize and group data</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize gives column means for an entire data frame</span>
+<span class="kw">as.data.frame</span>(<span class="kw">summarize</span>(mpg,<span class="dt">ctyM=</span><span class="kw">mean</span>(cty), <span class="dt">ctySD=</span><span class="kw">sd</span>(cty)))</code></pre></div>
+<pre><code>##       ctyM    ctySD
+## 1 16.85897 4.255946</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># not helpful, but almost always used with group_by function</span>
+. &lt;-<span class="st"> </span><span class="kw">group_by</span>(mpg,fl)
+<span class="kw">summarize</span>(.,<span class="dt">ctyM=</span><span class="kw">mean</span>(cty), <span class="dt">ctySD=</span><span class="kw">sd</span>(cty))</code></pre></div>
+<pre><code>## # A tibble: 5 x 3
+##   fl     ctyM  ctySD
+##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 c     24.0  NaN   
+## 2 d     25.6    9.53
+## 3 e      9.75   1.04
+## 4 p     17.4    3.04
+## 5 r     16.7    3.89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># can also group by multiple classifications</span>
+. &lt;-<span class="st"> </span><span class="kw">group_by</span>(mpg,fl,class)
+<span class="kw">summarize</span>(.,<span class="dt">ctyM=</span><span class="kw">mean</span>(cty), <span class="dt">ctySD=</span><span class="kw">sd</span>(cty))</code></pre></div>
+<pre><code>## # A tibble: 18 x 4
+## # Groups:   fl [?]
+##    fl    class       ctyM   ctySD
+##    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+##  1 c     subcompact 24.0  NaN    
+##  2 d     compact    33.0  NaN    
+##  3 d     subcompact 32.0    4.24 
+##  4 d     suv        15.5    2.12 
+##  5 e     minivan    11.0  NaN    
+##  6 e     pickup      9.00   0    
+##  7 e     suv        10.0    1.15 
+##  8 p     2seater    15.4    0.548
+##  9 p     compact    18.8    2.21 
+## 10 p     midsize    17.8    1.86 
+## 11 p     subcompact 19.3    4.73 
+## 12 p     suv        13.4    3.34 
+## 13 r     compact    20.8    2.99 
+## 14 r     midsize    19.3    1.81 
+## 15 r     minivan    16.3    0.949
+## 16 r     pickup     13.4    1.67 
+## 17 r     subcompact 19.6    3.54 
+## 18 r     suv        13.7    2.12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let's add in the sample size </span>
+. &lt;-<span class="st"> </span><span class="kw">group_by</span>(mpg,fl,class)
+<span class="kw">summarize</span>(.,<span class="dt">ctyM=</span><span class="kw">mean</span>(cty), <span class="dt">ctySD=</span><span class="kw">sd</span>(cty),<span class="dt">n=</span><span class="kw">length</span>(cty))</code></pre></div>
+<pre><code>## # A tibble: 18 x 5
+## # Groups:   fl [?]
+##    fl    class       ctyM   ctySD     n
+##    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 c     subcompact 24.0  NaN         1
+##  2 d     compact    33.0  NaN         1
+##  3 d     subcompact 32.0    4.24      2
+##  4 d     suv        15.5    2.12      2
+##  5 e     minivan    11.0  NaN         1
+##  6 e     pickup      9.00   0         3
+##  7 e     suv        10.0    1.15      4
+##  8 p     2seater    15.4    0.548     5
+##  9 p     compact    18.8    2.21     21
+## 10 p     midsize    17.8    1.86     15
+## 11 p     subcompact 19.3    4.73      3
+## 12 p     suv        13.4    3.34      8
+## 13 r     compact    20.8    2.99     25
+## 14 r     midsize    19.3    1.81     26
+## 15 r     minivan    16.3    0.949    10
+## 16 r     pickup     13.4    1.67     30
+## 17 r     subcompact 19.6    3.54     29
+## 18 r     suv        13.7    2.12     48</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># finally, let's filter and remove all of the suvs</span>
+. &lt;-<span class="st"> </span><span class="kw">filter</span>(mpg,class<span class="op">!=</span><span class="st">&quot;suv&quot;</span>)
+. &lt;-<span class="st"> </span><span class="kw">group_by</span>(.,fl,class)
+<span class="kw">summarize</span>(.,<span class="dt">ctyM=</span><span class="kw">mean</span>(cty), <span class="dt">ctySD=</span><span class="kw">sd</span>(cty),<span class="dt">n=</span><span class="kw">length</span>(cty))</code></pre></div>
+<pre><code>## # A tibble: 14 x 5
+## # Groups:   fl [?]
+##    fl    class       ctyM   ctySD     n
+##    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 c     subcompact 24.0  NaN         1
+##  2 d     compact    33.0  NaN         1
+##  3 d     subcompact 32.0    4.24      2
+##  4 e     minivan    11.0  NaN         1
+##  5 e     pickup      9.00   0         3
+##  6 p     2seater    15.4    0.548     5
+##  7 p     compact    18.8    2.21     21
+##  8 p     midsize    17.8    1.86     15
+##  9 p     subcompact 19.3    4.73      3
+## 10 r     compact    20.8    2.99     25
+## 11 r     midsize    19.3    1.81     26
+## 12 r     minivan    16.3    0.949    10
+## 13 r     pickup     13.4    1.67     30
+## 14 r     subcompact 19.6    3.54     29</code></pre>
+</div>
+<div id="introducing-the-apply-family" class="section level4">
+<h4>Introducing the apply family</h4>
+<pre><code>replicate(n,expression,simplify)
+n : number of replications
+expression : any r expression, including a function or operation
+simplify : default=&quot;array&quot;, which will generate an array with dimensions 1 higher than output structure. simplify=TRUE will generate a matrix or vector. simplify=FALSE will generate a list)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first set this up as a matrix</span>
+
+myOut &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">0</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">5</span>)
+<span class="kw">print</span>(myOut)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    0    0    0    0
+## [2,]    0    0    0    0    0
+## [3,]    0    0    0    0    0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fill with a for loop</span>
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(myOut)) {
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(myOut)) {
+   myOut[i,j] &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)
+  }
+}
+<span class="kw">print</span>(myOut)</code></pre></div>
+<pre><code>##            [,1]       [,2]      [,3]      [,4]      [,5]
+## [1,] 0.37341007 0.01863415 0.5957707 0.9003077 0.3848699
+## [2,] 0.87093089 0.91170917 0.1177958 0.7832815 0.5223907
+## [3,] 0.08596474 0.56377905 0.2433908 0.9141332 0.4169407</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># silly to loop here. Just create myOut and fill directly</span>
+myOut &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="kw">runif</span>(<span class="dv">15</span>),<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">5</span>)
+<span class="kw">print</span>(myOut)</code></pre></div>
+<pre><code>##           [,1]      [,2]      [,3]      [,4]       [,5]
+## [1,] 0.3743660 0.4503990 0.6956035 0.7411267 0.76246688
+## [2,] 0.9979720 0.1959535 0.1860044 0.3991532 0.07276966
+## [3,] 0.1998633 0.4867826 0.3549435 0.1647403 0.90787215</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># each column of output is one of the replicates</span>
+mO &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n=</span><span class="dv">5</span>, 
+                <span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(<span class="dv">3</span>),
+                <span class="dt">simplify=</span><span class="ot">TRUE</span>)
+<span class="kw">print</span>(mO)</code></pre></div>
+<pre><code>##          [,1]     [,2]     [,3]     [,4]     [,5]
+## [1,] 100.9166 100.1689 100.8912 100.2138 100.3123
+## [2,] 100.7494 100.6002 100.9160 100.3084 100.5400
+## [3,] 100.1673 100.9099 100.8322 100.3676 100.6767</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># try making random matrices</span>
+mO &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n=</span><span class="dv">5</span>,
+                <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">6</span>),<span class="dv">3</span>,<span class="dv">2</span>),
+                <span class="dt">simplify=</span><span class="st">&quot;array&quot;</span>)
+<span class="kw">print</span>(mO)       <span class="co"># print 3-D array</span></code></pre></div>
+<pre><code>## , , 1
+## 
+##           [,1]       [,2]
+## [1,] 0.4309708 0.01166222
+## [2,] 0.3913597 0.61132852
+## [3,] 0.8468304 0.27838617
+## 
+## , , 2
+## 
+##           [,1]      [,2]
+## [1,] 0.1301566 0.7971838
+## [2,] 0.4386276 0.4248667
+## [3,] 0.7259940 0.2280716
+## 
+## , , 3
+## 
+##            [,1]       [,2]
+## [1,] 0.95137813 0.68001557
+## [2,] 0.49837827 0.01467708
+## [3,] 0.01746844 0.38108052
+## 
+## , , 4
+## 
+##            [,1]      [,2]
+## [1,] 0.70378968 0.6030799
+## [2,] 0.98581207 0.8074652
+## [3,] 0.03506917 0.7571341
+## 
+## , , 5
+## 
+##           [,1]      [,2]
+## [1,] 0.1861175 0.5460248
+## [2,] 0.4517625 0.0728738
+## [3,] 0.3863245 0.6984865</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(mO[,,<span class="dv">2</span>]) <span class="co"># print all rows and columns of second matrix</span></code></pre></div>
+<pre><code>##           [,1]      [,2]
+## [1,] 0.1301566 0.7971838
+## [2,] 0.4386276 0.4248667
+## [3,] 0.7259940 0.2280716</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(mO[<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>]) <span class="co"># print row 2, column1 of matrix 3</span></code></pre></div>
+<pre><code>## [1] 0.4983783</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># what if the output is not all of the same length? </span>
+<span class="co">#  in that case, replicate will always make a list, </span>
+<span class="co"># regardless of setting for simplify</span>
+mO &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n=</span><span class="dv">5</span>, 
+                <span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(<span class="kw">sample.int</span>(<span class="dv">10</span>,<span class="dv">1</span>)),
+                <span class="dt">simplify=</span><span class="ot">TRUE</span>)
+<span class="kw">print</span>(mO)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 100.1818
+## 
+## [[2]]
+## [1] 100.6724 100.4110 100.1051 100.1748 100.2382 100.3920 100.9531 100.4438
+## 
+## [[3]]
+## [1] 100.2630 100.7127 100.2967 100.2546 100.4965 100.0512 100.1598
+## 
+## [[4]]
+## [1] 100.6872 100.4110 100.2058
+## 
+## [[5]]
+## [1] 100.6508</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(mO[[<span class="dv">3</span>]][<span class="dv">4</span>]) <span class="co"># print the 4th element from the third vector</span></code></pre></div>
+<pre><code>## [1] 100.2546</code></pre>
+</div>
+<div id="the-tapply-function" class="section level4">
+<h4>The <code>tapply</code> function</h4>
+<pre><code>Behaves like summarize() and by_group but operates on vectors not data frames
+
+tapply(x,index,fun)
+X = vector of values to operate on
+INDEX = grouping factor (elements coerced to factor)
+FUN = function to be applied to the elements from x in each of the index groups</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMeans &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X=</span>mpg<span class="op">$</span>cty,
+                  <span class="dt">INDEX=</span>mpg<span class="op">$</span>class,
+                  <span class="dt">FUN=</span>mean)
+<span class="kw">print</span>(myMeans)</code></pre></div>
+<pre><code>##    2seater    compact    midsize    minivan     pickup subcompact 
+##   15.40000   20.12766   18.75610   15.81818   13.00000   20.37143 
+##        suv 
+##   13.50000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(myMeans)</code></pre></div>
+<pre><code>##  num [1:7(1d)] 15.4 20.1 18.8 15.8 13 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 1
+##   ..$ : chr [1:7] &quot;2seater&quot; &quot;compact&quot; &quot;midsize&quot; &quot;minivan&quot; ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># can also use with implicit functions, but not expressions</span>
+
+myMeans &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X=</span>mpg<span class="op">$</span>cty,
+                  <span class="dt">INDEX=</span>mpg<span class="op">$</span>class,
+                  <span class="dt">FUN=</span> <span class="cf">function</span>(x) <span class="kw">mean</span>(x)<span class="op">/</span><span class="dv">100</span>)
+<span class="kw">print</span>(myMeans)</code></pre></div>
+<pre><code>##    2seater    compact    midsize    minivan     pickup subcompact 
+##  0.1540000  0.2012766  0.1875610  0.1581818  0.1300000  0.2037143 
+##        suv 
+##  0.1350000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(myMeans)</code></pre></div>
+<pre><code>##  num [1:7(1d)] 0.154 0.201 0.188 0.158 0.13 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 1
+##   ..$ : chr [1:7] &quot;2seater&quot; &quot;compact&quot; &quot;midsize&quot; &quot;minivan&quot; ...</code></pre>
 </div>
 </div>
 
