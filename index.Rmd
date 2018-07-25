@@ -1,15 +1,14 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2018"
+date: "Fall 2018"
 output:
   prettydoc::html_pretty:
     theme: hpstr
     highlight: github
 ---
-# Archival commit - Spring 2018
 
-This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2018.
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Fall 2018.
 
 ## Course Materials
 
@@ -30,54 +29,51 @@ ___
 
 Date  | Lecture | Scripts  | Homework
 ------------- | -------------- |----------- | -------------
-January 16  | [GitHub](Lectures/Lecture01.html) | -  | -
-January 17  | - | -  | [Homework #1](Homeworks/Homework01_2018.html)
-January 18  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
-January 23  | [RStudio](Lectures/Lecture03_4.html) | - | -
-January 24  | - | -  | [Homework #2](Homeworks/Homework02_2018.html)
-January 25  | [RStudio II](Lectures/Lecture03_4.html) | -| -
-January 30  | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
-January 31  | - | -  | [Homework #3](Homeworks/Homework03_2018.html)
-February 1  | [Atomic Vectors](Lectures/Lecture06_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 6  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 7  | - | -  | [Homework #4](Homeworks/Homework04_2018.html)
-February 8  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 13  | [Probability Distributions I](Lectures/Lecture08_2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-February 14  | - | -  | [Homework #5](Homeworks/Homework05_2018.html)
-February 15  | [Data Structures](Lectures/Lecture10.html)| -  | -
-February 20  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
-February 21  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
-February 22  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
-February 27  | [Regression,ANOVA Designs](Lectures/Lecture13_2018.html)| -  | -
-February 28  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
-March 1  | [Functions](Lectures/Lecture14_2018.html)| -  | -
-March 6  | *TOWN MEETING DAY RECESS* | -  | -
-March 7  | - | -  | [Homework #8](Homeworks/Homework08_2018.html)
-March 8  | [Structured Programming](Lectures/Lecture15_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-March 13  | *SPRING RECESS* | -  | -
-March 14  | *SPRING RECESS* | -  | -
-March 15  | *SPRING RECESS* | -  | -
-March 20  | [Control Structures I](Lectures/Lecture16_2018.html) | -  | -
-March 21  | - | -  | [Homework #9](Homeworks/Homework09_2018.html)
-March 22  | [Control Structures II](Lectures/Lecture17_2018.html) | - | -
-March 27  | [Batch Processing](Lectures/Lecture18_2018.html) | -  | -
-March 28  | - | -  | [Homework #10](Homeworks/Homework10_2018n.html)
-March 29  | [Plotting Mathematical Functions](Lectures/Lecture19_2018.html) | -  | -
-April 3  | [Randomization Tests](Lectures/Lecture20_2018.html) | -  | -
-April 4  | - | -  | [Homework #11](Homeworks/Homework11_2018.html)
-April 5  | [ggplot I](Lectures/Lecture21_2018.html) | -  | -
-April 10  | [ggplot II](Lectures/Lecture22_2018.html) | -  | -
-April 11  | - | -  | [ggplot Graphing](Homeworks/Homework12_2018.html)
-April 12  | [ggplot III](Lectures/Lecture23_2018.html) | -  | -
-April 17  | [ggplot IV](Lectures/Lecture24_2018.html) | -  | -
-April 18  | - | -  | Catch-up Day (no homework assignment)
-April 19  | [dplyr and Apply Functions](Lectures/Lecture25_2018.html) | -  | -
-April 24  |**Presentations: Barlow, Rewcastle, Looney** | -  | -
-April 25  | - | -  |**Presentations: Burns, Daniels, Neidermeier, Page, Pett**
-April 26  |**Presentations: Thibault, Yancey** | -  | -
-May 1  | **Presentations: Wieghan, Verrico**| -  | -
-May 2  | -  | -  | **Presentations: Dittmer, Hackenberg, Ruizarocho, Schmoker, Steinhart**
-May 3  | **Palawat, Bomeisl** | -  | -
+August 28  | [GitHub](Lectures/Lecture01.html) | -  | -
+August 29  | - | -  | [Homework #1](Homeworks/Homework01_2018.html)
+August 30  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
+September 4  | [RStudio](Lectures/Lecture03_4.html) | - | -
+September 5 | - | -  | [Homework #2](Homeworks/Homework02_2018.html)
+September 6  | [RStudio II](Lectures/Lecture03_4.html) | -| -
+September 11 | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
+September 12  | - | -  | [Homework #3](Homeworks/Homework03_2018.html)
+September 13  | [Atomic Vectors](Lectures/Lecture06_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+September 18  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+September 19  | - | -  | [Homework #4](Homeworks/Homework04_2018.html)
+September 20  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+September 25  | [Probability Distributions I](Lectures/Lecture08_2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+September 26  | - | -  | [Homework #5](Homeworks/Homework05_2018.html)
+September 27  | [Data Structures](Lectures/Lecture10.html)| -  | -
+October 2  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
+October 3  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
+October 4  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
+October 9  | [Regression,ANOVA Designs](Lectures/Lecture13_2018.html)| -  | -
+October 10  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
+October 11  | [Functions](Lectures/Lecture14_2018.html)| -  | -
+October 16  | *TBA* | -  | -
+October 17  | - | -  | [Homework #8](Homeworks/Homework08_2018.html)
+October 18  | [Structured Programming](Lectures/Lecture15_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+October 23  | [Control Structures I](Lectures/Lecture16_2018.html) | -  | -
+October 24  | - | -  | [Homework #9](Homeworks/Homework09_2018.html)
+October 25  | [Control Structures II](Lectures/Lecture17_2018.html) | - | -
+October 30  | [Batch Processing](Lectures/Lecture18_2018.html) | -  | -
+October 31  | - | -  | [Homework #10](Homeworks/Homework10_2018n.html)
+November 1  | [Plotting Mathematical Functions](Lectures/Lecture19_2018.html) | -  | -
+November 6  | [Randomization Tests](Lectures/Lecture20_2018.html) | -  | -
+November 7  | - | -  | [Homework #11](Homeworks/Homework11_2018.html)
+November 8  | [ggplot I](Lectures/Lecture21_2018.html) | -  | -
+November 13  | [ggplot II](Lectures/Lecture22_2018.html) | -  | -
+November 14  | - | -  | [ggplot Graphing](Homeworks/Homework12_2018.html)
+November 15  | [ggplot III](Lectures/Lecture23_2018.html) | -  | -
+November 20  | *THANKSGIVING RECESS* | -  | -
+November 21  | *THANKSGIVING RECESS* | -  | -
+November 22  | *THANKSGIVING RECESS* | -  | -
+November 27  | [ggplot IV](Lectures/Lecture24_2018.html) | -  | -
+November 28  | - | -  | Catch-up Day (no homework assignment)
+November 29  | [dplyr and Apply Functions](Lectures/Lecture25_2018.html) | -  | -
+December 4  |**Presentations: ** | -  | -
+December 5  | - | -  |**Presentations: **
+December 6  |**Presentations: ** | -  | -
 
 ### Class Work
 
