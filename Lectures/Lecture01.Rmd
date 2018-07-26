@@ -12,6 +12,65 @@ output:
 
 ___
 
+#### Traditional and Modern Computational Tools
+- Traditional
+    + Word/Excel/Powerpoint
+    + SAS/SPSS/JMP for stats
+    + Sigmaplot
+
+- Commercial
+- Proprietary
+
+- Expensive, availability of updates
+- Code not available to modify, improve
+- File formats usually not compatable
+- Poor tools for documentation, transparency
+
+- Modern
+    + LaTeX/Markdown/Typora/Overleaf (instead of Word)
+    + plain-text editors (instead of Excel)
+    + Beamer slides (instead of Powerpoint)
+    + R (instead of stats and graphics packages)
+    
+- Advantages of Modern
+    + free, open source
+    + files always usable and readable
+    + huge network of expert users (Wikipedia style)
+    + less vulnerable to hackers and malware
+    
+- Learning to code
+    + deeper understanding of problem
+    + hypothesis testing
+    + life long habit of learning and staying abreast of field
+    
+#### Thinking On Paper
+- the logic tree (the basis for "strong inference" that is rarely used explicitly)
+- the look-up table (organize the results of multiple statistical analyses with a "dip-switch" test)
+- the path diagram (for specifying variables and being explicit about cause-and-effect)
+- the simulated data analysis (complete all of your statistical analyses and know how you will interpret the results before your experiment is even finished)
+
+
+#### Computational Tools
+- Git and GitHub (for tracking and documenting your work)
+- RMarkdown (to easily build webpages and pdfs with or without R code)
+- Beamer (pdf slides that blow away Powerpoint presentations)
+- Regular Expressions (find-and-replace on steroids)
+- LaTeX (for type-setting equations and improving your slides)
+- learning new tools (how to learn how to do things in R)
+
+#### Programming Skills
+- Basic coding in R studio (functions, scripts, sourcing, console)
+- Foundational Programming Methods (annotating code, for loops, control structures, ifelse, and much more) 
+- Data Files (creating and annotating your data files for safe storage and archival use)
+- Stochastic Modeling (using random sampling to add realism to models)
+- Null Models (simple permutation tests for estimating *p*-values)
+- Markov Models (transition matrices for population growth, succession, climate change and more)
+
+#### Experimental Designs
+- Graphics (creating publication quality graphics with `ggplot2()`)
+- Basic experimental designs (ANOVA, regression, logistic regression, contingency table)
+- Data simulation (normal, uniform, poisson, beta, gamma distributions)
+
 ### Basic Vocabulary
 - `Version Control` A system for maintaining current and past copies of all of your files and a record of all the changes you have made
 - `git` Version control software for tracking your project on your local computer

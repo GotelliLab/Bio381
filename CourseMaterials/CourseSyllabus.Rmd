@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "Spring 2018"
+date: "Fall 2018"
 output:
   html_document:
     highlight: tango
@@ -13,8 +13,8 @@ ___
 
 ## Meetings
 
-**Lecture:** Tuesday, Thursday 2:50 - 4:05 pm 129 Marsh Life Science   
-**Lab:** Wednesday, 1:00 pm - 3:30 pm 129 Marsh Life Science
+**Lecture:** Tuesday, Thursday  1:15 - 2:30 pm 129 Marsh Life Science   
+**Lab:** Wednesday, 2:20 pm - 4:50 pm 129 Marsh Life Science
 
 ## Instructors
 
@@ -46,65 +46,6 @@ This course is designed to teach you four things:
 2. How to use modern computational tools to make your analysis, writing, and presentations more efficient and attractive, and to make your analyses transparent and repeatable.
 3. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
 4. How to recognize, use, and analyze 4 archetypal experimental designs for biologists, apply them to real and simulated data, and create publication quality graphs with the `ggplot2()` package in R.
-
-#### Traditional and Modern Computational Tools
-- Traditional
-    + Word/Excel/Powerpoint
-    + SAS/SPSS/JMP for stats
-    + Sigmaplot
-
-- Commercial
-- Proprietary
-
-- Expensive, availability of updates
-- Code not available to modify, improve
-- File formats usually not compatable
-- Poor tools for documentation, transparency
-
-- Modern
-    + LaTeX/Markdown/Typora/Overleaf (instead of Word)
-    + plain-text editors (instead of Excel)
-    + Beamer slides (instead of Powerpoint)
-    + R (instead of stats and graphics packages)
-    
-- Advantages of Modern
-    + free, open source
-    + files always usable and readable
-    + huge network of expert users (Wikipedia style)
-    + less vulnerable to hackers and malware
-    
-- Learning to code
-    + deeper understanding of problem
-    + hypothesis testing
-    + life long habit of learning and staying abreast of field
-    
-#### Thinking On Paper
-- the logic tree (the basis for "strong inference" that is rarely used explicitly)
-- the look-up table (organize the results of multiple statistical analyses with a "dip-switch" test)
-- the path diagram (for specifying variables and being explicit about cause-and-effect)
-- the simulated data analysis (complete all of your statistical analyses and know how you will interpret the results before your experiment is even finished)
-
-
-#### Computational Tools
-- Git and GitHub (for tracking and documenting your work)
-- RMarkdown (to easily build webpages and pdfs with or without R code)
-- Beamer (pdf slides that blow away Powerpoint presentations)
-- Regular Expressions (find-and-replace on steroids)
-- LaTeX (for type-setting equations and improving your slides)
-- learning new tools (how to learn how to do things in R)
-
-#### Programming Skills
-- Basic coding in R studio (functions, scripts, sourcing, console)
-- Foundational Programming Methods (annotating code, for loops, control structures, ifelse, and much more) 
-- Data Files (creating and annotating your data files for safe storage and archival use)
-- Stochastic Modeling (using random sampling to add realism to models)
-- Null Models (simple permutation tests for estimating *p*-values)
-- Markov Models (transition matrices for population growth, succession, climate change and more)
-
-#### Experimental Designs
-- Graphics (creating publication quality graphics with `ggplot2()`)
-- Basic experimental designs (ANOVA, regression, logistic regression, contingency table)
-- Data simulation (normal, uniform, poisson, beta, gamma distributions)
 
 ## Lecture Activities
 Once we finish with the preliminaries, the format for the lecture each day is simple. I will open Rstudio from my computer, project the screen so you can see it, and begin coding. I will comment and explain everything as I go along. You will copy what I am typing on the screen into your own computer and the run the code along with me. This is the fastest way for you to learn how to code.
