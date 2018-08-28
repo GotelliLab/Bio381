@@ -1,7 +1,7 @@
 ---
 title: 'Lecture #1: Using GitHub'
 author: "Nicholas J. Gotelli"
-date: "January 17, 2018"
+date: "August 28, 2018"
 output:
   html_document:
     highlight: tango
@@ -12,15 +12,29 @@ output:
 
 ___
 
+### "The Workflow"
+- get data
+    + hand entry
+    + machine generated
+    + scraped from Web
+- wrangle data
+    + transform and format for analysis
+- analyze data
+    + statistical analysis
+    + simulation modeling, forecasting
+- graph data
+    + exploratory graphics
+    + publication quality graphics
+- write paper
+    + tools for speeding up writing process
 #### Traditional and Modern Computational Tools
 - Traditional
     + Word/Excel/Powerpoint
     + SAS/SPSS/JMP for stats
-    + Sigmaplot
+    + Sigmaplot for graphics
 
 - Commercial
 - Proprietary
-
 - Expensive, availability of updates
 - Code not available to modify, improve
 - File formats usually not compatable
@@ -31,6 +45,10 @@ ___
     + plain-text editors (instead of Excel)
     + Beamer slides (instead of Powerpoint)
     + R (instead of stats and graphics packages)
+  
+- Plain text files
+    + always can be opened and read by humans
+    + requires special plain-text editor
     
 - Advantages of Modern
     + free, open source
@@ -43,6 +61,25 @@ ___
     + hypothesis testing
     + life long habit of learning and staying abreast of field
     
+### Course Structure
+
+#### Lectures
+- bring fully charged computer
+- code line by line with me
+- help your neighbor
+- help me
+
+#### Labs
+- do homeworks intended for in class work
+- post work to your GitHub portfolio
+- 5 - 8 hours of work a week
+    
+### Course content
+- Computational tools
+- Programming Foundations
+- Publication Quality Graphics
+- Student Presentations
+
 #### Thinking On Paper
 - the logic tree (the basis for "strong inference" that is rarely used explicitly)
 - the look-up table (organize the results of multiple statistical analyses with a "dip-switch" test)
@@ -62,11 +99,9 @@ ___
 - Basic coding in R studio (functions, scripts, sourcing, console)
 - Foundational Programming Methods (annotating code, for loops, control structures, ifelse, and much more) 
 - Data Files (creating and annotating your data files for safe storage and archival use)
-- Stochastic Modeling (using random sampling to add realism to models)
-- Null Models (simple permutation tests for estimating *p*-values)
-- Markov Models (transition matrices for population growth, succession, climate change and more)
+- `dplyr` for data wrangling
 
-#### Experimental Designs
+#### Graphics and Experimental Designs
 - Graphics (creating publication quality graphics with `ggplot2()`)
 - Basic experimental designs (ANOVA, regression, logistic regression, contingency table)
 - Data simulation (normal, uniform, poisson, beta, gamma distributions)
@@ -81,7 +116,7 @@ ___
 - `Commit (the verb)` When you commit, you are taking a snapshot of your files at the current time. You must add a summary of the commit that briefly describes what changes you have made (such as "Added new homework file"). Note that all commits affect only the local copy of your repository. They do not affect the remote copy that is stored on GitHub
 - `Push` Pushing a set of changes means copying them from your local repository up to GitHub.
 - `Pull` Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.
-- `Sync` The GitHub desktop software combines pushing and pulling into a single operation. At the end of a sync, the copy of your local repository is identical to what is on GitHub. Syncing also updates your webpages that are associated with the project with any changes that you have made to the `.html` pages.  
+- `Sync (=fetch)` The GitHub desktop software combines pushing and pulling into a single operation. At the end of a sync, the copy of your local repository is identical to what is on GitHub. Syncing also updates your webpages that are associated with the project with any changes that you have made to the `.html` pages.  
 
 ### Create An RStudio Project
 - In R Studio under `File` select `New Project`

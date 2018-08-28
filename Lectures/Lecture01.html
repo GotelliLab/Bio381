@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2018-01-17" />
+<meta name="date" content="2018-08-28" />
 
 <title>Lecture #1: Using GitHub</title>
 
@@ -107,23 +107,47 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Lecture #1: Using GitHub</h1>
 <h4 class="author"><em>Nicholas J. Gotelli</em></h4>
-<h4 class="date"><em>January 17, 2018</em></h4>
+<h4 class="date"><em>August 28, 2018</em></h4>
 
 </div>
 
 
 <hr />
-<div id="traditional-and-modern-computational-tools" class="section level4">
-<h4>Traditional and Modern Computational Tools</h4>
+<div id="the-workflow" class="section level3">
+<h3>“The Workflow”</h3>
 <ul>
+<li>get data
+<ul>
+<li>hand entry</li>
+<li>machine generated</li>
+<li>scraped from Web</li>
+</ul></li>
+<li>wrangle data
+<ul>
+<li>transform and format for analysis</li>
+</ul></li>
+<li>analyze data
+<ul>
+<li>statistical analysis</li>
+<li>simulation modeling, forecasting</li>
+</ul></li>
+<li>graph data
+<ul>
+<li>exploratory graphics</li>
+<li>publication quality graphics</li>
+</ul></li>
+<li>write paper
+<ul>
+<li>tools for speeding up writing process #### Traditional and Modern Computational Tools</li>
+</ul></li>
 <li>Traditional
 <ul>
 <li>Word/Excel/Powerpoint</li>
 <li>SAS/SPSS/JMP for stats</li>
-<li>Sigmaplot</li>
+<li>Sigmaplot for graphics</li>
 </ul></li>
 <li>Commercial</li>
-<li><p>Proprietary</p></li>
+<li>Proprietary</li>
 <li>Expensive, availability of updates</li>
 <li>Code not available to modify, improve</li>
 <li>File formats usually not compatable</li>
@@ -134,6 +158,11 @@ $(document).ready(function () {
 <li>plain-text editors (instead of Excel)</li>
 <li>Beamer slides (instead of Powerpoint)</li>
 <li>R (instead of stats and graphics packages)</li>
+</ul></li>
+<li>Plain text files
+<ul>
+<li>always can be opened and read by humans</li>
+<li>requires special plain-text editor</li>
 </ul></li>
 <li>Advantages of Modern
 <ul>
@@ -150,6 +179,34 @@ $(document).ready(function () {
 </ul></li>
 </ul>
 </div>
+<div id="course-structure" class="section level3">
+<h3>Course Structure</h3>
+<div id="lectures" class="section level4">
+<h4>Lectures</h4>
+<ul>
+<li>bring fully charged computer</li>
+<li>code line by line with me</li>
+<li>help your neighbor</li>
+<li>help me</li>
+</ul>
+</div>
+<div id="labs" class="section level4">
+<h4>Labs</h4>
+<ul>
+<li>do homeworks intended for in class work</li>
+<li>post work to your GitHub portfolio</li>
+<li>5 - 8 hours of work a week</li>
+</ul>
+</div>
+</div>
+<div id="course-content" class="section level3">
+<h3>Course content</h3>
+<ul>
+<li>Computational tools</li>
+<li>Programming Foundations</li>
+<li>Publication Quality Graphics</li>
+<li>Student Presentations</li>
+</ul>
 <div id="thinking-on-paper" class="section level4">
 <h4>Thinking On Paper</h4>
 <ul>
@@ -176,18 +233,17 @@ $(document).ready(function () {
 <li>Basic coding in R studio (functions, scripts, sourcing, console)</li>
 <li>Foundational Programming Methods (annotating code, for loops, control structures, ifelse, and much more)</li>
 <li>Data Files (creating and annotating your data files for safe storage and archival use)</li>
-<li>Stochastic Modeling (using random sampling to add realism to models)</li>
-<li>Null Models (simple permutation tests for estimating <em>p</em>-values)</li>
-<li>Markov Models (transition matrices for population growth, succession, climate change and more)</li>
+<li><code>dplyr</code> for data wrangling</li>
 </ul>
 </div>
-<div id="experimental-designs" class="section level4">
-<h4>Experimental Designs</h4>
+<div id="graphics-and-experimental-designs" class="section level4">
+<h4>Graphics and Experimental Designs</h4>
 <ul>
 <li>Graphics (creating publication quality graphics with <code>ggplot2()</code>)</li>
 <li>Basic experimental designs (ANOVA, regression, logistic regression, contingency table)</li>
 <li>Data simulation (normal, uniform, poisson, beta, gamma distributions)</li>
 </ul>
+</div>
 </div>
 <div id="basic-vocabulary" class="section level3">
 <h3>Basic Vocabulary</h3>
@@ -201,7 +257,7 @@ $(document).ready(function () {
 <li><code>Commit (the verb)</code> When you commit, you are taking a snapshot of your files at the current time. You must add a summary of the commit that briefly describes what changes you have made (such as “Added new homework file”). Note that all commits affect only the local copy of your repository. They do not affect the remote copy that is stored on GitHub</li>
 <li><code>Push</code> Pushing a set of changes means copying them from your local repository up to GitHub.</li>
 <li><code>Pull</code> Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.</li>
-<li><code>Sync</code> The GitHub desktop software combines pushing and pulling into a single operation. At the end of a sync, the copy of your local repository is identical to what is on GitHub. Syncing also updates your webpages that are associated with the project with any changes that you have made to the <code>.html</code> pages.</li>
+<li><code>Sync (=fetch)</code> The GitHub desktop software combines pushing and pulling into a single operation. At the end of a sync, the copy of your local repository is identical to what is on GitHub. Syncing also updates your webpages that are associated with the project with any changes that you have made to the <code>.html</code> pages.</li>
 </ul>
 </div>
 <div id="create-an-rstudio-project" class="section level3">
