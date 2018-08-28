@@ -27,6 +27,7 @@ ___
     + publication quality graphics
 - write paper
     + tools for speeding up writing process
+    
 #### Traditional and Modern Computational Tools
 - Traditional
     + Word/Excel/Powerpoint
@@ -80,6 +81,11 @@ ___
 - Publication Quality Graphics
 - Student Presentations
 
+#### Grading
+- portfolio
+- participation
+- presentation
+
 #### Thinking On Paper
 - the logic tree (the basis for "strong inference" that is rarely used explicitly)
 - the look-up table (organize the results of multiple statistical analyses with a "dip-switch" test)
@@ -115,8 +121,13 @@ ___
 - `Commit (the noun)` A snapshot of your file system at a particular time. Since your last commit, it keeps track of the files you currently have, the ones you have deleted or added, and any changes you have made to files.
 - `Commit (the verb)` When you commit, you are taking a snapshot of your files at the current time. You must add a summary of the commit that briefly describes what changes you have made (such as "Added new homework file"). Note that all commits affect only the local copy of your repository. They do not affect the remote copy that is stored on GitHub
 - `Push` Pushing a set of changes means copying them from your local repository up to GitHub.
-- `Pull` Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.
-- `Sync (=fetch)` The GitHub desktop software combines pushing and pulling into a single operation. At the end of a sync, the copy of your local repository is identical to what is on GitHub. Syncing also updates your webpages that are associated with the project with any changes that you have made to the `.html` pages.  
+- `Pull(=fetch)` Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.
+
+### Overview of basics
+- `fetch` any changes from the repo
+- do some work (edit, create, delete files)
+- `commit changes` (local)
+- `push` changes from local repo to GitHub
 
 ### Create An RStudio Project
 - In R Studio under `File` select `New Project`
