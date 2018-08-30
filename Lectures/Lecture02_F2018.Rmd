@@ -12,6 +12,9 @@ output:
 
 ___
 
+### Touch Typing
+- Learn it for all your work
+
 ### Advantages of Paper Notebooks
 - portable
 - fast
@@ -81,6 +84,19 @@ How to sketch out ideas and make questions and analyses clear
 - what unique predictions does it make?
 - example: Gotelli & Ellison (2006) Sarracenia Food Webs
 
+#### Look-Up Table (DIP-Switch Test For Multiple Tests)
+- Rosenzweig and Abramsky (1997) refers to Dual InLine Package Switch
+- Each column represents a different (statistical) test or comparison
+- Each row represents a unique outcome based on all of the tests
+- 3 tests corresponds to 8 outcomes = 1 byte of length 3 bits (most computer bytes are 8 or 16 bits) 
+- Each test outcome corresponds to a number (0,7) in binary base 2
+- Entries in the table are usually dichotomous (no, yes or + -)
+- Each entry may correspond to a terminal branch tip in the logic tree
+- Final column of the Look-Up Table is a named hypothesis or interpretation
+- As in the logic tree, some rows may yield the same interpretation (i.e., incomplete data)
+- example: Chase et al. (in press) MoB Measurement of Biodiversity Data
+
+
 #### Logic Tree (Branching Decision Tree)
 - Each fork represents a decision, framed as a question
 - branches below the fork are possible answers (usually 2, but may be more)
@@ -94,19 +110,6 @@ How to sketch out ideas and make questions and analyses clear
 - a priori tree to interpret ongoing experiments (difficult and rare, but highly desirable)
 - post hoc tree to organize and interpret different tests (easier, but also rare)
 - example: Gotelli et al. (2017) Community-Level Regulation
-
-#### Look-Up Table (DIP-Switch Test For Multiple Tests)
-- Rosenzweig and Abramsky (1997) refers to Dual InLine Package Switch
-- Each column represents a different (statistical) test or comparison
-- Each row represents a unique outcome based on all of the tests
-- 3 tests corresponds to 8 outcomes = 1 byte of length 3 bits (most computer bytes are 8 or 16 bits) 
-- Each test outcome corresponds to a number (0,7) in binary base 2
-- Entries in the table are usually dichotomous (no, yes or + -)
-- Each entry may correspond to a terminal branch tip in the logic tree
-- Final column of the Look-Up Table is a named hypothesis or interpretation
-- As in the logic tree, some rows may yield the same interpretation (i.e., incomplete data)
-- example: Chase et al. (in press) MoB Measurement of Biodiversity Data
-
 
 ### Problems
 - Study may be just figuring out initial patterns
