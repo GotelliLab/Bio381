@@ -12,6 +12,11 @@ output:
 
 ___
 
+### Introductions
+
+- me
+- Lauren
+
 ### "The Workflow"
 - get data
     + hand entry

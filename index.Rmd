@@ -29,9 +29,9 @@ ___
 
 Date  | Lecture | Scripts  | Homework
 ------------- | -------------- |----------- | -------------
-August 28  | [GitHub](Lectures/Lecture01.html) | -  | -
-August 29  | - | -  | [Homework #1](Homeworks/Homework01_2018.html)
-August 30  | [Thinking On Paper](Lectures/Lecture02.html) | -  | -
+August 28  | [GitHub](Lectures/Lecture01_F2018.html) | -  | -
+August 29  | - | -  | [Homework #1](Homeworks/Homework01_F2018.html)
+August 30  | [Thinking On Paper](Lectures/Lecture02_Fall2018.html) | -  | -
 September 4  | [RStudio](Lectures/Lecture03_4.html) | - | -
 September 5 | - | -  | [Homework #2](Homeworks/Homework02_2018.html)
 September 6  | [RStudio II](Lectures/Lecture03_4.html) | -| -
