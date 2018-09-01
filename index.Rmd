@@ -79,46 +79,44 @@ December 6  |**Presentations: ** | -  | -
 
 Student  | Fun Fact
 ------------- | --------------
-Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Natalia Aristizabal [GitHub](https://github.com/johnbarlowvt) [Portfolio](https://johnbarlowvt.github.io/Bio381_2018/)  | I once gave a snake an enema.
-Emily Beasley [GitHub](https://github.com/laurenbomeisl) [Portfolio](https://laurenbomeisl.github.io/Bio381_2018/)  | I have jumped off the most southern point of the US (south point, big island of Hawaii).
-Suraj Bhattarai [GitHub](https://github.com/wgburns) [Portfolio](https://wgburns.github.io/Bio381_2018/)  | I play the violin in the Amateur Musicians Orchestra, a local Burlington group.
-Erika Bueno [GitHub](https://github.com/x) [Portfolio](https://lukedaniels1.github.io/Bio381_2018/)  | I met Matthew Perry (Chandler from the T.V show Friends), and I play the guitar.
-Brendan Case [GitHub](https://github.com/kyledittmer) [Portfolio](https://kyledittmer.github.io/Bio381_2018/)  | This is my first winter ever living in snow!
-Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For 33 years, I have raised pure-bred, show-quality [chow chows.](https://en.wikipedia.org/wiki/Chow_Chow)
-Jessica Cole [GitHub](https://github.com/dhackenburg) [Portfolio](https://dhackenburg.github.io/Bio381_2018/)  | I play the French Horn.
-Paul Cronin [GitHub](https://github.com/rlooney) [Portfolio](https://rlooney.github.io/Bio381_2018/)  | I'm an actor, and in a play I was in last year I got so committed to a scene that I broke my foot while kicking a box and continued the performance for 3 more days.
-Kendra Hodges [GitHub](https://github.com/aneiderm) [Portfolio](https://aneiderm.github.io/NeiderBio381/)  | While in the Peace Corps in Burkina Faso, my main project was, bizarrely enough, working with a women’s group on making and selling tofu kebobs at a local bar.
-Emily Piche [GitHub](https://github.com/owenrpage/Biol381_2018/) [Portfolio](https://owenrpage.github.io/Biol381_2018/)  | I am a pretty big Newcastle United fan and used to play classical guitar.
-Zoe Portlas [GitHub](https://github.com/kpalawat223) [Portfolio](https://kpalawat223.github.io/CompBiol381/)  | I have been consistently vegetarian and inconsistently vegan since birth.
-Anoob Prakash [GitHub](https://github.com/lpett) [Portfolio](https://lpett.github.io/Bio381_2018/)  | I just became a pet parent to 3 dwarf puffer fish.
-Samuel Rosenblatt [GitHub](https://github.com/kennarewcastle) [Portfolio](https://kennarewcastle.github.io/RewcastleBio381/)  | My most epic `#fieldworkfail` involved a bike wreck with a reindeer.
-Emily Shore [GitHub](https://github.com/aschmoke) [Portfolio](https://aschmoke.github.io/Bio381_2018/)  | I teach ballet and worked as a professional ballet dancer before coming to UVM.
-Charlotte Uden [GitHub](https://github.com/anyasteinhart9898) [Portfolio](https://anyasteinhart9898.github.io/BIOL-381/)  | I am a certified yoga instructor.
-Baxter Worthing [GitHub](https://github.com/ethanthibault) [Portfolio](https://ethanthibault.github.io/BIO381/)  |I have helped my dad with his landscaping business for nine years and as a result can operate commercial landscaping equipment such as zero-turn mowers, leaf-vacs, gas powered backpack blowers, hedge trimmers, etc.
-Charlie Nicholson  [GitHub](https://github.com/bmverrico) [Portfolio](https://bmverrico.github.io/Bio381_ComputationalBiology/)  | I primarily read WWII literature for pleasure.
-Aubrey Pelletier  [GitHub](https://github.com/bmverrico) [Portfolio](https://bmverrico.github.io/Bio381_ComputationalBiology/)  | I primarily read WWII literature for pleasure.
+Natalia Aristizabal [GitHub](https://github.com/naristiz) [Portfolio](https://naristiz.github.io/compbio)  | I dream in 3 languages!
+Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381_2018/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
+Emily Beasley [GitHub](https://github.com/beasley015) [Portfolio](https://beasley015.github.io/Bio381Beasley)  |  I have had two different "poop jobs", which involve working with scat and are considered a rite of passage by some in the mammalogy world.
+Suraj Bhattarai [GitHub](https://github.com/surajuvm/BIO381_Suraj) [Portfolio](https://surajuvm.github.io/BIO381_Suraj)  | ???
+Erika Bueno [GitHub](https://github.com/eribue/COMP-BIOL) [Portfolio](https://eribue.github.io/COMP-BIOL)  | My dog has an instagram page with ~400 followers!
+Brendan Case [GitHub](https://github.com/brendandaisy) [Portfolio](https://brendandaisy.github.io/BIOL381)  | I am obsessed with spicy food and aspire to win a chili-eating contest someday.
+Jessica Cole [GitHub](https://github.com/jscole12) [Portfolio](https://jscole12.github.io/Bio381)  | I lived at a residential art school during my junior and senior year of high school where I lived and breathed theatre.
+Paul Cronin [GitHub](https://github.com/croninp2) [Portfolio](https://croninp2.github.io/Bio381/)  |  I'm from a tiny village in Ireland called Meanus. Don't look too closely for jokes you can make about that word.
+Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For the past 13 years, I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
+Kendra Hodges [GitHub](https://github.com/KendraHodges4/BIO381_) [Portfolio](https://kendrahodges4.github.io/BIO381_)  |  I’ve been playing guitar for 10 years!
+Charlie Nicholson  [GitHub](https://github.com/CCNicholson/ComputationalBiology) [Portfolio](https://ccnicholson.github.io/ComputationalBiology)  |  I collect Swedish idioms.
+Aubrey Pelletier  [GitHub](https://github.com/Aubrey556/BIOL381) [Portfolio](https://aubrey556.github.io/BIOL381/)  | I studied abroad and learned how to scuba dive in Australia last year. 
+Emily Piche [GitHub](https://github.com/owenrpage/Biol381_2018/) [Portfolio](https://owenrpage.github.io/Biol381_2018/)  | I biked down the west coast on a 1970s 10-speed with my ukulele when I finished my undergraduate degree (UVM '12).
+Zoe Portlas [GitHub](https://github.com/ZPortlas) [Portfolio](https://zportlas.github.io/Biol381)  |  I have a cat that likes to play fetch!
+Anoob Prakash [GitHub](https://github.com/anoobvinu07) [Portfolio](https://anoobvinu07.github.io/Bio381)  | ???
+Samuel Rosenblatt [GitHub](https://github.com/sfrosenb) [Portfolio](https://sfrosenb.github.io/RosenblattBio381)  | I dressed up as Dracula in Transylvania, and then wore The Cloak:tm: for 4 days straight as everyday attire (I didn’t know it was gonna be so cold and that was the only coat I brought).
+Emily Shore [GitHub](https://github.com/eshore863) [Portfolio](https://eshore863.github.io/Bio381)  | While I was studying plant systems and natural history on the Galapagos Island archipelago, during the early morning in bed in my hostel, I felt a large earthquake from a nearby volcano that had been dormant for years.
+Charlotte Uden [GitHub](https://github.com/charliuden?tab=repositories) [Portfolio](https://charliuden.github.io/Bio381)  | My two sisters and I all go by the male versions of our names: Alex, Harri and Charlie.
+Baxter Worthing [GitHub](https://github.com/BaxW) [Portfolio](https://baxw.github.io/BIO381/)  | I recently got into juggling, and I find that it is a great way to calm down when stressed about research...
 
 ### Class R Presentations
 
 Author | Title
 -------| --------
-John Barlow| [Comparing Microbe Diversity With `made4`](StudentPresentations/x.html)
-Lauren Bomeisl | [Accessing Elevation Data With `elevatr`](StudentPresentations/x.html)
-Wilton Burns | [Analyzing Meteorological And Time Series Data With `openair`](StudentPresentations/x.html)
-Luke Daniels | [Cluster Analysis With  `cluster`](StudentPresentations/x.html)
-Kyle Dittmer | [Formatting Time Data With `lubridate`](StudentPresentations/x.html)
-Diana Hackenberg | [Creating Interactive Time Lines With  `timevis`](StudentPresentations/x.html)
-Raymond Looney| [Interactive Maps With `leaflet`](StudentPresentations/x.html)
-Alex Neidermeier | [Creating Spatial Maps With `ggmap`](StudentPresentations/x.html)
-Owen Page | [Modeling Disease Dynamics With `EpiModel`](StudentPresentations/x.html)
-Kunal Palawat | [Analyzing Microbial Diversity Data With `mctoolsr`](StudentPresentations/x.html)
-Lindsey Pett | [Biodiversity Analysis With `Cheddar`](StudentPresentations/x.html)
-Kenna Rewcastle | [Meta-analysis With `metafor`](StudentPresentations/x.html)
-Jorge Ruizarocho | [Analyzing Agriculture Data With  `agricolae`](StudentPresentations/x.html)
-Anna Schmoker | [Data-wrangling With `base R`](StudentPresentations/x.html)
-Anya Steinhart | [3-dimensional Plotting With `scatterD3`](StudentPresentations/x.html)
-Ethan Thibault | [Network Analysis With `igraph`](StudentPresentations/x.html)
-Brittany Verrico | [Data Wrangling With  `dplyr`](StudentPresentations/x.html)
-Adrien Wiegen | [Accessing Financial Data With  `quandl`](StudentPresentations/x.html)
-Colleen Yancey | [Creating Tables With `gridExtra`](StudentPresentations/x.html)
+Natalia Aristizabal | [???](StudentPresentations/x.html)
+Emily Beasley | [???](StudentPresentations/x.html)
+Suraj Bhattarai | [???](StudentPresentations/x.html)
+Erika Bueno | [???](StudentPresentations/x.html)
+Brendan Case | [???](StudentPresentations/x.html)
+Jessica Cole | [???](StudentPresentations/x.html)
+Paul Cronin | [???](StudentPresentations/x.html)
+Kendra Hodges | [???](StudentPresentations/x.html)
+Charlie Nicholson | [???](StudentPresentations/x.html)
+Aubrey Pelletier | [???](StudentPresentations/x.html)
+Emily Piche | [???](StudentPresentations/x.html)
+Zoe Portlas | [???](StudentPresentations/x.html)
+Anoob Prakash | [???](StudentPresentations/x.html)
+Samuel Rosenblatt | [???](StudentPresentations/x.html)
+Emily Shore | [???](StudentPresentations/x.html)
+Charlotte Uden | [???](StudentPresentations/x.html)
+Baxter Worthing | [???](StudentPresentations/x.html)
