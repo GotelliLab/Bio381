@@ -1,7 +1,7 @@
 ---
 title: 'Lecture #3,4: Working With R Studio'
 author: "Nicholas J. Gotelli"
-date: "September 4,5 2018"
+date: "September 4,6 2018"
 output:
   html_document:
     highlight: tango
