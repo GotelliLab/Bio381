@@ -1,0 +1,107 @@
+---
+title: 'Lecture #3: Working With R Studio I'
+author: "Nicholas J. Gotelli"
+date: "September 4 2018"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Window appearance
+- sizing of window boundaries
+- window screens
+
+### Options to set
+- `general` set default directory
+- restore project and documents
+- `code` do not insert matching parentheses and quotes
+- default keybindings (not Vim or eMacs)
+- `pane layout` - as set up
+- `appearance` - choices for color, font, size
+
+### Importance of touch typing
+
+
+### File Names and Types
+- `Plain Text` human-readable characters (none are unprinted)
+    - not proprietary
+    - readable by any computer system
+    - readable wtih any `Plain Text Editor`
+- `WYSIWYG` what you see is what you get
+- `WYSIWYW` what you see is what you want
+    - plain text codes to indicate formatting
+    - no time lost using the mouse
+    - separates writing from formatting, allowing you to concentrate on the former
+- `Markdown` a language of simple plain text codes for rendering (= "knitting" a file into a different output format (`.html`,`.pdf`, and `.doc`)
+
+- `.Rmd` is Rstudio's special blend of Markdown (a text rendering language)
+- `.md` is the more generic Markdown file type. In RStudio, the intermediate `.md` files are not (in the default state) preserved.
+
+### Languages
+- `LaTeX` Typesetting language invented in the 1970s by computer programmer Donald Knuth for proper rendering of text and equations. Hundreds of commands. Precise, but somewhat complicated to use.
+- `Markdown` Greatly simplified version of LaTeX with a small number of commands to master. Easy to use, text looks great.
+- `yaml`^[Originally "Yet Another Markdown Language", but more recently "YAML Ain't no Markdown Language", which is a self-referencing acronym]. Header material for `.Rmd` files that can be changed manually or by selecting options.
+- `R` Computer language for manipulating numbers, text, graphics, statistics.
+
+### Using R-markdown
+- pull up cheatsheet
+- new `.Rmd` file
+
+### Basic text formatting
+- headers
+- text
+- markup
+    * italic
+    * bold-face
+    * subscript
+    * superscript
+    * strikethrough
+    * quotations
+    
+### Spacing, manual breaks, lines
+- line spacing effects
+- two extra spaces at the end of a line for a manual break
+- lists
+    * indented
+    * numbered
+    
+### Links  
+- links [linking text](website address)
+- footnotes^[Footnoted text, consecutively at bottom of page]
+- images 
+```
+![image link](website address)
+```
+
+### Tables
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+- also the `kable` package for later
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+```{r, echo=TRUE, results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+
+### Fencing
+- in line fencing `to shade`
+- in line R code for calculations `r 3 + pi`
+- simple fencing to set off large chunks of plain text
+
