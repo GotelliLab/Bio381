@@ -194,16 +194,51 @@ print(rnorm(n=10, mean=10, sd=2))
 - `CTRL - ENTER` to run a single line of code
 - `CTRL - SHIFT - ENTER` to source the entire script
 - code to illustrate:
-```
-# Use comments extensively throughout your code
-Time <- seq(1,10) # Create a vector of integers, 1 to 10
-Resp <- runif(10) # Create 10 random uniform (0,1) variates
+```{r}
+# First comment to explain what this program is doing.
+# Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
+# Simple script to examine the distribution of the product of two uniform variables
+# Make sure it is readable. Use complete sentences, not cryptic phrases.
+# 6 September 2018
+# NJG
+
+# Preliminaries
+library(ggplot2)
+set.seed(100)
+library(TeachingDemos) # use this to set the random number seed from a character string
+char2seed("green tea")
+char2seed("green tea",set=FALSE)
+
 #
-print(Time)
-print(Resp)
-#
-# Plot the data
-plot(x=Time,y=Resp,type="b")
+
+# Global variables
+nRep <- 10000
+
+# Create or read in data
+ranVar1 <- rnorm(nRep)
+# print(ranVar1)
+head(ranVar1)
+tail(ranVar1)
+
+ranVar2 <- rnorm(nRep)
+
+
+# visualize data
+qplot(x=ranVar1)
+qplot(x=ranVar1,color=I("black"),fill=I("goldenrod"))
+qplot(x=ranVar2,color=I("black"),fill=I("grey50"))
+
+
+# create product vector
+ranProd <- ranVar1*ranVar2
+length(ranProd)
+str(ranProd)
+head(ranProd)
+
+# visualize product vector
+qplot(x=ranVar1,color=I("black"),fill=I(grey(0.5)))
+
+# do other stuff..
 ```
 ### Converting `.R` files to `.html` (creating an R notebook)
 - use notebook script
