@@ -35,8 +35,8 @@ August 30  | [Thinking On Paper](Lectures/Lecture02_F2018.html) | -  | -
 September 4  | [RStudio](Lectures/Lecture03_F2018.html) | - | -
 September 5 | - | -  | [Homework #2](Homeworks/Homework02_F2018.html)
 September 6  | [RStudio II](Lectures/Lecture04_F2018.html) | -| -
-September 11 | [Beamer Slides](Lectures/Lecture05.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
-September 12  | - | -  | [Homework #3](Homeworks/Homework03_2018.html)
+September 11 | [Regular Expressions](Lectures/Lecture05_F2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) | -
+September 12  | - | -  | [Homework #3](Homeworks/Homework03_F2018.html)
 September 13  | [Atomic Vectors](Lectures/Lecture06_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 18  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 19  | - | -  | [Homework #4](Homeworks/Homework04_2018.html)

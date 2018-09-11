@@ -1,0 +1,62 @@
+---
+title: 'Homework #3'
+author: "Nicholas J. Gotelli"
+date: "September 12, 2018"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+### Creating a Beamer Presentation
+
+1. In this lab, you will learn how to create a set of slides in a pdf file that will look much more professional than a typical powerpoint presentation. 
+
+2. Following the notes at the bottom of this page, create a short `Beamer` presentation (6 to 12 slides). Note that you will need to save your images to `.tiff`. or `.jpeg` or other digital formats and put them in a folder that can be linked to from your Beamer code.
+
+2. Spend a bit of time exploring the different themes, colors, and fonts available in Beamer, and set up something that looks nice to you.
+
+3. Your presentation should include the following:
+- sequential bullet points
+- simultaneous bullet points
+- colored text
+- images
+- images with captions
+- images with a caption overlaid (you may need to change the text color for better contrast)
+
+4. The only real challenge will be to to get your images and captions properly sized and placed in the Bamer slides. I have posted some code for you to use on the [R Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html) page. 
+
+Modify this code to adjust the size of the image, its placement on the page, and the size and spacing of the legend. You will have to carefully experiment with the default numerical settings to understand what each of them do. Make some good notes in your markdown file so you will have a reference handy when you want to create slides with images that are properly sized and aligned.
+
+___
+
+
+### Beamer Slides - A Preview
+- Better fonts and styles
+- Avoids corporate odor of Microsoft
+- Frequency dependent selection
+- Cachet of "hard science" LaTeX users (computer science, physics, chemistry, stats)
+- Completely stable and reliable appearance from pdf
+- No need to bring your own computer
+
+### Creating Basic Beamer Slides
+- always show bullets incrementally
+- choose among styles, colors, and fonts
+- show `Madrid`, `beaver`, `bold` on fonts
+- use two `##` to denote a new slide
+- use `{r, echo=FALSE}` to just show your graphs
+
+### Demonstrate Colors And Bullets
+- Use `> - ` to override the incremental bullets
+- Use `\color{gray}` to color a bullet point
+- Illustrate building of red/gray bullet points in a list
+
+### Demonstrate Adjustment of Text Placement
+- Illustrate use of `\bigskip` to adjust spacing of words
+
+### Dealing with images
+- must be placed in folder with .Rmd file
+- use image code that is posted 
+- adjust settings for image size, placement, and caption
+
+
+
