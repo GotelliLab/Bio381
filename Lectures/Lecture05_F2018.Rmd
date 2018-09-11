@@ -5,6 +5,7 @@ date: "September 10, 2018"
 output:
   html_document:
     highlight: tango
+    keep_md: yes
     theme: united
   pdf_document: default
 ---
