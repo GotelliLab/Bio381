@@ -39,7 +39,7 @@ September 11 | [Regular Expressions](Lectures/Lecture05_F2018.html) | [R-Scripts
 September 12  | - | -  | [Homework #3](Homeworks/Homework03_F2018.html)
 September 13  | [Atomic Vectors](Lectures/Lecture06_F2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 18  | [Regular Expressions](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-September 19  | - | -  | [Homework #4](Homeworks/Homework04_2018.html)
+September 19  | - | -  | [Homework #4](Homeworks/Homework04_F2018.html)
 September 20  | [Regular Expressions II](Lectures/Lecture07_8.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 25  | [Probability Distributions I](Lectures/Lecture08_2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 26  | - | -  | [Homework #5](Homeworks/Homework05_2018.html)
