@@ -47,6 +47,12 @@ https://www.r-bloggers.com/updating-r/
 
 If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble.
 
+Also, you can run into minor snags (especially with `ggplot2`) if your packages have not been updated in a long time. From the console, enter this:
+
+```{r, eval=FALSE}
+update.packages(checkBuilt=TRUE, ask=FALSE)
+```
+
 ## LaTeX
 For LaTeX, Mac users can download and install MacTeX here: https://tug.org/mactex/mactex-download.html. After you restart RStudio, you should be able to knit to PDF.
 
