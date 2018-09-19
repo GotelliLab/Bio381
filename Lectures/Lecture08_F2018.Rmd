@@ -1,0 +1,380 @@
+---
+title: 'Lecture #8: Lists and Subsetting'
+author: "Nicholas J. Gotelli"
+date: "September 20, 2018"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+### Lists
+
+```{r,eval=FALSE}
+# Lists are atomic vectors but each element 
+# can hold things of different types and different sizes
+
+myList <- list(1:10, matrix(1:8,nrow=4,byrow=TRUE), letters[1:3],pi)
+str(myList)
+print(myList)
+
+
+# using [] gives you a single item, which is of type list
+myList[4]
+myList[4] - 3 # no, can't subtract a number from a list!
+
+
+# single brackets gives you only the element in that slot, which is always of type list
+
+# to grab the object itself, use [[]]
+myList[[4]]
+myList[[4]] - 3 # now we have the contents
+
+# if a list has 10 elements it is like a train with 10 cars
+# [[5]] gives you the contents of car #5
+##[c(4,5,6)] gives you a little train with cars 4, 5, and 6
+
+# once the double bracket is called, you can access individual elements as before
+
+myList[[2]]
+myList[[2]][4,1]
+
+# name list items when they are created
+
+myList2 <- list(Tester=FALSE,littleM=matrix(1:9,nrow=3))
+
+# named elements can be accessed with dollar sign
+
+myList2$littleM[[2,3]] # get row 2, column3
+myList2$littleM # show whole matrix
+myList2$littleM[2,] # show second row, all columns
+myList2$littleM[2] # what does this give you?
+
+# The "unlist" strings everything back into
+# a single atomic vector; coercion is used if there are mixed data types
+unRolled <- unlist(myList2)
+print(unRolled)
+
+
+# The most common use of list: output from a linear model is a list
+
+
+y <- runif(10)
+x <- runif(10)
+myModel <- lm(y~x)
+plot(x=x,y=y)
+plot(myModel)
+
+# look at output in myModel
+print(myModel)
+
+# full results are in summary
+print(summary(myModel))
+
+# drill down into summary to get what we want
+str(summary(myModel))
+summary(myModel)$coefficients
+summary(myModel)$coefficients["x","Pr(>|t|)"]
+summary(myModel)$coefficients[2,4]
+
+
+```
+
+### Data Frames
+
+```{r,eval=FALSE}
+# a data frame is a list of equal-lengthed vectors, each of which is a column
+
+varA <- 1:12
+varB <- rep(c("Con","LowN","HighN"),each=4)
+varC <- runif(12)
+dFrame <- data.frame(varA,varB,varC,stringsAsFactors=FALSE)
+print(dFrame)
+str(dFrame)
+
+# add another row with rbind
+# make sure you add a list, with each item corresponding to a column
+
+# newData <- data.frame(list(varA=13,varB="HighN",varC=0.668),stringsAsFactors=FALSE)
+newData <- list(varA=13,varB="HighN",varC=0.668)
+print(newData)
+str(newData)
+
+# now bind them
+dFrame <- rbind(dFrame,newData)
+str(dFrame)
+tail(dFrame)
+
+
+# adding another column is a little easier
+
+#newVar <- data.frame(varD=runif(13))
+newVar <- runif(13)
+dFrame <- cbind(dFrame,newVar)
+head(dFrame)
+
+```
+
+### Important Distinctions Between Lists and Matrices
+
+```{r, eval=FALSE}
+
+# create a matrix and data frame with same structures
+zMat <- matrix(data=1:30,ncol=3,byrow=TRUE)
+zDframe <- as.data.frame(zMat) # coerce it
+
+str(zMat)    # an atomic vector with 2 dimensions
+str(zDframe) # note horizontal layout of variabes!
+
+head(zDframe) # note automatic variable names
+head(zMat) # note identical layout
+
+# element referencing is the same in both
+zMat[3,3]
+zDframe[3,3]
+
+# so is column referencing
+
+zMat[,3]
+zDframe[,3]
+zDframe$V3 # note use of $ and named variable column
+# and row referencing
+zMat[3,]
+zDframe[3,] # note variable names and row number shown
+
+# what happens if we reference only one dimension?
+
+zMat[2] # takes the second element of atomic vector (column fill)
+zDframe[2] # takes second atomic vector (= column) from list
+zDframe["V2"]
+zDframe$V2
+```
+
+### A real application: stripping NA values from a data frame
+
+```{r, eval=FALSE}
+# create matrix
+m <- matrix(1:20,nrow=5,byrow=TRUE)
+
+# contaminate it
+m[1,2] <- NA
+m[5,1] <- NA
+print(m)
+
+# how do we find NA values?
+is.na(m)
+
+# for a single row, we could try:
+sum(is.na(m[1,]))
+
+# but how do we get something like this for all rows?
+rowSums(m)
+
+# instead of sums, let's get true for na values
+is.na(rowSums(m))
+
+# now let's get true for those without na values
+!is.na(rowSums(m))
+
+# now we can use this to pull rows that we want
+mClean <- m[!is.na(rowSums(m)),]
+print(mClean)
+
+# also, we can compile the contaminated rows
+mDirty <- m[is.na(rowSums(m)),]
+print(mDirty)
+```
+
+#### Making our code more general
+```{r eval=FALSE}
+
+# using Poisson distribution
+# random independent events occurring at a constant (average rate)
+# distribution is of frequency of integers (0,1,2....)
+# that would be the number of events in a fixed interval
+# minimum= 0, maximum= unbounded integer
+
+hits <- rpois(n=1000,lambda=0.2)
+qplot(x=hits)
+table(hits)
+
+# introduce a small set of global variables
+
+library(ggplot2)
+rowM <- 10 # number of rows in matrix
+colM <- 5 # number of columns in matrix
+lambdaM <- 10 # average number of NA values in matrix
+
+# create matrix
+m <- matrix(seq_len(rowM*colM),nrow=rowM,byrow=TRUE)
+head(m)
+
+# determine number of NA values (random)
+missingN <- rpois(n=1,lambda=lambdaM)
+
+# choose random elements to convert to NA
+NAindex <- sample(seq_along(m),size=missingN)
+print(NAindex)
+# assign these to the corresponding elements of atomic vector
+m[NAindex] <- NA
+print(m)
+
+# peek at the matrix
+head(m)
+tail(m)
+
+### Omitting NA values THE CORRECT WAY
+dataClean <- data[complete.cases(data),] # removes all rows with NA values
+
+# to get complete cases for just certain columns 
+dataCleanCols <-data[complete.cases(data[,5:6]),]
+                                   
+# And now the easy way
+mClean <- na.omit(m)
+print(mClean)
+str(mClean)
+```
+
+
+### Techniques for subsetting atomic vectors
+
+```{r,eval=FALSE}
+z <- c(3.1, 9.2, 1.3, 0.4, 7.5)
+
+# positive index values
+z[c(2,3)]
+
+# negative index values to exclude elements
+z[-c(2,3)]
+
+# create a vector of logical elements to select conditions
+
+z[z<3]
+
+# equivalent to the following
+tester <- z<3
+print(tester)
+z[tester]
+
+# also use which() function to find subscript indicators
+which(z<3)
+
+# this works, but is overkill; just use the boolean operator
+z[which(z<3)]
+
+# can also use length() for relative positioning to last element
+z[-(length(z):(length(z)-2))]
+
+# also can subset using named vector elements
+names(z) <- letters[1:5]
+z[c("b","c")]
+
+
+```
+
+### Techniques for assignments and subsetting matrices and data frames
+```{r,eval=FALSE}
+# same principle applied to both dimensions of a matrix
+m <- matrix(data=1:12,nrow=3)
+dimnames(m) <- list(paste("Species",LETTERS[1:nrow(m)],sep=""),paste("Site",1:ncol(m),sep=""))
+print(m)
+
+# subsetting based on elements
+m[1:2,3:4]
+# same subsetting based on character strings (but no negative elements)
+m[c("SpeciesA","SpeciesB"), c("Site3","Site4")]
+
+# use blanks before or after comma to indicate full rows or columns
+m[1:2, ]    
+
+m[ ,3:4]
+
+# use logicals for more complex subsetting
+
+# e.g. select all columns for which the totals are > 15
+
+# first try this logical
+colSums(m) > 15
+m[ , colSums(m) > 15]
+
+
+# e.g. select all rows for which the row total is 22
+m[rowSums(m)==22, ]
+
+# note == for logical equal and != for logical NOT equal
+m[rowSums(m)!=22, ]
+
+# e.g., choose all rows for which numbers for site 1 are less than 3
+# AND choose all columns for which the numbers for species A are less than 5
+
+# first, try out this logical for rows
+m[ ,"Site1"]<3
+
+# add this in and select with all columns
+m[m[ ,"Site1"]<3, ]
+
+# and try this logical for columns
+m["SpeciesA", ]<5
+
+# add this in and select with all rows
+m[ ,m["SpeciesA", ]<5]
+
+# now combine both
+m[m[ ,"Site1"]<3,m["SpeciesA", ]<5]
+
+# and compare with full m
+print(m)
+
+
+# caution! simple subscripting to a vector changes the data type!
+z <- m[1, ]
+print(z)
+str(z)
+
+# to keep this as a matrix, must add the drop=FALSE option
+
+z2 <- m[1, ,drop=FALSE]
+print(z2)
+str(z2)
+
+# caution #2, always use both dimensions, or you will select a single matrix element
+
+m2 <- matrix(data=runif(9),nrow=3)
+print(m2)
+m2[2, ]
+
+# but now this will just pull the second element
+m2[2]
+
+# probably should specify row and column indicators
+m2[2,1]
+# also use logicals for assignments, not just subsetting
+m2[m2>0.6] <- NA
+print(m2)
+
+
+# A few changes for working with data frames:
+
+data <-read.csv(file="antcountydata.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+str(data)
+
+# the data frame is a list of vectors, so it is set up like a matrix
+data[3,2]
+
+# you can specify just the column names
+
+dataNames <- data[c("state","county")]
+str(dataNames)
+
+# or in matrix style
+dataNames <- data[ ,c("county", "ecoregion")]
+str(dataNames)
+
+
+# as before, with matrices, selecting only a single column changes it
+# from a data frame to a vector
+dataNames <- data[ ,"county"]
+str(dataNames)
+
+```
