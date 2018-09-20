@@ -46,7 +46,7 @@ myList2 <- list(Tester=FALSE,littleM=matrix(1:9,nrow=3))
 
 # named elements can be accessed with dollar sign
 
-myList2$littleM[[2,3]] # get row 2, column3
+myList2$littleM[2,3] # get row 2, column3
 myList2$littleM # show whole matrix
 myList2$littleM[2,] # show second row, all columns
 myList2$littleM[2] # what does this give you?
@@ -59,12 +59,11 @@ print(unRolled)
 
 # The most common use of list: output from a linear model is a list
 
-
-y <- runif(10)
-x <- runif(10)
-myModel <- lm(y~x)
-plot(x=x,y=y)
-plot(myModel)
+library(ggplot2)
+yVar <- runif(10)
+xVar <- runif(10)
+myModel <- lm(yVar~xVar)
+qplot(x=xVar,y=yVar)
 
 # look at output in myModel
 print(myModel)
@@ -75,9 +74,16 @@ print(summary(myModel))
 # drill down into summary to get what we want
 str(summary(myModel))
 summary(myModel)$coefficients
-summary(myModel)$coefficients["x","Pr(>|t|)"]
+summary(myModel)$coefficients["xVar","Pr(>|t|)"]
 summary(myModel)$coefficients[2,4]
 
+# use unlist instead
+
+u <- unlist(summary(myModel))
+print(u)
+
+mySlope <- u$coefficients2
+myPval <- u$coefficients8
 
 ```
 
@@ -150,91 +156,52 @@ zDframe[2] # takes second atomic vector (= column) from list
 zDframe["V2"]
 zDframe$V2
 ```
-
-### A real application: stripping NA values from a data frame
-
+### Subscripting with missing values
 ```{r, eval=FALSE}
-# create matrix
-m <- matrix(1:20,nrow=5,byrow=TRUE)
+set.seed(99)
+z <- 1:10 # simple integer sequence
+z <- sample(z) # reshuffle the ordering
+print(z)
 
-# contaminate it
-m[1,2] <- NA
-m[5,1] <- NA
-print(m)
+z < 4 # create logical vector
+z[z < 4] # use as index call
+which(z < 4) # use to get indices for logical
+z[which(z < 4)] # does same as above
 
-# how do we find NA values?
-is.na(m)
+zD <- c(z,NA,NA) # contaminate it
+zD[zD < 4] # NA values carried along!
+zD[which(zD < 4)] # NA values dropped
 
-# for a single row, we could try:
-sum(is.na(m[1,]))
-
-# but how do we get something like this for all rows?
-rowSums(m)
-
-# instead of sums, let's get true for na values
-is.na(rowSums(m))
-
-# now let's get true for those without na values
-!is.na(rowSums(m))
-
-# now we can use this to pull rows that we want
-mClean <- m[!is.na(rowSums(m)),]
-print(mClean)
-
-# also, we can compile the contaminated rows
-mDirty <- m[is.na(rowSums(m)),]
-print(mDirty)
 ```
 
-#### Making our code more general
-```{r eval=FALSE}
+### Eliminating missing values
+```{r, eval=FALSE}
+# use complete.cases with atomic vector
+print(zD)
 
-# using Poisson distribution
-# random independent events occurring at a constant (average rate)
-# distribution is of frequency of integers (0,1,2....)
-# that would be the number of events in a fixed interval
-# minimum= 0, maximum= unbounded integer
+complete.cases(zD)
 
-hits <- rpois(n=1000,lambda=0.2)
-qplot(x=hits)
-table(hits)
+zD[complete.cases(zD)] # clean them out
 
-# introduce a small set of global variables
+which(!complete.cases(zD)) # find NA slots
 
-library(ggplot2)
-rowM <- 10 # number of rows in matrix
-colM <- 5 # number of columns in matrix
-lambdaM <- 10 # average number of NA values in matrix
+# use with a matrix
 
-# create matrix
-m <- matrix(seq_len(rowM*colM),nrow=rowM,byrow=TRUE)
-head(m)
-
-# determine number of NA values (random)
-missingN <- rpois(n=1,lambda=lambdaM)
-
-# choose random elements to convert to NA
-NAindex <- sample(seq_along(m),size=missingN)
-print(NAindex)
-# assign these to the corresponding elements of atomic vector
-m[NAindex] <- NA
+m <- matrix(1:20,nrow=5)
+m[1,1] <- NA
+m[5,4] <- NA
 print(m)
 
-# peek at the matrix
-head(m)
-tail(m)
+m[complete.cases(m),] 
 
-### Omitting NA values THE CORRECT WAY
-dataClean <- data[complete.cases(data),] # removes all rows with NA values
+# now get complete cases for only certain columns!
+m[complete.cases(m[,c(1,2)]),] # drops row 1
+m[complete.cases(m[,c(2,3)]),] # no drops
+m[complete.cases(m[,c(3,4)]),] # drops row 4
+m[complete.cases(m[,c(1,4)]),] # drops 1&4
 
-# to get complete cases for just certain columns 
-dataCleanCols <-data[complete.cases(data[,5:6]),]
-                                   
-# And now the easy way
-mClean <- na.omit(m)
-print(mClean)
-str(mClean)
 ```
+
 
 
 ### Techniques for subsetting atomic vectors

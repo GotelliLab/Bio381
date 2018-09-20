@@ -191,7 +191,7 @@ myList2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="
 
 <span class="co"># named elements can be accessed with dollar sign</span>
 
-myList2<span class="op">$</span>littleM[[<span class="dv">2</span>,<span class="dv">3</span>]] <span class="co"># get row 2, column3</span>
+myList2<span class="op">$</span>littleM[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span>
 myList2<span class="op">$</span>littleM <span class="co"># show whole matrix</span>
 myList2<span class="op">$</span>littleM[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span>
 myList2<span class="op">$</span>littleM[<span class="dv">2</span>] <span class="co"># what does this give you?</span>
@@ -204,12 +204,11 @@ unRolled &lt;-<span class="st"> </span><span class="kw">unlist</span>(myList2)
 
 <span class="co"># The most common use of list: output from a linear model is a list</span>
 
-
-y &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
-x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
-myModel &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x)
-<span class="kw">plot</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)
-<span class="kw">plot</span>(myModel)
+<span class="kw">library</span>(ggplot2)
+yVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
+xVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
+myModel &lt;-<span class="st"> </span><span class="kw">lm</span>(yVar<span class="op">~</span>xVar)
+<span class="kw">qplot</span>(<span class="dt">x=</span>xVar,<span class="dt">y=</span>yVar)
 
 <span class="co"># look at output in myModel</span>
 <span class="kw">print</span>(myModel)
@@ -220,8 +219,16 @@ myModel &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="o
 <span class="co"># drill down into summary to get what we want</span>
 <span class="kw">str</span>(<span class="kw">summary</span>(myModel))
 <span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients
-<span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="st">&quot;x&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]
-<span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</code></pre></div>
+<span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="st">&quot;xVar&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]
+<span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]
+
+<span class="co"># use unlist instead</span>
+
+u &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">summary</span>(myModel))
+<span class="kw">print</span>(u)
+
+mySlope &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients2
+myPval &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients8</code></pre></div>
 </div>
 <div id="data-frames" class="section level3">
 <h3>Data Frames</h3>
@@ -287,86 +294,47 @@ zDframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector
 zDframe[<span class="st">&quot;V2&quot;</span>]
 zDframe<span class="op">$</span>V2</code></pre></div>
 </div>
-<div id="a-real-application-stripping-na-values-from-a-data-frame" class="section level3">
-<h3>A real application: stripping NA values from a data frame</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create matrix</span>
-m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dt">nrow=</span><span class="dv">5</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
+<div id="subscripting-with-missing-values" class="section level3">
+<h3>Subscripting with missing values</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">99</span>)
+z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span> <span class="co"># simple integer sequence</span>
+z &lt;-<span class="st"> </span><span class="kw">sample</span>(z) <span class="co"># reshuffle the ordering</span>
+<span class="kw">print</span>(z)
 
-<span class="co"># contaminate it</span>
-m[<span class="dv">1</span>,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
-m[<span class="dv">5</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
-<span class="kw">print</span>(m)
+z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="co"># create logical vector</span>
+z[z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>] <span class="co"># use as index call</span>
+<span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># use to get indices for logical</span>
+z[<span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>)] <span class="co"># does same as above</span>
 
-<span class="co"># how do we find NA values?</span>
-<span class="kw">is.na</span>(m)
-
-<span class="co"># for a single row, we could try:</span>
-<span class="kw">sum</span>(<span class="kw">is.na</span>(m[<span class="dv">1</span>,]))
-
-<span class="co"># but how do we get something like this for all rows?</span>
-<span class="kw">rowSums</span>(m)
-
-<span class="co"># instead of sums, let's get true for na values</span>
-<span class="kw">is.na</span>(<span class="kw">rowSums</span>(m))
-
-<span class="co"># now let's get true for those without na values</span>
-<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">rowSums</span>(m))
-
-<span class="co"># now we can use this to pull rows that we want</span>
-mClean &lt;-<span class="st"> </span>m[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">rowSums</span>(m)),]
-<span class="kw">print</span>(mClean)
-
-<span class="co"># also, we can compile the contaminated rows</span>
-mDirty &lt;-<span class="st"> </span>m[<span class="kw">is.na</span>(<span class="kw">rowSums</span>(m)),]
-<span class="kw">print</span>(mDirty)</code></pre></div>
-<div id="making-our-code-more-general" class="section level4">
-<h4>Making our code more general</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># using Poisson distribution</span>
-<span class="co"># random independent events occurring at a constant (average rate)</span>
-<span class="co"># distribution is of frequency of integers (0,1,2....)</span>
-<span class="co"># that would be the number of events in a fixed interval</span>
-<span class="co"># minimum= 0, maximum= unbounded integer</span>
-
-hits &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="dv">1000</span>,<span class="dt">lambda=</span><span class="fl">0.2</span>)
-<span class="kw">qplot</span>(<span class="dt">x=</span>hits)
-<span class="kw">table</span>(hits)
-
-<span class="co"># introduce a small set of global variables</span>
-
-<span class="kw">library</span>(ggplot2)
-rowM &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># number of rows in matrix</span>
-colM &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># number of columns in matrix</span>
-lambdaM &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># average number of NA values in matrix</span>
-
-<span class="co"># create matrix</span>
-m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq_len</span>(rowM<span class="op">*</span>colM),<span class="dt">nrow=</span>rowM,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
-<span class="kw">head</span>(m)
-
-<span class="co"># determine number of NA values (random)</span>
-missingN &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">lambda=</span>lambdaM)
-
-<span class="co"># choose random elements to convert to NA</span>
-NAindex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">seq_along</span>(m),<span class="dt">size=</span>missingN)
-<span class="kw">print</span>(NAindex)
-<span class="co"># assign these to the corresponding elements of atomic vector</span>
-m[NAindex] &lt;-<span class="st"> </span><span class="ot">NA</span>
-<span class="kw">print</span>(m)
-
-<span class="co"># peek at the matrix</span>
-<span class="kw">head</span>(m)
-<span class="kw">tail</span>(m)
-
-### Omitting NA values THE CORRECT WAY
-dataClean &lt;-<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),] <span class="co"># removes all rows with NA values</span>
-
-<span class="co"># to get complete cases for just certain columns </span>
-dataCleanCols &lt;-data[<span class="kw">complete.cases</span>(data[,<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>]),]
-                                   
-<span class="co"># And now the easy way</span>
-mClean &lt;-<span class="st"> </span><span class="kw">na.omit</span>(m)
-<span class="kw">print</span>(mClean)
-<span class="kw">str</span>(mClean)</code></pre></div>
+zD &lt;-<span class="st"> </span><span class="kw">c</span>(z,<span class="ot">NA</span>,<span class="ot">NA</span>) <span class="co"># contaminate it</span>
+zD[zD <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>] <span class="co"># NA values carried along!</span>
+zD[<span class="kw">which</span>(zD <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>)] <span class="co"># NA values dropped</span></code></pre></div>
 </div>
+<div id="eliminating-missing-values" class="section level3">
+<h3>Eliminating missing values</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use complete.cases with atomic vector</span>
+<span class="kw">print</span>(zD)
+
+<span class="kw">complete.cases</span>(zD)
+
+zD[<span class="kw">complete.cases</span>(zD)] <span class="co"># clean them out</span>
+
+<span class="kw">which</span>(<span class="op">!</span><span class="kw">complete.cases</span>(zD)) <span class="co"># find NA slots</span>
+
+<span class="co"># use with a matrix</span>
+
+m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dt">nrow=</span><span class="dv">5</span>)
+m[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+m[<span class="dv">5</span>,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="kw">print</span>(m)
+
+m[<span class="kw">complete.cases</span>(m),] 
+
+<span class="co"># now get complete cases for only certain columns!</span>
+m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span>
+m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span>
+m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span>
+m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></code></pre></div>
 </div>
 <div id="techniques-for-subsetting-atomic-vectors" class="section level3">
 <h3>Techniques for subsetting atomic vectors</h3>
