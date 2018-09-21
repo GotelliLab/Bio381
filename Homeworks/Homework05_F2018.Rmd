@@ -27,3 +27,6 @@ This homework assignment focus on data manipulation in `R`. Complete these probl
 
 7. Finally, create `iris6` that calculates the average sepal length, the average sepal width, and the sample size *for each species* of in the `iris4` data frame and print `iris6`.
 
+8. In these exercises, you have successively modified different versions of the data frame `iris1 iris1 iris3 iris4 iris5 iris6`. At each stage, the output data frame from one operation serves as the input fro the next. 
+
+A more efficient way to do this is to use the pipe operator `%>%` from the `tidyr` package. See if you can rework all of your previous statements into an extended piping operation that uses `iris` as the input and generates `iris6` as the output.

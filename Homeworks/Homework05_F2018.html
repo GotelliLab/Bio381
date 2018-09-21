@@ -123,7 +123,9 @@ $(document).ready(function () {
 <li><p>Create an <code>iris4</code> data frame from <code>iris3</code> that creates a column with a sepal area (length * width) value for each observation. How many observations and variables are in the dataset?</p></li>
 <li><p>Create <code>iris5</code> that calculates the average sepal length, the average sepal width, and the sample size of the entire <code>iris4</code> data frame and print <code>iris5</code>.</p></li>
 <li><p>Finally, create <code>iris6</code> that calculates the average sepal length, the average sepal width, and the sample size <em>for each species</em> of in the <code>iris4</code> data frame and print <code>iris6</code>.</p></li>
+<li><p>In these exercises, you have successively modified different versions of the data frame <code>iris1 iris1 iris3 iris4 iris5 iris6</code>. At each stage, the output data frame from one operation serves as the input fro the next.</p></li>
 </ol>
+<p>A more efficient way to do this is to use the pipe operator <code>%&gt;%</code> from the <code>tidyr</code> package. See if you can rework all of your previous statements into an extended piping operation that uses <code>iris</code> as the input and generates <code>iris6</code> as the output.</p>
 </div>
 
 
