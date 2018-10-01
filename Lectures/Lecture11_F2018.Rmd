@@ -1,0 +1,90 @@
+---
+title: 'Lecture #11: Complete Cases, Tibbles, Long/Wide Data, and Functions'
+author: "Nicholas J. Gotelli"
+date: "October 2, 2018"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+### Eliminating missing values with `complete.cases()`
+
+```{r, eval=TRUE}
+
+# preliminaries
+library(tidyverse)
+set.seed(99)
+
+
+z <- 1:10 # simple integer sequence
+z <- sample(z) # reshuffle the ordering
+print(z)
+
+z < 4 # create logical vector
+z[z < 4] # use as index call
+which(z < 4) # use to get indices for logical
+z[which(z < 4)] # does same as above
+
+zD <- c(z,NA,NA) # contaminate it
+zD[zD < 4] # NA values carried along!
+zD[which(zD < 4)] # NA values dropped
+
+# use complete.cases with atomic vector
+print(zD)
+
+complete.cases(zD)
+
+zD[complete.cases(zD)] # clean them out
+
+which(!complete.cases(zD)) # find NA slots
+
+# use with a matrix
+
+m <- matrix(1:20,nrow=5)
+m[1,1] <- NA
+m[5,4] <- NA
+print(m)
+
+m[complete.cases(m),] 
+
+# now get complete cases for only certain columns!
+m[complete.cases(m[,c(1,2)]),] # drops row 1
+m[complete.cases(m[,c(2,3)]),] # no drops
+m[complete.cases(m[,c(3,4)]),] # drops row 4
+m[complete.cases(m[,c(1,4)]),] # drops 1&4
+
+```
+
+
+
+### Converting between long and wide forms of data
+```{r}
+# Introducing the "tribble", a transposed tibble
+# that is easy to type directly in to your own code
+
+wideDat <- tribble(
+  ~Species, ~Site1, ~Site2, ~Site3, ~Site4,
+  #-----------------------------
+  "SpeciesA", 0,0,2,3,
+  "SpeciesB", 0,0,0,1,
+  "SpeciesC", 2,0,0,0,
+  "SpeciesD", 0,3,0,0,
+  "SpeciesE", 1,0,1,0
+  #------------------------------
+)
+
+print(wideDat)
+```
+This is a very common data format, in which each observation is a "species", and each attribute is a site. But the unique observations should be the "specimen" (= row), and there are two "attributes" (= columns), which are "species" and "site". 
+
+Otherwise, what happens later when we want to add other attributes for the specimen, such as body mass or a DNA-barcoding sequence?
+
+We need to convert these data to the "long" format. This is often not convenient for entering data in a spreadsheet, but it is the correct way to store the data for statistical analysis. Note also, that with this format, there are no longer 0s in the data set.
+
+Here is how we do this using `dplyr` tools:
+
+
+```
+
