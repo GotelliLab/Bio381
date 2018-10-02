@@ -1,5 +1,5 @@
 ---
-title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Functions'
+title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Archetypal Stats'
 author: "Nicholas J. Gotelli"
 date: "October 2, 2018"
 output:
@@ -117,5 +117,200 @@ Now let's convert this back to wide format, using the `spread` function which is
 wideData <- longData %>%
 spread(key=Time,value=Response)
 print(wideData)
+```
+
+### Archetype Data Designs
+- independent versus dependent variables
+- discrete versus continuous variables
+- continuous variables (integer and real)
+- direction of cause and effect, x axis is independent
+- continuous versus discrete (natural or arbitrary or statistical bins)
+
+### Regression (dependent: continuous, independent: continuous)
+- linear model of $y = a + bx$
+- statistical tests for null of hypothesis of slope and/or intercept = 0
+- confidence and prediction intervals of uncertainty
+- goodness of fit tests for linearity
+
+### Set-up
+```{r}
+library(ggplot2)
+library(TeachingDemos)
+char2seed('espresso')
+```
+
+
+### Data Frame construction for Regression Data
+
+```{r}
+n = 50  # number of observations (rows)
+
+
+varA <- runif(n) # random uniform values (independent)
+varB <- runif(n) # a second random column (dependent)
+varC <- 5.5 + varA*10 # a noisy linear relationship with varA
+ID <- seq_len(n) # creates a sequence from 1:n (if n > 0!)
+regData <- data.frame(ID,varA,varB,varC)
+head(regData)
+str(regData)
+```
+
+# Basic regression analysis in R
+```{r}
+# model
+regModel <- lm(varB~varA,data=regData)
+
+# model output
+regModel # printed output is sparse
+str(regModel) # complicated, but has "coefficients"
+head(regModel$residuals) # contains residuals
+
+# 'summary' of model has elements
+summary(regModel) # 
+summary(regModel)$coefficients
+str(summary(regModel))
+
+# best to examine entire matrix of coefficients:
+summary(regModel)$coefficients[] #shows all
+
+# can pull results from this, but a little wordy
+summary(regModel)$coefficients[1,4]   #p value for intercept
+summary(regModel)$coefficients["(Intercept)","Pr(>|t|)"] # uggh
+
+
+# alternatively unfurl this into a 1D atomic vector with names
+z <- unlist(summary(regModel))
+str(z)
+z
+z$coefficients7
+
+# grab what we need and put into a tidy  list
+
+regSum <- list(intercept=z$coefficients1,
+               slope=z$coefficients2,
+               interceptP=z$coefficients7,
+               slopeP=z$coefficients8,
+               r2=z$r.squared)
+
+# much easier to query and use
+print(regSum)
+regSum$r2
+regSum[[5]]
+
+```
+
+### Basic ggplot of regression model
+
+```{r}
+regPlot <- ggplot(data=regData,aes(x=varA,y=varB)) +
+           geom_point() +
+           stat_smooth(method=lm,se=0.99) # default se=0.95 
+print(regPlot)
+# ggsave(filename="Plot1.pdf",plot=regPlot,device="pdf")
+```
+
+### Data frame construction for one-way ANOVA
+
+```{r}
+nGroup <- 3 # number of treatment groups
+nName <- c("Control","Treat1", "Treat2") # names of groups
+nSize <- c(12,17,9) # number of observations in each group
+nMean <- c(40,41,60) # mean of each group
+nSD <- c(5,5,5) # standardd deviation of each group
+
+ID <- 1:(sum(nSize)) # id vector for each row
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+TGroup <- rep(nName,nSize)
+ANOdata <- data.frame(ID,TGroup,resVar)
+str(ANOdata)
+```
+
+### Basic ANOVA in R
+
+```{r}
+ANOmodel <- aov(resVar~TGroup,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~TGroup,data=ANOdata,FUN=mean)
+unlist(z)
+unlist(z)[7]
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+ANOsum
+
+
+```
+
+
+### Basic ggplot of ANOVA data
+
+```{r}
+ANOPlot <- ggplot(data=ANOdata,aes(x=TGroup,y=resVar,fill=TGroup)) +
+           geom_boxplot()
+print(ANOPlot)
+# ggsave(filename="Plot2.pdf",plot=ANOPlot,device="pdf")
+```
+
+
+### Data frame construction for logistic regression
+```{r}
+
+xVar <- sort(rgamma(n=200,shape=5,scale=5))
+yVar <- sample(rep(c(1,0),each=100),prob=seq_len(200))
+lRegData <- data.frame(xVar,yVar)
+
+```
+### Logistic regression analysis in R
+
+```{r}
+lRegModel <- glm(yVar ~ xVar,
+                 data=lRegData,
+                 family=binomial(link=logit))
+summary(lRegModel)
+summary(lRegModel)$coefficients
+
+```
+
+### Basic ggplot of logistic regression
+```{r}
+lRegPlot <- ggplot(data=lRegData, aes(x=xVar,y=yVar)) +
+            geom_point() +
+            stat_smooth(method=glm, method.args=list(family=binomial))
+print(lRegPlot)
+   
+```
+
+### Data for contingency table analysis
+```{r}
+# integer counts of different data groups
+vec1 <- c(50,66,22)
+vec2 <- c(120,22,30)
+dataMatrix <- rbind(vec1,vec2)
+rownames(dataMatrix) <- c("Cold","Warm")
+colnames(dataMatrix) <-c("Aphaenogaster",
+                         "Camponotus",
+                         "Crematogaster")
+str(dataMatrix)
+```
+
+### Basic contingency table analysis in R
+
+```{r}
+print(chisq.test(dataMatrix))
+```
+
+### Plotting contingency table analyses
+
+```{r}
+# some simple plots using baseR
+mosaicplot(x=dataMatrix,
+           col=c("goldenrod","grey","black"),
+           shade=FALSE)
+barplot(height=dataMatrix,
+        beside=TRUE,
+        col=c("cornflowerblue","tomato"))
 ```
 
