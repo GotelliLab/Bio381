@@ -41,9 +41,9 @@ September 13  | [Atomic Vectors](Lectures/Lecture06_F2018.html) | [R-Scripts](ht
 September 18  | [Data Structures](Lectures/Lecture07_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 19  | - | -  | [Homework #4](Homeworks/Homework04_F2018.html)
 September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-September 25  | [Probability Distributions I](Lectures/Lecture05_2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+September 25  | [dplyr](Lectures/Lecture09_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 26  | - | -  | [Homework #5](Homeworks/Homework05_F2018.html)
-September 27  | [Data Structures](Lectures/Lecture10.html)| -  | -
+September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
 October 2  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
 October 3  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
 October 4  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -

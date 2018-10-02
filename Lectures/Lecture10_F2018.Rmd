@@ -1,0 +1,163 @@
+---
+title: "Lecture #10: Data curation and dplyr (cont'd)"
+author: "Lauren V. Ash"
+date: "September 27, 2018"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+<font size="3"> 
+
+## Data curation
+* GitHub repository   
+* Student contract   
+* Metadata   
+* [Metadata template](https://gotellilab.github.io/Bio381/Scripts/Feb02/ExcelDataTemplate.xlsx)   
+* Example of Lauren's data 
+
+## R general review
++ installing packages    
+    + `install.packages("packagename")` only once, then just load library `library(packagename)`   
+    + know where your library is located on your computer: `.libPaths()`     
++ projects
+    + useful for organization   
+    + do not have to set working directory each time    
+    + create on in the top right corner of RStudio
++ writing code in R vs Rmarkdown    
+    + code runs in an R Chunk in R Markdown; text is markdown language    
+    + useful for creating documents that have code in them    
++ running code 
+    + you can run line by line or highlight simultaneous lines
+    + make sure you run the lines above first    
++ use the console when you don't need the code saved
+    + i.e. `install.packages()`   
+    + you can use up arrow while in the console to access previous code easily
+
+
+## Exporting and importing data
+### `write.table()`: useful when you want to work outside of R or with a csv file
+```{r warning=F, message=F}
+library(dplyr)
+data(starwars)
+
+starwars1<-select(starwars, name:species) # Let's say we want to create a new csv file with our R object
+write.table(starwars1, file = "StarwarsNamesInfo.csv", row.names = F, sep = ",") # creating a csv with write.table()
+
+```
+
+### `read.table()`: useful when you have metadata (show example)
+#### Data Read Statement Format
+```{r eval=F}
+data <-read.table(file="FileName.csv",row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
+
+# compare to read.csv; include comment.char if you have metadata
+data2<-read.csv(file="FileName.csv", row.names=1, header=TRUE, sep=",",stringsAsFactors=FALSE, comment.char = "#")
+```
+
+```{r}
+data<-read.table("StarwarsNamesInfo.csv", header=T, sep = ",", stringsAsFactors = F) #our dataset has a header and the character variables are not factors
+head(data) # metadata doesn't show up # use comment.char = "#" if you use read.csv()
+class(data)
+data<-as_tibble(data) 
+glimpse(data)
+
+```
+
+### `saveRDS()`: useful when you are working only in R
+```{r}
+saveRDS(starwars1, file="StarWarsTibble") # writes a single R object to a file
+```
+
+### `readRDS()`
+```{r}
+sw<-readRDS("StarWarsTibble") # restores the R object
+class(sw) # stays as a tibble
+```
+
+
+## Further into `dplyr`
+
+### Counts 
+```{r}
+glimpse(sw)
+
+# count of NAs and nonmissing values (base R)
+sum(is.na(sw)) # count NAs
+sum(!is.na(sw)) # count nonmissing data
+
+swSp <- sw %>%
+    group_by(species) %>%
+    arrange(desc(mass))
+    
+# determine sample size   
+swSp %>%
+    summarize(avgMass = mean(mass, na.rm=T), avgHeight=mean(height, na.rm=T), n=n())
+
+# filter out low sample size
+swSp %>%
+    summarize(avgMass = mean(mass, na.rm=T), avgHeight=mean(height, na.rm=T), n=n()) %>%
+    filter(n >= 2)
+
+# put in descending order
+swSp %>%
+    summarize(avgMass = mean(mass, na.rm=T), avgHeight=mean(height, na.rm=T), n=n()) %>%
+    filter(n >= 2) %>%
+    arrange(desc(n))
+
+## Using the count helper
+swSp %>%
+    count(eye_color) # gives number of individuals with a given eye color (already grouped by species)
+
+swSp %>%
+    count(wt=height) # gives 'weight' (sum)
+
+```
+
+### Useful summary functions 
+```{r}
+# you can use a lot of R functions to summarize
+starwarsSummary<- swSp %>%
+    summarize(avgHeight=mean(height, na.rm=T), medHeight= median(height, na.rm=T), height_sd=sd(height, na.rm=T), height_IQR= IQR(height, na.rm=T), min_height=min(height, na.rm=T), first_height=first(height), n=n(), n_eyecolors = n_distinct(eye_color)) %>% #also can use last() and nth(x,#)
+    filter(n >= 2) %>%
+    arrange(desc(n))
+
+starwarsSummary
+
+
+```
+
+### Grouping by Multiple variables/ ungrouping 
+```{r}
+# clean up
+sw2<-sw[complete.cases(sw),]
+
+sw2groups <- group_by(sw2, species, hair_color)
+summarize(sw2groups, n = n())
+
+sw3groups <- group_by(sw2, species, hair_color, gender)
+summarize(sw3groups, n = n())
+
+# ungrouping
+sw3groups %>%
+    ungroup() %>%
+    summarize(n=n())
+```
+
+### Grouping with mutate
+```{r}
+# Example: standardize within groups
+sw3 <- sw2 %>%
+    group_by(species) %>%
+    mutate(prop_height= height/sum(height)) %>%
+    select(species, height, prop_height)
+    
+sw3
+
+sw3 %>%
+    arrange(species) # alphabetical order
+
+```
+
+
+</font>
