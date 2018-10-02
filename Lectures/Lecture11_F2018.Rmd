@@ -1,5 +1,5 @@
 ---
-title: 'Lecture #11: Complete Cases, Tibbles, Long/Wide Data, and Functions'
+title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Functions'
 author: "Nicholas J. Gotelli"
 date: "October 2, 2018"
 output:
@@ -64,27 +64,58 @@ m[complete.cases(m[,c(1,4)]),] # drops 1&4
 # Introducing the "tribble", a transposed tibble
 # that is easy to type directly in to your own code
 
-wideDat <- tribble(
-  ~Species, ~Site1, ~Site2, ~Site3, ~Site4,
+repMeasDat <- tribble(
+  ~Subject, ~Treatment, ~Time1, ~Time2, ~Time3,
   #-----------------------------
-  "SpeciesA", 0,0,2,3,
-  "SpeciesB", 0,0,0,1,
-  "SpeciesC", 2,0,0,0,
-  "SpeciesD", 0,3,0,0,
-  "SpeciesE", 1,0,1,0
+  1, "Control", 1,1,2,
+  2, "Control", 1,4,1,
+  3, "Control", 2,2,2,
+  4, "Heated", 5,6,6,
+  5, "Heated", 7,7,5,
+  6, "Heated", 7,5,5
   #------------------------------
 )
 
-print(wideDat)
+print(repMeasDat)
 ```
-This is a very common data format, in which each observation is a "species", and each attribute is a site. But the unique observations should be the "specimen" (= row), and there are two "attributes" (= columns), which are "species" and "site". 
+This is a very common data format, in which each row is a subject. There are two treatments, and the three columns give the measurements on each subject at 3 different times. 
 
-Otherwise, what happens later when we want to add other attributes for the specimen, such as body mass or a DNA-barcoding sequence?
+Unfortunately, this is not in the "long" format, which requires that each row represents a different observation. In this case, the observations should be the individual measurements, not the subjects.
 
-We need to convert these data to the "long" format. This is often not convenient for entering data in a spreadsheet, but it is the correct way to store the data for statistical analysis. Note also, that with this format, there are no longer 0s in the data set.
-
-Here is how we do this using `dplyr` tools:
+Here is how we convert this to a correct format:
 
 
+
+```{r}
+repMeasDat %>%
+gather(Time1:Time3, key="Time",value="Response")  
+```
+
+We first list the set of variables that need to be gathered (Time1:Time3). Next, we provide a `key`, which is the name of the new variable (in this case "Time"). Finally, we add a value, which is the measure that is associated with each row (in this case "Response"). Notice that we did not reference "Subject" or "Treatment". Their values are properly repeated in each of the appropriate rows. Thus, each row corresponds to a unique observation in the experiment. In this case, there were 3 subjects in each of 2 treatments, and each were measured 3 times. Thus, there are 3 x 3 x 2 rows in the new data frame.
+
+Let's add one other refinement, using dplyr's `arrange` function to re-order the rows so that the 3 measurements from a single subject appear on successive lines in the data frame:
+
+```{r}
+longData <- repMeasDat %>%
+gather(Time1:Time3, key="Time",value="Response") %>%
+arrange(Subject)
+print(longData)
+```
+The reason the long format is important, is that most statistical models and summaries in R operate this way. For example, to calculate averages for different times and treatments, we would use
+
+```{r}
+longData %>%
+group_by(Time,Treatment) %>%
+summarize(AvgRes = mean(Response)) %>%
+arrange(Treatment,Time)
+```
+
+
+Now let's convert this back to wide format, using the `spread` function which is roughly the inverse of `gather`
+
+```{r}
+wideData <- longData %>%
+spread(key=Time,value=Response)
+print(wideData)
 ```
 
