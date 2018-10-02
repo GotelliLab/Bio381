@@ -10,7 +10,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 ```
 
 ### Eliminating missing values with `complete.cases()`
