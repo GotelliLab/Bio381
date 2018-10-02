@@ -1,17 +1,21 @@
 ---
-title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Archetypal Stats'
+title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Probability Distributions'
 author: "Nicholas J. Gotelli"
 date: "October 2, 2018"
 output:
   html_document:
     highlight: tango
-    keep_md: yes
     theme: united
   pdf_document: default
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE)
+```
+
 ### Eliminating missing values with `complete.cases()`
 
-```{r, eval=TRUE}
+```{r}
 
 # preliminaries
 library(tidyverse)
@@ -108,6 +112,7 @@ longData %>%
 group_by(Time,Treatment) %>%
 summarize(AvgRes = mean(Response)) %>%
 arrange(Treatment,Time)
+print(longData)
 ```
 
 
@@ -119,198 +124,334 @@ spread(key=Time,value=Response)
 print(wideData)
 ```
 
-### Archetype Data Designs
-- independent versus dependent variables
-- discrete versus continuous variables
-- continuous variables (integer and real)
-- direction of cause and effect, x axis is independent
-- continuous versus discrete (natural or arbitrary or statistical bins)
+### Probability distributions in R
+#### Discrete distributions
 
-### Regression (dependent: continuous, independent: continuous)
-- linear model of $y = a + bx$
-- statistical tests for null of hypothesis of slope and/or intercept = 0
-- confidence and prediction intervals of uncertainty
-- goodness of fit tests for linearity
+- Poisson
+    * Range: [0,$\infty$]
+    * Parameters: size = number of trials, rate = $\lambda$
+    * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
+    
+- Binomial
+    * Range: [0, # of trials]
+    * Parameters: size= number of trials; p = probability of positive outcome
+    * Interpretation: Distribution of number of successful independent dichotomous trials, with constant p; resembles normal with large $\lambda$, or exponential with small $\lambda$
+    
+- Negative Binomial
+    * Range: [0, $\infty$]
+    * Parameters: size=number of successes; p = probability of success
+    * Interpretation: Distribution of number of failures in a series of independent Bernouli trials, each with p = probability of a success. Generates a discrete distribution that is more heterogeneous ("overdispersed") than Poisson
+    
+#### Continuous distributions
 
-### Set-up
-```{r}
-library(ggplot2)
-library(TeachingDemos)
-char2seed('espresso')
+- Uniform
+    * Range: [min,max]
+    * Parameters: min = minimum boundary; max = maximum boundary
+    * Interpretation: Distribution of a value that is equally likely within a specified range
+    
+- Normal
+    * Range: [$-\infty,\infty$]
+    * Parameters: mean = central tendency; SD = standard deviation
+    * Interpretation: Symmetric bell-shaped curve with unbounded tails
+    
+- Gamma $\Gamma$
+    * Range: [0,$\infty$]
+    * Parameters: shape, scale
+    * Interpretation: mean=$shape*scale$, variance=$shape*scale^2$; generates a variety of shapes (including normal and exponential) for positive continuous variables
+    
+- Beta $\beta$
+    * Range: [0,1] (can be rescaled to any range by simple multiplication and addition)
+    * Paramters: shape1, shape2
+    * Interpretation: if shape1 and shape 2 are integers, interpret as a coin toss, with shape1 = # of successes + 1, shape2 = # of failures + 1. Gives distribution of value of p, estimated from data, which can range from exponential through uniform through normal (but all are bounded). Setting shape1 and shape2 <1 yields u-shaped distributions.
+
+### The "grammar" of probability distributions in R
+- `d` gives probability density function
+- `p` gives cumulative distribution function
+- `q` gives quantile function (the inverse of `p`)
+- `r` gives random number generation
+
+Combine these with the base name of the function. For example `rbinom` gives a set of random values drawn from a binomial, whereas `dnorm` gives the density function for a normal distribution. There are many probability distributions available in R, but we will discuss only 7 of them.
+
+
+
+#### Poisson distribution
+
+```{r, eval=TRUE}
+#-------------------------------------------------
+# Poisson distribution
+# Discrete X >= 0
+# Random events with a constant rate lambda
+# (observations per time or per unit area)
+# Parameter lambda > 0
+
+# "d" function generates probability density
+
+MyVec <- dpois(x=seq(0,10),lambda=1)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+MyVec <- dpois(x=seq(0,10),lambda=2)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+MyVec <- dpois(x=seq(0,15),lambda=6)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+MyVec <- dpois(x=seq(0,15),lambda=0.2)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+
+sum(MyVec)  # sum of density function = 1.0 (total area under curve)
+
+# for a Poisson distribution with lambda=2, 
+# what is the probability that a single draw will yield X=0?
+
+dpois(x=0,lambda=2)
+
+# "p" function generates cumulative probability density; gives the 
+# "lower tail" cumulative area of the distribution
+
+MyVec <- ppois(q=seq(0,10),lambda=1)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+# for a Poisson distribution with lambda=2, 
+# what is the probability that a single random draw will yield X <= 1?
+
+ppois(q=1, lambda=2)
 ```
 
-
-### Data Frame construction for Regression Data
+#### Binomial distribution
 
 ```{r}
-n = 50  # number of observations (rows)
+#-------------------------------------------------
+# Binomial distribution
+# p = probability of a dichotomous outcome
+# size = number of trials
+# x = possible outcomes
+
+# use "d" binom for density function
+MyVec <- dbinom(x=seq(0,10),size=10,prob=0.5)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+MyVec <- dbinom(x=seq(0,10),size=10,prob=0.95)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+# use "p" binom for cumulative distribution
+
+# what is probability of getting 5 heads out of 10 tosses?
+dbinom(x=5,size=10,prob=0.5)
+
+# what is the probability of getting 5 
+# or fewer heads out of 10 tosses?
+pbinom(q=5,size=10,prob=0.5)
+pbinom(q=4,size=9,prob=0.5)
 
 
-varA <- runif(n) # random uniform values (independent)
-varB <- runif(n) # a second random column (dependent)
-varC <- 5.5 + varA*10 # a noisy linear relationship with varA
-ID <- seq_len(n) # creates a sequence from 1:n (if n > 0!)
-regData <- data.frame(ID,varA,varB,varC)
-head(regData)
-str(regData)
+# use "q" binom for quantiles
+
+# what minimum number of heads will be found 
+# for 40% of 50 trials with p = 0.5?
+
+qbinom(p=0.4,size=50,prob=0.5)
+
+# what is a 95% confidence interval for 100 trials 
+# of a coin with p = 0.7 for heads?
+qbinom(p=c(0.025,0.975),size=100,prob=0.7)
 ```
 
-# Basic regression analysis in R
+#### Negative Binomial distribution
+
 ```{r}
-# model
-regModel <- lm(varB~varA,data=regData)
+#-------------------------------------------------
+# negative binomial: number of failures (values of MyVec)
+# in a series of (Bernouli) with p=probability of success 
+# before a target number of successes (= size)
+# generates a discrete distribution that is more 
+# heterogeneous ("overdispersed") than Poisson
+MyVec <- dnbinom(x=seq(0,40), size=5, prob=0.5)
+names(MyVec) <- seq(0,40)
+barplot(height=MyVec)
 
-# model output
-regModel # printed output is sparse
-str(regModel) # complicated, but has "coefficients"
-head(regModel$residuals) # contains residuals
-
-# 'summary' of model has elements
-summary(regModel) # 
-summary(regModel)$coefficients
-str(summary(regModel))
-
-# best to examine entire matrix of coefficients:
-summary(regModel)$coefficients[] #shows all
-
-# can pull results from this, but a little wordy
-summary(regModel)$coefficients[1,4]   #p value for intercept
-summary(regModel)$coefficients["(Intercept)","Pr(>|t|)"] # uggh
+# geometric series is a special case where N= 1 success
+# each bar is a constant fraction 1 - "prob" of the bar before it
+MyVec <- dnbinom(x=seq(0,40), size=1, prob=0.1)
+names(MyVec) <- seq(0,40)
+barplot(height=MyVec)
 
 
-# alternatively unfurl this into a 1D atomic vector with names
-z <- unlist(summary(regModel))
+# alternatively specify mean = mu of distribution and size, 
+# the dispersion parameter (small is more dispersed)
+
+MyVec <- dnbinom(x=seq(0,40),size=1,mu=5)
+names(MyVec) <- seq(0,40)
+barplot(height=MyVec)
+
+
+# also have the "pnbinom", "qnbinom" and "rnbinom" functions
+# Probability of drawing a 3 or smaller from a negative binomial:
+pnbinom(q=3,size=1,mu=5)
+
+# 5 percent lower value for a negative binomial
+qnbinom(p=0.05,size=10,mu=5)
+
+# 95% confidence interval for a geometric series
+qnbinom(p=c(0.025,0.975),prob=0.5,size=10)
+
+# random sample from a negative binomial
+
+MyVec <- rnbinom(n=1000,size=1,mu=20)
+quantile(MyVec,prob=c(0.025,0.975))
+
+# compare to exact calculation
+qnbinom(p=c(0.025,0.975),size=1,mu=20)
+```
+
+#### Uniform distribution
+
+```{r}
+#-------------------------------------------------
+# uniform
+# params specific minimum and maximum
+
+# dunif for density plot
+limits <- seq(0,10,by=0.01)
+z <-dunif(x=limits,min=0,max=5)
+names(z) <- limits
+plot(x=limits, y=z,type="l",xlim=c(0,10))
+
+#punif for cumulative density (= tail probabilities)
+limits <- seq(0,10,by=0.01)
+z <-punif(q=limits,min=0,max=5)
+names(z) <- limits
+plot(x=limits, y=z,type="l",xlim=c(0,10))
+
+#qunif for quantiles
+qunif(p=c(0.025,0.975),min=0,max=5)
+
+#runif for random data
+hist(runif(n=100,min=0,max=5))
+hist(runif(n=1000,min=0,max=5))
+#-------------------------------------------------
+```
+#### Normal distribution
+
+```{r}
+# normal 
+
+hist(rnorm(n=100,mean=100,sd=2))
+
+# problems with uniform when mean is small but zero is not allowed.
+hist(rnorm(n=100,mean=2,sd=2))
+MyVec <- rnorm(n=100,mean=2, sd=2)
+summary(MyVec)
+TossZeroes <- MyVec[MyVec>0]
+hist(TossZeroes)
+summary(TossZeroes)
+```
+
+#### Gamma distribution
+
+``` {r}
+#-------------------------------------------------
+# gamma distribution, continuous positive values, but bounded at 0
+
+hist(rgamma(n=100,shape=1,scale=10))
+
+# gamma with shape= 1 is an exponential with scale = mean
+
+# shape <=1 gives a mode near zero; very small shape rounds to zero
+hist(rgamma(n=100,shape=0.1,scale=1))
+
+# large shape parameters moves towards a normal
+hist(rgamma(n=100,shape=20,scale=1))
+
+# scale parameter changes mean- and the variance!
+
+hist(rgamma(n=100,shape=2,scale=10))
+hist(rgamma(n=100,shape=2,scale=100))
+hist(rgamma(n=100,shape=2,scale=1))
+hist(rgamma(n=100,shape=2,scale=0.1))
+
+# unlike the normal, the two parameters affect both mean and variance
+
+# mean = shape*scale
+# variance= shape*scale^2
+```
+
+#### Beta distribution 
+
+```{r}
+#-------------------------------------------------
+
+# beta distribution 
+# bounded at 0 and 1
+# analagous to a binomial, but result is a continuous distribution of probabilities
+# parameter shape1 = number of successes + 1
+# parameter shape2 = number of failures + 1
+# interpret these in terms of a coin you are tossing
+
+# shape1 = 1, shape2 = 1 = "no data"
+hist(rbeta(n=1000,shape1=1,shape2=1),breaks=seq(0,1.0,length=100))
+
+# shape1 = 2, shape1 = 1 = "1 coin toss, comes up heads!"
+hist(rbeta(n=1000,shape1=2,shape2=1),breaks=seq(0,1.0,length=100))
+hist(rbeta(n=1000,shape1=1,shape2=2),breaks=seq(0,1.0,length=100))
+
+# two tosses, 1 head and 1 tail
+hist(rbeta(n=1000,shape1=2,shape2=2),breaks=seq(0,1.0,length=100))
+
+# two tosses, both heads
+hist(rbeta(n=1000,shape1=3,shape2=1),breaks=seq(0,1.0,length=100))
+
+# let's get more data
+hist(rbeta(n=1000,shape1=20,shape2=20),breaks=seq(0,1.0,length=100))
+
+hist(rbeta(n=1000,shape1=500,shape2=500),breaks=seq(0,1.0,length=100))
+
+# if the coin is biased
+hist(rbeta(n=1000,shape1=1000,shape2=500),breaks=seq(0,1.0,length=100))
+hist(rbeta(n=1000,shape1=10,shape2=5),breaks=seq(0,1.0,length=100))
+
+
+# shape parameters less than 1.0 give us a u-shaped distribution
+hist(rbeta(n=1000,shape1=0.1,shape2=0.1),breaks=seq(0,1.0,length=100))
+hist(rbeta(n=1000,shape1=0.5,shape2=0.5),breaks=seq(0,1.0,length=100))
+hist(rbeta(n=1000,shape1=0.5,shape2=0.2),breaks=seq(0,1.0,length=100))
+```
+
+### Estimating paramaters from data
+
+```{r}
+#-------------------------------------------------
+# estimating parameters from data
+# maximum likelihood estimator theta versus P(data|theta)
+
+# use fitdistr function, feeding it data and a distribution type)
+library(MASS)
+x <- rnorm(1000,mean=92.5,sd=2.5)
+hist(x)
+fitdistr(x,"normal")
+
+# compare to true parameters
+# compare to parameters estimated from simple means and standard deviations
+mean(x)
+sd(x)
+
+# but how do we "know" what distribution to fit?
+fitdistr(x,"gamma")
+z <- fitdistr(x,"gamma")
+
+# find components of z
 str(z)
-z
-z$coefficients7
+# rate = 1/scale
+# so here is the estimate of the mean
+z$estimate[1]/z$estimate[2]
 
-# grab what we need and put into a tidy  list
-
-regSum <- list(intercept=z$coefficients1,
-               slope=z$coefficients2,
-               interceptP=z$coefficients7,
-               slopeP=z$coefficients8,
-               r2=z$r.squared)
-
-# much easier to query and use
-print(regSum)
-regSum$r2
-regSum[[5]]
-
+# and here is the estimate of the variance
+z$estimate[1]/z$estimate[2]^2
 ```
-
-### Basic ggplot of regression model
-
-```{r}
-regPlot <- ggplot(data=regData,aes(x=varA,y=varB)) +
-           geom_point() +
-           stat_smooth(method=lm,se=0.99) # default se=0.95 
-print(regPlot)
-# ggsave(filename="Plot1.pdf",plot=regPlot,device="pdf")
-```
-
-### Data frame construction for one-way ANOVA
-
-```{r}
-nGroup <- 3 # number of treatment groups
-nName <- c("Control","Treat1", "Treat2") # names of groups
-nSize <- c(12,17,9) # number of observations in each group
-nMean <- c(40,41,60) # mean of each group
-nSD <- c(5,5,5) # standardd deviation of each group
-
-ID <- 1:(sum(nSize)) # id vector for each row
-resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
-            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
-            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
-TGroup <- rep(nName,nSize)
-ANOdata <- data.frame(ID,TGroup,resVar)
-str(ANOdata)
-```
-
-### Basic ANOVA in R
-
-```{r}
-ANOmodel <- aov(resVar~TGroup,data=ANOdata)
-print(ANOmodel)
-print(summary(ANOmodel))
-z <- summary(ANOmodel)
-str(z)
-aggregate(resVar~TGroup,data=ANOdata,FUN=mean)
-unlist(z)
-unlist(z)[7]
-ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
-ANOsum
-
-
-```
-
-
-### Basic ggplot of ANOVA data
-
-```{r}
-ANOPlot <- ggplot(data=ANOdata,aes(x=TGroup,y=resVar,fill=TGroup)) +
-           geom_boxplot()
-print(ANOPlot)
-# ggsave(filename="Plot2.pdf",plot=ANOPlot,device="pdf")
-```
-
-
-### Data frame construction for logistic regression
-```{r}
-
-xVar <- sort(rgamma(n=200,shape=5,scale=5))
-yVar <- sample(rep(c(1,0),each=100),prob=seq_len(200))
-lRegData <- data.frame(xVar,yVar)
-
-```
-### Logistic regression analysis in R
-
-```{r}
-lRegModel <- glm(yVar ~ xVar,
-                 data=lRegData,
-                 family=binomial(link=logit))
-summary(lRegModel)
-summary(lRegModel)$coefficients
-
-```
-
-### Basic ggplot of logistic regression
-```{r}
-lRegPlot <- ggplot(data=lRegData, aes(x=xVar,y=yVar)) +
-            geom_point() +
-            stat_smooth(method=glm, method.args=list(family=binomial))
-print(lRegPlot)
-   
-```
-
-### Data for contingency table analysis
-```{r}
-# integer counts of different data groups
-vec1 <- c(50,66,22)
-vec2 <- c(120,22,30)
-dataMatrix <- rbind(vec1,vec2)
-rownames(dataMatrix) <- c("Cold","Warm")
-colnames(dataMatrix) <-c("Aphaenogaster",
-                         "Camponotus",
-                         "Crematogaster")
-str(dataMatrix)
-```
-
-### Basic contingency table analysis in R
-
-```{r}
-print(chisq.test(dataMatrix))
-```
-
-### Plotting contingency table analyses
-
-```{r}
-# some simple plots using baseR
-mosaicplot(x=dataMatrix,
-           col=c("goldenrod","grey","black"),
-           shade=FALSE)
-barplot(height=dataMatrix,
-        beside=TRUE,
-        col=c("cornflowerblue","tomato"))
-```
-
