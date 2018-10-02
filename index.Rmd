@@ -44,9 +44,9 @@ September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Script
 September 25  | [dplyr](Lectures/Lecture09_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 26  | - | -  | [Homework #5](Homeworks/Homework05_F2018.html)
 September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
-October 2  | [Probability Distributions II](Lectures/Lecture08_2018)| -  | -
-October 3  | - | -  | [Homework #6](Homeworks/Homework06_2018.html)
-October 4  | [Data Entry, Experimental Designs](Lectures/Lecture12_2018.html)| -  | -
+October 2  | [Probability Distributions I](Lectures/Lecture11_F2018)| -  | -
+October 3  | - | -  | [Homework #6](Homeworks/Homework06_F2018.html)
+October 4  | [Probability Distributions II](Lectures/Lecture12_F2018.html)| -  | -
 October 9  | [Regression,ANOVA Designs](Lectures/Lecture13_2018.html)| -  | -
 October 10  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
 October 11  | [Functions](Lectures/Lecture14_2018.html)| -  | -
