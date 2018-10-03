@@ -47,9 +47,9 @@ September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
 October 2  | [Probability Distributions I](Lectures/Lecture11_F2018)| -  | -
 October 3  | - | -  | [Homework #6](Homeworks/Homework06_F2018.html)
 October 4  | [Probability Distributions II](Lectures/Lecture12_F2018.html)| -  | -
-October 9  | [Regression,ANOVA Designs](Lectures/Lecture13_2018.html)| -  | -
-October 10  | - | -  | [Homework #7](Homeworks/Homework07_2018.html)
-October 11  | [Functions](Lectures/Lecture14_2018.html)| -  | -
+October 9  | [Experimental Designs](Lectures/Lecture13_F2018.html)| -  | -
+October 10  | - | -  | [Homework #7](Homeworks/Homework07_F2018.html)
+October 11  | [Functions](Lectures/Lecture14_F2018.html)| -  | -
 October 16  | *TBA* | -  | -
 October 17  | - | -  | [Homework #8](Homeworks/Homework08_2018.html)
 October 18  | [Structured Programming](Lectures/Lecture15_2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -

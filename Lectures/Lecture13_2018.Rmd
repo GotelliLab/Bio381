@@ -1,7 +1,7 @@
 ---
-title: 'Lecture #13: ANOVA, Regression Designs'
+title: 'Lecture #13: Experimental Designs'
 author: "Nicholas J. Gotelli"
-date: "February 22, 2018"
+date: "October 9, 2018"
 output:
   html_document:
     highlight: tango
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE,eval=FALSE)
 
 
 
-### Archetype Data Designs
+### Archetype Experimental Designs
 - independent versus dependent variables
 - discrete versus continuous variables
 - continuous variables (integer and real)
