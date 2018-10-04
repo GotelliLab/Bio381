@@ -16,6 +16,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #### Poisson distribution
 
 ```{r, eval=TRUE}
+library(ggplot2)
 #-------------------------------------------------
 # Poisson distribution
 # Discrete X >= 0
@@ -24,25 +25,23 @@ knitr::opts_chunk$set(eval = FALSE)
 # Parameter lambda > 0
 
 # "d" function generates probability density
+hits <- 0:10
+myVec <- dpois(x=hits,lambda=1)
+qplot(x=hits,y=myVec,geom="col")
 
-MyVec <- dpois(x=seq(0,10),lambda=1)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
+myVec <- dpois(x=hits,lambda=2)
+qplot(x=hits,y=myVec,geom="col")
 
-MyVec <- dpois(x=seq(0,10),lambda=2)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
-
-MyVec <- dpois(x=seq(0,15),lambda=6)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
-
-MyVec <- dpois(x=seq(0,15),lambda=0.2)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
+hits <- 0:15
+myVec <- dpois(x=hits,lambda=6)
+qplot(x=hits,y=myVec,geom="col")
 
 
-sum(MyVec)  # sum of density function = 1.0 (total area under curve)
+hits <- 0:15
+myVec <- dpois(x=hits,lambda=0.2)
+qplot(x=hits,y=myVec,geom="col")
+
+sum(myVec)  # sum of density function = 1.0 (total area under curve)
 
 # for a Poisson distribution with lambda=2, 
 # what is the probability that a single draw will yield X=0?
@@ -52,38 +51,68 @@ dpois(x=0,lambda=2)
 # "p" function generates cumulative probability density; gives the 
 # "lower tail" cumulative area of the distribution
 
-MyVec <- ppois(q=seq(0,10),lambda=1)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
+hits <- 0:10
+myVec <- ppois(q=hits,lambda=2)
+qplot(x=hits,y=myVec,geom="col")
+
 
 # for a Poisson distribution with lambda=2, 
 # what is the probability that a single random draw will yield X <= 1?
 
 ppois(q=1, lambda=2)
+
+
+# We could also get this through dpois
+p1 <- dpois(x=0,lambda=2)
+p1
+p2 <- dpois(x=1,lambda=2)
+p2
+p1 + p2
+
+
+# The q function is the inverse of p
+# What is the number of hits corresponding to 50% of the probability mass
+qpois(p=0.5,lambda=2.5)
+qplot(x=0:10,y=dpois(x=0:10,lambda=2.5),geom="col")
+
+# but distribution is discrete, so this is not exact
+ppois(q=2,lambda=2.5)
+
+# finally, we can simulate individual values from a poisson
+ranPois <- rpois(n=1000,lambda=2.5)
+qplot(x=ranPois)
+
+
+# for real or simulated data, we can use the quantile
+# function to find the empirical  95% confidence interval on the data
+
+quantile(x=ranPois,probs=c(0.025,0.975))
 ```
 
 #### Binomial distribution
 
-```{r}
+```{r, eval=TRUE}
 #-------------------------------------------------
 # Binomial distribution
 # p = probability of a dichotomous outcome
 # size = number of trials
 # x = possible outcomes
+# outcome x is bounded between 0 and number of trials
 
 # use "d" binom for density function
-MyVec <- dbinom(x=seq(0,10),size=10,prob=0.5)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
-
-MyVec <- dbinom(x=seq(0,10),size=10,prob=0.95)
-names(MyVec) <- seq(0,10)
-barplot(height=MyVec)
-
-# use "p" binom for cumulative distribution
+hits <- 0:10
+myVec <- dbinom(x=hits,size=10,prob=0.5)
+qplot(x=0:10,y=myVec,geom="col")
 
 # what is probability of getting 5 heads out of 10 tosses?
 dbinom(x=5,size=10,prob=0.5)
+
+# of course, the coin can be a biased one
+myVec <- dbinom(x=hits,size=10,prob=0.95)
+qplot(x=0:10,y=myVec,geom="col")
+
+# use "p" binom for cumulative distribution
+
 
 # what is the probability of getting 5 
 # or fewer heads out of 10 tosses?
@@ -91,40 +120,43 @@ pbinom(q=5,size=10,prob=0.5)
 pbinom(q=4,size=9,prob=0.5)
 
 
-# use "q" binom for quantiles
-
-# what minimum number of heads will be found 
-# for 40% of 50 trials with p = 0.5?
-
-qbinom(p=0.4,size=50,prob=0.5)
 
 # what is a 95% confidence interval for 100 trials 
 # of a coin with p = 0.7 for heads?
 qbinom(p=c(0.025,0.975),size=100,prob=0.7)
+
+# and how does this compare to the interval for an actual simlation of 50 tosses of 100 coins?
+
+myCoins <- rbinom(n=50,size=100,prob=0.5)
+qplot(x=myCoins)
+quantile(x=myCoins,probs=c(0.025,0.975))
+
 ```
 
 #### Negative Binomial distribution
 
-```{r}
+```{r, eval=TRUE}
 #-------------------------------------------------
 # negative binomial: number of failures (values of MyVec)
 # in a series of (Bernouli) with p=probability of success 
 # before a target number of successes (= size)
 # generates a discrete distribution that is more 
 # heterogeneous ("overdispersed") than Poisson
-MyVec <- dnbinom(x=seq(0,40), size=5, prob=0.5)
-names(MyVec) <- seq(0,40)
-barplot(height=MyVec)
+hits <- 0:40
+myVec <- dnbinom(x=hits, size=5, prob=0.5)
+qplot(x=hits,y=myVec,geom="col")
 
 # geometric series is a special case where N= 1 success
 # each bar is a constant fraction 1 - "prob" of the bar before it
-MyVec <- dnbinom(x=seq(0,40), size=1, prob=0.1)
-names(MyVec) <- seq(0,40)
-barplot(height=MyVec)
+myVec <- dnbinom(x=hits, size=1, prob=0.1)
+qplot(x=hits,y=myVec,geom="col")
 
 
 # alternatively specify mean = mu of distribution and size, 
 # the dispersion parameter (small is more dispersed)
+# this gives us a poisson with a lambda value that varies
+# the dispersion parameter is the shape parameter in the gamma
+# as it increases, the distribution has a smaller variance
 
 MyVec <- dnbinom(x=seq(0,40),size=1,mu=5)
 names(MyVec) <- seq(0,40)
