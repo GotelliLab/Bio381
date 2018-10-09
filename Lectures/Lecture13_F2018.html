@@ -175,9 +175,7 @@ $(document).ready(function () {
 </div>
 <div id="set-up" class="section level3">
 <h3>Set-up</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(TeachingDemos)
-<span class="kw">char2seed</span>(<span class="st">'espresso'</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 </div>
 <div id="data-frame-construction-for-regression-data" class="section level3">
 <h3>Data Frame construction for Regression Data</h3>
@@ -322,7 +320,16 @@ dataMatrix &lt;-<span class="st"> </span><span class="kw">rbind</span>(vec1,vec2
            <span class="dt">shade=</span><span class="ot">FALSE</span>)
 <span class="kw">barplot</span>(<span class="dt">height=</span>dataMatrix,
         <span class="dt">beside=</span><span class="ot">TRUE</span>,
-        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;cornflowerblue&quot;</span>,<span class="st">&quot;tomato&quot;</span>))</code></pre></div>
+        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;cornflowerblue&quot;</span>,<span class="st">&quot;tomato&quot;</span>))
+
+
+dFrame &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(dataMatrix)
+dFrame &lt;-<span class="st"> </span><span class="kw">cbind</span>(dFrame,<span class="kw">list</span>(<span class="dt">Treatment=</span><span class="kw">c</span>(<span class="st">&quot;Cold&quot;</span>,<span class="st">&quot;Warm&quot;</span>)))
+dFrame &lt;-<span class="st"> </span><span class="kw">gather</span>(dFrame,<span class="dt">key=</span>Species,Aphaenogaster<span class="op">:</span>Crematogaster,<span class="dt">value=</span>Counts) 
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>dFrame,<span class="kw">aes</span>(<span class="dt">x=</span>Species,<span class="dt">y=</span>Counts,<span class="dt">fill=</span>Treatment)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="dt">color=</span><span class="kw">I</span>(<span class="st">&quot;black&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;cornflowerblue&quot;</span>,<span class="st">&quot;coral&quot;</span>))
+<span class="kw">print</span>(p)</code></pre></div>
 </div>
 </div>
 

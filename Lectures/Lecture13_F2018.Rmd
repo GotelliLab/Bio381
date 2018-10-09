@@ -29,9 +29,8 @@ knitr::opts_chunk$set(echo = TRUE,eval=FALSE)
 
 ### Set-up
 ```{r}
-library(ggplot2)
-library(TeachingDemos)
-char2seed('espresso')
+library(tidyverse)
+
 ```
 
 
@@ -207,5 +206,14 @@ mosaicplot(x=dataMatrix,
 barplot(height=dataMatrix,
         beside=TRUE,
         col=c("cornflowerblue","tomato"))
+
+
+dFrame <- as.data.frame(dataMatrix)
+dFrame <- cbind(dFrame,list(Treatment=c("Cold","Warm")))
+dFrame <- gather(dFrame,key=Species,Aphaenogaster:Crematogaster,value=Counts) 
+
+p <- ggplot(data=dFrame,aes(x=Species,y=Counts,fill=Treatment)) + geom_bar(stat="identity",position="dodge",color=I("black")) +
+  scale_fill_manual(values=c("cornflowerblue","coral"))
+print(p)
 ```
 
