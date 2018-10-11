@@ -24,9 +24,9 @@ print(yy)
 # to see contents of a function, print it
 print(read.table)
 
-sum # one of R's "primitive" functions
-sum(3,2) # call the function with parameters
-sum() # call function with default values for parameters
+sd # shows the code
+sd(c(3,2)) # call the function with parameters
+sd() # call function with default values for parameters
 ```
 
 ### The Anatomy Of A User-Defined Function
@@ -197,20 +197,20 @@ fitLinear()
 # inputs: numeric vector of predictor (x) and response (y)
 # outputs: slope and p-value
 #------------------------------------------------- 
-fitLinear2 <- function(x=NULL,y=NULL) {
-  if(is.null(x) & is.null(y)) {
-     x <- runif(20)
-     y <- 0.5 + 2*x + rnorm(n=20,mean=0,sd=0.2)
+fitLinear2 <- function(Pars=NULL) {
+  if(is.null(Pars) {
+     Pars <- list(x=runif(20),y=0.5 + 2*x +                                           rnorm(n=20,mean=0,sd=0.2))
   }
-  myMod <- lm(y~x) # fit the model
+  myMod <- lm(Pars$y~Pars$x) # fit the model
   myOut <- c(slope=summary(myMod)$coefficients[2,1],
              pValue=summary(myMod)$coefficients[2,4])
-  plot(x=x,y=y) # quick and dirty plot to check output
+  plot(x=Pars$x,y=Pars$y) # quick and dirty plot to check output
   return(myOut)
 }
 ##################################################
 fitLinear2()
-fitLinear2(x=1:10,y=runif(10))
+myPars <-list(x=1:10,y=runif(10))
+fitLinear2(myPars)
 ```
 
 # Using `do.call` To Pass A List Of Parameters To A Function
