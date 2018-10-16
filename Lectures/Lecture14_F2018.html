@@ -342,16 +342,17 @@ fitLinear &lt;-<span class="st"> </span><span class="cf">function</span>(<span c
 <span class="co"># inputs: numeric vector of predictor (x) and response (y)</span>
 <span class="co"># outputs: slope and p-value</span>
 <span class="co">#------------------------------------------------- </span>
-fitLinear2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">Pars=</span><span class="ot">NULL</span>) {
-  <span class="cf">if</span>(<span class="kw">is.null</span>(Pars) {
-     Pars &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="kw">runif</span>(<span class="dv">20</span>),<span class="dt">y=</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">+</span><span class="st">                                           </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">20</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.2</span>))
+fitLinear2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">p=</span><span class="ot">NULL</span>) {
+  <span class="cf">if</span>(<span class="kw">is.null</span>(p)) {
+     p &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="kw">runif</span>(<span class="dv">20</span>),<span class="dt">y=</span><span class="kw">runif</span>(<span class="dv">20</span>))
   }
-  myMod &lt;-<span class="st"> </span><span class="kw">lm</span>(Pars<span class="op">$</span>y<span class="op">~</span>Pars<span class="op">$</span>x) <span class="co"># fit the model</span>
+  myMod &lt;-<span class="st"> </span><span class="kw">lm</span>(p<span class="op">$</span>x<span class="op">~</span>p<span class="op">$</span>y) <span class="co"># fit the model</span>
   myOut &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">slope=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],
              <span class="dt">pValue=</span><span class="kw">summary</span>(myMod)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])
-  <span class="kw">plot</span>(<span class="dt">x=</span>Pars<span class="op">$</span>x,<span class="dt">y=</span>Pars<span class="op">$</span>y) <span class="co"># quick and dirty plot to check output</span>
+  <span class="kw">plot</span>(<span class="dt">x=</span>p<span class="op">$</span>x,<span class="dt">y=</span>p<span class="op">$</span>y) <span class="co"># quick and dirty plot to check output</span>
   <span class="kw">return</span>(myOut)
-<span class="er">}</span>
+}
+
 ##################################################
 <span class="kw">fitLinear2</span>()
 myPars &lt;-<span class="kw">list</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">y=</span><span class="kw">runif</span>(<span class="dv">10</span>))

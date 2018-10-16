@@ -198,16 +198,17 @@ fitLinear()
 # inputs: numeric vector of predictor (x) and response (y)
 # outputs: slope and p-value
 #------------------------------------------------- 
-fitLinear2 <- function(Pars=NULL) {
-  if(is.null(Pars) {
-     Pars <- list(x=runif(20),y=0.5 + 2*x +                                           rnorm(n=20,mean=0,sd=0.2))
+fitLinear2 <- function(p=NULL) {
+  if(is.null(p)) {
+     p <- list(x=runif(20),y=runif(20))
   }
-  myMod <- lm(Pars$y~Pars$x) # fit the model
+  myMod <- lm(p$x~p$y) # fit the model
   myOut <- c(slope=summary(myMod)$coefficients[2,1],
              pValue=summary(myMod)$coefficients[2,4])
-  plot(x=Pars$x,y=Pars$y) # quick and dirty plot to check output
+  plot(x=p$x,y=p$y) # quick and dirty plot to check output
   return(myOut)
 }
+
 ##################################################
 fitLinear2()
 myPars <-list(x=1:10,y=runif(10))
