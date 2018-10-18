@@ -309,7 +309,7 @@ z[pVals<span class="op">&gt;=</span><span class="fl">0.975</span>] &lt;-<span cl
 <span class="kw">table</span>(z)</code></pre></div>
 <pre><code>## z
 ## lowerTail    nonSig upperTail 
-##        16       960        24</code></pre>
+##        26       937        37</code></pre>
 <p>Here is how I would probably do this</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z1 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;nonSig&quot;</span>,<span class="dv">1000</span>)
 z1[pVals<span class="op">&lt;=</span><span class="fl">0.025</span>] &lt;-<span class="st"> &quot;lowerTail&quot;</span>
@@ -317,7 +317,7 @@ z1[pVals<span class="op">&gt;=</span><span class="fl">0.975</span>] &lt;-<span c
 <span class="kw">table</span>(z1)</code></pre></div>
 <pre><code>## z1
 ## lowerTail    nonSig upperTail 
-##        16       960        24</code></pre>
+##        26       937        37</code></pre>
 </div>
 
 
