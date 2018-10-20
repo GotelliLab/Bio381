@@ -1,5 +1,5 @@
 ---
-title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Probability Distributions'
+title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Probability Distributions I'
 author: "Nicholas J. Gotelli"
 date: "October 2, 2018"
 output:

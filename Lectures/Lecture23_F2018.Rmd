@@ -1,0 +1,169 @@
+---
+title: 'Lecture #23 ggplot III'
+author: "Nicholas J. Gotelli"
+date: "November 13, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### ggplot (continued)
+
+#### Preliminaries
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(TeachingDemos)
+char2seed("Dark Star")
+
+d <- mpg # use built in mpg data frame
+
+```
+#### Mapping aesthetics within geoms
+```{r, warning=FALSE, message=FALSE}
+# standard plot with all data
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what group affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, group=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what color affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, color=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what fill affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, fill=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+
+# use both if you want points, lines, and confidence intervals colored
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, color=drv, fill=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# now use aesthetic mappings within each geom to over-ride defaults
+# subset the data frame to pull out what you need
+
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy,col=drv)) +
+  geom_point(data=d[d$drv=="4",]) + geom_smooth()
+print(p1)
+
+# instead of subsetting, just map an aesthetic
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point(mapping=aes(color=drv)) + geom_smooth()
+print(p1)
+
+# Conversely, map the smoother, but not the points
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point() + geom_smooth(mapping=aes(color=drv))
+print(p1)
+
+# also, subset in the first layer to eliminate some data entirely
+# instead of subsetting, just map an aesthetic
+p1 <- ggplot(data=d[d$drv!="4",],mapping=aes(x=displ,y=hwy)) +
+  geom_point(mapping=aes(color=drv)) + geom_smooth()
+print(p1)
+
+# geoms have attributes that can be set; these are different from mappings
+p1 <- ggplot(data=d[d$drv!="4",],mapping=aes(x=displ,y=hwy)) +
+  geom_point(mapping=aes(color=drv)) + geom_smooth(color="black",size=2,fill="steelblue") # add ,method="lm")
+print(p1)
+```
+
+
+#### Bar plots
+```{r,message=FALSE, warning=FALSE}
+# use to plot the counts of rows for a categorical variable
+table(d$drv)
+p1 <- ggplot(data=d,mapping=aes(x=drv)) + geom_bar(color="black",fill="goldenrod")
+print(p1)
+
+# but where did the variable "count" come from?
+# created under the hood by stat. Each geom has an associated default stat
+# the default stat has computed variables, and in this case it creates count
+table(d$drv)
+p1 <- ggplot(data=d,mapping=aes(x=drv)) + stat_count(color="black",fill="goldenrod")
+print(p1)
+
+# pulling out proportions is a little quirky
+p1 <- ggplot(data=d,mapping=aes(x=drv,y=..prop..,group=1)) + geom_bar(color="black",fill="goldenrod")
+print(p1)
+
+# aesthetic mapping gives multiple groups for each bar
+p1 <- ggplot(data=d,mapping=aes(x=drv,fill=fl)) + geom_bar()
+print(p1)
+
+# default stacks them, but we can also place them unstacked
+p1 <- ggplot(data=d,mapping=aes(x=drv,fill=fl)) + geom_bar(position="identity")
+print(p1)
+
+# need to adjust color transparency, which is "alpha"
+p1 <- ggplot(data=d,mapping=aes(x=drv,fill=fl)) + geom_bar(alpha = 1/4, position="identity")
+print(p1)
+
+# or  use color, but set fill to NA, which makes bar transparent 
+p1 <- ggplot(data=d,mapping=aes(x=drv,color=fl)) + geom_bar(fill=NA, position="identity")
+print(p1)
+
+# better to use position = fill for stacking, but with equivalent height
+p1 <- ggplot(data=d,mapping=aes(x=drv,fill=fl)) + geom_bar(position="fill")
+print(p1)
+
+# best to use position = dodge for multiple bars
+p1 <- ggplot(data=d,mapping=aes(x=drv,fill=fl)) + geom_bar(position="dodge",color="black",size=1)
+print(p1)
+
+# more typical "bar plot" has heights as the values themselves
+dTiny <- tapply(X=d$hwy,INDEX=as.factor(d$fl),FUN=mean) #calculate the means
+dTiny <- data.frame(hwy=dTiny) # create a single-column data frame
+dTiny <- cbind(fl=row.names(dTiny),dTiny) # 
+
+p2 <- ggplot(data=dTiny, mapping=aes(x=fl,y=hwy,fill=fl)) +
+               geom_bar(stat="identity")
+print(p2)
+
+
+
+# now use the stats geom to generate the "classic barplot"
+
+# first create a useful plot of points with confidence intervals
+p1 <- ggplot(data=d,mapping=aes(x=fl,y=hwy)) +
+      stat_summary(fun.y=mean,
+                   fun.ymin=function(x) mean(x) - sd(x),
+                   fun.ymax=function(x) mean(x) + sd(x))  
+plot(p1)
+                   
+# now "add in" the bar plots
+p1 <- ggplot(data=d,mapping=aes(x=fl,y=hwy)) +
+      stat_summary(fun.y=mean,
+                   fun.ymin=function(x) mean(x) - sd(x),
+                   fun.ymax=function(x) mean(x) + sd(x))  +
+  geom_bar(data=dTiny,mapping=aes(x=fl,fill=fl),stat="identity")
+plot(p1)
+```
+
+
+
+#### Use a box plot instead!
+
+```{r, warning=FALSE, message=FALSE}
+# basic boxplot is simple and informative
+p1 <- ggplot(data=d,mapping=aes(x=fl,y=hwy,fill=fl)) +
+               geom_boxplot()
+print(p1)
+
+# now overlay the raw data
+p1 <- ggplot(data=d,mapping=aes(x=fl,y=hwy,fill=fl)) +
+               geom_boxplot(fill="thistle") + geom_point(position=position_jitter(width=0.2,height=0.7),color="grey60")
+#position="jitter",color="gray60")
+#position=position_jitter("width=0.2, height=0.7)
+print(p1)
+```

@@ -1,7 +1,7 @@
 ---
 title: 'Homework #10'
 author: "Nicholas J. Gotelli"
-date: 'April 5, 2017'
+date: 'October 31, 2018'
 output:
   html_document:
     highlight: tango

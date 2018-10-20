@@ -44,7 +44,7 @@ September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Script
 September 25  | [dplyr](Lectures/Lecture09_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 26  | - | -  | [Homework #5](Homeworks/Homework05_F2018.html)
 September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
-October 2  | [Probability Distributions I](Lectures/Lecture11_F2018)| -  | -
+October 2  | [Probability Distributions I](Lectures/Lecture11_F2018.html)| -  | -
 October 3  | - | -  | [Homework #6](Homeworks/Homework06_F2018.html)
 October 4  | [Probability Distributions II](Lectures/Lecture12_F2018.html)| -  | -
 October 9  | [Experimental Designs](Lectures/Lecture13_F2018.html)| -  | -
@@ -54,23 +54,23 @@ October 16  | [Structured Programming](Lectures/Lecture15_F2018.html) | [R-Scrip
 October 17  | - | -  | [Homework #8](Homeworks/Homework08_F2018.html)
 October 18  | [Control Structures I](Lectures/Lecture16_F2018.html) | -  | -
 October 23  | [Control Structures II](Lectures/Lecture17_F2018.html) | -  | -
-October 24  | - | -  | [Homework #9](Homeworks/Homework09_2018.html)
-October 25  | [Control Structures II](Lectures/Lecture17_2018.html) | - | -
-October 30  | [Batch Processing](Lectures/Lecture18_2018.html) | -  | -
-October 31  | - | -  | [Homework #10](Homeworks/Homework10_2018n.html)
-November 1  | [Plotting Mathematical Functions](Lectures/Lecture19_2018.html) | -  | -
-November 6  | [Randomization Tests](Lectures/Lecture20_2018.html) | -  | -
-November 7  | - | -  | [Homework #11](Homeworks/Homework11_2018.html)
-November 8  | [ggplot I](Lectures/Lecture21_2018.html) | -  | -
-November 13  | [ggplot II](Lectures/Lecture22_2018.html) | -  | -
-November 14  | - | -  | [ggplot Graphing](Homeworks/Homework12_2018.html)
-November 15  | [ggplot III](Lectures/Lecture23_2018.html) | -  | -
+October 24  | - | -  | [Homework #9](Homeworks/Homework09_F2018.html)
+October 25  | [Control Structures III](Lectures/Lecture18_F2018.html) | - | -
+October 30  | [Batch Processing](Lectures/Lecture19_F2018.html) | -  | -
+October 31  | - | -  | [Homework #10](Homeworks/Homework10_F2018.html)
+November 1  | [Randomization Tests](Lectures/Lecture20_F2018.html) | -  | -
+November 6  | [ggplot I](Lectures/Lecture21_F2018.html) | -  | -
+November 7  | - | -  | [Homework #11](Homeworks/Homework11_F2018.html)
+November 8  | [ggplot II](Lectures/Lecture22_F2018.html) | -  | -
+November 13  | [ggplot III](Lectures/Lecture23_F2018.html) | -  | -
+November 14  | - | -  | [Homework #12](Homeworks/Homework12_F2018.html)
+November 15  | [ggplot IV](Lectures/Lecture24_F2018.html) | -  | -
 November 20  | *THANKSGIVING RECESS* | -  | -
 November 21  | *THANKSGIVING RECESS* | -  | -
 November 22  | *THANKSGIVING RECESS* | -  | -
-November 27  | [ggplot IV](Lectures/Lecture24_2018.html) | -  | -
-November 28  | - | -  | Catch-up Day (no homework assignment)
-November 29  | [dplyr and Apply Functions](Lectures/Lecture25_2018.html) | -  | -
+November 27  |**Presentations: ** | -  | -
+November 28  | - | -  |**Presentations: **
+November 29  |**Presentations: ** | -  | -
 December 4  |**Presentations: ** | -  | -
 December 5  | - | -  |**Presentations: **
 December 6  |**Presentations: ** | -  | -
