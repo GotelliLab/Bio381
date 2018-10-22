@@ -56,14 +56,14 @@ October 18  | [Control Structures I](Lectures/Lecture16_F2018.html) | -  | -
 October 23  | [Control Structures II](Lectures/Lecture17_F2018.html) | -  | -
 October 24  | - | -  | [Homework #9](Homeworks/Homework09_F2018.html)
 October 25  | [Control Structures III](Lectures/Lecture18_F2018.html) | - | -
-October 30  | [Batch Processing](Lectures/Lecture19_F2018.html) | -  | -
+October 30  | [Randomization Tests](Lectures/Lecture19_F2018.html) | -  | -
 October 31  | - | -  | [Homework #10](Homeworks/Homework10_F2018.html)
-November 1  | [Randomization Tests](Lectures/Lecture20_F2018.html) | -  | -
+November 1  | [Batch Processing](Lectures/Lecture20_F2018.html) | -  | -
 November 6  | [ggplot I](Lectures/Lecture21_F2018.html) | -  | -
 November 7  | - | -  | [Homework #11](Homeworks/Homework11_F2018.html)
 November 8  | [ggplot II](Lectures/Lecture22_F2018.html) | -  | -
 November 13  | [ggplot III](Lectures/Lecture23_F2018.html) | -  | -
-November 14  | - | -  | [Homework #12](Homeworks/Homework12_F2018.html)
+November 14  | - | -  | Catch-up day (lab open, but no scheduled exercise)
 November 15  | [ggplot IV](Lectures/Lecture24_F2018.html) | -  | -
 November 20  | *THANKSGIVING RECESS* | -  | -
 November 21  | *THANKSGIVING RECESS* | -  | -

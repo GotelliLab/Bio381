@@ -1,5 +1,5 @@
 ---
-title: 'Lecture #19: Batch Processing'
+title: 'Lecture #19: Randomization Tests'
 author: "Nicholas J. Gotelli"
 date: "October 30, 2018"
 output:
@@ -8,145 +8,131 @@ output:
     theme: united
   pdf_document: default
 ---
-## Batch processing
+### General Steps in a Randomization Test
+1. Define a metric $X$ as a single number to represent pattern
+2. Calculate $X_{obs}$, the metric for the empirical (= observed) data
+3. Randomize or reshuffle the data in a way that would uncouple association between the observed data and their assignment to treatments. Otherwise, the randomized data set should have the same dimensions and properties as the original data set.
+4. For this single randomization, calculate $X_{sim}$, the metric for the simulated (= randomized) data.
+5. Repeat steps (3) and (4) 1000 (or more times) to get a distribution for $H_{sim}$
+6. Estimate the tail probability of the observed metric, given the null distribution $(p(X_{obs}|H_0))$.
 
-### Build a set of random files
+#### Preliminaries
 ```{r}
-##################################################
-# function: FileBuilder
-# create a set of random files for regression
-# input: fileN = number of files to create
-#       : fileFolder = name of folder for random files
-#       : fileSize = c(min,max) number of rows in file
-#       : fileNA = number on average of NA values per column
-# output: set of random files
-#------------------------------------------------- 
-FileBuilder <- function(fileN=10,
-                        fileFolder="RandomFiles/",
-                        fileSize=c(15,100),
-                        fileNA=3){
-for (i in seq_len(fileN)) {
-fileLength <- sample(fileSize[1]:fileSize[2],size=1) # get number of rows
-varX <- runif(fileLength) # create random x
-varY <- runif(fileLength) # create randon y
-dF <- data.frame(varX,varY) # bind into a data frame
-badVals <- rpois(n=1,lambda=fileNA) # determine NA number
-dF[sample(nrow(dF),size=badVals),1] <- NA # random NA in varX
-dF[sample(nrow(dF),size=badVals),2] <- NA # random NA in varY
-
-# create label for file name with padded zeroes
-fileLabel <- paste(fileFolder,
-                       "ranFile",
-                       formatC(i,
-                       width=3,
-                       format="d",
-                       flag="0"),
-                       ".csv",sep="")
-
-# set up data file and incorporate time stamp and minimal metadata
-write.table(cat("# Simulated random data file for batch processing","\n",
-                    "# timestamp: ",as.character(Sys.time()),"\n",
-                    "# NJG","\n",
-                    "# ------------------------", "\n",
-                    "\n",
-                    file=fileLabel,
-                    row.names="",
-                    col.names="",
-                    sep=""))
-
-# now add the data frame
-write.table(x=dF,
-            file=fileLabel,
-            sep=",",
-            row.names=FALSE,
-            append=TRUE)
-
-
-}
-}
-```
-### Run regression model and extract stats
-
-```{r}
-
-##################################################
-# function: regStats
-# fits linear model, extracts statistics
-# input: 2-column data frame (x and y)
-# output: slope, p-value, and r2
-#------------------------------------------------- 
-regStats <- function(d=NULL) {
-             if(is.null(d)) {
-               xVar <- runif(10)
-               yVar <- runif(10)
-               d <- data.frame(xVar,yVar)
-             }
-  . <- lm(data=d,d[,2]~d[,1])
-  . <- summary(.)
-  statsList <- list(Slope=.$coefficients[2,1],
-                    pVal=.$coefficients[2,4],
-                    r2=.$r.squared)
-  return(statsList)
-
-}
-```
-
-### Body of script for batch processing of regression models
-```{r, warning=FALSE,eval=FALSE}
+library(ggplot2)
 library(TeachingDemos)
-char2seed("Freezing March")
+#char2seed("Cruel April")
+```
+#### Read in data
+```{r}
 
-#--------------------------------------------
-# Global variables
-fileFolder <- "RandomFiles/"
-nFiles <- 100
-fileOut <- "StatsSummary.csv"
-#--------------------------------------------
-
-# Create 100 random data sets
-FileBuilder(fileN=nFiles)
-fileNames <- list.files(path=fileFolder)
-
-# Create data frame to hold file summary statistics
-ID <- seq_along(fileNames)
-fileName <- fileNames
-slope <- rep(NA,nFiles)
-pVal <- rep(NA,nFiles)
-r2 <- rep(NA,nFiles)
-
-statsOut <- data.frame(ID,fileName,slope,pVal,r2)
-
-# batch process by looping through individual files
-for (i in seq_along(fileNames)) {
-  data <- read.table(file=paste(fileFolder,fileNames[i],sep=""),
-                     sep=",",
-                     header=TRUE) # read in next data file
-  
-  dClean <- data[complete.cases(data),] # get clean cases
-  
-  . <- regStats(dClean) # pull regression stats from clean file
-  statsOut[i,3:5] <- unlist(.) # unlist, copy into last 3 columns
-  
+####### ###########################################
+# function: readData
+# read in (or generate) data set for analysis
+# input: file name (or nothing, for this demo)
+# output: 3 column data frame of observed data (ID,x,y)
+#------------------------------------------------- 
+readData <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <- xObs + 10*rnorm(20)
+                  dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+# print(qplot(x=xObs,y=yObs)) # peek at input data
+return(dF)
 }
-# set up output file and incorporate time stamp and minimal metadata
-  write.table(cat("# Summary stats for ",
-                    "batch processing of regression models","\n",
-                    "# timestamp: ",as.character(Sys.time()),"\n",
-                    "# NJG","\n",
-                    "# ------------------------", "\n",
-                    "\n",
-                    file=fileOut,
-                    row.names="",
-                    col.names="",
-                    sep=""))
-  
-# now add the data frame
-  write.table(x=statsOut,
-              file=fileOut,
-              row.names=FALSE,
-              col.names=TRUE,
-              sep=",",
-              append=TRUE)
+```
 
+#### Calculate Metric
+```{r}
+
+##################################################
+# function: getMetric
+# calculate metric for randomization test
+# input: 2-column data frame for regression
+# output: regression slope
+#------------------------------------------------- 
+getMetric <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <-  xObs + 10*rnorm(20)
+                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+. <- lm(z[,3]~z[,2])
+. <- summary(.)
+. <- .$coefficients[2,1]
+
+slope <- .
+return(slope)
+}
+```
+### Create randomization
+```{r}
+
+##################################################
+# function: shuffleData
+# randomize data for regression analysis
+# input: 3-column data frame (ID,xVar,yVar)
+# output: 3-column data frame (ID,xVar,yVar)
+#------------------------------------------------- 
+shuffleData <- function(z=NULL) {
+                if(is.null(z)){
+                  xObs <- 1:20
+                  yObs <- xObs + 3*rnorm(20)
+                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+z[,3] <- sample(z[,3]) # use sample function with defaults to reshuffle column
+
+return(z)
+}
+```
+
+#### Calculate p value from simulated metrics
+
+```{r}
+##################################################
+# function: getPVal
+# calculate p value from simulation
+# input: list of observed metric, and vector of simulated metrics
+# output: lower, upper tail probability values
+#------------------------------------------------- 
+getPVal <- function(z=NULL) {
+                    if(is.null(z)){
+                      z <- list(xObs=runif(1),xSim=runif(1000))}
+                      pLower <- mean(z[[2]]<=z[[1]])
+                      pUpper <- mean(z[[2]]>=z[[1]])
+return(c(pL=pLower,pU=pUpper))
+                    }
+```
+#### Create histogram of simulated and observed metric
+
+```{r}
+##################################################
+# function: plotRanTest
+# create ggplot of histogram of simulated values
+# input: list of observed metric and vector of simulated metrics
+# output: saved ggplot graph
+#------------------------------------------------- 
+plotRanTest <- function(z=NULL) {
+                if(is.null(z)){
+                  z <- list(rnorm(1),rnorm(1000)) }
+dF <- data.frame(ID=seq_along(z[[2]]),simX=z[[2]])
+p1 <- ggplot(data=dF,mapping=aes(x=simX))
+p1 + geom_histogram(mapping=aes(fill=I("goldenrod"),color=I("black"))) +
+geom_vline(aes(xintercept=z[[1]],col="blue")) 
+
+                  }
+```
+#### Now use functions to do the work
+
+```{r}
+nSim <- 1000
+Xsim <- rep(NA,nSim)
+dF <- readData()
+Xobs <- getMetric(dF)
+
+for (i in seq_len(nSim)) {
+Xsim[i] <- getMetric(shuffleData(dF))
+}
+
+slopes <- list(Xobs,Xsim)
+getPVal(slopes)
+plotRanTest(slopes)
 ```
 

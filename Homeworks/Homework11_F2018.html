@@ -111,13 +111,16 @@ $(document).ready(function () {
 </div>
 
 
-<div id="function-plotting-and-randomization-tests" class="section level3">
-<h3>Function plotting and randomization tests</h3>
+<div id="advanced-ggplotting" class="section level3">
+<h3>Advanced ggplotting</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the code from class as a template and analyze a function of your choosing that is relevant to your own research. Do not change any of the functions in the class code. Instead, copy and rename functions for your own project. Edit those copies, and then modify the lines of code in the main body of your program to call the new functions. If you do this carefully, you will be able to take full advantage of the existing program, but adapt it for your specific use.</p></li>
-<li><p>Similarly, use the code from yesterday’s class to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either <code>set.seed()</code> in base R, or <code>char2seed</code> in the <code>TeachingDemos</code> package</p></li>
-<li><p>For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?</p></li>
+<li>For this final lab exerise, use your newly-developed <code>ggplot</code> chops to create some nice graphs from your own data (If you do not have a good data frame to use for graphics, use one of the many built-in data frames from R (other than <code>mpg</code>, which we are using in class)). Experiment with different themes, theme base sizes, aesthetics, mappings, and faceting. When you are finished, try exporting them to high quality pdfs, jpgs, eps files, or other formats that you would use for submission to a journal.</li>
 </ol>
+<p>In this exercise, I encourage you to improve your graphics with elements that we have not (yet) covered in ggplot. For example, can you change the labels on a facet plot so that they are more informative than the variable names that are supplied from your data frame? Can you figure out how to add text annotations, lines and arrows to your graph? Can you figure out how to use custom colors that you have chosen for your fills and lines? Your resources for these explorations are google, Stack Overflow – and Lauren!</p>
+<hr />
+<blockquote>
+<p>By the end of the semester, you will need to have your homework portfolio up to date. Most of you have done an excellent job of keeping up with the weekly assignments, so you are in a good shape. But a few of you are badly behind and will have to work a lot to complete your portfolio in time. The last day of class is Thursday, December 6th. I will check your portfolio and assign final course grades at 5:00 pm on Wednesday December 12th. ’nuff said!</p>
+</blockquote>
 </div>
 
 

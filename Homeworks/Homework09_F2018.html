@@ -112,26 +112,16 @@ $(document).ready(function () {
 </div>
 
 
-<div id="organizing-code-with-structured-programming" class="section level3">
-<h3>Organizing Code With Structured Programming</h3>
+<div id="looping-structures" class="section level3">
+<h3>Looping structures</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the code that you worked on in the last exercise, and re-organize it following the principles of structured programming. Do all the work in a single chunk in your R markdown file, just as if you were writing a single R script. Start with all of your annotated functions, preliminary calls, and global variables. The program body should be only a few lines of code that call the appropriate functions and run them in the correct order. Make sure that the output from one function serves as the input to the next. You can either daisy-chain the functions or write separate lines of code to hold elements in temporary variables and pass the along.</p></li>
-<li><p>Once your code is up and working, modify your program do something else: record a new summary variable, code a new statistical analysis, or create a different set of random variables or output graph. Do not rewrite any of your existing functions. Instead, copy them, rename them, and then modify them to do new things. Once your new functions are written, add some more lines of program code, calling a mixture of your previous functions and your new functions to get te job done.</p></li>
-<li><p>Optional. If time permits and you have the skills, try putting your program inside of a for loop and repeat the analysis with a different stochastic data set (each time you call a function that invokes the random number generator, it will create a new set of data for you to process). Can you create a data structure to store the summary statistics created in each pass through the loop? If not, your program will work, but it will only show the results from the final replicate (the previous results will be written over each time you traverse the loop). &gt; Continue working on exercise from previous week</p></li>
-</ol>
-</div>
-<div id="creating-fake-data-sets-to-explore-hypotheses" class="section level3">
-<h3>Creating Fake Data Sets To Explore Hypotheses</h3>
-<ol style="list-style-type: decimal">
-<li><p>Go back to your “thinking on paper” exercise, and decide on a pattern that you might expect in your experiment if a specific hypothesis were true.</p></li>
-<li><p>To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true.</p></li>
-<li><p>Using the methods we have covered in class, write a simple function to create a random data set that has these attributes. Organize these data into a data frame with the appropriate structure.</p></li>
-<li><p>Now write a simple function to analyze the data (probably as an ANOVA or regression analysis, but possibly as a logistic regression or contingency table analysis. Write anothe function to generate a useful graph of the data.</p></li>
-<li><p>Try running your analysis multiple times to get a feeling for how variable the results are with the same parameters, but different sets of random numbers.</p></li>
-<li><p>Now begin adjusting the means of the different groups. Given the sample sizes you have chosen, how small can the differences between the groups be (the “effect size”) for you to still detect a significant pattern (p &lt; 0.05).</p></li>
-<li><p>Alternatively, for the effect sizes you originally hypothesized, what is the minimum sample size you would need in order to detect a statistically significant effect. Again, run the model a few times with the same parameter set to get a feeling for the effect of random variation in the data.</p></li>
-<li><p>Write up your results in a markdown file. Be explicit in your explanation and justification for sample sizes, means, and variances.</p></li>
-<li><p>If you have time, try repeating this exercise with one of the more sophisticated distributions, such as the gamma or negative binomial (depending on the kind of data you have). You will have to spend some time figuring out by trial and error the parameter values you will need to generate appropriate means and variances of the different groups.</p></li>
+<li><p>Using a <code>for</code> or <code>while</code> loop, write a function to calculate the number of zeroes in a numeric vector.</p></li>
+<li><p>Use subsetting instead of a loop to rewrite the function as a single line of code.</p></li>
+<li><p>Write a function that takes as input a numeric vector, and returns as output the maximum difference between all possible pairs of elements. Be careful to ensure that your function works properly with both negative and positive numbers. For your first version of the function, create a vector that stores all possible pairwise differences and then extracts the maximum value from that list.</p></li>
+<li><p>Now modify the output of (3) to yield a list with 3 elements. The first list item is the pair of vector values that are the maximum distance apart, the second list item is the pair of numbers representing the position of these elements in the vector, and the third list item is the maximum distance calculated from this pair.</p></li>
+<li><p>For a second version of (3), store only a temp variable that keeps track of each difference and then retains only the largest difference as it cycles through the pairwise differences.</p></li>
+<li><p>Write a function that takes as input two matrices, and then multiplies them together, using the rules of matrix multiplication. Your function should return a warning if the input matrices are not of the correct dimensions for matrix multiplication. Check the performance of your function by comparing with the built in R function for matrix multiplication <code>%*%</code>.</p></li>
+<li><p>Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.</p></li>
 </ol>
 </div>
 
