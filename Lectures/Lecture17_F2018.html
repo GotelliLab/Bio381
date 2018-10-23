@@ -229,11 +229,10 @@ seq is an integer vector (or a vector of character strings) that defines the sta
 </div>
 <div id="tip-1-dont-do-things-in-the-loop-if-you-do-not-need-to" class="section level4">
 <h4>Tip #1: Don’t do things in the loop if you do not need to!</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myBadDogs &lt;-<span class="st"> </span><span class="ot">NULL</span>
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myBadDogs)){
-  myBadDogs[i] &lt;-<span class="st"> </span><span class="kw">toupper</span>(myBadDogs[i]
-  <span class="kw">cat</span>(<span class="st">&quot;i =&quot;</span>,i,<span class="st">&quot;myBadDogs[i] =&quot;</span> ,myBadDogs[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
-<span class="er">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myDogs)){
+  myDogs[i] &lt;-<span class="st"> </span><span class="kw">toupper</span>(myDogs[i])
+  <span class="kw">cat</span>(<span class="st">&quot;i =&quot;</span>,i,<span class="st">&quot;myDogs[i] =&quot;</span> ,myDogs[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
 </div>
 <div id="tip-2-do-not-change-object-dimensions-cbindrbindclist-in-the-loop" class="section level4">
 <h4>Tip #2: Do not change object dimensions (<code>cbind,rbind,c,list</code>) in the loop!</h4>
@@ -247,14 +246,14 @@ seq is an integer vector (or a vector of character strings) that defines the sta
 </div>
 <div id="tip-3-do-not-write-a-loop-if-you-can-vectorize-an-operation" class="section level4">
 <h4>Tip #3: Do not write a loop if you can vectorize an operation</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">:</span><span class="dv">2</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(myDat)) {
   myDat[i] &lt;-<span class="st">  </span>myDat[i] <span class="op">+</span><span class="st"> </span>myDat[i]<span class="op">^</span><span class="dv">2</span>
   <span class="kw">cat</span>(<span class="st">&quot;loop number =&quot;</span>,i,<span class="st">&quot;vector element =&quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
 }
 
 <span class="co"># No loop is needed here!</span>
-z &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">:</span><span class="dv">2</span>
+z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
 z &lt;-<span class="st"> </span>z <span class="op">+</span><span class="st"> </span>z<span class="op">^</span><span class="dv">2</span>
 <span class="kw">print</span>(z)</code></pre></div>
 </div>

@@ -93,10 +93,9 @@ for (i in seq_len(zz){
 
 #### Tip #1: Don't do things in the loop if you do not need to!
 ```{r, eval=FALSE}
-myBadDogs <- NULL
-for (i in 1:length(myBadDogs)){
-  myBadDogs[i] <- toupper(myBadDogs[i]
-  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
+for (i in 1:length(myDogs)){
+  myDogs[i] <- toupper(myDogs[i])
+  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
 }
 
 ```
@@ -114,14 +113,14 @@ print(myDat)
 
 #### Tip #3: Do not write a loop if you can vectorize an operation
 ```{r, eval=FALSE}
-myDat <- 9:2
+myDat <- 1:10
 for (i in seq_along(myDat)) {
   myDat[i] <-  myDat[i] + myDat[i]^2
   cat("loop number =",i,"vector element =", myDat[i],"\n")
 }
 
 # No loop is needed here!
-z <- 9:2
+z <- 1:10
 z <- z + z^2
 print(z)
 
