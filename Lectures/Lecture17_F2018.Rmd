@@ -93,34 +93,35 @@ for (i in seq_len(zz){
 
 #### Tip #1: Don't do things in the loop if you do not need to!
 ```{r, eval=FALSE}
-myDat <- vector(mode="numeric",length=10)
-for (i in seq_along(myDat)) {
-  myDat[i] <- signif(runif(1),digits=2) # do this outside of the loop!
-  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+myBadDogs <- NULL
+for (i in 1:length(myBadDogs)){
+  myBadDogs[i] <- toupper(myBadDogs[i]
+  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
 }
+
 ```
 
 #### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 myDat <- runif(1)
 for (i in 2:10) {
-  temp <- runif(1) # do this outside of the loop!
+  temp <- runif(1) 
   myDat <- c(myDat,temp) # do not change vector size in the loop!
-  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+  cat("loop number =",i,"vector element =", myDat[i],"\n")
 }
 print(myDat)
 ```
 
 #### Tip #3: Do not write a loop if you can vectorize an operation
 ```{r, eval=FALSE}
-myDat <- 1:10
+myDat <- 9:2
 for (i in seq_along(myDat)) {
   myDat[i] <-  myDat[i] + myDat[i]^2
-  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+  cat("loop number =",i,"vector element =", myDat[i],"\n")
 }
 
 # No loop is needed here!
-z <- 1:10
+z <- 9:2
 z <- z + z^2
 print(z)
 

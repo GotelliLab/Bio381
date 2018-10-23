@@ -229,43 +229,32 @@ seq is an integer vector (or a vector of character strings) that defines the sta
 </div>
 <div id="tip-1-dont-do-things-in-the-loop-if-you-do-not-need-to" class="section level4">
 <h4>Tip #1: Don’t do things in the loop if you do not need to!</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;numeric&quot;</span>,<span class="dt">length=</span><span class="dv">10</span>)
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(myDat)) {
-  myDat[i] &lt;-<span class="st"> </span><span class="kw">signif</span>(<span class="kw">runif</span>(<span class="dv">1</span>),<span class="dt">digits=</span><span class="dv">2</span>) <span class="co"># do this outside of the loop!</span>
-  <span class="kw">cat</span>(<span class="st">&quot;loop number = &quot;</span>,i,<span class="st">&quot;vector element = &quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
-}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myBadDogs &lt;-<span class="st"> </span><span class="ot">NULL</span>
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myBadDogs)){
+  myBadDogs[i] &lt;-<span class="st"> </span><span class="kw">toupper</span>(myBadDogs[i]
+  <span class="kw">cat</span>(<span class="st">&quot;i =&quot;</span>,i,<span class="st">&quot;myBadDogs[i] =&quot;</span> ,myBadDogs[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+<span class="er">}</span></code></pre></div>
 </div>
 <div id="tip-2-do-not-change-object-dimensions-cbindrbindclist-in-the-loop" class="section level4">
 <h4>Tip #2: Do not change object dimensions (<code>cbind,rbind,c,list</code>) in the loop!</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>) {
-  temp &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>) <span class="co"># do this outside of the loop!</span>
+  temp &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>) 
   myDat &lt;-<span class="st"> </span><span class="kw">c</span>(myDat,temp) <span class="co"># do not change vector size in the loop!</span>
-  <span class="kw">cat</span>(<span class="st">&quot;loop number = &quot;</span>,i,<span class="st">&quot;vector element = &quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
-}</code></pre></div>
-<pre><code>## loop number =  2 vector element =  0.6809172 
-## loop number =  3 vector element =  0.3622378 
-## loop number =  4 vector element =  0.1103805 
-## loop number =  5 vector element =  0.8703859 
-## loop number =  6 vector element =  0.3524555 
-## loop number =  7 vector element =  0.9132413 
-## loop number =  8 vector element =  0.7446835 
-## loop number =  9 vector element =  0.9791876 
-## loop number =  10 vector element =  0.8322159</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(myDat)</code></pre></div>
-<pre><code>##  [1] 0.6943497 0.6809172 0.3622378 0.1103805 0.8703859 0.3524555 0.9132413
-##  [8] 0.7446835 0.9791876 0.8322159</code></pre>
+  <span class="kw">cat</span>(<span class="st">&quot;loop number =&quot;</span>,i,<span class="st">&quot;vector element =&quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}
+<span class="kw">print</span>(myDat)</code></pre></div>
 </div>
 <div id="tip-3-do-not-write-a-loop-if-you-can-vectorize-an-operation" class="section level4">
 <h4>Tip #3: Do not write a loop if you can vectorize an operation</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDat &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">:</span><span class="dv">2</span>
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(myDat)) {
   myDat[i] &lt;-<span class="st">  </span>myDat[i] <span class="op">+</span><span class="st"> </span>myDat[i]<span class="op">^</span><span class="dv">2</span>
-  <span class="kw">cat</span>(<span class="st">&quot;loop number = &quot;</span>,i,<span class="st">&quot;vector element = &quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+  <span class="kw">cat</span>(<span class="st">&quot;loop number =&quot;</span>,i,<span class="st">&quot;vector element =&quot;</span>, myDat[i],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
 }
 
 <span class="co"># No loop is needed here!</span>
-z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+z &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">:</span><span class="dv">2</span>
 z &lt;-<span class="st"> </span>z <span class="op">+</span><span class="st"> </span>z<span class="op">^</span><span class="dv">2</span>
 <span class="kw">print</span>(z)</code></pre></div>
 </div>
