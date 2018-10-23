@@ -33,25 +33,61 @@ $$A = \sum_{i=1}^S n_i$$
 
 You can also use `t` for time, but remember that `t()` is also an R function that transposes a matrix. R is smart enough to recognize the difference, but it could cause problems for others.
 
-There are many ways to indicate the sequence, and the length of our loops will almost always be related to the size of a vector that we are working with. The most efficient structure to to create the sequence is `seq_along(x)` where x is the vector whose length defines the number of repetitions
+There are many ways to indicate the sequence, and the length of our loops will almost always be related to the size of a vector that we are working with. 
 
-Let's see a simple example:
+Here is an example of one way to create a loop that is not recommended.
 
-```{r, eval=FALSE}
-myDat <- signif(runif(10),digits=2)
-for (i in seq_along(myDat)) {
-  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+```{r}
+myDogs <- c("chow","akita","malamute","husky","samoyed")
+for (i in myDogs) {
+  print(i)
 }
 ```
+ The problem is that we cannot access the counter because the variable i is mapped directly to each element. Instead, we want to use a counter variable that maps to the position in myDogs
+ 
+```{r}
+for (i in 1:length(myDogs)){
+  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+}
+```
+
+This is the typical way we make a loop. One potential hazard is if the vector we are working with is empty
+```{r}
+myBadDogs <- NULL
+for (i in 1:length(myBadDogs)){
+  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
+}
+
+
+```
+So, a safer way is to use `seq_along` function:
+
+```{r}
+for (i in seq_along(myDogs)){
+  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+}
+```
+
+But notice now what happens when the vector is empty:
+
+```{r}
+
+# This time we correctly skip myBadDogs and do not make the loop
+for (i in seq_along(myBadDogs)){
+  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
+}
+```
+
+
 
 Alternatively, we may have a constant that we use to define the length of the vector:
 
 ```{r, eval=FALSE}
 zz <- 5
-myDat <- signif(runif(zz),digits=2)
-for (i in seq_len(zz)) {
-  cat("loop number = ",i,"vector element = ", myDat[i],"\n")
+for (i in seq_len(zz){
+  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
 }
+
   
 ```
 
@@ -65,10 +101,10 @@ for (i in seq_along(myDat)) {
 ```
 
 #### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 myDat <- runif(1)
 for (i in 2:10) {
-  temp <- signif(runif(1),digits=2) # do this outside of the loop!
+  temp <- runif(1) # do this outside of the loop!
   myDat <- c(myDat,temp) # do not change vector size in the loop!
   cat("loop number = ",i,"vector element = ", myDat[i],"\n")
 }
