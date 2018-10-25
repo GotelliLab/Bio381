@@ -10,7 +10,7 @@ output:
 ---
 ### Tip #6: Use `break` to set up a conditional to break out of loop early
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 # create a simple random growth population model function
 
 ##################################################
@@ -24,6 +24,7 @@ output:
 #         until extinction, then NA 
 #------------------------------------------------- 
 library(tcltk)
+library(ggplot2)
 RanWalk <- function(times=100,n1=50,lambda=1.00,noiseSD=10) {
                 n <- rep(NA,times)  # create output vector
                 n[1] <- n1 # initialize with starting population size
@@ -33,7 +34,7 @@ RanWalk <- function(times=100,n1=50,lambda=1.00,noiseSD=10) {
                   if(n[i + 1] <=0) {
                     n[i + 1] <- NA
                     cat("Population extinction at time",i-1,"\n")
-                    # tkbell()
+                     tkbell()
                     break}
                 }
 
@@ -41,21 +42,15 @@ return(n)
 }
 
 # explore paramaters in plot function
-plot(RanWalk(),type="o")
-plot(RanWalk(lambda=1.00,noiseSD=0),type="o")
+qplot(x=1:100,y=RanWalk(),geom="line")
+qplot(x=1:100,y=RanWalk(noiseSD=0),geom="line")
+qplot(x=1:100,y=RanWalk(lambda=0.92,noiseSD=0),geom="line")
 ```
-
-### A tip for working with matrices
-
-```{r}
-# create test matrices of different row and column numbers
-z <- matrix(runif(9),nrow=3)
-z[3,3]
-z <- matrix(runif(20),nrow=5)
-z[5,4]
-# z[4,5] # throws subscript out of bounds error
-
-```
+### Extensions of the model for realistic populations
+- discrete integers to represent counts of individuals (use `round()`)
+- extinction of sexually reproducing population if all same sex (use `unisexExtinct == runif(1) <= 2*(0.5)^n`
+- add environmental noise that is not a random walk (add rnorm(0,1))
+- add measurement error (add rnorm(0,1)) for 0s without extinction
 
 
 ### Using double for loops
@@ -116,11 +111,13 @@ head(SpeciesAreaCurve())
 SpeciesAreaPlot <- function(A=1:5000,c= 0.5,z=0.26) {
 plot(x=A,y=SpeciesAreaCurve(A,c,z),type="l",xlab="Island Area",ylab="S",ylim=c(0,2500))
 mtext(paste("c =", c,"  z =",z),cex=0.7) 
-      return()
+#      return()
 }
 SpeciesAreaPlot()
 ```
+
 ### Now build a grid of plots!
+
 ```{r}
 # global variables
 cPars <- c(100,150,175)
@@ -228,8 +225,6 @@ for (i in 1:nrow(modelFrame)) {
 }
 print(modelFrame)
 
-# use cex expansion to show a third variable with symbol size
-plot(x=modelFrame$c,y=modelFrame$SGain,cex=10*modelFrame$z)
 ```
 
 ### Parameter sweeping redux with `ggplot` graphics
