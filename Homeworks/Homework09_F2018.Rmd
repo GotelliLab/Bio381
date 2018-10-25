@@ -11,6 +11,8 @@ output:
 
 ### Looping structures
 
+Go to Homework #10 for  more simplified exercises (#1 - #3) on looping.
+
 1. ~~Using a `for` or `while` loop, write a function to calculate the number of zeroes in a numeric vector.~~
 
 2. ~~Use subsetting instead of a loop to rewrite the function as a single line of code.~~

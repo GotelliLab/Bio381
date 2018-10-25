@@ -112,11 +112,13 @@ $(document).ready(function () {
 </div>
 
 
-<div id="function-plotting-and-randomization-tests" class="section level3">
-<h3>Function plotting and randomization tests</h3>
+<div id="for-loops-and-randomization-tests" class="section level3">
+<h3>For loops and randomization tests</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the code from class as a template and analyze a function of your choosing that is relevant to your own research. Do not change any of the functions in the class code. Instead, copy and rename functions for your own project. Edit those copies, and then modify the lines of code in the main body of your program to call the new functions. If you do this carefully, you will be able to take full advantage of the existing program, but adapt it for your specific use.</p></li>
-<li><p>Similarly, use the code from yesterday’s class to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either <code>set.seed()</code> in base R, or <code>char2seed</code> in the <code>TeachingDemos</code> package</p></li>
+<li><p>Using a <code>for</code> loop, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a counter variable <code>counter &lt;- 0</code>. Inside the loop, add 1 to <code>counter</code> each time you have a zero in the matrix. Finally, use <code>return(counter)</code> for the output.</p></li>
+<li><p>Use subsetting instead of a loop to rewrite the function as a single line of code.</p></li>
+<li><p>Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.</p></li>
+<li><p>Use the code from yesterday’s class to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either <code>set.seed()</code> in base R, or <code>char2seed</code> in the <code>TeachingDemos</code> package</p></li>
 <li><p>For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?</p></li>
 </ol>
 </div>
