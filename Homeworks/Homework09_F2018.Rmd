@@ -11,16 +11,16 @@ output:
 
 ### Looping structures
 
-1. Using a `for` or `while` loop, write a function to calculate the number of zeroes in a numeric vector.
+1. ~~Using a `for` or `while` loop, write a function to calculate the number of zeroes in a numeric vector.~~
 
-2. Use subsetting instead of a loop to rewrite the function as a single line of code.
+2. ~~Use subsetting instead of a loop to rewrite the function as a single line of code.~~
 
-3. Write a function that takes as input a numeric vector, and returns as output the maximum difference between all possible pairs of elements. Be careful to ensure that your function works properly with both negative and positive numbers. For your first version of the function, create a vector that stores all possible pairwise differences and then extracts the maximum value from that list.
+3. ~~Write a function that takes as input a numeric vector, and returns as output the maximum difference between all possible pairs of elements. Be careful to ensure that your function works properly with both negative and positive numbers. For your first version of the function, create a vector that stores all possible pairwise differences and then extracts the maximum value from that list.~~
 
-4. Now modify the output of (3) to yield a list with 3 elements. The first list item is the pair of vector values that are the maximum distance apart, the second list item is the pair of numbers representing the position of these elements in the vector, and the third list item is the maximum distance calculated from this pair.
+4. ~~Now modify the output of (3) to yield a list with 3 elements. The first list item is the pair of vector values that are the maximum distance apart, the second list item is the pair of numbers representing the position of these elements in the vector, and the third list item is the maximum distance calculated from this pair.~~
 
-4. For a second version of (3), store only a temp variable that keeps track of each difference and then retains only the largest difference as it cycles through the pairwise differences.
+4. ~~For a second version of (3), store only a temp variable that keeps track of each difference and then retains only the largest difference as it cycles through the pairwise differences.~~
 
-5. Write a function that takes as input two matrices, and then multiplies them together, using the rules of matrix multiplication. Your function should return a warning if the input matrices are not of the correct dimensions for matrix multiplication. Check the performance of your function by comparing with the built in R function for matrix multiplication `%*%`.
+5. ~~Write a function that takes as input two matrices, and then multiplies them together, using the rules of matrix multiplication. Your function should return a warning if the input matrices are not of the correct dimensions for matrix multiplication. Check the performance of your function by comparing with the built in R function for matrix multiplication `%*%`.~~
 
-6. Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.
+6. ~~Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.~~
