@@ -20,7 +20,7 @@ output:
 ```{r}
 library(ggplot2)
 library(TeachingDemos)
-#char2seed("Cruel April")
+#char2seed("Autumn Leaves")
 ```
 #### Read in data
 ```{r}
@@ -36,6 +36,7 @@ readData <- function(z=NULL) {
                   xObs <- 1:20
                   yObs <- xObs + 10*rnorm(20)
                   dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+#  dF <-read.table(file=z,row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
 # print(qplot(x=xObs,y=yObs)) # peek at input data
 return(dF)
 }
@@ -123,7 +124,7 @@ geom_vline(aes(xintercept=z[[1]],col="blue"))
 
 ```{r}
 nSim <- 1000
-Xsim <- rep(NA,nSim)
+Xsim <- rep(NA,nSim) # vector of simulated slopes
 dF <- readData()
 Xobs <- getMetric(dF)
 
