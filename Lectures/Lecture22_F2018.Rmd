@@ -180,5 +180,44 @@ m1 + facet_grid(.~class)
 m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,group=drv,fill=drv))) + 
   geom_boxplot()
 m1 + facet_grid(.~class)
-```
 
+
+d <- mpg # use built in mpg data frame
+
+```
+#### Mapping aesthetics within geoms
+
+```{r, warning=FALSE, message=FALSE}
+# standard plot with all data
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what group affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, group=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what color affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, color=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# break out the drive types (note what fill affects
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, fill=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+
+# use both if you want points, lines, and confidence intervals colored
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy, color=drv, fill=drv)) +
+  geom_point() + geom_smooth()
+print(p1)
+
+# now use aesthetic mappings within each geom to over-ride defaults
+# subset the data frame to pull out what you need
+
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy,col=drv)) +
+  geom_point(data=d[d$drv=="4",]) + geom_smooth()
+print(p1)
+```
