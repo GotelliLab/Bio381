@@ -227,9 +227,8 @@ $(document).ready(function () {
 <li><code>git status</code> to note we are ahead by one commit</li>
 <li><code>git push</code> to move things up to the server</li>
 </ul>
-</div>
-<div id="the-essential-commands" class="section level1">
-<h1>The essential commands</h1>
+<div id="the-essential-commands" class="section level2">
+<h2>The essential commands</h2>
 <ul>
 <li><code>git add -A</code></li>
 <li><code>git -m &quot;commit message&quot;</code></li>
@@ -237,22 +236,85 @@ $(document).ready(function () {
 <li>use <code>status</code> or <code>status -s</code> before and after each change</li>
 </ul>
 </div>
-<div id="forking-and-working-on-branches" class="section level1">
-<h1>Forking and working on branches</h1>
+<div id="forking-and-working-on-branches" class="section level2">
+<h2>Forking and working on branches</h2>
 <ul>
 <li><code>git branch</code> to see listing of branches</li>
 <li><code>git branch name</code> to create a new branch</li>
 <li><code>git checkout name</code> to move to new branch</li>
 <li>make changes as usual</li>
-<li>stage and commit as usual</li>
+<li>stage and commit as usual (but don’t push)</li>
 <li><code>git checkout master</code> to return to master branch</li>
 <li><code>git merge name</code> to merge changes from fork into master</li>
-<li>`git</li>
+<li><code>git push</code> to push those changes up to GitHub</li>
+<li><code>git branch -d name</code> to delete this branch</li>
 </ul>
+</div>
+<div id="calling-in-past-changes" class="section level2">
+<h2>Calling in past changes</h2>
+<ul>
+<li><code>git checkout hash</code> pulls up previous commit</li>
+<li><code>git checkout hash filename</code> pulls up a particular file</li>
+</ul>
+</div>
 </div>
 <div id="introduction-to-other-shell-functions" class="section level1">
 <h1>Introduction to other shell functions</h1>
-<p>add a line of text here to test the merge. add a second line to test the merge</p>
+<div id="getting-help" class="section level2">
+<h2>Getting help</h2>
+<ul>
+<li><code>man command</code></li>
+</ul>
+</div>
+<div id="reading-a-file" class="section level2">
+<h2>Reading a file</h2>
+<ul>
+<li><code>cat filename</code> prints file</li>
+<li><code>cat file1 file2</code> prints them consecutively</li>
+<li><code>less file</code> pages file (automatically invoked by <code>man</code>)</li>
+</ul>
+</div>
+<div id="selecting-rows-of-a-file" class="section level2">
+<h2>Selecting rows of a file</h2>
+<ul>
+<li><code>head -5</code> show first 5 lines</li>
+<li><code>tail -2</code> show last 2 lines</li>
+<li><code>tail +2</code> start on line 2 and show the rest</li>
+</ul>
+</div>
+<div id="grep-for-selecting-rows" class="section level2">
+<h2><code>grep</code> for selecting rows</h2>
+<ul>
+<li><code>grep pattern file1 file2</code> print rows in these files with pattern</li>
+<li><code>grep -v pattern file1 file2</code> print rows in these without pattern</li>
+<li><code>grep -n pattern file1 file2</code> print rows in these with pattern and give line number</li>
+<li><code>grep -c pattern file1 file2</code> print count of number of rows that match in each file</li>
+<li><code>grep -l pattern file1 file2</code> print name of each input file that has a match</li>
+</ul>
+</div>
+<div id="cut-for-selecting-columns" class="section level2">
+<h2><code>cut</code> for selecting columns</h2>
+<ul>
+<li><code>cut file -f 3-5,7 -d &quot;,&quot;</code> pick out columns 3,4,5 and 7 in a comma-delimited (=.csv) file</li>
+<li><code>cut file -c 11-15</code> pick out characters 11 through 15 in each row</li>
+</ul>
+</div>
+<div id="sort-for-ordering-rows" class="section level2">
+<h2><code>sort</code> for ordering rows</h2>
+<ul>
+<li><code>sort file</code> sort alphabetically the rows</li>
+<li><code>sort file -r</code> sort rows in reverse order</li>
+</ul>
+</div>
+<div id="redirecting-output" class="section level2">
+<h2>redirecting output</h2>
+<ul>
+<li><code>cat file1 file2 &gt; newfile</code> copy contents of file1 and file2 into newfile (create it if it does not exist, or overwrite existing file)</li>
+<li><code>cat file1 &gt;&gt; newfile</code> append contents of file1 to the end of newfile (create newfile if it does not already exist)</li>
+<li><code>grep pattern file1 | cut -f 2 -d &quot;,&quot; | sort -r &gt; output</code> select rows of file1 that match pattern, then keep only the contents of column 2, sort into reverse alphabetical order and save the result in output</li>
+</ul>
+<p>-`grep</p>
+</div>
 </div>
 
 
