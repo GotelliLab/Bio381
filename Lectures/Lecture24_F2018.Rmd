@@ -101,8 +101,13 @@ output:
 # Forking and working on branches
 - `git branch` to see listing of branches
 - `git branch name` to create a new branch
-- `git branch checkout name` to move to new branch
+- `git checkout name` to move to new branch
 - make changes as usual
+- stage and commit as usual
+- `git checkout master` to return to master branch
+- `git merge name` to merge changes from fork into master
+- `git 
 
 # Introduction to other shell functions
 add a line of text here to test the merge.
+add a second line to test the merge
