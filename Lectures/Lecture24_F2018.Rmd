@@ -70,6 +70,9 @@ output:
 - `!5` give the history command in line #5 of history
 - `!cat` give the history command for the last time `cat` was used
 
+### Getting help on a command
+- use `man command` for a description of the command and options
+
 ### Exercises
 - move to the root and then back down to  your Desktop
 - move to home and then back to your repository for homework
@@ -77,5 +80,28 @@ output:
 - if you get stuck, use `cd ..` to move back up a level
 
 # Using `git` with the shell
+- navigate to the repository
+- use `ls -a` to see the hidden .git folder
+- `git status` to see what is going on
+- `git status -s` for a shortened view
+- make changes to repository
+- `git status` to see the changes
+- `git add -A` to stage all the changes
+- `git status` again to see the change
+- `git commit -m "commit message"` to make your commit
+- `git status` to note we are ahead by one commit
+- `git push` to move things up to the server
+
+# The essential commands
+- `git add -A`
+- `git -m "commit message"`
+- `git push`
+- use `status` or `status -s` before and after each change
+
+# Forking and working on branches
+- `git branch` to see listing of branches
+- `git branch name` to create a new branch
+- `git branch checkout name` to move to new branch
+- make changes as usual
 
 # Introduction to other shell functions

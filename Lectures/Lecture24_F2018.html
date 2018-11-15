@@ -158,13 +158,93 @@ $(document).ready(function () {
 <li>if I am on the Desktop Dropbox/myfile</li>
 <li>if I am in Dropbox myfile</li>
 </ul>
-<div id="components-of" class="section level3">
-<h3>Components of</h3>
+<div id="what-is-here-ls" class="section level3">
+<h3>What is here? <code>ls</code></h3>
+<ul>
+<li><code>ls</code> shows what is in working directory</li>
+<li><code>ls</code> -F gives a slash for a subdirectory <code>*</code> for an executable</li>
+<li><code>ls -a</code> shows all including hidden files and directories</li>
+<li><code>ls -aF</code></li>
+<li><code>ls -l</code> shows “long” version with permissions</li>
+</ul>
+</div>
+<div id="change-directory-cd" class="section level3">
+<h3>Change directory <code>cd</code></h3>
+<ul>
+<li><code>cd directoryName</code> moves down into that directory</li>
+<li><code>cd ..</code> moves up one level to the next highest directory</li>
+<li><code>cd direct1/direct2</code> moves down two levels to directory2</li>
+<li><code>cd ../..</code> moves up two levels in hierarchy</li>
+</ul>
+</div>
+<div id="move-quickly-to-two-places" class="section level3">
+<h3>Move quickly to two places</h3>
+<ul>
+<li><code>cd /</code> moves to root of entire computer</li>
+<li><code>cd ~</code> moves you to home directory</li>
+<li><code>cd</code> cd with no argument also moves you to home directory</li>
+</ul>
+</div>
+<div id="speed-up-your-work" class="section level3">
+<h3>Speed up your work</h3>
+<ul>
+<li><code>TAB</code> will complete directory and file names with enough unique letters</li>
+<li><code>UP ARROW</code> will give the last command used</li>
+<li><code>history</code> see all of your commands</li>
+<li><code>!5</code> give the history command in line #5 of history</li>
+<li><code>!cat</code> give the history command for the last time <code>cat</code> was used</li>
+</ul>
+</div>
+<div id="getting-help-on-a-command" class="section level3">
+<h3>Getting help on a command</h3>
+<ul>
+<li>use <code>man command</code> for a description of the command and options</li>
+</ul>
+</div>
+<div id="exercises" class="section level3">
+<h3>Exercises</h3>
+<ul>
+<li>move to the root and then back down to your Desktop</li>
+<li>move to home and then back to your repository for homework</li>
+<li>at each step use <code>pwd</code> to look around and pick your next move</li>
+<li>if you get stuck, use <code>cd ..</code> to move back up a level</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="using-git-with-the-shell" class="section level1">
 <h1>Using <code>git</code> with the shell</h1>
+<ul>
+<li>navigate to the repository</li>
+<li>use <code>ls -a</code> to see the hidden .git folder</li>
+<li><code>git status</code> to see what is going on</li>
+<li><code>git status -s</code> for a shortened view</li>
+<li>make changes to repository</li>
+<li><code>git status</code> to see the changes</li>
+<li><code>git add -A</code> to stage all the changes</li>
+<li><code>git status</code> again to see the change</li>
+<li><code>git commit -m &quot;commit message&quot;</code> to make your commit</li>
+<li><code>git status</code> to note we are ahead by one commit</li>
+<li><code>git push</code> to move things up to the server</li>
+</ul>
+</div>
+<div id="the-essential-commands" class="section level1">
+<h1>The essential commands</h1>
+<ul>
+<li><code>git add -A</code></li>
+<li><code>git -m &quot;commit message&quot;</code></li>
+<li><code>git push</code></li>
+<li>use <code>status</code> or <code>status -s</code> before and after each change</li>
+</ul>
+</div>
+<div id="forking-and-working-on-branches" class="section level1">
+<h1>Forking and working on branches</h1>
+<ul>
+<li><code>git branch</code> to see listing of branches</li>
+<li><code>git branch name</code> to create a new branch</li>
+<li><code>git branch checkout name</code> to move to new branch</li>
+<li>make changes as usual</li>
+</ul>
 </div>
 <div id="introduction-to-other-shell-functions" class="section level1">
 <h1>Introduction to other shell functions</h1>
