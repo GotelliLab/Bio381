@@ -113,7 +113,7 @@ Kendra Hodges | [Creating three-dimensional graphics with `plot3D`](StudentPrese
 Aubrey Pelletier | [Creating interactive web-based graphs with `plotly`](StudentPresentations/x.html)
 Emily Piche | [???](StudentPresentations/x.html)
 Zoe Portlas | [Visualizing multivariate data with `factominer` and `factoextra`](https://zportlas.github.io/Biol381/FactoMineR.html)
-Anoob Prakash | [???](StudentPresentations/x.html)
+Anoob Prakash | [Interactive maps with `leaflet`](StudentPresentations/x.html)
 Samuel Rosenblatt | [Animating `ggplot` graphics with `gganimate`](StudentPresentations/x.html)
 Emily Shore | [Creating interactive sunburst diagrams with `sunburstR`](https://eshore863.github.io/Bio381/Sunburst.html)
 Charlotte Uden | [Modeling structured populations with `IPMpack`](StudentPresentations/x.html)
