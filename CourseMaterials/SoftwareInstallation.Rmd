@@ -1,7 +1,7 @@
 ---
 title: "Software Installation"
 author: "Biology 381 - Computational Biology"
-date: "25 July 2018"
+date: "04 January 2020"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -9,7 +9,9 @@ output:
 ---
 Here are the software packages you need to load onto your computer for this course. These programs work on Mac or Windows computers. They are free, safe, and do not take up much disk space. If you already have some of these programs installed, please check to make sure you are using the latest versions.
 
-Go to each page, follow the instructions for downloading the installer. Once you have downloaded the package to your desktop or other place on your hard drive, double-click it to begin the installation. The installer will go through a number of steps. Always use the complete installation with the default choices at each step. 
+Before you begin downloading software, please make sure that your operating system (Windows, Linux, or iOS) and browser (Windows Explorer, Firefox, Chrome etc.) are as up-to-date as possible, and that you have installed all the most current patches and updates. The older and more out-of-date your software is, the harder it is to get everything working properly.
+
+Go to each software page and follow the instructions for downloading the installer. Once you have downloaded the package to your desktop or other place on your hard drive, double-click it to begin the installation. The installer will go through a number of steps. Always use the complete installation with the default choices at each step. 
 
 Installing new software can sometimes be tricky. If you run into any issues please contact me or Lauren, and we should be able to help you out.
 
@@ -25,19 +27,15 @@ GitHub is a free web-based repository for storing and updating your computer cod
 
 [register For GitHub](https://github.com/)
 
-## GitHub Desktop
-
-Until very recently, you could only use GitHub from the command line, which was a bit finnicky (especially on a Windows machine). GitHub has recently introduced GitHub Desktop, which is an easy to use Graphical User Interface (GUI). All of the basic functions we need for GitHub can be accessed with simple point-and-click operations. After you download and install GitHub Desktop, you will use your GitHub user name and password to set things up.
-
-[download GitHub Desktop](https://desktop.github.com/)
-
 ## R
-R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. The latest version of R (25 August 2018) is 3.5.1 ("Feather Spray").   
+R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. The latest version of R (04 January 2020) is 3.6.2 ("Dark and Stormy Night").   
 
 [download R](https://www.r-project.org/)
 
 ## RStudio
-RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. Make sure you have installed R first before you install RStudio. Choose either the Windows or Mac OS installer. The latest version of RStudio (25 August 2018) is 1.1.456.
+RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (04 January 2018) is 1.2.5033.
+
+
 
 [download R Studio](https://www.rstudio.com/products/rstudio/download/)
 
@@ -45,7 +43,7 @@ If you already have R and RStudio installed, you will definitely need to update 
 
 https://www.r-bloggers.com/updating-r/
 
-If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble.
+If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble (Note: this update routine did not work successfully for me this time [04 January 2020]. I am not sure what the problem was, but it might not work foryou either).
 
 Also, you can run into minor snags (especially with `ggplot2`) if your packages have not been updated in a long time. From the console, enter this:
 
@@ -53,17 +51,18 @@ Also, you can run into minor snags (especially with `ggplot2`) if your packages 
 update.packages(checkBuilt=TRUE, ask=FALSE)
 ```
 
-## LaTeX
-For LaTeX, Mac users can download and install MacTeX here: https://tug.org/mactex/mactex-download.html. After you restart RStudio, you should be able to knit to PDF.
+## Installing LaTeX and other useful packages
+LaTeX (pronounced "la-tech") is a typesetting language that renders plain text to a pdf, and is used by RStudio (and other programs). In the past, getting LaTeX installed properly was a major hair-pulling exercise during the first week of class, particularly for older Windows machines.
 
-Windows users can download and install MiKTeX here: https://miktex.org/download and should click "always install missing packages on the fly" during installation and then restart RStudio, as well.
+Fortunately, life got a lot easier this year with the release of the `tinytex` R package by Yihui Xi. We only need to use this package once to install LaTeX. Two other R packages that we will use frequently are `tidyverse` and `patchwork`. All three packages are now available on CRAN.
 
+If you already know how to install packages in R (either by issuing commands from the original R terminal or through the GUI in RStudio), go ahead and install `tinytex`, `tidyverse`, and `patchwork`. If you don't know how to install R packages, Lauren will teach you how to do this during the very first lab.
 
 ## Text editors
-We will occasionally need to use a simple plain-text editor, and the editors that are installed by default on your Mac or Windows machines are not useful. We will need a plain text editor so that we can learn how use "regular expressions", a very powerful editing tool. There are many good text editors out there to choose from, but here are two to consider:
+Plain text files are the common currency of all computational tools, and a plain text editor is also wonderful for composing text without any formatting distractions. Among its many uses, a good plain text editor allows you to search and replace using regular expressions, an incredibly powerful tool. Although there are simple editors that are installed by default on your Mac or Windows machines, they are not true plain text editors and should be avoided. There are many good plain text editors, some free, and some for sale, that you can find for your Mac or Windows machine. For this course, download and install one of the following: 
 
 
 [download Notepad++ for Windows](https://notepad-plus-plus.org/)
 
 
-[download BBEdit for Mac](http://www.barebones.com/products/bbedit/demo.html)
+[download Atom for Mac](https://atom.io/)
