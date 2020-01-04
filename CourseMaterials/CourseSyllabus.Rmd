@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "Fall 2018"
+date: "Spring 2020"
 output:
   html_document:
     highlight: tango
@@ -21,7 +21,7 @@ ___
 **Lecture:** Nick Gotelli   
 209 Marsh Life Science   
 ngotelli@uvm.edu   
-Office hours by appointment (4-5 pm TuTh)
+Office hours by appointment (4-5 pm ThFr)
 
 **Lab:** Lauren Ash   
 211 Marsh Life Science   
@@ -40,12 +40,11 @@ Office hours by appointment
 * No prior knowledge of computer programming is required
 
 ## Course Content
-This course is designed to teach you four things:
+This course is designed to teach you three things:
 
-1. How to "think on paper" to organize your ideas into explicit hypotheses and interpretations of your data. These methods will allow you to focus and improve your entire thesis in a single morning.  
-2. How to use modern computational tools to make your analysis, writing, and presentations more efficient and attractive, and to make your analyses transparent and repeatable.
-3. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
-4. How to recognize, use, and analyze 4 archetypal experimental designs for biologists, apply them to real and simulated data, and create publication quality graphs with the `ggplot2()` package in R.
+1. How to use modern (and classic) computational tools to make your analysis, writing, and presentations more efficient and attractive, and to make your analyses transparent and repeatable. Such tools include plain-text editors, markdown, github, regular expressions, and shell commands.
+2. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
+4. How to use probability distributions, simulate data, recognize, use, and analyze 4 archetypal experimental designs for biologists, apply them to real and simulated data, and create publication quality graphs with the `ggplot2()` package in R.
 
 ## Lecture Activities
 Once we finish with the preliminaries, the format for the lecture each day is simple. I will open Rstudio from my computer, project the screen so you can see it, and begin coding. I will comment and explain everything as I go along. You will copy what I am typing on the screen into your own computer and the run the code along with me. This is the fastest way for you to learn how to code.
@@ -54,11 +53,6 @@ Once we finish with the preliminaries, the format for the lecture each day is si
 Each week, there will be a programming assignment to go along with the lecture. Your primary in the laboratory section will be to do this assignment. Using the lab time this way forces you to set aside time each week to get learn the language and get the coding done, minimizes your time spent coding outside of class, and gives you the benefit of being able to ask for help from Lauren and from your fellow students.
 
 Lauren will begin each class with a brief overview of the assignment, and possibly a few suggestions or tips for how to code the exercise. 
-
-## Student Assignments
-In addition to the weekly homework assignments, each student will make a major "teaching presentation" at the end of the semester.  You will teach a 30-minute class on how to use an R package to carry out analysis, create graphics, organize data, generate an interactive webpage, or do something else useful in R. You will prepare a script ahead of time, and then lead the entire class (and me) through your exercise, just as I do in each of the lectures.
-
-The last ~3 weeks of lecture and laboratory sessions will be reserved for these student presentations. 
 
 ## Student Responsibilities
 
@@ -69,11 +63,10 @@ The last ~3 weeks of lecture and laboratory sessions will be reserved for these 
 * Annotate your code so it is useful to you and others
 * Surf the internet to find solutions to programming problems
 * Share code and ideas, and help others who are struggling
-* Prepare well ahead of time for your oral presentations at the end of the semester
 * Use the course work to complete some concrete work that will go towards your thesis
 
 ## Grading
 The undergraduate grading paradigm of taking examinations in a limited time frame and doing all of your work exclusively by yourself is antithetical to the programming world. Unless you are at NASA trying to guide an emergency landing for Apollo 13, you will not be writing computer code under a strict time deadline. And, in contrast to the strictures against plagarism in most of science and academia, we will regularly use computer code that others have written and put it to our own use. When you do so, try to include some brief annotation so that you know where the code came from and can get back to the source if you need to. Copying and repeating what others have said or written is how we learn any language, including computer languages. The only thing you should not do is to copy an entire program wholesale without documentation and without any understanding of what it is doing.
 
-Although there will be weekly homeworks, there is no specific due date on these assignments. As soon as you finish them,  you will upload them to your individual website. This website is your public "portfolio" that shows your progressive work through the semester. Course grades will be based on an evaluation of your overall portfolio (quality of coding and annotation), and your teaching presentation (quality of oral presentation, depth and thoroughness of coding and explanations)
+Although there will be weekly homeworks, there is no specific due date on these assignments. As soon as you finish them,  you will upload them to your individual website. This website is your public "portfolio" that shows your progressive work through the semester. Course grades will be based on an evaluation of your overall portfolio (quality of coding and annotation), attendance, and participation.
 
