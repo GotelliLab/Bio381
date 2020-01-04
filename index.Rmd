@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Fall 2018"
+date: "Spring 2020"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -15,7 +15,6 @@ This site contains course materials, scripts, homeworks, and resources for Compu
 [Software Installation](CourseMaterials/SoftwareInstallation.html)
 
 [Course Syllabus](CourseMaterials/CourseSyllabus.html)   
-[Course Syllabus (pdf)](CourseMaterials/CourseSyllabus.pdf)   
 
 [Lecture Outlines](Lectures/LectureOutlines.html)   
 
