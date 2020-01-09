@@ -26,11 +26,11 @@ ___
 
 ## Lecture Outlines, R-Scripts, & Homework Assignments
 
-Date  | Lecture | Scripts  | Homework
-------------- | -------------- |----------- | -------------
-August 28  | [GitHub](Lectures/Lecture01_F2018.html) | -  | -
-August 29  | - | -  | [Homework #1](Homeworks/Homework01_F2018.html)
-August 30  | [Thinking On Paper](Lectures/Lecture02_F2018.html) | -  | -
+Date  | Lecture | Homework
+------------- |----------- | -------------
+January 14  | [GitHub](Lectures/Lecture01_F2020.html) | -  | -
+January 15  | - | [Homework #1](Homeworks/Homework01_F2020.html)
+January 16  | [Thinking On Paper](Lectures/Lecture02_F2018.html) | -  | -
 September 4  | [RStudio](Lectures/Lecture03_F2018.html) | - | -
 September 5 | - | -  | [Homework #2](Homeworks/Homework02_F2018.html)
 September 6  | [RStudio II](Lectures/Lecture04_F2018.html) | -| -
