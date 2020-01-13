@@ -28,7 +28,7 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-January 14  | [GitHub](Lectures/Lecture01_F2020.html) | -  | -
+January 14  | [Introduction](Lectures/Lecture01_F2020.html) | -  | -
 January 15  | - | [Homework #1](Homeworks/Homework01_F2020.html)
 January 16  | [Thinking On Paper](Lectures/Lecture02_F2018.html) | -  | -
 September 4  | [RStudio](Lectures/Lecture03_F2018.html) | - | -
