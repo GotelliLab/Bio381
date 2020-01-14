@@ -404,6 +404,7 @@ summary {
 <ul>
 <li>always can be opened and read by humans</li>
 <li>requires special plain-text editor</li>
+<li>illustrate Atom editor</li>
 </ul></li>
 <li>Advantages of Modern
 <ul>
@@ -417,6 +418,19 @@ summary {
 <li>deeper understanding of problem</li>
 <li>hypothesis testing</li>
 <li>life long habit of learning and staying abreast of field</li>
+</ul></li>
+<li>Three kinds of students
+<ul>
+<li>complete beginners (no chance for bad habits)</li>
+<li>currently use R (R user, but not a programmer)</li>
+<li>experienced programmer (still useful for refresher of basics, new tools)</li>
+</ul></li>
+<li>Prerequisites
+<ul>
+<li>Familiarity with files/folders basic operations clicking, dragging, creating, deleting files</li>
+<li>Familiarity with unholy trio (Word, Excel, Powerpoint)</li>
+<li>Familiarity with basic statistics (mean, variance, p-value, regression, anova)</li>
+<li>Familiarity with basic probability (normal, uniform)</li>
 </ul></li>
 </ul>
 </div>
@@ -440,15 +454,6 @@ summary {
 <li>5 - 8 hours of work a week</li>
 </ul>
 </div>
-</div>
-<div id="course-content" class="section level3">
-<h3>Course content</h3>
-<ul>
-<li>Computational tools</li>
-<li>Programming Foundations</li>
-<li>Publication Quality Graphics</li>
-<li>Student Presentations</li>
-</ul>
 <div id="grading" class="section level4">
 <h4>Grading</h4>
 <ul>
@@ -457,176 +462,224 @@ summary {
 <li>presentation</li>
 </ul>
 </div>
-<div id="thinking-on-paper" class="section level4">
-<h4>Thinking On Paper</h4>
-<ul>
-<li>the logic tree (the basis for “strong inference” that is rarely used explicitly)</li>
-<li>the look-up table (organize the results of multiple statistical analyses with a “dip-switch” test)</li>
-<li>the path diagram (for specifying variables and being explicit about cause-and-effect)</li>
-<li>the simulated data analysis (complete all of your statistical analyses and know how you will interpret the results before your experiment is even finished)</li>
-</ul>
 </div>
-<div id="computational-tools" class="section level4">
-<h4>Computational Tools</h4>
+<div id="course-content" class="section level3">
+<h3>Course content</h3>
 <ul>
-<li>Git and GitHub (for tracking and documenting your work)</li>
-<li>RMarkdown (to easily build webpages and pdfs with or without R code)</li>
-<li>Beamer (pdf slides that blow away Powerpoint presentations)</li>
-<li>Regular Expressions (find-and-replace on steroids)</li>
-<li>LaTeX (for type-setting equations and improving your slides)</li>
-<li>learning new tools (how to learn how to do things in R)</li>
-</ul>
-</div>
-<div id="programming-skills" class="section level4">
-<h4>Programming Skills</h4>
+<li>Computational tools
 <ul>
-<li>Basic coding in R studio (functions, scripts, sourcing, console)</li>
+<li>plain-text editors (use for all files and for writing)</li>
+<li>markdown (simple word processing)</li>
+<li>LaTeX (for formatting equations)</li>
+<li>regular expressions (search and find on steroids)</li>
+<li>git and GitHub (for organizing and storing data and scripts)</li>
+<li>web page construction and maintenance (using markdown and GitHub)</li>
+<li>shell commands (for using GitHub and other programs)</li>
+<li>learning new tools (doing new things in R)</li>
+<li>Slack (better than e-mail)</li>
+<li>whereby</li>
+</ul></li>
+<li>Programming Foundations in R
+<ul>
+<li>Basic coding in R studio (scripts, sourcing, console, data structures, functions)</li>
 <li>Foundational Programming Methods (annotating code, for loops, control structures, ifelse, and much more)</li>
-<li>Data Files (creating and annotating your data files for safe storage and archival use)</li>
-<li><code>dplyr</code> for data wrangling</li>
-</ul>
-</div>
-<div id="graphics-and-experimental-designs" class="section level4">
-<h4>Graphics and Experimental Designs</h4>
+<li>Data Files (creating and annotating your scripts and data files for safe storage and archival use)</li>
+</ul></li>
+<li>Advanced Topics
 <ul>
-<li>Graphics (creating publication quality graphics with <code>ggplot2()</code>)</li>
+<li><code>dplyr</code> for data wrangling</li>
+<li>Graphics (creating publication quality graphics with <code>ggplot2</code>)</li>
 <li>Basic experimental designs (ANOVA, regression, logistic regression, contingency table)</li>
 <li>Data simulation (normal, uniform, poisson, beta, gamma distributions)</li>
+<li>Advanced git commands</li>
+<li>Advanced shell commands</li>
+<li>Manuscript production in LaTeX</li>
+<li>Slide presentations in LaTeX</li>
+<li>Thinking on paper</li>
+</ul></li>
 </ul>
 </div>
+<div id="non-computational-tools" class="section level3">
+<h3>Non-computational tools</h3>
+<ul>
+<li>A good notebook</li>
+<li>Touch typing</li>
+</ul>
 </div>
+<div id="setting-up-rstudio" class="section level3">
+<h3>Setting up Rstudio</h3>
+<ul>
+<li>Step through global options</li>
+</ul>
+</div>
+<div id="introduction-to-the-terminal" class="section level3">
+<h3>Introduction to the terminal</h3>
+<ul>
+<li>explain old teletype system</li>
+<li>underlying deep architecture for unix/linux based systems</li>
+<li>military, air traffic control, NASA, IT, large hospitals</li>
+<li>goes under hood; no safety net or guard rail</li>
+<li>linux shell still present in Mac, but not in Windows</li>
+<li>shell accessible in Mac, and special shell for both Mac and Windows in github</li>
+<li>show difference between console (R) and terminal (shell)</li>
+<li>point out difference in the two prompts</li>
+</ul>
+</div>
+<div id="simple-terminal-commands" class="section level3">
+<h3>Simple terminal commands</h3>
+<ul>
+<li>cal</li>
+<li>cal -j (showing an option)</li>
+<li>cal -3 (showing another option)</li>
+<li>cal 6 2020</li>
+<li>man cal</li>
+<li>r called from terminal in mac</li>
+</ul>
+</div>
+<div id="learning-git-and-github" class="section level2">
+<h2>Learning git and GitHub</h2>
+<ul>
+<li>multiple copies of files</li>
+<li>access to past copies</li>
+<li>originally developed for teams of coders interacting on a single project</li>
+<li>learn how to use for your own work</li>
+<li>use for building portfolio and maintaining webpage</li>
+<li>use in tandem with a project in r studio, but can be used with any files</li>
+</ul>
 <div id="basic-vocabulary" class="section level3">
 <h3>Basic Vocabulary</h3>
 <ul>
-<li><code>Version Control</code> A system for maintaining current and past copies of all of your files and a record of all the changes you have made</li>
+<li><code>Version Control</code> A system for maintaining current and past copies of all of your files and a record of all the changes you have made;</li>
 <li><code>git</code> Version control software for tracking your project on your local computer</li>
 <li><code>GitHub</code> A free, public remote website where your project is permanently hosted</li>
 <li><code>Repository</code> Any collection of files that belong to the same project, plus a few special <code>git</code> files that set up the version control. Also called a <code>repo</code> by hipster programmers.</li>
 <li><code>Clone</code> Create a local copy of a repository from the GitHub website to your own website. You can clone from your own repository or anyone else’s that is posted on GitHub. Once the files are on your local computer you can edit or use them as you like. However, you can only change files on GitHub for the repositories that you yourself created or for projects that you have been invited to collaborate on with others.</li>
 <li><code>Commit (the noun)</code> A snapshot of your file system at a particular time. Since your last commit, it keeps track of the files you currently have, the ones you have deleted or added, and any changes you have made to files.</li>
-<li><code>Commit (the verb)</code> When you commit, you are taking a snapshot of your files at the current time. You must add a summary of the commit that briefly describes what changes you have made (such as “Added new homework file”). Note that all commits affect only the local copy of your repository. They do not affect the remote copy that is stored on GitHub</li>
+<li><code>Commit (the verb)</code> When you commit, you are taking a snapshot of your files at the current time. You must add a summary of the commit that briefly describes what changes you have made (such as “add new homework file”). Note that all commits affect only the local copy of your repository. They do not affect the remote copy that is stored on GitHub</li>
 <li><code>Push</code> Pushing a set of changes means copying them from your local repository up to GitHub.</li>
 <li><code>Pull(=fetch)</code> Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.</li>
 </ul>
 </div>
-<div id="overview-of-basics" class="section level3">
-<h3>Overview of basics</h3>
+<div id="overview-of-basics-example-demo" class="section level3">
+<h3>Overview of basics (example demo)</h3>
 <ul>
-<li><code>fetch</code> any changes from the repo</li>
+<li>check <code>status</code> of the local repo (uncommitted changes? local commits ahead of remote?)</li>
+<li><code>pull</code> any changes from the repo (incorporating changes pushed by others</li>
 <li>do some work (edit, create, delete files)</li>
+<li><code>stage changes</code> (local)</li>
 <li><code>commit changes</code> (local)</li>
 <li><code>push</code> changes from local repo to GitHub</li>
 </ul>
 </div>
-<div id="create-an-rstudio-project" class="section level3">
-<h3>Create An RStudio Project</h3>
+</div>
+<div id="creating-a-github-repository-for-an-r-project" class="section level1">
+<h1>Creating a github repository for an r project</h1>
+<div id="set-up-the-repository-on-github" class="section level2">
+<h2>Set up the repository on GitHub</h2>
 <ul>
-<li>In R Studio under <code>File</code> select <code>New Project</code></li>
-<li>Select <code>New Directory</code> and then <code>Empty Project</code></li>
-<li>Use the menu to set the directory and the project name</li>
-<li>Make sure the <code>git repository</code> box is checked</li>
-<li>Open the <code>gitignore</code> file and add a line with <code>*.Rproj</code></li>
+<li>go to your github site (<a href="https://github.com/MyGitHub" class="uri">https://github.com/MyGitHub</a>)</li>
+<li>log in to your github account (username, password)</li>
+<li>create a new repository by clicking the “+” button</li>
+<li>Name it (write down this name exactly)</li>
+<li>use buttons to include a read me statement</li>
+<li>initialize with a readme</li>
+<li>add a gitignore</li>
+<li>add a license (MIT is fine)</li>
 </ul>
 </div>
-<div id="set-up-the-primary-index-file" class="section level3">
-<h3>Set Up The Primary Index File</h3>
+<div id="build-the-local-r-project-on-your-machine" class="section level2">
+<h2>Build the local r Project on your machine</h2>
 <ul>
-<li>From the pulldown menu below <code>File</code> choose <code>R Markdown</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
-<li>Keep the Default Output Format as <code>HTML</code></li>
-<li>Add a title such as <code>Homepage</code></li>
-<li>Save this initial file with the name <code>index</code>. RStudio will automatically add the required file suffix <code>index.Rmd</code></li>
-<li>Use <code>CTRL-SHIFT-K</code> to knit this <code>index.Rmd</code> file and create <code>index.html</code>’. This is the portal website that will be created through GitHub</li>
-<li>Delete the template text, but retain the initial <code>yaml</code> lines down through the second set of dashes <code>---</code></li>
-<li>Add text to the webpage such as <code>Initial website for GitHub project</code></li>
-<li>Go to the <code>Settings</code> icon and select <code>Output Options</code>. Choose from the different <code>Syntax highlighting</code> and <code>Themes</code> options and then knit the file to see how it changes the appearance of the <code>html</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li>open Rstudio</li>
+<li>upper right use pulldown menu to create new project</li>
+<li>select “Version Control”</li>
+<li>select “Git”</li>
 </ul>
 </div>
-<div id="host-the-new-project-at-github" class="section level3">
-<h3>Host The New Project At GitHub</h3>
+<div id="link-this-new-local-project-to-the-remote-repo-on-github" class="section level2">
+<h2>Link this new local project to the remote repo on GitHub</h2>
 <ul>
-<li>Open <code>GitHub Desktop</code></li>
-<li>From the upper-left pulldown menu, choose <code>Add Project</code></li>
-<li>Select the Rmarkdown project folder that created</li>
-<li>Add text to the summary box such as <code>Initial project commit</code>.</li>
-<li>Click on the <code>Commit to master</code> circle to make the commit.</li>
-<li>Notice the diagram indicating the current state of the repository (open circle) and the past commit (closed circles). Each time you make a commit, another circle will be added to the line.</li>
+<li>the RStudio set up is asking for your Repository URL</li>
+<li>go back to your GitHub repo</li>
+<li>click “clone or download” button</li>
+<li>click on the clipboard copy icon to copy the URL for this repo</li>
+<li>go back to RStudio</li>
+<li>paste with CTRL-V into the URL box</li>
+<li>give the name of the repo to be the same thing you called it on GitHub</li>
+<li>use browse button to find a location on your computer for this folder, or take the default on your desktop</li>
+<li>click “Create Project” to finish</li>
+<li>you are in your new project, which has .gitignore, LICENSE, and README.md files already</li>
 </ul>
 </div>
-<div id="publish-your-initial-webpage" class="section level3">
-<h3>Publish Your Initial Webpage</h3>
+<div id="build-a-webpage-portal-in-your-project-that-will-be-hosted-by-github" class="section level2">
+<h2>Build a webpage portal in your project that will be hosted by GitHub</h2>
 <ul>
-<li>Click on the <code>Publish</code> button. Note that this button will appear only once, when you first set up your repository.</li>
-<li>Provide a short description of the project in the indicated box</li>
-<li>Use the <code>Sync</code> button to synchronize the local copy of the repository on your computer with the repository that is permanently hosted at GitHub. When you sync your project, any changes that you have made locally are “pushed” up to GitHub, and any changes that others may have made to the repository (in a collaborative project) are “pulled” down from GitHub to your local repository. At the end of the sync, your local copy of the Repository is identical to the one on GitHub.</li>
-<li>Click on the options icon to view the repository on your GitHub page</li>
-<li>log in to GitHub, using the username and password you chose when you set up your account</li>
-<li>go to the new repository and choose settings, then scroll down to <code>GitHub Pages</code></li>
-<li>Choose <code>Master Branch</code> and save</li>
-<li>Click on the website http link, which will have this form: <code>http://USERNAME.github.io/PROJECTNAME/</code></li>
-<li>you will probably want to bookmark this page<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+<li>from the pulldown menu in Rstudio, select new markdown file</li>
+<li>change title to “Initial webpage set up” (or some such thing)</li>
+<li>save this file with file name “index” (RStudio will provide the .Rmd suffix)</li>
+<li>run CTRL-SHFT-K to “knit” the file</li>
 </ul>
 </div>
-<div id="add-a-readme-and-license-to-your-repository" class="section level3">
-<h3>Add A ReadMe and License To Your Repository</h3>
+<div id="commit-these-changes" class="section level2">
+<h2>Commit these changes</h2>
 <ul>
-<li>Click on the button to add a <code>ReadMe</code> file. This will open up a text box that has the description you entered. Add a carriage return or some other change to the text to activate it, and then save it</li>
-<li>Click on the <code>Preview</code> tab to see what it will look like on your GitHub page</li>
-<li>At the bottom of the page add your summary (such as “Added Readme File” and make your commit</li>
-<li>Click on <code>add new file</code> and select a license (GNU or MIT is fine) at the bottom of the page add your summary (such as “Added License”) and make your commit<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
-<li>Note that the two changes you have made to your repository were done on the GitHub. Therefore, the local copy of the repository on your computer does not yet have these new files.</li>
+<li>see other command set for how to commit changes from the terminal</li>
 </ul>
 </div>
-<div id="synching-changes-locally" class="section level3">
-<h3>Synching changes locally</h3>
+<div id="host-the-index-webpage" class="section level2">
+<h2>Host the “index” webpage</h2>
 <ul>
-<li>Return to your Desktop GitHub and sync with the remote</li>
-<li>Use the file explorer or the file list in RStudio. Notice that the new readme and license files now show up and the commits are added to your commit history</li>
-<li>You are now ready to do some work on your new webpage(s)</li>
+<li>Return to GitHub</li>
+<li>Go to “Settings”</li>
+<li>Scroll down and under “Source” change from “None” to “master branch”</li>
+<li>Wait a minute and click the link at “Your site is ready to be published at…”</li>
+<li>New webpage should display</li>
+<li>Note the address <a href="https://ngotelli.github.io/RepoName/" class="uri">https://ngotelli.github.io/RepoName/</a></li>
 </ul>
 </div>
-<div id="typical-workflow" class="section level3">
-<h3>Typical workflow</h3>
+</div>
+<div id="basic-workflow-for-git-from-the-terminal" class="section level1">
+<h1>Basic workflow for git from the terminal</h1>
+<div id="check-things-out-before-starting-your-work" class="section level2">
+<h2>Check things out before starting your work</h2>
 <ul>
-<li>Add new files and links to your original index page</li>
-<li>Delete old files and change existing files<br />
-</li>
-<li>Within your folder project, you can create folders for organizing all of your new pages and scripts. To make a link to these from your index page, the markdown format is <a href="FolderName/FileName.html">DisplayText</a></li>
-<li>When you make changes to .Rmd files, make sure you knit them (CTRL-SHIFT-K) so that a new version of the html is created</li>
-<li>After finishing a logical chunk of work, go to GitHub Desktop, and you will see that changes are indicated in the current state of the repository</li>
-<li>Write a short summary to describe the changes you have made and then commit them. Note that the commit affects only the local copy of your repo</li>
-<li>Now hit synchronize, which will “push” your changes up to the remote GitHub site and update your webpage</li>
-<li>The sync button will also pull down to your local copy any other changes that have been made to the repo that have been incorporated into the remote site. This is only relevant if you are collaborating with others and multiple people are making changes to a repo</li>
+<li>git status (make sure your local repo is not ahead of the remote)</li>
+<li>git log (peek at the previous commits)</li>
+<li>git log –oneline (a bit more concise) git log -3 (just show 3 commits)</li>
+<li>git pull (just in case there was a change made from another location)</li>
+<li>git status (ready to start working)</li>
 </ul>
 </div>
-<div id="dealing-with-a-coding-disaster" class="section level3">
-<h3>Dealing with a coding disaster</h3>
+<div id="make-changes" class="section level2">
+<h2>Make changes</h2>
 <ul>
-<li>If you cannot fix your R code, make a commit and indicate that this is a botched set of files</li>
-<li>Hit the revert button, which makes a new commit that reverts the changes from this commit</li>
-<li>To be safe, do this only for your most recent commit in the history</li>
-<li>Now you will have lost all of your work since that last commit, but at least everything will work now</li>
-<li>For this reason, it is smart to make commits frequently, each time you complete a little chunk of something and it works</li>
+<li>modify files, including knitting new versions of html pages or pdfs</li>
+<li>delete files</li>
+<li>add files</li>
 </ul>
 </div>
-<div id="permanently-deleting-a-repository-from-github" class="section level3">
-<h3>Permanently Deleting A Repository From GitHub</h3>
+<div id="stage-changes" class="section level2">
+<h2>Stage changes</h2>
 <ul>
-<li>When you first get started with GitHub, it pays to practice a bit with a fake repository, and then delete it after you have played with it and tried out different operations</li>
-<li>Do this as often as you need to get comfortable with setting up a repository, building an <code>index.html</code> home page, adding a site license and readme file, publishing your webpage, making changes, commiting those changes and describing them with a simple summary statement, and syncing your local repository with the remote</li>
-<li>To permanently remove a repository, go to <code>Settings</code> on the repository page on GitHub</li>
-<li>Scroll down to the “red” section to delete the repository</li>
-<li>GitHub forces you to type in the name of repository before destroying it because it can never be recovered</li>
-<li>Note that the local copy of this repository on your computer is NOT destroyed, just the master copy on the remote. You still have those files if you want to move them into a new repository. But you should not move the <code>.git</code> or <code>gitignore</code> files because those will be created when you set up a new repository</li>
+<li>git status</li>
+<li>git add -A</li>
+<li>git status</li>
 </ul>
 </div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>To create a fancier webpage, select <code>From Template</code> and then <code>Lightweight and Pretty Document (HTML)</code>. This template will produce nicer looking html pages, especially for the initial header and for the display of tables. However, these templates can be rendered only to <code>.html</code>. If you want to be able to render to <code>.html</code>, <code>.pdf</code>, or <code>.docx</code> files, then stick with the initial <code>R Markdown</code> choice.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>NJG prefers <code>tango</code> for syntax highlighting and <code>united</code> for the theme. Instead of using the menu, you can directly type in your choices by hand into the yaml section at the top. If you enter a choice that is not on the menu list, it will generate an error and fail to knit, but you will also see from the error message that there are additional themes and styles that are not on the menu (yet). Explore!<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>Be patient because it can take a few minutes for GitHub to load or to update your webpage.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>As the license explains, its purpose is to make sure the materials and code you post on GitHub remain public and free, and prevents anyone else from using and then patenting them!<a href="#fnref4" class="footnote-back">↩</a></p></li>
-</ol>
+<div id="commit-changes" class="section level2">
+<h2>commit changes</h2>
+<ul>
+<li>git commit -am “write informative commit message”</li>
+<li>git status</li>
+</ul>
+</div>
+<div id="push-changes-up-to-github" class="section level2">
+<h2>push changes up to GitHub</h2>
+<ul>
+<li>git push</li>
+<li>git status</li>
+</ul>
+</div>
 </div>
 
 
