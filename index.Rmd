@@ -30,7 +30,7 @@ Date  | Lecture | Homework
 ------------- |----------- | -------------
 January 14  | [Introduction](Lectures/Lecture01_F2020.html) | -  | -
 January 15  | - | [Homework #1](Homeworks/Homework01_F2020.html)
-January 16  | [GitHub](Lectures/Lecture02_F2018.html) | -  | -
+January 16  | [GitHub](Lectures/Lecture02_F2020.html) | -  | -
 January 21  | - | - | - |
 January 22 | - |  [Homework #2](Homeworks/Homework02_F2020.html)
 January 23  | - | -| - |
