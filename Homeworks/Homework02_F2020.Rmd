@@ -1,0 +1,36 @@
+---
+title: 'Homework #2'
+author: "Nicholas J. Gotelli"
+date: "September 5, 2018"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+1. After a review by Lauren, use the notes from Lecture #2 to build a repository in GitHub, and a local version on your desktop. Call this repository "PracticeRepo"
+
+2. Create an `index.Rmd` file that you will post as an html webpage.
+
+3. Make changes, stage them, and push them to your new webpage.
+
+4. After you have done this a few times and are comfortable with this process, set up your repository for this course, using your own last name as part of the repository name: `LastNameBio381`
+
+5. Once your index page is set up and your webpage is hosted and visible on the internet, build a link and a new page called `Homework_01.Rmd`.
+
+6. Transfer the text and images from your Typora page that you created last week into this new markdown document.
+
+7. Knit the document and commit your changes in the usual way.
+
+8. Check your webpage and make sure that the new link works and that your homework from the first week is properly posted.
+
+9. At the end of the day, send to Nick on Slack the following:
+  - the link to your GitHub page `https://github.com/YourGitHubPageName`
+  - the link to your new webpage `https://YourGitHubPageName.github.io/LastNameBio381/`
+  - a "fun fact": something distinctive about you or your past that will help everyone instantly remember your name and who you are. For examples, see the list from the students in last year's course on the [course homepage](https://gotellilab.github.io/Bio381/). Once I have all of this information, I will update the homepage with the entries from this year's class.
+  
+10. Congratulations! You are now a GitHub user!
+
+
+
+
