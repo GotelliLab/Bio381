@@ -78,42 +78,21 @@ December 6  |**Presentations: Brendan, Erika ** | -  | -
 
 Student  | Fun Fact
 ------------- | --------------
-Natalia Aristizabal [GitHub](https://github.com/naristiz) [Portfolio](https://naristiz.github.io/compbio)  | I dream in 3 languages!
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381_2018/)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Emily Beasley [GitHub](https://github.com/beasley015) [Portfolio](https://beasley015.github.io/Bio381Beasley)  |  I have had two different "poop jobs", which involve working with scat and are considered a rite of passage by some in the mammalogy world.
-Suraj Bhattarai [GitHub](https://github.com/surajuvm/BIO381_Suraj) [Portfolio](https://surajuvm.github.io/BIO381_Suraj)  | Back in Nepal, I have driven a bullock cart to transport rice from the field to the mill. I have also ploughed paddy field using bulls. Interestingly, I have been extracting DNA from bull’s semen at UVM. 
-Erika Bueno [GitHub](https://github.com/eribue/COMP-BIOL) [Portfolio](https://eribue.github.io/COMP-BIOL)  | My dog has an instagram page with ~400 followers!
-Brendan Case [GitHub](https://github.com/brendandaisy) [Portfolio](https://brendandaisy.github.io/BIOL381)  | I am obsessed with spicy food and aspire to win a chili-eating contest someday.
-Jessica Cole [GitHub](https://github.com/jscole12) [Portfolio](https://jscole12.github.io/Bio381)  | I lived at a residential art school during my junior and senior year of high school where I lived and breathed theatre.
-Paul Cronin [GitHub](https://github.com/croninp2) [Portfolio](https://croninp2.github.io/Bio381/)  |  I'm from a tiny village in Ireland called Meanus. Don't look too closely for jokes you can make about that word.
-Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For the past 13 years, I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
-Kendra Hodges [GitHub](https://github.com/KendraHodges4/BIO381_) [Portfolio](https://kendrahodges4.github.io/BIO381_)  |  I’ve been playing guitar for 10 years!
-Charlie Nicholson  [GitHub](https://github.com/CCNicholson/ComputationalBiology) [Portfolio](https://ccnicholson.github.io/ComputationalBiology)  |  I collect Swedish idioms.
-Aubrey Pelletier  [GitHub](https://github.com/Aubrey556/BIOL381) [Portfolio](https://aubrey556.github.io/BIOL381/)  | I studied abroad and learned how to scuba dive in Australia last year. 
-Emily Piche [GitHub](https://github.com/emilypiche/BIO381/) [Portfolio](https://emilypiche.github.io/BIO381/)  | I biked down the west coast on a 1970s 10-speed with my ukulele when I finished my undergraduate degree (UVM '12).
-Zoe Portlas [GitHub](https://github.com/ZPortlas) [Portfolio](https://zportlas.github.io/Biol381)  |  I have a cat that likes to play fetch!
-Anoob Prakash [GitHub](https://github.com/anoobvinu07) [Portfolio](https://anoobvinu07.github.io/Bio381)  | I like to play basketball a lot. As souvenirs, I have injured my legs, hands, head and eyes while playing it. So, for my well being, don't ask me to play.
-Samuel Rosenblatt [GitHub](https://github.com/sfrosenb) [Portfolio](https://sfrosenb.github.io/RosenblattBio381)  | I dressed up as Dracula in Transylvania, and then wore "The Cloak" for 4 days straight as everyday attire (I didn’t know it was gonna be so cold and that was the only coat I brought).
-Emily Shore [GitHub](https://github.com/eshore863) [Portfolio](https://eshore863.github.io/Bio381)  | While I was studying plant systems and natural history on the Galapagos Island archipelago, during the early morning in bed in my hostel, I felt a large earthquake from a nearby volcano that had been dormant for years.
-Charlotte Uden [GitHub](https://github.com/charliuden?tab=repositories) [Portfolio](https://charliuden.github.io/Bio381)  | My two sisters and I all go by the male versions of our names: Alex, Harri and Charlie.
-Baxter Worthing [GitHub](https://github.com/BaxW) [Portfolio](https://baxw.github.io/BIO381/)  | I recently got into juggling, and I find that it is a great way to calm down when stressed about research...
+Benjamin Camber [GitHub](https://github.com/bencamber) [Portfolio](https://bencamber.github.io/bcamberBio381/)  | If I weren't in grad school I'd probably be trying to make "outlaw" electric automobiles, which resemble vintage cars but have modern internals and zero emissions!
+Lindsey Cathcart [GitHub](https://github.com/lindseycathcart) [Portfolio](https://lindseycathcart.github.io/CathcartBio381/)  | I have been stuck in quicksand.
+Ashma Chakrawarti  [GitHub](github.com/Ashma45) [Portfolio](ashma45.github.io/ChakrawartiBio381/)  | I can read, write and speak 4 languages.
+Hailey Cray [GitHub](https://github.com/HVCray) [Portfolio](https://hvcray.github.io/CrayBio381/)  |  I have fish (morbidly) named Ceviche and Sushi!
+Conor Dickson  [GitHub](https://github.com/ConorDickson6) [Portfolio](https://conordickson6.github.io/ConorBio381/)  |  When I was ~13 years old, I broke my tailbone (the vestigial bone of the spinal vertebrae near the butt) and couldnʻt sit for a year.
+Emma Estabrook [GitHub](https://github.com/eestabro) [Portfolio]( https://eestabro.github.io/Estabrook_Bio381/)  |  I have dual citizenship to the U.S. and U.K.
+Nick Gotelli [GitHub](https://github.com/GotelliLab) [Portfolio](https://gotellilab.github.io/Bio381/)  | For the past 15 years, I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
+Alison Hall [GitHub](https://github.com/aehall26) [Portfolio](https://aehall26.github.io/HallBio381/)  |  I am a advanced certified scuba diver.
+Hanusia Higgins [GitHub]( https://github.com/Hanusia) [Portfolio]( https://hanusia.github.io/HigginsBio381/)  |  I grew up near Hershey, PA and once worked at Hershey's Chocolate World!
+Elizabeth Jamison [GitHub](https://github.com/ElizabethJamison) [Portfolio](https://elizabethjamison.github.io/JamisonBio381/)  | I have a pet snake named Severus Snake!
+Sophia Kogut [GitHub](https://github.com/skogut) [Portfolio](https://skogut.github.io/KogutBio381/)  | My last name means “rooster” in Polish!
+Aura Mariela  [GitHub](https://github.com/aalonsor15) [Portfolio](https://aalonsor15.github.io/AlonsoRodzBio381/)  | I was once on a plane that caught on fire and we had to use the evacuation slide to exit. 
+Cai McCann [GitHub]( https://github.com/cmccann1/McCannBio381) [Portfolio](https://cmccann1.github.io/McCannBio381/)  |  I love learning how to play musical instruments and am up to 5 (violin, cello, guitar, saxophone, piano).
+Alyssa Neuhaus [GitHub](https://github.com/apneuhaus) [Portfolio](https://apneuhaus.github.io/NeuhausBio381/)  | I taught my 11-year-old dog how to play dead.
+Gretchen Saveson [GitHub](https://github.com/GretchenSav) [Portfolio](https://gretchensav.github.io/SavesonBio381/)  | While the typical mammal has seven cervical vertebrae, I have eight (discovered when I was x-rayed after fracturing one of them). This puts me on the same level as three-toed sloths, which are the only other living mammal with more than seven vertebrae in their neck.
+Lily Shapiro [GitHub](https://github.com/lkshapir) [Portfolio](https://lkshapir.github.io/ShapiroBio381/)  | I collect orchids! I think I have about ~30 at the moment.
 
-### Class R Presentations
-
-Author | Title
--------| --------
-Natalia Aristizabal | [Manipulating, analyzing, and displaying spatial data with `tmap` and `ggmap`](https://naristiz.github.io/compbio/tmap_presentation.html)
-Emily Beasley | [Analyzing and visualizing community occupancy data with `betapart` and `metacom`](https://beasley015.github.io/Bio381Beasley/betapart_presentation.html)
-Suraj Bhattarai | [Displaying and annotating phylogenetic trees with `ggtree`](https://surajuvm.github.io/BIO381_Suraj/ggtree.html)
-Erika Bueno | [Visualization of genomic data with `sushi`](https://eribue.github.io/COMP-BIOL/SushiPresentation.html)
-Brendan Case | [Training a classification model using satellite images with `caret`](https://brendandaisy.github.io/BIOL381/final/carets_wine.html)
-Jessica Cole | [Creating interactive dashboards with `shiny`](https://jscole12.github.io/Bio381/shinyscript.html)
-Kendra Hodges | [Creating three-dimensional graphics with `plot3D`](https://kendrahodges4.github.io/BIO381_/FinalPresentation.html)
-Aubrey Pelletier | [Creating interactive web-based graphs with `plotly`](https://aubrey556.github.io/BIOL381/plotly_presentation.html)
-Emily Piche | [Exploring raster data with `raster`](https://emilypiche.github.io/BIO381/raster.html)
-Zoe Portlas | [Visualizing multivariate data with `factominer` and `factoextra`](https://zportlas.github.io/Biol381/FactoMineR.html)
-Anoob Prakash | [Interactive maps with `leaflet`](https://anoobvinu07.github.io/Bio381/leafletR.html)
-Samuel Rosenblatt | [Animating `ggplot` graphics with `gganimate`](https://sfrosenb.github.io/RosenblattBio381/igraphPresentationFinal.html)
-Emily Shore | [Creating interactive sunburst diagrams with `sunburstR`](https://eshore863.github.io/Bio381/Sunburst.html)
-Charlotte Uden | [Modeling structured populations with `IPMpack`]()
-Baxter Worthing | [Comparing data frames with `diffdf`](https://baxw.github.io/BIO381/FinalProj.html)
