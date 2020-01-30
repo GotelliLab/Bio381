@@ -75,7 +75,7 @@ $$H_0 = Z_{a + b}$$
 
 $$H_0 = Z_{a + b}$$
 
-####Superscripts
+#### Superscripts
 
 ```
 $$S = cA^z$$
@@ -135,7 +135,6 @@ $$P(\mbox{Occurrence Of Species A}) = Z$$
 ```
 $$P(\mbox{Occurrence Of Species A}) = Z$$
 ```
-
 ### R Code in Chunks
 
 * `CTRL-ALT-I` inserts a new "chunk" of R code
@@ -157,14 +156,24 @@ plot(runif(50),cex=10*runif(50),col="goldenrod")
 print(rnorm(n=10, mean=10, sd=2))
 ```
 
+### Working with R scripts
+
+
+
+
 ### Writing R scripts
 
 - new script
 - code executes and prints in console
 - graphs in output window
 - `CTRL - ENTER` to run a single line of code
-- `CTRL - SHIFT - ENTER` to source the entire script
+- `CTRL - ENTER` to run a block of selected lines
+- `CTRL - SHIFT - ENTER` to source the entire script and echo
+- `CTRL - SHIFT - S` to sourc the script with no echo
+- `CTRL - SHIFT - R` to enter a labeled or unlabeled section divider
+
 - code to illustrate:
+
 ```{r}
 # First comment to explain what this program is doing.
 # Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
@@ -225,7 +234,4 @@ purl("FileName.Rmd")
 ```
 These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
 
-### Bonus: A Cool New Markdown Editor!
-
-- Demo of `Typora` a WYSIWYG text editor at https://typora.io/
 
