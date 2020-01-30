@@ -36,7 +36,7 @@ January 22 | - |  [Homework #2](Homeworks/Homework02_F2020.html)
 January 23  | - | -
 January 28 | [Regular Expressions](Lectures/Lecture05_F2020.html) | -
 January 29  |  -  | [Homework #3](Homeworks/Homework03_F2020.html)
-September 13  | [Atomic Vectors](Lectures/Lecture06_F2018.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+January 30  | [RSTudio](Lectures/Lecture06_F2020.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 18  | [Data Structures](Lectures/Lecture07_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 19  | - | -  | [Homework #4](Homeworks/Homework04_F2018.html)
 September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -

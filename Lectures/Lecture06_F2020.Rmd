@@ -1,0 +1,231 @@
+---
+title: 'Lecture #6: Working With R Studio'
+author: "Nicholas J. Gotelli"
+date: "January 30 2020"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Three ways to use R
+- from console (in R studio and in shell)
+- from .Rmd markdown file (markdown)
+- from .R script file
+
+#### General Rstudio shortcuts
+```
+control 1 : move to script panel
+control 2 : move to console panel
+control shift 1 : move to script panel and expand
+control shift 2 : move to console panel and expand
+control l : to clear the console
+```
+#### Working with Rmarkdown
+- render to view pane not to browser
+- set up headers in YAML
+- keep first chunk in place
+- set options in chunks for `echo, eval`
+
+#### Rmarkdown shortcuts
+```
+CTRL-SHIFT-k : knits the markdown file to html/pdf/word
+CTRL-OPTION-i : inserts a new R chunk
+```
+
+#### Fencing
+- for plain text (show a sample)
+- chunk for R code  (show a few lines)
+- even a chunk for bash (show pwd command)
+
+#### Three languages in one file!
+- rmarkdown (for text, links, images)
+- r code (for computing)
+- LaTeX for rendering math equations
+
+#### All three in one sentence:
+
+The value of $\pi$ is `r pi`.
+
+
+#### Details of \LaTeX
+
+
+### Equations
+
+* in-line `$`
+* centered `$$`
+
+- basic math and text spacing handled by LateX
+
+```
+$$y = a + b$$
+```
+
+$$y = a + b$$
+
+#### Subcripts
+
+```
+$$H_0 = Z_{a + b}$$
+```
+
+$$H_0 = Z_{a + b}$$
+
+####Superscripts
+
+```
+$$S = cA^z$$
+
+```
+
+$$S = cA^z$$
+
+
+- elements can be coupled and nested
+
+$$S=cA^z_1 + z_{2 + x}$$
+
+
+```
+$$S=cA^z_1 + z_{2 + x}$$
+
+```
+
+#### Fractions and Greek Symbols
+
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+```
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+
+```
+
+#### Summation signs
+
+$$z = \sum_{i=1}^X{K}$$
+
+```
+$$z = \sum_{i=1}^X{K}$$
+
+```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
+### R Code in Chunks
+
+* `CTRL-ALT-I` inserts a new "chunk" of R code
+```{r}
+# Use comments extensively in ALL of your coding!
+Pred <- seq(1,10)     # make a vector of integers from 1 to 10
+Res <- runif(10)      # generate 10 draws from a random uniform (0,1) distribution
+
+# print the random numbers
+print(Res)
+
+# plot the graph
+plot(x=Pred,y=Res,type="b")
+```
+
+### Using chunk options to control printing of code and output
+```{r}
+plot(runif(50),cex=10*runif(50),col="goldenrod")
+print(rnorm(n=10, mean=10, sd=2))
+```
+
+### Writing R scripts
+
+- new script
+- code executes and prints in console
+- graphs in output window
+- `CTRL - ENTER` to run a single line of code
+- `CTRL - SHIFT - ENTER` to source the entire script
+- code to illustrate:
+```{r}
+# First comment to explain what this program is doing.
+# Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
+# Simple script to examine the distribution of the product of two uniform variables
+# Make sure it is readable. Use complete sentences, not cryptic phrases.
+# 6 September 2018
+# NJG
+
+# Preliminaries
+library(ggplot2)
+set.seed(100)
+library(TeachingDemos) # use this to set the random number seed from a character string
+char2seed("green tea")
+char2seed("green tea",set=FALSE)
+
+#
+
+# Global variables
+nRep <- 10000
+
+# Create or read in data
+ranVar1 <- rnorm(nRep)
+# print(ranVar1)
+head(ranVar1)
+tail(ranVar1)
+
+ranVar2 <- rnorm(nRep)
+
+
+# visualize data
+qplot(x=ranVar1)
+qplot(x=ranVar1,color=I("black"),fill=I("goldenrod"))
+qplot(x=ranVar2,color=I("black"),fill=I("grey50"))
+
+
+# create product vector
+ranProd <- ranVar1*ranVar2
+length(ranProd)
+str(ranProd)
+head(ranProd)
+
+# visualize product vector
+qplot(x=ranVar1,color=I("black"),fill=I(grey(0.5)))
+
+# do other stuff..
+```
+### Converting `.R` files to `.html` (creating an R notebook)
+- use notebook script
+- roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
+### Bonus: A Cool New Markdown Editor!
+
+- Demo of `Typora` a WYSIWYG text editor at https://typora.io/
+
