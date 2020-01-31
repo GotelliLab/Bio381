@@ -36,7 +36,7 @@ January 22 | - |  [Homework #2](Homeworks/Homework02_F2020.html)
 January 23  | - | -
 January 28 | [Regular Expressions](Lectures/Lecture05_F2020.html) | -
 January 29  |  -  | [Homework #3](Homeworks/Homework03_F2020.html)
-January 30  | [RSTudio](Lectures/Lecture06_F2020.html) | [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+January 30  | [RStudio](Lectures/Lecture06_F2020.html) | -Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 18  | [Data Structures](Lectures/Lecture07_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 19  | - | -  | [Homework #4](Homeworks/Homework04_F2018.html)
 September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
@@ -85,6 +85,7 @@ Ashma Chakrawarti  [GitHub](http://github.com/Ashma45) [Portfolio](http://ashma4
 Hailey Cray [GitHub](https://github.com/HVCray) [Portfolio](https://hvcray.github.io/CrayBio381/)  |  I have fish (morbidly) named Ceviche and Sushi!
 Conor Dickson  [GitHub](https://github.com/ConorDickson6) [Portfolio](https://conordickson6.github.io/ConorBio381/)  |  When I was ~13 years old, I broke my tailbone (the vestigial bone of the spinal vertebrae near the butt) and couldnʻt sit for a year.
 Emma Estabrook [GitHub](https://github.com/eestabro) [Portfolio]( https://eestabro.github.io/Estabrook_Bio381/)  |  I have dual citizenship to the U.S. and U.K.
+Liam Farley [GibHub](https://github.com/Farley438/LiamBio381) [Portfolio](https://farley438.github.io/LiamBio381/)  | I am a fully factory-trained auto mechanic.
 Nick Gotelli [GitHub](https://github.com/GotelliLab) | For the past 15 years, I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
 Alison Hall [GitHub](https://github.com/aehall26) [Portfolio](https://aehall26.github.io/HallBio381/)  |  I am a advanced certified scuba diver.
 Hanusia Higgins [GitHub]( https://github.com/Hanusia) [Portfolio]( https://hanusia.github.io/HigginsBio381/)  |  I grew up near Hershey, PA and once worked at Hershey's Chocolate World!
@@ -93,6 +94,9 @@ Sophia Kogut [GitHub](https://github.com/skogut) [Portfolio](https://skogut.gith
 Aura Mariela  [GitHub](https://github.com/aalonsor15) [Portfolio](https://aalonsor15.github.io/AlonsoRodzBio381/)  | I was once on a plane that caught on fire and we had to use the evacuation slide to exit. 
 Cai McCann [GitHub]( https://github.com/cmccann1/McCannBio381) [Portfolio](https://cmccann1.github.io/McCannBio381/)  |  I love learning how to play musical instruments and am up to 5 (violin, cello, guitar, saxophone, piano).
 Alyssa Neuhaus [GitHub](https://github.com/apneuhaus) [Portfolio](https://apneuhaus.github.io/NeuhausBio381/)  | I taught my 11-year-old dog how to play dead.
+Thomas O'Leary [GitHub](https://github.com/tsoleary) [Portfolio](https://tsoleary.github.io/comp_bio/) | I did ballet in high school.
 Gretchen Saveson [GitHub](https://github.com/GretchenSav) [Portfolio](https://gretchensav.github.io/SavesonBio381/)  | While the typical mammal has seven cervical vertebrae, I have eight (discovered when I was x-rayed after fracturing one of them). This puts me on the same level as three-toed sloths, which are the only other living mammal with more than seven vertebrae in their neck.
+Jillian Sarazen [GitHub](https://github.com/sarazenj) [Portfolio](https://sarazenj.github.io/SarazenBio381/)  | I saw a mountain lion while doing field work in the high desert of northern California!
 Lily Shapiro [GitHub](https://github.com/lkshapir) [Portfolio](https://lkshapir.github.io/ShapiroBio381/)  | I collect orchids! I think I have about ~30 at the moment.
-
+Helaina Stergas [GitHib](https://github.com/hstergas) [Portfolio](https://hstergas.github.io/StergasBio381/)  | I am a big fan of road trips and national parks, and have driven all the way to Alaska and back in a tiny yellow Jeep Wrangler!
+Jess Wikle [GitHub](https://github.com/jwikle) [Portfolio](https://jwikle.github.io/WikleBio381/)  | Just over a year ago (December 2018 - January 2019), I spent 2.5 weeks rafting through the Grand Canyon. It was my second time whitewater rafting, and my first time rafting where all rafts made it to the end of the trip in one piece.
