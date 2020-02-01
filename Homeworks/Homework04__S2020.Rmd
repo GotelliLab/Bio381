@@ -1,0 +1,135 @@
+---
+title: 'Homework #4'
+author: "Nicholas J. Gotelli"
+date: 'February 5, 2020'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+
+Some of these problems are adapted from:
+
+> Jones, O., R. Maillardet, and A. Robinson. 2009. Scientific Programming and Simulation Using R. CRC Press, Boca Raton.
+
+1. Suppose *x* = 1.1, *a* = 2.2, and *b* = 3.3. Assign each expression to the value of the variable *z*and print the value stored in *z*.
+
+    a) $x^{a^b}$
+    b) $(x^{a})^b$
+    c) $3x^3 + 2x^2 + 1$
+
+2. Using the `rep` and `seq` functions, create the following vectors:
+
+    a) $(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1)$
+    b) $(1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)$
+    c) $(5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)$
+    
+3. Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as *x* and *y* coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R's inverse trigonometry functions (`asin()`, `acos()`, or `atan()`), convert these numbers into polar coordinates (If you don't know what polar coordinates are, read about them on the web or in your calculus textbook).
+
+4. Suppose that `queue <- c("sheep", "fox", "owl", "ant")` and that `queue` represents the animals that are lined up to enter Noah's Ark, with the sheep at the front of the line. Using R expressions, update the queue successively as 
+
+    a) the serpent arrives;
+    b) the sheep enters the ark;
+    c) the donkey arrives and talks his way to the front of the line;
+    d) the serpent gets impatient and leaves;
+    e) the owl gets bored and leaves;
+    f) the aphid arrives and the ant invites him to cut in line.
+    g) Finally, determine the position of the aphid in the line.
+
+5. Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7.
+
+## Regular Expression Puzzles
+
+For these problems, use your plain text editor (BBedit, NotePadPro, or something else) to type in the problem text and use the search function to write a regular expression that gives the desired result. In your homework solution, provide the regular expression that works (there are several ways to solve each problem) within some plain text fencing on your markdown page, and add a bit of markdown text to explain what each element of your regular expression is doing. If you get stuck, give the solution that gets you as close as you can.
+
+6. The primary reason for using Excel to set up data frames is that people like to have the columns aligned. However, if there are not too many columns, it may be faster to do the job in a plain text editor first and align the columns with tabs. In your text editor, type in (or copy and paste from here) the following lines of text:
+
+```
+First String    Second      1.22      3.4
+Second          More Text   1.555555  2.2220
+Third           x           3         124
+```
+
+Don't worry about how many tab spaces are needed to set this up, just make sure the columns are aligned. Now, using a single regular expression, transform these lines into what we need for a `.csv` file:
+
+```
+First String,Second,1.2,3.4
+Second,More Text,1.55555,2.2220
+Third,x,3,124
+```
+
+7. A True Regex Story. I am preparing a collaborative NSF grant with a colleague at another university. One of the pieces of an NSF grant is a listing of potential conflicts of interest. NSF wants to know the first and last name of the collaborator and their institution.
+
+Here are a few lines of my conflict list:
+
+```
+Ballif, Bryan, University of Vermont
+Ellison, Aaron, Harvard Forest
+Record, Sydne, Bryn Mawr
+```
+
+However, my collaborator asked me to please provide to her the list in this format:
+
+```
+Bryan Ballif (University of Vermont)
+Aaron Ellison (Harvard Forest)
+Sydne Record (Bryn Mawr)
+```
+
+Write a single regular expression that will make the change.
+
+8. A Second True Regex Story. A few weeks ago, at [Radio Bean's ](https://www.radiobean.com/) Sunday afternoon old-time music session, one of the mandolin players gave me a DVD with over 1000 historic recordings of old-time fiddle tunes.
+
+The list of tunes (shown here as a single line of text) looks like this:
+
+```
+0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Cherokee Shuffle.mp3 0004 Walking Cane.mp3
+```
+Unfortunately, in this form, you can't re-order the file names to put them in alphabetical order. I thought I could just strip out the leading numbers, but this will cause a conflict, because, for wildly popular tunes such as "Shove That Pig's Foot A Little Further In The Fire", there are multiple copies somewhere in the list.
+
+All of these files are on a single line, so first write a regular expression to place each file name on its own line:
+    
+```
+0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Cherokee Shuffle.mp3
+0004 Walking Cane.mp3
+```
+
+Now write a regular expression to grab the four digit number and put it at the end of the title:
+
+
+```
+Georgia Horseshoe_0001.mp3
+Billy In The Lowground_0002.mp3
+Cherokee Shuffle_0003.mp3
+Walking Cane_0004.mp3
+```
+
+9. Here is a data frame with genus, species, and two numeric variables. 
+
+```
+Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55
+```
+Write a single regular expression to rearrange the data set like this:
+
+```
+C_pennsylvanicus,44
+C_herculeanus,3
+M_punctiventris,4
+L_neoniger,55
+```
+
+Beginning with the original data set, rearrange it to abbreviate the species name like this:
+
+```
+C_penn,44
+C_herc,3
+M_punc,4
+L_neon,55
+```

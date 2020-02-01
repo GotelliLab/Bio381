@@ -1,5 +1,5 @@
 ---
-title: 'Homework #4'
+title: 'Homework #3'
 author: "Nicholas J. Gotelli"
 date: 'January 29, 2020'
 output:
@@ -12,7 +12,7 @@ output:
 
 ## Regular Expression Puzzles
 
-For these problems, use your plain text editor (Atom, NotePadPro, or something else) to type in the problem text and use the search function to write a regular expression that gives the desired result. In your homework solution, provide the regular expression that works (there are several ways to solve each problem) within some plain text fencing on your markdown page, and add a bit of markdown text to explain what each element of your regular expression is doing. If you get stuck, give the solution that gets you as close as you can.
+For these problems, use your plain text editor (BBedit, NotePadPro, or something else) to type in the problem text and use the search function to write a regular expression that gives the desired result. In your homework solution, provide the regular expression that works (there are several ways to solve each problem) within some plain text fencing on your markdown page, and add a bit of markdown text to explain what each element of your regular expression is doing. If you get stuck, give the solution that gets you as close as you can.
 
 1. The primary reason for using Excel to set up data frames is that people like to have the columns aligned. However, if there are not too many columns, it may be faster to do the job in a plain text editor first and align the columns with tabs. In your text editor, type in (or copy and paste from here) the following lines of text:
 
