@@ -28,18 +28,18 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-January 14  | [Introduction](Lectures/Lecture01_F2020.html) | -  
-January 15  | - | [Homework #1](Homeworks/Homework01_F2020.html)
-January 16  | [GitHub](Lectures/Lecture02_F2020.html) | -  
+January 14  | [Introduction](Lectures/Lecture01_S2020.html) | -  
+January 15  | - | [Homework #1](Homeworks/Homework01_S2020.html)
+January 16  | [GitHub](Lectures/Lecture02_S2020.html) | -  
 January 21  | - | - 
-January 22 | - |  [Homework #2](Homeworks/Homework02_F2020.html)
+January 22 | - |  [Homework #2](Homeworks/Homework02_S2020.html)
 January 23  | - | -
-January 28 | [Regular Expressions](Lectures/Lecture05_F2020.html) | -
-January 29  |  -  | [Homework #3](Homeworks/Homework03_F2020.html)
-January 30  | [RStudio](Lectures/Lecture06_F2020.html) | -Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-September 18  | [Data Structures](Lectures/Lecture07_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-September 19  | - | -  | [Homework #4](Homeworks/Homework04_F2018.html)
-September 20  | [Lists and Subsetting](Lectures/Lecture08_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
+January 28 | [Regular Expressions](Lectures/Lecture05_S2020.html) | -
+January 29  |  -  | [Homework #3](Homeworks/Homework03_S2020.html)
+January 30  | [RStudio](Lectures/Lecture06_S2020.html) | - 
+February 4  | [Data Structures](Lectures/Lecture07_S2020.html) | - 
+February 5  | -  | [Homework #4](Homeworks/Homework04_S2020.html)
+February 6  | [Lists and Subsetting](Lectures/Lecture08_S2020.html)| - 
 September 25  | [dplyr](Lectures/Lecture09_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
 September 26  | - | -  | [Homework #5](Homeworks/Homework05_F2018.html)
 September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
@@ -67,17 +67,18 @@ November 15  | [ggplot IV](Lectures/Lecture24_F2018.html) | -  | -
 November 20  | *THANKSGIVING RECESS* | -  | -
 November 21  | *THANKSGIVING RECESS* | -  | -
 November 22  | *THANKSGIVING RECESS* | -  | -
-November 27  |**Presentations: Zoe, Aubrey ** | -  | -
-November 28  | - | -  |**Presentations: Jessica, Suraj, Baxter, Kendra **
-November 29  |**Presentations: Emily S., Anoob ** | -  | -
-December 4  |**Presentations: Charlotte, Emily P.  ** | -  | -
-December 5  | - | -  |**Presentations: Natalia, Emily B., Sam**
-December 6  |**Presentations: Brendan, Erika ** | -  | -
+November 27  | - | -  | -
+November 28  | - | -  | -
+November 29  | - | -  | -
+December 4   | - | -  | -
+December 5  | - | -  | -
+December 6  | - | -  | -
 
 ### Class Work
 
 Student  | Fun Fact
 ------------- | --------------
+Michael Ament  [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | ???
 Lauren Ash  [GitHub](https://github.com/lvash)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Benjamin Camber [GitHub](https://github.com/bencamber) [Portfolio](https://bencamber.github.io/bcamberBio381/)  | If I weren't in grad school I'd probably be trying to make "outlaw" electric automobiles, which resemble vintage cars but have modern internals and zero emissions!
 Lindsey Cathcart [GitHub](https://github.com/lindseycathcart) [Portfolio](https://lindseycathcart.github.io/CathcartBio381/)  | I have been stuck in quicksand.
