@@ -79,6 +79,7 @@ n-dimenions   | (array) |          |
 - integers, doubles are "numeric"
 - logical
 - (factor)
+- vector of lists!
 
 ### One dimensional atomic vectors
 ```{r, eval=FALSE}
