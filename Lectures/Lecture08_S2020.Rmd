@@ -210,8 +210,14 @@ zD[which(zD < 0.5)] # NA values dropped
 
 my_vec <- 1:12
 
-m <- matrix(
+m <- matrix(data=myvec,nrow=4)
+print(m)
 
+m <- matrix(data=myvec,ncol=3)
+print(m)
+
+m <- matrix(data=myvec,ncol=3,byrow=TRUE)
+print(m)
 ```
 ### Lists
 
