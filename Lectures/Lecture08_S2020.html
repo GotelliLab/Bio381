@@ -432,322 +432,453 @@ summary {
 </div>
 
 
-<div id="lists" class="section level3">
-<h3>Lists</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Lists are atomic vectors but each element </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># can hold things of different types and different sizes</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">4</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>), letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],pi)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">str</span>(myList)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">print</span>(myList)</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># using [] gives you a single item, which is of type list</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">myList[<span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">myList[<span class="dv">4</span>] <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="co"># no, can't subtract a number from a list!</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># single brackets gives you only the element in that slot, which is always of type list</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># to grab the object itself, use [[]]</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">myList[[<span class="dv">4</span>]]</a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">myList[[<span class="dv">4</span>]] <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="co"># now we have the contents</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># if a list has 10 elements it is like a train with 10 cars</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co"># [[5]] gives you the contents of car #5</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">##[c(4,5,6)] gives you a little train with cars 4, 5, and 6</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co"># once the double bracket is called, you can access individual elements as before</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26">myList[[<span class="dv">2</span>]]</a>
-<a class="sourceLine" id="cb1-27" data-line-number="27">myList[[<span class="dv">2</span>]][<span class="dv">4</span>,<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co"># name list items when they are created</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31">myList2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Tester=</span><span class="ot">FALSE</span>,<span class="dt">littleM=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"></a>
-<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co"># named elements can be accessed with dollar sign</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb1-35" data-line-number="35">myList2<span class="op">$</span>littleM[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36">myList2<span class="op">$</span>littleM <span class="co"># show whole matrix</span></a>
-<a class="sourceLine" id="cb1-37" data-line-number="37">myList2<span class="op">$</span>littleM[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span></a>
-<a class="sourceLine" id="cb1-38" data-line-number="38">myList2<span class="op">$</span>littleM[<span class="dv">2</span>] <span class="co"># what does this give you?</span></a>
-<a class="sourceLine" id="cb1-39" data-line-number="39"></a>
-<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co"># The &quot;unlist&quot; strings everything back into</span></a>
-<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="co"># a single atomic vector; coercion is used if there are mixed data types</span></a>
-<a class="sourceLine" id="cb1-42" data-line-number="42">unRolled &lt;-<span class="st"> </span><span class="kw">unlist</span>(myList2)</a>
-<a class="sourceLine" id="cb1-43" data-line-number="43"><span class="kw">print</span>(unRolled)</a>
-<a class="sourceLine" id="cb1-44" data-line-number="44"></a>
-<a class="sourceLine" id="cb1-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co"># The most common use of list: output from a linear model is a list</span></a>
-<a class="sourceLine" id="cb1-47" data-line-number="47"></a>
-<a class="sourceLine" id="cb1-48" data-line-number="48"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-49" data-line-number="49">yVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb1-50" data-line-number="50">xVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb1-51" data-line-number="51">myModel &lt;-<span class="st"> </span><span class="kw">lm</span>(yVar<span class="op">~</span>xVar)</a>
-<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="kw">qplot</span>(<span class="dt">x=</span>xVar,<span class="dt">y=</span>yVar)</a>
-<a class="sourceLine" id="cb1-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co"># look at output in myModel</span></a>
-<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="kw">print</span>(myModel)</a>
-<a class="sourceLine" id="cb1-56" data-line-number="56"></a>
-<a class="sourceLine" id="cb1-57" data-line-number="57"><span class="co"># full results are in summary</span></a>
-<a class="sourceLine" id="cb1-58" data-line-number="58"><span class="kw">print</span>(<span class="kw">summary</span>(myModel))</a>
-<a class="sourceLine" id="cb1-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb1-60" data-line-number="60"><span class="co"># drill down into summary to get what we want</span></a>
-<a class="sourceLine" id="cb1-61" data-line-number="61"><span class="kw">str</span>(<span class="kw">summary</span>(myModel))</a>
-<a class="sourceLine" id="cb1-62" data-line-number="62"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients</a>
-<a class="sourceLine" id="cb1-63" data-line-number="63"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="st">&quot;xVar&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</a>
-<a class="sourceLine" id="cb1-64" data-line-number="64"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb1-65" data-line-number="65"></a>
-<a class="sourceLine" id="cb1-66" data-line-number="66"><span class="co"># use unlist instead</span></a>
-<a class="sourceLine" id="cb1-67" data-line-number="67"></a>
-<a class="sourceLine" id="cb1-68" data-line-number="68">u &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">summary</span>(myModel))</a>
-<a class="sourceLine" id="cb1-69" data-line-number="69"><span class="kw">print</span>(u)</a>
-<a class="sourceLine" id="cb1-70" data-line-number="70"></a>
-<a class="sourceLine" id="cb1-71" data-line-number="71">mySlope &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients2</a>
-<a class="sourceLine" id="cb1-72" data-line-number="72">myPval &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients8</a></code></pre></div>
+<div id="creating-vectors" class="section level3">
+<h3>Creating Vectors</h3>
+<div id="creating-an-empty-vector-and-adding-to-it-avoid" class="section level4">
+<h4>Creating an empty vector and adding to it (avoid)</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># create an empty vector, specify mode &amp; length</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">z &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;numeric&quot;</span>,<span class="dt">length=</span><span class="dv">0</span>)  </a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">print</span>(z)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># now add elements to it</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">z &lt;-<span class="st"> </span><span class="kw">c</span>(z,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">print</span>(z)</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># This &quot;dynamic sizing&quot; is very SLOW!</span></a></code></pre></div>
 </div>
-<div id="data-frames" class="section level3">
-<h3>Data Frames</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># a data frame is a list of equal-lengthed vectors, each of which is a column</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">varA &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">varB &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Con&quot;</span>,<span class="st">&quot;LowN&quot;</span>,<span class="st">&quot;HighN&quot;</span>),<span class="dt">each=</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">varC &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">dFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(varA,varB,varC,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">print</span>(dFrame)</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw">str</span>(dFrame)</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co"># add another row with rbind</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># make sure you add a list, with each item corresponding to a column</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># newData &lt;- data.frame(list(varA=13,varB=&quot;HighN&quot;,varC=0.668),stringsAsFactors=FALSE)</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">newData &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">varA=</span><span class="dv">13</span>,<span class="dt">varB=</span><span class="st">&quot;HighN&quot;</span>,<span class="dt">varC=</span><span class="fl">0.668</span>)</a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="kw">print</span>(newData)</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="kw">str</span>(newData)</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># now bind them</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">dFrame &lt;-<span class="st"> </span><span class="kw">rbind</span>(dFrame,newData)</a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="kw">str</span>(dFrame)</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw">tail</span>(dFrame)</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co"># adding another column is a little easier</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#newVar &lt;- data.frame(varD=runif(13))</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">newVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">13</span>)</a>
-<a class="sourceLine" id="cb2-28" data-line-number="28">dFrame &lt;-<span class="st"> </span><span class="kw">cbind</span>(dFrame,newVar)</a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="kw">head</span>(dFrame)</a></code></pre></div>
+<div id="creating-a-vector-of-predefined-length-preferred" class="section level4">
+<h4>Creating a vector of predefined length (preferred)</h4>
 </div>
-<div id="important-distinctions-between-lists-and-matrices" class="section level3">
-<h3>Important Distinctions Between Lists and Matrices</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># create a matrix and data frame with same structures</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">zMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">zDframe &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(zMat) <span class="co"># coerce it</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">str</span>(zMat)    <span class="co"># an atomic vector with 2 dimensions</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">str</span>(zDframe) <span class="co"># note horizontal layout of variabes!</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw">head</span>(zDframe) <span class="co"># note automatic variable names</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="kw">head</span>(zMat) <span class="co"># note identical layout</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># element referencing is the same in both</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">zMat[<span class="dv">3</span>,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">zDframe[<span class="dv">3</span>,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co"># so is column referencing</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">zMat[,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">zDframe[,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">zDframe<span class="op">$</span>V3 <span class="co"># note use of $ and named variable column</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co"># and row referencing</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">zMat[<span class="dv">3</span>,]</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">zDframe[<span class="dv">3</span>,] <span class="co"># note variable names and row number shown</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co"># what happens if we reference only one dimension?</span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">zMat[<span class="dv">2</span>] <span class="co"># takes the second element of atomic vector (column fill)</span></a>
-<a class="sourceLine" id="cb3-27" data-line-number="27">zDframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector (= column) from list</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28">zDframe[<span class="st">&quot;V2&quot;</span>]</a>
-<a class="sourceLine" id="cb3-29" data-line-number="29">zDframe<span class="op">$</span>V2</a></code></pre></div>
+<div id="better-to-create-a-vector-of-pre-defined-length" class="section level4">
+<h4>Better to create a vector of pre-defined length</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># has 100 0s in a numeric vector</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">z &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100</span>) </a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">head</span>(z)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># but would be better to start with NAs</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">z &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">head</span>(z)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co"># but what is its type?</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">typeof</span>(z)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># take advantage of coercion!</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">z[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Washington&quot;</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="kw">head</span>(z)</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="kw">typeof</span>(z)</a></code></pre></div>
 </div>
-<div id="subscripting-with-missing-values" class="section level3">
-<h3>Subscripting with missing values</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">99</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">z &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span> <span class="co"># simple integer sequence</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">z &lt;-<span class="st"> </span><span class="kw">sample</span>(z) <span class="co"># reshuffle the ordering</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">print</span>(z)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="co"># create logical vector</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">z[z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>] <span class="co"># use as index call</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># use to get indices for logical</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">z[<span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>)] <span class="co"># does same as above</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">zD &lt;-<span class="st"> </span><span class="kw">c</span>(z,<span class="ot">NA</span>,<span class="ot">NA</span>) <span class="co"># contaminate it</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">zD[zD <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>] <span class="co"># NA values carried along!</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">zD[<span class="kw">which</span>(zD <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>)] <span class="co"># NA values dropped</span></a></code></pre></div>
 </div>
-<div id="eliminating-missing-values" class="section level3">
-<h3>Eliminating missing values</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># use complete.cases with atomic vector</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">print</span>(zD)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">complete.cases</span>(zD)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">zD[<span class="kw">complete.cases</span>(zD)] <span class="co"># clean them out</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw">which</span>(<span class="op">!</span><span class="kw">complete.cases</span>(zD)) <span class="co"># find NA slots</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># use with a matrix</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dt">nrow=</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">m[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">m[<span class="dv">5</span>,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="kw">print</span>(m)</a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">m[<span class="kw">complete.cases</span>(m),] </a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co"># now get complete cases for only certain columns!</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></a></code></pre></div>
+<div id="efficiently-creating-a-vector-with-many-names" class="section level3">
+<h3>Efficiently creating a vector with many names</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">my_vector &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">my_names &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(my_vector)),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">names</span>(my_vector) &lt;-<span class="st"> </span>my_names</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">head</span>(my_vector)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">str</span>(my_vector)</a></code></pre></div>
+</div>
+<div id="using-rep-to-repeat-elements-and-create-vectors" class="section level3">
+<h3>Using rep to repeat elements and create vectors</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># rep for repeating elements</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">6</span>) <span class="co"># give the element (or vector!) and number of times to repeat</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">rep</span>(<span class="dt">x=</span><span class="fl">0.5</span>,<span class="dt">times=</span><span class="dv">6</span>) <span class="co"># using the argument names is always prudent</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">rep</span>(<span class="dt">times=</span><span class="dv">6</span>,<span class="dt">x=</span><span class="fl">0.5</span>) <span class="co"># with argument names, order is not important</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">my_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">rep</span>(<span class="dt">x=</span>my_vec,<span class="dt">times=</span><span class="dv">2</span>) <span class="co"># applies to entire vectors</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw">rep</span>(<span class="dt">x=</span>my_vec,<span class="dt">each=</span><span class="dv">2</span>) <span class="co"># repeat each element individually</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">rep</span>(<span class="dt">x=</span>my_vec,<span class="dt">times=</span>my_vec) <span class="co"># what does this do?</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw">rep</span>(<span class="dt">x=</span>my_vec,<span class="dt">each=</span>my_vec) <span class="co"># and this?</span></a></code></pre></div>
+</div>
+<div id="using-seq-to-create-regular-sequences" class="section level3">
+<h3>Using seq to create regular sequences</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">4</span>) <span class="co"># set limits for integer sequences</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="dv">2</span><span class="op">:</span><span class="dv">4</span> <span class="co"># very common short cut with no explicit function wrappers</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">4</span>,<span class="dt">by=</span><span class="fl">0.5</span>) <span class="co"># use a by function can generate real numbers</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">4</span>,<span class="dt">length=</span><span class="dv">7</span>) <span class="co"># sometimes easier to just specify the length</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">my_vec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x) <span class="co"># commonly used, but actually slow</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">print</span>(my_vec)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw">seq_along</span>(my_vec) <span class="co"># much faster for models and big data!</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw">seq_len</span>(<span class="dv">5</span>) <span class="co"># this is also faster than 1:5</span></a></code></pre></div>
+</div>
+<div id="using-rnorm-and-runif-to-create-vectors-of-random-numbers" class="section level3">
+<h3>Using rnorm and runif to create vectors of random numbers</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">runif</span>(<span class="dv">5</span>) <span class="co"># 5 random uniform values betweeon 0 and 1</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">runif</span>(<span class="dt">n=</span><span class="dv">3</span>,<span class="dt">min=</span><span class="dv">100</span>, <span class="dt">max=</span><span class="dv">101</span>) <span class="co"># 3 random uniform values between 100 and 101</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">rnorm</span>(<span class="dv">6</span>) <span class="co"># 6 random normal values with mean 0 and standard deviation 1</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">30</span>) <span class="co"># 5 random normal values with mean 100 and sd 30</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">## Explore distributions by sampling and plotting</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="kw">library</span>(ggplot2) <span class="co"># do this at the very start</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">z &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000</span>) <span class="co">#default uniform (0,1)</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="kw">qplot</span>(<span class="dt">x=</span>z)</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co">#default normal (0,1)</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">qplot</span>(<span class="dt">x=</span>z)</a></code></pre></div>
+</div>
+<div id="using-sample-to-draw-random-values-from-an-existing-vector" class="section level3">
+<h3>Using sample to draw random values from an existing vector</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">long_vec &lt;-<span class="st"> </span><span class="kw">seq_len</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">typeof</span>(long_vec)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">str</span>(long_vec)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec) <span class="co"># with no other params, this reorders the vector</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec, <span class="dt">size=</span><span class="dv">3</span>) <span class="co"># specify a number (sampling without replacement)</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec,<span class="dt">size=</span><span class="dv">16</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>) <span class="co"># can generate duplicates</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">my_weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">20</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">5</span>)) <span class="co"># create a set of non-zero positive weights (integer or real)</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="kw">print</span>(my_weights)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec,<span class="dt">replace=</span><span class="ot">TRUE</span>,<span class="dt">prob=</span>my_weights) <span class="co"># sampling with replacement and weights</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec,<span class="dt">replace=</span><span class="ot">FALSE</span>,<span class="dt">prob=</span>my_weights) <span class="co"># sampling without replacement and weights</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="kw">sample</span>(<span class="dt">x=</span>long_vec,<span class="dt">replace=</span><span class="ot">TRUE</span>,<span class="dt">prob=</span>long_vec) <span class="co"># what does this do?</span></a></code></pre></div>
 </div>
 <div id="techniques-for-subsetting-atomic-vectors" class="section level3">
 <h3>Techniques for subsetting atomic vectors</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.1</span>, <span class="fl">9.2</span>, <span class="fl">1.3</span>, <span class="fl">0.4</span>, <span class="fl">7.5</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># positive index values</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># negative index values to exclude elements</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">z[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co"># create a vector of logical elements to select conditions</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">z[z<span class="op">&lt;</span><span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co"># equivalent to the following</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">tester &lt;-<span class="st"> </span>z<span class="op">&lt;</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="kw">print</span>(tester)</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">z[tester]</a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co"># also use which() function to find subscript indicators</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co"># this works, but is overkill; just use the boolean operator</span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22">z[<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)]</a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co"># can also use length() for relative positioning to last element</span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25">z[<span class="op">-</span>(<span class="kw">length</span>(z)<span class="op">:</span>(<span class="kw">length</span>(z)<span class="op">-</span><span class="dv">2</span>))]</a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co"># also can subset using named vector elements</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="kw">names</span>(z) &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb6-29" data-line-number="29">z[<span class="kw">c</span>(<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.1</span>, <span class="fl">9.2</span>, <span class="fl">1.3</span>, <span class="fl">0.4</span>, <span class="fl">7.5</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># positive index values</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># negative index values to exclude elements</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">z[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co"># create a vector of logical elements to select conditions</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">z[z<span class="op">&lt;</span><span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co"># equivalent to the following</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">tester &lt;-<span class="st"> </span>z<span class="op">&lt;</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="kw">print</span>(tester)</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">z[tester]</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co"># also use which() function to find subscript indicators</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"><span class="co"># this works, but is overkill; just use the boolean operator</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">z[<span class="kw">which</span>(z<span class="op">&lt;</span><span class="dv">3</span>)]</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"><span class="co"># can also use length() for relative positioning to last element</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">z[<span class="op">-</span>(<span class="kw">length</span>(z)<span class="op">:</span>(<span class="kw">length</span>(z)<span class="op">-</span><span class="dv">2</span>))]</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co"># also can subset using named vector elements</span></a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="kw">names</span>(z) &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb8-29" data-line-number="29">z[<span class="kw">c</span>(<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)]</a></code></pre></div>
+</div>
+<div id="relational-operators-in-r" class="section level3">
+<h3>Relational operators in R</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># &lt;   less than</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co"># &gt;   greater than</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># &lt;=  less than or equal to</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># &gt;=  greater than or equal to</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># ==  equal to</span></a></code></pre></div>
+</div>
+<div id="logical-operators" class="section level3">
+<h3>Logical operators</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># ! not</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co"># &amp; and (vector)</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co"># | or (vector)</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co"># xor(x,y)</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co"># &amp;&amp; and (only for first element)</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co"># || or (only for first element)</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">x <span class="op">==</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">x <span class="op">!=</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">x <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>y <span class="op">==</span><span class="st"> </span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">x <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>y <span class="op">==</span><span class="st"> </span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">x <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">|</span><span class="st"> </span>y <span class="op">==</span><span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="kw">xor</span>(x<span class="op">==</span><span class="dv">3</span>, y<span class="op">==</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">x <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;&amp;</span><span class="st"> </span>y <span class="op">==</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+</div>
+<div id="subscripting-with-missing-values" class="section level3">
+<h3>Subscripting with missing values</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">90</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">z &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>) <span class="co"># simple integer sequence</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">print</span>(z)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">z <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span> <span class="co"># create logical vector</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">z[z <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>] <span class="co"># use as index call</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>) <span class="co"># use to get indices for logical</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">z[<span class="kw">which</span>(z <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>)] <span class="co"># does same as above</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">zD &lt;-<span class="st"> </span><span class="kw">c</span>(z,<span class="ot">NA</span>,<span class="ot">NA</span>) <span class="co"># contaminate it</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">zD[zD <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>] <span class="co"># NA values carried along!</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">zD[<span class="kw">which</span>(zD <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>)] <span class="co"># NA values dropped</span></a></code></pre></div>
+</div>
+<div id="matrices" class="section level3">
+<h3>Matrices</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># a matrix is an atomic vector that is organized into rows and columns</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">my_vec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(</a></code></pre></div>
+</div>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># Lists are atomic vectors but each element </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co"># can hold things of different types and different sizes</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">4</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>), letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],pi)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="kw">str</span>(myList)</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw">print</span>(myList)</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co"># using [] gives you a single item, which is of type list</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">myList[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">myList[<span class="dv">4</span>] <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="co"># no, can't subtract a number from a list!</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="co"># single brackets gives you only the element in that slot, which is always of type list</span></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="co"># to grab the object itself, use [[]]</span></a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">myList[[<span class="dv">4</span>]]</a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">myList[[<span class="dv">4</span>]] <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="co"># now we have the contents</span></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb13-20" data-line-number="20"><span class="co"># if a list has 10 elements it is like a train with 10 cars</span></a>
+<a class="sourceLine" id="cb13-21" data-line-number="21"><span class="co"># [[5]] gives you the contents of car #5</span></a>
+<a class="sourceLine" id="cb13-22" data-line-number="22"><span class="co">##[c(4,5,6)] gives you a little train with cars 4, 5, and 6</span></a>
+<a class="sourceLine" id="cb13-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb13-24" data-line-number="24"><span class="co"># once the double bracket is called, you can access individual elements as before</span></a>
+<a class="sourceLine" id="cb13-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb13-26" data-line-number="26">myList[[<span class="dv">2</span>]]</a>
+<a class="sourceLine" id="cb13-27" data-line-number="27">myList[[<span class="dv">2</span>]][<span class="dv">4</span>,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb13-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb13-29" data-line-number="29"><span class="co"># name list items when they are created</span></a>
+<a class="sourceLine" id="cb13-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb13-31" data-line-number="31">myList2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Tester=</span><span class="ot">FALSE</span>,<span class="dt">littleM=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb13-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb13-33" data-line-number="33"><span class="co"># named elements can be accessed with dollar sign</span></a>
+<a class="sourceLine" id="cb13-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb13-35" data-line-number="35">myList2<span class="op">$</span>littleM[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span></a>
+<a class="sourceLine" id="cb13-36" data-line-number="36">myList2<span class="op">$</span>littleM <span class="co"># show whole matrix</span></a>
+<a class="sourceLine" id="cb13-37" data-line-number="37">myList2<span class="op">$</span>littleM[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span></a>
+<a class="sourceLine" id="cb13-38" data-line-number="38">myList2<span class="op">$</span>littleM[<span class="dv">2</span>] <span class="co"># what does this give you?</span></a>
+<a class="sourceLine" id="cb13-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb13-40" data-line-number="40"><span class="co"># The &quot;unlist&quot; strings everything back into</span></a>
+<a class="sourceLine" id="cb13-41" data-line-number="41"><span class="co"># a single atomic vector; coercion is used if there are mixed data types</span></a>
+<a class="sourceLine" id="cb13-42" data-line-number="42">unRolled &lt;-<span class="st"> </span><span class="kw">unlist</span>(myList2)</a>
+<a class="sourceLine" id="cb13-43" data-line-number="43"><span class="kw">print</span>(unRolled)</a>
+<a class="sourceLine" id="cb13-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb13-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb13-46" data-line-number="46"><span class="co"># The most common use of list: output from a linear model is a list</span></a>
+<a class="sourceLine" id="cb13-47" data-line-number="47"></a>
+<a class="sourceLine" id="cb13-48" data-line-number="48"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb13-49" data-line-number="49">yVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb13-50" data-line-number="50">xVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb13-51" data-line-number="51">myModel &lt;-<span class="st"> </span><span class="kw">lm</span>(yVar<span class="op">~</span>xVar)</a>
+<a class="sourceLine" id="cb13-52" data-line-number="52"><span class="kw">qplot</span>(<span class="dt">x=</span>xVar,<span class="dt">y=</span>yVar)</a>
+<a class="sourceLine" id="cb13-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb13-54" data-line-number="54"><span class="co"># look at output in myModel</span></a>
+<a class="sourceLine" id="cb13-55" data-line-number="55"><span class="kw">print</span>(myModel)</a>
+<a class="sourceLine" id="cb13-56" data-line-number="56"></a>
+<a class="sourceLine" id="cb13-57" data-line-number="57"><span class="co"># full results are in summary</span></a>
+<a class="sourceLine" id="cb13-58" data-line-number="58"><span class="kw">print</span>(<span class="kw">summary</span>(myModel))</a>
+<a class="sourceLine" id="cb13-59" data-line-number="59"></a>
+<a class="sourceLine" id="cb13-60" data-line-number="60"><span class="co"># drill down into summary to get what we want</span></a>
+<a class="sourceLine" id="cb13-61" data-line-number="61"><span class="kw">str</span>(<span class="kw">summary</span>(myModel))</a>
+<a class="sourceLine" id="cb13-62" data-line-number="62"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients</a>
+<a class="sourceLine" id="cb13-63" data-line-number="63"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="st">&quot;xVar&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</a>
+<a class="sourceLine" id="cb13-64" data-line-number="64"><span class="kw">summary</span>(myModel)<span class="op">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb13-65" data-line-number="65"></a>
+<a class="sourceLine" id="cb13-66" data-line-number="66"><span class="co"># use unlist instead</span></a>
+<a class="sourceLine" id="cb13-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb13-68" data-line-number="68">u &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">summary</span>(myModel))</a>
+<a class="sourceLine" id="cb13-69" data-line-number="69"><span class="kw">print</span>(u)</a>
+<a class="sourceLine" id="cb13-70" data-line-number="70"></a>
+<a class="sourceLine" id="cb13-71" data-line-number="71">mySlope &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients2</a>
+<a class="sourceLine" id="cb13-72" data-line-number="72">myPval &lt;-<span class="st"> </span>u<span class="op">$</span>coefficients8</a></code></pre></div>
+</div>
+<div id="data-frames" class="section level3">
+<h3>Data Frames</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># a data frame is a list of equal-lengthed vectors, each of which is a column</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">varA &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">varB &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Con&quot;</span>,<span class="st">&quot;LowN&quot;</span>,<span class="st">&quot;HighN&quot;</span>),<span class="dt">each=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">varC &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">dFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(varA,varB,varC,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">print</span>(dFrame)</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="kw">str</span>(dFrame)</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co"># add another row with rbind</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co"># make sure you add a list, with each item corresponding to a column</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co"># newData &lt;- data.frame(list(varA=13,varB=&quot;HighN&quot;,varC=0.668),stringsAsFactors=FALSE)</span></a>
+<a class="sourceLine" id="cb14-14" data-line-number="14">newData &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">varA=</span><span class="dv">13</span>,<span class="dt">varB=</span><span class="st">&quot;HighN&quot;</span>,<span class="dt">varC=</span><span class="fl">0.668</span>)</a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="kw">print</span>(newData)</a>
+<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="kw">str</span>(newData)</a>
+<a class="sourceLine" id="cb14-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co"># now bind them</span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19">dFrame &lt;-<span class="st"> </span><span class="kw">rbind</span>(dFrame,newData)</a>
+<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="kw">str</span>(dFrame)</a>
+<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="kw">tail</span>(dFrame)</a>
+<a class="sourceLine" id="cb14-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb14-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co"># adding another column is a little easier</span></a>
+<a class="sourceLine" id="cb14-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#newVar &lt;- data.frame(varD=runif(13))</span></a>
+<a class="sourceLine" id="cb14-27" data-line-number="27">newVar &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb14-28" data-line-number="28">dFrame &lt;-<span class="st"> </span><span class="kw">cbind</span>(dFrame,newVar)</a>
+<a class="sourceLine" id="cb14-29" data-line-number="29"><span class="kw">head</span>(dFrame)</a></code></pre></div>
+</div>
+<div id="important-distinctions-between-lists-and-matrices" class="section level3">
+<h3>Important Distinctions Between Lists and Matrices</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># create a matrix and data frame with same structures</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">zMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">zDframe &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(zMat) <span class="co"># coerce it</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="kw">str</span>(zMat)    <span class="co"># an atomic vector with 2 dimensions</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="kw">str</span>(zDframe) <span class="co"># note horizontal layout of variabes!</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="kw">head</span>(zDframe) <span class="co"># note automatic variable names</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="kw">head</span>(zMat) <span class="co"># note identical layout</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co"># element referencing is the same in both</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">zMat[<span class="dv">3</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">zDframe[<span class="dv">3</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co"># so is column referencing</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17">zMat[,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb15-18" data-line-number="18">zDframe[,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb15-19" data-line-number="19">zDframe<span class="op">$</span>V3 <span class="co"># note use of $ and named variable column</span></a>
+<a class="sourceLine" id="cb15-20" data-line-number="20"><span class="co"># and row referencing</span></a>
+<a class="sourceLine" id="cb15-21" data-line-number="21">zMat[<span class="dv">3</span>,]</a>
+<a class="sourceLine" id="cb15-22" data-line-number="22">zDframe[<span class="dv">3</span>,] <span class="co"># note variable names and row number shown</span></a>
+<a class="sourceLine" id="cb15-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co"># what happens if we reference only one dimension?</span></a>
+<a class="sourceLine" id="cb15-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb15-26" data-line-number="26">zMat[<span class="dv">2</span>] <span class="co"># takes the second element of atomic vector (column fill)</span></a>
+<a class="sourceLine" id="cb15-27" data-line-number="27">zDframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector (= column) from list</span></a>
+<a class="sourceLine" id="cb15-28" data-line-number="28">zDframe[<span class="st">&quot;V2&quot;</span>]</a>
+<a class="sourceLine" id="cb15-29" data-line-number="29">zDframe<span class="op">$</span>V2</a></code></pre></div>
+</div>
+<div id="eliminating-missing-values" class="section level3">
+<h3>Eliminating missing values</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># use complete.cases with atomic vector</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">print</span>(zD)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">complete.cases</span>(zD)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">zD[<span class="kw">complete.cases</span>(zD)] <span class="co"># clean them out</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="kw">which</span>(<span class="op">!</span><span class="kw">complete.cases</span>(zD)) <span class="co"># find NA slots</span></a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10"><span class="co"># use with a matrix</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dt">nrow=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">m[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">m[<span class="dv">5</span>,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb16-15" data-line-number="15"><span class="kw">print</span>(m)</a>
+<a class="sourceLine" id="cb16-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb16-17" data-line-number="17">m[<span class="kw">complete.cases</span>(m),] </a>
+<a class="sourceLine" id="cb16-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb16-19" data-line-number="19"><span class="co"># now get complete cases for only certain columns!</span></a>
+<a class="sourceLine" id="cb16-20" data-line-number="20">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span></a>
+<a class="sourceLine" id="cb16-21" data-line-number="21">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span></a>
+<a class="sourceLine" id="cb16-22" data-line-number="22">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span></a>
+<a class="sourceLine" id="cb16-23" data-line-number="23">m[<span class="kw">complete.cases</span>(m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></a></code></pre></div>
 </div>
 <div id="techniques-for-assignments-and-subsetting-matrices-and-data-frames" class="section level3">
 <h3>Techniques for assignments and subsetting matrices and data frames</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># same principle applied to both dimensions of a matrix</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span>,<span class="dt">nrow=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">dimnames</span>(m) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,LETTERS[<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)],<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;Site&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">print</span>(m)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># subsetting based on elements</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co"># same subsetting based on character strings (but no negative elements)</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">m[<span class="kw">c</span>(<span class="st">&quot;SpeciesA&quot;</span>,<span class="st">&quot;SpeciesB&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;Site3&quot;</span>,<span class="st">&quot;Site4&quot;</span>)]</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co"># use blanks before or after comma to indicate full rows or columns</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ]    </a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">m[ ,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co"># use logicals for more complex subsetting</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co"># e.g. select all columns for which the totals are &gt; 15</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co"># first try this logical</span></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">m[ , <span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>]</a>
-<a class="sourceLine" id="cb7-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co"># e.g. select all rows for which the row total is 22</span></a>
-<a class="sourceLine" id="cb7-26" data-line-number="26">m[<span class="kw">rowSums</span>(m)<span class="op">==</span><span class="dv">22</span>, ]</a>
-<a class="sourceLine" id="cb7-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb7-28" data-line-number="28"><span class="co"># note == for logical equal and != for logical NOT equal</span></a>
-<a class="sourceLine" id="cb7-29" data-line-number="29">m[<span class="kw">rowSums</span>(m)<span class="op">!=</span><span class="dv">22</span>, ]</a>
-<a class="sourceLine" id="cb7-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co"># e.g., choose all rows for which numbers for site 1 are less than 3</span></a>
-<a class="sourceLine" id="cb7-32" data-line-number="32"><span class="co"># AND choose all columns for which the numbers for species A are less than 5</span></a>
-<a class="sourceLine" id="cb7-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb7-34" data-line-number="34"><span class="co"># first, try out this logical for rows</span></a>
-<a class="sourceLine" id="cb7-35" data-line-number="35">m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb7-36" data-line-number="36"></a>
-<a class="sourceLine" id="cb7-37" data-line-number="37"><span class="co"># add this in and select with all columns</span></a>
-<a class="sourceLine" id="cb7-38" data-line-number="38">m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>, ]</a>
-<a class="sourceLine" id="cb7-39" data-line-number="39"></a>
-<a class="sourceLine" id="cb7-40" data-line-number="40"><span class="co"># and try this logical for columns</span></a>
-<a class="sourceLine" id="cb7-41" data-line-number="41">m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb7-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb7-43" data-line-number="43"><span class="co"># add this in and select with all rows</span></a>
-<a class="sourceLine" id="cb7-44" data-line-number="44">m[ ,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb7-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb7-46" data-line-number="46"><span class="co"># now combine both</span></a>
-<a class="sourceLine" id="cb7-47" data-line-number="47">m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb7-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb7-49" data-line-number="49"><span class="co"># and compare with full m</span></a>
-<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="kw">print</span>(m)</a>
-<a class="sourceLine" id="cb7-51" data-line-number="51"></a>
-<a class="sourceLine" id="cb7-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb7-53" data-line-number="53"><span class="co"># caution! simple subscripting to a vector changes the data type!</span></a>
-<a class="sourceLine" id="cb7-54" data-line-number="54">z &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ]</a>
-<a class="sourceLine" id="cb7-55" data-line-number="55"><span class="kw">print</span>(z)</a>
-<a class="sourceLine" id="cb7-56" data-line-number="56"><span class="kw">str</span>(z)</a>
-<a class="sourceLine" id="cb7-57" data-line-number="57"></a>
-<a class="sourceLine" id="cb7-58" data-line-number="58"><span class="co"># to keep this as a matrix, must add the drop=FALSE option</span></a>
-<a class="sourceLine" id="cb7-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb7-60" data-line-number="60">z2 &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ,drop=<span class="ot">FALSE</span>]</a>
-<a class="sourceLine" id="cb7-61" data-line-number="61"><span class="kw">print</span>(z2)</a>
-<a class="sourceLine" id="cb7-62" data-line-number="62"><span class="kw">str</span>(z2)</a>
-<a class="sourceLine" id="cb7-63" data-line-number="63"></a>
-<a class="sourceLine" id="cb7-64" data-line-number="64"><span class="co"># caution #2, always use both dimensions, or you will select a single matrix element</span></a>
-<a class="sourceLine" id="cb7-65" data-line-number="65"></a>
-<a class="sourceLine" id="cb7-66" data-line-number="66">m2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="kw">runif</span>(<span class="dv">9</span>),<span class="dt">nrow=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb7-67" data-line-number="67"><span class="kw">print</span>(m2)</a>
-<a class="sourceLine" id="cb7-68" data-line-number="68">m2[<span class="dv">2</span>, ]</a>
-<a class="sourceLine" id="cb7-69" data-line-number="69"></a>
-<a class="sourceLine" id="cb7-70" data-line-number="70"><span class="co"># but now this will just pull the second element</span></a>
-<a class="sourceLine" id="cb7-71" data-line-number="71">m2[<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb7-72" data-line-number="72"></a>
-<a class="sourceLine" id="cb7-73" data-line-number="73"><span class="co"># probably should specify row and column indicators</span></a>
-<a class="sourceLine" id="cb7-74" data-line-number="74">m2[<span class="dv">2</span>,<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb7-75" data-line-number="75"><span class="co"># also use logicals for assignments, not just subsetting</span></a>
-<a class="sourceLine" id="cb7-76" data-line-number="76">m2[m2<span class="op">&gt;</span><span class="fl">0.6</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb7-77" data-line-number="77"><span class="kw">print</span>(m2)</a>
-<a class="sourceLine" id="cb7-78" data-line-number="78"></a>
-<a class="sourceLine" id="cb7-79" data-line-number="79"></a>
-<a class="sourceLine" id="cb7-80" data-line-number="80"><span class="co"># A few changes for working with data frames:</span></a>
-<a class="sourceLine" id="cb7-81" data-line-number="81"></a>
-<a class="sourceLine" id="cb7-82" data-line-number="82">data &lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb7-83" data-line-number="83"><span class="kw">str</span>(data)</a>
-<a class="sourceLine" id="cb7-84" data-line-number="84"></a>
-<a class="sourceLine" id="cb7-85" data-line-number="85"><span class="co"># the data frame is a list of vectors, so it is set up like a matrix</span></a>
-<a class="sourceLine" id="cb7-86" data-line-number="86">data[<span class="dv">3</span>,<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb7-87" data-line-number="87"></a>
-<a class="sourceLine" id="cb7-88" data-line-number="88"><span class="co"># you can specify just the column names</span></a>
-<a class="sourceLine" id="cb7-89" data-line-number="89"></a>
-<a class="sourceLine" id="cb7-90" data-line-number="90">dataNames &lt;-<span class="st"> </span>data[<span class="kw">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]</a>
-<a class="sourceLine" id="cb7-91" data-line-number="91"><span class="kw">str</span>(dataNames)</a>
-<a class="sourceLine" id="cb7-92" data-line-number="92"></a>
-<a class="sourceLine" id="cb7-93" data-line-number="93"><span class="co"># or in matrix style</span></a>
-<a class="sourceLine" id="cb7-94" data-line-number="94">dataNames &lt;-<span class="st"> </span>data[ ,<span class="kw">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]</a>
-<a class="sourceLine" id="cb7-95" data-line-number="95"><span class="kw">str</span>(dataNames)</a>
-<a class="sourceLine" id="cb7-96" data-line-number="96"></a>
-<a class="sourceLine" id="cb7-97" data-line-number="97"></a>
-<a class="sourceLine" id="cb7-98" data-line-number="98"><span class="co"># as before, with matrices, selecting only a single column changes it</span></a>
-<a class="sourceLine" id="cb7-99" data-line-number="99"><span class="co"># from a data frame to a vector</span></a>
-<a class="sourceLine" id="cb7-100" data-line-number="100">dataNames &lt;-<span class="st"> </span>data[ ,<span class="st">&quot;county&quot;</span>]</a>
-<a class="sourceLine" id="cb7-101" data-line-number="101"><span class="kw">str</span>(dataNames)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># same principle applied to both dimensions of a matrix</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span>,<span class="dt">nrow=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">dimnames</span>(m) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;Species&quot;</span>,LETTERS[<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)],<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;Site&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="kw">print</span>(m)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co"># subsetting based on elements</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co"># same subsetting based on character strings (but no negative elements)</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">m[<span class="kw">c</span>(<span class="st">&quot;SpeciesA&quot;</span>,<span class="st">&quot;SpeciesB&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;Site3&quot;</span>,<span class="st">&quot;Site4&quot;</span>)]</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="co"># use blanks before or after comma to indicate full rows or columns</span></a>
+<a class="sourceLine" id="cb17-12" data-line-number="12">m[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ]    </a>
+<a class="sourceLine" id="cb17-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb17-14" data-line-number="14">m[ ,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb17-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb17-16" data-line-number="16"><span class="co"># use logicals for more complex subsetting</span></a>
+<a class="sourceLine" id="cb17-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb17-18" data-line-number="18"><span class="co"># e.g. select all columns for which the totals are &gt; 15</span></a>
+<a class="sourceLine" id="cb17-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb17-20" data-line-number="20"><span class="co"># first try this logical</span></a>
+<a class="sourceLine" id="cb17-21" data-line-number="21"><span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb17-22" data-line-number="22">m[ , <span class="kw">colSums</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>]</a>
+<a class="sourceLine" id="cb17-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb17-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb17-25" data-line-number="25"><span class="co"># e.g. select all rows for which the row total is 22</span></a>
+<a class="sourceLine" id="cb17-26" data-line-number="26">m[<span class="kw">rowSums</span>(m)<span class="op">==</span><span class="dv">22</span>, ]</a>
+<a class="sourceLine" id="cb17-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb17-28" data-line-number="28"><span class="co"># note == for logical equal and != for logical NOT equal</span></a>
+<a class="sourceLine" id="cb17-29" data-line-number="29">m[<span class="kw">rowSums</span>(m)<span class="op">!=</span><span class="dv">22</span>, ]</a>
+<a class="sourceLine" id="cb17-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb17-31" data-line-number="31"><span class="co"># e.g., choose all rows for which numbers for site 1 are less than 3</span></a>
+<a class="sourceLine" id="cb17-32" data-line-number="32"><span class="co"># AND choose all columns for which the numbers for species A are less than 5</span></a>
+<a class="sourceLine" id="cb17-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb17-34" data-line-number="34"><span class="co"># first, try out this logical for rows</span></a>
+<a class="sourceLine" id="cb17-35" data-line-number="35">m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb17-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb17-37" data-line-number="37"><span class="co"># add this in and select with all columns</span></a>
+<a class="sourceLine" id="cb17-38" data-line-number="38">m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>, ]</a>
+<a class="sourceLine" id="cb17-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb17-40" data-line-number="40"><span class="co"># and try this logical for columns</span></a>
+<a class="sourceLine" id="cb17-41" data-line-number="41">m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb17-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb17-43" data-line-number="43"><span class="co"># add this in and select with all rows</span></a>
+<a class="sourceLine" id="cb17-44" data-line-number="44">m[ ,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb17-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb17-46" data-line-number="46"><span class="co"># now combine both</span></a>
+<a class="sourceLine" id="cb17-47" data-line-number="47">m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="op">&lt;</span><span class="dv">3</span>,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="op">&lt;</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb17-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb17-49" data-line-number="49"><span class="co"># and compare with full m</span></a>
+<a class="sourceLine" id="cb17-50" data-line-number="50"><span class="kw">print</span>(m)</a>
+<a class="sourceLine" id="cb17-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb17-52" data-line-number="52"></a>
+<a class="sourceLine" id="cb17-53" data-line-number="53"><span class="co"># caution! simple subscripting to a vector changes the data type!</span></a>
+<a class="sourceLine" id="cb17-54" data-line-number="54">z &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ]</a>
+<a class="sourceLine" id="cb17-55" data-line-number="55"><span class="kw">print</span>(z)</a>
+<a class="sourceLine" id="cb17-56" data-line-number="56"><span class="kw">str</span>(z)</a>
+<a class="sourceLine" id="cb17-57" data-line-number="57"></a>
+<a class="sourceLine" id="cb17-58" data-line-number="58"><span class="co"># to keep this as a matrix, must add the drop=FALSE option</span></a>
+<a class="sourceLine" id="cb17-59" data-line-number="59"></a>
+<a class="sourceLine" id="cb17-60" data-line-number="60">z2 &lt;-<span class="st"> </span>m[<span class="dv">1</span>, ,drop=<span class="ot">FALSE</span>]</a>
+<a class="sourceLine" id="cb17-61" data-line-number="61"><span class="kw">print</span>(z2)</a>
+<a class="sourceLine" id="cb17-62" data-line-number="62"><span class="kw">str</span>(z2)</a>
+<a class="sourceLine" id="cb17-63" data-line-number="63"></a>
+<a class="sourceLine" id="cb17-64" data-line-number="64"><span class="co"># caution #2, always use both dimensions, or you will select a single matrix element</span></a>
+<a class="sourceLine" id="cb17-65" data-line-number="65"></a>
+<a class="sourceLine" id="cb17-66" data-line-number="66">m2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="kw">runif</span>(<span class="dv">9</span>),<span class="dt">nrow=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb17-67" data-line-number="67"><span class="kw">print</span>(m2)</a>
+<a class="sourceLine" id="cb17-68" data-line-number="68">m2[<span class="dv">2</span>, ]</a>
+<a class="sourceLine" id="cb17-69" data-line-number="69"></a>
+<a class="sourceLine" id="cb17-70" data-line-number="70"><span class="co"># but now this will just pull the second element</span></a>
+<a class="sourceLine" id="cb17-71" data-line-number="71">m2[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb17-72" data-line-number="72"></a>
+<a class="sourceLine" id="cb17-73" data-line-number="73"><span class="co"># probably should specify row and column indicators</span></a>
+<a class="sourceLine" id="cb17-74" data-line-number="74">m2[<span class="dv">2</span>,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb17-75" data-line-number="75"><span class="co"># also use logicals for assignments, not just subsetting</span></a>
+<a class="sourceLine" id="cb17-76" data-line-number="76">m2[m2<span class="op">&gt;</span><span class="fl">0.6</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb17-77" data-line-number="77"><span class="kw">print</span>(m2)</a>
+<a class="sourceLine" id="cb17-78" data-line-number="78"></a>
+<a class="sourceLine" id="cb17-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb17-80" data-line-number="80"><span class="co"># A few changes for working with data frames:</span></a>
+<a class="sourceLine" id="cb17-81" data-line-number="81"></a>
+<a class="sourceLine" id="cb17-82" data-line-number="82">data &lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb17-83" data-line-number="83"><span class="kw">str</span>(data)</a>
+<a class="sourceLine" id="cb17-84" data-line-number="84"></a>
+<a class="sourceLine" id="cb17-85" data-line-number="85"><span class="co"># the data frame is a list of vectors, so it is set up like a matrix</span></a>
+<a class="sourceLine" id="cb17-86" data-line-number="86">data[<span class="dv">3</span>,<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb17-87" data-line-number="87"></a>
+<a class="sourceLine" id="cb17-88" data-line-number="88"><span class="co"># you can specify just the column names</span></a>
+<a class="sourceLine" id="cb17-89" data-line-number="89"></a>
+<a class="sourceLine" id="cb17-90" data-line-number="90">dataNames &lt;-<span class="st"> </span>data[<span class="kw">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]</a>
+<a class="sourceLine" id="cb17-91" data-line-number="91"><span class="kw">str</span>(dataNames)</a>
+<a class="sourceLine" id="cb17-92" data-line-number="92"></a>
+<a class="sourceLine" id="cb17-93" data-line-number="93"><span class="co"># or in matrix style</span></a>
+<a class="sourceLine" id="cb17-94" data-line-number="94">dataNames &lt;-<span class="st"> </span>data[ ,<span class="kw">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]</a>
+<a class="sourceLine" id="cb17-95" data-line-number="95"><span class="kw">str</span>(dataNames)</a>
+<a class="sourceLine" id="cb17-96" data-line-number="96"></a>
+<a class="sourceLine" id="cb17-97" data-line-number="97"></a>
+<a class="sourceLine" id="cb17-98" data-line-number="98"><span class="co"># as before, with matrices, selecting only a single column changes it</span></a>
+<a class="sourceLine" id="cb17-99" data-line-number="99"><span class="co"># from a data frame to a vector</span></a>
+<a class="sourceLine" id="cb17-100" data-line-number="100">dataNames &lt;-<span class="st"> </span>data[ ,<span class="st">&quot;county&quot;</span>]</a>
+<a class="sourceLine" id="cb17-101" data-line-number="101"><span class="kw">str</span>(dataNames)</a></code></pre></div>
 </div>
 
 
