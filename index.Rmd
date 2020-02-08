@@ -39,10 +39,10 @@ January 29  |  -  | [Homework #3](Homeworks/Homework03_S2020.html)
 January 30  | [RStudio](Lectures/Lecture06_S2020.html) | - 
 February 4  | [Data Structures](Lectures/Lecture07_S2020.html) | - 
 February 5  | -  | [Homework #4](Homeworks/Homework04_S2020.html)
-February 6  | [Lists and Subsetting](Lectures/Lecture08_S2020.html)| - 
-September 25  | [dplyr](Lectures/Lecture09_F2018.html)| [R-Scripts](https://gotellilab.github.io/Bio381/Scripts/RScripts.html)  | -
-September 26  | - | -  | [Homework #5](Homeworks/Homework05_F2018.html)
-September 27  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
+February 6  | [Atomic Vectors](Lectures/Lecture08_S2020.html)| - 
+February 11  | [Matrices, Lists, Data Frames](Lectures/Lecture09_F2018.html) | -
+February 12  | -  | [Homework #5](Homeworks/Homework05_F2018.html)
+February 13  | [Data Curation](Lectures/Lecture10_F2018.html)| -  | -
 October 2  | [Probability Distributions I](Lectures/Lecture11_F2018.html)| -  | -
 October 3  | - | -  | [Homework #6](Homeworks/Homework06_F2018.html)
 October 4  | [Probability Distributions II](Lectures/Lecture12_F2018.html)| -  | -
@@ -78,7 +78,7 @@ December 6  | - | -  | -
 
 Student  | Fun Fact
 ------------- | --------------
-Michael Ament  [GitHub](https://github.com/x) [Portfolio](https://x.github.io/x/)  | ???
+Michael Ament  [GitHub](https://github.com/mrament) [Portfolio](https://mrament.github.io/Ament_Bio381/)  | I have lived in 32 different homes/apartments/dorm rooms in my 29 years on Earth.
 Lauren Ash  [GitHub](https://github.com/lvash)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Benjamin Camber [GitHub](https://github.com/bencamber) [Portfolio](https://bencamber.github.io/bcamberBio381/)  | If I weren't in grad school I'd probably be trying to make "outlaw" electric automobiles, which resemble vintage cars but have modern internals and zero emissions!
 Lindsey Cathcart [GitHub](https://github.com/lindseycathcart) [Portfolio](https://lindseycathcart.github.io/CathcartBio381/)  | I have been stuck in quicksand.
