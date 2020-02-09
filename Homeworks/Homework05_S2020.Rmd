@@ -52,6 +52,7 @@ output:
 
 - for the first variable, use a single line of code in R to select 4 random rows and replace the numerical values in those rows with `NA`.
 
+- for the first variable, write a single line of R code to identify which rows have the missing values.
 - for the second variable, sort it in alphabetical order
 
 - calculate the column mean for the first variable.
