@@ -35,7 +35,7 @@
 "Jar Jar Binks",196,66,"none","orange","orange",52,"male","Naboo","Gungan"
 "Roos Tarpals",224,82,"none","grey","orange",NA,"male","Naboo","Gungan"
 "Rugor Nass",206,NA,"none","green","orange",NA,"male","Naboo","Gungan"
-"Ric Olié",183,NA,"brown","fair","blue",NA,"male","Naboo",NA
+"Ric OliÃ©",183,NA,"brown","fair","blue",NA,"male","Naboo",NA
 "Watto",137,NA,"black","blue, grey","yellow",NA,"male","Toydaria","Toydarian"
 "Sebulba",112,40,"none","grey, red","orange",NA,"male","Malastare","Dug"
 "Quarsh Panaka",183,NA,"black","dark","brown",62,"male","Naboo",NA
@@ -56,12 +56,12 @@
 "Plo Koon",188,80,"none","orange","black",22,"male","Dorin","Kel Dor"
 "Mas Amedda",196,NA,"none","blue","blue",NA,"male","Champala","Chagrian"
 "Gregar Typho",185,85,"black","dark","brown",NA,"male","Naboo","Human"
-"Cordé",157,NA,"brown","light","brown",NA,"female","Naboo","Human"
+"CordÃ©",157,NA,"brown","light","brown",NA,"female","Naboo","Human"
 "Cliegg Lars",183,NA,"brown","fair","blue",82,"male","Tatooine","Human"
 "Poggle the Lesser",183,80,"none","green","yellow",NA,"male","Geonosis","Geonosian"
 "Luminara Unduli",170,56.2,"black","yellow","blue",58,"female","Mirial","Mirialan"
 "Barriss Offee",166,50,"black","yellow","blue",40,"female","Mirial","Mirialan"
-"Dormé",165,NA,"brown","light","brown",NA,"female","Naboo","Human"
+"DormÃ©",165,NA,"brown","light","brown",NA,"female","Naboo","Human"
 "Dooku",193,80,"white","fair","brown",102,"male","Serenno","Human"
 "Bail Prestor Organa",191,NA,"black","tan","brown",67,"male","Alderaan","Human"
 "Jango Fett",183,79,"black","tan","brown",66,"male","Concord Dawn","Human"
@@ -85,4 +85,4 @@
 "Poe Dameron",NA,NA,"brown","light","brown",NA,"male",NA,"Human"
 "BB8",NA,NA,"none","none","black",NA,"none",NA,"Droid"
 "Captain Phasma",NA,NA,"unknown","unknown","unknown",NA,"female",NA,NA
-"Padmé Amidala",165,45,"brown","light","brown",46,"female","Naboo","Human"
+"PadmÃ© Amidala",165,45,"brown","light","brown",46,"female","Naboo","Human"
