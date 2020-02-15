@@ -43,9 +43,9 @@ February 6  | [Atomic Vectors](Lectures/Lecture08_S2020.html)| -
 February 11  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2020.html) | -
 February 12  | -  | [Homework #5](Homeworks/Homework05_S2020.html)
 February 13  | [Data Curation](Lectures/Lecture10_S2020.html)| -  | -
-February 18  | [Probability Distributions I](Lectures/Lecture11_S2020.html)| -  | -
+February 18  | [Probability Distributions](Lectures/Lecture11_S2020.html)| -  | -
 February 19  | - | -  | [Homework #6](Homeworks/Homework06_S2020.html)
-February 20  | [Probability Distributions II](Lectures/Lecture12_S2020.html)| -  | -
+February 20  | [Experimental Designs](Lectures/Lecture12_S2020.html)| -  | -
 October 9  | [Experimental Designs](Lectures/Lecture13_F2018.html)| -  | -
 October 10  | - | -  | [Homework #7](Homeworks/Homework07_F2018.html)
 October 11  | [Functions](Lectures/Lecture14_F2018.html)| -  | -
