@@ -9,6 +9,10 @@ output:
   pdf_document: default
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 ### Data Frame construction for Regression Data
 
 ```{r}
