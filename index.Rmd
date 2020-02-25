@@ -91,7 +91,7 @@ December 6  | - | -  | -
 Student  | Fun Fact
 ------------- | --------------
 Michael Ament  [GitHub](https://github.com/mrament) [Portfolio](https://mrament.github.io/Ament_Bio381/)  | I have lived in 32 different homes/apartments/dorm rooms in my 29 years on Earth.
-Lauren Ash  [GitHub](https://github.com/lvash)  | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
+Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](lvash.github.io/Bio381) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Benjamin Camber [GitHub](https://github.com/bencamber) [Portfolio](https://bencamber.github.io/bcamberBio381/)  | If I weren't in grad school I'd probably be trying to make "outlaw" electric automobiles, which resemble vintage cars but have modern internals and zero emissions!
 Lindsey Cathcart [GitHub](https://github.com/lindseycathcart) [Portfolio](https://lindseycathcart.github.io/CathcartBio381/)  | I have been stuck in quicksand.
 Ashma Chakrawarti  [GitHub](http://github.com/Ashma45) [Portfolio](http://ashma45.github.io/ChakrawartiBio381/)  | I can read, write and speak 4 languages.
@@ -112,4 +112,4 @@ Gretchen Saveson [GitHub](https://github.com/GretchenSav) [Portfolio](https://gr
 Jillian Sarazen [GitHub](https://github.com/sarazenj) [Portfolio](https://sarazenj.github.io/SarazenBio381/)  | I saw a mountain lion while doing field work in the high desert of northern California!
 Lily Shapiro [GitHub](https://github.com/lkshapir) [Portfolio](https://lkshapir.github.io/ShapiroBio381/)  | I collect orchids! I think I have about ~30 at the moment.
 Helaina Stergas [GitHib](https://github.com/hstergas) [Portfolio](https://hstergas.github.io/StergasBio381/)  | I am a big fan of road trips and national parks, and have driven all the way to Alaska and back in a tiny yellow Jeep Wrangler!
-Jess Wikle [GitHub](https://github.com/jwikle) [Portfolio](https://jwikle.github.io/WikleBio381/)  | Just over a year ago (December 2018 - January 2019), I spent 2.5 weeks rafting through the Grand Canyon. It was my second time whitewater rafting, and my first time rafting where all rafts made it to the end of the trip in one piece.
+Jess Wikle [GitHub](https://github.com/jlwikle) [Portfolio](https://jlwikle.github.io/WikleBio381/)  | Just over a year ago (December 2018 - January 2019), I spent 2.5 weeks rafting through the Grand Canyon. It was my second time whitewater rafting, and my first time rafting where all rafts made it to the end of the trip in one piece.
