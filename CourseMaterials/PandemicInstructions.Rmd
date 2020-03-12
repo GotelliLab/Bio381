@@ -1,0 +1,63 @@
+---
+title: "Bio 381 Instruction During the Coronavirus Pandemic"
+author: "Nick Gotelli"
+date: "12 March 2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Here are the protocols we will use for Bio 381 instruction during the rest of the spring semester
+
+## Lectures
+
+As before, I will continue to post the code and lecture outline for each of the Tuesday and Thursday lectures. These will appear on the course webpage as they have throughout the semester (https://gotellilab.github.io/Bio381/). Lecture is canceled for Tuesday March 24th; the next lecture posting will be for Thursday March 26th.
+
+However, I will also be creating and posting a screencast for each lecture in which I will explain the code as I enter and run it in RStudio. I am using FilmoraScr software (https://filmora.wondershare.com/screen-recorder/) to record each lecture. When you open the video up, you will see the familiar R studio layout, hear my voice-over, and see a small webcam of me speaking in the corner of the video screen. I will probably break each video up into 4 or 5 15-minute segments so they will download and play more smoothly.
+
+Videos will be posted at this new website: https://ngotelli.github.io/Bio381Vids
+
+## Learning From The Course Videos
+
+Use a large computer monitor to download and set up the video alongside your own RStudio screen. Then run the video and construct your script as you have always done. The only difference here is that you can "pause" me if you need to correct errors in your code (perhaps the only advantage of this kind of remote learning). I recommend you stick to our existing schedule and use our alloted lecture time to complete the coding each week on Tuesday and Thursday afternoon.
+
+## Contacting Me And Getting Help With Your Coding
+
+One obvious difference with a video is that you will not be able to interrupt and ask me questions. But if there is anything you want to ask me about, you can always send me an email (mailto:ngotelli@uvm.edu) or Slack message.
+
+If I cannot answer your question through correspondence, we can set up a time for a video conference through Whereby (https://whereby.com), which is a better platform than Skype, Zoom, or Google Hangouts. There is no software to download or passwords to use. At the specified time, just point your web browser to https://whereby.com/betatime, and I will see you there. 
+
+## Lab Exercises 
+
+> Important Notice: No lab will be scheduled for Wednesday March 18th. This will allow us to bring the lectures and lab back in sync so that you have all the information you need for the lab exercise on March 25th.
+
+We will continue to post lab exercises as usual, but unfortunately, Lauren will not be there in the classroom to guide you. However, at our scheduled time on Wednesdays each week (1:10 pm to 3:40 pm), Lauren will be available to assist you through her whereby video site (Lauren, please sign up at https://whereby.com for your free video conferencing room, send me your room link, and I will post it here). Again, I encourage you to stick to our established schedule and do your lab exercises on Wednesday afternoon.
+
+## Grading
+
+If there are extenuating circumstances related to the coronavirus pandemic that are going to prevent you from finishing all the assignments by the end of the course, please contact me as soon as possible so we can agree upon some alternative arrangements. Otherwise, we will stick to the agreed-upon contract, which is that your course grade simply depends on you completing all of the posted lab exercises and posting them on your GitHub portfolio (no, I am not "taking attendance" or checking whether you have actually watched the videos and completed the in-class activities; that is your responsibility).
+
+## Summary of changes
+- class code and lecture outlines will continue to be posted at the course website
+- lecture cancelled for Tuesday March 24th
+- next lecture will be posted for Thursday March 26th
+- instead of lectures, I will provide screencast videos to go along with the code for each Tuesday and Thursday session
+- videos will be posted at https://ngotelli.github.io/Bio381Vids
+- next lecture and video posting will be for Thursday March 19th.
+- Video conferencing with Nick is available at https://whereby.com/betatime
+- Lab exercises will be posted weekly as usual
+- No lab scheduled for March 18th
+- next lab exercise will be posted for March 25th
+- During the scheduled lab time, Lauren will be available for questions and videoconferencing at https://whereby.com/betatime
+- grading policies continue as described in the course syllabus, unless you have contacted me ahead of time and we have agreed upon alternative arrangements
+
+## Closing Thoughts
+
+Obviously, this is quite a change in our instruction, and it may take me a lecture or two to settle into the groove of recording videos. But, compared to many other courses here at UVM, I think the remote learning platform will not be too disruptive. After all, you are already on your way to becoming programmers and data scientists!
+
+Best wishes to you as we all adapt to new routines in the next few weeks. And of course, please keep in touch with me and everyone else on Slack and share any tips or useful information with the entire group.
+

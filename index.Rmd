@@ -7,6 +7,8 @@ output:
     theme: hpstr
     highlight: github
 ---
+Click here for [UPDATED COURSE STRUCTURE DURING THE CORONAVIRUS PANDEMIC](CourseMaterials/PandemicInstructions.html) 
+
 
 This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2020.
 
