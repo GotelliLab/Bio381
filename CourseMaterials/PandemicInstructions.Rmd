@@ -43,8 +43,6 @@ If there are extenuating circumstances related to the coronavirus pandemic that 
 
 ## Summary of changes
 - class code and lecture outlines will continue to be posted at the course website
-- lecture cancelled for Tuesday March 24th
-- next lecture will be posted for Thursday March 26th
 - instead of lectures, I will provide screencast videos to go along with the code for each Tuesday and Thursday session
 - videos will be posted at https://ngotelli.github.io/Bio381Vids
 - next lecture and video posting will be for Thursday March 19th.
