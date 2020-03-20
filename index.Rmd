@@ -50,15 +50,36 @@ February 19  | -  | [Homework #6](Homeworks/Homework06_S2020.html)
 February 20  | [Experimental Designs](Lectures/Lecture12_S2020.html)| -
 February 25  | [Functions](Lectures/Lecture13_S2020.html)| -
 February 26  | -  | [Homework #7](Homeworks/Homework07_S2020.html)
-February 27  | [Structured Programming](Lectures/Lecture14_S2020.html)| -
+February 27  | [Structured Programming I](Lectures/Lecture14_S2020.html)| -
 March 3  | [dplyr I](Lectures/Lecture15_S2020.html)| -
 March 4  | -  | [Homework #8](Homeworks/Homework08_S2020.html)
 March 5  | [dplyr II](Lectures/Lecture16_S2020.html)| -
 March 10  | Spring Break| -
 March 11  | Spring Break| -
 March 12  | Spring Break| -
+March 17  | - | -
+March 18  | - | -
+March 19  | [Snippets, Structured Programming II](Lectures/Lecture17_S2020.html)| -
+March 24  | - | -
+March 25  | - | -
+March 26  | - | -
+March 31  | - | -
+April 1  | - | -
+April 2  | - | -
+April 7  | - | -
+April 8  | - | -
+April 9  | - | -
+April 14  | - | -
+April 15  | - | -
+April 16  | - | -
+April 21  | - | -
+April 22  | - | -
+April 23  | - | -
+April 28  | - | -
+April 29  | - | -
+April 30  | - | -
 
-
+___
 
 October 9  | [Experimental Designs](Lectures/Lecture13_F2018.html)| -  | -
 October 10  | - | -  | [Homework #7](Homeworks/Homework07_F2018.html)
@@ -78,15 +99,6 @@ November 8  | [ggplot II](Lectures/Lecture22_F2018.html) | -  | -
 November 13  | [ggplot III](Lectures/Lecture23_F2018.html) | -  | -
 November 14  | - | -  | Catch-up day (lab open, but no scheduled exercise)
 November 15  | [ggplot IV](Lectures/Lecture24_F2018.html) | -  | -
-November 20  | *THANKSGIVING RECESS* | -  | -
-November 21  | *THANKSGIVING RECESS* | -  | -
-November 22  | *THANKSGIVING RECESS* | -  | -
-November 27  | - | -  | -
-November 28  | - | -  | -
-November 29  | - | -  | -
-December 4   | - | -  | -
-December 5  | - | -  | -
-December 6  | - | -  | -
 
 ### Class Work
 
