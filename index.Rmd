@@ -64,7 +64,7 @@ March 24  | [Control Structures I](Lectures/Lecture18_S2020.html) | -
 March 25  | - | [Homework #9](Homeworks/Homework09_S2020.html)
 March 26  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
 March 31  | [Control Structures III](Lectures/Lecture20_S2020.html) | -
-April 1  | - | [Homework #10](Homeworks/Homework10_S2020.html)
+April 1  | - | -
 April 2  | - | -
 April 7  | - | -
 April 8  | - | -
