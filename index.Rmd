@@ -61,10 +61,10 @@ March 17  | - | -
 March 18  | - | -
 March 19  | [Snippets, Structured Programming II](Lectures/Lecture17_S2020.html)| -
 March 24  | - | -
-March 25  | - | -
+March 25  | - | [Homework #9](Homeworks/Homework09_S2020.html)
 March 26  | - | -
 March 31  | - | -
-April 1  | - | -
+April 1  | - | [Homework #10](Homeworks/Homework10_S2020.html)
 April 2  | - | -
 April 7  | - | -
 April 8  | - | -
