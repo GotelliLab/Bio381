@@ -20,7 +20,20 @@ output:
 ```{r}
 library(ggplot2)
 library(TeachingDemos)
-#char2seed("Autumn Leaves")
+
+set.seed(100)
+char2seed("espresso withdrawal")
+char2seed("espresso withdrawal", set=FALSE)
+
+options(digits=10)
+Sys.time()
+as.numeric(Sys.time())
+my_seed <- as.numeric(Sys.time())
+set.seed(my_seed)
+print(my_seed)
+
+char2seed("espresso withdrawal")
+my_seed <- char2seed("espresso withdrawal",set=FALSE)         
 ```
 
 #### Simple toy example
