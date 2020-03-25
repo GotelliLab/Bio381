@@ -65,7 +65,7 @@ March 25  | - | [Homework #9](Homeworks/Homework09_S2020.html)
 March 26  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
 March 31  | [Control Structures III](Lectures/Lecture20_S2020.html) | -
 April 1  | - | -
-April 2  | - | -
+April 2  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
 April 7  | - | -
 April 8  | - | -
 April 9  | - | -
