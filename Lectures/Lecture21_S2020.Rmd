@@ -22,6 +22,38 @@ library(ggplot2)
 library(TeachingDemos)
 #char2seed("Autumn Leaves")
 ```
+
+#### Simple toy example
+```{r}
+# create treatment groups
+trt_group <- c(rep("Control",4),rep("Treatment",5))
+print(trt_group)
+
+# create response variable
+z <- c(runif(4) + 1, runif(5) + 10)
+print(z)
+
+# combine into data frame
+df <- data.frame(trt=trt_group,res=z)
+print(df)
+
+# look at means in observed data
+obs <- tapply(df$res,df$trt,mean)
+print(obs)
+
+# create a simulated data set
+
+# set up a new data frame
+df_sim <- df
+
+# randomize assignment of response to treatment groups
+df_sim$res <- sample(df_sim$res)
+print(df_sim)
+
+#look at means in simulated data
+sim <- tapply(df_sim$res,df$trt,mean)
+print(sim)
+```
 #### Read in data
 ```{r}
 
