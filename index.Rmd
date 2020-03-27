@@ -64,13 +64,13 @@ March 24  | [Control Structures I](Lectures/Lecture18_S2020.html) | -
 March 25  | - | [Homework #9](Homeworks/Homework09_S2020.html)
 March 26  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
 March 31  | [Control Structures III](Lectures/Lecture20_S2020.html) | -
-April 1  | - | -
+April 1  | - | [Homework #10](Homeworks/Homework10_S2020.html)
 April 2  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
 April 7  | [Batch Processing](Lectures/Lecture22_S2020) | -
-April 8  | - | -
+April 8  | - | [Homework #11](Homeworks/Homework11_S2020.html)
 April 9  | - | -
 April 14  | - | -
-April 15  | - | -
+April 15  | - | [Homework #12](Homeworks/Homework12_S2020.html)
 April 16  | - | -
 April 21  | - | -
 April 22  | - | -
