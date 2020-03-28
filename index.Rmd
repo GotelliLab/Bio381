@@ -69,7 +69,7 @@ April 2  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
 April 7  | [Batch Processing](Lectures/Lecture22_S2020) | -
 April 8  | - | [Homework #11](Homeworks/Homework11_S2020.html)
 April 9  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
-April 14  | - | -
+April 14  | [ggplot II](Lectures/Lecture24_S2020.html) | -
 April 15  | - | [Homework #12](Homeworks/Homework12_S2020.html)
 April 16  | - | -
 April 21  | - | -
