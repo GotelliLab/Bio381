@@ -71,7 +71,7 @@ April 8  | - | [Homework #11](Homeworks/Homework11_S2020.html)
 April 9  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
 April 14  | [ggplot II](Lectures/Lecture24_S2020.html) | -
 April 15  | - | [Homework #12](Homeworks/Homework12_S2020.html)
-April 16  | - | -
+April 16  | [ggplot III](Lectures/Lecture25_S2020.html) | -
 April 21  | - | -
 April 22  | - | -
 April 23  | - | -
