@@ -235,4 +235,22 @@ print(p1)
 p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy,col=drv)) +
   geom_point(data=d[d$drv=="4",]) + geom_smooth()
 print(p1)
+
+# instead of subsetting, just map an aesthetic
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point(mapping=aes(color=drv)) + geom_smooth()
+print(p1)
+
+# Conversely, map the smoother, but not the points
+p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
+  geom_point() + geom_smooth(mapping=aes(color=drv))
+print(p1)
+
+# also, subset in the first layer to eliminate some data entirely
+# instead of subsetting, just map an aesthetic
+p1 <- ggplot(data=d[d$drv!="4",],mapping=aes(x=displ,y=hwy)) +
+  geom_point(mapping=aes(color=drv)) + geom_smooth()
+print(p1)
+
 ```
+
