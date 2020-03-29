@@ -1,0 +1,216 @@
+---
+title: 'Lecture #25 ggplot III'
+author: "Nicholas J. Gotelli"
+date: "April 16th, 2020"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+### ggplot (continued)
+
+#### Preliminaries
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(colorblindr)
+library(cowplot)
+library(colorspace)
+library(wesanderson)
+library(ggsci)
+library(TeachingDemos)
+
+char2seed("Dark Star")
+d <- mpg
+```
+
+#### Bar plots
+```{r,message=FALSE, warning=FALSE}
+# use to plot the counts of rows for a categorical variable
+table(d$drv)
+p1 <- ggplot(d,aes(x=drv)) + geom_bar(color="black",fill="cornsilk")
+print(p1)
+
+# aesthetic mapping gives multiple groups for each bar
+p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar()
+print(p1)
+
+
+# stacked, but need to adjust color transparency, which is "alpha"
+p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(alpha = 0.3, position="identity")
+print(p1)
+
+# better to use position = fill for stacking, but with equivalent height
+p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(position="fill")
+print(p1)
+
+# best to use position = dodge for multiple bars
+p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(position="dodge",color="black",size=1)
+print(p1)
+
+# more typical "bar plot" has heights as the values themselves
+dTiny <- tapply(X=d$hwy,INDEX=as.factor(d$fl),FUN=mean) #calculate the means
+dTiny <- data.frame(hwy=dTiny) # create a single-column data frame
+dTiny <- cbind(fl=row.names(dTiny),dTiny) # 
+
+p2 <- ggplot(dTiny, aes(x=fl,y=hwy,fill=fl)) +
+  geom_col()
+print(p2)
+
+
+
+#### Use a box plot instead of standard "means" bars!
+
+
+```{r, warning=FALSE, message=FALSE}
+# basic boxplot is simple and informative
+p1 <- ggplot(d,aes(x=fl,y=hwy,fill=fl)) +
+               geom_boxplot()
+print(p1)
+
+# now overlay the raw data
+p1 <- ggplot(d,aes(x=fl,y=hwy)) +
+               geom_boxplot(fill="thistle",outlier.shape=NA) + 
+  # geom_point()
+  geom_point(position=position_jitter(width=0.1,height=0.7),color="grey60",size=2)
+
+print(p1)
+```
+### Using Colors
+
+1. Aesthetics
+  a. Colors that are attractive
+    - large geoms (fills) - pale colors
+    - small geoms(lines,points) - bright colors
+  b. Colors that highlight elements
+    - pale, grey to dee-emphasize
+    - bright or saturated colors to emphasize
+  c. Colors that are visible to the color blind
+
+2. Information content
+  a. Discrete scale
+   - colors to group similar treatments
+   - neutral colors (black,grey,white) to indicate control groups
+   - Symbolic colors (heat=red, cool = blue, photosynthesis/growth=green, oligotrophic=blue, eutrophic=brown, infected=red)
+   - Colors that map to chemical stains or gels, or even colors of organisms
+ b. Continuous scale
+  - monochromatic (differing shades of 1 color)
+  - 2 tone chromatic scale (from color x to color y)
+  - 3 tone divergent scale (from color x through color y to color z)
+ c. Use color information with and between graphs
+    
+
+
+#### Working with color and grey
+
+```{r,warning=FALSE,message=FALSE}
+d <- mpg # use built in mpg data frame
+p1 <- ggplot(d,aes(x=fl,y=hwy,group=fl))
+p1 + geom_boxplot() # no color
+p1 + geom_boxplot(fill="red") # single color (no info)
+
+# create a palette
+myColors <- c("red","green","pink","blue","orange") #no info
+p1 + geom_boxplot(fill=myColors)
+
+myColors <- c("red","green","green","blue","orange") # info
+p1 + geom_boxplot(fill=myColors)
+
+
+
+p1 + geom_boxplot(fill=gray(seq(from=0.1,to=0.9,length=5)))
+
+
+# using alpha transparency for histograms
+x1 <- rnorm(n=100,mean=0)
+x2 <- rnorm(n=100,mean=3)
+dFrame <- data.frame(v1=c(x1,x2))
+lab <- rep(c("Control","Treatment"),each=100)
+dFrame <- cbind(dFrame,lab)
+str(dFrame)
+h1 <- ggplot(dFrame,aes(x=v1,fill=lab))
+h1 + geom_histogram(position="identity",alpha=0.5,color="black") 
+
+# now go out to web and show them the palette page
+p1 + geom_boxplot(fill=wes_palettes[["Royal2"]])
+p1 + geom_boxplot(fill=c(grey(0.5),canva_palettes[[1]]))
+
+# use scale fill manual
+
+p2 <- ggplot(d,aes(x=fl,y=hwy,fill=fl)) + geom_boxplot()+ scale_fill_manual(values=wes_palettes[["Darjeeling1"]])
+print(p2)
+
+
+myCanvas <- canva_palettes[["Fresh and bright"]]
+myCanvas <- c(gray(0.6),myCanvas)
+p2 + geom_boxplot() + scale_fill_manual(values=myCanvas)
+```
+
+#### Colorbrewer page
+```{r}
+# visit colorbrewer page for demo
+p2 + geom_boxplot() + scale_fill_brewer(palette="Blues")
+
+# slightly different scheme for points, which have color
+
+p3 <- ggplot(d,aes(x=displ,y=hwy,color=fl)) +
+  geom_point()   +
+   scale_color_brewer(palette="Spectral")
+print(p3)
+```
+
+#### Continuous variables
+```{r}
+p3 <- ggplot(d,aes(x=displ,y=hwy,color=cty)) +
+  geom_point()    
+print(p3)
+
+# use scale_color_gradient to change low and high colors
+  # scale_color_gradient(
+p3 +
+  scale_color_gradient(low="red",high="blue")
+
+# use scale_color_gradient2 for a 3 color gradient
+z=mean(d$cty)
+p3 +
+  scale_color_gradient2(midpoint=z,low="red",mid="seagreen",high="cyan",space="Lab")
+
+
+# use scale_color_gradientn for multicolored changes
+p3+scale_color_gradientn(colours = rainbow(5))
+p3+scale_color_gradientn(colours = myCanvas)
+```
+
+#### Making a heat map
+```{r}
+xVar <- 1:30
+yVar <- 1:5
+myData <- expand.grid(xVar=xVar,yVar=yVar)
+head(myData)
+zVar <- myData$xVar + myData$yVar + 2*rnorm(n=150)
+myData <- cbind(myData,zVar)
+head(myData)
+p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar))
+p4 + geom_tile()
+
+p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar))
+p4 + geom_tile() +
+scale_fill_gradient2(midpoint=19,low="brown",mid=grey(0.8),high="darkblue")
+```
+#### New viridis color scale
+```{r}
+p4 + geom_tile() + scale_fill_viridis_c()
+# options viridis, cividis, magma, inferno, plasma
+p4 + geom_tile() + scale_fill_viridis_c(option="inferno")
+```
+
+```{r}
+p4 <- p4 + geom_tile() + scale_fill_viridis_c() 
+p4des<-edit_colors(p4, desaturate)
+ggdraw(p4des)
+
+
+```
+
