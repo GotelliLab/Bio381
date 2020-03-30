@@ -85,9 +85,10 @@ print(p1)
     - large geoms (fills) - pale colors
     - small geoms(lines,points) - bright colors
   b. Colors that highlight elements
-    - pale, grey to dee-emphasize
+    - pale, grey to de-emphasize
     - bright or saturated colors to emphasize
   c. Colors that are visible to the color blind
+  d. Colors that convert well to black and white
 
 2. Information content
   a. Discrete scale
@@ -99,15 +100,89 @@ print(p1)
   - monochromatic (differing shades of 1 color)
   - 2 tone chromatic scale (from color x to color y)
   - 3 tone divergent scale (from color x through color y to color z)
- c. Use color information with and between graphs
-    
+ c. Use color information within and between graphs
+ 
+ 3. show color names, hex in base R
+ 4. show color schemes in colorbrewer
+ 
+#### Color visualizations
+```{r}
+my_cols <- c("thistle","tomato","cornsilk","cyan","chocolate")
+demoplot(my_cols,"map")
+demoplot(my_cols,"bar")
+demoplot(my_cols,"scatter")
+demoplot(my_cols,"heatmap")
+demoplot(my_cols,"spine")
+demoplot(my_cols,"perspective")
+```
+
+#### Color customizations
+```{r}
+d <- mpg
+# --------- discrete classification
+# scale_fill_manual for boxplots,bars
+# scale_color_manual for points, lines
+
+# boxplot no color
+p_fil <- ggplot(d,aes(x=as.factor(cyl),y=cty))
+p_fil + geom_boxplot()
+
+# boxplot default ggplot fill
+p_fil <- ggplot(d,aes(x=as.factor(cyl),y=cty,fill=as.factor(cyl))) + geom_boxplot()
+plot(p_fil)
+
+# create custom color palette
+my_cols <- c("red","brown","blue","orange")
+
+
+# boxplot with custom colors for fill
+p_fil + scale_fill_manual(values=my_cols)
+
+# scatterplot with no color
+p_col <- ggplot(d,aes(x=displ,y=cty))
+p_col + geom_point(size=3)
+
+# scatterplot default ggplot colors
+p_col <- ggplot(d,aes(x=displ,y=cty,col=as.factor(cyl))) + geom_point(size=3)
+plot(p_col)
+
+# scatterplot with custom colors for point color
+p_col + scale_color_manual(values=my_cols)
+
+# continuous classification (color gradient)
+
+# default color gradient
+p_grad <- ggplot(d,aes(x=displ,y=cty,col=hwy)) + geom_point(size=3)
+plot(p_grad)
+
+# custom sequential gradient (2-colors)
+p_grad + scale_color_gradient(low="green", high="red")
+
+# custom diverging gradient (3-colors)
+mid <- median(d$cty)
+p_grad + scale_color_gradient2(midpoint=mid,
+                               low="blue",
+                               mid="white",
+                               high="red")
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 #### Working with color and grey
 
 ```{r,warning=FALSE,message=FALSE}
 d <- mpg # use built in mpg data frame
-p1 <- ggplot(d,aes(x=fl,y=hwy,group=fl))
+p1 <- ggplot(d,aes(x=fl,y=hwy,group=fl)) 
 p1 + geom_boxplot() # no color
 p1 + geom_boxplot(fill="red") # single color (no info)
 
