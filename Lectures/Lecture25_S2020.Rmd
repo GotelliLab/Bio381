@@ -254,20 +254,22 @@ head(myData)
 zVar <- myData$xVar + myData$yVar + 2*rnorm(n=150)
 myData <- cbind(myData,zVar)
 head(myData)
+
+# default gradient colors in ggplot
 p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar)) +
   geom_tile()
 print(p4)
 
-#p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar)) +
-#geom_tile()
+# user defined divergent palette
 p4 + scale_fill_gradient2(midpoint=19,low="brown",mid=grey(0.8),high="darkblue")
 
+
+# viridis scale
 p4  + scale_fill_viridis_c()
 # options viridis, cividis, magma, inferno, plasma
 p4 + scale_fill_viridis_c(option="inferno")
 
-
-
+#desaturated viridis
 p4 <- p4 + geom_tile() + scale_fill_viridis_c() 
 p4des<-edit_colors(p4, desaturate)
 ggdraw(p4des)
