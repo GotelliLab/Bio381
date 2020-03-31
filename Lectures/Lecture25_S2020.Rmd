@@ -214,100 +214,39 @@ p_grad + scale_color_gradient2(midpoint=mid,
 p_grad + scale_color_gradientn(colors=c("blue","green","yellow","purple","orange"))
 ```
 
+#### Tour of color palettes
 
-
-
-
-
-
-
-
-
-
-
-
-#### Working with color and grey
-
-```{r,warning=FALSE,message=FALSE}
-d <- mpg # use built in mpg data frame
-p1 <- ggplot(d,aes(x=fl,y=hwy,group=fl)) 
-p1 + geom_boxplot() # no color
-p1 + geom_boxplot(fill="red") # single color (no info)
-
-# create a palette
-myColors <- c("red","green","pink","blue","orange") #no info
-p1 + geom_boxplot(fill=myColors)
-
-myColors <- c("red","green","green","blue","orange") # info
-p1 + geom_boxplot(fill=myColors)
-
-
-
-p1 + geom_boxplot(fill=gray(seq(from=0.1,to=0.9,length=5)))
-
-
-# using alpha transparency for histograms
-x1 <- rnorm(n=100,mean=0)
-x2 <- rnorm(n=100,mean=3)
-dFrame <- data.frame(v1=c(x1,x2))
-lab <- rep(c("Control","Treatment"),each=100)
-dFrame <- cbind(dFrame,lab)
-str(dFrame)
-h1 <- ggplot(dFrame,aes(x=v1,fill=lab))
-h1 + geom_histogram(position="identity",alpha=0.5,color="black") 
-
-# now go out to web and show them the palette page
-p1 + geom_boxplot(fill=wes_palettes[["Royal2"]])
-p1 + geom_boxplot(fill=c(grey(0.5),canva_palettes[[1]]))
-
-# use scale fill manual
-
-p2 <- ggplot(d,aes(x=fl,y=hwy,fill=fl)) + geom_boxplot()+ scale_fill_manual(values=wes_palettes[["Darjeeling1"]])
-print(p2)
-
-
-myCanvas <- canva_palettes[["Fresh and bright"]]
-myCanvas <- c(gray(0.6),myCanvas)
-p2 + geom_boxplot() + scale_fill_manual(values=myCanvas)
-```
-
-#### Colorbrewer page
+##### Wes Anderson palettes
 ```{r}
-# visit colorbrewer page for demo
-p2 + geom_boxplot() + scale_fill_brewer(palette="Blues")
+library(wesanderson)
+print(wes_palettes)
+demoplot(wes_palettes$BottleRocket1,"pie")
+demoplot(wes_palettes[[2]][1:3],"bar")
 
-# slightly different scheme for points, which have color
-
-p3 <- ggplot(d,aes(x=displ,y=hwy,color=fl)) +
-  geom_point()   +
-   scale_color_brewer(palette="Spectral")
-print(p3)
+my_cols <- wes_palettes$GrandBudapest2[1:4]
+p_fil + scale_fill_manual(values=my_cols)
 ```
 
-#### Continuous variables
+##### Color Brewer palettes
 ```{r}
-p3 <- ggplot(d,aes(x=displ,y=hwy,color=cty)) +
-  geom_point()    
-print(p3)
+library(RColorBrewer)
+display.brewer.all()
+display.brewer.all(colorblindFriendly=TRUE)
+demoplot(brewer.pal(4,"Accent"),"bar")
+demoplot(brewer.pal(11,"Spectral"),"heatmap")
 
-# use scale_color_gradient to change low and high colors
-  # scale_color_gradient(
-p3 +
-  scale_color_gradient(low="red",high="blue")
+my_cols <- c("grey75",brewer.pal(3,"Blues"))
+p_fil + scale_fill_manual(values=my_cols)
 
-# use scale_color_gradient2 for a 3 color gradient
-z=mean(d$cty)
-p3 +
-  scale_color_gradient2(midpoint=z,low="red",mid="seagreen",high="cyan",space="Lab")
-
-
-# use scale_color_gradientn for multicolored changes
-p3+scale_color_gradientn(colours = rainbow(5))
-p3+scale_color_gradientn(colours = myCanvas)
+# nice for seeing hex values!
+library(scales)
+show_col(my_cols)
 ```
 
+##### Viridis palettes
+
+```{r}
 #### Making a heat map
-```{r}
 xVar <- 1:30
 yVar <- 1:5
 myData <- expand.grid(xVar=xVar,yVar=yVar)
@@ -315,25 +254,28 @@ head(myData)
 zVar <- myData$xVar + myData$yVar + 2*rnorm(n=150)
 myData <- cbind(myData,zVar)
 head(myData)
-p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar))
-p4 + geom_tile()
+p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar)) +
+  geom_tile()
+print(p4)
 
-p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar))
-p4 + geom_tile() +
-scale_fill_gradient2(midpoint=19,low="brown",mid=grey(0.8),high="darkblue")
-```
-#### New viridis color scale
-```{r}
-p4 + geom_tile() + scale_fill_viridis_c()
+#p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar)) +
+#geom_tile()
+p4 + scale_fill_gradient2(midpoint=19,low="brown",mid=grey(0.8),high="darkblue")
+
+p4  + scale_fill_viridis_c()
 # options viridis, cividis, magma, inferno, plasma
-p4 + geom_tile() + scale_fill_viridis_c(option="inferno")
-```
+p4 + scale_fill_viridis_c(option="inferno")
 
-```{r}
+
+
 p4 <- p4 + geom_tile() + scale_fill_viridis_c() 
 p4des<-edit_colors(p4, desaturate)
 ggdraw(p4des)
 
-
 ```
+
+
+
+
+
 
