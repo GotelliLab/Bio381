@@ -16,7 +16,11 @@ output:
 
 If you can only find a data set, then simulate a couple of others by following the methods in Homework #6 by selecting appropriate statistical distributions and estimating parameters for those from the real data.
 
-Hopefully, this exercise will contribute to some actual work that you are trying to do in your research!
+Hopefully, this exercise will contribute to some actual work that you are trying to do in your research!  
+
+-----------------------------
+
+Use the remainder of the lab period to continue work on Homework 10:  
 
 2. Use subsetting instead of a loop to rewrite the function as a single line of code.
 
