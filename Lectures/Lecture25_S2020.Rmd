@@ -16,6 +16,16 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ### ggplot (continued)
 
+#### Installing `colorblindr`
+```{r eval = F}
+install.packages("remotes")
+library(remotes)
+remotes::install_github("clauswilke/colorblindr") 
+# update all of the recommended packages when prompted
+# if an error is generated, re-start RStudio and re-run this line of code
+```
+
+
 #### Preliminaries
 ```{r, warning=FALSE, message=FALSE}
 library(ggplot2)
