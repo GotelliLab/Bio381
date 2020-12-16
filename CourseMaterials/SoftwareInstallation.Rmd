@@ -1,7 +1,7 @@
 ---
 title: "Software Installation"
 author: "Biology 381 - Computational Biology"
-date: "04 January 2020"
+date: "16 December 2021"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -28,12 +28,12 @@ GitHub is a free web-based repository for storing and updating your computer cod
 [register For GitHub](https://github.com/)
 
 ## R
-R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. The latest version of R (04 January 2020) is 3.6.2 ("Dark and Stormy Night").   
+R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. The latest version of R (16 December 2021) is 4.0.3 ("Bunny-Wunnies Freak Out").   
 
 [download R](https://www.r-project.org/)
 
 ## RStudio
-RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (04 January 2018) is 1.2.5033.
+RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (16 December 2021) is 1.3.1093.
 
 
 
@@ -43,7 +43,7 @@ If you already have R and RStudio installed, you will definitely need to update 
 
 https://www.r-bloggers.com/updating-r/
 
-If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble (Note: this update routine did not work successfully for me this time [04 January 2020]. I am not sure what the problem was, but it might not work foryou either).
+If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble (Note: this update routine did not work successfully for me the last time I tried it [04 January 2020]. I am not sure what the problem was, but it might not work for you either).
 
 Also, you can run into minor snags (especially with `ggplot2`) if your packages have not been updated in a long time. From the console, enter this:
 
@@ -56,13 +56,22 @@ LaTeX (pronounced "la-tech") is a typesetting language that renders plain text t
 
 Fortunately, life got a lot easier this year with the release of the `tinytex` R package by Yihui Xi. We only need to use this package once to install LaTeX. Two other R packages that we will use frequently are `tidyverse` and `patchwork`. All three packages are now available on CRAN.
 
-If you already know how to install packages in R (either by issuing commands from the original R terminal or through the GUI in RStudio), go ahead and install `tinytex`, `tidyverse`, and `patchwork`. If you don't know how to install R packages, Lauren will teach you how to do this during the very first lab.
+If you already know how to install packages in R (either by issuing commands from the original R terminal or through the GUI in RStudio), go ahead and install `tinytex`, `tidyverse`, and `patchwork`. If you don't know how to install R packages, please contact me or Lauren and we will step you through it.
 
 ## Text editors
-Plain text files are the common currency of all computational tools, and a plain text editor is also wonderful for composing text without any formatting distractions. Among its many uses, a good plain text editor allows you to search and replace using regular expressions, an incredibly powerful tool. Although there are simple editors that are installed by default on your Mac or Windows machines, they are not true plain text editors and should be avoided. There are many good plain text editors, some free, and some for sale, that you can find for your Mac or Windows machine. For this course, download and install one of the following: 
+Plain text files are the common currency of all computational tools, and a plain text editor is also wonderful for composing text without any formatting distractions. Among its many uses, a good plain text editor allows you to search and replace using regular expressions, an incredibly powerful tool. Although there are simple editors that are installed by default on your Mac or Windows machines, they are not true plain text editors and should be avoided. There are many good plain text editors, some free, and some for sale, that you can find for your Mac or Windows machine. In fact, the RStudio itself can function as a simple text editor (although it is not so good for regular expressions, which is what we will be using it for). For this course, download and install one of the following: 
 
 
 [download Notepad++ for Windows](https://notepad-plus-plus.org/)
 
 
-[download Atom for Mac](https://atom.io/)
+[download BBedit for Mac](http://www.barebones.com/products/bbedit/index.html)
+
+The "free" versions of this software will be fine for our use in this course.
+
+## Cygwin
+We are going to learn how to use shell commands and perform our git operations in the shell. If you are a Mac user, your computer is built around a unix platform, so you have already have a shell installed. Look in your applications for `Terminal`, and put the icon in your dock so it is easy to get to. If you are a Windows user... Well, Windows does have a "power shell", but that is a completely different animal. To emulate most of the commands in the unix shell on a Windows machine, you can install and use the free program Cygwin:
+
+[download Cygwin for Windows](https://www.cygwin.com/)
+
+
