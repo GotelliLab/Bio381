@@ -30,8 +30,8 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-February 2  | [Introduction](Lectures/Lecture01_S2020.html) | -  
-February 3  | - | [Homework #1](Homeworks/Homework01_S2020.html)
+February 2  | [Introduction](Lectures/Lecture01_S2021.html) | -  
+February 3  | - | [Homework #1](Homeworks/Homework01_S2020.html)                         
 February 4  | [GitHub](Lectures/Lecture02_S2020.html) | -  
 February 9  | [Working From the Terminal](Lectures/Lecture02a_S2021.html) | -
 February 10 | - |  [Homework #2](Homeworks/Homework02_S2020.html)
