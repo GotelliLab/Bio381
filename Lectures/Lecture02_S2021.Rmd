@@ -49,7 +49,7 @@ output:
 * upper right use pulldown menu to create new project
 * select "Version Control"
 * select "Git"
-* add gitignore
+* add '*.pdf' to gitignore or other files to not track
 
 ## Link this new local project to the remote repo on GitHub
 * the RStudio set up is asking for your Repository URL
@@ -90,8 +90,6 @@ output:
 
 ## Check things out before starting your work
 * git status (make sure your local repo is not ahead of the remote)
-* git log (peek at the previous commits)
-* git log --oneline (a bit more concise) git log -3 (just show 3 commits)
 * git pull (just in case there was a change made from another location)
 * git status  (ready to start working)
 
@@ -116,30 +114,12 @@ output:
 
 ## check and refresh website to see changes
 
-### Introduction to the terminal
-- explain old teletype system
-- underlying deep architecture for unix/linux based systems
-- military, air traffic control, NASA, IT, large hospitals
-- goes under hood; no safety net or guard rail
-- linux shell still present in Mac, but not in Windows
-- shell accessible in Mac, and special shell for both Mac and Windows in github
-- show difference between console (R) and terminal (shell)
-- point out difference in the two prompts
-
-### Simple terminal commands
-- cal
-- cal -j (showing an option)
-- cal -3 (showing another option)
-- cal 6 2020
-- man cal
-- r called from terminal (in mac)
-
 ### Set up simple local project in RStudio
 - New Project
 - Bio381ClassCode
 - open repository with *.Rproj
 
-### Overview of basics (example demo)
+### Review of basics (example demo)
 - check `status` of the local repo (uncommitted changes? local commits ahead of remote?)
 - `pull` any changes from the repo (incorporating changes pushed by others
 - do some work (edit, create, delete files)

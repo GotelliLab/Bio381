@@ -452,7 +452,7 @@ summary {
 <li>upper right use pulldown menu to create new project</li>
 <li>select “Version Control”</li>
 <li>select “Git”</li>
-<li>add gitignore</li>
+<li>add ’*.pdf’ to gitignore or other files to not track</li>
 </ul>
 </div>
 <div id="link-this-new-local-project-to-the-remote-repo-on-github" class="section level2">
@@ -508,8 +508,6 @@ summary {
 <h2>Check things out before starting your work</h2>
 <ul>
 <li>git status (make sure your local repo is not ahead of the remote)</li>
-<li>git log (peek at the previous commits)</li>
-<li>git log –oneline (a bit more concise) git log -3 (just show 3 commits)</li>
 <li>git pull (just in case there was a change made from another location)</li>
 <li>git status (ready to start working)</li>
 </ul>
@@ -547,30 +545,6 @@ summary {
 </div>
 <div id="check-and-refresh-website-to-see-changes" class="section level2">
 <h2>check and refresh website to see changes</h2>
-<div id="introduction-to-the-terminal" class="section level3">
-<h3>Introduction to the terminal</h3>
-<ul>
-<li>explain old teletype system</li>
-<li>underlying deep architecture for unix/linux based systems</li>
-<li>military, air traffic control, NASA, IT, large hospitals</li>
-<li>goes under hood; no safety net or guard rail</li>
-<li>linux shell still present in Mac, but not in Windows</li>
-<li>shell accessible in Mac, and special shell for both Mac and Windows in github</li>
-<li>show difference between console (R) and terminal (shell)</li>
-<li>point out difference in the two prompts</li>
-</ul>
-</div>
-<div id="simple-terminal-commands" class="section level3">
-<h3>Simple terminal commands</h3>
-<ul>
-<li>cal</li>
-<li>cal -j (showing an option)</li>
-<li>cal -3 (showing another option)</li>
-<li>cal 6 2020</li>
-<li>man cal</li>
-<li>r called from terminal (in mac)</li>
-</ul>
-</div>
 <div id="set-up-simple-local-project-in-rstudio" class="section level3">
 <h3>Set up simple local project in RStudio</h3>
 <ul>
@@ -579,8 +553,8 @@ summary {
 <li>open repository with *.Rproj</li>
 </ul>
 </div>
-<div id="overview-of-basics-example-demo" class="section level3">
-<h3>Overview of basics (example demo)</h3>
+<div id="review-of-basics-example-demo" class="section level3">
+<h3>Review of basics (example demo)</h3>
 <ul>
 <li>check <code>status</code> of the local repo (uncommitted changes? local commits ahead of remote?)</li>
 <li><code>pull</code> any changes from the repo (incorporating changes pushed by others</li>
