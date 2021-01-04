@@ -67,8 +67,8 @@ output:
 - `git branch newBranchName` issue this from the current head to create a new branch
 - `git branch` lists all local branches, with asterisk next to current branch. 
 - `git checkout newBranchName` switches head to the new branch
-- on the new branch, do some work and prepare to make a commit
-- `git checkout main` but first switch back to main branch (called "master" branch in older repos on git)
+- on the new branch, do some work and make commits in the usual, until you are ready to merge your changes.
+- `git checkout main` First switch back to main branch (called "master" branch in older repos on git)
 - `git merge --log newBranchName` merge the commits from newBranchName into the main branch and include the commit messages that were added on the branch 
 - `git branch -d newBranchName` deletes the branch after the successful merge
 - `git branch -D newBranchName` deletes the branch even if it hasn't been merged. Simple way to delete an unsuccessful "experiment"
