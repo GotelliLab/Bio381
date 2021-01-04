@@ -40,12 +40,10 @@ output:
 
 ### Making changes in the git workflow
 
-#### Unstaging files with `reset` and `checkout`
+#### Unstaging files with `reset`
 
 - `git reset -- path/to/filename` unstage a single file
-- `git reset -- .` unstage all staged files
-- `git checkout -- path/to/filename` unstage filename AND discard any changes since last commit
-- `git checkout -- .` unstage all files and discard any changes since last commit
+- `git reset .` unstage all staged files
 
 
 #### Making changes to the most recent commit with `amend`
