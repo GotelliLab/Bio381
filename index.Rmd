@@ -32,8 +32,8 @@ Date  | Lecture | Homework
 ------------- |----------- | -------------
 February 2  | [Introduction](Lectures/Lecture01_S2021.html) | -  
 February 3  | - | [Homework #1](Homeworks/Homework01_S2020.html)                         
-February 4  | [GitHub](Lectures/Lecture02_S2020.html) | -  
-February 9  | [Working From the Terminal](Lectures/Lecture02a_S2021.html) | -
+February 4  | [GitHub](Lectures/Lecture02_S2021.html) | -  
+February 9  | [More git](Lectures/Lecture03_S2021.html) | -
 February 10 | - |  [Homework #2](Homeworks/Homework02_S2020.html)
 February 11  | [Writing Shell Scripts](Lectures/Lecture02b_S2021.html) | -
 February 16 | [Regular Expressions](Lectures/Lecture05_S2020.html) | -
