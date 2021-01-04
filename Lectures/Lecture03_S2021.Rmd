@@ -1,0 +1,79 @@
+---
+title: 'Lecture #3: More git'
+author: "Nicholas J. Gotelli"
+date: "February 9, 2021"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+### git `log` commands
+
+- `git log` shows the full log for the repo
+- `git log --oneline` more concise
+- `git log -3` shows last 3 commits
+- `git log -3 --oneline` shows single line for last 3 commits
+
+### Set up `SandboxRepo`
+- include git, but don't set up remote repo on GitHub
+
+### New shell commands
+
+#### resetting the prompt
+
+- `echo 'some text'` repeats text t screen
+- `echo $PS1` shows current prompt
+- `PS1='$ '` changes prompt temporarily to short form
+
+#### creating and filling new files with text
+
+- first show construction of simple text files in RStudio
+- `touch filename` creates an empty file in current directory
+- `touch relative/path/to/filename` creates an empty file in a subdirectory
+- `touch /absolute/path/to/filename` creates an empty file somewhere else on your computer
+- `echo 'some text' > filename` writes 'some text' into filename and overwrites any other text
+- `echo 'some text' >> filename` appends 'some text' into filename at the end
+
+
+### Making changes in the git workflow
+
+#### Unstaging files with `reset` and `checkout`
+
+- `git reset -- path/to/filename` unstage a single file
+- `git reset -- .` unstage all staged files
+- `git checkout -- path/to/filename` unstage filename AND discard any changes since last commit
+- `git checkout -- .` unstage all files and discard any changes since last commit
+
+
+#### Making changes to the most recent commit with `amend`
+
+
+- `git commit --amend  -C HEAD` make changes, stage them, and then use this commit to add them to the last commit and retain the same commit message
+- `git commit -- amend -m 'revised commit message'` just change the message associated with the last commit
+
+
+#### Undoing the most recent commit with `reset`
+
+- `git reset --soft HEAD~1` undo last commit and retain changes in staged files
+- `git reset --hard HEAD^` undo last commit and discard changes
+
+#### Recovering a deleted file from a previous commit
+- `git log --oneline -- path/to/deletedfile` this list commits that contained the file. The most recent commit is the one in which the file was deleted. The commit before that is the last time the file was present.
+- `git checkout {hash of second to last commit} -- path/to/deletedfile` this checks out the copy of the file right before it was deleted.
+
+#### Creating, viewing, switching, merging, and deleting branches
+
+- `git branch newBranchName` issue this from the current head to create a new branch
+- `git branch` lists all local branches, with asterisk next to current branch. 
+- `git checkout newBranchName` switches head to the new branch
+- on the new branch, do some work and prepare to make a commit
+- `git checkout main` but first switch back to main branch (called "master" branch in older repos on git)
+- `git merge --log newBranchName` merge the commits from newBranchName into the main branch and include the commit messages that were added on the branch 
+- `git branch -d newBranchName` deletes the branch after the successful merge
+- `git branch -D newBranchName` deletes the branch even if it hasn't been merged. Simple way to delete an unsuccessful "experiment"
+
+
+- git 
+- `git 
