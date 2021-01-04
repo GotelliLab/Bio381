@@ -76,5 +76,3 @@ output:
 - `git branch -D newBranchName` deletes the branch even if it hasn't been merged. Simple way to delete an unsuccessful "experiment"
 
 
-- git 
-- `git 
