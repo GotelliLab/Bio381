@@ -15,6 +15,7 @@ output:
 - `git log --oneline` more concise
 - `git log -3` shows last 3 commits
 - `git log -3 --oneline` shows single line for last 3 commits
+- `git log -1 -p HEAD` shows the differences in the last commit
 
 ### Set up `SandboxRepo`
 - include git, but don't set up remote repo on GitHub
@@ -23,7 +24,7 @@ output:
 
 #### resetting the prompt
 
-- `echo 'some text'` repeats text t screen
+- `echo 'some text'` repeats text to screen
 - `echo $PS1` shows current prompt
 - `PS1='$ '` changes prompt temporarily to short form
 
