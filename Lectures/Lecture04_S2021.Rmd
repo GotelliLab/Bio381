@@ -116,7 +116,7 @@ ___
 #### Removing a file or a directory
 - `rm <filename>` removes a file (can't undo this)
 - `rmdir <directoryname>` removes a directory (directory must be empty)
-- `rmdir -r <directoryname>` removes directory and recursively removes all of its subdirectories and files!
+- `rm -r <directoryname>` removes directory and recursively removes all of its subdirectories and files!
 
 #### Copying or moving files, folders, or directories
 - `cp sourceFile destinationFile` copies file, folder or directory from source location to somewhere else
