@@ -109,7 +109,26 @@ ___
 - `cd ..` moves me up to that directory
 - `ls` shows the list of files from within that directory
 
+#### Creating a file or a directory
+- `touch path/to/<filename>` creates a file (with an optional path statement before it)
+- `mkdir` makes a directory in the current directory
 
+#### Removing a file or a directory
+- `rm <filename>` removes a file (can't undo this)
+- `rmdir <directoryname>` removes a directory (directory must be empty)
+- `rmdir -r <directoryname>` removes directory and recursively removes all of its subdirectories and files!
+
+#### Copying or moving files, folders, or directories
+- `cp sourceFile destinationFile` copies file, folder or directory from source location to somewhere else
+- `mv sourceFile destinationFile` moves file, folder or directory from source location to somewhere else
+
+#### Renaming or save as... files, folders, or directories
+- `mv oldName newName` in same location renames file
+- `cp oldName newName` in same location saves a copy of the file to a new name
+
+#### Using wildcards
+- `rm *.txt` removes all .txt files
+- `rm F*.txt` removes all .txt files that begin with the letter F
 
 
 

@@ -535,8 +535,53 @@ summary {
 <li>now jump to your home directory in one step (<code>cd ~</code> or just <code>cd</code>)</li>
 </ul>
 </div>
-<div id="directory-structure-can-also-be-used-to-specify-locations-or-file-names-for-which-to-operate-on" class="section level4">
-<h4>Directory structure can also be used to specify locations or file names for which to operate on!</h4>
+<div id="using-paths-in-combination-with-shell-commands" class="section level4">
+<h4>Using paths in combination with shell commands</h4>
+<ul>
+<li>Directory structure can also be used to specify locations or file names for which to operate on!</li>
+<li><code>cd ~</code> takes me to my home directory</li>
+<li><code>pwd</code> shows absolute path to my current location (home)</li>
+<li><code>pwd ..</code> shows absolute path to directory one level up</li>
+<li><code>ls ..</code> lists files in directory one level up</li>
+<li><code>cd ..</code> moves me up to that directory</li>
+<li><code>ls</code> shows the list of files from within that directory</li>
+</ul>
+</div>
+<div id="creating-a-file-or-a-directory" class="section level4">
+<h4>Creating a file or a directory</h4>
+<ul>
+<li><code>touch path/to/&lt;filename&gt;</code> creates a file (with an optional path statement before it)</li>
+<li><code>mkdir</code> makes a directory in the current directory</li>
+</ul>
+</div>
+<div id="removing-a-file-or-a-directory" class="section level4">
+<h4>Removing a file or a directory</h4>
+<ul>
+<li><code>rm &lt;filename&gt;</code> removes a file (can’t undo this)</li>
+<li><code>rmdir &lt;directoryname&gt;</code> removes a directory (directory must be empty)</li>
+<li><code>rmdir -r &lt;directoryname&gt;</code> removes directory and recursively removes all of its subdirectories and files!</li>
+</ul>
+</div>
+<div id="copying-or-moving-files-folders-or-directories" class="section level4">
+<h4>Copying or moving files, folders, or directories</h4>
+<ul>
+<li><code>cp sourceFile destinationFile</code> copies file, folder or directory from source location to somewhere else</li>
+<li><code>mv sourceFile destinationFile</code> moves file, folder or directory from source location to somewhere else</li>
+</ul>
+</div>
+<div id="renaming-or-save-as-files-folders-or-directories" class="section level4">
+<h4>Renaming or save as… files, folders, or directories</h4>
+<ul>
+<li><code>mv oldName newName</code> in same location renames file</li>
+<li><code>cp oldName newName</code> in same location saves a copy of the file to a new name</li>
+</ul>
+</div>
+<div id="using-wildcards" class="section level4">
+<h4>Using wildcards</h4>
+<ul>
+<li><code>rm *.txt</code> removes all .txt files</li>
+<li><code>rm F*.txt</code> removes all .txt files that begin with the letter F</li>
+</ul>
 </div>
 </div>
 <div id="section" class="section level3">
