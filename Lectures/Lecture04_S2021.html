@@ -638,6 +638,7 @@ gitgo(){
 </ul>
 <pre><code># Minimal shell script
 #! /bin/bash
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 echo &#39;++++++++++++++++++++++++&#39;
 echo &#39;Trial shell script&#39;
 echo &#39;current date and time: &#39;
@@ -653,6 +654,19 @@ echo &#39;++++++++++++++++++++++++&#39;
 <li><p>change the permissions of the file so it can be executed as a script in bash: <code>chmod u+x trialScript.sh</code></p></li>
 <li><p>navigate with the shell to different locations and run the script by typing <code>trialScript.sh</code></p></li>
 <li><p>any new scripts should be placed in this same location and will need their permissions changed before they will work</p></li>
+</ul>
+<pre><code>echo `++++++++++++++++++++++++`
+echo `Trial shell script`
+echo `current date and time:
+date
+echo `current directory: `
+pwd
+echo `directory contents: `
+ls -AFG
+echo `++++++++++++++++++++++++`</code></pre>
+<ul>
+<li><p>change the permissions of the file so it can be executed as a script in bash: <code>chmod u+x trialScript.sh</code></p></li>
+<li><p>navigate with the shell to different locations and run the script by typing <code>trialScript.sh</code></p></li>
 </ul>
 </div>
 
