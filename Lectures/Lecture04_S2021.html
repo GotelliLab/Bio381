@@ -513,8 +513,9 @@ summary {
 <li>now try moving to a subdirectory on your desktop, followed by ls</li>
 </ul>
 </div>
-<div id="key-built-in-short-cuts" class="section level4">
-<h4>Key built in short-cuts</h4>
+</div>
+<div id="key-built-in-short-cuts" class="section level3">
+<h3>Key built in short-cuts</h3>
 <ul>
 <li>shell opens in your <code>home</code> directory</li>
 <li><code>cd ~</code> always returns you to home in one jump</li>
@@ -524,7 +525,6 @@ summary {
 <li><code>cd ..</code> moves you up to the next highest directory</li>
 <li><code>cd ../..</code> jumps you up two directories</li>
 </ul>
-</div>
 <div id="exercise" class="section level4">
 <h4>Exercise:</h4>
 <ul>
@@ -535,8 +535,9 @@ summary {
 <li>now jump to your home directory in one step (<code>cd ~</code> or just <code>cd</code>)</li>
 </ul>
 </div>
-<div id="using-paths-in-combination-with-shell-commands" class="section level4">
-<h4>Using paths in combination with shell commands</h4>
+</div>
+<div id="using-paths-in-combination-with-shell-commands" class="section level3">
+<h3>Using paths in combination with shell commands</h3>
 <ul>
 <li>Directory structure can also be used to specify locations or file names for which to operate on!</li>
 <li><code>cd ~</code> takes me to my home directory</li>
@@ -547,45 +548,112 @@ summary {
 <li><code>ls</code> shows the list of files from within that directory</li>
 </ul>
 </div>
-<div id="creating-a-file-or-a-directory" class="section level4">
-<h4>Creating a file or a directory</h4>
+<div id="creating-a-file-or-a-directory" class="section level3">
+<h3>Creating a file or a directory</h3>
 <ul>
 <li><code>touch path/to/&lt;filename&gt;</code> creates a file (with an optional path statement before it)</li>
 <li><code>mkdir</code> makes a directory in the current directory</li>
 </ul>
 </div>
-<div id="removing-a-file-or-a-directory" class="section level4">
-<h4>Removing a file or a directory</h4>
+<div id="removing-a-file-or-a-directory" class="section level3">
+<h3>Removing a file or a directory</h3>
 <ul>
 <li><code>rm &lt;filename&gt;</code> removes a file (can’t undo this)</li>
 <li><code>rmdir &lt;directoryname&gt;</code> removes a directory (directory must be empty)</li>
 <li><code>rm -r &lt;directoryname&gt;</code> removes directory and recursively removes all of its subdirectories and files!</li>
 </ul>
 </div>
-<div id="copying-or-moving-files-folders-or-directories" class="section level4">
-<h4>Copying or moving files, folders, or directories</h4>
+<div id="copying-or-moving-files-folders-or-directories" class="section level3">
+<h3>Copying or moving files, folders, or directories</h3>
 <ul>
 <li><code>cp sourceFile destinationFile</code> copies file, folder or directory from source location to somewhere else</li>
 <li><code>mv sourceFile destinationFile</code> moves file, folder or directory from source location to somewhere else</li>
 </ul>
 </div>
-<div id="renaming-or-save-as-files-folders-or-directories" class="section level4">
-<h4>Renaming or save as… files, folders, or directories</h4>
+<div id="renaming-or-save-as-files-folders-or-directories" class="section level3">
+<h3>Renaming or save as… files, folders, or directories</h3>
 <ul>
 <li><code>mv oldName newName</code> in same location renames file</li>
 <li><code>cp oldName newName</code> in same location saves a copy of the file to a new name</li>
 </ul>
 </div>
-<div id="using-wildcards" class="section level4">
-<h4>Using wildcards</h4>
+<div id="using-wildcards" class="section level3">
+<h3>Using wildcards</h3>
 <ul>
 <li><code>rm *.txt</code> removes all .txt files</li>
 <li><code>rm F*.txt</code> removes all .txt files that begin with the letter F</li>
 </ul>
 </div>
+<div id="modifying-the-shell-in-mac" class="section level3">
+<h3>Modifying the shell (in Mac)</h3>
+<ul>
+<li>go to home in the shell</li>
+<li>look for file <code>.bash_profile</code></li>
+<li>be sure to show hidden files from finder to see this</li>
+<li>if not there, create it in your home with a text editor</li>
+<li>save it to your home area</li>
+</ul>
 </div>
-<div id="section" class="section level3">
-<h3></h3>
+<div id="nicks-.bash_profile" class="section level3">
+<h3>Nick’s <code>.bash_profile</code></h3>
+<pre><code># execute these commands when the shell is opened
+echo &quot;--&gt; Executed Nick&#39;s .bash_profile file&quot;
+export BASH_SILENCE_DEPRECATION_WARNING=1
+alias ls=&#39;ls -GF&#39;
+PS1=&quot;$ &quot;
+export PATH=&quot;$PATH:$HOME/Dropbox/shellScripts&quot;
+source myAliases.sh</code></pre>
+</div>
+<div id="nicks-aliases" class="section level3">
+<h3>Nick’s aliases</h3>
+<pre><code>#!/bin/bash
+# Collection of useful bash aliases
+# Add aliases and then source this file
+
+# directory aliases
+alias desk=&quot;cd ~/Desktop&quot;
+alias dropbox=&quot;cd ~/Dropbox&quot;
+alias repo=&quot;cd ~//Desktop/githubRepos&quot;
+
+# alias for editing this file
+alias myalias=&quot;cd ~;vim myAliases.sh&quot;
+
+# new alias for git log
+alias glog=&quot;git log --oneline -6&quot;
+
+# function gitgo for all git commands
+gitgo(){
+  git add -A
+  git commit -m &quot;$1&quot;
+  git push
+  git status 
+}</code></pre>
+</div>
+<div id="creating-your-own-shell-scripts" class="section level3">
+<h3>Creating your own shell scripts</h3>
+<ul>
+<li>modify path statement in your <code>.bash_profile</code> to point to a directory where your shell scripts will be stored: <code>export PATH=&quot;$PATH:$HOME/Dropbox/shellScripts&quot;</code></li>
+<li>go to the directory and create this script called <code>trialScript.sh</code>. Use the <code>sh</code> suffix to remind you that this is a shell script</li>
+<li>using your plaintext editor, issue these commands inside your shell script:</li>
+</ul>
+<pre><code># Minimal shell script
+#! /bin/bash
+echo &#39;++++++++++++++++++++++++&#39;
+echo &#39;Trial shell script&#39;
+echo &#39;current date and time: &#39;
+date
+echo &#39;current directory: &#39;
+pwd
+echo &#39;directory contents: &#39;
+ls -AFG
+echo &#39;++++++++++++++++++++++++&#39;
+</code></pre>
+<ul>
+<li><p>be sure to include a final carriage return at the end of the last line:</p></li>
+<li><p>change the permissions of the file so it can be executed as a script in bash: <code>chmod u+x trialScript.sh</code></p></li>
+<li><p>navigate with the shell to different locations and run the script by typing <code>trialScript.sh</code></p></li>
+<li><p>any new scripts should be placed in this same location and will need their permissions changed before they will work</p></li>
+</ul>
 </div>
 
 
