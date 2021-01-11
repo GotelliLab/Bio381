@@ -279,7 +279,66 @@ purl("FileName.Rmd")
 ```
 These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
 
-### Bonus: A Cool New Markdown Editor!
+## Bonus: A Cool New Markdown Editor!
 
 - Demo of `Typora` a WYSIWYG text editor at https://typora.io/
 
+## Working with LaTeX
+
+This uses another Rstudiotemplate for a `sweave` document of the type `<filename>.Rnw`. Here is some code for a minimal LaTeX document illustrating how to use the kind of formatting we used in markdown:
+
+```
+\documentclass{article}
+
+\begin{document}
+
+Plain text is much the same, even in \LaTeX.
+
+\section{First header}
+\subsection{Second header}
+\subsubsection{Third header}
+
+Here is \textbf{bold face}\\
+Here is \textit{italic text}\\
+Here is \texttt{plain text}.
+
+``Use double back ticks and single quotes to start and finish a quotation.''
+
+\begin{itemize}
+  \item first bullet
+  \item second bullet
+  \item third bullet
+\end{itemize}
+
+\begin{enumerate}
+  \item number one
+  \item number two
+  \item number three
+\end{enumerate}
+
+\begin{verbatim}
+This is more convenient for a larger block of verbatim text. 
+This is equivalent to the ``` plain fencing ``` from markdown.
+\end{verbatim}
+
+\begin{quote}
+Again, works better for a much more extensive paragraph of quoted text such as this.
+\end{quote}
+
+<<echo=TRUE>>=
+x <- runif(10)
+y <- runif(10)
+plot(x,y)
+@
+
+% In contrast to R and shell scripts, the character for a comment in LaTeX is the % sign.
+
+Use the ``escape'' sequence to show a percentage sign like this: \%.
+\end{document}
+```
+
+Go to Overleaf (https://www.overleaf.com/) for an on-line LaTeX editor with great templates and LaTeX documentation.
+
+Show use of templates for a letterhead with signature, and for building slides in Beamer.
+
+If packages are missing ("no `.sty` file"), try the following command from the `tinytex` package to install them: `tinytex::tlmgr_install("packagename")`.  
