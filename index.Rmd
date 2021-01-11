@@ -38,7 +38,7 @@ February 10 | - |  [Homework #2](Homeworks/Homework02_S2020.html)
 February 11  | [Writing Shell Scripts](Lectures/Lecture04_S2021.html) | -
 February 16 | [Regular Expressions](Lectures/Lecture05_S2020.html) | -
 February 17  |  -  | [Homework #3](Homeworks/Homework03_S2020.html)
-February 18  | [RStudio](Lectures/Lecture06_S2020.html) | - 
+February 18  | [RStudio](Lectures/Lecture06_S2021.html) | - 
 February 23  | [Data Structures](Lectures/Lecture07_S2020.html) | - 
 February 24  | -  | [Homework #4](Homeworks/Homework04_S2020.html)
 February 25  | [Atomic Vectors](Lectures/Lecture08_S2020.html)| - 
