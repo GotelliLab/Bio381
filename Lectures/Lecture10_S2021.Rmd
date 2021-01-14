@@ -191,7 +191,42 @@ str(dataNames)
 * Example of Lauren's data 
 
 ## Exporting and importing data
-### `write.table()`: useful when you want to work outside of R or with a csv file
+
+First create a tiny data set in Excel:
+```
+# comments at the top
+# beaucoup metadata
+ID, Treatment, Biomass, Notes
+1, Control, 30.3, 
+2, HighN, 13.0, 
+3, HighN, NA, broken scale
+4, Control, 35.3,
+```
+- Save as .csv
+- Inspect in RStudio Editor
+
+### Use `read.csv` to bring in data
+```{r, eval=FALSE}
+my_data <- read.csv("path/to/data.csv",
+                    header=TRUE,
+                    sep=",",
+                    comment.char="#")
+
+# inspect object
+str(my_data)
+
+# now add a column
+my_data$newVar <- runif(4)
+```
+
+### Use `write.csv` to export to a data file
+
+```{r, eval=FALSE}
+
+write.csv(
+
+
+
 ```{r warning=F, message=F}
 library(dplyr)
 data(starwars)
