@@ -205,9 +205,9 @@ ID, Treatment, Biomass, Notes
 - Save as .csv
 - Inspect in RStudio Editor
 
-### Use `read.csv` to bring in data
+### Use `read.table` to bring in data
 ```{r, eval=FALSE}
-my_data <- read.csv("path/to/data.csv",
+my_data <- read.table(file="path/to/data.csv",
                     header=TRUE,
                     sep=",",
                     comment.char="#")
@@ -217,51 +217,34 @@ str(my_data)
 
 # now add a column
 my_data$newVar <- runif(4)
+head(my_data)
 ```
 
-### Use `write.csv` to export to a data file
+### Use `write.table` to export to a data file
 
 ```{r, eval=FALSE}
 
-write.csv(
-
-
-
-```{r warning=F, message=F}
-library(dplyr)
-data(starwars)
-
-starwars1<-select(starwars, name:species) # Let's say we want to create a new csv file with our R object
-write.table(starwars1, file = "StarwarsNamesInfo.csv", row.names = F, sep = ",") # creating a csv with write.table()
-
+write.table(x=my_data,
+            file="Path/To/OutputFileName.csv",
+            HEADER=TRUE,
+            sep=",")
 ```
 
-### `read.table()`: useful when you have metadata (show example)
-#### Data Read Statement Format
-```{r eval=F}
-data <-read.table(file="FileName.csv",row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
 
-# compare to read.csv; include comment.char if you have metadata
-data2<-read.csv(file="FileName.csv", row.names=1, header=TRUE, sep=",",stringsAsFactors=FALSE, comment.char = "#")
-```
 
-```{r}
-data<-read.table("StarwarsNamesInfo.csv", header=T, sep = ",", stringsAsFactors = F) #our dataset has a header and the character variables are not factors
-head(data) # metadata doesn't show up # use comment.char = "#" if you use read.csv()
-class(data)
-data<-as_tibble(data) 
-glimpse(data)
-
-```
+But this is not a good way to save or share data objects if we are working in R. Some researchers use the `save()` function, which preserves the whole environment, but once it is restored with `load()`, the variable names cannot be changed. It is better to use `saveRDS().
 
 ### `saveRDS()`: useful when you are working only in R
-```{r}
-saveRDS(starwars1, file="StarWarsTibble") # writes a single R object to a file
+```{r, eval=FALSE}
+saveRDS(my_data, file="Path/To/FileName.RDS") # .RDS suffix is not required, but good for clarity
 ```
 
+This only saves a single R object as a binary, but remember, you can bundle up many things into a single list!
+
+Use `readRDS()` to restore it.
+
 ### `readRDS()`
-```{r}
-sw<-readRDS("StarWarsTibble") # restores the R object
-class(sw) # stays as a tibble
+```{r, eval=FALSE}
+data_in <-readRDS("FileName.RDS") 
 ```
 
