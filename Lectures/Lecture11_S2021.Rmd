@@ -18,13 +18,13 @@ knitr::opts_chunk$set(eval = FALSE)
 
 - Poisson
     * Range: [0,$\infty$]
-    * Parameters: size = number of events (trials), rate = $\lambda$
-    * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
+    * Parameters: size = number of events, rate = $\lambda$
+    * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events; resembles normal with large $\lambda$, or exponential with small $\lambda$
     
 - Binomial
     * Range: [0, # of trials]
     * Parameters: size= number of trials; p = probability of positive outcome
-    * Interpretation: Distribution of number of successful independent dichotomous trials, with constant p; resembles normal with large $\lambda$, or exponential with small $\lambda$
+    * Interpretation: Distribution of number of successful independent dichotomous trials, with constant p
     
 - Negative Binomial
     * Range: [0, $\infty$]
