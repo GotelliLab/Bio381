@@ -18,7 +18,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 - Poisson
     * Range: [0,$\infty$]
-    * Parameters: size = number of trials, rate = $\lambda$
+    * Parameters: size = number of events, rate = $\lambda$
     * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
     
 - Binomial
@@ -106,7 +106,7 @@ qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
 
 
 # for a Poisson distribution with lambda=2, 
-# what is the probability that a single random draw will yield X <= 1?
+# what is the probability of getting 1 or fewer hits?
 
 ppois(q=1, lambda=2)
 
