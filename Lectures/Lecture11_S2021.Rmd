@@ -1,0 +1,197 @@
+---
+title: 'Probability Distributions'
+author: "Nicholas J. Gotelli"
+date: "March 11, 2021"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+### Probability distributions in R
+#### Discrete distributions
+
+- Poisson
+    * Range: [0,$\infty$]
+    * Parameters: size = number of trials, rate = $\lambda$
+    * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
+    
+- Binomial
+    * Range: [0, # of trials]
+    * Parameters: size= number of trials; p = probability of positive outcome
+    * Interpretation: Distribution of number of successful independent dichotomous trials, with constant p; resembles normal with large $\lambda$, or exponential with small $\lambda$
+    
+- Negative Binomial
+    * Range: [0, $\infty$]
+    * Parameters: size=number of successes; p = probability of success
+    * Interpretation: Distribution of number of failures in a series of independent Bernouli trials, each with p = probability of a success. Generates a discrete distribution that is more heterogeneous ("overdispersed") than Poisson
+    
+#### Continuous distributions
+
+- Uniform
+    * Range: [min,max]
+    * Parameters: min = minimum boundary; max = maximum boundary
+    * Interpretation: Distribution of a value that is equally likely within a specified range
+    
+- Normal
+    * Range: [$-\infty,\infty$]
+    * Parameters: mean = central tendency; SD = standard deviation
+    * Interpretation: Symmetric bell-shaped curve with unbounded tails
+    
+- Gamma $\Gamma$
+    * Range: [0,$\infty$]
+    * Parameters: shape, scale
+    * Interpretation: mean=$shape*scale$, variance=$shape*scale^2$; generates a variety of shapes (including normal and exponential) for positive continuous variables
+    
+- Beta $\beta$
+    * Range: [0,1] (can be rescaled to any range by simple multiplication and addition)
+    * Paramters: shape1, shape2
+    * Interpretation: if shape1 and shape 2 are integers, interpret as a coin toss, with shape1 = # of successes + 1, shape2 = # of failures + 1. Gives distribution of value of p, estimated from data, which can range from exponential through uniform through normal (but all are bounded). Setting shape1 and shape2 <1 yields u-shaped distributions.
+
+### The "grammar" of probability distributions in R
+- `d` gives probability density function
+- `p` gives cumulative distribution function
+- `q` gives quantile function (the inverse of `p`)
+- `r` gives random number generation
+
+Combine these with the base name of the function. For example `rbinom` gives a set of random values drawn from a binomial, whereas `dnorm` gives the density function for a normal distribution. There are many probability distributions available in R, but we will discuss only 7 of them.
+
+#### Poisson distribution
+
+```{r}
+library(ggplot2)
+library(MASS)
+#-------------------------------------------------
+# Poisson distribution
+# Discrete X >= 0
+# Random events with a constant rate lambda
+# (observations per time or per unit area)
+# Parameter lambda > 0
+
+# "d" function generates probability density
+hits <- 0:10
+myVec <- dpois(x=hits,lambda=1)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+myVec <- dpois(x=hits,lambda=2)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+hits <- 0:15
+myVec <- dpois(x=hits,lambda=6)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+
+hits <- 0:15
+myVec <- dpois(x=hits,lambda=0.2)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+sum(myVec)  # sum of density function = 1.0 (total area under curve)
+
+# for a Poisson distribution with lambda=2, 
+# what is the probability that a single draw will yield X=0?
+
+dpois(x=0,lambda=2)
+
+# "p" function generates cumulative probability density; gives the 
+# "lower tail" cumulative area of the distribution
+
+hits <- 0:10
+myVec <- ppois(q=hits,lambda=2)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+
+# for a Poisson distribution with lambda=2, 
+# what is the probability that a single random draw will yield X <= 1?
+
+ppois(q=1, lambda=2)
+
+
+# We could also get this through dpois
+p_0 <- dpois(x=0,lambda=2)
+p_0
+p_1 <- dpois(x=1,lambda=2)
+p_1
+p_0 + p_1
+
+
+# The q function is the inverse of p
+# What is the number of hits corresponding to 50% of the probability mass
+qpois(p=0.5,lambda=2.5)
+qplot(x=0:10,y=dpois(x=0:10,lambda=2.5),geom="col",color=I("black"),fill=I("goldenrod"))
+
+# but distribution is discrete, so this is not exact
+ppois(q=2,lambda=2.5)
+
+# finally, we can simulate individual values from a poisson
+ranPois <- rpois(n=1000,lambda=2.5)
+qplot(x=ranPois,color=I("black"),fill=I("goldenrod"))
+
+
+# for real or simulated data, we can use the quantile
+# function to find the empirical  95% confidence interval on the data
+
+quantile(x=ranPois,probs=c(0.025,0.975))
+```
+
+#### Binomial distribution
+
+```{r}
+#-------------------------------------------------
+# Binomial distribution
+# p = probability of a dichotomous outcome
+# size = number of trials
+# x = possible outcomes
+# outcome x is bounded between 0 and number of trials
+
+# use "d" binom for density function
+hits <- 0:10
+myVec <- dbinom(x=hits,size=10,prob=0.5)
+qplot(x=0:10,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+
+
+# and how does this compare to an actual simulation of 50 tosses of 100 coins?
+
+myCoins <- rbinom(n=50,size=100,prob=0.5)
+qplot(x=myCoins,color=I("black"),fill=I("goldenrod"))
+quantile(x=myCoins,probs=c(0.025,0.975))
+
+```
+
+#### Negative Binomial distribution
+
+```{r}
+#-------------------------------------------------
+# negative binomial: number of failures (values of MyVec)
+# in a series of (Bernouli) with p=probability of success 
+# before a target number of successes (= size)
+# generates a discrete distribution that is more 
+# heterogeneous ("overdispersed") than Poisson
+hits <- 0:40
+myVec <- dnbinom(x=hits, size=5, prob=0.5)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+# geometric series is a special case where N= 1 success
+# each bar is a constant fraction 1 - "prob" of the bar before it
+myVec <- dnbinom(x=hits, size=1, prob=0.1)
+qplot(x=hits,y=myVec,geom="col",color=I("black"),fill=I("goldenrod"))
+
+
+# alternatively specify mean = mu of distribution and size, 
+# the dispersion parameter (small is more dispersed)
+# this gives us a poisson with a lambda value that varies
+# the dispersion parameter is the shape parameter in the gamma
+# as it increases, the distribution has a smaller variance
+# just simulate it directly
+
+nbiRan <- rnbinom(n=1000,size=10,mu=5)
+qplot(nbiRan,color=I("black"),fill=I("goldenrod"))
+
+nbiRan <- rnbinom(n=1000,size=0.1,mu=5)
+qplot(nbiRan,color=I("black"),fill=I("goldenrod"))
+```
