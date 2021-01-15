@@ -18,7 +18,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 - Poisson
     * Range: [0,$\infty$]
-    * Parameters: size = number of events, rate = $\lambda$
+    * Parameters: size = number of events (trials), rate = $\lambda$
     * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
     
 - Binomial
