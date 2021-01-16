@@ -216,6 +216,7 @@ print(z)
 ``` 
 
 For this procedure:
+
 1. Select a model that is appropriate for the data
 2. Use `fitdistr` to find maximum likelihood estimators for the paramaters.
 3. Use those paramaters to either plot the density function or simulate new data.

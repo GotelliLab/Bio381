@@ -703,7 +703,12 @@ summary {
 <span id="cb4-2"><a href="#cb4-2"></a>data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">104</span>,<span class="dv">99</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a>z &lt;-<span class="st"> </span><span class="kw">fitdistr</span>(data,<span class="st">&quot;normal&quot;</span>)</span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="kw">print</span>(z)</span></code></pre></div>
-<p>For this procedure: 1. Select a model that is appropriate for the data 2. Use <code>fitdistr</code> to find maximum likelihood estimators for the paramaters. 3. Use those paramaters to either plot the density function or simulate new data.</p>
+<p>For this procedure:</p>
+<ol style="list-style-type: decimal">
+<li>Select a model that is appropriate for the data</li>
+<li>Use <code>fitdistr</code> to find maximum likelihood estimators for the paramaters.</li>
+<li>Use those paramaters to either plot the density function or simulate new data.</li>
+</ol>
 <p>Here are a few data from Lauren Ash’s dissertation: snout-vent length (SVL) measurements for 6 specimens of green frogs (<em>Lithobates clamitans</em>) collected from Berlin Pond in 2016.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>frog_data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
