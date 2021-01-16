@@ -691,6 +691,62 @@ summary {
 <span id="cb3-28"><a href="#cb3-28"></a><span class="kw">qplot</span>(nbiRan,<span class="dt">color=</span><span class="kw">I</span>(<span class="st">&quot;black&quot;</span>),<span class="dt">fill=</span><span class="kw">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span></code></pre></div>
 </div>
 </div>
+<div id="estimating-paramaters-from-data" class="section level3">
+<h3>estimating paramaters from data</h3>
+<p><code>p(data|hypothesis)</code> is the standard approach for null hypothesis tests.</p>
+<p>Model paramaters can be thought of as a hypothesis about the distribution of the data: <code>p(data|paramaters)</code></p>
+<p>This would be a goodness of fit test for data to a particular statistical distribution.</p>
+<p>More useful might be <code>p(paramaters|data)</code>. For a given set of data, what is the probability that a particular statistical distribution (such as a normal with a specified mean and standard deviation), provides a fit to these data?</p>
+<p>Clearly, we want paramaters that <em>maximize</em> this probability. The paramaters that fit this definition are <em>maximum likelihood estimators</em>.</p>
+<p>Here is a simple example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(MASS)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">104</span>,<span class="dv">99</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>z &lt;-<span class="st"> </span><span class="kw">fitdistr</span>(data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">print</span>(z)</span></code></pre></div>
+<p>For this procedure: 1. Select a model that is appropriate for the data 2. Use <code>fitdistr</code> to find maximum likelihood estimators for the paramaters. 3. Use those paramaters to either plot the density function or simulate new data.</p>
+<p>Here are a few data from Lauren Ash’s dissertation: snout-vent length (SVL) measurements for 6 specimens of green frogs (<em>Lithobates clamitans</em>) collected from Berlin Pond in 2016.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>frog_data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>z&lt;-<span class="st"> </span><span class="kw">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">print</span>(z)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>g_density &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dt">x=</span>x,<span class="dt">mean=</span>z<span class="op">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="dt">sd=</span>z<span class="op">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="kw">qplot</span>(x,g_density,<span class="dt">geom=</span><span class="st">&quot;line&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>,<span class="dt">x=</span>frog_data,<span class="dt">y=</span><span class="fl">0.001</span>)   </span>
+<span id="cb5-11"><a href="#cb5-11"></a> </span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>z&lt;-<span class="st"> </span><span class="kw">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="kw">print</span>(z)</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>g_density &lt;-<span class="st"> </span><span class="kw">dgamma</span>(<span class="dt">x=</span>x,<span class="dt">shape=</span>z<span class="op">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="dt">rate=</span>z<span class="op">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="kw">qplot</span>(x,g_density,<span class="dt">geom=</span><span class="st">&quot;line&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>,<span class="dt">x=</span>frog_data,<span class="dt">y=</span><span class="fl">0.001</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
+<p>There is not much difference here.But now let’s add a weird outlier of a tiny value and see what happens</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>frog_data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>outlier &lt;-<span class="st"> </span><span class="fl">0.050</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>frog_data &lt;-<span class="st"> </span><span class="kw">c</span>(frog_data,outlier)</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>z&lt;-<span class="st"> </span><span class="kw">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="kw">print</span>(z)</span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>g_density &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dt">x=</span>x,<span class="dt">mean=</span>z<span class="op">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="dt">sd=</span>z<span class="op">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="kw">qplot</span>(x,g_density,<span class="dt">geom=</span><span class="st">&quot;line&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>,<span class="dt">x=</span>frog_data,<span class="dt">y=</span><span class="fl">0.001</span>)   </span>
+<span id="cb6-13"><a href="#cb6-13"></a> </span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>z&lt;-<span class="st"> </span><span class="kw">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="kw">print</span>(z)</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>g_density &lt;-<span class="st"> </span><span class="kw">dgamma</span>(<span class="dt">x=</span>x,<span class="dt">shape=</span>z<span class="op">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="dt">rate=</span>z<span class="op">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="kw">qplot</span>(x,g_density,<span class="dt">geom=</span><span class="st">&quot;line&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">&quot;point&quot;</span>,<span class="dt">x=</span>frog_data,<span class="dt">y=</span><span class="fl">0.001</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
+</div>
 
 
 
