@@ -1,0 +1,22 @@
+---
+title: 'Homework #1'
+author: "Nicholas J. Gotelli"
+date: "February 3 2021"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+The goal of this first exercise is to make sure that all of your software is installed properly and to get comfortable with the markdown language.
+
+1. By now, you should have received an invitation from Teams for Bio 381 Computational Biology. Use that portal to join our first meeting on Wednesday February 3rd at 1:10 pm. We may decide to switch to a different platform later in the course, but for now we will start with Teams. The lectures are "scheduled" for 2:50 pm on Tuesdays and Thursdays. You will watch the videos and code along with them on your own schedule.
+
+2. Make sure everything is set up and working on the laptop that you will be using for this course. 
+
+Specifically, you should have the most current versions of R and RStudio installed. Within R, you need the `tinytex` package installed so that can create ("knit") pdf documents.
+
+You also need the latest version of Typora (a markdown editor), a plain text editor (Atom for Macs, or Notepad++ for Windows). And you need to be signed up for a GitHub account and have handy your github user name and password.
+
+Lauren will make a brief presentation and step you through a series of checks to make sure you are ready to go on all of these things.
+
