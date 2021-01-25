@@ -14,7 +14,7 @@ ___
 
 ### Introductions
 
-- me Nicholas.Gotelli@uvm.edu
+- Nick Nicholas.Gotelli@uvm.edu
 - Lauren Lauren.V.Ash@uvm.edu
 
 ### "The Workflow"
@@ -115,7 +115,6 @@ ___
     + shell commands (for using GitHub and other programs)
     + learning new tools (doing new things in R)
     + Slack (better than e-mail)
-    + whereby
     
 - Programming Foundations in R
     + Basic coding in R studio (scripts, sourcing, console, data structures, functions)
@@ -123,7 +122,6 @@ ___
     + Data Files (creating and annotating your scripts and data files for safe storage and archival use)
 
 - Advanced Topics
-    + `dplyr` for data wrangling
     + Graphics (creating publication quality graphics with `ggplot2`)
     + Basic experimental designs (ANOVA, regression, logistic regression, contingency table)
     + Data simulation (normal, uniform, poisson, beta, gamma distributions)
@@ -131,12 +129,9 @@ ___
     + Advanced shell commands
     + Manuscript production in LaTeX
     + Slide presentations in LaTeX
-    + Thinking on paper
 
 ### Non-computational tools
 - A good notebook
 - Touch typing
 
-### Setting up Rstudio
-- Step through global options
 

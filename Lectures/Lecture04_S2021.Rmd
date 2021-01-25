@@ -1,7 +1,7 @@
 ---
 title: 'Lecture #4: Regular Expressions'
 author: "Nicholas J. Gotelli"
-date: "February 11, 2021"
+date: "11 February 2021"
 output:
   html_document:
     highlight: tango

@@ -1,11 +1,11 @@
 ---
 title: 'Lecture #2: GitHub'
 author: "Nicholas J. Gotelli"
-date: "January 16 2020"
+date: "4 February 2021"
 output:
   html_document:
     highlight: tango
-    keep_md: yes
+    keep_md: no
     theme: united
   pdf_document: default
 ---

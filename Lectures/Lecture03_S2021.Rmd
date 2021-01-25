@@ -1,7 +1,7 @@
 ---
-title: 'Lecture #3: More git'
+title: 'Lecture #3: Github II'
 author: "Nicholas J. Gotelli"
-date: "February 9, 2021"
+date: "9 February 2021"
 output:
   html_document:
     highlight: tango
