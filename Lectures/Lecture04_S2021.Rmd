@@ -1,215 +1,243 @@
 ---
-title: 'Lecture #4: Working with the Shell'
+title: 'Lecture #4: Regular Expressions'
 author: "Nicholas J. Gotelli"
-date: "September 6 2018"
+date: "February 11, 2021"
 output:
   html_document:
     highlight: tango
+    keep_md: yes
     theme: united
   pdf_document: default
 ---
+## Regular Expressions
 
-___
 
-### Shell preliminaries
-- 1971 earliest unix shell
-- interface keyboard and a teletype
-- faster than mouse, better than gui for complicated or repeated activities
-- dominant until appearance of personal computers
-- still dominant for critical systems (NASA,hospitals, military, air traffic control)
-- uses plain-text files
-- important for -omics pipelines and working with large data
-- bash shell (= bourne again shell)
-
-### System problems
-- iOS no problem because underlying unix
-- Windows problem because Windows powershell is not comparable; use `Cygwin`
-- RStudio has limited shell installation for use with git but not much else
-- compatability problems and minor differences very common
-
-### Learning how to navigate the shell
-- Windows systems use mouse and have eagle eye view
-- Shell uses keyboard and has an ants eye view 
-- Learning navigation is single most important thing for working with shell
-- Always use tab completion for the names of directories and files (will not work on commands, however)
-
-### The organization of a computer
-- Hierarchical tree from root to branch tips with forks
-- Files and folders versus files and directories
-- All files correspond to a directory, but not vice versa
-- Keys to the entire factory
-- Hard drive or desktop are not the root of your computer
-- Be careful on the factory floor
-
-### The `pwd` command
-- shell always points to a specific directory
-- There is an absolute path to a directory
-- Use forward slashes for unix path specification
-- Absolute path traces from root of the computer
-- Uses forward slashes (in contrast to Windows)
-- `/` indicates top level root of entire program
-- `pwd` gives /path/to/current/directory
-
-### Open shell
-- `$pwd /Users/nickgotelli
-- this always tells me where I am
-
-### The `ls` command
-- `ls` lists files and lower level directories in current directory
-- demonstrate for my system
-
-### Absolute versus relative path statements
-- absolute path always starts at root `/Users/nickgotelli/Desktop`
-- absolute paths work from anywhere within your system
-- relative path does not start with forward slash but with name of directory within your current directory. If I am in my home directory, I can just use `Desktop` or `Desktop/` to indicate this subdirectory, which is relative to my current path
-
-#### Useful options with `ls`
-- `ls -a` shows all including hidden files
-- `ls -l` long format with lots of detail
-- `lf -R` recursively list subdirectories (careful!)
-- `ls -1` list one item per line (useful for programming)
-- `ls -G` list files and directories in color
-- `ls -F` use symbols for different file types
-    + no symbol = file
-    + `/` = a directory
-    + `*` = an executable shell script
-    
-#### EXERCISE: Open shell, do a listing with ls -GF
-
-### The `cd` command
-- use this to move around in different subdirectories
-- most basic form `cd <directory name>` only works for directories that are "below" your current directory (subdirectories)
-
-#### EXERCISE: Open shell `ls cd Desktop`
-- now try moving to a subdirectory on your desktop, followed by ls
-
-### Key built in short-cuts
-- shell opens in your `home` directory
-- `cd ~` always returns you to home in one jump
-- `cd` also takes you home with one less symbol to type
-- `/` takes you to top level root of your computer (rarely needed)
-- `cd DirectoryA/SubdirectoryOfA` jumps you down two directories in a single step
-- `cd ..` moves you up to the next highest directory
-- `cd ../..` jumps you up two directories
-
-#### Exercise:
-- move down to a folder in your desk top one step at a time
-- at each step, check your location (pwd) and list the files(ls)
-- now move back up one step at a time all the way to the root
-- now can you get back to your desktop folder in one step? something like `cd Users/nickgotelli/Desktop/Directory`
-- now jump to your home directory in one step (`cd ~` or just `cd`)
-
-### Using paths in combination with shell commands
-
-- Directory structure can also be used to specify locations or file names for which to operate on!
-- `cd ~` takes me to my home directory
-- `pwd` shows absolute path to my current location (home)
-- `pwd ..` shows absolute path to directory one level up
-- `ls ..` lists files in directory one level up
-- `cd ..` moves me up to that directory
-- `ls` shows the list of files from within that directory
-
-### Creating a file or a directory
-- `touch path/to/<filename>` creates a file (with an optional path statement before it)
-- `mkdir` makes a directory in the current directory
-
-### Removing a file or a directory
-- `rm <filename>` removes a file (can't undo this)
-- `rmdir <directoryname>` removes a directory (directory must be empty)
-- `rm -r <directoryname>` removes directory and recursively removes all of its subdirectories and files!
-
-### Copying or moving files, folders, or directories
-- `cp sourceFile destinationFile` copies file, folder or directory from source location to somewhere else
-- `mv sourceFile destinationFile` moves file, folder or directory from source location to somewhere else
-
-### Renaming or save as... files, folders, or directories
-- `mv oldName newName` in same location renames file
-- `cp oldName newName` in same location saves a copy of the file to a new name
-
-### Using wildcards
-- `rm *.txt` removes all .txt files
-- `rm F*.txt` removes all .txt files that begin with the letter F
-
-### Modifying the shell (in Mac)
-- go to home in the shell
-- look for file `.bash_profile`
-- be sure to show hidden files from finder to see this
-- if not there, create it in your home with a text editor
-- save it to your home area
-
-### Nick's `.bash_profile`
+### Use of literals in searches
 ```
-# execute these commands when the shell is opened
-echo "--> Executed Nick's .bash_profile file"
-export BASH_SILENCE_DEPRECATION_WARNING=1
-alias ls='ls -GF'
-PS1="$ "
-export PATH="$PATH:$HOME/Dropbox/shellScripts"
-source myAliases.sh
+STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds the periods
+
+with Regex (or grep) search
+
+STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds every consecutive character and space!
 ```
+### Escaping a metacharacter
 
-### Nick's aliases
-```
-#!/bin/bash
-# Collection of useful bash aliases
-# Add aliases and then source this file
-
-# directory aliases
-alias desk="cd ~/Desktop"
-alias dropbox="cd ~/Dropbox"
-alias repo="cd ~//Desktop/githubRepos"
-
-# alias for editing this file
-alias myalias="cd ~;vim myAliases.sh"
-
-# new alias for git log
-alias glog="git log --oneline -6"
-
-# function gitgo for all git commands
-gitgo(){
-  git add -A
-  git commit -m "$1"
-  git push
-  git status 
-}
-```
-### Creating your own shell scripts
-- modify path statement in your `.bash_profile` to point to a directory where your shell scripts will be stored: `export PATH="$PATH:$HOME/Dropbox/shellScripts"`
-- go to the directory and create this script called `trialScript.sh`. Use the `sh` suffix to remind you that this is a shell script
-- using your plaintext editor, issue these commands inside your shell script:
-```
-# Minimal shell script
-#! /bin/bash
-<<<<<<< HEAD
-echo '++++++++++++++++++++++++'
-echo 'Trial shell script'
-echo 'current date and time: '
-date
-echo 'current directory: '
-pwd
-echo 'directory contents: '
-ls -AFG
-echo '++++++++++++++++++++++++'
+- insert a `\` before special characters for a literal search in regex
 
 ```
-- be sure to include a final carriage return at the end of the last line:
-- change the permissions of the file so it can be executed as a script in bash: `chmod u+x trialScript.sh`
-
-- navigate with the shell to different locations and run the script by typing `trialScript.sh`
-
-- any new scripts should be placed in this same location and will need their permissions changed before they will work
+STRING: A sentence. Another. And a third.
+SEARCH: \.
+RESULT: finds the periods
+```
+### Wildcards
+- `\w` a single word character [letter,number or `_`]
+- `\d` a single number character [0-9]
+- `\t` a single tab space
+- `\s` a single space, tab, or line break
+- `\n` a single line break (or try `\r`)
 
 ```
-echo `++++++++++++++++++++++++`
-echo `Trial shell script`
-echo `current date and time:
-date
-echo `current directory: `
-pwd
-echo `directory contents: `
-ls -AFG
-echo `++++++++++++++++++++++++`
+STRING: crow raven grackle
+SEARCH: \s
+REPLACE: \n
+RESULT: 
+crow
+raven
+grackle
 ```
-- change the permissions of the file so it can be executed as a script in bash: `chmod u+x trialScript.sh`
 
-- navigate with the shell to different locations and run the script by typing `trialScript.sh`
+#### Repairing pdf cut and paste
+```
+STRING:
+Cutting and
+pasting from pdf is
+a mess. Sentences
+are
+all chopped up. It is
+hard
+to repair.
+
+SEARCH: \n
+REPLACE: (replace with nothing)
+RESULT: 
+Cutting and pasting from pdf is a mess. Sentences are all chopped up. It is hard to repair. 
+```
+- TRY THIS WITH AN ACTUAL PDF PARAGRAPH
+
+### Quantifiers
+- add these on to any of the wildcards
+
+- `\w+` one or more consecutive word characters
+- `\w*` zero or more consecutive word characters
+- `\w{3}` exactly 3 consecutive word characters
+- `\w{3,}` 3 or more consecutive word characters
+- `\w{3,5}` 3, 4, or 5 consecutive word characters
+
+#### Using a zero or more * quantifier
+
+```
+STRING: crow, raven ,grackle,starling  ,    robin
+SEARCH: \s*,\s*
+REPLACE: , 
+RESULT: crow,raven,grackle,starling,robin
+```
+#### Using .* for "all the rest"
+
+```
+STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+RESULT: Matches each line completely!
+```
+#### Captures for the replacement string
+
+```
+STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+
+SEARCH (with capture): \w+,\s*(\w+).*
+REPLACE: \1
+RESULT:
+MyWord
+AnotherOfMyWords
+MyThirdWord
+```
+### Adding multiple captures and literal text
+```
+STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+SEARCH: \w+,\s*(\w+)(.*)
+REPLACE: MY WORD: \1\s LEFTOVER: \2
+RESULT:
+MY WORD: MyWord LEFTOVER:  OtherJunk. ,
+MY WORD: MyWord2 LEFTOVER:
+MY WORD: MyThirdWord LEFTOVER: ,        MoreTrash,!##
+MY WORD: LastWord LEFTOVER:      x.
+```
+### Join Genus and species names
+```
+STRING: 
+Lasius neoniger
+Lasius umbratus
+Myrmica lobifrons
+SEARCH: (\w)\w+ (\w+)
+REPLACE: \1_\2
+RESULT:
+L_neoniger
+L_umbratus
+M_lobifrons
+```
+### Custom character sets
+
+```
+[ATCG] # single character that is A T C or G
+[ATCG]+ # DNA sequence
+```
+### Negated character sets
+```
+[^XY]  # a single character that is anything but X OR Y
+[^0-9.]+ one or more characters that are not numbers of decimals
+```
+### Boundary stakes
+```
+^ # outside of character set indicates start of line
+$ # indicates end of line
+- `\<` Start of a word (but not in BBedit)
+- `\>` End of a word (but not in BBedit)
+```
+
+### E11: Search for whole words within regex
+
+```
+STRING:
+Try to ascertain a kind of karma.
+SEARCH:
+a
+RESULT: finds 5 matches
+
+Search:
+a 
+RESULT: finds 1 match (whole word)
+
+Search:
+a\w
+RESULT: finds 1 match (start of word)
+
+Search:
+\wa
+RESULT: finds 1 match (end of word)
+
+Search:
+\wa\w
+RESULT: finds 2 matches (middle of word)
+```
+
+
+
+### E12: Simplify column searches by staking to the beginning or end of the line
+
+
+
+```
+STRING:
+a,b,c,d,e,f,MyFirstWord,g,MyLastWord
+ee,f,FirstKeeper,xx,LastKeeper
+SEARCH:
+\w+,\w+,\w+$
+SEARCH (with capture):
+(\w+),\w+,(\w+)$
+REPLACE:
+\1 \2
+RESULT:
+a,b,c,d,e,f,MyFirstWord MyLastWord
+ee,f,FirstKeeper LastKeeper
+# Perhaps not exactly what we wanted!
+
+ALTERNATE SEARCH: 
+.*,\w+,\w+,\w+$
+ALTERNATE SEARCH: (with capture):
+(.*),(\w+),(\w+),(\w+)$
+REPLACE:
+\2\s\4
+RESULT:
+MyFirstWord MyLastWord
+FirstKeeper LastKeeper
+
+ALTERNATIVE REPLACE:
+\1,\2
+ALTERNATIVE RESULT:
+a,b,c,d,e,f,g
+ee,f,xx
+```
+
+### Finding bad characters
+```
+STRING: 
+LC1 11101 xxx
+LC345 11101 204
+LCx 11l01 1x5
+SEARCH: ^(\w+) \d*([^0-9]*)\d* \w+$
+RESULT:
+LC1
+LC345
+LCx l
+Finds "bad" lines with non-numeric characters in second slot
+```

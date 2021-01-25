@@ -8,7 +8,7 @@ output:
     theme: united
 ---
 
-1. After a review by Lauren, use the notes from Lecture #2 to build a repository in GitHub, and a local version on your desktop. Call this repository "PracticeRepo"
+1. After a review by Lauren, use the notes from Lecture #2 to build a repository in GitHub, and a local version on your desktop. Call this repository "PracticeRepo".
 
 2. Create an `index.Rmd` file that you will post as an html webpage.
 
