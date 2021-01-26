@@ -44,7 +44,24 @@ output:
 
 1. Download these two templates for creating letters and slides
 
+[Letter Template](01_UVM_Letter_TEMPLATE.bak)    
+[Beamer Template](01_Beamer_TEMPLATE.bak)
 
+2. Open a new `.Rnw` document and copy in the letter template. To get it to run, you will need an image for the letterhead, and an image for your signature. See if you can find a UVM logo on line, and also use your phone to take a picture of your own signature.
+
+3. Get the code to run and create your sample letter as a .pdf.
+
+4. Post that pdf with your signature to your github webpage.
+
+5. Now load the beamer template and get it to run to create a set of slides.
+
+6. Follow the instructions in the template to try out different themes and fonts, and to insert an image.
+
+7. Do some searching online and see if you can add a caption to an image on a graph. Can you also adjust the positioning and the size? What about two images on a single page.
+
+8. Create your own slide show with maybe 5 or 6 pdf slides by modifying the template.
+
+9. Post the pdf of your new slide show to your github webpage.
 
 
 

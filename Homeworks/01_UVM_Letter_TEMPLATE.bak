@@ -1,0 +1,69 @@
+\documentclass[10pt]{article} % change font size here
+
+%--------------------------------------
+\usepackage{hyphenat} % use to disable hyphenation
+\usepackage[margin=1.0in,top=0.25in]{geometry} % adjust margins
+\usepackage{lipsum} % Just for this example
+
+%--------------------------------------
+% \renewcommand{\familydefault}{\ttdefault} % use for plain text
+\setlength{\parindent}{0pt} % No paragraph indent
+\pagestyle{empty} % No page headers/footers
+\setlength{\parskip}{5mm plus 4mm minus 3mm} % for paragraph spacing
+%--------------------------------------
+\begin{document}
+\raggedright % toggle off for flush right margin
+\includegraphics[scale=2]{images/UVMLogoSolid7484.jpg}\\ % delete to remove UVM letterhead
+
+%--------------------------------------
+ \hfill\hfill\hfill % to align following text flush right
+ 4 December 2020\\[10pt]  % <-- ADD DATE HERE
+ 
+%--------------------------------------
+\begin{tabular}{l@{}}
+  % Nicholas J. Gotelli \\ 
+  % 115 Robinson Parkway \\
+  % Burlington, Vermont 05401 \\
+  % Phone: (802) 734-9353 \\
+  % Email: ngotelli@uvm.edu
+\end{tabular}
+
+%--------------------------------------
+\begin{tabular}{@{}l}
+  % date time stamp % use these entries for left flush
+  % \bigskip
+Recipient Name\\
+Address 1\\
+Address 2\\
+Address 3
+\end{tabular}
+%--------------------------------------
+%--------------------------------------
+
+
+Dear X:
+
+\lipsum[1-2]
+
+
+
+% \newpage % use if necessary to adjust spacing for signature block
+
+%--------------------------------------
+%--------------------------------------
+
+\begin{tabular}{@{}l}
+Sincerely yours,\\
+\includegraphics[scale=0.15,width=2in]{images/MySignature.jpg}\\
+Nicholas J. Gotelli, PhD\\
+Professor, Department of Biology\\
+University of Vermont\\
+Burlington, VT 05405 USA\\
+802-656-2922\\
+ngotelli@uvm.edu\\
+http://tinyurl.com/gotelli\\
+ORCid:https://orcid.org/0000-0002-5409-7456\\
+\end{tabular}
+%--------------------------------------
+
+\end{document}
