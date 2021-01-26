@@ -44,7 +44,7 @@ March 2  | Town Meeting Day Recess | -
 March 3  | -  | [Homework #5](Homeworks/Homework05_S2021.html)
 March 4  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
 March 9  | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
-March 10  | -  | [Homework #6](Homeworks/Homework06_S2020.html)
+March 10  | -  | [Homework #6](Homeworks/Homework06_S2021.html)
 March 11 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 March 16  | [Experimental Designs](Lectures/Lecture12_S2020.html)| -
 March 17  | -  | [Homework #7](Homeworks/Homework07_S2020.html)

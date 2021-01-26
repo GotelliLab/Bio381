@@ -1,0 +1,62 @@
+---
+title: 'Homework #6'
+author: "Nicholas J. Gotelli"
+date: '10 March 2021'
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+## Working with matrices, lists, and data frames
+
+1. Assign to the variable `n_dims` a single random integer between 3 and 10.
+
+- Create a vector of consecutive integers from 1 to $\mbox{n_dims}^2$.
+
+- Use the sample function to randomly reshuffle these values.
+
+- create a square matrix with these elements.
+
+- print out the matrix.
+
+- find a function in r to transpose the matrix.
+
+- print it out again and note how it has changed.
+
+- calculate the sum and the mean of the elements in the first row and the last row.
+
+- read about the `eigen()` function and use it on your matrix
+
+- look carefully at the elements of `$values` and `$vectors`. What kind of numbers are these?
+
+- dig in with the `typeof()` function to figure out their type.
+
+- if have set your code up properly, you should be able to re-run it and create a matrix of different size because `n_dims` will change.
+
+2. Create a list with the following named elements:
+- `my_matrix`, which is a 4 x 4 matrix filled with random uniform values
+- `my_logical` which is a 100-element vector of TRUE or FALSE values. Do this efficiently by setting up a vector of random values and then applying an inequality to it.
+- `my_letters`, which is a 26-element vector of all the lower-case letters in random order.
+- create a new list, which has the element[2,2] from the matrix, the second element of the logical vector, and the second element of the letters vector.
+- use the `typeof()` function to confirm the underlying data types of each component in this list
+- combine the underlying elements from the new list into a single atomic vector with the `c()` function.
+- what is the data type of this vector?
+
+3. Create a data frame with two variables (= columns) and 26 cases (= rows).
+
+- call the first variable `my_unis` and fill it with a random uniform value from 0 to 10
+
+- call the second variable `my_letters` and fill it with 26 capital letters in random order.
+
+- for the first variable, use a single line of code in R to select 4 random rows and replace the numerical values in those rows with `NA`.
+
+- for the first variable, write a single line of R code to identify which rows have the missing values.
+- for the second variable, sort it in alphabetical order
+
+- calculate the column mean for the first variable.
+
+
+
+
