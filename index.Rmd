@@ -49,16 +49,16 @@ March 11 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 March 16  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
 March 17  | -  | [Homework #7](Homeworks/Homework07_S2021.html)
 March 18  | [Functions](Lectures/Lecture13_S2021.html)| -
-March 23  | [Structured Programming I](Lectures/Lecture14_S2020.html)| -
+March 23  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
 March 24  | Reading/Respite Day  | - 
-March 25  | [Structured Programming II](Lectures/Lecture17_S2020.html)| -
-March 30  | [Control Structures I](Lectures/Lecture18_S2020.html) | -
+March 25  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
+March 30  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
 March 31  | -  | [Homework #8](Homeworks/Homework08_S2020.html)
-April 1  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
-April 6  | [Control Structures III](Lectures/Lecture20_S2020.html) | -
+April 1  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
+April 6  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
 April 7  | - | [Homework #9](Homeworks/Homework09_S2020.html)
-April 8  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
-April 13  | [Batch Processing](Lectures/Lecture22_S2020) | -
+April 8  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
+April 13  | [Batch Processing](Lectures/Lecture20_S2021) | -
 April 14  | - | [Homework #10](Homeworks/Homework10_S2020.html)
 April 15  | Reading/Respite Day | -
 April 20  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
