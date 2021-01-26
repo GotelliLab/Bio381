@@ -29,48 +29,61 @@ ___
 Date  | Lecture | Homework
 ------------- |----------- | -------------
 February 2  | [Introduction](Lectures/Lecture01_S2021.html) | -  
-February 3  | - | [Homework #1](Homeworks/Homework01_S2021.html)                         
+February 3  | - | [Homework #1](Homeworks/Homework01_S2021.html)             
 February 4  | [GitHub](Lectures/Lecture02_S2021.html) | -  
+
 February 9  | [Github II](Lectures/Lecture03_S2021.html) | -
 February 10 | - |  [Homework #2](Homeworks/Homework02_S2021.html)
 February 11  | [Regular Expressions](Lectures/Lecture04_S2021.html) | -
+
 February 16  | [Markdown](Lectures/Lecture05_S2021.html) | - 
 February 17  |  -  | [Homework #3](Homeworks/Homework03_S2021.html)
 February 18  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
-February 23  | [Data Structures](Lectures/Lecture07_S2020.html) | - 
-February 25  | [Atomic Vectors](Lectures/Lecture08_S2020.html)| - 
+
+February 23  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | - 
 February 24  | -  | [Homework #4](Homeworks/Homework04_S2020.html)
-March 4  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2020.html) | -
+February 25  | [Atomic Vectors II](Lectures/Lecture08_S2020.html)| - 
+
 March 2  | Town Meeting Day Recess | -
 March 3  | -  | [Homework #5](Homeworks/Homework05_S2020.html)
+March 4  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2020.html) | -
+
 March 9  | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
-March 11 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 March 10  | -  | [Homework #6](Homeworks/Homework06_S2020.html)
+March 11 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
+
 March 16  | [Experimental Designs](Lectures/Lecture12_S2020.html)| -
-March 18  | [Functions](Lectures/Lecture13_S2020.html)| -
 March 17  | -  | [Homework #7](Homeworks/Homework07_S2020.html)
+March 18  | [Functions](Lectures/Lecture13_S2020.html)| -
+
 March 23  | [Structured Programming I](Lectures/Lecture14_S2020.html)| -
-March 25  | [Structured Programming II](Lectures/Lecture17_S2020.html)| -
 March 24  | Reading/Respite Day  | - 
+March 25  | [Structured Programming II](Lectures/Lecture17_S2020.html)| -
+
 March 30  | [Control Structures I](Lectures/Lecture18_S2020.html) | -
-April 1  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
 March 31  | -  | [Homework #8](Homeworks/Homework08_S2020.html)
+April 1  | [Control Structures II](Lectures/Lecture19_S2020.html) | -
+
 April 6  | [Control Structures III](Lectures/Lecture20_S2020.html) | -
-April 8  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
 April 7  | - | [Homework #9](Homeworks/Homework09_S2020.html)
+April 8  | [Randomization Tests](Lectures/Lecture21_S2020.html) | -
+
 April 13  | [Batch Processing](Lectures/Lecture22_S2020) | -
-April 20  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
 April 14  | - | [Homework #10](Homeworks/Homework10_S2020.html)
 April 15  | Reading/Respite Day | -
-April 22  | [ggplot II](Lectures/Lecture24_S2020.html) | -
-April 21  | - | [Homework #11](Homeworks/Homework11_S2020.html)
-April 27 | [ggplot III](Lectures/Lecture25_S2020.html) | -
-April 29 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
-April 28  | - | [Homework #12](Homeworks/Homework12_S2020.html)
-May 4  | [Github III and Shell Commands](Lectures/Lecture04_S2021.html) | -
 
+April 20  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
+April 21  | - | [Homework #11](Homeworks/Homework11_S2020.html)
+April 22  | [ggplot II](Lectures/Lecture24_S2020.html) | -
+
+April 27 | [ggplot III](Lectures/Lecture25_S2020.html) | -
+April 28  | - | [Homework #12](Homeworks/Homework12_S2020.html)
+April 29 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
+
+May 4  | [Github III and Shell Commands](Lectures/Lecture04_S2021.html) | -
 May 5  | Catch-up Day | -
 May 6  | Catch-up Day | -
+
 May 11 | Catch-up Day | - 
 
 ___

@@ -1,0 +1,50 @@
+---
+title: 'Homework #4'
+author: "Nicholas J. Gotelli"
+date: "24 February 2021"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+### Typora
+
+1. Create a typora document to illustrate the following formatting:
+
+* headers (levels 1-6)
+* unordered lists
+* ordered lists
+* manual line breaks
+* links
+* images
+* block quotes
+* plain code blocks
+* R code blocks
+* in line block
+* in line LaTeX equation
+* centered LaTeX equation
+* horizontal rule
+* simple table
+* text highlighting
+
+2. On a piece of paper, draw a simple cause-and-effect diagram to illustrate one or two hypotheses from your research or from one of your other biology classes. Circles represent variables or measurements. Arrows (which can be labelled) indicate cause and effect directions.
+
+3. Take a smart phone photo of your flow chart and import the image into your Typora document.
+
+4. Lauren will illustrate simple software for flow charts and diagrams that can be used in Typora. Check out the possibilities at http://support.typora.io/Draw-Diagrams-With-Markdown/
+
+5. See if you can convert your hand-drawn flowchart into one of these display items and imbed it in your Typora document.
+
+6. Try converting your plain-text document to pdf and html and see how they look. Be sure to experiment with the different "themes" that Typora offers. Each theme features a different font and background color. Follow the links in Typora to the themes pages. Find another theme you like, and then follow the instructions for downloading it and installing it on your computer so that you can use it with Typora.
+
+7. Post the html version of your document to your github webpage.
+
+### LaTeX
+
+1. Download these two templates for creating letters and slides
+
+
+
+
+
