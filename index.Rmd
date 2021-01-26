@@ -61,13 +61,13 @@ April 8  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
 April 13  | [Batch Processing](Lectures/Lecture20_S2021) | -
 April 14  | - | [Homework #10](Homeworks/Homework10_S2020.html)
 April 15  | Reading/Respite Day | -
-April 20  | [ggplot I](Lectures/Lecture23_S2020.html)  | -
+April 20  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
 April 21  | - | [Homework #11](Homeworks/Homework11_S2020.html)
-April 22  | [ggplot II](Lectures/Lecture24_S2020.html) | -
-April 27 | [ggplot III](Lectures/Lecture25_S2020.html) | -
+April 22  | [ggplot II](Lectures/Lecture22_S2021.html) | -
+April 27 | [ggplot III](Lectures/Lecture23_S2021.html) | -
 April 28  | - | [Homework #12](Homeworks/Homework12_S2020.html)
-April 29 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
-May 4  | [Github III and Shell Commands](Lectures/Lecture04_S2021.html) | -
+April 29 | [Functional Programming](Lectures/Lecture24_S2021.html) | -
+May 4  | [Github III and Shell Commands](Lectures/Lecture25_S2021.html) | -
 May 5  | Catch-up Day | -
 May 6  | Catch-up Day | -
 May 11 | Catch-up Day | - 
