@@ -212,45 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-<style type="text/css">
-a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
-a.anchor-section::before {content: '#';}
-.hasAnchor:hover a.anchor-section {visibility: visible;}
-</style>
-<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
-document.addEventListener('DOMContentLoaded', function() {
-  // Do nothing if AnchorJS is used
-  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
-    return;
-  }
-
-  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-
-  // Do nothing if sections are already anchored
-  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
-    return null;
-  }
-
-  // Use section id when pandoc runs with --section-divs
-  const section_id = function(x) {
-    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
-            ? x.id : '');
-  };
-
-  // Add anchors
-  h.forEach(function(x) {
-    const id = x.id || section_id(x.parentElement);
-    if (id === '') {
-      return null;
-    }
-    let anchor = document.createElement('a');
-    anchor.href = '#' + id;
-    anchor.classList = ['anchor-section'];
-    x.classList.add('hasAnchor');
-    x.appendChild(anchor);
-  });
-});
-</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -290,6 +251,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 
 
@@ -408,11 +370,11 @@ summary {
 
 <p>The goal of this first exercise is to make sure that all of your software is installed properly and working.</p>
 <ol style="list-style-type: decimal">
-<li><p>By now, you should have received an invitation from Teams for Bio 381 Computational Biology. Use that portal to join our first meeting on Wednesday February 3rd at 1:10 pm. We may decide to switch to a different platform later in the course, but for now we will start with Teams. The lectures are “scheduled” for 2:50 pm on Tuesdays and Thursdays. You will watch the videos and code along with them on your own schedule.</p></li>
+<li><p>By now, you should have received an <code>inspace</code> link via Slack and Teams to join our first meeting on Wednesday February 3rd at 1:10 pm. We may decide to switch to a different platform later in the course, but for now we will start with <code>inspace</code> The lectures are “scheduled” for 2:50 pm on Tuesdays and Thursdays. You will watch the videos and code along with them on your own schedule.</p></li>
 <li><p>Make sure everything is set up and working on the laptop that you will be using for this course.</p></li>
 </ol>
 <p>Specifically, you should have the most current versions of R and RStudio installed. Within R, you need the <code>tinytex</code> package installed so that can create (“knit”) pdf documents.</p>
-<p>You also need the latest version of Typora (a markdown editor), a plain text editor (Atom for Macs, or Notepad++ for Windows). And you need to be signed up for a GitHub account and have handy your github user name and password.</p>
+<p>You also need the latest version of Typora (a markdown editor), a plain text editor (Atom for Macs, or Notepad++ for Windows). And you need to be signed up for a GitHub account and have handy your github user name and password. An installation and troubleshooting guide for the various programs is linked <a href="Installation_Instructions.html">here</a>.</p>
 <p>Lauren will make a brief presentation and step you through a series of checks to make sure you are ready to go on all of these things.</p>
 
 
