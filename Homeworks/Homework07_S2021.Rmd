@@ -19,7 +19,7 @@ This exercise teaches you how to compare a histogram of continuous (or integer) 
 
 1. Set up a new `.Rmd` file for this exercise. Copy and paste the code below into different code chunks, and then read the text and run the code chunks one at a time to see what they do. You probably won't understand everything in the code, but this is a good start for seeing some realistic uses of `ggplot`. We will cover most of these details in the next few weeks.
 
-2. Once the code is in and runs, try running this analysis on your own data (or data from your lab, or data from a published paper). Find a vector of data (of any size), set it up in a `.csv` file, and read the data into a data frame with this code chunk:
+2. Once the code is in and runs, try running this analysis on your own data (or data from your lab, or data from a published paper; if you're stumped, check out publicly available data sets on [Dryad](https://datadryad.org/search) and [ESA](https://data.esa.org)). Find a vector of data (of any size), set it up in a `.csv` file, and read the data into a data frame with this code chunk:
 
 ```{r, eval=FALSE}
 z <- read.table("MyDataFile.csv",header=TRUE,sep=",", stringsAsFactors=FALSE)

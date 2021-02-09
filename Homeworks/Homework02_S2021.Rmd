@@ -23,8 +23,8 @@ output:
 7. Check your webpage and make sure that the new link works. 
 
 8. At the end of the day, send to Nick on Slack the following:
-  - the link to your GitHub page `https://github.com/YourGitHubPageName`
-  - the link to your new webpage `https://YourGitHubPageName.github.io/LastNameBio381/`
+  - the link to your GitHub repository page `https://github.com/YourGitHubUserName`
+  - the link to your new webpage `https://YourGitHubUserName.github.io/LastNameBio381/`
   - a "fun fact": something distinctive about you or your past that will help everyone instantly remember your name and who you are. For examples, see the list from the students in last year's course on the [course homepage](https://gotellilab.github.io/Bio381/). Once I have all of this information, I will update the homepage with the entries from this year's class.
   
 10. Congratulations! You are now a GitHub user!
