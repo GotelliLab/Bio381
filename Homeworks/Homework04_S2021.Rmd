@@ -45,7 +45,7 @@ output:
 1. Download these two templates for creating letters and slides
 
 [Letter Template](01_UVM_Letter_TEMPLATE.bak)    
-[Beamer Template](01_Beamer_TEMPLATE.bak)
+[Beamer Template](01_Beamer_TEMPLATE.Rnw)
 
 2. Open a new `.Rnw` document and copy in the letter template. To get it to run, you will need an image for the letterhead, and an image for your signature. See if you can find a UVM logo online, and also use your phone to take a picture of your own signature.
 
