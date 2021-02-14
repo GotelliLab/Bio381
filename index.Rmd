@@ -81,7 +81,7 @@ Student  | Fun Fact
 Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](lvash.github.io/Bio381) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Maia Austin  [GitHub](https://github.com/austinmaia) [Portfolio](https://austinmaia.github.io/AustinBio381/)  | I have lived in 13 different cities!
 Katie Bardsley [GitHub](https://github.com/kbardsley) [Portfolio](https://kbardsley.github.io/BardsleyBio381/)  | I play saxophone in the UVM Pep Band and have gotten really into sourdough baking.
-Emily Beam [GitHub](https://github.com/xxx) [Portfolio](https://kbardsley.github.io/xxx/)  | ?
+Emily Beam [GitHub](https://github.com/eabeam/) [Portfolio](https://eabeam.github.io/BeamBio381/)  | I am probably a bit too excited about board games, and I lived in a convent for a year in grad school
 Bertrand Black [GitHub](https://github.com/bertrandblack) [Portfolio](https://bertrandblack.github.io/BlackBio381/)  | I went to high school in Italy.
 Gavin Briske [GitHub](https://github.com/xxx) [Portfolio](https://lindseycathcart.github.io/x/)  | ?
 Ethan Dean  [GitHub](https://github.com/emdean99) [Portfolio](http://x.github.io/x/)  | I am a really big Star Trek fan; my favorite show is "Star Trek the Next Generation", and my favorite character is Lieutenant Commander Data.
@@ -99,7 +99,7 @@ Sarah Morris  [GitHub](https://github.com/skmorris) [Portfolio](https://skmorris
 Mia Murphy [GitHub](https://github.com/nightskyfirefly) [Portfolio](https://nightskyfirefly.github.io/MurphyBio381/)  |  I have owned over a dozen exotic pets – including chinchillas, African dormice, and striped grass mice.
 Paulina Murray  [GitHub](https://github.com/PaulinaEMurray) [Portfolio](https://paulinaemurray.github.io/MurrayBio381/)  | I have a pet tortoise named Ivy! 
 George Ni [GitHub](https://github.com/georgeni2442) [Portfolio](https://georgeni2442.github.io/NiBio381/)  | Before coming to Vermont, I trained raptors for falconry and educational programs.
-Sandra Nnadi [GitHub](https://github.com/xxx) [Portfolio](https://x.github.io/x/) | ?
+Sandra Nnadi [GitHub]https://github.com/Sandra-ctrl) [Portfolio](https://sandra-ctrl.github.io/NnadiBio381/| ?
 Isaac Racine [GitHub](https://github.com/isaacracine) [Portfolio](https://isaacracine.github.io/RacineBio381/)  | I cross-country ski-raced in high school.
 Manali Rege-Colt [GitHub](https://github.com/manalijrc) [Portfolio](https://x.github.io/x/)  |  I spent last spring's quarantine building out a van complete with a tiny kitchen, solar shower and solar panels! 
 Giovanna Sassi [GitHub](https://github.com/GiovannaSassi) [Portfolio](https://giovannasassi.github.io/Gianna/)  | I have 23 chickens.
