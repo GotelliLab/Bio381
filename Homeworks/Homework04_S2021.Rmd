@@ -49,7 +49,13 @@ output:
 
 2. Open a new `.Rnw` document and copy in the letter template. To get it to run, you will need an image for the letterhead, and an image for your signature. You can [download a UVM logo image here](UVMLogoSolid7484.jpg) or you can explore the UVM logo [options on this web page](https://www.uvm.edu/creative_styleguide/uvm-logo-assets), and also use your phone to take a picture of your own signature.
 
-3. Get the code to run and create your sample letter as a .pdf.
+3. Get the code to run and create your sample letter as a .pdf. To compile, you may need to install some extra packages, and R will let you know with an error message. Use this code and replace it with the .sty file you are missing (there may be multiple):
+
+```
+tinytex::parse_install(
+  text = "! LaTeX Error: File `ae.sty' not found."
+)
+```
 
 4. Post that pdf with your signature to your Github webpage.
 
@@ -59,7 +65,7 @@ output:
 
 7. Do some searching online and see if you can add a caption to an image on a graph. Can you also adjust the positioning and the size? What about two images on a single page.
 
-8. Create your own slide show with maybe 5 or 6 pdf slides by modifying the template.
+8. Create your own slide show with maybe 5 or 6 pdf slides by modifying the template. Use the code above, if there are any missing .sty packages.
 
 9. Post the pdf of your new slide show to your Github webpage.
 

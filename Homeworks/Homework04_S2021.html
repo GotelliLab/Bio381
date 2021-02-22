@@ -219,12 +219,17 @@ summary {
 <a href="01_Beamer_TEMPLATE.Rnw">Beamer Template</a></p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Open a new <code>.Rnw</code> document and copy in the letter template. To get it to run, you will need an image for the letterhead, and an image for your signature. You can <a href="UVMLogoSolid7484.jpg">download a UVM logo image here</a> or you can explore the UVM logo <a href="https://www.uvm.edu/creative_styleguide/uvm-logo-assets">options on this web page</a>, and also use your phone to take a picture of your own signature.</p></li>
-<li><p>Get the code to run and create your sample letter as a .pdf.</p></li>
+<li><p>Get the code to run and create your sample letter as a .pdf. To compile, you may need to install some extra packages, and R will let you know with an error message. Use this code and replace it with the .sty file you are missing (there may be multiple):</p></li>
+</ol>
+<pre><code>tinytex::parse_install(
+  text = &quot;! LaTeX Error: File `ae.sty&#39; not found.&quot;
+)</code></pre>
+<ol start="4" style="list-style-type: decimal">
 <li><p>Post that pdf with your signature to your Github webpage.</p></li>
 <li><p>Now load the Beamer template and get it to run to create a set of slides.</p></li>
 <li><p>Follow the instructions in the template to try out different themes and fonts, and to insert an image.</p></li>
 <li><p>Do some searching online and see if you can add a caption to an image on a graph. Can you also adjust the positioning and the size? What about two images on a single page.</p></li>
-<li><p>Create your own slide show with maybe 5 or 6 pdf slides by modifying the template.</p></li>
+<li><p>Create your own slide show with maybe 5 or 6 pdf slides by modifying the template. Use the code above, if there are any missing .sty packages.</p></li>
 <li><p>Post the pdf of your new slide show to your Github webpage.</p></li>
 </ol>
 </div>
