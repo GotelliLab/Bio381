@@ -83,7 +83,6 @@ Maia Austin  [GitHub](https://github.com/austinmaia) [Portfolio](https://austinm
 Katie Bardsley [GitHub](https://github.com/kbardsley) [Portfolio](https://kbardsley.github.io/BardsleyBio381/)  | I play saxophone in the UVM Pep Band and have gotten really into sourdough baking.
 Emily Beam [GitHub](https://github.com/eabeam/) [Portfolio](https://eabeam.github.io/BeamBio381/)  | I am probably a bit too excited about board games, and I lived in a convent for a year in grad school
 Bertrand Black [GitHub](https://github.com/bertrandblack) [Portfolio](https://bertrandblack.github.io/BlackBio381/)  | I went to high school in Italy.
-Gavin Briske [GitHub](https://github.com/gavinbriskexxx) [Portfolio](https://lindseycathcart.github.io/x/)  | ?
 Ethan Dean  [GitHub](https://github.com/emdean99) [Portfolio](https://emdean99.github.io/DeanBio381/)  | I am a really big Star Trek fan; my favorite show is "Star Trek the Next Generation", and my favorite character is Lieutenant Commander Data.
 Maddy Degelsmith [GitHub](https://github.com/mdegelsm) [Portfolio](https://mdegelsm.github.io/DegelsmithBio381/)  |  I am double-majoring in Spanish so that I can live in a Spanish-speaking country after college.
 Caroline Dumas  [GitHub](https://github.com/carolinedumas) [Portfolio](https://carolinedumas.github.io/DumasBiol381/)  |  I have kissed the Blarney stone in Ireland and it gave me the gift of Gab!
@@ -94,7 +93,7 @@ Nick Gotelli [GitHub](https://github.com/GotelliLab) | For the past 15 years (pr
 Zach Gottlieb [GitHub](https://github.com/ZachGot) [Portfolio](https://ZachGot.github.io/ZachBio381/)  |  I love public transportation, and firmly believe Burlington is the perfect size for trams.
 Caitlin Jeffrey [GitHub](https://github.com/caitlin-jeffrey) [Portfolio](https://caitlin-jeffrey.github.io/JeffreyBio381/)  | I'm a large animal veterinarian!
 Massi Khodaverdi [GitHub](https://github.com/MassiKhodave) [Portfolio](https://MassiKhodave.github.io/Massi-Khodaverdi/)  | ?
-Bailey Kretzler [GitHub](https://github.com/xxx) [Portfolio](https://bkretzler.github.io/KretzlerBio381/)  | I have swam cross the Mississippi River and write my own food blog!
+Bailey Kretzler [GitHub](https://github.com/bkretzler/) [Portfolio](https://bkretzler.github.io/KretzlerBio381/)  | I have swam cross the Mississippi River and write my own food blog!
 Sarah Morris  [GitHub](https://github.com/skmorris) [Portfolio](https://skmorris.github.io/MorrisBio381/)  | I have stepped on a rattlesnake and lived to tell the tale. 
 Mia Murphy [GitHub](https://github.com/nightskyfirefly) [Portfolio](https://nightskyfirefly.github.io/MurphyBio381/)  |  I have owned over a dozen exotic pets – including chinchillas, African dormice, and striped grass mice.
 Paulina Murray  [GitHub](https://github.com/PaulinaEMurray) [Portfolio](https://paulinaemurray.github.io/MurrayBio381/)  | I have a pet tortoise named Ivy! 
