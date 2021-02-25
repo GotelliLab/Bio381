@@ -78,7 +78,7 @@ ___
 
 Student  | Fun Fact
 ------------- | --------------
-Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](lvash.github.io/Bio381) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
+Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
 Maia Austin  [GitHub](https://github.com/austinmaia) [Portfolio](https://austinmaia.github.io/AustinBio381/)  | I have lived in 13 different cities!
 Katie Bardsley [GitHub](https://github.com/kbardsley) [Portfolio](https://kbardsley.github.io/BardsleyBio381/)  | I play saxophone in the UVM Pep Band and have gotten really into sourdough baking.
 Emily Beam [GitHub](https://github.com/eabeam/) [Portfolio](https://eabeam.github.io/BeamBio381/)  | I am probably a bit too excited about board games, and I lived in a convent for a year in grad school
@@ -92,7 +92,7 @@ Emma Gagne [GitHub](https://github.com/emmagagne) [Portfolio](https://emmagagne.
 Nick Gotelli [GitHub](https://github.com/GotelliLab) | For the past 15 years (pre-covid), I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
 Zach Gottlieb [GitHub](https://github.com/ZachGot) [Portfolio](https://ZachGot.github.io/ZachBio381/)  |  I love public transportation, and firmly believe Burlington is the perfect size for trams.
 Caitlin Jeffrey [GitHub](https://github.com/caitlin-jeffrey) [Portfolio](https://caitlin-jeffrey.github.io/JeffreyBio381/)  | I'm a large animal veterinarian!
-Massi Khodaverdi [GitHub](https://github.com/MassiKhodave) [Portfolio](https://MassiKhodave.github.io/Massi-Khodaverdi/)  | ?
+Massi Khodaverdi [GitHub](https://github.com/MassiKhodave) [Portfolio](https://MassiKhodave.github.io/Massi-Khodaverdi/)  | I have lived in China but never had a Chinese food there.
 Bailey Kretzler [GitHub](https://github.com/bkretzler/) [Portfolio](https://bkretzler.github.io/KretzlerBio381/)  | I have swam cross the Mississippi River and write my own food blog!
 Sarah Morris  [GitHub](https://github.com/skmorris) [Portfolio](https://skmorris.github.io/MorrisBio381/)  | I have stepped on a rattlesnake and lived to tell the tale. 
 Mia Murphy [GitHub](https://github.com/nightskyfirefly) [Portfolio](https://nightskyfirefly.github.io/MurphyBio381/)  |  I have owned over a dozen exotic pets – including chinchillas, African dormice, and striped grass mice.
