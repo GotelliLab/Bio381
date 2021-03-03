@@ -26,7 +26,7 @@ Some of these problems are adapted from:
     b) $(1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)$
     c) $(5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)$
     
-3. Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as *x* and *y* coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R's inverse trigonometry functions (`asin()`, `acos()`, or `atan()`), convert these numbers into polar coordinates (If you don't know what polar coordinates are, read about them on the web [here](https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-angular-movement/a/polar-coordinates) or in your calculus textbook).
+3. Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as *x* and *y* coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R's inverse trigonometry functions (`asin()`, `acos()`, or `atan()`), convert these numbers into polar coordinates (If you don't know what polar coordinates are, read about them on the web [here](https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-angular-movement/a/polar-coordinates), [here](https://tutorial.math.lamar.edu/classes/calcii/polarcoordinates.aspx), or in your calculus textbook).
 
 4. Suppose that `queue <- c("sheep", "fox", "owl", "ant")` and that `queue` represents the animals that are lined up to enter Noah's Ark, with the sheep at the front of the line. Using R expressions, update the queue successively as 
 
