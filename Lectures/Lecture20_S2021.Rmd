@@ -104,6 +104,7 @@ fileOut <- "StatsSummary.csv"
 #--------------------------------------------
 
 # Create 100 random data sets
+dir.create(fileFolder)
 FileBuilder(fileN=nFiles)
 fileNames <- list.files(path=fileFolder)
 
