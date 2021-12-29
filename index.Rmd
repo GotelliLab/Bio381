@@ -38,7 +38,7 @@ February 1  | [Markdown](Lectures/Lecture05_S2021.html) | -
 February 2  |  -  | [Homework #3](Homeworks/Homework03_S2021.html)
 February 3  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
 February 8  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | - 
-February 9  | -  | [Homework #5](Homeworks/Homework05_S2021.html)
+February 9  | **Portfolio Check #1**  | [Homework #5](Homeworks/Homework05_S2021.html)
 February 10  | [Atomic Vectors II](Lectures/Lecture08_S2021.html)| - 
 February 15  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
 February 16  | -  | [Homework #6](Homeworks/Homework06_S2021.html)
@@ -53,7 +53,7 @@ March 8 | Spring Recess | -
 March 9 | Spring Recess | -
 March 10 | Spring Recess | -
 March 15  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
-March 16  | - | [Homework #9](Homeworks/Homework09_S2021.html)
+March 16  | **Portfolio Check #2** | [Homework #9](Homeworks/Homework09_S2021.html)
 March 17  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
 March 22  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
 March 23  | - | [Homework #10](Homeworks/Homework10_S2021.html)
@@ -65,7 +65,7 @@ April 5  | [Batch Processing](Lectures/Lecture20_S2021) | -
 April 6  | - | [Homework #12](Homeworks/Homework12_S2021.html)
 April 7  | [dplyr](Lectures/Lecture20a_S2021.html)  | -
 April 12  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
-April 13  | - | [Homework #13](Homeworks/Homework12a_S2021.html)
+April 13  | **Portfolio Check #3** | [Homework #13](Homeworks/Homework12a_S2021.html)
 April 14  | [ggplot II](Lectures/Lecture22_S2021.html) | -
 April 19 | [ggplot III](Lectures/Lecture23_S2021.html) | -
 April 27  | - | [Homework #14](Homeworks/Homework12b_S2021.html)
