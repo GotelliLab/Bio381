@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "Spring 2021"
+date: "Spring 2022"
 output:
   pdf_document: default
   html_document:
@@ -13,8 +13,8 @@ ___
 
 ## Meetings
 
-**(Virtual) Lecture:** Tuesday, Thursday  2:50 - 4:05 pm 
-**Lab:** Wednesday, 1:10 pm - 3:40 pm 
+**Lecture:** Tuesday, Thursday  1:15 - 2:30 pm, 129 Marsh Life Science 
+**Lab:** Wednesday, 1:10 pm - 3:40 pm, 129 Marsh Life Science 
 
 ## Instructors
 
@@ -27,6 +27,14 @@ Video conferences by appointment
 211 Marsh Life Science   
 Lauren.V.Ash@uvm.edu   
 Video conferences by appointment
+
+**Lab:** Emily Beasley
+211 Marsh Life Science   
+Emily.Beasley@uvm.edu
+Video conferences by appointment
+
+**Video-conference web link:
+https://app.inspace.chat/space/3D1AE70150195F8B7890ADE9027FFC3E982F8A3F
 
 ## Pre-Requisites
 * A personal laptop computer that you bring to all lecture and lab meetings
