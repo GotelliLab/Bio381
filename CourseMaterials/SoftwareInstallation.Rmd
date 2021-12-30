@@ -1,7 +1,7 @@
 ---
 title: "Software Installation"
 author: "Biology 381 - Computational Biology"
-date: "16 December 2021"
+date: "30 December 2022"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -11,12 +11,12 @@ Here are the software packages you need to load onto your computer for this cour
 
 Before you begin downloading software, please make sure that your operating system (Windows, Linux, or iOS) and browser (Windows Explorer, Firefox, Chrome etc.) are as up-to-date as possible, and that you have installed all the most current patches and updates. The older and more out-of-date your software is, the harder it is to get everything working properly.
 
-Go to each software page and follow the instructions for downloading the installer. Once you have downloaded the package to your desktop or other place on your hard drive, double-click it to begin the installation. The installer will go through a number of steps. Always use the complete installation with the default choices at each step. 
+Go to each software page and follow the instructions for downloading the installer and running it. The installer will go through a number of steps. Always use the complete installation with the default choices at each step. 
 
-Installing new software can sometimes be tricky. If you run into any issues please contact me or Lauren, and we should be able to help you out.
+Installing new software can sometimes be tricky. If you run into any issues please contact me or Lauren or Emily, and we should be able to help you out.
 
 
-## Update 19 January 2021 - Detailed Installation Instructions
+## Detailed Installation Instructions
 
 Lauren has graciously provided a much more detailed set of instructions for installing the software that you will need. If you are having any troubles, consult this page
 
@@ -28,6 +28,8 @@ Typora is a slick little markdown editor that compiles to `.pdf` and `.html`. It
 
 https://typora.io/
 
+> 2022 Update. It appears that Typora is now charging a fee of $15 for the latest version. This is a one-time fee (not a subscription) with a license for 3 devices. This is an excellent piece of software that I use every day; it is well worth this modest fee.
+
 ## Github
 
 GitHub is a free web-based repository for storing and updating your computer code, collaborating with others on documents and coding, and hosting your webpages. We will use GitHub extensively in this course. During the first week of class, you will start by building your own GitHub repository and website, and you will post all of your homeworks and exercises to this website during the semester. It will be an on-line "portfolio" of your work. Register for free GitHub account below, and be sure to record your user name and password for future use.
@@ -35,22 +37,22 @@ GitHub is a free web-based repository for storing and updating your computer cod
 [register For GitHub](https://github.com/)
 
 ## R
-R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. During the installation, you will need to choose a "mirror", which is simply a local network from which your copy of the R installer will be downloaded. Use any of the major U.S. university sites such as Case Western or Duke. The latest version of R (16 December 2021) is 4.0.3 ("Bunny-Wunnies Freak Out").   
+R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. The latest version of R (30 December 2022) is 4.1.2 ("Bird Hippie").   
 
-[download R](https://www.r-project.org/)
+[download R](http://lib.stat.cmu.edu/R/CRAN/ )
 
 ## RStudio
-RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (16 December 2021) is 1.3.1093.
+RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (30 December 2022) is RStudio 2021.09.1+372.
 
 
 
 [download R Studio](https://www.rstudio.com/products/rstudio/download/)
 
-If you already have R and RStudio installed, you will definitely need to update them so that everything will work properly. Although it is relatively easy to update R, one headache is that it does not update all of your packages and libraries, which then have to be reloaded each time you initially use them. Here is a nice post that shows you how to update R and reload all of your previous packages automatically:
+If you already have R and RStudio installed, you will definitely need to update them so that everything will work properly. Although it is relatively easy to update R, one minor headache is that it does not update all of your packages and libraries, which then have to be reloaded each time you initially use them. Here is an older post post that shows you how to update R and reload all of your previous packages automatically:
 
 https://www.r-bloggers.com/updating-r/
 
-If you have some experience with R already, this upgrade should not be too difficult. Please check with me or Lauren if you are having trouble (Note: this update routine did not work successfully for me the last time I tried it [04 January 2020]. I am not sure what the problem was, but it might not work for you either).
+If you have some experience with R already, you may want to try this, although it did not work for me the last time I tried this (04 January 2020). Since then, I have decided it is simpler to just reload the packages I need after a fresh installation. In some cases older packages were defunct, have been upgraded and migrated to CRAN (the official repository for packages), or I am just not using them anymore. So I treat the upgrade of R as a sprimg cleaning, and then just re-install packages as I need them. Please check with me or Lauren Emily if you are having trouble.
 
 Also, you can run into minor snags (especially with `ggplot2`) if your packages have not been updated in a long time. From the console, enter this:
 
@@ -61,9 +63,9 @@ update.packages(checkBuilt=TRUE, ask=FALSE)
 ## Installing LaTeX and other useful packages
 LaTeX (pronounced "la-tech") is a typesetting language that renders plain text to a pdf, and is used by RStudio (and other programs). In the past, getting LaTeX installed properly was a major hair-pulling exercise during the first week of class, particularly for older Windows machines.
 
-Fortunately, life got a lot easier this year with the release of the `tinytex` R package by Yihui Xi. We only need to use this package once to install LaTeX. Two other R packages that we will use frequently are `tidyverse` and `patchwork`. All three packages are now available on CRAN.
+Fortunately, life got a lot easier a few years ago with the release of the `tinytex` R package by Yihui Xi. We only need to use this package once to install LaTeX. Two other R packages that we will use frequently are `tidyverse` and `patchwork`. All three packages are now available on CRAN.
 
-If you already know how to install packages in R (either by issuing commands from the original R terminal or through the GUI in RStudio), go ahead and install `tinytex`, `tidyverse`, and `patchwork`. If you don't know how to install R packages, please contact me or Lauren and we will step you through it.
+If you already know how to install packages in R (either by issuing commands from the original R terminal or through the GUI in RStudio), go ahead and install `tinytex`, `tidyverse`, and `patchwork`. If you don't know how to install R packages, please contact me or Emily or Lauren and we will step you through it.
 
 ## Text editors
 Plain text files are the common currency of all computational tools, and a plain text editor is also wonderful for composing text without any formatting distractions. Among its many uses, a good plain text editor allows you to search and replace using regular expressions, an incredibly powerful tool. Although there are simple editors that are installed by default on your Mac or Windows machines, they are not true plain text editors and should be avoided. There are many good plain text editors, some free, and some for sale, that you can find for your Mac or Windows machine. In fact, the RStudio itself can function as a simple text editor (although it is not so good for regular expressions, which is what we will be using it for). For this course, download and install one of the following: 
@@ -81,4 +83,4 @@ We are going to learn how to use shell commands and perform our git operations i
 
 [download Cygwin for Windows](https://www.cygwin.com/)
 
-
+This Cygwin installation is optional because a minimal shell is now included as part of R studio, and that is what we will use for all of your github operations. Time permitting, we will cover other shell operations near the end of the course, and Windows users may need Cygwin at that time.

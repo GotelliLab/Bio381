@@ -1,7 +1,7 @@
 ---
 title: 'Installation Guide: R, RStudio, RMarkdown, and LaTeX'
 author: "Lauren Ash"
-date: "January 2021"
+date: "January 2022"
 output:
   html_document: 
     toc: yes
@@ -19,13 +19,13 @@ output:
 **Windows**: You probably have Windows 8 or 10. To get more information on Windows 10, click the start button and Settings icon. Then, click System and then "About" in the left pane. It will give you information such as whether you have a 32 or 64 bit processor (which is helpful to know for further installation). If you have Windows 8, you can Click "Settings" and then click "Change PC settings" from the sidebar. Then, click "PC and devices," and finally click "PC info."
 
 ## Installing R
-Follow this link: http://lib.stat.cmu.edu/R/CRAN/ and choose your platform (Windows, Mac, or Linux). The latest R version is: R 4.0.3 "Bunny-Wunnies Freak Out." 
+Follow this link: http://lib.stat.cmu.edu/R/CRAN/ and choose your platform (Windows, Mac, or Linux). The latest version of R (30 December 2022) is 4.1.2 ("Bird Hippie").   
 
 **If you already have R and RStudio installed**, (perhaps from a previous class or you actively use it) verify it is the latest version: it is listed at the top of the console when you open RStudio. If you would like to keep the packages in your library, check out this help page: https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/. For RStudio, go to Help -> check for updates.   
 
-**For Windows**, click the "install R for the first time", which is blue and bold next to "base." Then 'Download R 4.0.3 for Windows.' If you download and install with the defaults, it will install both the 32 and 64 bit R versions. You can delete the one that does not match with your processor (see above on how to check that info).
+**For Windows**, click the "install R for the first time", which is blue and bold next to "base." Then 'Download R 4.1.2 for Windows.' If you download and install with the defaults, it will install both the 32 and 64 bit R versions. You can delete the one that does not match with your processor (see above on how to check that info).
 
-**For Mac**, choose the file that corresponds to your Mac OS X system version. If you have everything up to date, you can download and install 4.0.3 (just click and open the .pkg file).
+**For Mac**, choose the file that corresponds to your Mac OS X system version. If you have everything up to date, you can download and install 4.1.2 (just click and open the .pkg file).
 
 **For old Macs** (where you cannot update to the latest OS X software):
 Go to the same link https://lib.stat.cmu.edu/R/CRAN/ and click “Download for (Mac) OSX”. Scroll down and you will see a list of releases. Choose the .pkg file that corresponds to your software. If you have a version higher than 10.13 (High Sierra), you can choose the latest release.
@@ -71,8 +71,6 @@ For some reason, even after a successful installation, sometimes it shows some e
 
 * You can download it here: git-scm.com and then restart RStudio
 
-**Note for Windows users following along in Lecture:** In Lecture 2A (RStudio Set Up) at the 16 minute mark, you will not be able to use the `ls` command until setting up git in RStudio. You can use the dir command instead, until you have git set up.  
-
 2) When you commit for the first time you will probably receive this message:
 `author identity unknown`   
 
@@ -87,19 +85,20 @@ git config --global user.name "Lauren"
 
 * You can choose 'authorize on browser,' log in, and click allow access  
 
+You may need the following instructions for later, but not for the early part of the course:
+
+```
 ## Navigating the Shell Lecture 24 (Windows Users)
 
 When you install cygwin, it creates folders wherever you chose to install it; however when you open the cygwin program, it does not automatically have access to your computer root and files  
 
 * You will have to add a 'link' from your computer root to the cygwin folder: do this by typing in the following code (replacing <username> with your Windows user name) and naming the link (in this case it is named Home). A directory will be created where you type this so at the start of your session it will be in your root cygwin folder:  
 
-```
 ln -s "/cygdrive/c/Users/<username>" Home
 cd Home
 ls
-```
 
 * In this lecture (Lecture 25D Navigating the Shell), the command `r` does not work in cygwin. I believe it needs a path to the R.exe file, so I would advise windows users to skip this.  
 
 Please contact me you are having any additional issues installing these programs: lvash@uvm.edu
-
+```

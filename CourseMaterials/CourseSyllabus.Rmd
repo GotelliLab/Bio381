@@ -3,10 +3,10 @@ title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
 date: "Spring 2022"
 output:
-  pdf_document: default
   html_document:
     highlight: tango
     theme: united
+  pdf_document: default
 ---
 
 ___
@@ -20,17 +20,17 @@ ___
 
 **Lecture:** Nick Gotelli   
 209 Marsh Life Science   
-[ngotelli@uvm.edu](mailto:ngotelli@uvm.edu)
+[ngotelli@uvm.edu](mailto:ngotelli@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
 **Lab:** Lauren Ash   
 211 Marsh Life Science   
-[Lauren.V.Ash@uvm.edu](mailto:Lauren.V.Ash@uvm.edu)
+[Lauren.V.Ash@uvm.edu](mailto:Lauren.V.Ash@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
-**Lab:** Emily Beasley
+**Lab:** Emily Beasley   
 211 Marsh Life Science   
-[Emily.Beasley@uvm.edu](mailto:Emily.Beasley@uvm.edu)
+[Emily.Beasley@uvm.edu](mailto:Emily.Beasley@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
 [Video-conference web link](https://app.inspace.chat/space/3D1AE70150195F8B7890ADE9027FFC3E982F8A3F)
@@ -92,9 +92,7 @@ All students start out the class with a grade of "A". To maintain this as your f
 
 >Even with less extreme scenarios, it is possible that some students will have to miss classes because of illness, isolation, or quarantine. If that happens, the videos can be used to keep up with course material until you return. You will need to make arrangements with Emily & Lauren to handle missed labs.
 
->Hopefully, none of this will come to pass and we will be able to meet live for lecture and lab instruction. UVM requires and students and faculty to be up-to-date on vaccinations and boosters, and of course we will observe current masking and distancing requirements.
+>Hopefully, none of this will come to pass and we will be able to meet live for lecture and lab instruction. Remember that UVM requires and students and faculty to be up-to-date on vaccinations and boosters, and of course we will observe current masking and distancing requirements.
 
 
-## Student Responsibilities
 
->For 2021 lab instruction during the pandemic, Lauren will host the labs live on Teams and teach it in the usual way. Attendance is mandatory, although there may be some days when you do not need to stay for the entire time. It is your responsibility to keep up with all of the assignments, and regular post your completed homeworks to your github webpage (which you will create during the second week of lab).
