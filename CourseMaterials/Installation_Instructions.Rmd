@@ -1,0 +1,104 @@
+---
+title: 'Installation Guide: R, RStudio, RMarkdown, and LaTeX'
+author: "Lauren Ash"
+date: "January 2022"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+    theme: united
+---
+
+## Checking your computer's software 
+
+### (This is important for future programs, as well as base R and RStudio)  
+
+**Macs**: Click the apple in the top left of your screen and choose "About This Mac." The latest software to date is Mac OS Big Sur (version 11.1). If you do not have this updated, I strongly suggest you do so before installing R/RStudio. Below the information you can click "Software Update..." and it will lead you to the latest updates, if you have any.
+
+**Windows**: You probably have Windows 8 or 10. To get more information on Windows 10, click the start button and Settings icon. Then, click System and then "About" in the left pane. It will give you information such as whether you have a 32 or 64 bit processor (which is helpful to know for further installation). If you have Windows 8, you can Click "Settings" and then click "Change PC settings" from the sidebar. Then, click "PC and devices," and finally click "PC info."
+
+## Installing R
+Follow this link: http://lib.stat.cmu.edu/R/CRAN/ and choose your platform (Windows, Mac, or Linux). The latest version of R (30 December 2022) is 4.1.2 ("Bird Hippie").   
+
+**If you already have R and RStudio installed**, (perhaps from a previous class or you actively use it) verify it is the latest version: it is listed at the top of the console when you open RStudio. If you would like to keep the packages in your library, check out this help page: https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/. For RStudio, go to Help -> check for updates.   
+
+**For Windows**, click the "install R for the first time", which is blue and bold next to "base." Then 'Download R 4.1.2 for Windows.' If you download and install with the defaults, it will install both the 32 and 64 bit R versions. You can delete the one that does not match with your processor (see above on how to check that info).
+
+**For Mac**, choose the file that corresponds to your Mac OS X system version. If you have everything up to date, you can download and install 4.1.2 (just click and open the .pkg file).
+
+**For old Macs** (where you cannot update to the latest OS X software):
+Go to the same link https://lib.stat.cmu.edu/R/CRAN/ and click “Download for (Mac) OSX”. Scroll down and you will see a list of releases. Choose the .pkg file that corresponds to your software. If you have a version higher than 10.13 (High Sierra), you can choose the latest release.
+
+## Installing RStudio
+Go here: https://rstudio.com/products/rstudio/download/#download
+
+* Choose and open the .exe file if you are a **Windows user**
+* Choose and open the .dmg file if you are a **Mac user**
+* If you have an **old Mac**: here is a list of older versions - https://rstudio.com/products/rstudio/older-versions/
+
+
+## Installing Rmarkdown in RStudio
+* You can have RMarkdown automatically install by going to File -> New File -> RMarkdown... in RStudio. Click yes when it asks whether to install the additional required packages (it may take a couple of minutes for the extra packages associated with Rmarkdown to download). A gray window should pop up asking you to title your new Rmarkdown file. That means Rmarkdown was installed. 
+* If it throws an error or gets stuck, restart RStudio and type `install.packages("rmarkdown")` into the Console and press return. If prompted type 'a' (and press return) if it asks which packages to compile and update. If you receive an error, restart RStudio and type 'n'
+
+##### Troubleshooting Rmarkdown:
+* Not opening Rmarkdown and stuck on installation of extra packages? Restart RStudio and click "No" when it asks to install packages that require compilation
+
+* stringi error? Type ```install.packages("stringi",type="mac.binary")``` into the console and restart RStudio
+
+* XCode problem ("invalid active developer path")? Manually install XCode using "xcode-select --install" in Terminal. Documentation for the fix here: https://ma.ttias.be/mac-os-xcrun-error-invalid-active-developer-path-missing-xcrun/ 
+
+## Installing LaTex in RStudio
+Luckily there is a very nice package that was created for the easy installation of LaTeX in RStudio!     
+
+1. Type ```install.packages("tinytex")``` into the Console and press return to run the code.   
+2. After that is complete, type ```tinytex::install_tinytex()``` into the Console and press return. This should take a bit of time depending on the speed of your computer.    
+
+For some reason, even after a successful installation, sometimes it shows some error/warning messages at the end. Ignore them and check whether it works here:
+
+**To check whether it was installed properly**   
+1. Go to File -> New File -> RMarkdown...    
+2. Then click PDF as the default output option. It will give you example text in the file.   
+3. Press the Knit button (with the yarn icon) and name the file whatever you want (Test is always a good option) and put it on your Desktop.   
+4. It may take a couple of minutes, but you should have a PDF with the same file name (Test.pdf for example) on your Desktop, if it works.   
+5. If it says Error: LaTeX failed to compile, that means the `tinytex` installation did not work. Make sure you ran both lines!  
+
+
+## Connecting git to RStudio 
+
+1) If you have not done so already, you need to download git (you cannot select Version Control in RStudio until it is downloaded) 
+
+* You can download it here: git-scm.com and then restart RStudio
+
+2) When you commit for the first time you will probably receive this message:
+`author identity unknown`   
+
+* You need to set your github email in RStudio (only once when you first commit) using this code (and your own github email and name):  
+
+```
+git config --global user.email "lvash@uvm.edu"
+git config --global user.name "Lauren"
+```
+
+3) When you push for the first time it prompts you to log in (via a pop-up window)  
+
+* You can choose 'authorize on browser,' log in, and click allow access  
+
+You may need the following instructions for later, but not for the early part of the course:
+
+```
+## Navigating the Shell Lecture 24 (Windows Users)
+
+When you install cygwin, it creates folders wherever you chose to install it; however when you open the cygwin program, it does not automatically have access to your computer root and files  
+
+* You will have to add a 'link' from your computer root to the cygwin folder: do this by typing in the following code (replacing <username> with your Windows user name) and naming the link (in this case it is named Home). A directory will be created where you type this so at the start of your session it will be in your root cygwin folder:  
+
+ln -s "/cygdrive/c/Users/<username>" Home
+cd Home
+ls
+
+* In this lecture (Lecture 25D Navigating the Shell), the command `r` does not work in cygwin. I believe it needs a path to the R.exe file, so I would advise windows users to skip this.  
+
+Please contact me you are having any additional issues installing these programs: lvash@uvm.edu
+```

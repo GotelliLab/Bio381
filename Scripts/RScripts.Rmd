@@ -1,0 +1,42 @@
+---
+title: "R Scripts and Vignettes"
+author: "Biology 381 - Computational Biology"
+date: "Spring 2017"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+---
+### 31 January 2017
+[BeamerImages.Rmd](Jan31/BeamerImages.Rmd)
+
+[BeamerImages.pdf](Jan31/BeamerImages.pdf)
+
+[celtic.jpg (needed for figure insertion)](Jan31/celtic.jpg)
+
+___
+
+### 2 February 2017
+
+[Annotating Data Sets.html](Feb02/AnnotatingDataSets.html)
+
+[Data Formatting.html](Feb02/DataFormatting.html)
+
+[Excel Data Template.xlsx](Feb02/ExcelDataTemplate.xlsx)
+
+[New England Ant County Data.csv](Feb02/antcountydata.csv)
+
+___
+
+### 7 February 2017
+
+[Regular Expressions.html](Feb07/RegularExpressions.html)
+
+[Regular Expressions Tutorial.pdf](Feb07/RegularExpressionsTutorial.pdf)
+
+[Handling Strings In R.pdf](Feb07/HandlingAndProcessingStringsInR.pdf)
+
+___
+
+### 8 March 2017
+[Function Dictionary](Mar08/MergedFunctions.html)

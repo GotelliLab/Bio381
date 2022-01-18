@@ -1,0 +1,74 @@
+---
+title: "Lecture #10: Data curation"
+author: "Nicholas J. Gotelli"
+date: "9 March 2021"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+## Data curation
+* GitHub repository   
+* Student contract   
+* Metadata   
+* [Metadata template](https://gotellilab.github.io/Bio381/Scripts/Feb02/ExcelDataTemplate.xlsx)   
+* Example of Lauren's data 
+
+## Exporting and importing data
+
+First create a tiny data set in Excel:
+```
+# comments at the top
+# beaucoup metadata
+ID, Treatment, Biomass, Notes
+1, Control, 30.3, 
+2, HighN, 13.0, 
+3, HighN, NA, broken scale
+4, Control, 35.3,
+```
+- Save as .csv
+- Inspect in RStudio Editor
+
+### Use `read.table` to bring in data
+```{r, eval=FALSE}
+my_data <- read.table(file="path/to/data.csv",
+                    header=TRUE,
+                    sep=",",
+                    comment.char="#")
+
+# inspect object
+str(my_data)
+
+# now add a column
+my_data$newVar <- runif(4)
+head(my_data)
+```
+
+### Use `write.table` to export to a data file
+
+```{r, eval=FALSE}
+
+write.table(x=my_data,
+            file="Path/To/OutputFileName.csv",
+            HEADER=TRUE,
+            sep=",")
+```
+
+
+
+But this is not a good way to save or share data objects if we are working in R. Some researchers use the `save()` function, which preserves the whole environment, but once it is restored with `load()`, the variable names cannot be changed. It is better to use `saveRDS().
+
+### `saveRDS()`: useful when you are working only in R
+```{r, eval=FALSE}
+saveRDS(my_data, file="Path/To/FileName.RDS") # .RDS suffix is not required, but good for clarity
+```
+
+This only saves a single R object as a binary, but remember, you can bundle up many things into a single list!
+
+Use `readRDS()` to restore it.
+
+### `readRDS()`
+```{r, eval=FALSE}
+data_in <-readRDS("FileName.RDS") 
+```
+

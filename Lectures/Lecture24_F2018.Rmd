@@ -1,0 +1,152 @@
+---
+title: 'Lecture #24 command line'
+author: "Nicholas J. Gotelli"
+date: "November 15, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+# History of the command line
+- before monitor and the mouse
+- teletype for logging in and interacting with mainframe
+- standard in the 1960s and 1970s
+- emergence of GUI with Lisa in 1983
+- Apple and Windows develop GUIs
+- Apple has underlying version of Unix(=Darwin), cmd for windows
+- command prompt did not disappear from standard use until ~1995 
+- still used by system operators and programmers
+- faster and more efficient than GUI, especially for repetitive tasks and operating on multiple files
+- but dangerous; no hints and no undoing commands
+- shell != command line
+- shell passes commands
+- numerous kinds of shells Bourne Bourne again bash
+
+# Shell basics
+- find your shell (console, cygwin, git bash)
+
+## Where am I? `pwd`
+- pwd gives you the current directory
+- distinction between directory and a folder
+
+## Anatomy of path and file names
+- root = /
+- subdirectory
+- subdirectory
+- file name
+- working directory
+- absolute path starts with /
+- relative path starts with a directory name
+- absolute paths work from anywhere on the computer
+- relative paths only work from a particular directory
+- /bin/Administrator/Desktop/Dropbox/myfile
+- if I am on the Desktop Dropbox/myfile
+- if I am in Dropbox myfile
+
+### What is here? `ls`
+- `ls` shows what is in working directory
+- `ls` -F gives a slash for a subdirectory `*` for an executable
+- `ls -a` shows all including hidden files and directories
+- `ls -aF`
+- `ls -l` shows "long" version with permissions
+
+### Change directory `cd`
+- `cd directoryName` moves down into that directory
+- `cd ..` moves up one level to the next highest directory
+- `cd direct1/direct2` moves down two levels to directory2
+- `cd ../..` moves up two levels in hierarchy
+
+### Move quickly to two places
+- `cd /` moves to root of entire computer
+- `cd ~` moves you to home directory
+- `cd `  cd with no argument also moves you to home directory
+
+
+### Speed up your work
+- `TAB` will complete directory and file names with enough unique letters
+- `UP ARROW` will give the last command used
+- `history` see all of your commands
+- `!5` give the history command in line #5 of history
+- `!cat` give the history command for the last time `cat` was used
+
+### Getting help on a command
+- use `man command` for a description of the command and options
+
+### Exercises
+- move to the root and then back down to  your Desktop
+- move to home and then back to your repository for homework
+- at each step use `pwd` to look around and pick your next move
+- if you get stuck, use `cd ..` to move back up a level
+
+# Using `git` with the shell
+- navigate to the repository
+- use `ls -a` to see the hidden .git folder
+- `git status` to see what is going on
+- `git status -s` for a shortened view
+- make changes to repository
+- `git status` to see the changes
+- `git add -A` to stage all the changes
+- `git status` again to see the change
+- `git commit -m "commit message"` to make your commit
+- `git status` to note we are ahead by one commit
+- `git push` to move things up to the server
+
+## The essential commands
+- `git add -A`
+- `git -m "commit message"`
+- `git push`
+- use `status` or `status -s` before and after each change
+
+## Forking and working on branches
+- `git branch` to see listing of branches
+- `git branch name` to create a new branch
+- `git checkout name` to move to new branch
+- make changes as usual
+- stage and commit as usual (but don't push)
+- `git checkout master` to return to master branch
+- `git merge name` to merge changes from fork into master
+- `git push` to push those changes up to GitHub
+- `git branch -d name` to delete this branch
+
+## Calling in past changes
+- `git checkout hash` pulls up previous commit
+- `git checkout hash filename` pulls up a particular file
+
+# Introduction to other shell functions
+
+## Getting help
+- `man command`
+
+## Reading a file
+- `cat filename` prints file
+- `cat file1 file2` prints them consecutively
+- `less file` pages file (automatically invoked by `man`)
+
+## Selecting rows of a file
+- `head -5` show first 5 lines
+- `tail -2` show last 2 lines
+- `tail +2` start on line 2 and show the rest
+
+## `grep` for selecting rows
+- `grep pattern file1 file2` print rows in these files with pattern
+- `grep -v pattern file1 file2` print rows in these without pattern 
+- `grep -n pattern file1 file2` print rows in these with pattern and give line number
+- `grep -c pattern file1 file2` print count of number of rows that match in each file
+- `grep -l pattern file1 file2` print name of each input file that has a match
+
+## `cut` for selecting columns
+- `cut file -f 3-5,7 -d ","` pick out columns 3,4,5 and 7 in a comma-delimited (=.csv) file 
+- `cut file -c 11-15` pick out characters 11 through 15 in each row
+
+## `sort` for ordering rows
+- `sort file` sort alphabetically the rows
+- `sort file -r` sort rows in reverse order
+
+## redirecting output
+
+- `cat file1 file2 > newfile` copy contents of file1 and file2 into newfile (create it if it does not exist, or overwrite existing file)
+- `cat file1 >> newfile` append contents of file1 to the end of newfile (create newfile if it does not already exist)
+- `grep pattern file1 | cut -f 2 -d "," | sort -r > output` select rows of file1 that match pattern, then keep only the contents of column 2, sort into reverse alphabetical order and save the result in output
+
+

@@ -1,0 +1,259 @@
+---
+title: 'Lecture #4: Working With R Studio II'
+author: "Nicholas J. Gotelli"
+date: "September 6 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+### Links  
+- links [linking text](website address)
+- footnotes^[Footnoted text, consecutively at bottom of page]
+- images 
+```
+![image link](website address)
+```
+
+### Tables
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+- also the `kable` package for later
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+```{r, echo=TRUE, results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+
+
+
+### Equations
+
+* in-line `$`
+* centered `$$`
+
+- basic math and text spacing handled by LateX
+
+```
+$$y = a + b$$
+```
+
+$$y = a + b$$
+
+#### Subcripts
+
+```
+$$H_0 = Z_{a + b}$$
+```
+
+$$H_0 = Z_{a + b}$$
+
+####Superscripts
+
+```
+$$S = cA^z$$
+
+```
+
+$$S = cA^z$$
+
+
+Contrast this with the construction of superscripts in Markdown
+
+```
+
+```
+```
+Markdown z^x^
+```
+
+z^x^
+
+```
+LaTeX: $z^x$
+```
+$z^x$
+
+```
+Markdown: z^x + 1^
+```
+
+z^x + 1^
+
+```
+LaTeX: $z^{x + 1}$
+```
+
+$z^{x + 1}$
+
+```
+Markdown: z^x+1^
+```
+z^x+1^
+
+```
+LaTeX: $z^{x+1}$
+```
+$z^{x+1}$
+
+
+- elements can be coupled and nested
+
+$$S=cA^z_1 + z_{2 + x}$$
+
+
+```
+$$S=cA^z_1 + z_{2 + x}$$
+
+```
+
+#### Fractions and Greek Symbols
+
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+```
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+
+```
+
+#### Summation signs
+
+$$z = \sum_{i=1}^X{K}$$
+
+```
+$$z = \sum_{i=1}^X{K}$$
+
+```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
+### R Code in Chunks
+
+* `CTRL-ALT-I` inserts a new "chunk" of R code
+```{r}
+# Use comments extensively in ALL of your coding!
+Pred <- seq(1,10)     # make a vector of integers from 1 to 10
+Res <- runif(10)      # generate 10 draws from a random uniform (0,1) distribution
+
+# print the random numbers
+print(Res)
+
+# plot the graph
+plot(x=Pred,y=Res,type="b")
+```
+
+### Using chunk options to control printing of code and output
+```{r}
+plot(runif(50),cex=10*runif(50),col="goldenrod")
+print(rnorm(n=10, mean=10, sd=2))
+```
+
+### Writing R scripts
+
+- new script
+- code executes and prints in console
+- graphs in output window
+- `CTRL - ENTER` to run a single line of code
+- `CTRL - SHIFT - ENTER` to source the entire script
+- code to illustrate:
+```{r}
+# First comment to explain what this program is doing.
+# Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
+# Simple script to examine the distribution of the product of two uniform variables
+# Make sure it is readable. Use complete sentences, not cryptic phrases.
+# 6 September 2018
+# NJG
+
+# Preliminaries
+library(ggplot2)
+set.seed(100)
+library(TeachingDemos) # use this to set the random number seed from a character string
+char2seed("green tea")
+char2seed("green tea",set=FALSE)
+
+#
+
+# Global variables
+nRep <- 10000
+
+# Create or read in data
+ranVar1 <- rnorm(nRep)
+# print(ranVar1)
+head(ranVar1)
+tail(ranVar1)
+
+ranVar2 <- rnorm(nRep)
+
+
+# visualize data
+qplot(x=ranVar1)
+qplot(x=ranVar1,color=I("black"),fill=I("goldenrod"))
+qplot(x=ranVar2,color=I("black"),fill=I("grey50"))
+
+
+# create product vector
+ranProd <- ranVar1*ranVar2
+length(ranProd)
+str(ranProd)
+head(ranProd)
+
+# visualize product vector
+qplot(x=ranVar1,color=I("black"),fill=I(grey(0.5)))
+
+# do other stuff..
+```
+### Converting `.R` files to `.html` (creating an R notebook)
+- use notebook script
+- roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
+### Bonus: A Cool New Markdown Editor!
+
+- Demo of `Typora` a WYSIWYG text editor at https://typora.io/
+

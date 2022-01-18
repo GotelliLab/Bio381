@@ -1,0 +1,213 @@
+---
+title: 'Lecture #7: Data Structures'
+author: "Nicholas J. Gotelli"
+date: "September 18, 2018"
+output:
+  html_document:
+    highlight: tango
+    keep_md: yes
+    theme: united
+  pdf_document: default
+---
+### Scheduling changes for next week
+
+### List serves
+- R-bloggers
+- Sharp Sight Labs
+- Data Camp
+
+### Creating Vectors
+#### Creating an empty vector and adding to it (avoid)
+```{r,eval=FALSE}
+# create an empty vector, specify mode & length
+z <- vector(mode="numeric",length=0)  
+print(z)
+
+# now add elements to it
+
+z <- c(z,5)
+print(z)
+# This "dynamic sizing" is very SLOW!
+```
+
+#### Creating a vector of predefined length (preferred)
+```{r, eval=FALSE}
+### Better to create a vector of pre-defined length
+
+# has 100 0s in a numeric vector
+z <- rep(0,100) 
+head(z)
+
+# but would be better to start with NAs
+z <- rep(NA,100)
+head(z)
+
+# but what is its type?
+typeof(z)
+
+# take advantage of coercion!
+z[1] <- "Washington"
+head(z)
+typeof(z)
+```
+
+#### Efficiently creating a vector with many names
+```{r, eval=FALSE}
+MyVector <- runif(100)
+MyNames <- paste("Species",seq(1:length(MyVector)),sep="")
+names(MyVector) <- MyNames
+str(MyVector)
+```
+
+#### Using `rep` to repeat elements and create vectors
+```{r, eval=FALSE}
+# rep for repeating elements
+rep(0.5,6) # give the element (or vector!) and number of times to repeat
+rep(x=0.5,times=6) # using the argument names is always prudent
+rep(times=6,x=0.5) # with argument names, order is not important
+myVec <- c(1,2,3)
+rep(x=myVec,times=2) # applies to entire vectors
+rep(x=myVec,each=2) # repeat each element individually
+rep(x=myVec,times=myVec) # what does this do?
+rep(x=myVec,each=myVec) # and this?
+```
+
+#### Using `seq` to create regular sequences
+```{r,eval=FALSE}
+seq(from=2, to=4) # set limits for integer sequences
+2:4 # very common short cut with no explicit function wrappers
+seq(from=2,to=4,by=0.5) # use a by function can generate real numbers
+x <- seq(from=2, to=4,length=7) # sometimes easier to just specify the length
+myVec <- 1:length(x) # commonly used, but actually slow
+print(myVec)
+seq_along(myVec) # much faster for models and big data!
+seq_len(5) # this is also faster than 1:5
+```
+
+#### Using `rnorm` and `runif` to create vectors of random numbers
+```{r,eval=FALSE}
+runif(5) # 5 random uniform values betweeon 0 and 1
+runif(n=3,min=100, max=101) # 3 random uniform values between 100 and 101
+
+rnorm(6) # 6 random normal values with mean 0 and standard deviation 1
+rnorm(n=5, mean=100, sd=30) # 5 random normal values with mean 100 and sd 30
+
+## Explore distributions by sampling and plotting
+library(ggplot2) # do this at the very start
+z <- runif(1000) #default uniform (0,1)
+qplot(x=z)
+z <- rnorm(1000) #default normal (0,1)
+qplot(x=z)
+```
+
+#### Using `sample` to draw random values from an existing vector
+
+```{r,eval=FALSE}
+longVec <- LETTERS[1:10]
+typeof(longVec)
+str(longVec)
+
+sample(x=longVec) # with no other params, this reorders the vector
+sample(x=longVec, size=3) # specify a number (sampling without replacement)
+sample(x=longVec,size=16,replace=TRUE) # can generate duplicates
+myWeights <- c(rep(20,5),rep(100,5)) # create a set of non-zero positive weights (integer or real)
+print(myWeights)
+sample(x=longVec,replace=TRUE,prob=myWeights) # sampling with replacement and weights
+sample(x=longVec,replace=FALSE,prob=myWeights) # sampling without replacement and weights
+sample(x=longVec,replace=TRUE,prob=longVec) # what does this do?
+```
+
+
+### Matrices
+
+```{r,eval=FALSE}
+library(ggplot2)
+# Create a matrix from an atomic vector
+m <-matrix(data=1:12,nrow=4,ncol=3)
+print(m)
+
+# Must specify at least one of the two dimensions
+m <- matrix(data=1:12,nrow=4)
+print(m)
+
+# use byrow=TRUE to fill one row at a time
+m <-matrix(data=1:12,nrow=4,byrow=TRUE)
+print(m)
+
+# use dim() to see dimensions
+dim(m)
+
+# can also change dimensions of matrix (must be correct size)
+dim(m) <- c(6,2)
+print(m)
+dim(m) <- c(4,3)
+print(m)
+# to get separate components of dim
+nrow(m)
+ncol(m)
+
+# note that length still applies to original atomic vector
+length(m)
+
+# to add names 
+rownames(m) <- c("a","b","c","d")
+print(m)
+colnames(m) <- LETTERS[1:ncol(m)]
+print(m)
+rownames(m) <- letters[nrow(m):1]
+print(m)
+
+# specify particular elements within matrix with brackets and subscripts
+
+# print a single element
+# print row 2, column 3 
+print(m[2,3])
+# print an entire row (or column) by leaving entry blank
+# print row 2, showing all of the columns
+print(m[2,])
+
+#print column 3, showing all of the rows
+print(m[,3])
+
+#print everything
+print(m)
+print(m[,])
+print(m[])
+# (check help on LETTERS)
+rownames(m) <- paste("Species",LETTERS[1:nrow(m)],sep="")
+colnames(m) <- paste("Site",1:ncol(m),sep="")
+print(m)
+
+# also add names through dimnames function
+
+dimnames(m) <- list(paste("Site",1:nrow(m),sep=""),
+                    paste("Species",LETTERS[1:ncol(m)],sep=""))
+print(m)
+
+# transpose a matrix with t
+m2 <- t(m)
+print(m2)
+
+# add a row to m with rbind
+m2 <- rbind(m2,c(10,20,30,40))
+print(m2)
+
+# now fix the label
+rownames(m2)
+print(m2)
+rownames(m2)[4] <- "myfix"
+print(m2)
+
+# Access individual rows and columns with names as well as indices
+
+m2["myfix","Site3"] # equivalent to m2[4,3]
+m2[c("SpeciesC","myfix"),c("Site3","Site4")] # note use of c function here!
+
+# use cbind to add columns to the matrix
+
+# can always change this back to a vector at any time:
+
+myVec <- as.vector(m)
+print(myVec)
+```
+

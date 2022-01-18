@@ -1,0 +1,98 @@
+---
+title: "Biology 381 - Computational Biology"
+author: "Course Syllabus"
+date: "Spring 2022"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+## Meetings
+
+**Lecture:** Tuesday, Thursday  1:15 - 2:30 pm, 129 Marsh Life Science    
+**Lab:** Wednesday, 1:10 pm - 3:40 pm, 129 Marsh Life Science 
+
+## Instructors
+
+**Lecture:** Nick Gotelli   
+209 Marsh Life Science   
+[ngotelli@uvm.edu](mailto:ngotelli@uvm.edu)   
+By appointment, in-person meetings or video conferences 
+
+**Lab:** Lauren Ash   
+211 Marsh Life Science   
+[Lauren.V.Ash@uvm.edu](mailto:Lauren.V.Ash@uvm.edu)   
+By appointment, in-person meetings or video conferences 
+
+**Lab:** Emily Beasley   
+211 Marsh Life Science   
+[Emily.Beasley@uvm.edu](mailto:Emily.Beasley@uvm.edu)   
+By appointment, in-person meetings or video conferences 
+
+[Video-conference web link](https://app.inspace.chat/space/3D1AE70150195F8B7890ADE9027FFC3E982F8A3F)
+
+## Pre-Requisites
+* A personal laptop computer that you bring to all lecture and lab meetings
+    - Mac or Windows, with battery power to last 1.5 hours
+    - all [required software packages](CourseMaterials/SoftwareInstallation.html) installed and working
+    - wireless access and an active UVM mail account
+* Graduate standing as a PhD or MS student at UVM
+* Undergraduates by invitation only after consultation with the instructor
+* Knowledge of basic statistics (p-values, means, variances, hypothesis testing)
+* No prior knowledge of computer programming is required
+
+## Course Content
+This course is designed to teach you three things:
+
+1. How to use modern (and classic) computational tools to make your analysis, writing, and presentations more efficient and attractive, and to make your analyses transparent and repeatable. Such tools include plain-text editors, markdown, github, regular expressions, and shell commands.
+2. Foundational methods in computer programming in R (data structures, functions, control structures, input and output) that will allow you to construct computer models and to easily learn other computer languages (Python, C++).
+3. Advanced topics, including how to use probability distributions, simulate data, recognize, use, and analyze 4 archetypal experimental designs for biologists, apply them to real and simulated data, and create publication quality graphs with the `ggplot2()` package in R.
+
+## Lecture Activities
+
+Once we finish with the preliminaries, the format for the lecture each day is simple. I will open Rstudio from my computer, project the screen so you can see it, and begin coding. I will comment and explain everything as I go along. Line by line, you will copy what I am typing on the screen into your own computer and the run the code along with me. This is the fastest way for you to learn how to code.
+
+## Lab Activities
+Each week, there will be a programming assignment to go along with the lecture. Your primary activity in the laboratory section will be to do this assignment. Using the lab time this way forces you to set aside time each week to get learn the language and get the coding done, minimizes your time spent coding outside of class, and gives you the benefit of being able to ask for help from Emily & Lauren and from your fellow students.
+
+Lauren & Emily will begin each class with a brief lecture presentation and demonstration, which will complement the lecture presentations for the week. They will provide overview of the assignment, and offer a few suggestions or tips for how to code the exercise. 
+
+
+
+## Student Responsibilities
+
+* Attend nearly all of the lectures and lab meetings
+* Do the coding exercises in class when they are assigned
+* Regularly update your course webpage with completed and partially completed assignments
+* **Complete the assignments in time for the Portfolio Checks (9 February, 16 March, and 13 April), so that your final course grade will not be lowered!**
+* Study the code of your classmates on their webpages to see how they have solved the same problems you are working on
+* Annotate your code so it is useful to you and others
+* Surf the internet to find solutions to programming problems
+* Share code and ideas, and help others who are struggling
+* Use the course work to ideally complete some concrete work that will go towards your thesis
+
+## Grading
+The undergraduate grading paradigm of taking examinations in a limited time frame and doing all of your work exclusively by yourself is antithetical to the programming world. Unless you are at NASA trying to guide an emergency landing for Apollo 13, you will not be writing computer code under a strict time deadline. And, in contrast to the strictures against plagarism in most of science and academia, we will regularly use computer code that others have written and put it to our own use. When you do so, try to include some brief annotation so that you know where the code came from and can get back to the source if you need to. Copying and repeating what others have said or written is how we learn any language, including computer languages. The only thing you should not do is to copy an entire program wholesale without documentation and without any understanding of what it is doing.
+
+Each week you will attend two coding lectures and then attend the lab section to work on the weekly homework. One of the first things we will learn to do is to set up and maintain a public webpage through github. This webpage will serve as your portfolio, where you will post your homework assignments when you complete them.
+
+All students start out the class with a grade of "A". To maintain this as your final grade, you will need to:
+
+- attend the majority of lectures and weekly labs (attendance will be recorded for labs).
+- have your portfolio of completed homeworks posted on your website and up-to-date before each of the 3 portfolio checks (9 February, 16 March, and 13 April). Each missed deadline lowers your final course grade by half a grade (1 missed deadline A to A-, 2 missed deadines A to B+, 3 missed deadlines A to B).
+- have all of your portfolio assignments posted by the final deadline of 5:00 pm EST on Thursday 12 May, which is one week after the last class meeting.
+
+## Pandemic Contingencies
+
+>Depending on how infection rates play out in January, it is possible that UVM may have to shift partially or completely to remote learning. If that happens,  I have recorded a complete set of video screen casts ([available here](https://ngotelli.github.io/Bio381Vids/)), and the course will be held asynchronously, with recorded videos rather than live lectures. In that case, labs will be held live, with synchronous remote meetings at the Inspace site that we are currently using for video conference meetings.
+
+>Even with less extreme scenarios, it is possible that some students will have to miss classes because of illness, isolation, or quarantine. If that happens, the videos can be used to keep up with course material until you return. You will need to make arrangements with Emily & Lauren to handle missed labs.
+
+>Hopefully, none of this will come to pass and we will be able to meet live for lecture and lab instruction. Remember that UVM requires and students and faculty to be up-to-date on vaccinations and boosters, and of course we will observe current masking and distancing requirements.
+
+
+

@@ -1,0 +1,229 @@
+---
+title: "Lecture #10: Data curation"
+author: "Nicholas J. Gotelli"
+date: "February 13, 2020"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+
+### Important Distinctions Between Lists and Matrices
+
+```{r, eval=FALSE}
+
+# create a matrix and data frame with same structures
+zMat <- matrix(data=1:30,ncol=3,byrow=TRUE)
+zDframe <- as.data.frame(zMat) # coerce it
+
+str(zMat)    # an atomic vector with 2 dimensions
+str(zDframe) # note horizontal layout of variabes!
+
+head(zDframe) # note automatic variable names
+head(zMat) # note identical layout
+
+# element referencing is the same in both
+zMat[3,3]
+zDframe[3,3]
+
+# so is column referencing
+
+zMat[,3]
+zDframe[,3]
+zDframe$V3 # note use of $ and named variable column
+# and row referencing
+zMat[3,]
+zDframe[3,] # note variable names and row number shown
+
+# what happens if we reference only one dimension?
+
+zMat[2] # takes the second element of atomic vector (column fill)
+zDframe[2] # takes second atomic vector (= column) from list
+zDframe["V2"]
+zDframe$V2
+```
+
+### Eliminating missing values
+```{r, eval=FALSE}
+# use complete.cases with atomic vector
+print(zD)
+
+complete.cases(zD)
+
+zD[complete.cases(zD)] # clean them out
+
+which(!complete.cases(zD)) # find NA slots
+
+# use with a matrix
+
+m <- matrix(1:20,nrow=5)
+m[1,1] <- NA
+m[5,4] <- NA
+print(m)
+
+m[complete.cases(m),] 
+
+# now get complete cases for only certain columns!
+m[complete.cases(m[,c(1,2)]),] # drops row 1
+m[complete.cases(m[,c(2,3)]),] # no drops
+m[complete.cases(m[,c(3,4)]),] # drops row 4
+m[complete.cases(m[,c(1,4)]),] # drops 1&4
+
+```
+
+
+
+### Techniques for assignments and subsetting matrices and data frames
+```{r,eval=FALSE}
+# same principle applied to both dimensions of a matrix
+m <- matrix(data=1:12,nrow=3)
+dimnames(m) <- list(paste("Species",LETTERS[1:nrow(m)],sep=""),paste("Site",1:ncol(m),sep=""))
+print(m)
+
+# subsetting based on elements
+m[1:2,3:4]
+# same subsetting based on character strings (but no negative elements)
+m[c("SpeciesA","SpeciesB"), c("Site3","Site4")]
+
+# use blanks before or after comma to indicate full rows or columns
+m[1:2, ]    
+
+m[ ,3:4]
+
+# use logicals for more complex subsetting
+
+# e.g. select all columns for which the totals are > 15
+
+# first try this logical
+colSums(m) > 15
+m[ , colSums(m) > 15]
+
+
+# e.g. select all rows for which the row total is 22
+m[rowSums(m)==22, ]
+
+# note == for logical equal and != for logical NOT equal
+m[rowSums(m)!=22, ]
+
+# e.g., choose all rows for which numbers for site 1 are less than 3
+# AND choose all columns for which the numbers for species A are less than 5
+
+# first, try out this logical for rows
+m[ ,"Site1"]<3
+
+# add this in and select with all columns
+m[m[ ,"Site1"]<3, ]
+
+# and try this logical for columns
+m["SpeciesA", ]<5
+
+# add this in and select with all rows
+m[ ,m["SpeciesA", ]<5]
+
+# now combine both
+m[m[ ,"Site1"]<3,m["SpeciesA", ]<5]
+
+# and compare with full m
+print(m)
+
+
+# caution! simple subscripting to a vector changes the data type!
+z <- m[1, ]
+print(z)
+str(z)
+
+# to keep this as a matrix, must add the drop=FALSE option
+
+z2 <- m[1, ,drop=FALSE]
+print(z2)
+str(z2)
+
+# caution #2, always use both dimensions, or you will select a single matrix element
+
+m2 <- matrix(data=runif(9),nrow=3)
+print(m2)
+m2[2, ]
+
+# but now this will just pull the second element
+m2[2]
+
+# probably should specify row and column indicators
+m2[2,1]
+# also use logicals for assignments, not just subsetting
+m2[m2>0.6] <- NA
+print(m2)
+
+
+# A few changes for working with data frames:
+
+data <-read.csv(file="antcountydata.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+str(data)
+
+# the data frame is a list of vectors, so it is set up like a matrix
+data[3,2]
+
+# you can specify just the column names
+
+dataNames <- data[c("state","county")]
+str(dataNames)
+
+# or in matrix style
+dataNames <- data[ ,c("county", "ecoregion")]
+str(dataNames)
+
+
+# as before, with matrices, selecting only a single column changes it
+# from a data frame to a vector
+dataNames <- data[ ,"county"]
+str(dataNames)
+
+```
+
+## Data curation
+* GitHub repository   
+* Student contract   
+* Metadata   
+* [Metadata template](https://gotellilab.github.io/Bio381/Scripts/Feb02/ExcelDataTemplate.xlsx)   
+* Example of Lauren's data 
+
+## Exporting and importing data
+### `write.table()`: useful when you want to work outside of R or with a csv file
+```{r warning=F, message=F}
+library(dplyr)
+data(starwars)
+
+starwars1<-select(starwars, name:species) # Let's say we want to create a new csv file with our R object
+write.table(starwars1, file = "StarwarsNamesInfo.csv", row.names = F, sep = ",") # creating a csv with write.table()
+
+```
+
+### `read.table()`: useful when you have metadata (show example)
+#### Data Read Statement Format
+```{r eval=F}
+data <-read.table(file="FileName.csv",row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
+
+# compare to read.csv; include comment.char if you have metadata
+data2<-read.csv(file="FileName.csv", row.names=1, header=TRUE, sep=",",stringsAsFactors=FALSE, comment.char = "#")
+```
+
+```{r}
+data<-read.table("StarwarsNamesInfo.csv", header=T, sep = ",", stringsAsFactors = F) #our dataset has a header and the character variables are not factors
+head(data) # metadata doesn't show up # use comment.char = "#" if you use read.csv()
+class(data)
+data<-as_tibble(data) 
+glimpse(data)
+
+```
+
+### `saveRDS()`: useful when you are working only in R
+```{r}
+saveRDS(starwars1, file="StarWarsTibble") # writes a single R object to a file
+```
+
+### `readRDS()`
+```{r}
+sw<-readRDS("StarWarsTibble") # restores the R object
+class(sw) # stays as a tibble
+```
+

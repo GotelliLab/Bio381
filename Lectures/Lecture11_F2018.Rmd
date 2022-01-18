@@ -1,0 +1,175 @@
+---
+title: 'Lecture #11: Complete Cases, Tribbles, Long/Wide Data, and Probability Distributions I'
+author: "Nicholas J. Gotelli"
+date: "October 2, 2018"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+### Eliminating missing values with `complete.cases()`
+
+```{r}
+
+# preliminaries
+library(tidyverse)
+set.seed(99)
+
+
+z <- 1:10 # simple integer sequence
+z <- sample(z) # reshuffle the ordering
+print(z)
+
+z < 4 # create logical vector
+z[z < 4] # use as index call
+which(z < 4) # use to get indices for logical
+z[which(z < 4)] # does same as above
+
+zD <- c(z,NA,NA) # contaminate it
+zD[zD < 4] # NA values carried along!
+zD[which(zD < 4)] # NA values dropped
+
+# use complete.cases with atomic vector
+print(zD)
+
+complete.cases(zD)
+
+zD[complete.cases(zD)] # clean them out
+
+which(!complete.cases(zD)) # find NA slots
+
+# use with a matrix
+
+m <- matrix(1:20,nrow=5)
+m[1,1] <- NA
+m[5,4] <- NA
+print(m)
+
+m[complete.cases(m),] 
+
+# now get complete cases for only certain columns!
+m[complete.cases(m[,c(1,2)]),] # drops row 1
+m[complete.cases(m[,c(2,3)]),] # no drops
+m[complete.cases(m[,c(3,4)]),] # drops row 4
+m[complete.cases(m[,c(1,4)]),] # drops 1&4
+
+```
+
+
+
+### Converting between long and wide forms of data
+```{r}
+# Introducing the "tribble", a transposed tibble
+# that is easy to type directly in to your own code
+
+repMeasDat <- tribble(
+  ~Subject, ~Treatment, ~Time1, ~Time2, ~Time3,
+  #-----------------------------
+  1, "Control", 1,1,2,
+  2, "Control", 1,4,1,
+  3, "Control", 2,2,2,
+  4, "Heated", 5,6,6,
+  5, "Heated", 7,7,5,
+  6, "Heated", 7,5,5
+  #------------------------------
+)
+
+print(repMeasDat)
+```
+This is a very common data format, in which each row is a subject. There are two treatments, and the three columns give the measurements on each subject at 3 different times. 
+
+Unfortunately, this is not in the "long" format, which requires that each row represents a different observation. In this case, the observations should be the individual measurements, not the subjects.
+
+Here is how we convert this to a correct format:
+
+
+
+```{r}
+repMeasDat %>%
+gather(Time1:Time3, key="Time",value="Response")  
+```
+
+We first list the set of variables that need to be gathered (Time1:Time3). Next, we provide a `key`, which is the name of the new variable (in this case "Time"). Finally, we add a value, which is the measure that is associated with each row (in this case "Response"). Notice that we did not reference "Subject" or "Treatment". Their values are properly repeated in each of the appropriate rows. Thus, each row corresponds to a unique observation in the experiment. In this case, there were 3 subjects in each of 2 treatments, and each were measured 3 times. Thus, there are 3 x 3 x 2 rows in the new data frame.
+
+Let's add one other refinement, using dplyr's `arrange` function to re-order the rows so that the 3 measurements from a single subject appear on successive lines in the data frame:
+
+```{r}
+longData <- repMeasDat %>%
+gather(Time1:Time3, key="Time",value="Response") %>%
+arrange(Subject)
+print(longData)
+```
+The reason the long format is important, is that most statistical models and summaries in R operate this way. For example, to calculate averages for different times and treatments, we would use
+
+```{r}
+longData %>%
+group_by(Time,Treatment) %>%
+summarize(AvgRes = mean(Response)) %>%
+arrange(Treatment,Time)
+print(longData)
+```
+
+
+Now let's convert this back to wide format, using the `spread` function which is roughly the inverse of `gather`
+
+```{r}
+wideData <- longData %>%
+spread(key=Time,value=Response)
+print(wideData)
+```
+
+### Probability distributions in R
+#### Discrete distributions
+
+- Poisson
+    * Range: [0,$\infty$]
+    * Parameters: size = number of trials, rate = $\lambda$
+    * Interpretation: Distribution of events that occur during a fixed time interval or sampling effort with a constant rate of independent events
+    
+- Binomial
+    * Range: [0, # of trials]
+    * Parameters: size= number of trials; p = probability of positive outcome
+    * Interpretation: Distribution of number of successful independent dichotomous trials, with constant p; resembles normal with large $\lambda$, or exponential with small $\lambda$
+    
+- Negative Binomial
+    * Range: [0, $\infty$]
+    * Parameters: size=number of successes; p = probability of success
+    * Interpretation: Distribution of number of failures in a series of independent Bernouli trials, each with p = probability of a success. Generates a discrete distribution that is more heterogeneous ("overdispersed") than Poisson
+    
+#### Continuous distributions
+
+- Uniform
+    * Range: [min,max]
+    * Parameters: min = minimum boundary; max = maximum boundary
+    * Interpretation: Distribution of a value that is equally likely within a specified range
+    
+- Normal
+    * Range: [$-\infty,\infty$]
+    * Parameters: mean = central tendency; SD = standard deviation
+    * Interpretation: Symmetric bell-shaped curve with unbounded tails
+    
+- Gamma $\Gamma$
+    * Range: [0,$\infty$]
+    * Parameters: shape, scale
+    * Interpretation: mean=$shape*scale$, variance=$shape*scale^2$; generates a variety of shapes (including normal and exponential) for positive continuous variables
+    
+- Beta $\beta$
+    * Range: [0,1] (can be rescaled to any range by simple multiplication and addition)
+    * Paramters: shape1, shape2
+    * Interpretation: if shape1 and shape 2 are integers, interpret as a coin toss, with shape1 = # of successes + 1, shape2 = # of failures + 1. Gives distribution of value of p, estimated from data, which can range from exponential through uniform through normal (but all are bounded). Setting shape1 and shape2 <1 yields u-shaped distributions.
+
+### The "grammar" of probability distributions in R
+- `d` gives probability density function
+- `p` gives cumulative distribution function
+- `q` gives quantile function (the inverse of `p`)
+- `r` gives random number generation
+
+Combine these with the base name of the function. For example `rbinom` gives a set of random values drawn from a binomial, whereas `dnorm` gives the density function for a normal distribution. There are many probability distributions available in R, but we will discuss only 7 of them.
+
+

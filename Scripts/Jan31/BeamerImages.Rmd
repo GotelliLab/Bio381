@@ -1,0 +1,147 @@
+---
+title: "Setting up images in Beamer (and other tricks)"
+author: "Nicholas J. Gotelli - Department of Biology, UVM"
+date: "29 January 2017"
+output:
+  beamer_presentation:
+    colortheme: beaver
+    incremental: yes
+---
+## Incremental slides
+
+Set `options` and your YAML should have  something like this:
+
+```
+title: "Setting up images in Beamer (and other tricks)"
+author: "Nicholas J. Gotelli - Department of Biology, UVM"
+date: "29 January 2017"
+output:
+  beamer_presentation:
+    colortheme: beaver
+    incremental: yes
+```
+This set up will ensure that each bullet point in the list is revealed sequentially in separate slides. This makes it easy to set up the presentation without having to repeat a lot of typing to get a sequential list.
+
+## Incremental slides
+- first incremental bullet point
+- second incremental bullet point
+- final incremental bullet point
+
+## Overriding incremental bullet points
+
+Occasionally, you may want to override incremental bullet points and show them all on the same slide. Do it like this:
+
+```
+>- simultaneous first bullet point
+>- simultaneous second bullet point
+>- simultaneous final bullet point
+```
+which will yield:
+
+>- simultaneous first bullet point
+>- simultaneous second bullet point
+>- simultaneous final bullet point
+
+## Adding colored text
+
+As bullet points are shown sequentially, it is nice to highlight the current one and make the previous ones gray. To do that, use a bit of \LaTeX code (such as `\LaTeX` for the previous!) for your text:
+
+```
+> - Collection Mode 
+> - \color{gray} Spatial or Temporal Scale Of The Data 
+> - \color{red}  Taxonomic Bias 
+> - \color{gray}  Critical Intervals \color{black}
+
+> -  Climate Change 
+> - Other Stuff
+
+```
+## Adding colored text
+
+This will yield
+
+> - Collection Mode 
+> - \color{gray} Spatial or Temporal Scale Of The Data 
+> - \color{red}  Taxonomic Bias 
+> - \color{gray}  Critical Intervals \color{black}
+
+> -  Climate Change 
+> - Other Stuff
+
+If you want to highlight the current bullet point as \color{red} red \color{black} and the other previous bullet points as \color{gray} gray\color{black}, you will have to hand-wire a series of simultaneous bullet points with each additional bullet added in the next slide.
+
+Be sure to "reset" the color to black at the end of your bulleted list.
+
+## Adjusting spacing
+
+The default placement of text in Beamer slides is pretty nice, but if you are also adding photos, you may need to add extra space to shift text around. For this purpose, the \LaTeX command `\bigskip` is useful and can be inserted repeatedly on separate lines in your slide. Add the lines of code like this:
+```
+\bigskip
+\bigskip
+\bigskip
+```
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+In this slide, 5 consecutive `\bigskip`s pushed this line to the bottom! 
+
+## Source material for controlling placement of images
+The blog post where all of this information is modified from is:
+
+http://blogs.helsinki.fi/smsiltan/2012/10/12/precise-positioning-in-latex-beamer/
+
+## Beamer Code to Generate Trial Figure In \LaTeX (2)
+
+
+```
+ \begin{picture}(320,250)
+ \put(85,75){\includegraphics[height=6cm]
+ {celtic.jpg}}
+ \put(00,60){\begin{minipage}[t]{1\linewidth}
+ {Choose a point on the unit circle. Connect it to 
+ the origin with a line of 
+ length one, and denote the angle between that line 
+ and the horizontal 
+ coordinate axis by $\theta$.}
+ \end{minipage}}
+ \end{picture}
+
+```
+## Usage Notes
+> - `\put` statements are one line, so don't break it as shown here for display
+> - don't mess with the `{320,250}` picture coordinate space
+> - change `\put(85,75)` to control placement of image
+> - change `height=6cm` to adjust image size. Default seems to be `8cm`
+> - change `\put(00,60)` to adjust placement of caption text
+> - change `{1\linewidth}` to adjust textbox width relative to maximum linewidth of 1.0.
+
+
+## Trial Figure In \LaTeX
+
+ \begin{picture}(320,250)
+ \put(65,20){\includegraphics[height=8cm]{celtic.jpg}}
+ \put(00,50){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+## Trial Figure In \LaTeX (2)
+
+ \begin{picture}(320,250)
+ \put(85,75){\includegraphics[height=6cm]{celtic.jpg}}
+ \put(00,60){\begin{minipage}[t]{1\linewidth}
+ {Choose a point on the unit circle. Connect it to the origin with a line of length one, and denote the angle between that line and the horizontal coordinate axis by $\theta$.}
+ \end{minipage}}
+ \end{picture}
+ 
+## Trial Figure In \LaTeX (3)
+
+ \begin{picture}(320,250)
+ \put(0,20){\includegraphics[height=8cm]{celtic.jpg}}
+ \put(180,180){\begin{minipage}[t]{0.4\linewidth}
+ {Choose a point on the unit circle. Connect it to the origin with a line of length one, and denote the angle between that line and the horizontal coordinate axis by $\theta$.}
+ \end{minipage}}
+ \end{picture}
+ 
