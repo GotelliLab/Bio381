@@ -8,7 +8,8 @@ output:
     theme: united
 ---
 
-As a class:
+As a class:  
+
 1. Lauren or Emily will walk you through the steps to build a repository in GitHub, and a local version on your desktop. Call this repository "PracticeRepo".
 
 2. Create an `index.Rmd` file that you will post as an html webpage.
@@ -17,7 +18,8 @@ As a class:
 
 4. Make changes, stage them, and push them to your new webpage.
 
-On your own:
+On your own:  
+
 5. After you have done this a few times and are comfortable with this process, set up your repository for this course, using your own last name as part of the repository name: `LastNameBio381`
 
 6. Once your index page is set up and your webpage is hosted and visible on the internet, build a link and a new page called `Homework_02.Rmd`.

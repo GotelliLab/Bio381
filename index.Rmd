@@ -32,7 +32,7 @@ January 18  | [Introduction](Lectures/Lecture01_S2021.html) | -
 January 19  | - | [Homework #1](Homeworks/Homework01_S2022.html)             
 January 20  | [GitHub](Lectures/Lecture02_S2021.html) | -  
 January 25  | [Github II](Lectures/Lecture03_S2021.html) | -
-January 26 | - |  [Homework #2](Homeworks/Homework02_S2021.html)
+January 26 | - |  [Homework #2](Homeworks/Homework02_S2022.html)
 January 27  | [Regular Expressions](Lectures/Lecture04_S2021.html) | -
 February 1  | [Markdown](Lectures/Lecture05_S2021.html) | - 
 February 2  |  -  | [Homework #3](Homeworks/Homework03_S2021.html)
