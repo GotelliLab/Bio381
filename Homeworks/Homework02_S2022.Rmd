@@ -36,6 +36,9 @@ What to post on Slack:
   
 Congratulations! You are now a GitHub user!
 
+Helpful Links:
 
+[Markdown basics](https://rmarkdown.rstudio.com/authoring_basics.html)  
+[Setting up Jekyll themes](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)
 
 
