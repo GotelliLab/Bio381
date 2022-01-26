@@ -114,7 +114,7 @@ Stephen Peters-Collaer | [GitHub](https://github.com/stephenrpc1)  [Portfolio](h
 Greta Savitsky | [GitHub](https://github.com/gsavitsky)  [Portfolio](https://gsavitsky.github.io/BIO381Savitsky/) | I lived in Copenhagen for a few months
 Anna Schmidt | [GitHub](https://github.com/anna-schmidt)  [Portfolio](https://anna-schmidt.github.io/SchmidtBio381/) | I have a four-leaf clover collection since I find them all the time!
 Reed Scott | [GitHub](https://github.com/reedetile)  [Portfolio](https://reedetile.github.io/Bio381Scott/) | I once got lost and ended up in Canada
-Hannah Shafer | [GitHub](https://github.com/hrshafer) [Place Holder](https://github.com)  | Fun fact place holder 
+Hannah Shafer | [GitHub](https://github.com/hrshafer) [Place Holder](https://github.com)  | Fun fact place holder
 Haorui Sun | [Github](https://github.com/haoruisun)  [Portfolio](https://haoruisun.github.io/SunBio381/) | The province I came from has around 100M population.
 Rachel Swanwick | [Github](https://github.com/rswanwick)  [Portfolio](https://rswanwick.github.io/Bio381Swanwick/) | I used to work as a snowboard instructor
 Joe Webb | [GitHub](https://github.com/josephwebb)  [Portfolio](https://josephwebb.github.io/Bio381Webb/)  |  I am a self taught pianist who can play a mean Pirates of the Caribbean theme song.
