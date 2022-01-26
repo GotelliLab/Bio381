@@ -92,32 +92,31 @@ ___
 
 ### Meet The Class of 2022
 
-Student  | Fun Fact
-------------- | --------------
-Lauren Ash  [GitHub](https://github.com/lvash) [Portfolio](https://lvash.github.io/Bio381) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Maia Austin  [GitHub](https://github.com/austinmaia) [Portfolio](https://austinmaia.github.io/AustinBio381/)  | I have lived in 13 different cities!
-Katie Bardsley [GitHub](https://github.com/kbardsley) [Portfolio](https://kbardsley.github.io/BardsleyBio381/)  | I play saxophone in the UVM Pep Band and have gotten really into sourdough baking.
-Emily Beam [GitHub](https://github.com/eabeam/) [Portfolio](https://eabeam.github.io/BeamBio381/)  | I am probably a bit too excited about board games, and I lived in a convent for a year in grad school
-Bertrand Black [GitHub](https://github.com/bertrandblack) [Portfolio](https://bertrandblack.github.io/BlackBio381/)  | I went to high school in Italy.
-Gavin Briske [GitHub](https://github.com/gbriske) [Portfolio](https://gbriske.github.io/Briske_381/)  | I like to play saxophone. 
-Ethan Dean  [GitHub](https://github.com/emdean99) [Portfolio](https://emdean99.github.io/DeanBio381/)  | I am a really big Star Trek fan; my favorite show is "Star Trek the Next Generation", and my favorite character is Lieutenant Commander Data.
-Maddy Degelsmith [GitHub](https://github.com/mdegelsm) [Portfolio](https://mdegelsm.github.io/DegelsmithBio381/)  |  I am double-majoring in Spanish so that I can live in a Spanish-speaking country after college.
-Caroline Dumas  [GitHub](https://github.com/carolinedumas) [Portfolio](https://carolinedumas.github.io/DumasBiol381/)  |  I have kissed the Blarney stone in Ireland and it gave me the gift of Gab!
-Daniel Forcade [GitHub](https://github.com/rundowntown) [Portfolio](https://rundowntown.github.io/ForcadeBio381/)  |  When I was 7, I fell into the river Marne in Paris while walking to dinner with my family.
-Matthew Futia [GibHub](https://github.com/mfutia) [Portfolio](https://mfutia.github.io/FutiaBio381/)  |  I was on the tv show "Ridiculousness".
-Emma Gagne [GitHub](https://github.com/emmagagne) [Portfolio](https://emmagagne.github.io/GagneBio381/)  |  I have lived in Vermont for four years now and I still do not have a shovel (I really need to get one).
-Nick Gotelli [GitHub](https://github.com/GotelliLab) | For the past 15 years (pre-covid), I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
-Zach Gottlieb [GitHub](https://github.com/ZachGot) [Portfolio](https://ZachGot.github.io/ZachBio381/)  |  I love public transportation, and firmly believe Burlington is the perfect size for trams.
-Caitlin Jeffrey [GitHub](https://github.com/caitlin-jeffrey) [Portfolio](https://caitlin-jeffrey.github.io/JeffreyBio381/)  | I'm a large animal veterinarian!
-Massi Khodaverdi [GitHub](https://github.com/MassiKhodave) [Portfolio](https://MassiKhodave.github.io/Massi-Khodaverdi/)  | I have lived in China but never had a Chinese food there.
-Bailey Kretzler [GitHub](https://github.com/bkretzler/) [Portfolio](https://bkretzler.github.io/KretzlerBio381/)  | I have swam cross the Mississippi River and write my own food blog!
-Sarah Morris  [GitHub](https://github.com/skmorris) [Portfolio](https://skmorris.github.io/MorrisBio381/)  | I have stepped on a rattlesnake and lived to tell the tale. 
-Mia Murphy [GitHub](https://github.com/nightskyfirefly) [Portfolio](https://nightskyfirefly.github.io/MurphyBio381/)  |  I have owned over a dozen exotic pets – including chinchillas, African dormice, and striped grass mice.
-Paulina Murray  [GitHub](https://github.com/PaulinaEMurray) [Portfolio](https://paulinaemurray.github.io/MurrayBio381/)  | I have a pet tortoise named Ivy! 
-George Ni [GitHub](https://github.com/georgeni2442) [Portfolio](https://georgeni2442.github.io/NiBio381/)  | Before coming to Vermont, I trained raptors for falconry and educational programs.
-Sandra Nnadi [GitHub](https://github.com/Sandra-ctrl) [Portfolio](https://sandra-ctrl.github.io/NnadiBio381/)| I love painting and sewing.
-Isaac Racine [GitHub](https://github.com/isaacracine) [Portfolio](https://isaacracine.github.io/RacineBio381/)  | I cross-country ski-raced in high school.
-Manali Rege-Colt [GitHub](https://github.com/manalijrc) [Portfolio](https://manalijrc.github.io/Rege-ColtBio381/)  |  I spent last spring's quarantine building out a van complete with a tiny kitchen, solar shower and solar panels! 
-Giovanna Sassi [GitHub](https://github.com/GiovannaSassi) [Portfolio](https://giovannasassi.github.io/Gianna/)  | I have 23 chickens.
-Hallie Shi [GitHib](https://github.com/halliesea) [Portfolio](https://halliesea.github.io/ShiBio381/)  | I am a professional foodie. I like Oreo without the cream.
-Laney Williams [GitHub](https://github.com/laney-williams) [Portfolio](https://laney-williams.github.io/LaneyWbio381/)  | I swam competitively for 13 years.
+Student  | GitHub and Portfolio Links | Fun Fact
+------------- | -------------- | ------------- 
+Maria Alfaro | [GitHub](https://github.com/malfaro1)  [Portfolio](https://malfaro1.github.io/AlfaroBIO381/) | I've lived in a tree house in Hawaii, in an ambulance at Mt Hood, and on a sailboat in the Caribbean.
+Lauren Ash | [GitHub](https://github.com/lvash)  [Portfolio](https://lvash.github.io/) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
+Noah Beckage | [GitHub](https://github.com/n-beckage)  [Portfolio](https://n-beckage.github.io/Bio381Beckage/) | I ran the Philadelphia marathon in 3 hrs 45 mins
+Emily Beasley | [GitHub](https://github.com/Beasley015)  [Portfolio](https://beasley015.github.io/) | I have baked bread as a hobby since I started my Master's degree (my sourdough starter's name is Julia Child)
+Gillian Berglund | [GitHub](https://github.com/gillianberglund)  [Portfolio](https://gillianberglund.github.io/Bio381Berglund/) | I have lived in Colorado, Oregon, Florida, New York and Vermont!
+Lauren Berkley | [GitHub](github.com/lberkley)  [Portfolio](lberkley.github.io/Bio381Berkley/) | Fun fact: I am trained in marine mammal stranding response!)
+Sam Brewer | [GitHub](https://github.com/sam-brewer)  [Portfolio](https://sam-brewer.github.io/BrewerBio381/) | I collect fairy garden statues! 
+Lindsey Carlson | [GitHub](https://github.com/lindseycarlson8)  [Portfolio](https://lindseycarlson8.github.io/CarlsonBio381/) | I have circumnavigated the world by ship.
+Blair Christensen | [GitHub](https://github.com/bc20237)  [Portfolio](https://bc20237.github.io/Bio381Christensen) | I taught high school science in Spain
+Grace Durant | [GitHub](https://github.com/gdurant4)  [Portfolio](https://gdurant4.github.io/DurantBio381/) | I know the name of nearly every humpback whale that frequents Stellwagen Bank in Massachusetts.
+Al Freeman | [GitHub](Github: https://github.com/al-freeman)  [Portfolio](https://al-freeman.github.io/Bio381Freeman/index.html) | I play the banjo (terribly). 
+David Green | [GitHub](https://github.com/meandgreen)  [Portfolio](https://meandgreen.github.io/greenBIO381/) | I'm 22 and I've thrown my back out twice
+Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 15 years (pre-covid), I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
+Jacqueline Guillemin | [GitHub](https://github.com/Jaguillemin)  [Portfolio](https://jaguillemin.github.io/GuilleminBio381/) | I live with a cat that can say hello!
+Jasmine Hart | [GitHub](https://github.com/jasmine-hart)  [Portfolio](https://jasmine-hart.github.io/Bio381Hart/) | My fun fact is that I'm a certified yoga instructor! 
+Andrew McCracken | [GitHub](https://github.com/amccracken8)  [Portfolio](https://amccracken8.github.io/Bio381McCracken/) | I have broken my right foot 3 times
+Stephen Peters-Collaer | [GitHub](https://github.com/stephenrpc1)  [Portfolio](https://stephenrpc1.github.io/Bio381Peters-Collaer/) | I'm learning to play the mandolin
+Greta Savitsky | [GitHub](https://github.com/gsavitsky)  [Portfolio](https://gsavitsky.github.io/BIO381Savitsky/) | I lived in Copenhagen for a few months
+Anna Schmidt | [GitHub](https://github.com/anna-schmidt)  [Portfolio](https://anna-schmidt.github.io/SchmidtBio381/) | I have a four-leaf clover collection since I find them all the time!
+Reed Scott | [GitHub](https://github.com/reedetile)  [Portfolio](https://reedetile.github.io/Bio381Scott/) | I once got lost and ended up in Canada
+Hannah Shafer | [GitHub](https://github.com/hrshafer) [Place Holder](https://github.com)  | Fun fact place holder 
+Haorui Sun | [Github](https://github.com/haoruisun)  [Portfolio](https://haoruisun.github.io/SunBio381/) | The province I came from has around 100M population.
+Rachel Swanwick | [Github](https://github.com/rswanwick)  [Portfolio](https://rswanwick.github.io/Bio381Swanwick/) | I used to work as a snowboard instructor
+Joe Webb | [GitHub](https://github.com/josephwebb)  [Portfolio](https://josephwebb.github.io/Bio381Webb/)  |  I am a self taught pianist who can play a mean Pirates of the Caribbean theme song.
+
+
