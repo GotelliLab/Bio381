@@ -5,6 +5,55 @@ date: "2 February 2022"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = F)
 ```
 
+```{r, echo = F}
+library(stringr)
+library(dplyr)
+
+mamm.data <- read.table(file = "stringrdata.csv")
+
+mamm.data <- filter(mamm.data, Station != "")
+```
+
+```{r}
+# Look at some data where stringr might be useful
+head(mamm.data)
+```
+
+```{r}
+# Pull numbers from variable Station
+mamm2 <- mamm.data %>%
+  mutate(Station = unlist(str_extract_all(mamm.data$Station, 
+                                          pattern = "\\d+")))
+
+print(mamm2)
+```
+
+```{r}
+# Combine first two characters from Genus & Species to create species code
+mamm3 <- mamm.data %>%
+  mutate(Species_Code = paste(str_extract(Genus, pattern = "^.{2}"),
+                              str_extract(Species, pattern = "^.{2}"),
+                              sep = "")) %>%
+  select(-c(Genus, Species))
+
+print(mamm3)
+```
+
+```{r}
+# Create list of files
+files <- c("psi0.8det0.1.csv", "psi0.8det0.5.csv", "psi0.45det0.1.csv")
+
+# Extract pattern of numbers and decimals
+params <- str_extract_all(files, pattern = "(\\d+\\.\\d+)")
+
+# Put them in a data frame
+param.frame <- as.data.frame(do.call(rbind, params))
+
+# Make column names parameter names
+colnames(param.frame) <- c("psi", "det")
+
+print(param.frame)
+```
