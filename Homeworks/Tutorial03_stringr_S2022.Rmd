@@ -1,0 +1,10 @@
+---
+title: "stringr Tutorial"
+output: html_document
+date: "2 February 2022"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
