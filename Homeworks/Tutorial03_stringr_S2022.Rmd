@@ -8,7 +8,7 @@ date: "2 February 2022"
 knitr::opts_chunk$set(echo = TRUE, warning = F)
 ```
 
-```{r, echo = F}
+```{r, echo = F, include = F}
 library(stringr)
 library(dplyr)
 
@@ -16,11 +16,22 @@ mamm.data <- read.table(file = "stringrdata.csv")
 
 mamm.data <- filter(mamm.data, Station != "")
 ```
+### Using regular expressions with stringr
+
+In lab 3, you used regular expressions in the context of text files and .csv files. However, regular expressions are also useful in the RStudio environment, especially when using the str_extract() family of functions in the package stringr.
+
+The following examples demonstrate how to use stringr to manipulate character strings in the R environment. We'll start by looking at some data where manipulating character strings might be useful:
 
 ```{r}
 # Look at some data where stringr might be useful
 head(mamm.data)
 ```
+
+There are two issues with this dataset that stringr can help us with:  
+* The variable "Station" contains the trap letter in addition to the station number. The letter isn't necessary for most analyses but removing it permanently erases data.  
+* Need to create a variable containing species codes (first two letters of genus + first two letters of the species epithet)  
+
+To use stringr and regex to drop the letters from the "Station" variable:
 
 ```{r}
 # Pull numbers from variable Station
@@ -28,8 +39,12 @@ mamm2 <- mamm.data %>%
   mutate(Station = unlist(str_extract_all(mamm.data$Station, 
                                           pattern = "\\d+")))
 
-print(mamm2)
+print(head(mamm2))
 ```
+
+The function str_extract_all() extracts all portions of a character string that match the given pattern. The regular expression `//d+` pulls all digits from the string.
+
+To create species codes, we have to use the function str_extract on two different variables (Genus & Species) and then paste the resulting strings together:  
 
 ```{r}
 # Combine first two characters from Genus & Species to create species code
@@ -39,8 +54,12 @@ mamm3 <- mamm.data %>%
                               sep = "")) %>%
   select(-c(Genus, Species))
 
-print(mamm3)
+print(head(mamm3))
 ```
+
+The regular expression `^.{2}` pulls the first two characters, no matter the type, from the character string. The function paste() combines our two strings, with the argument sep defining how the strings should be separated (or in this case, not separated). 
+
+Finally, stringr and regular expressions are useful when working with several different files of data. This can occur when running simulations where each combination of parameter values is a separate output file. You can use str_extract() functions to pull parameter information from file names and put them in a data frame:  
 
 ```{r}
 # Create list of files
@@ -57,3 +76,7 @@ colnames(param.frame) <- c("psi", "det")
 
 print(param.frame)
 ```
+
+The regular expression in str_extract_all() pulls a series of numbers, followed by a period, and then another series of numbers. The rest of the code organizes these values in a data frame.
+
+I find the str_extract() functions to be the most useful when manipulating strings in R. However, there are many useful functions in the stringr package. A helpful cheat sheet can be found at [this link](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf). 
