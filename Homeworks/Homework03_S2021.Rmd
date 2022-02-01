@@ -119,3 +119,5 @@ Check out these additional sources for more information on using regular express
 
 [Regular Expressions Tutorial.pdf](https://gotellilab.github.io/Bio381/Scripts/Feb07/RegularExpressionsTutorial.pdf)
 
+For a tutorial on using regular expressions using the package stringr:  
+[stringr Tutorial](Tutorial03_stringr_S2022.html)
