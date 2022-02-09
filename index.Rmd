@@ -41,37 +41,37 @@ February 8  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | -
 February 9  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework04_S2022.html)
 February 10  | [Atomic Vectors II](Lectures/Lecture08_S2021.html)| - 
 February 15  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
-February 16  | -  | [Homework #6](Homeworks/Homework06_S2021.html)
+February 16  | -  | [Homework #5](Homeworks/Homework05_S2025.html)
 February 17   | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
 February 22 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
-February 23  | -  | [Homework #7](Homeworks/Homework07_S2021.html)
+February 23  | -  | [Homework #6](Homeworks/Homework06_S2022.html)
 February 24  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
 March 1  | Town Meeting Day Recess | -
-March 2  | -  | [Homework #8](Homeworks/Homework08_S2021.html)
+March 2  | -  | [Homework #7](Homeworks/Homework07_S2022.html)
 March 3  | [Functions](Lectures/Lecture13_S2021.html)| -
 March 8 | Spring Recess | -
 March 9 | Spring Recess | -
 March 10 | Spring Recess | -
 March 15  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
-March 16  | **Portfolio Check #2** | [Homework #9](Homeworks/Homework09_S2021.html)
+March 16  | **Portfolio Check #2** | [Homework #8](Homeworks/Homework08_S2022.html)
 March 17  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
 March 22  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
-March 23  | - | [Homework #10](Homeworks/Homework10_S2021.html)
+March 23  | - | [Homework #9](Homeworks/Homework09_S2022.html)
 March 24  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
 March 29  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
-March 30  | - | [Homework #11](Homeworks/Homework11_S2021.html)
+March 30  | - | [Homework #10](Homeworks/Homework10_S2022.html)
 March 31  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
 April 5  | [Batch Processing](Lectures/Lecture20_S2021) | -
-April 6  | - | [Homework #12](Homeworks/Homework12_S2021.html)
+April 6  | - | [Homework #11](Homeworks/Homework11_S2022.html)
 April 7  | [dplyr](Lectures/Lecture20a_S2021.html)  | -
 April 12  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
-April 13  | **Portfolio Check #3** | [Homework #13](Homeworks/Homework12a_S2021.html)
+April 13  | **Portfolio Check #3** | [Homework #12](Homeworks/Homework12a_S2021.html)
 April 14  | [ggplot II](Lectures/Lecture22_S2021.html) | -
 April 19 | [ggplot III](Lectures/Lecture23_S2021.html) | -
-April 27  | - | [Homework #14](Homeworks/Homework12b_S2021.html)
+April 27  | - | [Homework #13](Homeworks/Homework12b_S2021.html)
 April 21 | [Functional Programming](Lectures/Lecture24_S2021.html) | -
 April 26  | [Github III](Lectures/Lecture25_S2021.html) | -
-April 27  | - | [Homework #15](Homeworks/Homework12c_S2021.html)
+April 27  | - | [Homework #14](Homeworks/Homework12c_S2021.html)
 April 28  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
 May 3  | Catch-up Day | -
 May 4  | Catch-up Day | -
