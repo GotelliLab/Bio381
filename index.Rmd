@@ -41,7 +41,7 @@ February 8  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | -
 February 9  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework04_S2022.html)
 February 10  | [Atomic Vectors II](Lectures/Lecture08_S2021.html)| - 
 February 15  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
-February 16  | -  | [Homework #5](Homeworks/Homework05_S2025.html)
+February 16  | -  | [Homework #5](Homeworks/Homework05_S2022.html)
 February 17   | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
 February 22 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 February 23  | -  | [Homework #6](Homeworks/Homework06_S2022.html)
