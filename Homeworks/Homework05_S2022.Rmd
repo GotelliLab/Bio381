@@ -59,4 +59,6 @@ output:
 
 
 
-
+---------
+## Resources
+[Matrices, Lists, & Data Frames Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture09_S2021.html)
