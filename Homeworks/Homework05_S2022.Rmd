@@ -25,7 +25,7 @@ output:
 
     - print it out again and note how it has changed.
 
-    - calculate the sum and the mean of the elements in the first row and the last row.
+    - calculate the sum and the mean of the elements in the first row and then the last row.
 
     - read about the `eigen()` function and use it on your matrix
 
@@ -38,7 +38,10 @@ output:
 2. Create a list with the following named elements:
     - `my_matrix`, which is a 4 x 4 matrix filled with random uniform values
     - `my_logical` which is a 100-element vector of TRUE or FALSE values. Do this efficiently by setting up a vector of random values and then applying an inequality to it.
-    - `my_letters`, which is a 26-element vector of all the lower-case letters in random order.
+    - `my_letters`, which is a 26-element vector of all the lower-case letters in random order.  
+      
+    Then, complete the following steps:
+    
     - create a new list, which has the element[2,2] from the matrix, the second element of the logical vector, and the second element of the letters vector.
     - use the `typeof()` function to confirm the underlying data types of each component in this list
     - combine the underlying elements from the new list into a single atomic vector with the `c()` function.
