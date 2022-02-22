@@ -17,23 +17,23 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE, message=FALSE, warning=FALSE)
 
 This exercise teaches you how to compare a histogram of continuous (or integer) data to the probability density functions for different statistical distributions.
 
-1. Set up a new `.Rmd` file for this exercise. Copy and paste the code below into different code chunks, and then read the text and run the code chunks one at a time to see what they do. You probably won't understand everything in the code, but this is a good start for seeing some realistic uses of `ggplot`. We will cover most of these details in the next few weeks.
+1. **Run the sample code.** Set up a new `.Rmd` file for this exercise. Copy and paste the code below into different code chunks, and then read the text and run the code chunks one at a time to see what they do. You probably won't understand everything in the code, but this is a good start for seeing some realistic uses of `ggplot`. We will cover most of these details in the next few weeks.
 
-2. Once the code is in and runs, try running this analysis on your own data (or data from your lab, or data from a published paper; if you're stumped, check out publicly available data sets on [Dryad](https://datadryad.org/search) and [ESA](https://data.esa.org)). Find a vector of data (of any size), set it up in a `.csv` file, and read the data into a data frame with this code chunk:
+2. **Try it with your own data**. Once the code is in and runs, try running this analysis on your own data (or data from your lab, or data from a published paper; if you're stumped, check out publicly available data sets on [Dryad](https://datadryad.org/search), [ESA](https://data.esa.org), or the [LTER Network](https://lternet.edu/)). Find a vector of data (of any size), set it up in a `.csv` file, and read the data into a data frame with this code chunk:
 
 ```{r, eval=FALSE}
-z <- read.table("MyDataFile.csv",header=TRUE,sep=",", stringsAsFactors=FALSE)
+z <- read.table("MyDataFile.csv",header=TRUE,sep=",")
 str(z)
 summary(z)
 ```
 
-Lauren will be able to help you if you are having trouble reading in the data.
+Lauren & Emily will be able to help you if you are having trouble reading in the data.
+  
+Once your data are in, go ahead and comment out the "fake data" that are simulated in the chunk below. At that point, if you compile the entire file, it should run all of the code on your own data. Be sure to add comments to the code and commentary to the `.Rmd` file so that you can go back to it later and understand and use the code in your work.
 
-3. Once your data are in, go ahead and comment out the "fake data" that are simulated in the chunk below. At that point, if you compile the entire file, it should run all of the code on your own data. Be sure to add comments to the code and commentary to the `.Rmd` file so that you can go back to it later and understand and use the code in your work.
+3. **Find best-fitting distribution**. Take a look at the second-to-last graph which shows the histogram of your data and 4 probability density curves (normal, uniform, exponential, gamma) that are fit to the data. Find the best-fitting distribution for your data. For most data sets, the gamma will probably fit best, but if you data set is small, it may be very hard to see much of a difference between the curves. The `beta` distribution in the final graph is somewhat special. It often fits the data pretty well, but that is because we have assumed the largest data point is the true upper bound, and everything is scaled to that. The fit of the uniform distribution also fixes the upper bound. The other curves (normal, exponential, and gamma) are more realistic because they do not have an upper bound. 
 
-4. Take a look at the second-to-last graph which shows the histogram of your data and 4 probability density curves (normal, uniform, exponential, gamma) that are fit to the data. The `beta` distribution in the final graph is somewhat special. It often fits the data pretty well, but that is because we have assumed the largest data point is the true upper bound, and everything is scaled to that. The fit of the uniform distribution also fixes the upper bound. The other curves (normal, exponential, and gamma) are more realistic because they do not have an upper bound. For most data sets, the gamma will probably fit best, but if you data set is small, it may be very hard to see much of a difference between the curves.
-
-5. Using the best-fitting distribution, go back to the code and get the maximum likelihood parameters. Use those to simulate a new data set, with the same length as your original vector, and plot that in a histogram and add the probability density curve. Right below that, generate a fresh histogram plot of the original data, and also include the probability density curve. 
+5. **Simulate a new data set**. Using the best-fitting distribution, go back to the code and get the maximum likelihood parameters. Use those to simulate a new data set, with the same length as your original vector, and plot that in a histogram and add the probability density curve. Right below that, generate a fresh histogram plot of the original data, and also include the probability density curve. 
 
 How do the two histogram profiles compare? Do you think the model is doing a good job of simulating realistic data that match your original measurements? Why or why not?
 
@@ -101,7 +101,7 @@ normPars$estimate["mean"] # note structure of getting a named attribute
 ```
 #### Plot `normal` probability density
 
-Now let's call the `dnorm` function inside ggplot's `stat_function` to generate the probability density for the normal distribution. Read about `stat_function` in the help system to see how you can use this to add a smooth function to any ggplot. Note that we first get the maximum likelihood parameters for a normal distribution fitted to thse data by calling `fitdistr`. Then we pass those parameters (`meanML` and `sdML` to `stat_function`:
+Now let's call the `dnorm` function inside ggplot's `stat_function` to generate the probability density for the normal distribution. Read about `stat_function` in the help system to see how you can use this to add a smooth function to any ggplot. Note that we first get the maximum likelihood parameters for a normal distribution fitted to thse data by calling `fitdistr`. Then we pass those parameters (`meanML` and `sdML` to `stat_function`):
 
 ```{r}
 
