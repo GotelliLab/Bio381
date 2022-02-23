@@ -1,29 +1,32 @@
 ---
-title: 'Homework #7'
-author: "Nicholas J. Gotelli"
-date: '2 March 2022'
+title: 'Homework #5'
+author: "Nicholas J. Gotelli and Lauren V. Ash"
+date: 'September 26, 2018'
 output:
   html_document:
     highlight: tango
     theme: united
   pdf_document: default
 ---
-### Creating Fake Data Sets To Explore Hypotheses
 
-1. Think about an ongoing study in your lab (or a paper you have read in a different class), and decide on a pattern that you might expect in your experiment if a specific hypothesis were true.
+## Data manipulations using the `dplyr` package  
 
-2. To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. You may need to consult some previous literature and/or an expert in the field to come up with these numbers.
+This homework assignment focus on data manipulation in `R`. Complete these problems using the `dplyr` package, and if you have time, try each of these exercises using the subsetting methods in base `R` that have been covered in lecture. 
 
-3. Using the methods we have covered in class, write code to create a random data set that has these attributes. Organize these data into a data frame with the appropriate structure.
+1. Examine the structure of the iris dataset. How many observations and variables are in the dataset?   
 
-4. Now write code to analyze the data (probably as an ANOVA or regression analysis, but possibly as a logistic regression or contingency table analysis. Write code to generate a useful graph of the data.
+2. Create a new data frame `iris1` that contains only the species *virginica* and *versicolor* with sepal lengths longer than 6 cm and sepal widths longer than 2.5 cm. How many observations and variables are in the dataset?      
 
-5. Try running your analysis multiple times to get a feeling for how variable the results are with the same parameters, but different sets of random numbers.
+3. Now, create a `iris2` data frame from `iris1` that contains only the columns for Species, Sepal.Length, and Sepal.Width. How many observations and variables are in the dataset?   
 
-6. Now begin adjusting the means of the different groups. Given the sample sizes you have chosen, how small can the differences between the groups be (the "effect size") for you to still detect a significant pattern (p < 0.05)?
+4. Create an `iris3` data frame from `iris2` that orders the observations from largest to smallest sepal length. Show the first 6 rows of this dataset.    
 
-7. Alternatively, for the effect sizes you originally hypothesized, what is the minimum sample size you would need in order to detect a statistically significant effect? Again, run the model a few times with the same parameter set to get a feeling for the effect of random variation in the data.
+5. Create an `iris4` data frame from `iris3` that creates a column with a sepal area (length * width) value for each observation. How many observations and variables are in the dataset?
 
-8. Write up your results in a markdown file, organized with headers and different code chunks to show your analysis. Be explicit in your explanation and justification for sample sizes, means, and variances.
+6. Create `iris5` that calculates the average sepal length, the average sepal width, and the sample size of the entire `iris4` data frame and print `iris5`.
 
-9. If you have time, try repeating this exercise with one of the more sophisticated distributions, such as the gamma or negative binomial (depending on the kind of data you have). You will have to spend some time figuring out by trial and error the parameter values you will need to generate appropriate means and variances of the different groups.
+7. Finally, create `iris6` that calculates the average sepal length, the average sepal width, and the sample size *for each species* of in the `iris4` data frame and print `iris6`.
+
+8. In these exercises, you have successively modified different versions of the data frame `iris1 iris1 iris3 iris4 iris5 iris6`. At each stage, the output data frame from one operation serves as the input fro the next. 
+
+A more efficient way to do this is to use the pipe operator `%>%` from the `tidyr` package. See if you can rework all of your previous statements into an extended piping operation that uses `iris` as the input and generates `iris6` as the output.

@@ -9,24 +9,16 @@ output:
   pdf_document: default
 ---
 
-### Batch Processing
+### For loops and randomization tests
 
 
-1. Repeat the exercise from the Batch Processing Lecture (13 April), but do it using real data sets rather than purely simulated. Check with folks in your lab to see if there are multiple data sets available for analysis, or ask Nick or Lauren for suggestions for other data sources. Stick to simple data analyses and graphics, but try to set it up as a batch process that will work on multiple files and save summary results to a common file.
-
-If you can only find a single data set, then simulate a couple of others by following the methods in Homework #6 by selecting appropriate statistical distributions and estimating parameters for those from the real data.
-
-Hopefully, this exercise will contribute to some actual work that you are trying to do in your research!  
-
------------------------------
-
-Use the remainder of the lab period to continue work on Homework 10:  
+1. Using a `for` loop, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a counter variable `counter <- 0`. Inside the loop, add 1 to `counter` each time you have a zero in the matrix. Finally, use `return(counter)` for the output.
 
 2. Use subsetting instead of a loop to rewrite the function as a single line of code.
 
 3. Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.
 
-4. Use the code from the upcoming April 2nd lecture (Randomization Tests) to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either `set.seed()` in base R, or `char2seed` in the `TeachingDemos` package
+4. Use the code from the April 8th lecture (Randomization Tests) to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either `set.seed()` in base R, or `char2seed` in the `TeachingDemos` package
 
 5. For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?
 
