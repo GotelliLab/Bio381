@@ -349,28 +349,26 @@ pre code {
 <div id="data-manipulations-using-the-dplyr-package" class="section level2">
 <h2>Data manipulations using the <code>dplyr</code> package</h2>
 <p>This homework assignment focus on data manipulation in
-<code>R</code>. Complete these problems using the <code>dplyr</code>
-package, and if you have time, try each of these exercises using the
-subsetting methods in base <code>R</code> that have been covered in
-lecture.</p>
+<code>R</code>. Complete these problems using the <code>dplyr</code> and
+<code>tidyverse</code> packages.</p>
 <ol style="list-style-type: decimal">
-<li><p>Examine the structure of the iris dataset. How many observations
-and variables are in the dataset?</p></li>
+<li><p>Examine the structure of the iris data set. How many observations
+and variables are in the data set?</p></li>
 <li><p>Create a new data frame <code>iris1</code> that contains only the
 species <em>virginica</em> and <em>versicolor</em> with sepal lengths
 longer than 6 cm and sepal widths longer than 2.5 cm. How many
-observations and variables are in the dataset?</p></li>
+observations and variables are in the data set?</p></li>
 <li><p>Now, create a <code>iris2</code> data frame from
 <code>iris1</code> that contains only the columns for Species,
 Sepal.Length, and Sepal.Width. How many observations and variables are
-in the dataset?</p></li>
+in the data set?</p></li>
 <li><p>Create an <code>iris3</code> data frame from <code>iris2</code>
 that orders the observations from largest to smallest sepal length. Show
-the first 6 rows of this dataset.</p></li>
+the first 6 rows of this data set.</p></li>
 <li><p>Create an <code>iris4</code> data frame from <code>iris3</code>
 that creates a column with a sepal area (length * width) value for each
-observation. How many observations and variables are in the
-dataset?</p></li>
+observation. How many observations and variables are in the data
+set?</p></li>
 <li><p>Create <code>iris5</code> that calculates the average sepal
 length, the average sepal width, and the sample size of the entire
 <code>iris4</code> data frame and print <code>iris5</code>.</p></li>
@@ -380,22 +378,29 @@ species</em> of in the <code>iris4</code> data frame and print
 <code>iris6</code>.</p></li>
 <li><p>In these exercises, you have successively modified different
 versions of the data frame
-<code>iris1 iris1 iris3 iris4 iris5 iris6</code>. At each stage, the
+<code>iris1 iris2 iris3 iris4 iris5 iris6</code>. At each stage, the
 output data frame from one operation serves as the input fro the next. A
 more efficient way to do this is to use the pipe operator
 <code>%&gt;%</code> from the <code>tidyr</code> package. See if you can
-rework all of your previous statements into an extended piping operation
-that uses <code>iris</code> as the input and generates
-<code>iris6</code> as the output.</p></li>
-<li><p>Create a ‘longer’ data frame with three columns named: Species,
-Measure, Value.</p></li>
+rework all of your previous statements (except for <code>iris5</code>)
+into an extended piping operation that uses <code>iris</code> as the
+input and generates <code>irisFinal</code> as the output.</p></li>
+<li><p>Create a ‘longer’ data frame using the original <code>iris</code>
+data set with three columns named “Species”, “Measure”, “Value”. The
+column “Species” will retain the species names of the data set. The
+column “Measure” will include whether the value corresponds to
+Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column
+“Value” will include the numerical values of those
+measurements.</p></li>
 </ol>
 <hr />
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
 <p><a href="dplyr_Lecture1.html"><code>dplyr</code> lecture
-notes</a></p>
+notes</a><br />
+<a href="https://gotellilab.github.io/Bio381/CheatSheets/dplyrCheatSheet.pdf"><code>dplyr</code>
+cheat sheet</a></p>
 </div>
 
 
