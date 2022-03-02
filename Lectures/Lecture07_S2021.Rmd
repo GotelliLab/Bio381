@@ -6,7 +6,7 @@ output:
   pdf_document: default
   html_document:
     highlight: tango
-    keep_md: no
+    keep_md: no 
     theme: united
 ---
 ## History of R

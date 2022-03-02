@@ -3,7 +3,7 @@ title: 'Probability Distributions'
 author: "Nicholas J. Gotelli"
 date: "11 March 2021"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
   pdf_document: default
