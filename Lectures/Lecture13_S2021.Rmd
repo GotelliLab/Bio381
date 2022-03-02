@@ -3,14 +3,14 @@ title: 'Lecture #13: Functions'
 author: "Nicholas J. Gotelli"
 date: "18 March 2021"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
   pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(eval = TRUE)
 ```
 
 
@@ -32,7 +32,7 @@ print(read.table)
 
 sd # shows the code
 sd(c(3,2)) # call the function with parameters
-sd() # call function with default values for parameters
+# sd() # call function with default values for parameters
 ```
 
 ### The Anatomy Of A User-Defined Function
