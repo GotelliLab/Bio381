@@ -16,6 +16,12 @@ If you have never used R before, I recommend you work through the beginning tuto
 
 Here is a collection of cheat-sheets and tips for programming and graphics in R. Most of these guides will not make sense in the beginning, but keep returning to them as you learn more R code, and you will start to pick up many useful methods.
 
+[Base R Cheat Sheet](BaseRCheatSheet.pdf)
+
+[dplyr Cheat Sheet](dplyrCheatSheet.pdf)
+
+[ggplot Cheat Sheet](ggplot2-cheatsheet.pdf)
+
 [Nick's Color Functions and Palettes](https://gotellilab.github.io/GotelliLabMeetingHacks/NickGotelli/ColorPalettes.html)
 
 [Brewer Color Palettes](BrewerPalettes.pdf)
