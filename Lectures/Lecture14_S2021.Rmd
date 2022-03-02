@@ -8,23 +8,34 @@ output:
     theme: united
   pdf_document: default
 ---
-### Building a Function Template
-
-Save the following as `FunctionTemplate.txt`
-
+### Using snippets
 ```
-##################################################
-# FUNCTION: FunctionName
+snippet mbar
+################
+
+snippet mlab
+# ${1:label} ------------------------
+```
+
+
+
+### Building a Function Template
+```
+snippet mfun
+##############################
+# FUNCTION: ${1:funname}
 # one line description
 # input: x
 # output: x 
-#------------------------------------------------- 
-FunctionName <- function() {
+#-------------------- 
+${1:funname} <- function() {
 
 
- return("testing..............FunctionName")
+ return("testing...${1:funname}")
 }
+#############################
 ```
+
 ### Pseudocode 
 
 *pseudocode* is a simple list of instructions that gives the overall flow of the program without (yet) specifying the exact language and functions. At the most basic, it is just a list of what a program will do. Here, for example is generic pseudocode that describes about 95% of the programming chores we face:
