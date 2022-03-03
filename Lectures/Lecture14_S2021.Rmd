@@ -3,9 +3,10 @@ title: 'Lecture #14: Structured Programming'
 author: "Nicholas J. Gotelli"
 date: "23 March 2021"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
+    keep_md: yes
   pdf_document: default
 ---
 ### Using snippets
