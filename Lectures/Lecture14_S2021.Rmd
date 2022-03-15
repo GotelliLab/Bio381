@@ -25,16 +25,16 @@ snippet mlab
 snippet mfun
 ##############################
 # FUNCTION: ${1:funname}
-# one line description
-# input: x
-# output: x 
+# purpose: 
+# input: 
+# output:  
 #-------------------- 
 ${1:funname} <- function() {
 
 
- return("testing...${1:funname}")
+ message("testing...${1:funname}")
 }
-#############################
+
 ```
 
 ### Pseudocode 
@@ -52,10 +52,11 @@ Graph results
 Let's use the pseudocode to build a program. 
 
 ```
-GetData()
-CalculateStuff()
-SummarizeOutput()
-GraphResults()
+get_data()
+calculate_stuff()
+summarize_output()
+graph_results()
+
 ```
 
 Now we use our template to build 4 functions and then run them
@@ -67,55 +68,55 @@ Now we use our template to build 4 functions and then run them
 
 # All functions must be declared at the top before they are used
 ##################################################
-# FUNCTION: GetData
-# one line description
-# input: x
-# output: x 
+# FUNCTION: get_data
+# purpose:
+# input:
+# output: 
 #------------------------------------------------- 
-GetData <- function() {
+get_data <- function() {
 
 
- return("testing..............GetData")
+ message("testing...get_data")
 }
 ##################################################
-# FUNCTION: CalculateStuff
-# one line description
-# input: x
-# output: x 
+# FUNCTION: calculate_stuff
+# purpose:
+# input:
+# output: 
 #------------------------------------------------- 
-CalculateStuff <- function() {
+calculate_stuff <- function() {
 
 
- return("testing..............CalculateStuff")
+ message("testing...calculate_stuff")
 }
 ##################################################
-# FUNCTION: SummarizeOutput
-# one line description
-# input: x
-# output: x 
+# FUNCTION: summarize_output
+# purpose:
+# input:
+# output: 
 #------------------------------------------------- 
-SummarizeOutput <- function() {
+summarize_output <- function() {
 
 
- return("testing..............SummarizeOutput")
+ message("testing...summarize_output")
 }
 ##################################################
-# FUNCTION: GraphResults
-# one line description
-# input: x
-# output: x 
+# FUNCTION: graph_results
+# purpose:
+# input:
+# output: 
 #------------------------------------------------- 
-GraphResults <- function() {
+graph_results <- function() {
 
 
- return("testing..............GraphResults")
+ message("testing...graph_results")
 }
 ##################################################
 library(ggplot2)
-GetData()
-CalculateStuff()
-SummarizeOutput()
-GraphResults()
+get_data()
+calculate_stuff()
+summarize_output()
+graph_results()
 
 ```
 ### Sourcing Functions In A Separate Script File
@@ -125,10 +126,11 @@ GraphResults()
 
 ```
 source("MyFunctions.R")
-GetData()
-CalculateStuff()
-SummarizeOutput()
-GraphResults()
+get_data()
+calculate_stuff()
+summarize_output()
+graph_results()
+
 ```
 the `source` function runs a specified R script file automatically. It is equivalent to running `<Control><Shift><Enter>` from within a script file.
 
@@ -147,92 +149,90 @@ the `source` function runs a specified R script file automatically. It is equiva
 1. Maintain a single R script that contains the functions you have built.
 2. Cut and paste functions that you want from your function file to your script file.
 3. When you create new functions that are useful, append a copy to your function file.
+4. A new idea: try creating a separate little R script for each function and then source those with single lines of code! (adapted from R scripts of Giovanni Strona)
 
 #### Building the `CalculateStuff()` Function
 ```{r, eval=FALSE}
 
 ##################################################
-# FUNCTION: FitRegressionModel
-# Fits an ordinary least squares regression model
+# FUNCTION: fit_regression_model;
+# purpose: Fits an ordinary least squares regression model
 # input: x and y vectors of numeric. Must be same length
 # output: entire model summary from lm 
 #------------------------------------------------- 
-FitRegressionModel <- function(xVar=runif(10),yVar=runif(10)) {
-dataFrame <- data.frame(xVar,yVar)
-regModel <- lm(yVar~xVar,data=dataFrame)
-return(summary(regModel))
+fit_regression_model <- function(x_var=runif(10),y_var=runif(10)) {
+reg_model <- lm(y_var~x_var)
+return(summary(reg_model))
 }
-FitRegressionModel()
+fit_regression_model()
 ```
 
 #### Building the `SummarizeOutput()` Function
 
 ```{r, eval=FALSE}
 ##################################################
-# FUNCTION: SummarizeOutput
-# pull elements from model summary list
+# FUNCTION: summarize_output
+# purpose: pull elements from model summary list
 # input: list from summary call of lm
 # output: vector of regression residuals 
 #------------------------------------------------- 
-SummarizeOutput <- function(z=NULL) {
+summarize_output <- function(z=NULL) {
 if(is.null(z)) {
   z <- summary(lm(runif(10)~runif(10)))
 }  
   return(z$residuals)
 }
-SummarizeOutput()
+summarize_output()
 ```
 
 #### Building the `GraphResults()` Function
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 ##################################################
-# FUNCTION: GraphResults
-# graph data and fitted OLS line
+# FUNCTION: graph_results
+# purpose: graph data and fitted OLS line
 # input: x and y vectors of numeric. Must be same length
 # output: creates graph 
 #------------------------------------------------- 
-GraphResults <- function(xVar=runif(10), yVar=runif(10)) {
-dataFrame <- data.frame(xVar,yVar)
-# #plot(y=dataFrame$yVar,
-#      x=dataFrame$xVar,
-#      pch=21,
-#      bg="lightblue",
-#      cex=2)
-p1 <- qplot(data=dataFrame,x=xVar,y=yVar,geom=c("smooth","point"))
-print(p1)
-regModel <- lm(yVar~xVar,data=dataFrame)
-# abline(regModel)
+graph_results <- function(x_var=runif(10), y_var=runif(10)) {
+d_frame <- data.frame(x_var,y_var)
+
+reg_plot <- ggplot(data=d_frame) +
+            aes(x=x_var,y=y_var) +
+            geom_point() +
+            stat_smooth(method=lm,se=0.95) # default se=0.95 
+print(reg_plot)
+ ggsave(filename="reg_plot.pdf",plot=reg_plot,device="pdf")
+
 message("Message: Regression graph created")
 }
-GraphResults()
-str(GraphResults())
+graph_results()
+str(graph_results())
 ```
 
-#### Building the `GetData()` Function
+#### Building the `get_data()` Function
 ```{r, eval=FALSE}
 ##################################################
-# FUNCTION: GetData
-# read in a .csv file
+# FUNCTION: get_data
+# purpose: read in a .csv file
 # input: .csv file
 # output: data frame
 #------------------------------------------------- 
-GetData <- function(fileName=NULL) {
+get_data <- function(file_name=NULL) {
 if(is.null(fileName)) {
-  dataFrame <- data.frame(ID=101:110,
-                          varA=runif(10),
-                          varB=runif(10))
+  d_frame <- data.frame(ID=101:110,
+                          var_a=runif(10),
+                          var_b=runif(10))
 }  else {
-  dataFrame <- read.table(file=fileName,
+  d_frame <- read.table(file=file_name,
                           header=TRUE,
-                          sep=",",
-                          stringsAsFactors=FALSE) 
+                          sep=",") 
   }
-  return(dataFrame)
+  return(data_frame)
 }
 
 
-GetData()
+get_data()
 
 ```
 
@@ -246,23 +246,48 @@ Now each function works, but they are all using their defaults and are not "talk
 ```{r, eval=FALSE}
 # Global variables
 #----------------------------------------------
-antFile <- "antcountydata.csv" # New England ant county data
-xCol <- 7 # column 7, latitude center of each county
-yCol <- 5 # column 5, number of ant species
+ant_file <- "antcountydata.csv" # New England ant county data
+x_col <- 7 # column 7, latitude center of each county
+y_col <- 5 # column 5, number of ant species
 #----------------------------------------------
 
 # Program body
-temp1 <- GetData(fileName=antFile) # construct the data frame
+temp1 <- get_data(file_name=ant_file) # construct the data frame
 
-x <- temp1[,xCol] # extract the predictor variable
-y <- temp1[,yCol] # extract the response variable
+pred <- temp1[,x_col] # extract the predictor variable
+res <- temp1[,y_col] # extract the response variable
 
-temp2 <- FitRegressionModel(xVar=x,yVar=y) # fit the model
-temp3 <- SummarizeOutput(temp2) # extract the residuals
+temp2 <- fit_regression_model(x_var=pred,y_var=res) # fit the model
+temp3 <- summarize_output(temp2) # extract the residuals
 
-GraphResults(xVar=x, yVar=y) # create graph
+graph_results(x_var=pred, y_var=res) # create graph
 
 print(temp3) # show the residuals
 print(temp2) # show the model summary
+```
+#### Overall Program Structure
+```
+# Header #############################
+# author, date, what program does -- add lots of detail
+
+# Initialization ####################
+# call libraries (e.g. tidyverse)
+# set random number seed (use set.seed(integer))
+
+# Functions ########################
+# include all functions here
+# OR.. source(Functions.R) OR source(function1.R)
+                              source(function2.R) 
+                              source(function3.R)
+
+# Global Variables #####################
+# should be relatively few of these
+# use them to pass to functions
+
+# Program Body #########################
+# use functions and global variables
+# use temp variables to hold intermediate pieces of output
+# functions should create and save all graphical and numeric output
+
 ```
 
