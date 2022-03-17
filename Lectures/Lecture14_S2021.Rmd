@@ -297,7 +297,7 @@ snippet m_script
 	# Description --------------------------------
 	# Description of script
 	
-	`r paste("#" ,format(Sys.Date(),format="%d %b %Y"))`
+	r paste("#" ,format(Sys.Date(),format="%d %b %Y"))
 	# NJG
 	
 	# Initialize ---------------------------------
