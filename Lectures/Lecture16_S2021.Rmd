@@ -3,9 +3,10 @@ title: 'Lecture #16: Control Structures I'
 author: "Nicholas J. Gotelli"
 date: "30 March 2021"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
+    keep_md: yes
   pdf_document: default
 ---
 ### Logical operators
