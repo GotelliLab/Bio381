@@ -155,16 +155,16 @@ the `source` function runs a specified R script file automatically. It is equiva
 ```{r, eval=FALSE}
 
 ##################################################
-# FUNCTION: fit_regression_model;
+# FUNCTION: calculate_stuff;
 # purpose: Fits an ordinary least squares regression model
 # input: x and y vectors of numeric. Must be same length
 # output: entire model summary from lm 
 #------------------------------------------------- 
-fit_regression_model <- function(x_var=runif(10),y_var=runif(10)) {
+calculate_stuff <- function(x_var=runif(10),y_var=runif(10)) {
 reg_model <- lm(y_var~x_var)
 return(summary(reg_model))
 }
-fit_regression_model()
+calculate_stuff()
 ```
 
 #### Building the `SummarizeOutput()` Function
@@ -257,7 +257,7 @@ temp1 <- get_data(file_name=ant_file) # construct the data frame
 pred <- temp1[,x_col] # extract the predictor variable
 res <- temp1[,y_col] # extract the response variable
 
-temp2 <- fit_regression_model(x_var=pred,y_var=res) # fit the model
+temp2 <- calculate_stuff(x_var=pred,y_var=res) # fit the model
 temp3 <- summarize_output(temp2) # extract the residuals
 
 graph_results(x_var=pred, y_var=res) # create graph
@@ -290,4 +290,29 @@ print(temp2) # show the model summary
 # functions should create and save all graphical and numeric output
 
 ```
+#### Snippet for a general script template
 
+```
+snippet m_script
+	# Description --------------------------------
+	# Description of script
+	
+	`r paste("#" ,format(Sys.Date(),format="%d %b %Y"))`
+	# NJG
+	
+	# Initialize ---------------------------------
+	library(tidyverse)
+	
+	# set.seed(100)
+	
+	# library(TeachingDemos)
+	# char2seed("espresso withdrawal")
+	# char2seed("espresso withdrawal",set=FALSE)
+	
+	# Load Functions -----------------------------
+	
+	# Global Variables ---------------------------
+	
+	# Program Body -------------------------------
+```	
+	
