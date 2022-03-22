@@ -123,12 +123,12 @@ d %in% a
 ### `If` statements
 
 ```
-if (condition) expression
+if (condition) {expression1}
 
-if (condition) expression1 else expression2
+if (condition) {expression1} else {expression2}
 
-if (condition1) expression1 else
-if (condition2) expression2 else
+if (condition1) {expression1} else
+if (condition2) {expression2} else
 ```
 * note that final unspecified `else` captures rest of the (unspecified) conditions
 * `else` statement must appear on the same line as the expression

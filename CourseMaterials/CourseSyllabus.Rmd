@@ -3,9 +3,10 @@ title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
 date: "Spring 2022"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
+    keep_md: yes
   pdf_document: default
 ---
 

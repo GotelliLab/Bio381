@@ -363,12 +363,12 @@ pre code {
 </div>
 <div id="if-statements" class="section level3">
 <h3><code>If</code> statements</h3>
-<pre><code>if (condition) expression
+<pre><code>if (condition) {expression1}
 
-if (condition) expression1 else expression2
+if (condition) {expression1} else {expression2}
 
-if (condition1) expression1 else
-if (condition2) expression2 else</code></pre>
+if (condition1) {expression1} else
+if (condition2) {expression2} else</code></pre>
 <ul>
 <li>note that final unspecified <code>else</code> captures rest of the (unspecified) conditions</li>
 <li><code>else</code> statement must appear on the same line as the expression</li>
@@ -416,7 +416,7 @@ no return vales for false elements of test</code></pre>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(z)</span></code></pre></div>
 <pre><code>## z
 ## lowerTail    nonSig upperTail 
-##        31       949        20</code></pre>
+##        33       947        20</code></pre>
 <p>Here is how I would probably do this</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>z1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;nonSig&quot;</span>,<span class="dv">1000</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>z1[pVals<span class="sc">&lt;=</span><span class="fl">0.025</span>] <span class="ot">&lt;-</span> <span class="st">&quot;lowerTail&quot;</span></span>
@@ -424,7 +424,7 @@ no return vales for false elements of test</code></pre>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(z1)</span></code></pre></div>
 <pre><code>## z1
 ## lowerTail    nonSig upperTail 
-##        31       949        20</code></pre>
+##        33       947        20</code></pre>
 </div>
 
 

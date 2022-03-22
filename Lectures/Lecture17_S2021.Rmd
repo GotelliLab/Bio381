@@ -3,9 +3,10 @@ title: 'Lecture #17: Control Structures II'
 author: "Nicholas J. Gotelli"
 date: "1 April 2021"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
+    keep_md: yes
   pdf_document: default
 ---
 ### `for` loops
@@ -35,27 +36,23 @@ You can also use `t` for time, but remember that `t()` is also an R function tha
 
 There are many ways to indicate the sequence, and the length of our loops will almost always be related to the size of a vector that we are working with. 
 
-Here is an example of one way to create a loop that is not recommended.
+We will only illustrate one way, because it is universal and applies to all for loops. 
 
-```{r}
-myDogs <- c("chow","akita","malamute","husky","samoyed")
-for (i in myDogs) {
-  print(i)
-}
-```
- The problem is that we cannot access the counter because the variable i is mapped directly to each element. Instead, we want to use a counter variable that maps to the position in myDogs
+
+  Instead, we want to use a counter variable that maps to the position of each element
  
 ```{r}
-for (i in 1:length(myDogs)){
-  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+my_dogs <- c("chow","akita","malamute","husky","samoyed")
+for (i in 1:length(my_dogs)){
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 ```
 
 This is the typical way we make a loop. One potential hazard is if the vector we are working with is empty
 ```{r}
-myBadDogs <- NULL
-for (i in 1:length(myBadDogs)){
-  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
+my_bad_dogs <- NULL
+for (i in 1:length(my_bad_dogs)){
+  cat("i =",i,"my_bad_dogs[i] =" ,my_bad_dogs[i],"\n")
 }
 
 
@@ -63,8 +60,8 @@ for (i in 1:length(myBadDogs)){
 So, a safer way is to use `seq_along` function:
 
 ```{r}
-for (i in seq_along(myDogs)){
-  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+for (i in seq_along(my_dogs)){
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 ```
 
@@ -72,9 +69,9 @@ But notice now what happens when the vector is empty:
 
 ```{r}
 
-# This time we correctly skip myBadDogs and do not make the loop
-for (i in seq_along(myBadDogs)){
-  cat("i =",i,"myBadDogs[i] =" ,myBadDogs[i],"\n")
+# This time we correctly skip my_bad_dogs and do not make the loop
+for (i in seq_along(my_bad_dogs)){
+  cat("i =",i,"my_bad_dogs[i] =" ,my_bad_dogs[i],"\n")
 }
 ```
 
@@ -85,7 +82,7 @@ Alternatively, we may have a constant that we use to define the length of the ve
 ```{r, eval=FALSE}
 zz <- 5
 for (i in seq_len(zz){
-  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 
   
@@ -93,30 +90,30 @@ for (i in seq_len(zz){
 
 #### Tip #1: Don't do things in the loop if you do not need to!
 ```{r, eval=FALSE}
-for (i in 1:length(myDogs)){
-  myDogs[i] <- toupper(myDogs[i])
-  cat("i =",i,"myDogs[i] =" ,myDogs[i],"\n")
+for (i in 1:length(my_dogs)){
+  my_dogs[i] <- toupper(my_dogs[i])
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 
 ```
 
 #### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
 ```{r, eval=FALSE}
-myDat <- runif(1)
+my_dat <- runif(1)
 for (i in 2:10) {
   temp <- runif(1) 
-  myDat <- c(myDat,temp) # do not change vector size in the loop!
-  cat("loop number =",i,"vector element =", myDat[i],"\n")
+  my_dat <- c(my_dat,temp) # do not change vector size in the loop!
+  cat("loop number =",i,"vector element =", my_dat[i],"\n")
 }
-print(myDat)
+print(my_dat)
 ```
 
 #### Tip #3: Do not write a loop if you can vectorize an operation
 ```{r, eval=FALSE}
 myDat <- 1:10
-for (i in seq_along(myDat)) {
-  myDat[i] <-  myDat[i] + myDat[i]^2
-  cat("loop number =",i,"vector element =", myDat[i],"\n")
+for (i in seq_along(my_dat)) {
+  my_dat[i] <-  my_dat[i] + my_dat[i]^2
+  cat("loop number =",i,"vector element =", my_dat[i],"\n")
 }
 
 # No loop is needed here!
