@@ -38,6 +38,15 @@ There are many ways to indicate the sequence, and the length of our loops will a
 
 We will only illustrate one way, because it is universal and applies to all for loops. 
 
+```{r}
+for (i in 1:5) {
+  cat("stuck in a loop","\n")
+  cat(3 + 2,"\n")
+  cat(runif(1),"\n")
+}
+print(i)
+```
+
 
   Instead, we want to use a counter variable that maps to the position of each element
  
@@ -79,9 +88,9 @@ for (i in seq_along(my_bad_dogs)){
 
 Alternatively, we may have a constant that we use to define the length of the vector:
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 zz <- 5
-for (i in seq_len(zz){
+for (i in seq_len(zz)){
   cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 
@@ -89,16 +98,17 @@ for (i in seq_len(zz){
 ```
 
 #### Tip #1: Don't do things in the loop if you do not need to!
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 for (i in 1:length(my_dogs)){
   my_dogs[i] <- toupper(my_dogs[i])
   cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
 
+my_dogs <- tolower(my_dogs)
 ```
 
 #### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 my_dat <- runif(1)
 for (i in 2:10) {
   temp <- runif(1) 
@@ -109,8 +119,8 @@ print(my_dat)
 ```
 
 #### Tip #3: Do not write a loop if you can vectorize an operation
-```{r, eval=FALSE}
-myDat <- 1:10
+```{r, eval=TRUE}
+my_dat <- 1:10
 for (i in seq_along(my_dat)) {
   my_dat[i] <-  my_dat[i] + my_dat[i]^2
   cat("loop number =",i,"vector element =", my_dat[i],"\n")
@@ -124,7 +134,7 @@ print(z)
 
 ```
 #### Tip #4: Always be alert to the distinction between the counter variable `i` and the vector element `z[i]`
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 z <- c(10,2,4)
 for (i in seq_along(z)) {
   cat("i =",i,"z[i] = ",z[i],"\n")
@@ -135,7 +145,7 @@ print(i)
 
 #### Tip #5: Use `next` to skip certain elements in the loop
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 z <- 1:20
 # What if we want to work with only the odd-numbered elements?
 
