@@ -4,6 +4,8 @@
 # E.M. Beasley                   #
 ##################################
 
+library(boot)
+
 # Why sim data?
 # Saves time- write parts of your code before you have data
 # Baseline for comparisons: check assumptions in your data
@@ -41,7 +43,7 @@ y <- beta1*x
 hist(y) 
 
 # you can add complexity by adding intercepts or more covariates:
-beta0 <- rgamma(n = 20, shape = 1, rate = 1) #not limited to normal!
+beta0 <- 0.5
 
 # add intercept beta0
 y2 <- beta0 + beta1*x
