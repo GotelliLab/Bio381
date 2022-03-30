@@ -12,7 +12,7 @@ output:
 ### For loops and randomization tests
 
 
-1. Using a `for` loop, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a counter variable `counter <- 0`. Inside the loop, add 1 to `counter` each time you have a zero in the matrix. Finally, use `return(counter)` for the output.
+1. Using a `for` loop, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a counter variable `counter <- 0`. Inside the loop, add 1 to `counter` each time you have a zero in the vector. Finally, use `return(counter)` for the output.
 
 2. Use subsetting instead of a loop to rewrite the function as a single line of code.
 
