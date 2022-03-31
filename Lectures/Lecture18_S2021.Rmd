@@ -249,6 +249,13 @@ for (i in 1:length(c_pars)) {
     model_frame[model_frame$c==c_pars[i] & model_frame$z==z_pars[j],"S"] <-   species_area_curve(A=area,c=c_pars[i],z=z_pars[j])
   }
 }
+
+
+for (i in 1:nrow(model_frame)) {
+  model_frame[i,"S"] <- species_area_curve(A=model_frame$A[i],
+                   c=model_frame$c[i],
+                   z=model_frame$z[i])
+}
 # print(modelFrame) # check by printing a data frame with limited parameter values
 
 library(ggplot2)
