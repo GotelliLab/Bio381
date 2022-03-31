@@ -13,27 +13,15 @@ output:
 2. Calculate $X_{obs}$, the metric for the empirical (= observed) data
 3. Randomize or reshuffle the data in a way that would uncouple association between the observed data and their assignment to treatments. Otherwise, the randomized data set should have the same dimensions and properties as the original data set.
 4. For this single randomization, calculate $X_{sim}$, the metric for the simulated (= randomized) data.
-5. Repeat steps (3) and (4) 1000 (or more times) to get a distribution for $H_{sim}$
+5. Repeat steps (3) and (4) 1000 (or more times) to get a distribution for $X_{sim}$
 6. Estimate the tail probability of the observed metric, given the null distribution $(p(X_{obs}|H_0))$.
 
 #### Preliminaries
 ```{r}
 library(ggplot2)
-library(TeachingDemos)
-
 set.seed(100)
-char2seed("espresso withdrawal")
-char2seed("espresso withdrawal", set=FALSE)
 
-options(digits=10)
-Sys.time()
-as.numeric(Sys.time())
-my_seed <- as.numeric(Sys.time())
-set.seed(my_seed)
-print(my_seed)
-
-char2seed("espresso withdrawal")
-my_seed <- char2seed("espresso withdrawal",set=FALSE)         
+        
 ```
 
 #### Simple toy example
@@ -71,19 +59,29 @@ print(sim)
 ```{r}
 
 ####### ###########################################
-# function: readData
+# function: read_data
 # read in (or generate) data set for analysis
 # input: file name (or nothing, for this demo)
 # output: 3 column data frame of observed data (ID,x,y)
 #------------------------------------------------- 
-readData <- function(z=NULL) {
+read_data <- function(z=NULL) {
+  
                 if(is.null(z)){
-                  xObs <- 1:20
-                  yObs <- xObs + 10*rnorm(20)
-                  dF <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
-#  dF <-read.table(file=z,row.names=1,header=TRUE,sep=",",stringsAsFactors=FALSE)
-# print(qplot(x=xObs,y=yObs)) # peek at input data
-return(dF)
+                  x_obs <- 1:20
+                  y_obs <- x_obs + 10*rnorm(20)
+                  df <- data.frame(ID=seq_along(x_obs),
+                                   x_obs,
+                                   y_obs)} else { 
+  
+# set up data frame                 
+
+                                   df <-read.table(file=z,
+                                   header=TRUE,
+                                   sep=",")}
+  
+
+
+return(df)
 }
 ```
 
@@ -91,16 +89,16 @@ return(dF)
 ```{r}
 
 ##################################################
-# function: getMetric
+# function: get_metric
 # calculate metric for randomization test
 # input: 2-column data frame for regression
 # output: regression slope
 #------------------------------------------------- 
-getMetric <- function(z=NULL) {
+get_metric <- function(z=NULL) {
                 if(is.null(z)){
-                  xObs <- 1:20
-                  yObs <-  xObs + 10*rnorm(20)
-                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+                  x_obs <- 1:20
+                  y_obs <-  x_obs + 10*rnorm(20)
+                  z <- data.frame(ID=seq_along(x_obs),x_obs,y_obs)} # set up data frame                 
 . <- lm(z[,3]~z[,2])
 . <- summary(.)
 . <- .$coefficients[2,1]
@@ -113,16 +111,16 @@ return(slope)
 ```{r}
 
 ##################################################
-# function: shuffleData
+# function: shuffle_data
 # randomize data for regression analysis
-# input: 3-column data frame (ID,xVar,yVar)
-# output: 3-column data frame (ID,xVar,yVar)
+# input: 3-column data frame (ID,x_var,y_var)
+# output: 3-column data frame (ID,x_var,y_var)
 #------------------------------------------------- 
-shuffleData <- function(z=NULL) {
+shuffle_data <- function(z=NULL) {
                 if(is.null(z)){
-                  xObs <- 1:20
-                  yObs <- xObs + 3*rnorm(20)
-                  z <- data.frame(ID=seq_along(xObs),xObs,yObs)} # set up data frame                 
+                  x_obs <- 1:20
+                  y_obs <- x_obs + 3*rnorm(20)
+                  z <- data.frame(ID=seq_along(x_obs),x_obs,y_obs)} # set up data frame                 
 z[,3] <- sample(z[,3]) # use sample function with defaults to reshuffle column
 
 return(z)
@@ -138,47 +136,52 @@ return(z)
 # input: list of observed metric, and vector of simulated metrics
 # output: lower, upper tail probability values
 #------------------------------------------------- 
-getPVal <- function(z=NULL) {
+get_pval <- function(z=NULL) {
                     if(is.null(z)){
-                      z <- list(xObs=runif(1),xSim=runif(1000))}
-                      pLower <- mean(z[[2]]<=z[[1]])
-                      pUpper <- mean(z[[2]]>=z[[1]])
-return(c(pL=pLower,pU=pUpper))
+                      z <- list(x_obs=runif(1),x_sim=runif(1000))}
+                      p_lower <- mean(z[[2]]<=z[[1]])
+                      p_upper <- mean(z[[2]]>=z[[1]])
+return(c(pl=p_lower,pu=p_upper))
                     }
 ```
 #### Create histogram of simulated and observed metric
 
 ```{r}
 ##################################################
-# function: plotRanTest
+# function: plot_ran_test
 # create ggplot of histogram of simulated values
 # input: list of observed metric and vector of simulated metrics
 # output: saved ggplot graph
 #------------------------------------------------- 
-plotRanTest <- function(z=NULL) {
+plot_ran_test <- function(z=NULL) {
                 if(is.null(z)){
                   z <- list(rnorm(1),rnorm(1000)) }
-dF <- data.frame(ID=seq_along(z[[2]]),simX=z[[2]])
-p1 <- ggplot(data=dF,mapping=aes(x=simX))
-p1 + geom_histogram(mapping=aes(fill=I("goldenrod"),color=I("black"))) +
-geom_vline(aes(xintercept=z[[1]],col="blue")) 
+df <- data.frame(ID=seq_along(z[[2]]),sim_x=z[[2]])
+
+p1 <- ggplot(data=df) + 
+       aes(x=sim_x)
+
+p1 + geom_histogram(aes(fill=I("goldenrod"),
+                        color=I("black"))) +
+     geom_vline(aes(xintercept=z[[1]],
+               col="blue")) 
 
                   }
 ```
 #### Now use functions to do the work
 
 ```{r}
-nSim <- 1000
-Xsim <- rep(NA,nSim) # vector of simulated slopes
-dF <- readData()
-Xobs <- getMetric(dF)
+n_sim <- 1000
+x_sim <- rep(NA,n_sim) # vector of simulated slopes
+df <- read_data()
+x_obs <- get_metric(df)
 
-for (i in seq_len(nSim)) {
-Xsim[i] <- getMetric(shuffleData(dF))
+for (i in seq_len(n_sim)) {
+x_sim[i] <- get_metric(shuffle_data(df))
 }
 
-slopes <- list(Xobs,Xsim)
-getPVal(slopes)
-plotRanTest(slopes)
+slopes <- list(x_obs,x_sim)
+get_pval(slopes)
+plot_ran_test(slopes)
 ```
 
