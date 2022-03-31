@@ -19,7 +19,7 @@ output:
 #### Preliminaries
 ```{r}
 library(ggplot2)
-set.seed(100)
+set.seed(1000)
 
         
 ```
@@ -62,24 +62,19 @@ print(sim)
 # function: read_data
 # read in (or generate) data set for analysis
 # input: file name (or nothing, for this demo)
-# output: 3 column data frame of observed data (ID,x,y)
+# output: 3 column data frame of observed data (x,y)
 #------------------------------------------------- 
 read_data <- function(z=NULL) {
   
                 if(is.null(z)){
                   x_obs <- 1:20
                   y_obs <- x_obs + 10*rnorm(20)
-                  df <- data.frame(ID=seq_along(x_obs),
-                                   x_obs,
+                  df <- data.frame(x_obs,
                                    y_obs)} else { 
-  
 # set up data frame                 
-
-                                   df <-read.table(file=z,
+                  df <-read.table(file=z,
                                    header=TRUE,
                                    sep=",")}
-  
-
 
 return(df)
 }
@@ -98,8 +93,9 @@ get_metric <- function(z=NULL) {
                 if(is.null(z)){
                   x_obs <- 1:20
                   y_obs <-  x_obs + 10*rnorm(20)
-                  z <- data.frame(ID=seq_along(x_obs),x_obs,y_obs)} # set up data frame                 
-. <- lm(z[,3]~z[,2])
+                  z <- data.frame(x_obs,y_obs)} 
+  # set up data frame                 
+. <- lm(z[,2]~z[,1])
 . <- summary(.)
 . <- .$coefficients[2,1]
 
@@ -113,15 +109,15 @@ return(slope)
 ##################################################
 # function: shuffle_data
 # randomize data for regression analysis
-# input: 3-column data frame (ID,x_var,y_var)
-# output: 3-column data frame (ID,x_var,y_var)
+# input: 2-column data frame (x_var,y_var)
+# output: 2-column data frame (x_var,y_var)
 #------------------------------------------------- 
 shuffle_data <- function(z=NULL) {
                 if(is.null(z)){
                   x_obs <- 1:20
                   y_obs <- x_obs + 3*rnorm(20)
-                  z <- data.frame(ID=seq_along(x_obs),x_obs,y_obs)} # set up data frame                 
-z[,3] <- sample(z[,3]) # use sample function with defaults to reshuffle column
+                  z <- data.frame(x_obs,y_obs)} # set up data frame                 
+z[,2] <- sample(z[,2]) # use sample function with defaults to reshuffle column
 
 return(z)
 }
@@ -131,7 +127,7 @@ return(z)
 
 ```{r}
 ##################################################
-# function: getPVal
+# function: get_pval
 # calculate p value from simulation
 # input: list of observed metric, and vector of simulated metrics
 # output: lower, upper tail probability values
