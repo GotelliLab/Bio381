@@ -12,7 +12,7 @@ output:
 ### Batch Processing
 
 
-1. Repeat the exercise from the Batch Processing Lecture (13 April), but do it using real data sets rather than purely simulated. Check with folks in your lab to see if there are multiple data sets available for analysis, or ask Nick or Lauren for suggestions for other data sources. Stick to simple data analyses and graphics, but try to set it up as a batch process that will work on multiple files and save summary results to a common file.
+1. Repeat the exercise from the Batch Processing Lecture (5 April), but do it using real data sets rather than purely simulated. Check with folks in your lab to see if there are multiple data sets available for analysis, or ask Nick, Lauren, or Emily for suggestions for other data sources. Stick to simple data analyses and graphics, but try to set it up as a batch process that will work on multiple files and save summary results to a common file.
 
 If you can only find a single data set, then simulate a couple of others by following the methods in Homework #6 by selecting appropriate statistical distributions and estimating parameters for those from the real data.
 
@@ -20,7 +20,7 @@ Hopefully, this exercise will contribute to some actual work that you are trying
 
 -----------------------------
 
-Use the remainder of the lab period to continue work on Homework 10:  
+Use the remainder of the lab period to continue work on Homework 10, if you did not complete it last week:  
 
 2. Use subsetting instead of a loop to rewrite the function as a single line of code.
 
@@ -30,3 +30,6 @@ Use the remainder of the lab period to continue work on Homework 10:
 
 5. For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?
 
+--------
+[Batch Processing Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture20_S2021)   
+[Randomization Tests Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture19_S2021.html)
