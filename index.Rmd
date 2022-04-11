@@ -68,10 +68,10 @@ April 12  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
 April 13  | **Portfolio Check #3** | [Homework #12](Homeworks/Homework12_S2022.html)
 April 14  | [ggplot II](Lectures/Lecture22_S2021.html) | -
 April 19 | [ggplot III](Lectures/Lecture23_S2021.html) | -
-April 27  | - | [Homework #13](Homeworks/Homework12b_S2021.html)
+April 27  | - | Catch-up Day
 April 21 | [Functional Programming](Lectures/Lecture24_S2021.html) | -
 April 26  | [Github III](Lectures/Lecture25_S2021.html) | -
-April 27  | - | [Homework #14](Homeworks/Homework12c_S2021.html)
+April 27  | - | Catch-up Day
 April 28  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
 May 3  | Catch-up Day | -
 May 4  | Catch-up Day | -
