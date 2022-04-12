@@ -20,7 +20,7 @@ output:
 #### Template for ggplot components
 ```
 p1 <- ggplot(data= <DATA>,mapping=aes(<MAPPINGS>) + 
-<GEOM_FUNCTION>(mapping=aes(<MAPPINGS>),
+<GEOM_FUNCTION>(aes(<MAPPINGS>),
                 stat=<STAT>,
                 position=<POSITION>) +
                 <COORDINATE_FUNCTION> +
@@ -35,8 +35,7 @@ ggsave(plot=p1, filename="MyPlot",width=5,height=3,units="in",device="pdf")
 library(ggplot2)
 library(ggthemes)
 library(patchwork)
-library(TeachingDemos)
-char2seed("10th Avenue Freeze-Out")
+
 d <- mpg # use built in mpg data frame
 str(d)
 table(d$fl)
@@ -51,11 +50,11 @@ qplot(x=d$hwy)
 qplot(x=d$hwy,fill=I("khaki"),color=I("black"))
 
 # make your own custom histogram function
-myHisto <- function(xVar,filCol="goldenrod"){
-qplot(x=xVar,color=I("black"),fill=I(filCol))}
-myHisto(d$hwy)
-myHisto(d$hwy,"thistle")
-myHisto(xVar=d$hwy,filCol="sienna")
+my_histo <- function(x_var,fil_col="goldenrod"){
+qplot(x=x_var,color=I("black"),fill=I(fil_col))}
+my_histo(d$hwy)
+my_histo(d$hwy,"thistle")
+my_histo(x_var=d$hwy,fil_col="sienna")
 # basic density plot
 qplot(x=d$hwy,geom="density")
 
@@ -71,15 +70,15 @@ qplot(x=d$fl,geom="bar",fill=I("green"))
 qplot(x=d$fl,geom="bar",fill="green")
 
 # bar plot with specified counts or meansw
-xTreatment <- c("Control","Low","High")
-yResponse <- c(12,2.5,22.9)
-qplot(x=xTreatment,y=yResponse,geom="col",fill=I(c("red","green","blue")))
+x_treatment <- c("Control","Low","High")
+y_response <- c(12,2.5,22.9)
+qplot(x=x_treatment,y=y_response,geom="col",fill=I(c("red","green","blue")))
 # basic curves and functions
-myVec <- seq(1,100,by=0.1)
-myFun <- function(x) sin(x) + 0.1*x
-qplot(x=myVec,y=sin(myVec),geom="line") # built in functions
-qplot(x=myVec,y=dgamma(myVec,shape=5, scale=3),geom="line") # stats d functions
-qplot(x=myVec,y=myFun(myVec),geom="line") # user-defined functions
+my_vec <- seq(1,100,by=0.1)
+my_fun <- function(x) sin(x) + 0.1*x
+qplot(x=my_vec,y=sin(my_vec),geom="line") # built in functions
+qplot(x=my_vec,y=dgamma(my_vec,shape=5, scale=3),geom="line") # stats d functions
+qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
 
 ```
 
@@ -89,6 +88,7 @@ qplot(x=myVec,y=myFun(myVec),geom="line") # user-defined functions
  p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + geom_point()
  print(p1)
  
+ p1 + theme_bw() # good with grid lines
  p1 + theme_classic() # no grid lines
  p1 + theme_linedraw() # black frame
  p1 + theme_dark() # good for brightly colored points
