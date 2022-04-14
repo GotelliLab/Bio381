@@ -16,32 +16,31 @@ library(ggplot2)
 library(ggthemes)
 library(patchwork)
 library(TeachingDemos)
-char2seed("Sienna")
 d <- mpg # use built in mpg data frame
 
 ```
 
 ### Plotting multiple panel graphs with `patchwork`
 ```{r,message=FALSE,warning=FALSE}
-g1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + 
-  geom_point() + 
-  geom_smooth()
+g1 <- ggplot(data=d) +                       aes(x=displ,y=cty) + 
+      geom_point() + 
+      geom_smooth()
 print(g1)
 
-g2 <- ggplot(data=d,
-             mapping=aes(x=fl,fill=I("tomato"),color=I("black"))) +              geom_bar(stat="count") + 
-             theme(legend.position="none")
+g2 <- ggplot(data=d) +
+          aes(x=fl,fill=I("tomato"),color=I("black")) +             geom_bar(stat="count") + 
+              theme(legend.position="none")
 print(g2)
 
-g3 <- ggplot(data=d,
-             mapping=aes(x=displ,fill=I("royalblue"),color=I("black"))) + 
-  geom_histogram()
- print(g3)
+g3 <- ggplot(data=d) +
+             aes(x=displ,fill=I("royalblue"),color=I("black")) + 
+             geom_histogram()
+print(g3)
  
-  g4 <- ggplot(data=d, 
-               mapping=aes(x=fl,y=cty,fill=fl)) + 
-    geom_boxplot() + 
-             theme(legend.position="none")
+  g4 <- ggplot(data=d) +
+               aes(x=fl,y=cty,fill=fl) + 
+               geom_boxplot() + 
+               theme(legend.position="none")
   
   print(g4)
 
@@ -111,47 +110,53 @@ ggsave(filename="MyPlot.pdf",plot=g3, device="pdf",width=20,height=20,units="cm"
 #### Basic mapping of aesthetic variables
 ```{r}
 # mapping of a discrete variable to point color
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,color=class))) + 
-  geom_point(size=3) 
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,color=class) + 
+      geom_point(size=3) 
 print(m1)
              
 # mapping of a discrete variable to point shape (<= 6)
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,shape=class))) + 
-  geom_point(size=3) 
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=class) + 
+      geom_point(size=3) 
 print(m1)
 
 # mapping of a discrete variable to point size (not advised)
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,size=class))) + 
-  geom_point() 
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,size=class) + 
+      geom_point() 
 print(m1)
 
 # mapping a continuous variable to point size 
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,size=hwy))) + 
-  geom_point() 
+m1 <- ggplot(data=mpg) + 
+      aes(x=displ,y=cty,size=hwy) + 
+      geom_point() 
 print(m1)
 
 # mapping a continuous variable to point color
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,color=hwy))) + 
-  geom_point(size=5) 
+m1 <- ggplot(data=mpg) + 
+      aes(x=displ,y=cty,color=hwy) + 
+      geom_point(size=5) 
 print(m1)
 
 # mapping two variables to different aesthetics
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,shape=class,color=hwy))) + 
-  geom_point(size=5) 
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=class,color=hwy) + 
+      geom_point(size=5) 
 print(m1)
 
 # use shape for smaller number of categories
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,shape=drv,color=fl))) + 
-  geom_point(size=5) 
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=drv,color=fl) + 
+      geom_point(size=5) 
 
 # use all 3 (size, shape, color) to indicate 5 attributes!
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,shape=drv,color=fl,size=hwy))) + 
- geom_point()
+m1 <- ggplot(data=mpg) +                                   aes(x=displ,
+          y=cty,shape=drv,
+          color=fl,
+          size=hwy) + 
+      geom_point()
 print(m1)
 
 # mapping a variable to the same aesthetic in two different geoms
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,color=drv))) + 
-  geom_point(size=2) + geom_smooth(method="lm")
+m1 <- ggplot(data=mpg) + 
+            aes(x=displ,y=cty,color=drv) + 
+            geom_point(size=2) +                                 geom_smooth(method="lm")
 print(m1)
 
 ```
@@ -160,8 +165,10 @@ print(m1)
 
 ```{r,warning=FALSE,message=FALSE}
 # basic faceting with variables split by row, column, or both
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty))) + 
-  geom_point() 
+m1 <- ggplot(data=mpg) + 
+            aes(x=displ,y=cty) + 
+            geom_point() 
+
 m1 +  facet_grid(class~fl)     
 m1 + facet_grid(class~fl, scales="free_y")
 m1 + facet_grid(class~fl, scales="free")
@@ -177,23 +184,28 @@ m1 + facet_grid(class~fl)
 
 # use facet with other aesthetic mapping within rows or columns
 
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,color=drv))) + 
-  geom_point() 
+m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=cty,color=drv) + 
+            geom_point() 
+
 m1 + facet_grid(.~class)
 
 # easy to switch to other geoms
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,color=drv))) + 
-  geom_smooth(se=FALSE,method="lm") 
+m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=cty,color=drv) + 
+            geom_smooth(se=FALSE,method="lm") 
+
 m1 + facet_grid(.~class)
 
 # fitting with boxplots over a continuous variable
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty))) + 
-  geom_boxplot()
+m1 <- ggplot(data=mpg) +  
+            aes(x=displ,y=cty) + 
+            geom_boxplot()
+
 m1 + facet_grid(.~class)
 
 # add a group and fill mapping for subgroups
-m1 <- ggplot(data=mpg, mapping=(aes(x=displ,y=cty,group=drv,fill=drv))) + 
-  geom_boxplot()
+m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=cty,group=drv,fill=drv) + 
+            geom_boxplot()
+
 m1 + facet_grid(.~class)
 
 
@@ -204,8 +216,10 @@ d <- mpg # use built in mpg data frame
 
 ```{r, warning=FALSE, message=FALSE}
 # standard plot with all data
-p1 <- ggplot(data=d,mapping=aes(x=displ,y=hwy)) +
-  geom_point() + geom_smooth()
+p1 <- ggplot(data=d) + 
+            aes(x=displ,y=hwy) +
+            geom_point() + 
+            geom_smooth()
 print(p1)
 
 # break out the drive types (note what group affects
