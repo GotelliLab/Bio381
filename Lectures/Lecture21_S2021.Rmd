@@ -109,7 +109,9 @@ qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
  # font families (Mac): Times, Ariel, Monaco, Courier, Helvetica, serif,sans
  
 # use coordinate_flip to invert entire plot
- p2 <- ggplot(data=d, mapping=aes(x=fl,fill=fl)) + geom_bar()
+ p2 <- ggplot(data=d) +
+       aes(x=fl,fill=fl) + 
+       geom_bar()
  print(p2)
  p2 + coord_flip() + theme_grey(base_size=20,base_family="sans")
 ```
@@ -117,13 +119,17 @@ qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
 ### Minor theme modifications
 ```{r, warning=FALSE, message=FALSE}
 
- p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + 
- geom_point(size=7,shape=21,color="black",fill="steelblue") +
- labs(title="My graph title here",
-      subtitle="An extended subtitle that will print below the main title",
-      x="My x axis label",
-      y="My y axis label") +
-      xlim(0,4) + ylim(0,20)
+ p1 <- ggplot(data=d) +
+       aes(x=displ,y=cty) + 
+       geom_point(size=7,
+                  shape=21,
+                  color="black",
+                  fill="steelblue") +
+       labs(title="My graph title here",
+            subtitle="An extended subtitle that will print below the main title",
+            x="My x axis label",
+            y="My y axis label") +
+            xlim(0,4) + ylim(0,20)
  print(p1)
  
 ```
