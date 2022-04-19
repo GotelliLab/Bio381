@@ -36,9 +36,7 @@ library(cowplot)
 library(colorspace)
 library(wesanderson)
 library(ggsci)
-library(TeachingDemos)
 
-char2seed("Dark Star")
 d <- mpg
 ```
 
@@ -46,35 +44,51 @@ d <- mpg
 ```{r,message=FALSE, warning=FALSE}
 # use to plot the counts of rows for a categorical variable
 table(d$drv)
-p1 <- ggplot(d,aes(x=drv)) + geom_bar(color="black",fill="cornsilk")
+p1 <- ggplot(d) +
+      aes(x=drv) + 
+      geom_bar(color="black",fill="cornsilk")
 print(p1)
 
 # aesthetic mapping gives multiple groups for each bar
-p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar()
+p1 <- ggplot(d) + 
+      aes(x=drv,fill=fl) + 
+      geom_bar()
 print(p1)
 
 
 # stacked, but need to adjust color transparency, which is "alpha"
-p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(alpha = 0.3, position="identity")
+p1 <- ggplot(d) + 
+      aes(x=drv,fill=fl) + 
+      geom_bar(alpha = 0.3, position="identity")
 print(p1)
 
 # better to use position = fill for stacking, but with equivalent height
-p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(position="fill")
+p1 <- ggplot(d) + 
+      aes(x=drv,fill=fl) + 
+      geom_bar(position="fill")
 print(p1)
 
 # best to use position = dodge for multiple bars
-p1 <- ggplot(d,aes(x=drv,fill=fl)) + geom_bar(position="dodge",color="black",size=1)
+p1 <- ggplot(d) + 
+      aes(x=drv,fill=fl) +
+      geom_bar(position="dodge",color="black",size=1)
 print(p1)
 
 # more typical "bar plot" has heights as the values themselves
-dTiny <- tapply(X=d$hwy,INDEX=as.factor(d$fl),FUN=mean) #calculate the means
-dTiny <- data.frame(hwy=dTiny) # create a single-column data frame
-dTiny <- cbind(fl=row.names(dTiny),dTiny) # 
+d_tiny <- tapply(X=d$hwy,INDEX=as.factor(d$fl),FUN=mean) #calculate the means
+print (d_tiny)
 
-p2 <- ggplot(dTiny, aes(x=fl,y=hwy,fill=fl)) +
-  geom_col()
+d_tiny <- data.frame(hwy=d_tiny) # create a single-column data frame
+print(d_tiny)
+
+d_tiny <- cbind(fl=row.names(d_tiny),d_tiny) # 
+print(d_tiny)
+
+p2 <- ggplot(d_tiny) +
+      aes(x=fl,y=hwy,fill=fl) +
+      geom_col()
 print(p2)
-
+```
 
 
 #### Use a box plot instead of standard "means" bars!
@@ -82,15 +96,18 @@ print(p2)
 
 ```{r, warning=FALSE, message=FALSE}
 # basic boxplot is simple and informative
-p1 <- ggplot(d,aes(x=fl,y=hwy,fill=fl)) +
-               geom_boxplot()
+p1 <- ggplot(d) + 
+      aes(x=fl,y=hwy,fill=fl) +
+      geom_boxplot()
 print(p1)
 
 # now overlay the raw data
-p1 <- ggplot(d,aes(x=fl,y=hwy)) +
-               geom_boxplot(fill="thistle",outlier.shape=NA) + 
+p1 <- ggplot(d) + 
+      aes(x=fl,y=hwy) +
+      geom_boxplot(fill="thistle",outlier.shape=NA) + 
   # geom_point()
-  geom_point(position=position_jitter(width=0.1,height=0.7),color="grey60",size=2)
+  geom_point(position=position_jitter(width=0.1, height=0.7),
+                                      color="grey60",size=2)
 
 print(p1)
 ```
@@ -163,11 +180,12 @@ plot(p2_des)
 ```{r}
 x1 <- rnorm(n=100,mean=0)
 x2 <- rnorm(n=100,mean=2.7)
-dFrame <- data.frame(v1=c(x1,x2))
+d_frame <- data.frame(v1=c(x1,x2))
 lab <- rep(c("Control","Treatment"),each=100)
-dFrame <- cbind(dFrame,lab)
-str(dFrame)
-h1 <- ggplot(dFrame,aes(x=v1,fill=lab))
+d_frame <- cbind(d_frame,lab)
+str(d_frame)
+h1 <- ggplot(d_frame) +
+      aes(x=v1,fill=lab)
 h1 + geom_histogram(position="identity",alpha=0.5,color="black") 
 ```
 
@@ -179,26 +197,31 @@ d <- mpg
 # scale_color_manual for points, lines
 
 # boxplot no color
-p_fil <- ggplot(d,aes(x=as.factor(cyl),y=cty))
+p_fil <- ggplot(d) +
+         aes(x=as.factor(cyl),y=cty)
 p_fil + geom_boxplot()
 
 # boxplot default ggplot fill
-p_fil <- ggplot(d,aes(x=as.factor(cyl),y=cty,fill=as.factor(cyl))) + geom_boxplot()
+p_fil <- ggplot(d) +
+         aes(x=as.factor(cyl),y=cty,fill=as.factor(cyl)) + 
+         geom_boxplot()
 plot(p_fil)
 
 # create custom color palette
 my_cols <- c("red","brown","blue","orange")
 
-
 # boxplot with custom colors for fill
 p_fil + scale_fill_manual(values=my_cols)
 
 # scatterplot with no color
-p_col <- ggplot(d,aes(x=displ,y=cty))
+p_col <- ggplot(d) +
+         aes(x=displ,y=cty)
 p_col + geom_point(size=3)
 
 # scatterplot default ggplot colors
-p_col <- ggplot(d,aes(x=displ,y=cty,col=as.factor(cyl))) + geom_point(size=3)
+p_col <- ggplot(d) +
+         aes(x=displ,y=cty,col=as.factor(cyl)) + 
+         geom_point(size=3)
 plot(p_col)
 
 # scatterplot with custom colors for point color
@@ -207,7 +230,9 @@ p_col + scale_color_manual(values=my_cols)
 # ------- continuous classification (color gradient)
 
 # default color gradient
-p_grad <- ggplot(d,aes(x=displ,y=cty,col=hwy)) + geom_point(size=3)
+p_grad <- ggplot(d) + 
+          aes(x=displ,y=cty,col=hwy) + 
+          geom_point(size=3)
 plot(p_grad)
 
 # custom sequential gradient (2-colors)
@@ -266,12 +291,16 @@ myData <- cbind(myData,zVar)
 head(myData)
 
 # default gradient colors in ggplot
-p4 <- ggplot(myData,aes(x=xVar,y=yVar,fill=zVar)) +
+p4 <- ggplot(myData) +
+      aes(x=xVar,y=yVar,fill=zVar) +
   geom_tile()
 print(p4)
 
 # user defined divergent palette
-p4 + scale_fill_gradient2(midpoint=19,low="brown",mid=grey(0.8),high="darkblue")
+p4 + scale_fill_gradient2(midpoint=19,
+                          low="brown",
+                          mid=grey(0.8),
+                          high="darkblue")
 
 
 # viridis scale
