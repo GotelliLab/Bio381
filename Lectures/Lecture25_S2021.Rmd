@@ -9,6 +9,8 @@ output:
   pdf_document: default
 ---
 
+*Most of the following commands can be completed in Windows Powershell. For important information on `cmd` and Powershell for Windows users, see the [Windows cmd Glossary](WindowsCmdGlossary.html).*
+
 ___
 
 ### Shell preliminaries

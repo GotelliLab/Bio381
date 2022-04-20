@@ -9,6 +9,8 @@ output:
   pdf_document: default
 ---
 
+*Note: the commands below can also be executed in Windows Powershell, and most can be executed via the RStudio terminal on a Windows machine. The exception is the `touch` command: for alternatives, see the [Windows cmd Glossary](WindowsCmdGlossary.html).* 
+
 ### git `log` commands
 
 - `git log` shows the full log for the repo

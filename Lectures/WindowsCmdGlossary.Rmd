@@ -1,0 +1,70 @@
+---
+title: "Glossary of Windows Commands"
+author: "Emily Beasley"
+date: "22 February 2022"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### The Windows Command Prompt
+
+The Windows command prompt or `cmd` is similar to the shell and is just as effective for completing most biology- or ecology-related tasks. There are a few differences in commands that reflect the differences in the Windows software vs. Mac or Linux. Notably, `cmd` is much more primitive than shell and has less functionality.
+
+Windows Powershell is a more advanced version of `cmd` and is more comperable to shell. See below for details.
+
+### Command swaps
+
+The following commands differ between shell and `cmd` but have equivalent or near-equivalent functionality:
+
+Shell Command | Windows Command | Example
+-------------- | ---------------- | -------------
+`touch` | `type nul` | `type nul > filename` 
+`ls` | `dir` | `dir /ON` (more details on `dir` can be found below)
+`cp` | `copy` | `copy filename directoryname`
+`rm` |  `del` | `del filename`
+
+### The `dir` Command
+
+Many commands can be included with `dir` to perform more specific functions.
+
+Adding `/a` changes the types of files displayed by `dir`:  
+* `/ad` displays all directories in current path  
+* `/ar` displays read-only files  
+* `/as` displays system files  
+
+`dir /b` displays only file and folder names. 
+
+Adding `/O` allows you to sort files and directories called by `dir`:  
+* `/OD` sorts by date/time  
+* `/OG` puts directories first, then files  
+* `/ON` sorts in alphabetical order  
+
+Finally, `/?` pulls up the help page for `dir` commands.
+
+When typing out directory names, you can type the first few letters and use tab to autocomplete. Very useful if you have long directory names.
+
+### Batch Files
+
+Batch files in windows end with *.bat and are similar to shell scripts.
+
+A simple batch file:
+
+```
+ECHO This text will print in the console
+PAUSE
+```
+
+This will print some text in the console and then complete the batch script.
+
+### Limitations of `cmd`/Windows Powershell 
+
+You can create bash-style aliases in Powershell, but the process is very different and not recommended. If you need to create aliases, use `cygwin`. Batch files are also more limited than bash scripts; again, use `cygwin` if you need to creat complex bash scripts.
+
+`cmd` is not capable of piping; i.e. using the output of one command as the input of the next command. Powershell can do this but calls the structures "pipelines".
