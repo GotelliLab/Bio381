@@ -50,6 +50,49 @@ function(x) x + 3 # anonymous function
 function(x) x + 3 (10) # try to provide input
 (function(x) x + 3) (10) # use of parentheses to call
 ```
+### Functions that call functions
+
+```{r}
+# first create some short user-defined functions
+my_sum <- function(a,b) a + b
+my_dif <- function(a,b) a - b
+my_mult <- function(a,b) a*b
+
+# we already know that built in functions can be called directly from within a function
+
+funct_1 <- function(a=3,b=2) sum(a,b)
+funct_1()
+
+funct_2 <- function(a=3,b=2) my_sum(a,b)
+funct_2()
+
+funct_3 <- function(a=3,b=2) my_mult(a,b)
+funct_3()
+# each time we want to use a different one of the "my" functions, we have to create a new function to call it. 
+
+# now pass data AND another function into a function as parameters:
+
+algebra <- function(x=my_sum,a=3,b=2) x(a,b)
+
+algebra(x=my_sum)
+algebra(x=my_dif)
+algebra(x=my_mult)
+
+
+# This also works for passing in built-in functions
+algebra(x=sum)
+
+# but this will not work
+# algebra(x=mean)
+
+# problem: all the functions called must use same inputs
+# most r functions work on a single vector
+algebra_vec <- function(x=mean,a=1:10) x(a)
+  algebra_vec(x=sqrt)
+  algebra_vec(x=mean)
+  algebra_vec(x=sd)
+```
+
 
 
 ### First Task: Apply a function to each row (or column of a matrix
@@ -63,7 +106,7 @@ print(m)
 #### `for loop` solution
 ```{r}
 # create a vector of lists to hold the output
-output <- vector("numeric",nrow(m))
+output <- rep(NA,nrow(m))
 str(output)
 
 # run the function in a for loop for each
@@ -73,6 +116,30 @@ for (i in seq_len(nrow(m))) {
   output[[i]] <- my_fun(m[i,])
 }
 
+print(output)
+
+# run the function in a for loop for each
+# column of the matrix
+output <- rep(NA,ncol(m))
+str(output)
+
+for (j in seq_len(ncol(m))) {
+  output[[j]] <- my_fun(m[,j])
+}
+
+print(output)
+
+# run a double loop and apply to each element of matrix
+
+output <- m # set up output with same dimensions as input matrix
+print(output)
+output[,] <- NA # assign each element in matrix an NA
+
+for (i in seq_len(nrow(m))) {
+  for (j in seq_len(ncol(m))) {
+    output[i,j] <- my_fun(m[i,j])
+  }
+}  
 print(output)
 ```
 
@@ -127,11 +194,8 @@ df <- data.frame(x=runif(20),y=runif(20),z=runif(20))
 
 ### `for loop` solution
 ```{r}
-# OK, but note that elements are zero
-output <- vector("numeric",ncol(df))
-print(output)
 
-# probably safer
+# create output
 output <- rep(NA,ncol(df))
 print(output)
 
@@ -258,7 +322,8 @@ list_out[[1]]
 
 ```{r}
 # using replicate to do the same thing
-# tapply(n,expr)
+
+# replicate(n,expr)
 # n is the number of times the operation is to be repeated
 # expr is a function (base, or user-defined), or an expression (like an anonymous function, but without the function(x) header; just the bare code for execution).
 
