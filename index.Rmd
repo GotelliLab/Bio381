@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2022"
+date: "Spring 2023"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -28,54 +28,54 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-January 18  | [Introduction](Lectures/Lecture01_S2021.html) | -  
-January 19  | - | [Homework #1](Homeworks/Homework01_S2022.html)             
-January 20  | [GitHub](Lectures/Lecture02_S2021.html) | -  
-January 25  | [Github II](Lectures/Lecture03_S2021.html) | -
-January 26 | - |  [Homework #2](Homeworks/Homework02_S2022.html)
-January 27  | [Regular Expressions](Lectures/Lecture04_S2021.html) | -
-February 1  | [Markdown](Lectures/Lecture05_S2021.html) | - 
-February 2  |  -  | [Homework #3](Homeworks/Homework03_S2022.html)
-February 3  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
-February 8  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | - 
-February 9  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework04_S2022.html)
-February 10  | [Atomic Vectors II](Lectures/Lecture08_S2021.html)| - 
-February 15  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
-February 16  | -  | [Homework #5](Homeworks/Homework05_S2022.html)
-February 17   | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
-February 22 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
-February 23  | -  | [Homework #6](Homeworks/Homework06_S2022.html)
-February 24  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
-March 1  | Town Meeting Day Recess | -
-March 2  | -  | [Homework #7](Homeworks/Homework07_S2022.html)
-March 3  | [Functions](Lectures/Lecture13_S2021.html)| -
-March 8 | Spring Recess | -
-March 9 | Spring Recess | -
-March 10 | Spring Recess | -
-March 15  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
-March 16  | **Portfolio Check #2** | [Homework #8](Homeworks/Homework08_S2022.html)
-March 17  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
-March 22  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
-March 23  | - | [Homework #9](Homeworks/Homework09_S2022.html)
-March 24  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
-March 29  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
-March 30  | - | [Homework #10](Homeworks/Homework10_S2022.html)
-March 31  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
-April 5  | [Batch Processing](Lectures/Lecture20_S2021) | -
-April 6  | - | [Homework #11](Homeworks/Homework11_S2022.html)
-April 7  | [dplyr](Lectures/Lecture20a_S2021.html)  | -
-April 12  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
-April 13  | **Portfolio Check #3** | [Homework #12](Homeworks/Homework12_S2022.html)
-April 14  | [ggplot II](Lectures/Lecture22_S2021.html) | -
-April 19 | [ggplot III](Lectures/Lecture23_S2021.html) | -
-April 27  | - | Catch-up Day
-April 21 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
-April 26  | [Github III](Lectures/Lecture25_S2021.html) | -
-April 27  | - | Catch-up Day
-April 28  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
+January 17  | [Introduction](Lectures/Lecture01_S2021.html) | -  
+January 18  | - | [Homework #1](Homeworks/Homework01_S2022.html)             
+January 19  | [GitHub](Lectures/Lecture02_S2021.html) | -  
+January 24  | [Github II](Lectures/Lecture03_S2021.html) | -
+January 25 | - |  [Homework #2](Homeworks/Homework02_S2022.html)
+January 26  | [Regular Expressions](Lectures/Lecture04_S2021.html) | -
+January 31  | [Markdown](Lectures/Lecture05_S2021.html) | - 
+February 1  |  -  | [Homework #3](Homeworks/Homework03_S2022.html)
+February 2  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
+February 7  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | - 
+February 8  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework04_S2022.html)
+February 9  | [Atomic Vectors II](Lectures/Lecture08_S2021.html)| - 
+February 14  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
+February 15  | -  | [Homework #5](Homeworks/Homework05_S2022.html)
+February 16   | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
+February 21 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
+February 22  | -  | [Homework #6](Homeworks/Homework06_S2022.html)
+February 23  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
+February 28  | [Functions](Lectures/Lecture13_S2021.html)| -
+March 1  | -  | [Homework #7](Homeworks/Homework07_S2022.html)
+March 2  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
+March 7  | Town Meeting Day Recess | -
+March 8  | **Portfolio Check #2** | [Homework #8](Homeworks/Homework08_S2022.html)
+March 9  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
+March 14 | Spring Recess | -
+March 15 | Spring Recess | -
+March 16 | Spring Recess | -
+March 21  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
+March 22  | - | [Homework #9](Homeworks/Homework09_S2022.html)
+March 23  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
+March 28  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
+March 29  | - | [Homework #10](Homeworks/Homework10_S2022.html)
+March 30  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
+April 4  | [Batch Processing](Lectures/Lecture20_S2021) | -
+April 5  | - | [Homework #11](Homeworks/Homework11_S2022.html)
+April 6  | [dplyr](Lectures/Lecture20a_S2021.html)  | -
+April 11  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
+April 12  | **Portfolio Check #3** | [Homework #12](Homeworks/Homework12_S2022.html)
+April 13  | [ggplot II](Lectures/Lecture22_S2021.html) | -
+April 18 | [ggplot III](Lectures/Lecture23_S2021.html) | -
+April 19  | - | Catch-up Day
+April 20 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
+April 25  | [Github III](Lectures/Lecture25_S2021.html) | -
+April 26  | - | Catch-up Day
+April 27  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
+May 2  | Catch-up Day | -
 May 3  | Catch-up Day | -
-May 4  | Catch-up Day | -
-May 5 | Catch-up Day | - 
+May 4 | Catch-up Day | - 
 
 ___
 
