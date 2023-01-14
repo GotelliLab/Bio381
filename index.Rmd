@@ -10,7 +10,7 @@ output:
 Click here for [COMPLETE SET OF PANDEMIC-YEAR COURSE VIDEOS](https://ngotelli.github.io/Bio381Vids/) 
 
 
-This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2022.
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2023.
 
 ## Course Materials
 
@@ -73,24 +73,24 @@ April 20 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
 April 25  | [Github III](Lectures/Lecture25_S2021.html) | -
 April 26  | - | Catch-up Day
 April 27  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
-May 2  | Catch-up Day | -
-May 3  | Catch-up Day | -
-May 4 | Catch-up Day | - 
+May 2  | Lecture Spillover Day | -
+May 3  | Lecture Spillover Day | -
+May 4 | Lecture Spillover Day | - 
 
 ___
 
 ### Important Dates
-- 24 January: Last day to add classes without instructor permission
-- 31 January: Add/Drop, Pass/No Pass, Audit Deadline
-- 4 April: Last day to withdraw
-- 22 April: Honors Day
-- 6 May: Last day of classes
-- 7,8,11 May: Reading days
-- 9,10,12,13 May: Final exam days
+- 23 January: Last day to add classes without instructor permission
+- 30 January: Add/Drop, Pass/No Pass, Audit Deadline
+- 3 April: Last day to withdraw
+- 21 April: Honors Day
+- 5 May: Last day of classes
+- 6,7,10 May: Reading days
+- 8,9,11,12 May: Final exam days
 
 ___
 
-### Meet The Class of 2022
+### Meet The Class of 2023
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
@@ -106,7 +106,7 @@ Blair Christensen | [GitHub](https://github.com/bc20237)  [Portfolio](https://bc
 Grace Durant | [GitHub](https://github.com/gdurant4)  [Portfolio](https://gdurant4.github.io/DurantBio381/) | I know the name of nearly every humpback whale that frequents Stellwagen Bank in Massachusetts.
 Al Freeman | [GitHub](Github: https://github.com/al-freeman)  [Portfolio](https://al-freeman.github.io/Bio381Freeman/index.html) | I play the banjo (terribly). 
 David Green | [GitHub](https://github.com/meandgreen)  [Portfolio](https://meandgreen.github.io/greenBIO381/) | I'm 22 and I've thrown my back out twice
-Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 15 years (pre-covid), I have organized musical performances at the annual meeting of the Ecological Society of America [(New Orleans 2018)](https://drive.google.com/drive/folders/1UNmrH7lHUNAcAHb1v4vcuVWjqwjCzS0f).
+Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows, who accompany me to BCOR 102 lectures.
 Jacqueline Guillemin | [GitHub](https://github.com/Jaguillemin)  [Portfolio](https://jaguillemin.github.io/GuilleminBio381/) | I live with a cat that can say hello!
 Jasmine Hart | [GitHub](https://github.com/jasmine-hart)  [Portfolio](https://jasmine-hart.github.io/Bio381Hart/) | My fun fact is that I'm a certified yoga instructor! 
 Andrew McCracken | [GitHub](https://github.com/amccracken8)  [Portfolio](https://amccracken8.github.io/Bio381McCracken/) | I have broken my right foot 3 times
