@@ -29,7 +29,7 @@ ___
 Date  | Lecture | Homework
 ------------- |----------- | -------------
 January 17  | [Introduction](Lectures/Lecture_01.html) | -  
-January 18  | - | [Homework #1](Homeworks/Homework01_S2022.html)             
+January 18  | - | [Homework #1](Homeworks/Homework_01.html)             
 January 19  | [GitHub](Lectures/Lecture_02.html) | -  
 January 24  | [Github II](Lectures/Lecture03_S2021.html) | -
 January 25 | - |  [Homework #2](Homeworks/Homework02_S2022.html)

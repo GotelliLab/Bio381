@@ -1,0 +1,29 @@
+---
+title: 'Homework #1'
+author: "Nicholas J. Gotelli"
+date: "18 January 2023"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+The goal of this first exercise is to make sure that all of your software is installed properly and working.
+
+Make sure everything is set up and working on the laptop that you will be using for this course. 
+
+Specifically, you should have the most current versions of R and RStudio installed. Within R, you need the `tinytex` package installed so that can create ("knit") pdf documents.
+
+You also need the latest version of [Typora](https://typora.io/) (a markdown editor), [Inkscape](https://inkscape.org/release/inkscape-1.1.1/),  a plain text editor (BBEdit for Macs, or Notepad++ for Windows). And you need to be signed up for a GitHub account and have handy your github user name and password. An installation and troubleshooting guide for the various programs is linked [here](Installation_Instructions.html). 
+
+The TA will make a brief presentation and step you through a series of checks to make sure you are ready to go on all of these things.
+
+Due by the end of lab:    
+
+* A PDF of the 'default' text and code knitted in RStudio (this ensures `tinytex` is working)
+* The link to your github repository: `https://github.com/YourUserName`
+* Show your TA that you have the option to 'create a git repository' when creating a new project, as shown below:
+
+![](git-box-example.png){width=30%} 
+
+
