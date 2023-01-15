@@ -1,7 +1,7 @@
 ---
 title: "Biology 381 - Computational Biology"
 author: "Course Syllabus"
-date: "Spring 2022"
+date: "Spring 2023"
 output:
   html_document: 
     highlight: tango
@@ -24,15 +24,11 @@ ___
 [ngotelli@uvm.edu](mailto:ngotelli@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
-**Lab:** Lauren Ash   
+**Lab:** George Ni 
 211 Marsh Life Science   
-[Lauren.V.Ash@uvm.edu](mailto:Lauren.V.Ash@uvm.edu)   
+[gni@uvm.edu](mailto:gni@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
-**Lab:** Emily Beasley   
-211 Marsh Life Science   
-[Emily.Beasley@uvm.edu](mailto:Emily.Beasley@uvm.edu)   
-By appointment, in-person meetings or video conferences 
 
 [Video-conference web link](https://app.inspace.chat/space/3D1AE70150195F8B7890ADE9027FFC3E982F8A3F)
 
@@ -58,9 +54,9 @@ This course is designed to teach you three things:
 Once we finish with the preliminaries, the format for the lecture each day is simple. I will open Rstudio from my computer, project the screen so you can see it, and begin coding. I will comment and explain everything as I go along. Line by line, you will copy what I am typing on the screen into your own computer and the run the code along with me. This is the fastest way for you to learn how to code.
 
 ## Lab Activities
-Each week, there will be a programming assignment to go along with the lecture. Your primary activity in the laboratory section will be to do this assignment. Using the lab time this way forces you to set aside time each week to get learn the language and get the coding done, minimizes your time spent coding outside of class, and gives you the benefit of being able to ask for help from Emily & Lauren and from your fellow students.
+Each week, there will be a programming assignment to go along with the lecture. Your primary activity in the laboratory section will be to do this assignment. Using the lab time this way forces you to set aside time each week to get learn the language and get the coding done, minimizes your time spent coding outside of class, and gives you the benefit of being able to ask for help from George and from your fellow students.
 
-Lauren & Emily will begin each class with a brief lecture presentation and demonstration, which will complement the lecture presentations for the week. They will provide overview of the assignment, and offer a few suggestions or tips for how to code the exercise. 
+George will begin each class with a brief lecture presentation and demonstration, which will complement the lecture presentations for the week. They will provide overview of the assignment, and offer a few suggestions or tips for how to code the exercise. 
 
 
 
