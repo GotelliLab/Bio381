@@ -3,11 +3,11 @@ title: 'Lecture #2: GitHub'
 author: "Nicholas J. Gotelli"
 date: "19 January 2023"
 output:
+  pdf_document: default
   html_document:
     highlight: tango
     keep_md: no
     theme: united
-  pdf_document: default
 ---
 
 ## Learning git and GitHub
