@@ -63,7 +63,7 @@ March 29  | - | [Homework #10](Homeworks/Homework10_S2022.html)
 March 30  | [Randomization Tests](Lectures/Lecture19_S2021.html) | -
 April 4  | [Batch Processing](Lectures/Lecture20_S2021) | -
 April 5  | - | [Homework #11](Homeworks/Homework11_S2022.html)
-April 6  | [dplyr](Lectures/Lecture20a_S2021.html)  | -
+April 6  | [dplyr](Lectures/dplyr_Lecture1.html)  | -
 April 11  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
 April 12  | **Portfolio Check #3** | [Homework #12](Homeworks/Homework12_S2022.html)
 April 13  | [ggplot II](Lectures/Lecture22_S2021.html) | -
