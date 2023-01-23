@@ -1,0 +1,44 @@
+---
+title: 'Homework #2'
+author: "Nicholas J. Gotelli"
+date: "25 January 2023"
+output: 
+  html_document: 
+    highlight: tango
+    theme: united
+---
+
+As a class:  
+
+1. Your TA will walk you through the steps to build a repository in GitHub, and a local version on your desktop. Call this repository "PracticeRepo".
+
+2. Create an `index.Rmd` file that you will post as an html webpage.
+
+3. Create a new page called `newpage.Rmd` and create a link on your index file.
+
+4. Make changes, stage them, and push them to your new webpage.
+
+On your own:  
+
+5. After you have done this a few times and are comfortable with this process, set up your repository for this course, using your own last name as part of the repository name: `LastNameBio381`
+
+6. Once your index page is set up and your webpage is hosted and visible on the internet, build a link and a new page called `Homework_02.Rmd`.
+
+7. Add a sentence or two at the start of your index page describing what the site is for. Knit the document and commit your changes in the usual way. Soon you will learn how to modify and edit this initial page extensively.
+
+8. Check your webpage and make sure that the new link works. 
+
+What to provide to your TA by the end of the day:
+
+  - the link to your GitHub repository page `https://github.com/YourGitHubUserName`
+  - the link to your new webpage `https://YourGitHubUserName.github.io/LastNameBio381/`
+  - a "fun fact": something distinctive about you or your past that will help everyone instantly remember your name and who you are. For examples, see the list from the students in last year's course on the [course homepage](https://gotellilab.github.io/Bio381/). Once we have all of this information, we will update the homepage with the entries from this year's class.
+  
+Congratulations! You are now a GitHub user!
+
+Helpful Links:
+
+[Markdown basics](https://rmarkdown.rstudio.com/authoring_basics.html)  
+[Setting up Jekyll themes](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)
+
+
