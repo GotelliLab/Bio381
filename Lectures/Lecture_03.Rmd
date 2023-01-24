@@ -3,9 +3,10 @@ title: 'Markdown'
 author: "Nicholas J. Gotelli"
 date: "24 January 2023"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
+    keep_md: yes
   pdf_document: default
 ---
 
