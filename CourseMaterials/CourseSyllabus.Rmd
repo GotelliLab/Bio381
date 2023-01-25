@@ -65,7 +65,7 @@ George will begin each class with a brief lecture presentation and demonstration
 * Attend nearly all of the lectures and lab meetings
 * Do the coding exercises in class when they are assigned
 * Regularly update your course webpage with completed and partially completed assignments
-* **Complete the assignments in time for the Portfolio Checks (9 February, 16 March, and 13 April), so that your final course grade will not be lowered!**
+* **Complete the assignments in time for the Portfolio Checks (8 February, 8 March, and 12 April), so that your final course grade will not be lowered!**
 * Study the code of your classmates on their webpages to see how they have solved the same problems you are working on
 * Annotate your code so it is useful to you and others
 * Surf the internet to find solutions to programming problems
@@ -80,16 +80,9 @@ Each week you will attend two coding lectures and then attend the lab section to
 All students start out the class with a grade of "A". To maintain this as your final grade, you will need to:
 
 - attend the majority of lectures and weekly labs (attendance will be recorded for labs).
-- have your portfolio of completed homeworks posted on your website and up-to-date before each of the 3 portfolio checks (9 February, 16 March, and 13 April). Each missed deadline lowers your final course grade by half a grade (1 missed deadline A to A-, 2 missed deadines A to B+, 3 missed deadlines A to B).
-- have all of your portfolio assignments posted by the final deadline of 5:00 pm EST on Thursday 12 May, which is one week after the last class meeting.
+- have your portfolio of completed homeworks posted on your website and up-to-date before each of the 3 portfolio checks (8 February, 8 March, and 12 April). Each missed deadline lowers your final course grade by half a grade (1 missed deadline A to A-, 2 missed deadines A to B+, 3 missed deadlines A to B).
+- have all of your portfolio assignments posted by the final deadline of 5:00 pm EST on Thursday 11 May, which is one week after the last class meeting.
 
-## Pandemic Contingencies
-
->Depending on how infection rates play out in January, it is possible that UVM may have to shift partially or completely to remote learning. If that happens,  I have recorded a complete set of video screen casts ([available here](https://ngotelli.github.io/Bio381Vids/)), and the course will be held asynchronously, with recorded videos rather than live lectures. In that case, labs will be held live, with synchronous remote meetings at the Inspace site that we are currently using for video conference meetings.
-
->Even with less extreme scenarios, it is possible that some students will have to miss classes because of illness, isolation, or quarantine. If that happens, the videos can be used to keep up with course material until you return. You will need to make arrangements with Emily & Lauren to handle missed labs.
-
->Hopefully, none of this will come to pass and we will be able to meet live for lecture and lab instruction. Remember that UVM requires and students and faculty to be up-to-date on vaccinations and boosters, and of course we will observe current masking and distancing requirements.
 
 
 

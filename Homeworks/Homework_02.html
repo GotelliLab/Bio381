@@ -11,9 +11,9 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-25" />
 
-<title>Lecture #2: GitHub</title>
+<title>Homework #2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -327,215 +327,59 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Lecture #2: GitHub</h1>
+<h1 class="title toc-ignore">Homework #2</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">19 January 2023</h4>
+<h4 class="date">25 January 2023</h4>
 
 </div>
 
 
-<div id="learning-git-and-github" class="section level2">
-<h2>Learning git and GitHub</h2>
+<p>As a class:</p>
+<ol style="list-style-type: decimal">
+<li><p>Your TA will walk you through the steps to build a repository in
+GitHub, and a local version on your desktop. Call this repository
+“PracticeRepo”.</p></li>
+<li><p>Create an <code>index.Rmd</code> file that you will post as an
+html webpage.</p></li>
+<li><p>Create a new page called <code>newpage.Rmd</code> and create a
+link on your index file.</p></li>
+<li><p>Make changes, stage them, and push them to your new
+webpage.</p></li>
+</ol>
+<p>On your own:</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>After you have done this a few times and are comfortable with
+this process, set up your repository for this course, using your own
+last name as part of the repository name:
+<code>LastNameBio381</code></p></li>
+<li><p>Once your index page is set up and your webpage is hosted and
+visible on the internet, build a link and a new page called
+<code>Homework_02.Rmd</code>.</p></li>
+<li><p>Add a sentence or two at the start of your index page describing
+what the site is for. Knit the document and commit your changes in the
+usual way. Soon you will learn how to modify and edit this initial page
+extensively.</p></li>
+<li><p>Check your webpage and make sure that the new link
+works.</p></li>
+</ol>
+<p>What to provide to your TA by the end of the day:</p>
 <ul>
-<li>multiple copies of files</li>
-<li>access to past copies</li>
-<li>originally developed for teams of coders interacting on a single
-project</li>
-<li>learn how to use for your own work</li>
-<li>use for building portfolio and maintaining webpage</li>
-<li>use in tandem with a project in r studio, but can be used with any
-files</li>
+<li>the link to your GitHub repository page
+<code>https://github.com/YourGitHubUserName</code></li>
+<li>the link to your new webpage
+<code>https://YourGitHubUserName.github.io/LastNameBio381/</code></li>
+<li>a “fun fact”: something distinctive about you or your past that will
+help everyone instantly remember your name and who you are. For
+examples, see the list from the students in last year’s course on the <a href="https://gotellilab.github.io/Bio381/">course homepage</a>. Once we
+have all of this information, we will update the homepage with the
+entries from this year’s class.</li>
 </ul>
-<div id="basic-vocabulary" class="section level3">
-<h3>Basic Vocabulary</h3>
-<ul>
-<li><code>Version Control</code> A system for maintaining current and
-past copies of all of your files and a record of all the changes you
-have made;</li>
-<li><code>git</code> Version control software for tracking your project
-on your local computer</li>
-<li><code>GitHub</code> A free, public remote website where your project
-is permanently hosted</li>
-<li><code>Repository</code> Any collection of files that belong to the
-same project, plus a few special <code>git</code> files that set up the
-version control. Also called a <code>repo</code> by hipster
-programmers.</li>
-<li><code>Clone</code> Create a local copy of a repository from the
-GitHub website to your own website. You can clone from your own
-repository or anyone else’s that is posted on GitHub. Once the files are
-on your local computer you can edit or use them as you like. However,
-you can only change files on GitHub for the repositories that you
-yourself created or for projects that you have been invited to
-collaborate on with others.</li>
-<li><code>Commit (the noun)</code> A snapshot of your file system at a
-particular time. Since your last commit, it keeps track of the files you
-currently have, the ones you have deleted or added, and any changes you
-have made to files.</li>
-<li><code>Commit (the verb)</code> When you commit, you are taking a
-snapshot of your files at the current time. You must add a summary of
-the commit that briefly describes what changes you have made (such as
-“add new homework file”). Note that all commits affect only the local
-copy of your repository. They do not affect the remote copy that is
-stored on GitHub</li>
-<li><code>Push</code> Pushing a set of changes means copying them from
-your local repository up to GitHub.</li>
-<li><code>Pull(=fetch)</code> Pulling means copying the repository in
-its current state on GitHub down to your local repository. This would
-incorporate any changes that others have made (and pushed) in a
-collaborative project.</li>
-</ul>
-</div>
-</div>
-<div id="creating-a-github-repository-for-an-r-project" class="section level1">
-<h1>Creating a github repository for an r project</h1>
-<div id="set-up-the-repository-on-github" class="section level2">
-<h2>Set up the repository on GitHub</h2>
-<ul>
-<li>go to your github site (<a href="https://github.com/MyGitHub" class="uri">https://github.com/MyGitHub</a>)</li>
-<li>log in to your github account (username, password)</li>
-<li>create a new repository by clicking the “+” button</li>
-<li>Name it (write down this name exactly)</li>
-<li>use buttons to include a read me statement</li>
-<li>initialize with a readme</li>
-<li>do NOT add a gitignore</li>
-<li>add a license (MIT is fine)</li>
-</ul>
-</div>
-<div id="build-the-local-r-project-on-your-machine" class="section level2">
-<h2>Build the local r Project on your machine</h2>
-<ul>
-<li>open Rstudio</li>
-<li>upper right use pulldown menu to create new project</li>
-<li>select “Version Control”</li>
-<li>select “Git”</li>
-<li>add ’*.pdf’ to gitignore or other files to not track</li>
-</ul>
-</div>
-<div id="link-this-new-local-project-to-the-remote-repo-on-github" class="section level2">
-<h2>Link this new local project to the remote repo on GitHub</h2>
-<ul>
-<li>the RStudio set up is asking for your Repository URL</li>
-<li>go back to your GitHub repo</li>
-<li>click “clone or download” button</li>
-<li>click on the clipboard copy icon to copy the URL for this repo</li>
-<li>go back to RStudio</li>
-<li>paste with CTRL-V into the URL box</li>
-<li>give the name of the repo to be the same thing you called it on
-GitHub</li>
-<li>use browse button to find a location on your computer for this
-folder, or take the default on your desktop</li>
-<li>click “Create Project” to finish</li>
-<li>you are in your new project, which has .gitignore, LICENSE, and
-README.md files already</li>
-</ul>
-</div>
-<div id="build-a-webpage-portal-in-your-project-that-will-be-hosted-by-github" class="section level2">
-<h2>Build a webpage portal in your project that will be hosted by
-GitHub</h2>
-<ul>
-<li>from the pulldown menu in Rstudio, select new markdown file</li>
-<li>change title to “Initial webpage set up” (or some such thing)</li>
-<li>save this file with file name “index” (RStudio will provide the .Rmd
-suffix)</li>
-<li>run CTRL-SHFT-K to “knit” the file</li>
-</ul>
-</div>
-<div id="commit-these-changes-from-the-terminal" class="section level2">
-<h2>Commit these changes from the terminal</h2>
-<ul>
-<li>git status</li>
-<li>git add -A (stages changed files)</li>
-<li>git status</li>
-<li>git commit -am ‘first commit’ (makes local commit)</li>
-<li>git status</li>
-<li>git push (push the changes up to the GitHub repo)</li>
-</ul>
-</div>
-<div id="host-the-index-webpage" class="section level2">
-<h2>Host the “index” webpage</h2>
-<ul>
-<li>Return to GitHub</li>
-<li>Go to “Settings”</li>
-<li>Scroll down and under “Pages” and “Branch” change from “None” to
-“main”</li>
-<li>Wait a minute (! could be very slow!!) and click the new link at
-“Your site is live at…”</li>
-<li>New webpage should display</li>
-<li>Note the address: <a href="https://UserName.github.io/RepoName/" class="uri">https://UserName.github.io/RepoName/</a></li>
-<li>Example: <a href="https://ngotelli.github.io/Trial/" class="uri">https://ngotelli.github.io/Trial/</a></li>
-</ul>
-</div>
-</div>
-<div id="basic-workflow-for-git-from-the-terminal" class="section level1">
-<h1>Basic workflow for git from the terminal</h1>
-<div id="check-things-out-before-starting-your-work" class="section level2">
-<h2>Check things out before starting your work</h2>
-<ul>
-<li>git status (make sure your local repo is not ahead of the
-remote)</li>
-<li>git pull (just in case there was a change made from another
-location)</li>
-<li>git status (ready to start working)</li>
-</ul>
-</div>
-<div id="make-changes" class="section level2">
-<h2>Make changes</h2>
-<ul>
-<li>modify files, including knitting new versions of html pages or
-pdfs</li>
-<li>delete files</li>
-<li>add files</li>
-</ul>
-</div>
-<div id="stage-changes" class="section level2">
-<h2>Stage changes</h2>
-<ul>
-<li>git status</li>
-<li>git add -A</li>
-<li>git status</li>
-</ul>
-</div>
-<div id="commit-changes" class="section level2">
-<h2>commit changes</h2>
-<ul>
-<li>git commit -am ‘write a brief informative commit message’ (no caps
-or punctuation, present tense)</li>
-<li>git status</li>
-</ul>
-</div>
-<div id="push-changes-up-to-github" class="section level2">
-<h2>push changes up to GitHub</h2>
-<ul>
-<li>git push</li>
-<li>git status</li>
-<li>git pull</li>
-</ul>
-</div>
-<div id="check-and-refresh-website-to-see-changes" class="section level2">
-<h2>check and refresh website to see changes</h2>
-<div id="set-up-simple-local-project-in-rstudio" class="section level3">
-<h3>Set up simple local project in RStudio</h3>
-<ul>
-<li>New Project</li>
-<li>Bio381ClassCode</li>
-<li>open repository with *.Rproj</li>
-</ul>
-</div>
-<div id="review-of-basics-example-demo" class="section level3">
-<h3>Review of basics (example demo)</h3>
-<ul>
-<li>check <code>status</code> of the local repo (uncommitted changes?
-local commits ahead of remote?)</li>
-<li><code>pull</code> any changes from the repo (incorporating changes
-pushed by others</li>
-<li>do some work (edit, create, delete files)</li>
-<li><code>stage changes</code> (local)</li>
-<li><code>commit changes</code> (local)</li>
-<li><code>push</code> changes from local repo to GitHub</li>
-</ul>
-</div>
-</div>
-</div>
+<p>Congratulations! You are now a GitHub user!</p>
+<p>Helpful Links:</p>
+<p><a href="https://rmarkdown.rstudio.com/authoring_basics.html">Markdown
+basics</a><br />
+<a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll">Setting
+up Jekyll themes</a></p>
 
 
 

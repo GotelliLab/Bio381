@@ -3,11 +3,11 @@ title: 'Lecture #2: GitHub'
 author: "Nicholas J. Gotelli"
 date: "19 January 2023"
 output:
-  pdf_document: default
   html_document:
     highlight: tango
     keep_md: no
     theme: united
+  pdf_document: default
 ---
 
 ## Learning git and GitHub
@@ -80,10 +80,11 @@ output:
 ## Host the "index" webpage
 * Return to GitHub
 * Go to "Settings"
-* Scroll down and under "Source" change from "None" to "master branch"
-* Wait a minute and click the link at "Your site is ready to be published at..."
+* Scroll down and under "Pages" and "Branch" change from "None" to "main"
+* Wait a minute (! could be very slow!!) and click the new link at "Your site is live at..."
 * New webpage should display
-* Note the address https://ngotelli.github.io/RepoName/
+* Note the address: https://UserName.github.io/RepoName/
+* Example: https://ngotelli.github.io/Trial/
 
 
 # Basic workflow for git from the terminal

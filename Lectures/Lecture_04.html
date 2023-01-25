@@ -11,9 +11,9 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-26" />
 
-<title>Lecture #2: GitHub</title>
+<title>Regular Expressions</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -327,213 +327,239 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Lecture #2: GitHub</h1>
+<h1 class="title toc-ignore">Regular Expressions</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">19 January 2023</h4>
+<h4 class="date">26 January 2023</h4>
 
 </div>
 
 
-<div id="learning-git-and-github" class="section level2">
-<h2>Learning git and GitHub</h2>
-<ul>
-<li>multiple copies of files</li>
-<li>access to past copies</li>
-<li>originally developed for teams of coders interacting on a single
-project</li>
-<li>learn how to use for your own work</li>
-<li>use for building portfolio and maintaining webpage</li>
-<li>use in tandem with a project in r studio, but can be used with any
-files</li>
-</ul>
-<div id="basic-vocabulary" class="section level3">
-<h3>Basic Vocabulary</h3>
-<ul>
-<li><code>Version Control</code> A system for maintaining current and
-past copies of all of your files and a record of all the changes you
-have made;</li>
-<li><code>git</code> Version control software for tracking your project
-on your local computer</li>
-<li><code>GitHub</code> A free, public remote website where your project
-is permanently hosted</li>
-<li><code>Repository</code> Any collection of files that belong to the
-same project, plus a few special <code>git</code> files that set up the
-version control. Also called a <code>repo</code> by hipster
-programmers.</li>
-<li><code>Clone</code> Create a local copy of a repository from the
-GitHub website to your own website. You can clone from your own
-repository or anyone else’s that is posted on GitHub. Once the files are
-on your local computer you can edit or use them as you like. However,
-you can only change files on GitHub for the repositories that you
-yourself created or for projects that you have been invited to
-collaborate on with others.</li>
-<li><code>Commit (the noun)</code> A snapshot of your file system at a
-particular time. Since your last commit, it keeps track of the files you
-currently have, the ones you have deleted or added, and any changes you
-have made to files.</li>
-<li><code>Commit (the verb)</code> When you commit, you are taking a
-snapshot of your files at the current time. You must add a summary of
-the commit that briefly describes what changes you have made (such as
-“add new homework file”). Note that all commits affect only the local
-copy of your repository. They do not affect the remote copy that is
-stored on GitHub</li>
-<li><code>Push</code> Pushing a set of changes means copying them from
-your local repository up to GitHub.</li>
-<li><code>Pull(=fetch)</code> Pulling means copying the repository in
-its current state on GitHub down to your local repository. This would
-incorporate any changes that others have made (and pushed) in a
-collaborative project.</li>
-</ul>
+<div id="regular-expressions" class="section level2">
+<h2>Regular Expressions</h2>
+<div id="use-of-literals-in-searches" class="section level3">
+<h3>Use of literals in searches</h3>
+<pre><code>STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds the periods
+
+with Regex (or grep) search
+
+STRING: A sentence. Another. And a third.
+SEARCH: .
+RESULT: finds every consecutive character and space!</code></pre>
 </div>
-</div>
-<div id="creating-a-github-repository-for-an-r-project" class="section level1">
-<h1>Creating a github repository for an r project</h1>
-<div id="set-up-the-repository-on-github" class="section level2">
-<h2>Set up the repository on GitHub</h2>
+<div id="escaping-a-metacharacter" class="section level3">
+<h3>Escaping a metacharacter</h3>
 <ul>
-<li>go to your github site (<a href="https://github.com/MyGitHub" class="uri">https://github.com/MyGitHub</a>)</li>
-<li>log in to your github account (username, password)</li>
-<li>create a new repository by clicking the “+” button</li>
-<li>Name it (write down this name exactly)</li>
-<li>use buttons to include a read me statement</li>
-<li>initialize with a readme</li>
-<li>do NOT add a gitignore</li>
-<li>add a license (MIT is fine)</li>
+<li>insert a <code>\</code> before special characters for a literal
+search in regex</li>
 </ul>
+<pre><code>STRING: A sentence. Another. And a third.
+SEARCH: \.
+RESULT: finds the periods</code></pre>
 </div>
-<div id="build-the-local-r-project-on-your-machine" class="section level2">
-<h2>Build the local r Project on your machine</h2>
+<div id="wildcards" class="section level3">
+<h3>Wildcards</h3>
 <ul>
-<li>open Rstudio</li>
-<li>upper right use pulldown menu to create new project</li>
-<li>select “Version Control”</li>
-<li>select “Git”</li>
-<li>add ’*.pdf’ to gitignore or other files to not track</li>
+<li><code>\w</code> a single word character [letter,number or
+<code>_</code>]</li>
+<li><code>\d</code> a single number character [0-9]</li>
+<li><code>\t</code> a single tab space</li>
+<li><code>\s</code> a single space, tab, or line break</li>
+<li><code>\n</code> a single line break (or try <code>\r</code>)</li>
 </ul>
-</div>
-<div id="link-this-new-local-project-to-the-remote-repo-on-github" class="section level2">
-<h2>Link this new local project to the remote repo on GitHub</h2>
+<pre><code>STRING: crow raven grackle
+SEARCH: \s
+REPLACE: \n
+RESULT: 
+crow
+raven
+grackle</code></pre>
+<div id="repairing-pdf-cut-and-paste" class="section level4">
+<h4>Repairing pdf cut and paste</h4>
+<pre><code>STRING:
+Cutting and
+pasting from pdf is
+a mess. Sentences
+are
+all chopped up. It is
+hard
+to repair.
+
+SEARCH: \n
+REPLACE: (replace with nothing)
+RESULT: 
+Cutting and pasting from pdf is a mess. Sentences are all chopped up. It is hard to repair. </code></pre>
 <ul>
-<li>the RStudio set up is asking for your Repository URL</li>
-<li>go back to your GitHub repo</li>
-<li>click “clone or download” button</li>
-<li>click on the clipboard copy icon to copy the URL for this repo</li>
-<li>go back to RStudio</li>
-<li>paste with CTRL-V into the URL box</li>
-<li>give the name of the repo to be the same thing you called it on
-GitHub</li>
-<li>use browse button to find a location on your computer for this
-folder, or take the default on your desktop</li>
-<li>click “Create Project” to finish</li>
-<li>you are in your new project, which has .gitignore, LICENSE, and
-README.md files already</li>
-</ul>
-</div>
-<div id="build-a-webpage-portal-in-your-project-that-will-be-hosted-by-github" class="section level2">
-<h2>Build a webpage portal in your project that will be hosted by
-GitHub</h2>
-<ul>
-<li>from the pulldown menu in Rstudio, select new markdown file</li>
-<li>change title to “Initial webpage set up” (or some such thing)</li>
-<li>save this file with file name “index” (RStudio will provide the .Rmd
-suffix)</li>
-<li>run CTRL-SHFT-K to “knit” the file</li>
-</ul>
-</div>
-<div id="commit-these-changes-from-the-terminal" class="section level2">
-<h2>Commit these changes from the terminal</h2>
-<ul>
-<li>git status</li>
-<li>git add -A (stages changed files)</li>
-<li>git status</li>
-<li>git commit -am ‘first commit’ (makes local commit)</li>
-<li>git status</li>
-<li>git push (push the changes up to the GitHub repo)</li>
-</ul>
-</div>
-<div id="host-the-index-webpage" class="section level2">
-<h2>Host the “index” webpage</h2>
-<ul>
-<li>Return to GitHub</li>
-<li>Go to “Settings”</li>
-<li>Scroll down and under “Pages” and “Branch” change from “None” to
-“main”</li>
-<li>Wait a minute (! could be very slow!!) and click the new link at
-“Your site is live at…”</li>
-<li>New webpage should display</li>
-<li>Note the address: <a href="https://UserName.github.io/RepoName/" class="uri">https://UserName.github.io/RepoName/</a></li>
-<li>Example: <a href="https://ngotelli.github.io/Trial/" class="uri">https://ngotelli.github.io/Trial/</a></li>
+<li>TRY THIS WITH AN ACTUAL PDF PARAGRAPH</li>
 </ul>
 </div>
 </div>
-<div id="basic-workflow-for-git-from-the-terminal" class="section level1">
-<h1>Basic workflow for git from the terminal</h1>
-<div id="check-things-out-before-starting-your-work" class="section level2">
-<h2>Check things out before starting your work</h2>
+<div id="quantifiers" class="section level3">
+<h3>Quantifiers</h3>
 <ul>
-<li>git status (make sure your local repo is not ahead of the
-remote)</li>
-<li>git pull (just in case there was a change made from another
-location)</li>
-<li>git status (ready to start working)</li>
+<li><p>add these on to any of the wildcards</p></li>
+<li><p><code>\w+</code> one or more consecutive word characters</p></li>
+<li><p><code>\w*</code> zero or more consecutive word
+characters</p></li>
+<li><p><code>\w{3}</code> exactly 3 consecutive word characters</p></li>
+<li><p><code>\w{3,}</code> 3 or more consecutive word
+characters</p></li>
+<li><p><code>\w{3,5}</code> 3, 4, or 5 consecutive word
+characters</p></li>
 </ul>
+<div id="using-a-zero-or-more-quantifier" class="section level4">
+<h4>Using a zero or more * quantifier</h4>
+<pre><code>STRING: crow, raven ,grackle,starling  ,    robin
+SEARCH: \s*,\s*
+REPLACE: , 
+RESULT: crow,raven,grackle,starling,robin</code></pre>
 </div>
-<div id="make-changes" class="section level2">
-<h2>Make changes</h2>
-<ul>
-<li>modify files, including knitting new versions of html pages or
-pdfs</li>
-<li>delete files</li>
-<li>add files</li>
-</ul>
+<div id="using-.-for-all-the-rest" class="section level4">
+<h4>Using .* for “all the rest”</h4>
+<pre><code>STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+RESULT: Matches each line completely!</code></pre>
 </div>
-<div id="stage-changes" class="section level2">
-<h2>Stage changes</h2>
-<ul>
-<li>git status</li>
-<li>git add -A</li>
-<li>git status</li>
-</ul>
+<div id="captures-for-the-replacement-string" class="section level4">
+<h4>Captures for the replacement string</h4>
+<pre><code>STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+
+SEARCH (with capture): \w+,\s*(\w+).*
+REPLACE: \1
+RESULT:
+MyWord
+AnotherOfMyWords
+MyThirdWord</code></pre>
 </div>
-<div id="commit-changes" class="section level2">
-<h2>commit changes</h2>
-<ul>
-<li>git commit -am ‘write a brief informative commit message’ (no caps
-or punctuation, present tense)</li>
-<li>git status</li>
-</ul>
 </div>
-<div id="push-changes-up-to-github" class="section level2">
-<h2>push changes up to GitHub</h2>
-<ul>
-<li>git push</li>
-<li>git status</li>
-<li>git pull</li>
-</ul>
+<div id="adding-multiple-captures-and-literal-text" class="section level3">
+<h3>Adding multiple captures and literal text</h3>
+<pre><code>STRING: 
+x, MyWord OtherJunk. ,
+13, MyWord2,OtherStuff,,
+X13,   MyThirdWord,        MoreTrash,!##
+xxx,LastWord     x.
+
+SEARCH: \w+,\s*\w+.*
+SEARCH: \w+,\s*(\w+)(.*)
+REPLACE: MY WORD: \1\s LEFTOVER: \2
+RESULT:
+MY WORD: MyWord LEFTOVER:  OtherJunk. ,
+MY WORD: MyWord2 LEFTOVER:
+MY WORD: MyThirdWord LEFTOVER: ,        MoreTrash,!##
+MY WORD: LastWord LEFTOVER:      x.</code></pre>
 </div>
-<div id="check-and-refresh-website-to-see-changes" class="section level2">
-<h2>check and refresh website to see changes</h2>
-<div id="set-up-simple-local-project-in-rstudio" class="section level3">
-<h3>Set up simple local project in RStudio</h3>
-<ul>
-<li>New Project</li>
-<li>Bio381ClassCode</li>
-<li>open repository with *.Rproj</li>
-</ul>
+<div id="join-genus-and-species-names" class="section level3">
+<h3>Join Genus and species names</h3>
+<pre><code>STRING: 
+Lasius neoniger
+Lasius umbratus
+Myrmica lobifrons
+SEARCH: (\w)\w+ (\w+)
+REPLACE: \1_\2
+RESULT:
+L_neoniger
+L_umbratus
+M_lobifrons</code></pre>
 </div>
-<div id="review-of-basics-example-demo" class="section level3">
-<h3>Review of basics (example demo)</h3>
-<ul>
-<li>check <code>status</code> of the local repo (uncommitted changes?
-local commits ahead of remote?)</li>
-<li><code>pull</code> any changes from the repo (incorporating changes
-pushed by others</li>
-<li>do some work (edit, create, delete files)</li>
-<li><code>stage changes</code> (local)</li>
-<li><code>commit changes</code> (local)</li>
-<li><code>push</code> changes from local repo to GitHub</li>
-</ul>
+<div id="custom-character-sets" class="section level3">
+<h3>Custom character sets</h3>
+<pre><code>[ATCG] # single character that is A T C or G
+[ATCG]+ # DNA sequence</code></pre>
 </div>
+<div id="negated-character-sets" class="section level3">
+<h3>Negated character sets</h3>
+<pre><code>[^XY]  # a single character that is anything but X OR Y
+[^0-9.]+ one or more characters that are not numbers of decimals</code></pre>
+</div>
+<div id="boundary-stakes" class="section level3">
+<h3>Boundary stakes</h3>
+<pre><code>^ # outside of character set indicates start of line
+$ # indicates end of line
+- `\&lt;` Start of a word (but not in BBedit)
+- `\&gt;` End of a word (but not in BBedit)</code></pre>
+</div>
+<div id="e11-search-for-whole-words-within-regex" class="section level3">
+<h3>E11: Search for whole words within regex</h3>
+<pre><code>STRING:
+Try to ascertain a kind of karma.
+SEARCH:
+a
+RESULT: finds 5 matches
+
+Search:
+a 
+RESULT: finds 1 match (whole word)
+
+Search:
+a\w
+RESULT: finds 1 match (start of word)
+
+Search:
+\wa
+RESULT: finds 1 match (end of word)
+
+Search:
+\wa\w
+RESULT: finds 2 matches (middle of word)</code></pre>
+</div>
+<div id="e12-simplify-column-searches-by-staking-to-the-beginning-or-end-of-the-line" class="section level3">
+<h3>E12: Simplify column searches by staking to the beginning or end of
+the line</h3>
+<pre><code>STRING:
+a,b,c,d,e,f,MyFirstWord,g,MyLastWord
+ee,f,FirstKeeper,xx,LastKeeper
+SEARCH:
+\w+,\w+,\w+$
+SEARCH (with capture):
+(\w+),\w+,(\w+)$
+REPLACE:
+\1 \2
+RESULT:
+a,b,c,d,e,f,MyFirstWord MyLastWord
+ee,f,FirstKeeper LastKeeper
+# Perhaps not exactly what we wanted!
+
+ALTERNATE SEARCH: 
+.*,\w+,\w+,\w+$
+ALTERNATE SEARCH: (with capture):
+(.*),(\w+),(\w+),(\w+)$
+REPLACE:
+\2\s\4
+RESULT:
+MyFirstWord MyLastWord
+FirstKeeper LastKeeper
+
+ALTERNATIVE REPLACE:
+\1,\2
+ALTERNATIVE RESULT:
+a,b,c,d,e,f,g
+ee,f,xx</code></pre>
+</div>
+<div id="finding-bad-characters" class="section level3">
+<h3>Finding bad characters</h3>
+<pre><code>STRING: 
+LC1 11101 xxx
+LC345 11101 204
+LCx 11l01 1x5
+SEARCH: ^(\w+) \d*([^0-9]*)\d* \w+$
+RESULT:
+LC1
+LC345
+LCx l
+Finds &quot;bad&quot; lines with non-numeric characters in second slot</code></pre>
 </div>
 </div>
 

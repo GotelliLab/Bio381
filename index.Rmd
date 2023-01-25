@@ -31,9 +31,9 @@ Date  | Lecture | Homework
 January 17  | [Introduction](Lectures/Lecture_01.html) | -  
 January 18  | - | [Homework #1](Homeworks/Homework_01.html)             
 January 19  | [GitHub](Lectures/Lecture_02.html) | -  
-January 24  | [Github II](Lectures/Lecture03_S2021.html) | -
-January 25 | - |  [Homework #2](Homeworks/Homework02_S2022.html)
-January 26  | [Regular Expressions](Lectures/Lecture04_S2021.html) | -
+January 24  | [Markdown](Lectures/Lecture_03.html) | -
+January 25 | - |  [Homework #2](Homeworks/Homework_02.html)
+January 26  | [Regular Expressions](Lectures/Lecture_04.html) | -
 January 31  | [Markdown](Lectures/Lecture05_S2021.html) | - 
 February 1  |  -  | [Homework #3](Homeworks/Homework03_S2022.html)
 February 2  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
