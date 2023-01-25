@@ -94,29 +94,21 @@ ___
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
-Maria Alfaro | [GitHub](https://github.com/malfaro1)  [Portfolio](https://malfaro1.github.io/AlfaroBIO381/) | I've lived in a tree house in Hawaii, in an ambulance at Mt Hood, and on a sailboat in the Caribbean.
-Lauren Ash | [GitHub](https://github.com/lvash)  [Portfolio](https://lvash.github.io/) | While interning at Busch Gardens in Florida, I made friends with [Rosie the elephant](https://cloud.githubusercontent.com/assets/15003012/22121503/61755fec-de52-11e6-9a65-16b0e926c247.jpg) because she would sway and stare at me for hours.
-Noah Beckage | [GitHub](https://github.com/n-beckage)  [Portfolio](https://n-beckage.github.io/Bio381Beckage/) | I ran the Philadelphia marathon in 3 hrs 45 mins
-Emily Beasley | [GitHub](https://github.com/Beasley015)  [Portfolio](https://beasley015.github.io/) | I have baked bread as a hobby since I started my Master's degree (my sourdough starter's name is Julia Child)
-Gillian Berglund | [GitHub](https://github.com/gillianberglund)  [Portfolio](https://gillianberglund.github.io/Bio381Berglund/) | I have lived in Colorado, Oregon, Florida, New York and Vermont!
-Lauren Berkley | [GitHub](https://github.com/lberkley)  [Portfolio](https://lberkley.github.io/Bio381Berkley/) | Fun fact: I am trained in marine mammal stranding response!)
-Sam Brewer | [GitHub](https://github.com/sam-brewer)  [Portfolio](https://sam-brewer.github.io/BrewerBio381/) | I collect fairy garden statues! 
-Lindsey Carlson | [GitHub](https://github.com/lindseycarlson8)  [Portfolio](https://lindseycarlson8.github.io/CarlsonBio381/) | I have circumnavigated the world by ship.
-Blair Christensen | [GitHub](https://github.com/bc20237)  [Portfolio](https://bc20237.github.io/Bio381Christensen) | I taught high school science in Spain
-Grace Durant | [GitHub](https://github.com/gdurant4)  [Portfolio](https://gdurant4.github.io/DurantBio381/) | I know the name of nearly every humpback whale that frequents Stellwagen Bank in Massachusetts.
-Al Freeman | [GitHub](Github: https://github.com/al-freeman)  [Portfolio](https://al-freeman.github.io/Bio381Freeman/index.html) | I play the banjo (terribly). 
-David Green | [GitHub](https://github.com/meandgreen)  [Portfolio](https://meandgreen.github.io/greenBIO381/) | I'm 22 and I've thrown my back out twice
+Eurydice Aboagye | [GitHub](https://github.com/frimpomaa89)  [Portfolio](https://frimpomaa89.github.io/HomeworkRepo_Eurydice) | I have a 2-year old daughter.
+Illaria Coero-Borga | [GitHub](https://github.com/icoerobo)  [Portfolio](https://icoerobo.github.io/CoeroBorgaBio381) | I can't touch velvet
+Phoebe Cousens | [GitHub]()  [Portfolio]() | 
+Kylie Finnegan | [GitHub](https://github.com/kylie-finnegan)  [Portfolio](https://kylie-finnegan.github.io/FinneganBio381) | I really like geese (they're cute and fiesty)
+Ericka Griggs | [GitHub](https://github.com/egriggs23)  [Portfolio](https://egriggs24.github.io/GriggsErickaBio381) | Dog named Marty.
+Carolyn Hanrahan | [GitHub](https://github.com/carolyn-hanrahan)  [Portfolio](https://carolyn-hanrahan.github.io/HanrahanBio381) | 
+Ashley Lantigua | [GitHub](https://github.com/AshleyLantigua7)  [Portfolio](https://ashleylantigua7.github.io/LantiguaBio381) | I grew up in a bilingual home! My mom would teach Spanish to my siblings and I, while my dad would speak English. : )
+Sparhawk Mulder | [Github](https://github.com/SparhawkMulder) [Portfolio](https://sparhawkmulder.github.io/Bio381HWs) | I am the president of the Aikido club
+Mark Mullinger | [GitHub](https://github.com/mmuling)  [Portfolio](https://mmulling.github.io/MullingerBIO381) | I'm currently learning to play the cello!
+George Ni | [GitHub](https://github.com/georgeni2442) [Portfolio](https://georgeni2442.github.io/TestRepo) | I used to train birds for falconry and science shows.
+David Piccirilli | [GitHub](https://github.com/dpicciri)  [Portfolio](https://dpicciri.github.io/PiccirilliBiol381) | My favorite Pokemon is Sylveon.
+Zoe Prue | [GitHub](https://github.com/zoe-prue)  [Portfolio](https://zoe-prue.github.io/PrueBio381) | One time I pet Helena Bonham Carter's dogs
 Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows, who accompany me to BCOR 102 lectures.
-Jacqueline Guillemin | [GitHub](https://github.com/Jaguillemin)  [Portfolio](https://jaguillemin.github.io/GuilleminBio381/) | I live with a cat that can say hello!
-Jasmine Hart | [GitHub](https://github.com/jasmine-hart)  [Portfolio](https://jasmine-hart.github.io/Bio381Hart/) | My fun fact is that I'm a certified yoga instructor! 
-Andrew McCracken | [GitHub](https://github.com/amccracken8)  [Portfolio](https://amccracken8.github.io/Bio381McCracken/) | I have broken my right foot 3 times
-Stephen Peters-Collaer | [GitHub](https://github.com/stephenrpc1)  [Portfolio](https://stephenrpc1.github.io/Bio381Peters-Collaer/) | I'm learning to play the mandolin
-Greta Savitsky | [GitHub](https://github.com/gsavitsky)  [Portfolio](https://gsavitsky.github.io/BIO381Savitsky/) | I lived in Copenhagen for a few months
-Anna Schmidt | [GitHub](https://github.com/anna-schmidt)  [Portfolio](https://anna-schmidt.github.io/SchmidtBio381/) | I have a four-leaf clover collection since I find them all the time!
-Reed Scott | [GitHub](https://github.com/reedetile)  [Portfolio](https://reedetile.github.io/Bio381Scott/) | I once got lost and ended up in Canada
-Hannah Shafer | [GitHub](https://github.com/hrshafer) [Portfolio](https://hrshafer.github.io/Bio381Shafer/)  | Before I moved to Vermont I was farming full-time.
-Haorui Sun | [Github](https://github.com/haoruisun)  [Portfolio](https://haoruisun.github.io/SunBio381/) | The province I came from has around 100M population.
-Rachel Swanwick | [Github](https://github.com/rswanwick)  [Portfolio](https://rswanwick.github.io/SwanwickBio381/) | I used to work as a snowboard instructor
-Joe Webb | [GitHub](https://github.com/josephwebb)  [Portfolio](https://josephwebb.github.io/Bio381Webb/)  |  I am a self taught pianist who can play a mean Pirates of the Caribbean theme song.
-
-
+Grace Smith | [GitHub](https://github.com/gracesmith20)  [Portfolio](https://gracesmith20.github.io/SmithBio381) | I used to work and live in Yellowstone NP!
+Jacob Sorrentino | [GitHub](https://github.com/jasorren)  [Portfolio](https://jasorren.github.io/SorrentinoBio381) | I founded the UVM Historical Fencing club.
+Kathleen Stutzman | [GitHub](https://github.com/kstutzma)  [Portfolio](https://kstutzma.github.io/StutzmanBIO381) | I have hiked all 46 High Peaks in the Adirondacks
+Zachary Weitzman | [GitHub](https://github.com/zachary-weitzman)  [Portfolio](https://zachary-weitzman.github.io/ZWBIOL381/) | I have extensively visited every national forest forest and wilderness area in Oregon!
+Jules Ford | [GitHub](https://github.com/Jules-Ford)  [Portfolio](https://Jules-Ford.github.io/FordBio381) | I like to design board games in my free time!
