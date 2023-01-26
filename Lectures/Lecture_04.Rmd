@@ -241,3 +241,67 @@ LC345
 LCx l
 Finds "bad" lines with non-numeric characters in second slot
 ```
+### Stripping out comment lines from an R script
+
+```
+STRING:
+## header
+#
+x <- 3 + 5
+print (x) # in line comment
+#
+#
+y <- x + pi
+# end of code
+
+SEARCH: ^#.*
+REPLACE: {nothing}
+RESULT:
+
+
+x <- 3 + 5
+print (x) # in line comment
+
+
+y <- x + pi
+
+SEARCH: \n\n
+REPLACE: \n
+RESULT:
+
+x <- 3 + 5
+print (x) # in line comment
+y <- x + pi
+```
+### Strip out comment lines + in-line comments from an R script 
+
+```
+STRING:
+## header
+#
+x <- 3 + 5
+print (x) # in line comment
+#
+#
+y <- x + pi
+# end of code
+
+SEARCH: #.*
+REPLACE: {nothing}
+RESULT:
+
+
+x <- 3 + 5
+print (x) 
+
+
+y <- x + pi
+
+SEARCH: \n\n
+REPLACE: \n
+RESULT:
+
+x <- 3 + 5
+print (x)
+y <- x + pi
+```

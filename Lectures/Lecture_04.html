@@ -233,7 +233,6 @@ ul.task-list{list-style: none;}
 
 
 
-
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -255,9 +254,6 @@ outline: none;
 summary {
 display: list-item;
 }
-details > summary > p:only-child {
-display: inline;
-}
 pre code {
 padding: 0;
 }
@@ -276,17 +272,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -560,6 +562,68 @@ LC1
 LC345
 LCx l
 Finds &quot;bad&quot; lines with non-numeric characters in second slot</code></pre>
+</div>
+<div id="stripping-out-comment-lines-from-an-r-script" class="section level3">
+<h3>Stripping out comment lines from an R script</h3>
+<pre><code>STRING:
+## header
+#
+x &lt;- 3 + 5
+print (x) # in line comment
+#
+#
+y &lt;- x + pi
+# end of code
+
+SEARCH: ^#.*
+REPLACE: {nothing}
+RESULT:
+
+
+x &lt;- 3 + 5
+print (x) # in line comment
+
+
+y &lt;- x + pi
+
+SEARCH: \n\n
+REPLACE: \n
+RESULT:
+
+x &lt;- 3 + 5
+print (x) # in line comment
+y &lt;- x + pi</code></pre>
+</div>
+<div id="strip-out-comment-lines-in-line-comments-from-an-r-script" class="section level3">
+<h3>Strip out comment lines + in-line comments from an R script</h3>
+<pre><code>STRING:
+## header
+#
+x &lt;- 3 + 5
+print (x) # in line comment
+#
+#
+y &lt;- x + pi
+# end of code
+
+SEARCH: #.*
+REPLACE: {nothing}
+RESULT:
+
+
+x &lt;- 3 + 5
+print (x) 
+
+
+y &lt;- x + pi
+
+SEARCH: \n\n
+REPLACE: \n
+RESULT:
+
+x &lt;- 3 + 5
+print (x)
+y &lt;- x + pi</code></pre>
 </div>
 </div>
 
