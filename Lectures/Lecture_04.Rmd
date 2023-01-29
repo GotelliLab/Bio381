@@ -160,8 +160,8 @@ M_lobifrons
 ```
 ^ # outside of character set indicates start of line
 $ # indicates end of line
-- `\<` Start of a word (but not in BBedit)
-- `\>` End of a word (but not in BBedit)
+- `\<` Start of a word 
+- `\>` End of a word 
 ```
 
 ### E11: Search for whole words within regex
@@ -174,15 +174,15 @@ a
 RESULT: finds 5 matches
 
 Search:
-a 
+\sa\s
 RESULT: finds 1 match (whole word)
 
 Search:
-a\w
+\sa
 RESULT: finds 1 match (start of word)
 
 Search:
-\wa
+\wa\s
 RESULT: finds 1 match (end of word)
 
 Search:
@@ -198,8 +198,8 @@ RESULT: finds 2 matches (middle of word)
 
 ```
 STRING:
-a,b,c,d,e,f,MyFirstWord,g,MyLastWord
-ee,f,FirstKeeper,xx,LastKeeper
+a,b,c,MyFirstWord,g,MyLastWord
+d,ee,FirstKeeper,xx,LastKeeper
 SEARCH:
 \w+,\w+,\w+$
 SEARCH (with capture):
@@ -224,22 +224,25 @@ FirstKeeper LastKeeper
 ALTERNATIVE REPLACE:
 \1,\2
 ALTERNATIVE RESULT:
-a,b,c,d,e,f,g
-ee,f,xx
+a,b,c
+d,ee
 ```
 
 ### Finding bad characters
 ```
 STRING: 
-LC1 11101 xxx
-LC345 11101 204
-LCx 11l01 1x5
-SEARCH: ^(\w+) \d*([^0-9]*)\d* \w+$
+X1, 0031
+X2, 003l
+X3, 0032
+X4, 0O32
+SEARCH: (\wt,\s,)\d+,$
+REPLACE: \1ok
 RESULT:
-LC1
-LC345
-LCx l
-Finds "bad" lines with non-numeric characters in second slot
+X1, ok
+X2, 003l
+X3, ok
+X4, 0O32
+
 ```
 ### Stripping out comment lines from an R script
 
@@ -264,14 +267,7 @@ print (x) # in line comment
 
 
 y <- x + pi
-
-SEARCH: \n\n
-REPLACE: \n
-RESULT:
-
-x <- 3 + 5
-print (x) # in line comment
-y <- x + pi
+[note: can't search for \n\n in Rstudio or in Sublime, so eliminating blank lines is awkward]
 ```
 ### Strip out comment lines + in-line comments from an R script 
 
@@ -297,11 +293,18 @@ print (x)
 
 y <- x + pi
 
-SEARCH: \n\n
-REPLACE: \n
-RESULT:
 
-x <- 3 + 5
-print (x)
-y <- x + pi
+```
+
+## Break a long parameter list by commas onto separate lines (show in Rstudio)
+
+```
+STRING:
+aes(x=area,y=richness,color=invasive,size=abundance,shape=taxon)
+
+SEARCH:
+,
+
+REPLACE:
+,\t\t
 ```

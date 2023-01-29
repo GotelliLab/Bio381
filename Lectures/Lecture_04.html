@@ -233,6 +233,7 @@ ul.task-list{list-style: none;}
 
 
 
+
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -254,6 +255,9 @@ outline: none;
 summary {
 display: list-item;
 }
+details > summary > p:only-child {
+display: inline;
+}
 pre code {
 padding: 0;
 }
@@ -272,23 +276,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -490,8 +488,8 @@ M_lobifrons</code></pre>
 <h3>Boundary stakes</h3>
 <pre><code>^ # outside of character set indicates start of line
 $ # indicates end of line
-- `\&lt;` Start of a word (but not in BBedit)
-- `\&gt;` End of a word (but not in BBedit)</code></pre>
+- `\&lt;` Start of a word 
+- `\&gt;` End of a word </code></pre>
 </div>
 <div id="e11-search-for-whole-words-within-regex" class="section level3">
 <h3>E11: Search for whole words within regex</h3>
@@ -502,15 +500,15 @@ a
 RESULT: finds 5 matches
 
 Search:
-a 
+\sa\s
 RESULT: finds 1 match (whole word)
 
 Search:
-a\w
+\sa
 RESULT: finds 1 match (start of word)
 
 Search:
-\wa
+\wa\s
 RESULT: finds 1 match (end of word)
 
 Search:
@@ -521,8 +519,8 @@ RESULT: finds 2 matches (middle of word)</code></pre>
 <h3>E12: Simplify column searches by staking to the beginning or end of
 the line</h3>
 <pre><code>STRING:
-a,b,c,d,e,f,MyFirstWord,g,MyLastWord
-ee,f,FirstKeeper,xx,LastKeeper
+a,b,c,MyFirstWord,g,MyLastWord
+d,ee,FirstKeeper,xx,LastKeeper
 SEARCH:
 \w+,\w+,\w+$
 SEARCH (with capture):
@@ -547,21 +545,24 @@ FirstKeeper LastKeeper
 ALTERNATIVE REPLACE:
 \1,\2
 ALTERNATIVE RESULT:
-a,b,c,d,e,f,g
-ee,f,xx</code></pre>
+a,b,c
+d,ee</code></pre>
 </div>
 <div id="finding-bad-characters" class="section level3">
 <h3>Finding bad characters</h3>
 <pre><code>STRING: 
-LC1 11101 xxx
-LC345 11101 204
-LCx 11l01 1x5
-SEARCH: ^(\w+) \d*([^0-9]*)\d* \w+$
+X1, 0031
+X2, 003l
+X3, 0032
+X4, 0O32
+SEARCH: (\wt,\s,)\d+,$
+REPLACE: \1ok
 RESULT:
-LC1
-LC345
-LCx l
-Finds &quot;bad&quot; lines with non-numeric characters in second slot</code></pre>
+X1, ok
+X2, 003l
+X3, ok
+X4, 0O32
+</code></pre>
 </div>
 <div id="stripping-out-comment-lines-from-an-r-script" class="section level3">
 <h3>Stripping out comment lines from an R script</h3>
@@ -585,14 +586,7 @@ print (x) # in line comment
 
 
 y &lt;- x + pi
-
-SEARCH: \n\n
-REPLACE: \n
-RESULT:
-
-x &lt;- 3 + 5
-print (x) # in line comment
-y &lt;- x + pi</code></pre>
+[note: can&#39;t search for \n\n in Rstudio or in Sublime, so eliminating blank lines is awkward]</code></pre>
 </div>
 <div id="strip-out-comment-lines-in-line-comments-from-an-r-script" class="section level3">
 <h3>Strip out comment lines + in-line comments from an R script</h3>
@@ -617,14 +611,20 @@ print (x)
 
 y &lt;- x + pi
 
-SEARCH: \n\n
-REPLACE: \n
-RESULT:
-
-x &lt;- 3 + 5
-print (x)
-y &lt;- x + pi</code></pre>
+</code></pre>
 </div>
+</div>
+<div id="break-a-long-parameter-list-by-commas-onto-separate-lines-show-in-rstudio" class="section level2">
+<h2>Break a long parameter list by commas onto separate lines (show in
+Rstudio)</h2>
+<pre><code>STRING:
+aes(x=area,y=richness,color=invasive,size=abundance,shape=taxon)
+
+SEARCH:
+,
+
+REPLACE:
+,\t\t</code></pre>
 </div>
 
 
