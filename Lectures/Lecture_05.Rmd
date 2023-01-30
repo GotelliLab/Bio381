@@ -1,0 +1,299 @@
+---
+title: 'Lecture #5: Markdown II'
+author: "Nicholas J. Gotelli"
+date: "31 January 2023"
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+
+___
+
+
+
+- `.Rmd` is Rstudio's special blend of Markdown (a text rendering language)
+- `.md` is the more generic Markdown file type. In RStudio, the intermediate `.md` files are not (in the default state) preserved.
+
+### Languages
+- `LaTeX` Typesetting language invented in the 1970s by computer programmer Donald Knuth for proper rendering of text and equations. Hundreds of commands. Precise, but somewhat complicated to use.
+- `Markdown` Greatly simplified version of LaTeX with a small number of commands to master. Easy to use, text looks great.
+- `yaml`^[Originally "Yet Another Markdown Language", but more recently "YAML Ain't no Markdown Language", which is a self-referencing acronym]. Header material for `.Rmd` files that can be changed manually or by selecting options.
+- `R` Computer language for manipulating numbers, text, graphics, statistics.
+
+### Using R-markdown
+- pull up cheatsheet
+- new `.Rmd` file
+
+### Basic text formatting
+- headers `#` to `######`
+    *numbering from options
+- text
+- markup
+    * italic `*<text>*`
+    * bold-face `**<text>**`
+    * subscript `~<text>~`
+    * superscript `^<text>^`
+    * strikethrough `~~<text>~~`
+    * quotations `><text with no closing mark`
+    
+### Spacing, manual breaks, lines
+- line spacing effects
+- two extra spaces at the end of a line for a manual break
+- lists
+    * indented
+    * numbered
+    
+### Links  
+- links `[linking text](website address)`
+- footnotes^[Footnoted text, consecutively at bottom of page]
+- images 
+```
+![image link](website address)
+```
+
+### Tables
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+- also the `kable` package for later
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+```{r, echo=TRUE, results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+
+### Fencing
+- in line fencing `to shade`
+- in line R code for calculations `r 3 + pi`
+- simple fencing to set off large chunks of plain text
+
+### Links  
+- links [linking text](website address)
+- footnotes^[Footnoted text, consecutively at bottom of page]
+- images 
+```
+![image link](website address)
+```
+
+### Tables
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+- also the `kable` package for later
+```
+{r, echo=TRUE,results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+```{r, echo=TRUE, results='asis'}
+library(knitr)
+kable(head(iris))
+```
+
+
+
+
+### Equations
+
+* in-line `$`
+* centered `$$`
+
+- basic math and text spacing handled by LateX
+
+```
+$$y = a + b$$
+```
+
+$$y = a + b$$
+
+#### Subcripts
+
+```
+$$H_0 = Z_{a + b}$$
+```
+
+$$H_0 = Z_{a + b}$$
+
+#### Superscripts
+
+```
+$$S = cA^z$$
+
+```
+
+$$S = cA^z$$
+
+
+- elements can be coupled and nested
+
+$$S=cA^z_1 + z_{2 + x}$$
+
+
+```
+$$S=cA^z_1 + z_{2 + x}$$
+
+```
+
+#### Fractions and Greek Symbols
+
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+```
+$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
+
+```
+
+#### Summation signs
+
+$$z = \sum_{i=1}^X{K}$$
+
+```
+$$z = \sum_{i=1}^X{K}$$
+
+```
+
+#### "Escaping" the \ special character in LaTeX
+
+Use `\backslash`
+
+```
+$$\backslash \alpha \le b \backslash$$
+
+```
+
+$$\backslash \alpha \le b \backslash$$
+
+#### Rendering plain text in a LaTex Equation
+
+$$P(Occurrence Of Species A) = Z$$
+```
+$$P(Occurrence Of Species A) = Z$$
+```
+
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+
+```
+$$P(\mbox{Occurrence Of Species A}) = Z$$
+```
+
+### R Code in Chunks
+
+* `CTRL-ALT-I` inserts a new "chunk" of R code
+```{r}
+# Use comments extensively in ALL of your coding!
+Pred <- seq(1,10)     # make a vector of integers from 1 to 10
+Res <- runif(10)      # generate 10 draws from a random uniform (0,1) distribution
+
+# print the random numbers
+print(Res)
+
+# plot the graph
+plot(x=Pred,y=Res,type="b")
+```
+
+### Using chunk options `echo` and `eval` to control printing of code and output
+```{r}
+plot(runif(50),cex=10*runif(50),col="goldenrod")
+print(rnorm(n=10, mean=10, sd=2))
+```
+### Setting Up A Project
+
+#### Suggested Folders
+- OriginalData
+- CleanData
+- Scripts
+- Functions
+- Outputs
+- Plots
+
+#### Using path statements
+`getwd()` from console for current paths statement
+- this is an absolute path
+- starting point is always root of project directory, so we don't have to write the whole path
+- `\path\to\my\projectfolder\Scripts\filename` absolute path
+- `Scripts\filename` relative path
+- use relative path both for opening a script and writing to an output or a plot
+- keep .rmd files up in the root (too complicated)
+### Writing R scripts
+
+- new script
+- code executes and prints in console
+- graphs in output window
+- `CTRL - ENTER` to run a single line of code
+- `CTRL - SHIFT - ENTER` to source and echo the entire script
+- `CTRL - SHIFT - S` to source the entire script without echoing console output
+- code to illustrate:
+```{r}
+# First comment to explain what this program is doing.
+# Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
+# Simple script to examine the distribution of the product of two uniform variables
+# Make sure it is readable. Use complete sentences, not cryptic phrases.
+# 6 September 2018
+# NJG
+
+# Preliminaries
+library(ggplot2)
+set.seed(100)
+library(TeachingDemos) # use this to set the random number seed from a character string
+char2seed("green tea")
+char2seed("green tea",set=FALSE)
+
+#
+
+# Global variables
+nRep <- 10000
+
+# Create or read in data
+ranVar1 <- rnorm(nRep)
+# print(ranVar1)
+head(ranVar1)
+tail(ranVar1)
+
+ranVar2 <- rnorm(nRep)
+
+
+# visualize data
+qplot(x=ranVar1)
+
+
+# create product vector
+ranProd <- ranVar1*ranVar2
+length(ranProd)
+str(ranProd)
+head(ranProd)
+
+
+# do other stuff..
+```
+### Converting `.R` files to `.html` (creating an R notebook)
+- use notebook script
+- roxygen comments ``#`
+
+
+### `Purling` to strip and consolidate R chunks from a Markdown file
+- commands executed from console
+
+```
+library(knitr)
+purl("FileName.Rmd")
+```
+These commands will create a file `FileName.R` that has all of the R code and none of the markdown text. R comments are still retained.
+
