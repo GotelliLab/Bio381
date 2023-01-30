@@ -34,8 +34,8 @@ January 19  | [GitHub](Lectures/Lecture_02.html) | -
 January 24  | [Markdown](Lectures/Lecture_03.html) | -
 January 25 | - |  [Homework #2](Homeworks/Homework_02.html)
 January 26  | [Regular Expressions](Lectures/Lecture_04.html) | -
-January 31  | [Markdown](Lectures/Lecture_05.html) | - 
-February 1  |  -  | [Homework #3](Homeworks/Homework03_S2022.html)
+January 31  | [Markdown II](Lectures/Lecture_05.html) | - 
+February 1  |  -  | [Homework #3](Homeworks/Homework_03.html)
 February 2  | [LaTeX & Typora](Lectures/Lecture06_S2021.html) | - 
 February 7  | [Atomic Vectors I](Lectures/Lecture07_S2021.html) | - 
 February 8  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework04_S2022.html)
