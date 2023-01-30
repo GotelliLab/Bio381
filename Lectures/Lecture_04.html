@@ -586,7 +586,9 @@ print (x) # in line comment
 
 
 y &lt;- x + pi
-[note: can&#39;t search for \n\n in Rstudio or in Sublime, so eliminating blank lines is awkward]</code></pre>
+
+Now to eliminate blank lines:
+F</code></pre>
 </div>
 <div id="strip-out-comment-lines-in-line-comments-from-an-r-script" class="section level3">
 <h3>Strip out comment lines + in-line comments from an R script</h3>
@@ -611,7 +613,27 @@ print (x)
 
 y &lt;- x + pi
 
-</code></pre>
+To strip out blank lines try:
+
+SEARCH:
+\n\n
+REPLACE:
+\n
+
+OR
+
+SEARCH:
+^\n
+REPLACE:
+(nothing)
+
+But these do not handle blank lines. Instead try:
+
+SEARCH
+^\n|\s+$
+
+REPLACE:
+(nothing)</code></pre>
 </div>
 </div>
 <div id="break-a-long-parameter-list-by-commas-onto-separate-lines-show-in-rstudio" class="section level2">
@@ -620,11 +642,11 @@ Rstudio)</h2>
 <pre><code>STRING:
 aes(x=area,y=richness,color=invasive,size=abundance,shape=taxon)
 
-SEARCH:
+FIND:
 ,
 
 REPLACE:
-,\t\t</code></pre>
+,\n\t\t</code></pre>
 </div>
 
 

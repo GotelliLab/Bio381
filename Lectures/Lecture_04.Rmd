@@ -267,7 +267,9 @@ print (x) # in line comment
 
 
 y <- x + pi
-[note: can't search for \n\n in Rstudio or in Sublime, so eliminating blank lines is awkward]
+
+Now to eliminate blank lines:
+F
 ```
 ### Strip out comment lines + in-line comments from an R script 
 
@@ -293,7 +295,27 @@ print (x)
 
 y <- x + pi
 
+To strip out blank lines try:
 
+SEARCH:
+\n\n
+REPLACE:
+\n
+
+OR
+
+SEARCH:
+^\n
+REPLACE:
+(nothing)
+
+But these do not handle blank lines. Instead try:
+
+SEARCH
+^\n|\s+$
+
+REPLACE:
+(nothing)
 ```
 
 ## Break a long parameter list by commas onto separate lines (show in Rstudio)
@@ -302,9 +324,9 @@ y <- x + pi
 STRING:
 aes(x=area,y=richness,color=invasive,size=abundance,shape=taxon)
 
-SEARCH:
+FIND:
 ,
 
 REPLACE:
-,\t\t
+,\n\t\t
 ```
