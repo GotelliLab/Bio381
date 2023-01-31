@@ -3,7 +3,7 @@ title: 'Lecture #5: Markdown II'
 author: "Nicholas J. Gotelli"
 date: "31 January 2023"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
   pdf_document: default

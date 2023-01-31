@@ -3,7 +3,7 @@ title: 'Lecture #6: Typora & LaTeX'
 author: "Nicholas J. Gotelli"
 date: "2 February 2023"
 output:
-  html_document:
+  html_document: 
     highlight: tango
     theme: united
   pdf_document: default
