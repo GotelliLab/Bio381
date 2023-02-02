@@ -96,7 +96,7 @@ Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
 Eurydice Aboagye | [GitHub](https://github.com/frimpomaa89)  [Portfolio](https://frimpomaa89.github.io/HomeworkRepo_Eurydice) | I have a 2-year old daughter.
 Illaria Coero-Borga | [GitHub](https://github.com/icoerobo)  [Portfolio](https://icoerobo.github.io/CoeroBorgaBio381) | I can't touch velvet
-Phoebe Cousens | [GitHub]()  [Portfolio]() | 
+Phoebe Cousens | [GitHub](https://github.com/pcousens/CousensBIOL381.git)  [Portfolio](https://pcousens.github.io/CousensBIOL381/) | 
 Kylie Finnegan | [GitHub](https://github.com/kylie-finnegan)  [Portfolio](https://kylie-finnegan.github.io/FinneganBio381) | I really like geese (they're cute and fiesty)
 Ericka Griggs | [GitHub](https://github.com/egriggs23)  [Portfolio](https://egriggs23.github.io/GriggsErickaBio381) | Dog named Marty.
 Carolyn Hanrahan | [GitHub](https://github.com/carolyn-hanrahan)  [Portfolio](https://carolyn-hanrahan.github.io/HanrahanBio381) | 
