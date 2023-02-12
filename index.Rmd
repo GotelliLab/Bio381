@@ -40,9 +40,9 @@ February 2  | [LaTeX & Typora](Lectures/Lecture_06.html) | -
 February 7  | [Atomic Vectors I](Lectures/Lecture_07.html) | - 
 February 8  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
 February 9  | [Atomic Vectors II](Lectures/Lecture_08.html)| - 
-February 14  | [Matrices, Lists, Data Frames](Lectures/Lecture09_S2021.html) | -
-February 15  | -  | [Homework #5](Homeworks/Homework05_S2022.html)
-February 16   | [Data Curation](Lectures/Lecture10_S2021.html)| -  | -
+February 14  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.html) | -
+February 15  | -  | [Homework #5](Homeworks/Homework_05.html)
+February 16   | [Data Curation](Lectures/Lecture_10.html)| -  | -
 February 21 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 February 22  | -  | [Homework #6](Homeworks/Homework06_S2022.html)
 February 23  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
