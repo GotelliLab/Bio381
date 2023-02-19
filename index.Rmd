@@ -48,10 +48,10 @@ February 22  | -  | [Catch Up Day]
 February 23 | [Probability Distributions](Lectures/Lecture11_S2021.html)| -
 February 28  | [Experimental Designs](Lectures/Lecture12_S2021.html)| -
 February 28  | [Functions](Lectures/Lecture13_S2021.html)| -
-March 1  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)  | [Homework #7](Homeworks/Homework07_S2022.html)
+March 1  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)  | [Homework #6](Homeworks/Homework07_S2022.html)
 March 2  | [dplyr/SQL II](Lectures/dplyr_Lecture1.html)  | -
 March 7  | Town Meeting Day Recess | -
-March 8  | **Portfolio Check #2** | [Homework #6](Homeworks/Homework06_S2022.html)
+March 8  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework06_S2022.html)
 March 9  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
 March 14 | Spring Recess | -
 March 15 | Spring Recess | -
