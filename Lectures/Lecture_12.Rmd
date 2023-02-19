@@ -1,0 +1,362 @@
+---
+title: 'Experimental Designs'
+author: "Nicholas J. Gotelli"
+date: "28 February 2023"
+output:
+  html_document: 
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,eval=FALSE)
+```
+
+
+#### Uniform distribution
+
+```{r}
+#-------------------------------------------------
+# uniform
+# params specify minimum and maximum
+
+#runif for random data
+qplot(x=runif(n=100,min=0,max=5),color=I("black"),fill=I("goldenrod"))
+qplot(runif(n=1000,min=0,max=5),color=I("black"),fill=I("goldenrod"))
+#-------------------------------------------------
+```
+#### Normal distribution
+
+```{r}
+# normal 
+myNorm <- rnorm(n=100,mean=100,sd=2)
+qplot(myNorm,color=I("black"),fill=I("goldenrod"))
+
+# problems with normal when mean is small but zero is not allowed.
+myNorm <- rnorm(n=100,mean=2,sd=2)
+qplot(myNorm,color=I("black"),fill=I("goldenrod"))
+summary(myNorm)
+tossZeroes <- myNorm[myNorm>0]
+qplot(tossZeroes,color=I("black"),fill=I("goldenrod"))
+summary(tossZeroes)
+```
+
+#### Gamma distribution
+
+``` {r}
+#-------------------------------------------------
+# gamma distribution, continuous positive values, but bounded at 0
+
+myGamma <- rgamma(n=100,shape=1,scale=10)
+qplot(myGamma,color=I("black"),fill=I("goldenrod"))
+
+# gamma with shape= 1 is an exponential with scale = mean
+
+# shape <=1 gives a mode near zero; very small shape rounds to zero
+myGamma <- rgamma(n=100,shape=0.1,scale=1)
+qplot(myGamma,color=I("black"),fill=I("goldenrod"))
+
+# large shape parameters moves towards a normal
+myGamma <- rgamma(n=100,shape=20,scale=1)
+qplot(myGamma,color=I("black"),fill=I("goldenrod"))
+
+# scale parameter changes mean- and the variance!
+qplot(rgamma(n=100,shape=2,scale=100),color=I("black"),fill=I("goldenrod"))
+qplot(rgamma(n=100,shape=2,scale=10),color=I("black"),fill=I("goldenrod"))
+qplot(rgamma(n=100,shape=2,scale=1),color=I("black"),fill=I("goldenrod"))
+qplot(rgamma(n=100,shape=2,scale=0.1),color=I("black"),fill=I("goldenrod"))
+
+
+# unlike the normal, the two parameters affect both mean and variance
+
+# mean = shape*scale
+# variance= shape*scale^2
+```
+
+#### Beta distribution 
+
+```{r}
+#-------------------------------------------------
+
+# beta distribution 
+# bounded at 0 and 1
+# analagous to a binomial, but result is a continuous distribution of probabilities
+# parameter shape1 = number of successes + 1
+# parameter shape2 = number of failures + 1
+# interpret these in terms of a coin you are tossing
+
+# shape1 = 1, shape2 = 1 = "no data"
+myBeta <- rbeta(n=1000,shape1=1,shape2=1)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+
+# shape1 = 2, shape1 = 1 = "1 coin toss, comes up heads!"
+myBeta <- rbeta(n=1000,shape1=2,shape2=1)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+# two tosses, 1 head and 1 tail
+myBeta <- rbeta(n=1000,shape1=2,shape2=2)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+# two tosses, both heads
+myBeta <- rbeta(n=1000,shape1=2,shape2=1)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+# let's get more data
+myBeta <- rbeta(n=1000,shape1=20,shape2=20)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+myBeta <- rbeta(n=1000,shape1=500,shape2=500)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+# if the coin is biased
+myBeta <- rbeta(n=1000,shape1=1000,shape2=500)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+myBeta <- rbeta(n=1000,shape1=10,shape2=5)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+
+
+# shape parameters less than 1.0 give us a u-shaped distribution
+myBeta <- rbeta(n=1000,shape1=0.1,shape2=0.1)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+myBeta <- rbeta(n=1000,shape1=0.5,shape2=0.2)
+qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+```
+
+### Estimating paramaters from data
+
+```{r}
+#-------------------------------------------------
+# estimating parameters from data
+# maximum likelihood estimator theta versus P(data|theta)
+
+# use fitdistr function, feeding it data and a distribution type)
+x <- rnorm(1000,mean=92.5,sd=2.5)
+qplot(x,color=I("black"),fill=I("goldenrod"))
+fitdistr(x,"normal")
+
+# compare to true parameters
+# compare to parameters estimated from simple means and standard deviations
+mean(x)
+sd(x)
+
+# but how do we "know" what distribution to fit?
+fitdistr(x,"gamma")
+z <- fitdistr(x,"gamma")
+
+# find components of z
+str(z)
+# rate = 1/scale
+# so here is the estimate of the mean
+z$estimate[1]/z$estimate[2]
+
+# and here is the estimate of the variance
+z$estimate[1]/z$estimate[2]^2
+```
+
+
+
+
+### Archetype Experimental Designs
+- independent versus dependent variables
+- discrete versus continuous variables
+- continuous variables (integer and real)
+- direction of cause and effect, x axis is independent
+- continuous versus discrete (natural or arbitrary or statistical bins)
+
+### Regression (dependent: continuous, independent: continuous)
+- linear model of $y = a + bx$
+- statistical tests for null of hypothesis of slope and/or intercept = 0
+- confidence and prediction intervals of uncertainty
+- goodness of fit tests for linearity
+
+### Set-up
+```{r}
+library(tidyverse)
+
+```
+
+
+### Data Frame construction for Regression Data
+
+```{r}
+n = 50  # number of observations (rows)
+
+
+varA <- runif(n) # random uniform values (independent)
+varB <- runif(n) # a second random column (dependent)
+varC <- 5.5 + varA*10 # a noisy linear relationship with varA
+ID <- seq_len(n) # creates a sequence from 1:n (if n > 0!)
+regData <- data.frame(ID,varA,varB,varC)
+head(regData)
+str(regData)
+```
+
+# Basic regression analysis in R
+```{r}
+# model
+regModel <- lm(varB~varA,data=regData)
+
+# model output
+regModel # printed output is sparse
+str(regModel) # complicated, but has "coefficients"
+head(regModel$residuals) # contains residuals
+
+# 'summary' of model has elements
+summary(regModel) # 
+summary(regModel)$coefficients
+str(summary(regModel))
+
+# best to examine entire matrix of coefficients:
+summary(regModel)$coefficients[] #shows all
+
+# can pull results from this, but a little wordy
+summary(regModel)$coefficients[1,4]   #p value for intercept
+summary(regModel)$coefficients["(Intercept)","Pr(>|t|)"] # uggh
+
+
+# alternatively unfurl this into a 1D atomic vector with names
+z <- unlist(summary(regModel))
+str(z)
+z
+z$coefficients7
+
+# grab what we need and put into a tidy  list
+
+regSum <- list(intercept=z$coefficients1,
+               slope=z$coefficients2,
+               interceptP=z$coefficients7,
+               slopeP=z$coefficients8,
+               r2=z$r.squared)
+
+# much easier to query and use
+print(regSum)
+regSum$r2
+regSum[[5]]
+
+```
+
+### Basic ggplot of regression model
+
+```{r}
+regPlot <- ggplot(data=regData,aes(x=varA,y=varB)) +
+           geom_point() +
+           stat_smooth(method=lm,se=0.99) # default se=0.95 
+print(regPlot)
+# ggsave(filename="Plot1.pdf",plot=regPlot,device="pdf")
+```
+
+### Data frame construction for one-way ANOVA
+
+```{r}
+nGroup <- 3 # number of treatment groups
+nName <- c("Control","Treat1", "Treat2") # names of groups
+nSize <- c(12,17,9) # number of observations in each group
+nMean <- c(40,41,60) # mean of each group
+nSD <- c(5,5,5) # standardd deviation of each group
+
+ID <- 1:(sum(nSize)) # id vector for each row
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+TGroup <- rep(nName,nSize)
+ANOdata <- data.frame(ID,TGroup,resVar)
+str(ANOdata)
+```
+
+### Basic ANOVA in R
+
+```{r}
+ANOmodel <- aov(resVar~TGroup,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~TGroup,data=ANOdata,FUN=mean)
+unlist(z)
+unlist(z)[7]
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+ANOsum
+
+
+```
+
+
+### Basic ggplot of ANOVA data
+
+```{r}
+ANOPlot <- ggplot(data=ANOdata,aes(x=TGroup,y=resVar,fill=TGroup)) +
+           geom_boxplot()
+print(ANOPlot)
+# ggsave(filename="Plot2.pdf",plot=ANOPlot,device="pdf")
+```
+
+
+### Data frame construction for logistic regression
+```{r}
+
+xVar <- sort(rgamma(n=200,shape=5,scale=5))
+yVar <- sample(rep(c(1,0),each=100),prob=seq_len(200))
+lRegData <- data.frame(xVar,yVar)
+
+```
+### Logistic regression analysis in R
+
+```{r}
+lRegModel <- glm(yVar ~ xVar,
+                 data=lRegData,
+                 family=binomial(link=logit))
+summary(lRegModel)
+summary(lRegModel)$coefficients
+
+```
+
+### Basic ggplot of logistic regression
+```{r}
+lRegPlot <- ggplot(data=lRegData, aes(x=xVar,y=yVar)) +
+            geom_point() +
+            stat_smooth(method=glm, method.args=list(family=binomial))
+print(lRegPlot)
+   
+```
+
+### Data for contingency table analysis
+```{r}
+# integer counts of different data groups
+vec1 <- c(50,66,22)
+vec2 <- c(120,22,30)
+dataMatrix <- rbind(vec1,vec2)
+rownames(dataMatrix) <- c("Cold","Warm")
+colnames(dataMatrix) <-c("Aphaenogaster",
+                         "Camponotus",
+                         "Crematogaster")
+str(dataMatrix)
+```
+
+### Basic contingency table analysis in R
+
+```{r}
+print(chisq.test(dataMatrix))
+```
+
+### Plotting contingency table analyses
+
+```{r}
+# some simple plots using baseR
+mosaicplot(x=dataMatrix,
+           col=c("goldenrod","grey","black"),
+           shade=FALSE)
+barplot(height=dataMatrix,
+        beside=TRUE,
+        col=c("cornflowerblue","tomato"))
+
+
+dFrame <- as.data.frame(dataMatrix)
+dFrame <- cbind(dFrame,list(Treatment=c("Cold","Warm")))
+dFrame <- gather(dFrame,key=Species,Aphaenogaster:Crematogaster,value=Counts) 
+
+p <- ggplot(data=dFrame,aes(x=Species,y=Counts,fill=Treatment)) + geom_bar(stat="identity",position="dodge",color=I("black")) +
+  scale_fill_manual(values=c("cornflowerblue","coral"))
+print(p)
+```
+
