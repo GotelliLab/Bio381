@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nicholas J. Gotelli and Lauren V. Ash" />
+<meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-03-01" />
+<meta name="date" content="2023-02-15" />
 
-<title>Homework #6</title>
+<title>Homework #5</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -327,68 +327,83 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Homework #6</h1>
-<h4 class="author">Nicholas J. Gotelli and Lauren V. Ash</h4>
-<h4 class="date">1 March 2023</h4>
+<h1 class="title toc-ignore">Homework #5</h1>
+<h4 class="author">Nicholas J. Gotelli</h4>
+<h4 class="date">15 February 2023</h4>
 
 </div>
 
 
-<div id="data-manipulations-using-the-dplyr-package" class="section level2">
-<h2>Data manipulations using the <code>dplyr</code> package</h2>
-<p>This homework assignment focus on data manipulation in
-<code>R</code>. Complete these problems using the <code>dplyr</code> and
-<code>tidyverse</code> packages.</p>
+<div id="working-with-matrices-lists-and-data-frames" class="section level2">
+<h2>Working with matrices, lists, and data frames</h2>
 <ol style="list-style-type: decimal">
-<li><p>Examine the structure of the iris data set. How many observations
-and variables are in the data set?</p></li>
-<li><p>Create a new data frame <code>iris1</code> that contains only the
-species <em>virginica</em> and <em>versicolor</em> with sepal lengths
-longer than 6 cm and sepal widths longer than 2.5 cm. How many
-observations and variables are in the data set?</p></li>
-<li><p>Now, create a <code>iris2</code> data frame from
-<code>iris1</code> that contains only the columns for Species,
-Sepal.Length, and Sepal.Width. How many observations and variables are
-in the data set?</p></li>
-<li><p>Create an <code>iris3</code> data frame from <code>iris2</code>
-that orders the observations from largest to smallest sepal length. Show
-the first 6 rows of this data set.</p></li>
-<li><p>Create an <code>iris4</code> data frame from <code>iris3</code>
-that creates a column with a sepal area (length * width) value for each
-observation. How many observations and variables are in the data
-set?</p></li>
-<li><p>Create <code>iris5</code> that calculates the average sepal
-length, the average sepal width, and the sample size of the entire
-<code>iris4</code> data frame and print <code>iris5</code>.</p></li>
-<li><p>Finally, create <code>iris6</code> that calculates the average
-sepal length, the average sepal width, and the sample size <em>for each
-species</em> of in the <code>iris4</code> data frame and print
-<code>iris6</code>.</p></li>
-<li><p>In these exercises, you have successively modified different
-versions of the data frame
-<code>iris1 iris2 iris3 iris4 iris5 iris6</code>. At each stage, the
-output data frame from one operation serves as the input fro the next. A
-more efficient way to do this is to use the pipe operator
-<code>%&gt;%</code> from the <code>tidyr</code> package. See if you can
-rework all of your previous statements (except for <code>iris5</code>)
-into an extended piping operation that uses <code>iris</code> as the
-input and generates <code>irisFinal</code> as the output.</p></li>
-<li><p>Create a ‘longer’ data frame using the original <code>iris</code>
-data set with three columns named “Species”, “Measure”, “Value”. The
-column “Species” will retain the species names of the data set. The
-column “Measure” will include whether the value corresponds to
-Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column
-“Value” will include the numerical values of those
-measurements.</p></li>
+<li><p>Assign to the variable <code>n_dims</code> a single random
+integer between 3 and 10.</p>
+<ul>
+<li><p>Create a vector of consecutive integers from 1 to <span class="math inline">\(\mbox{n_dims}^2\)</span>.</p></li>
+<li><p>Use the sample function to randomly reshuffle these
+values.</p></li>
+<li><p>create a square matrix with these elements.</p></li>
+<li><p>print out the matrix.</p></li>
+<li><p>find a function in r to transpose the matrix.</p></li>
+<li><p>print it out again and note how it has changed.</p></li>
+<li><p>calculate the sum and the mean of the elements in the first row
+and then the last row.</p></li>
+<li><p>read about the <code>eigen()</code> function and use it on your
+matrix</p></li>
+<li><p>look carefully at the elements of <code>$values</code> and
+<code>$vectors</code> in the output. What kind of numbers are
+these?</p></li>
+<li><p>dig in with the <code>typeof()</code> function to figure out
+their type.</p></li>
+<li><p>if have set your code up properly, you should be able to re-run
+it and create a matrix of different size because <code>n_dims</code>
+will change.</p></li>
+</ul></li>
+<li><p>Create a list with the following named elements:</p>
+<ul>
+<li><code>my_matrix</code>, which is a 4 x 4 matrix filled with random
+uniform values</li>
+<li><code>my_logical</code> which is a 100-element vector of TRUE or
+FALSE values. Do this efficiently by setting up a vector of random
+values and then applying an inequality to it.</li>
+<li><code>my_letters</code>, which is a 26-element vector of all the
+lower-case letters in random order.</li>
+</ul>
+<p>Then, complete the following steps:</p>
+<ul>
+<li>create a new list, which has the element[2,2] from the matrix, the
+second element of the logical vector, and the second element of the
+letters vector.</li>
+<li>use the <code>typeof()</code> function to confirm the underlying
+data types of each component in this list</li>
+<li>combine the underlying elements from the new list into a single
+atomic vector with the <code>c()</code> function.</li>
+<li>what is the data type of this vector?</li>
+</ul></li>
+<li><p>Create a data frame with the two variables (= columns) and 26
+cases (= rows) below:</p>
+<ul>
+<li><p>call the first variable <code>my_unis</code> and fill it with 26
+random uniform values from 0 to 10</p></li>
+<li><p>call the second variable <code>my_letters</code> and fill it with
+26 capital letters in random order.</p></li>
+<li><p>for the first variable, use a single line of code in R to select
+4 random rows and replace the numerical values in those rows with
+<code>NA</code>.</p></li>
+<li><p>for the first variable, write a single line of R code to identify
+which rows have the missing values.</p></li>
+<li><p>re-order the entire data frame to arrange the second variable in
+alphabetical order</p></li>
+<li><p>calculate the column mean for the first variable.</p></li>
+</ul></li>
 </ol>
 <hr />
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
-<p><a href="dplyr_Lecture1.html"><code>dplyr</code> lecture
-notes</a><br />
-<a href="https://gotellilab.github.io/Bio381/CheatSheets/dplyrCheatSheet.pdf"><code>dplyr</code>
-cheat sheet</a></p>
+<p><a href="https://gotellilab.github.io/Bio381/Lectures/Lecture09_S2021.html">Matrices,
+Lists, &amp; Data Frames Lecture Notes</a></p>
 </div>
 
 

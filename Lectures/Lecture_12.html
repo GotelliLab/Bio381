@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nicholas J. Gotelli and Lauren V. Ash" />
+<meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-03-01" />
+<meta name="date" content="2023-02-28" />
 
-<title>Homework #6</title>
+<title>Experimental Designs</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -227,6 +227,106 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #c4a000; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #000000; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #000000; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #000000; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -327,68 +427,324 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Homework #6</h1>
-<h4 class="author">Nicholas J. Gotelli and Lauren V. Ash</h4>
-<h4 class="date">1 March 2023</h4>
+<h1 class="title toc-ignore">Experimental Designs</h1>
+<h4 class="author">Nicholas J. Gotelli</h4>
+<h4 class="date">28 February 2023</h4>
 
 </div>
 
 
-<div id="data-manipulations-using-the-dplyr-package" class="section level2">
-<h2>Data manipulations using the <code>dplyr</code> package</h2>
-<p>This homework assignment focus on data manipulation in
-<code>R</code>. Complete these problems using the <code>dplyr</code> and
-<code>tidyverse</code> packages.</p>
-<ol style="list-style-type: decimal">
-<li><p>Examine the structure of the iris data set. How many observations
-and variables are in the data set?</p></li>
-<li><p>Create a new data frame <code>iris1</code> that contains only the
-species <em>virginica</em> and <em>versicolor</em> with sepal lengths
-longer than 6 cm and sepal widths longer than 2.5 cm. How many
-observations and variables are in the data set?</p></li>
-<li><p>Now, create a <code>iris2</code> data frame from
-<code>iris1</code> that contains only the columns for Species,
-Sepal.Length, and Sepal.Width. How many observations and variables are
-in the data set?</p></li>
-<li><p>Create an <code>iris3</code> data frame from <code>iris2</code>
-that orders the observations from largest to smallest sepal length. Show
-the first 6 rows of this data set.</p></li>
-<li><p>Create an <code>iris4</code> data frame from <code>iris3</code>
-that creates a column with a sepal area (length * width) value for each
-observation. How many observations and variables are in the data
-set?</p></li>
-<li><p>Create <code>iris5</code> that calculates the average sepal
-length, the average sepal width, and the sample size of the entire
-<code>iris4</code> data frame and print <code>iris5</code>.</p></li>
-<li><p>Finally, create <code>iris6</code> that calculates the average
-sepal length, the average sepal width, and the sample size <em>for each
-species</em> of in the <code>iris4</code> data frame and print
-<code>iris6</code>.</p></li>
-<li><p>In these exercises, you have successively modified different
-versions of the data frame
-<code>iris1 iris2 iris3 iris4 iris5 iris6</code>. At each stage, the
-output data frame from one operation serves as the input fro the next. A
-more efficient way to do this is to use the pipe operator
-<code>%&gt;%</code> from the <code>tidyr</code> package. See if you can
-rework all of your previous statements (except for <code>iris5</code>)
-into an extended piping operation that uses <code>iris</code> as the
-input and generates <code>irisFinal</code> as the output.</p></li>
-<li><p>Create a ‘longer’ data frame using the original <code>iris</code>
-data set with three columns named “Species”, “Measure”, “Value”. The
-column “Species” will retain the species names of the data set. The
-column “Measure” will include whether the value corresponds to
-Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column
-“Value” will include the numerical values of those
-measurements.</p></li>
-</ol>
-<hr />
+<div id="uniform-distribution" class="section level4">
+<h4>Uniform distribution</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uniform</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># params specify minimum and maximum</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#runif for random data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">5</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">runif</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">5</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span></code></pre></div>
 </div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<p><a href="dplyr_Lecture1.html"><code>dplyr</code> lecture
-notes</a><br />
-<a href="https://gotellilab.github.io/Bio381/CheatSheets/dplyrCheatSheet.pdf"><code>dplyr</code>
-cheat sheet</a></p>
+<div id="normal-distribution" class="section level4">
+<h4>Normal distribution</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># normal </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>myNorm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myNorm,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># problems with normal when mean is small but zero is not allowed.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>myNorm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">2</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myNorm,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myNorm)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>tossZeroes <span class="ot">&lt;-</span> myNorm[myNorm<span class="sc">&gt;</span><span class="dv">0</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(tossZeroes,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tossZeroes)</span></code></pre></div>
+</div>
+<div id="gamma-distribution" class="section level4">
+<h4>Gamma distribution</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gamma distribution, continuous positive values, but bounded at 0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">1</span>,<span class="at">scale=</span><span class="dv">10</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># gamma with shape= 1 is an exponential with scale = mean</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># shape &lt;=1 gives a mode near zero; very small shape rounds to zero</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="fl">0.1</span>,<span class="at">scale=</span><span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># large shape parameters moves towards a normal</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">20</span>,<span class="at">scale=</span><span class="dv">1</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># scale parameter changes mean- and the variance!</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">100</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">10</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="fl">0.1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># unlike the normal, the two parameters affect both mean and variance</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># mean = shape*scale</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># variance= shape*scale^2</span></span></code></pre></div>
+</div>
+<div id="beta-distribution" class="section level4">
+<h4>Beta distribution</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># beta distribution </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># bounded at 0 and 1</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># analagous to a binomial, but result is a continuous distribution of probabilities</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># parameter shape1 = number of successes + 1</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># parameter shape2 = number of failures + 1</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interpret these in terms of a coin you are tossing</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># shape1 = 1, shape2 = 1 = &quot;no data&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">1</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># shape1 = 2, shape1 = 1 = &quot;1 coin toss, comes up heads!&quot;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># two tosses, 1 head and 1 tail</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">2</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># two tosses, both heads</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s get more data</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">20</span>,<span class="at">shape2=</span><span class="dv">20</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">500</span>,<span class="at">shape2=</span><span class="dv">500</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># if the coin is biased</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">1000</span>,<span class="at">shape2=</span><span class="dv">500</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">10</span>,<span class="at">shape2=</span><span class="dv">5</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co"># shape parameters less than 1.0 give us a u-shaped distribution</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="fl">0.1</span>,<span class="at">shape2=</span><span class="fl">0.1</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="fl">0.5</span>,<span class="at">shape2=</span><span class="fl">0.2</span>)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span></code></pre></div>
+</div>
+<div id="estimating-paramaters-from-data" class="section level3">
+<h3>Estimating paramaters from data</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimating parameters from data</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># maximum likelihood estimator theta versus P(data|theta)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use fitdistr function, feeding it data and a distribution type)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="fl">92.5</span>,<span class="at">sd=</span><span class="fl">2.5</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(x,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fitdistr</span>(x,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># compare to true parameters</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># compare to parameters estimated from simple means and standard deviations</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># but how do we &quot;know&quot; what distribution to fit?</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">fitdistr</span>(x,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(x,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># find components of z</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(z)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># rate = 1/scale</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># so here is the estimate of the mean</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>estimate[<span class="dv">1</span>]<span class="sc">/</span>z<span class="sc">$</span>estimate[<span class="dv">2</span>]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># and here is the estimate of the variance</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>estimate[<span class="dv">1</span>]<span class="sc">/</span>z<span class="sc">$</span>estimate[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+</div>
+<div id="archetype-experimental-designs" class="section level3">
+<h3>Archetype Experimental Designs</h3>
+<ul>
+<li>independent versus dependent variables</li>
+<li>discrete versus continuous variables</li>
+<li>continuous variables (integer and real)</li>
+<li>direction of cause and effect, x axis is independent</li>
+<li>continuous versus discrete (natural or arbitrary or statistical
+bins)</li>
+</ul>
+</div>
+<div id="regression-dependent-continuous-independent-continuous" class="section level3">
+<h3>Regression (dependent: continuous, independent: continuous)</h3>
+<ul>
+<li>linear model of <span class="math inline">\(y = a + bx\)</span></li>
+<li>statistical tests for null of hypothesis of slope and/or intercept =
+0</li>
+<li>confidence and prediction intervals of uncertainty</li>
+<li>goodness of fit tests for linearity</li>
+</ul>
+</div>
+<div id="set-up" class="section level3">
+<h3>Set-up</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="data-frame-construction-for-regression-data" class="section level3">
+<h3>Data Frame construction for Regression Data</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">50</span>  <span class="co"># number of observations (rows)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>varA <span class="ot">&lt;-</span> <span class="fu">runif</span>(n) <span class="co"># random uniform values (independent)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>varB <span class="ot">&lt;-</span> <span class="fu">runif</span>(n) <span class="co"># a second random column (dependent)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>varC <span class="ot">&lt;-</span> <span class="fl">5.5</span> <span class="sc">+</span> varA<span class="sc">*</span><span class="dv">10</span> <span class="co"># a noisy linear relationship with varA</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> <span class="fu">seq_len</span>(n) <span class="co"># creates a sequence from 1:n (if n &gt; 0!)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>regData <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ID,varA,varB,varC)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(regData)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(regData)</span></code></pre></div>
+</div>
+<div id="basic-regression-analysis-in-r" class="section level1">
+<h1>Basic regression analysis in R</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>regModel <span class="ot">&lt;-</span> <span class="fu">lm</span>(varB<span class="sc">~</span>varA,<span class="at">data=</span>regData)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># model output</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>regModel <span class="co"># printed output is sparse</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(regModel) <span class="co"># complicated, but has &quot;coefficients&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(regModel<span class="sc">$</span>residuals) <span class="co"># contains residuals</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;summary&#39; of model has elements</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regModel) <span class="co"># </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regModel)<span class="sc">$</span>coefficients</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(regModel))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># best to examine entire matrix of coefficients:</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regModel)<span class="sc">$</span>coefficients[] <span class="co">#shows all</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># can pull results from this, but a little wordy</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regModel)<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">4</span>]   <span class="co">#p value for intercept</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regModel)<span class="sc">$</span>coefficients[<span class="st">&quot;(Intercept)&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>] <span class="co"># uggh</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively unfurl this into a 1D atomic vector with names</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">summary</span>(regModel))</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(z)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>z</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>z<span class="sc">$</span>coefficients7</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># grab what we need and put into a tidy  list</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>regSum <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">intercept=</span>z<span class="sc">$</span>coefficients1,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">slope=</span>z<span class="sc">$</span>coefficients2,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">interceptP=</span>z<span class="sc">$</span>coefficients7,</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">slopeP=</span>z<span class="sc">$</span>coefficients8,</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">r2=</span>z<span class="sc">$</span>r.squared)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># much easier to query and use</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(regSum)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>regSum<span class="sc">$</span>r2</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>regSum[[<span class="dv">5</span>]]</span></code></pre></div>
+<div id="basic-ggplot-of-regression-model" class="section level3">
+<h3>Basic ggplot of regression model</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>regPlot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>regData,<span class="fu">aes</span>(<span class="at">x=</span>varA,<span class="at">y=</span>varB)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">stat_smooth</span>(<span class="at">method=</span>lm,<span class="at">se=</span><span class="fl">0.99</span>) <span class="co"># default se=0.95 </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(regPlot)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(filename=&quot;Plot1.pdf&quot;,plot=regPlot,device=&quot;pdf&quot;)</span></span></code></pre></div>
+</div>
+<div id="data-frame-construction-for-one-way-anova" class="section level3">
+<h3>Data frame construction for one-way ANOVA</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>nGroup <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># number of treatment groups</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>nName <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Treat1&quot;</span>, <span class="st">&quot;Treat2&quot;</span>) <span class="co"># names of groups</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>nSize <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">17</span>,<span class="dv">9</span>) <span class="co"># number of observations in each group</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>nMean <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">41</span>,<span class="dv">60</span>) <span class="co"># mean of each group</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>nSD <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>) <span class="co"># standardd deviation of each group</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">sum</span>(nSize)) <span class="co"># id vector for each row</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>resVar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>nSize[<span class="dv">1</span>],<span class="at">mean=</span>nMean[<span class="dv">1</span>],<span class="at">sd=</span>nSD[<span class="dv">1</span>]),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>nSize[<span class="dv">2</span>],<span class="at">mean=</span>nMean[<span class="dv">2</span>],<span class="at">sd=</span>nSD[<span class="dv">2</span>]),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>nSize[<span class="dv">3</span>],<span class="at">mean=</span>nMean[<span class="dv">3</span>],<span class="at">sd=</span>nSD[<span class="dv">3</span>]))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>TGroup <span class="ot">&lt;-</span> <span class="fu">rep</span>(nName,nSize)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>ANOdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ID,TGroup,resVar)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ANOdata)</span></code></pre></div>
+</div>
+<div id="basic-anova-in-r" class="section level3">
+<h3>Basic ANOVA in R</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ANOmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(resVar<span class="sc">~</span>TGroup,<span class="at">data=</span>ANOdata)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ANOmodel)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(ANOmodel))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">summary</span>(ANOmodel)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(z)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(resVar<span class="sc">~</span>TGroup,<span class="at">data=</span>ANOdata,<span class="at">FUN=</span>mean)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(z)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(z)[<span class="dv">7</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ANOsum <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Fval=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],<span class="at">probF=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ANOsum</span></code></pre></div>
+</div>
+<div id="basic-ggplot-of-anova-data" class="section level3">
+<h3>Basic ggplot of ANOVA data</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ANOPlot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ANOdata,<span class="fu">aes</span>(<span class="at">x=</span>TGroup,<span class="at">y=</span>resVar,<span class="at">fill=</span>TGroup)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_boxplot</span>()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ANOPlot)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(filename=&quot;Plot2.pdf&quot;,plot=ANOPlot,device=&quot;pdf&quot;)</span></span></code></pre></div>
+</div>
+<div id="data-frame-construction-for-logistic-regression" class="section level3">
+<h3>Data frame construction for logistic regression</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xVar <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">200</span>,<span class="at">shape=</span><span class="dv">5</span>,<span class="at">scale=</span><span class="dv">5</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>yVar <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),<span class="at">each=</span><span class="dv">100</span>),<span class="at">prob=</span><span class="fu">seq_len</span>(<span class="dv">200</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>lRegData <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(xVar,yVar)</span></code></pre></div>
+</div>
+<div id="logistic-regression-analysis-in-r" class="section level3">
+<h3>Logistic regression analysis in R</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lRegModel <span class="ot">&lt;-</span> <span class="fu">glm</span>(yVar <span class="sc">~</span> xVar,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data=</span>lRegData,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span>logit))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lRegModel)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lRegModel)<span class="sc">$</span>coefficients</span></code></pre></div>
+</div>
+<div id="basic-ggplot-of-logistic-regression" class="section level3">
+<h3>Basic ggplot of logistic regression</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lRegPlot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>lRegData, <span class="fu">aes</span>(<span class="at">x=</span>xVar,<span class="at">y=</span>yVar)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">stat_smooth</span>(<span class="at">method=</span>glm, <span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family=</span>binomial))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lRegPlot)</span></code></pre></div>
+</div>
+<div id="data-for-contingency-table-analysis" class="section level3">
+<h3>Data for contingency table analysis</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># integer counts of different data groups</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">66</span>,<span class="dv">22</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>vec2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">22</span>,<span class="dv">30</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dataMatrix <span class="ot">&lt;-</span> <span class="fu">rbind</span>(vec1,vec2)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dataMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Cold&quot;</span>,<span class="st">&quot;Warm&quot;</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dataMatrix) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Aphaenogaster&quot;</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;Camponotus&quot;</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;Crematogaster&quot;</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataMatrix)</span></code></pre></div>
+</div>
+<div id="basic-contingency-table-analysis-in-r" class="section level3">
+<h3>Basic contingency table analysis in R</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chisq.test</span>(dataMatrix))</span></code></pre></div>
+</div>
+<div id="plotting-contingency-table-analyses" class="section level3">
+<h3>Plotting contingency table analyses</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some simple plots using baseR</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(<span class="at">x=</span>dataMatrix,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;grey&quot;</span>,<span class="st">&quot;black&quot;</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">shade=</span><span class="cn">FALSE</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height=</span>dataMatrix,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">beside=</span><span class="cn">TRUE</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;cornflowerblue&quot;</span>,<span class="st">&quot;tomato&quot;</span>))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dataMatrix)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dFrame,<span class="fu">list</span>(<span class="at">Treatment=</span><span class="fu">c</span>(<span class="st">&quot;Cold&quot;</span>,<span class="st">&quot;Warm&quot;</span>)))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">gather</span>(dFrame,<span class="at">key=</span>Species,Aphaenogaster<span class="sc">:</span>Crematogaster,<span class="at">value=</span>Counts) </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>dFrame,<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">y=</span>Counts,<span class="at">fill=</span>Treatment)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;cornflowerblue&quot;</span>,<span class="st">&quot;coral&quot;</span>))</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code></pre></div>
+</div>
 </div>
 
 

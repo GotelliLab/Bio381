@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nicholas J. Gotelli and Lauren V. Ash" />
+<meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-03-01" />
+<meta name="date" content="2023-02-21" />
 
-<title>Homework #6</title>
+<title>Data Curation</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -227,6 +227,106 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #c4a000; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #000000; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #000000; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #000000; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -327,68 +427,79 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Homework #6</h1>
-<h4 class="author">Nicholas J. Gotelli and Lauren V. Ash</h4>
-<h4 class="date">1 March 2023</h4>
+<h1 class="title toc-ignore">Data Curation</h1>
+<h4 class="author">Nicholas J. Gotelli</h4>
+<h4 class="date">21 February 2023</h4>
 
 </div>
 
 
-<div id="data-manipulations-using-the-dplyr-package" class="section level2">
-<h2>Data manipulations using the <code>dplyr</code> package</h2>
-<p>This homework assignment focus on data manipulation in
-<code>R</code>. Complete these problems using the <code>dplyr</code> and
-<code>tidyverse</code> packages.</p>
-<ol style="list-style-type: decimal">
-<li><p>Examine the structure of the iris data set. How many observations
-and variables are in the data set?</p></li>
-<li><p>Create a new data frame <code>iris1</code> that contains only the
-species <em>virginica</em> and <em>versicolor</em> with sepal lengths
-longer than 6 cm and sepal widths longer than 2.5 cm. How many
-observations and variables are in the data set?</p></li>
-<li><p>Now, create a <code>iris2</code> data frame from
-<code>iris1</code> that contains only the columns for Species,
-Sepal.Length, and Sepal.Width. How many observations and variables are
-in the data set?</p></li>
-<li><p>Create an <code>iris3</code> data frame from <code>iris2</code>
-that orders the observations from largest to smallest sepal length. Show
-the first 6 rows of this data set.</p></li>
-<li><p>Create an <code>iris4</code> data frame from <code>iris3</code>
-that creates a column with a sepal area (length * width) value for each
-observation. How many observations and variables are in the data
-set?</p></li>
-<li><p>Create <code>iris5</code> that calculates the average sepal
-length, the average sepal width, and the sample size of the entire
-<code>iris4</code> data frame and print <code>iris5</code>.</p></li>
-<li><p>Finally, create <code>iris6</code> that calculates the average
-sepal length, the average sepal width, and the sample size <em>for each
-species</em> of in the <code>iris4</code> data frame and print
-<code>iris6</code>.</p></li>
-<li><p>In these exercises, you have successively modified different
-versions of the data frame
-<code>iris1 iris2 iris3 iris4 iris5 iris6</code>. At each stage, the
-output data frame from one operation serves as the input fro the next. A
-more efficient way to do this is to use the pipe operator
-<code>%&gt;%</code> from the <code>tidyr</code> package. See if you can
-rework all of your previous statements (except for <code>iris5</code>)
-into an extended piping operation that uses <code>iris</code> as the
-input and generates <code>irisFinal</code> as the output.</p></li>
-<li><p>Create a ‘longer’ data frame using the original <code>iris</code>
-data set with three columns named “Species”, “Measure”, “Value”. The
-column “Species” will retain the species names of the data set. The
-column “Measure” will include whether the value corresponds to
-Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column
-“Value” will include the numerical values of those
-measurements.</p></li>
-</ol>
-<hr />
+<div id="data-curation" class="section level2">
+<h2>Data curation</h2>
+<ul>
+<li>GitHub repository<br />
+</li>
+<li>Student contract<br />
+</li>
+<li>Metadata<br />
+</li>
+<li><a href="https://gotellilab.github.io/Bio381/Scripts/Feb02/ExcelDataTemplate.xlsx">Metadata
+template</a><br />
+</li>
+<li>Example of Lauren’s data</li>
+</ul>
 </div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<p><a href="dplyr_Lecture1.html"><code>dplyr</code> lecture
-notes</a><br />
-<a href="https://gotellilab.github.io/Bio381/CheatSheets/dplyrCheatSheet.pdf"><code>dplyr</code>
-cheat sheet</a></p>
+<div id="exporting-and-importing-data" class="section level2">
+<h2>Exporting and importing data</h2>
+<p>First create a tiny data set in Excel:</p>
+<pre><code># comments at the top
+# beaucoup metadata
+ID, Treatment, Biomass, Notes
+1, Control, 30.3, 
+2, HighN, 13.0, 
+3, HighN, NA, broken scale
+4, Control, 35.3,</code></pre>
+<ul>
+<li>Save as .csv</li>
+<li>Inspect in RStudio Editor</li>
+</ul>
+<div id="use-read.table-to-bring-in-data" class="section level3">
+<h3>Use <code>read.table</code> to bring in data</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;path/to/data.csv&quot;</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">header=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">comment.char=</span><span class="st">&quot;#&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect object</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_data)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># now add a column</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>newVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">4</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code></pre></div>
+</div>
+<div id="use-write.table-to-export-to-a-data-file" class="section level3">
+<h3>Use <code>write.table</code> to export to a data file</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x=</span>my_data,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;Path/To/OutputFileName.csv&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">HEADER=</span><span class="cn">TRUE</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>But this is not a good way to save or share data objects if we are
+working in R. Some researchers use the <code>save()</code> function,
+which preserves the whole environment, but once it is restored with
+<code>load()</code>, the variable names cannot be changed. It is better
+to use `saveRDS().</p>
+</div>
+<div id="saverds-useful-when-you-are-working-only-in-r" class="section level3">
+<h3><code>saveRDS()</code>: useful when you are working only in R</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(my_data, <span class="at">file=</span><span class="st">&quot;Path/To/FileName.RDS&quot;</span>) <span class="co"># .RDS suffix is not required, but good for clarity</span></span></code></pre></div>
+<p>This only saves a single R object as a binary, but remember, you can
+bundle up many things into a single list!</p>
+<p>Use <code>readRDS()</code> to restore it.</p>
+</div>
+<div id="readrds" class="section level3">
+<h3><code>readRDS()</code></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_in <span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;FileName.RDS&quot;</span>) </span></code></pre></div>
+</div>
 </div>
 
 
