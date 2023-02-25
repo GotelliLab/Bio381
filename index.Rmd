@@ -46,7 +46,7 @@ February 16   | [Matrices, Lists, Data Frames II](Lectures/Lecture_09.html) | -
 February 21 | [Data Curation](Lectures/Lecture_10.html)| -
 February 22  | -  | [Catch Up Day]
 February 23 | [Probability Distributions](Lectures/Lecture_11.html)| -
-February 28  |- | [(Experimental Designs)](Lectures/Lecture_12a.html)
+February 28  |[Functions](Lectures/Lecture_12.html) | [(Experimental Designs)](Lectures/Lecture_12a.html)
 March 1  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)  | -
 March 2  | [dplyr/SQL II](Lectures/dplyr_Lecture1.html)  | [Homework #6](Homeworks/Homework_06.html)
 March 7  | Town Meeting Day Recess | -
