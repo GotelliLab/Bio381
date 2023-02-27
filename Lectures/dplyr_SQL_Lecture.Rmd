@@ -198,7 +198,10 @@ sqldf(query)
 ```
 
 
-Operations with 2 files:Here, we are going to interact with 2 data files (.csv's), and try to gather them into a usable form. Often times people will store different variables/types of data into different files, just to maintain organization-sometimes this is good, but others, we may need want to combine them, in which case we "join" them together. 
+
+# 2 File Operations
+
+Here, we are going to interact with 2 data files (.csv's), and try to gather them into a usable form. Often times people will store different variables/types of data into different files, just to maintain organization-sometimes this is good, but others, we may need want to combine them, in which case we "join" them together. 
 
 Joins are going to be different from binding-joining requires the data files to have at least one similar column so that it knows how to combine them, and will order it accordingly,while binding just immediately pastes the rows/columns together, and by position, not by anything meaningful. So, use those with that warning-there is a high chance for error when using bind functions, as any minor error in that could throw off the entire dataset.
 
