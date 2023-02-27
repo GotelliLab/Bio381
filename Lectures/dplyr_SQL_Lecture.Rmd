@@ -4,23 +4,50 @@ author: "George Ni"
 date: "2023-02-27"
 output: html_document
 ---
-```{r, echo=FALSE}
+```{r message=FALSE}
 #Installing Packages
 library(sqldf)
 library(dplyr)
 library(tidyverse)
 ```
 
-```{r}
+```{r echo=FALSE}
 #Read in datafiles
-species<-read.csv("site_by_species.csv") #Trim out species columns to make it easier to see 
+species<-read.csv("site_by_species.csv") 
+
 var<-read.csv("site_by_variables.csv")
 ```
 
+# Take a look at the datasets first:
+
 ```{r}
+head(species)
 
-
+head(var)
 ```
+# Start with operations using 1 file
+
+## How to subset rows
+
+dplyr Method:
+```{r}
+#Dplyr method-uses the filter() method
+species<-filter(species, Site<30)
+var<-filter(var, Site<30)
+```
+
+
+SQL Method
+```{r}
+#SQL Method
+query="
+SELECT Site, Sp1, Sp2, Sp3 
+FROM species
+WHERE Site<'30'
+"
+sqldf(query)
+```
+
 ```{r}
 
 

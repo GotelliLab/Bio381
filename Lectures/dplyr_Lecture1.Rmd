@@ -11,8 +11,10 @@ editor_options:
 ---
 <font size="3">   
 
+
+
 ### What is `dplyr`?   
-+ a new(er) package that provides a set of tools for manipulating datasets in R   
++ a new(ish) package that provides a set of tools for manipulating datasets in R   
 + part of the `tidyverse`: an opinionated collection of R packages which share philosophy, grammar, and data structure   
 + specifically written to be fast!   
 + has individual functions that correspond to the most common operations    
