@@ -514,7 +514,9 @@ num_species_edit&lt;-select(num_species, where(is.numeric))</code></pre>
 and increases the number of rows. Can use either pivot_longer or gather,
 but gather is outdated</p>
 <pre class="r"><code>species_long&lt;-pivot_longer(edit_species, cols=c(Sp1, Sp2, Sp3), names_to=&quot;ID&quot;)</code></pre>
-<p>#Pivot_wide</p>
+</div>
+<div id="pivot_wide" class="section level1">
+<h1>Pivot_wide</h1>
 <p>Pivot_wide goes from long to wide, widens the data, increasing the
 number of columns, decreases the number of rows. Can use pivot_wider or
 spread</p>
@@ -659,6 +661,13 @@ could throw off the entire dataset.</p>
 <h1>Left/Right/Union Joins</h1>
 <p>Let’s first start with clean files-Reset the species and var
 variables, and let’s filter them to a manageable size.</p>
+<pre class="r"><code>edit_species&lt;-species_clean%&gt;%
+  filter(Site&lt;30)%&gt;%
+  select(Site, Sp1, Sp2, Sp3, Sp4, Longitude.x., Latitude.y.)
+
+edit_var&lt;-var_clean%&gt;%
+  filter(Site&lt;30)%&gt;%
+    select(Site, Longitude.x., Latitude.y., BIO1_Annual_mean_temperature, BIO12_Annual_precipitation)</code></pre>
 <pre class="r"><code>#Dplyr method
 #Left_join-a left join basically means you are stitching the matching rows of file B to file A-this does require that there be some matching/marker column to actually link. 
 left&lt;-left_join(edit_species, edit_var, by=&quot;Site&quot;)
