@@ -50,7 +50,7 @@ head(starwars) #looks a little different since it's a tibble (mentions dimension
 #dataClean <- starwars[complete.cases(starwars),] # removes all rows with NA values but doesn't work with lists
 
 # to get complete cases for just certain columns 
-starwarsClean <-starwars[complete.cases(starwars[,1:10]),]
+starwarsClean <-starwars[complete.cases(starwars[,1:3]),]
 
 
 # Check for NAs
@@ -173,6 +173,8 @@ starwarsClean %>%
   select(name,sp, status, everything()) %>%
   arrange(status) %>%
   {starwarsOGstatus <<- .}
+
+
 
 tail(starwarsOGstatus)
 ```
