@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicholas J. Gotelli and Lauren V. Ash" />
 
-<meta name="date" content="2023-03-01" />
+<meta name="date" content="2023-03-02" />
 
 <title>Homework #6</title>
 
@@ -233,7 +233,6 @@ ul.task-list{list-style: none;}
 
 
 
-
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -255,9 +254,6 @@ outline: none;
 summary {
 display: list-item;
 }
-details > summary > p:only-child {
-display: inline;
-}
 pre code {
 padding: 0;
 }
@@ -276,17 +272,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -329,7 +331,7 @@ display: none;
 
 <h1 class="title toc-ignore">Homework #6</h1>
 <h4 class="author">Nicholas J. Gotelli and Lauren V. Ash</h4>
-<h4 class="date">1 March 2023</h4>
+<h4 class="date">2 March 2023</h4>
 
 </div>
 
