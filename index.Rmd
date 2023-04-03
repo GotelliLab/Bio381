@@ -50,25 +50,25 @@ February 28  |[Functions](Lectures/Lecture_12.html) | [(Experimental Designs)](L
 March 1  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)  | -
 March 2  | [dplyr/SQL II](Lectures/dplyr_SQL_Lecture.html)  | [Homework #6](Homeworks/Homework_06.html)
 March 7  | Town Meeting Day Recess | -
-March 8  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework06_S2022.html)
+March 8  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework_07.html)
 March 9  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
 March 14 | Spring Recess | -
 March 15 | Spring Recess | -
 March 16 | Spring Recess | -
 March 21  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
-March 22  | - | [Homework #8](Homeworks/Homework08_S2022.html)
+March 22  | - | [Homework #8](Homeworks/Homework_08.html)
 March 23  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
 March 28  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
-March 29  | - | [Homework #9](Homeworks/Homework09_S2022.html)
+March 29  | - | [Homework #9](Homeworks/Homework_09.html)
 March 30  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
 April 4  | [Randomization Tests](Lectures/Lecture19_S2021) | -
-April 5  | - | [Homework #10](Homeworks/Homework10_S2022.html)
+April 5  | - | [Homework #10](Homeworks/Homework_10.html)
 April 6  | [Batch Processing](Lectures/Lecture20_S2021) | -
 April 11  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
-April 12  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework11_S2022.html)
+April 12  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
 April 13  | [ggplot II](Lectures/Lecture22_S2021.html) | -
 April 18 | [ggplot III](Lectures/Lecture23_S2021.html) | -
-April 19  | - | [Homework #12](Homeworks/Homework12_S2022.html)
+April 19  | - | [Homework #12](Homeworks/Homework_12.html)
 April 20 | [Functional Programming](Lectures/Lecture26_S2020.html) | -
 April 25  | [Github III](Lectures/Lecture25_S2021.html) | -
 April 26  | - | Catch-up Day
