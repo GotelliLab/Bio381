@@ -1,0 +1,288 @@
+---
+title: 'Batch Processing'
+author: "Nicholas J. Gotelli"
+date: "6 April 2023"
+
+output:
+  html_document:
+    highlight: tango
+    theme: united
+  pdf_document: default
+---
+## Batch processing
+
+### Build a set of random files
+```{r}
+##################################################
+# function: file_builder
+# create a set of random files for regression
+# input: file_n = number of files to create
+#       : file_folder = name of folder for random files
+#       : file_size = c(min,max) number of rows in file
+#       : file_na = number on average of NA values per column
+# output: set of random files
+#------------------------------------------------- 
+file_builder <- function(file_n=10,
+                        file_folder="RandomFiles/",
+                        file_size=c(15,100),
+                        file_na=3){
+for (i in seq_len(file_n)) {
+file_length <- sample(file_size[1]:file_size[2],size=1) # get number of rows
+var_x <- runif(file_length) # create random x
+var_y <- runif(file_length) # create randon y
+df <- data.frame(var_x,var_y) # bind into a data frame
+bad_vals <- rpois(n=1,lambda=file_na) # determine NA number
+df[sample(nrow(df),size=bad_vals),1] <- NA # random NA in var_x
+df[sample(nrow(df),size=bad_vals),2] <- NA # random NA in var_y
+
+# create label for file name with padded zeroes
+file_label <- paste(file_folder,
+                       "ranFile",
+                       formatC(i,
+                       width=3,
+                       format="d",
+                       flag="0"),
+                       ".csv",sep="")
+
+# set up data file and incorporate time stamp and minimal metadata
+write.table(cat("# Simulated random data file for batch processing","\n",
+                    "# timestamp: ",as.character(Sys.time()),"\n",
+                    "# NJG","\n",
+                    "# ------------------------", "\n",
+                    "\n",
+                    file=file_label,
+                    row.names="",
+                    col.names="",
+                    sep=""))
+
+# now add the data frame
+write.table(x=df,
+            file=file_label,
+            sep=",",
+            row.names=FALSE,
+            append=TRUE)
+
+
+}
+}
+```
+### Run regression model and extract stats
+
+```{r}
+
+##################################################
+# function: reg_stats
+# fits linear model, extracts statistics
+# input: 2-column data frame (x and y)
+# output: slope, p-value, and r2
+#------------------------------------------------- 
+reg_stats <- function(d=NULL) {
+             if(is.null(d)) {
+               x_var <- runif(10)
+               y_var <- runif(10)
+               d <- data.frame(x_var,y_var)
+             }
+  . <- lm(data=d,d[,2]~d[,1])
+  . <- summary(.)
+  stats_list <- list(slope=.$coefficients[2,1],
+                    p_val=.$coefficients[2,4],
+                    r2=.$r.squared)
+  return(stats_list)
+
+}
+```
+
+### Body of script for batch processing of regression models
+```{r, warning=FALSE,eval=FALSE}
+
+#--------------------------------------------
+# Global variables
+file_folder <- "RandomFiles/"
+n_files <- 100
+file_out <- "StatsSummary.csv"
+#--------------------------------------------
+
+# Create 100 random data sets
+dir.create(file_folder)
+file_builder(file_n=n_files)
+file_names <- list.files(path=file_folder)
+
+# Create data frame to hold file summary statistics
+ID <- seq_along(file_names)
+file_name <- file_names
+slope <- rep(NA,n_files)
+p_val <- rep(NA,n_files)
+r2 <- rep(NA,n_files)
+
+stats_out <- data.frame(ID,file_name,slope,p_val,r2)
+
+# batch process by looping through individual files
+for (i in seq_along(file_names)) {
+  data <- read.table(file=paste(file_folder,file_names[i],sep=""),
+                     sep=",",
+                     header=TRUE) # read in next data file
+  
+  d_clean <- data[complete.cases(data),] # get clean cases
+  
+  . <- reg_stats(d_clean) # pull regression stats from clean file
+  stats_out[i,3:5] <- unlist(.) # unlist, copy into last 3 columns
+  
+}
+# set up output file and incorporate time stamp and minimal metadata
+  write.table(cat("# Summary stats for ",
+                    "batch processing of regression models","\n",
+                    "# timestamp: ",as.character(Sys.time()),"\n",
+                    "# NJG","\n",
+                    "# ------------------------", "\n",
+                    "\n",
+                    file=file_out,
+                    row.names="",
+                    col.names="",
+                    sep=""))
+  
+# now add the data frame
+  write.table(x=stats_out,
+              file=file_out,
+              row.names=FALSE,
+              col.names=TRUE,
+              sep=",",
+              append=TRUE)
+
+```
+
+## Organizing Source Files
+
+- don't write to .csv unless leaving R environment
+- use saveRDS amd readRDS to store R objects
+- create an uberscript
+
+```
+# typical contents of uberscript
+source ('Functions.R')
+source('ModelScript.R') # creates object with saveRDS
+source('GraphicsScript.R') # loads object with readRDS
+
+```
+## Logging
+
+Use to keep a written record of the activities generated by a script.
+- useful for debugging
+- useful for annotation and keeping track of files
+
+```{r}
+library(logger)
+log_layout(layout_glue_colors) # use colors in console output
+log_threshold(TRACE) # set low threshold for showing all messages
+mylog <- tempfile() # set up a temporary file to record the log
+log_appender(appender_tee(mylog)) # append log statements to temp file
+
+# using log statements
+log_info()
+log_trace()
+log_debug()
+
+
+log_info('add your message here')
+log_info('mix messages and code. ','pi = ', pi)
+
+for (i in 1:5) {
+log_debug('running file #',i)
+  Sys.sleep(1)
+}
+
+# consider using log statements as annotation to code
+z <- function(x=NULL){log_info(x)}
+
+# now create a snippet
+
+#---------------------------------------
+z('read input')
+# 
+
+#---------------------------------------
+z('source functions')
+# 
+
+# close the log file 
+cat(readLines(mylog),file="logfile.txt",sep="\n")
+
+# write the entire logfile once to the screen
+cat("#---------------",
+  "logfile.txt: ",
+    readLines(mylog),sep="\n",
+  "#---------------")
+
+# clean up and remove temporary file from memory
+unlink(mylog)
+rm(mylog)
+
+
+# Using a progress bar
+
+# "Old school"
+
+for (i in 1:100) {
+  Sys.sleep(0.1)
+  if(i%%10==0) cat(i) else cat('.')
+  # if(i%%10==0) cat(i) else if(i%%5==0) cat('.')
+}
+```
+
+```
+library(progress)
+for (i in 0:101) {
+  progress(i)
+  Sys.sleep(0.05)
+  if (i == 101) message("Done!")
+}
+
+for (i in 0:31) {
+  progress(i, 30)
+  Sys.sleep(0.2)
+  if (i == 31) message("Done!")
+}
+
+for (i in 0:101) {
+  progress(i, progress.bar = TRUE)
+  Sys.sleep(0.01)
+  if (i == 101) message("Done!")
+}
+  
+for (i in 0:21) {
+  progress(i, 20, progress.bar = TRUE)
+  Sys.sleep(0.1)
+  if (i == 21) message("Done!")
+}
+  
+pb <- progress_bar$new(
+  format = "  running [:bar] :percent eta: :eta",
+  total = 100, clear = FALSE, width= 60)
+
+for (i in 1:100) {
+  pb$tick()
+  Sys.sleep(1 / 10)
+}
+```
+
+```{r}
+# Also a progress bar for apply functions that are not in for loops
+
+# library(plyr)
+# laply(1:75, function(i) {Sys.sleep(0.05); i}, .progress = "text")
+
+# measuring the elapsed time of parts of your code
+
+log_tictoc('start loop')
+for (i in 1:100) {
+  Sys.sleep(0.1)
+}
+log_tictoc('end loop')
+
+library(pracma)
+tic()
+for (i in 1:100) {
+  Sys.sleep(0.1)
+}
+toc()
+```
+
