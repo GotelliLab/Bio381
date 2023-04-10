@@ -1,12 +1,11 @@
-INFO [2023-04-09 13:43:33] 
-TRACE [2023-04-09 13:43:33] 
-DEBUG [2023-04-09 13:43:33] 
-INFO [2023-04-09 13:43:33] add your message here
-INFO [2023-04-09 13:43:33] mix messages and code. pi = 3.14159265358979
-DEBUG [2023-04-09 13:43:33] running file #1
-DEBUG [2023-04-09 13:43:34] running file #2
-DEBUG [2023-04-09 13:43:35] running file #3
-DEBUG [2023-04-09 13:43:36] running file #4
-DEBUG [2023-04-09 13:43:37] running file #5
-INFO [2023-04-09 13:43:38] read input
-INFO [2023-04-09 13:43:38] source functions
+INFO  [2023-04-09 20:54:20] 
+INFO  [2023-04-09 20:54:20] text message
+INFO  [2023-04-09 20:54:20] before the loop
+INFO  [2023-04-09 20:54:20] 
+INFO  [2023-04-09 20:54:20] in the loop |index=1
+INFO  [2023-04-09 20:54:20] in the loop |index=2
+INFO  [2023-04-09 20:54:20] in the loop |index=3
+INFO  [2023-04-09 20:54:20] in the loop |index=4
+INFO  [2023-04-09 20:54:20] in the loop |index=5
+INFO  [2023-04-09 20:54:20] 
+INFO  [2023-04-09 20:54:20] after the loop
