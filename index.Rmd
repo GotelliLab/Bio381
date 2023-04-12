@@ -64,7 +64,7 @@ March 30  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
 April 4  | [Randomization Tests](Lectures/Lecture19_S2021) | -
 April 5  | - | [Homework #10](Homeworks/Homework_10.html)
 April 6  | [Batch Processing](Lectures/Lecture_20.html) | -
-April 11  | [ggplot I](Lectures/Lecture21_S2021.html)  | -
+April 11  | [ggplot I](Lectures/Lecture_21.html)  | -
 April 12  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
 April 13  | [ggplot II](Lectures/Lecture22_S2021.html) | -
 April 18 | [ggplot III](Lectures/Lecture23_S2021.html) | -
