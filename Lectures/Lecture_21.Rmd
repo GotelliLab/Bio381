@@ -8,30 +8,9 @@ output:
     theme: united
   pdf_document: default
 ---
-### Introduction to ggplot
-
-#### Components of a ggplot layer
-1. data (in a data frame)
-2. aesthetic mappings (variables are mapped to aesthetics)
-3. geom (the geometric used to draw the layer; has specific aesthetics)
-4. stat (takes raw data and transforms it for useful plotting)
-5. position (adjustment to prevent overplotting)
-
-#### Template for ggplot components
-```
-p1 <- ggplot(data= <DATA>,mapping=aes(<MAPPINGS>) + 
-<GEOM_FUNCTION>(aes(<MAPPINGS>),
-                stat=<STAT>,
-                position=<POSITION>) +
-                <COORDINATE_FUNCTION> +
-                <FACET_FUNCTION>
-
-print(p1)
-ggsave(plot=p1, filename="MyPlot",width=5,height=3,units="in",device="pdf")
-```
 
 #### Preliminaries
-```{r}
+```{r, eval=FALSE}
 library(ggplot2)
 library(ggthemes)
 library(patchwork)
@@ -44,9 +23,9 @@ hist(mpg$hwy)
 
 #### Use base R for simple, fast plotting while coding
 
-```{r,warning=FALSE,message=FALSE}
+```{r,warning=FALSE,message=FALSE, eval=FALSE}
 # basic histogram (1 variable, continuous)
-
+hist(d$hwy)
 
 # basic density plot (1 variable, continuous)
 plot(density(d$hwy))
@@ -58,33 +37,107 @@ table(d$fl,d$drv)
 # basic bar plt (1 variable, discrete, counts)
 barplot(table(d$fl))
 
+# alternative using plot function
+plot(table(d$fl),type="h",lwd=10)
+
 # basic bar plot (1 variable, continuous)
 mass <- c(con=10.5, trt=12.5, trt2=2)
- barplot(mass)
+barplot(mass)
 
-# basic boxplot
-qplot(x=d$fl, y=d$cty,geom="boxplot",fill=I("green"))       
+# basic boxplot (1 continuous response variable, 1 discrete predictor variable)
+ boxplot(d$cty~d$fl)
 
-# basic barplot (long format)
-qplot(x=d$fl,geom="bar",fill=I("green"))
-qplot(x=d$fl,geom="bar",fill="green")
+# basic scatter plot (2 continuous variables)
+ cause <- runif(20)
+ effect <- runif(20)
+ plot(effect~cause)
 
-# bar plot with specified counts or meansw
-x_treatment <- c("Control","Low","High")
-y_response <- c(12,2.5,22.9)
-qplot(x=x_treatment,y=y_response,geom="col",fill=I(c("red","green","blue")))
-# basic curves and functions
-my_vec <- seq(1,100,by=0.1)
+# basic bubble plot (3 continuous variables)
+ covariate <- 1:20
+ cause <- sort(cause)
+ plot(effect~cause,cex=0.5*covariate)
+print(data.frame(cause,effect,covariate))
+
+# basic line graph
+plot(runif(20)~runif(20),type="l")
+
+# basic line graph with points
+plot(runif(20)~runif(20),type="b")
+
+
+
+# basic curves and functions (use small line segments)
+x_var <- seq(1,3,by=0.5)
 my_fun <- function(x) sin(x) + 0.1*x
-qplot(x=my_vec,y=sin(my_vec),geom="line") # built in functions
-qplot(x=my_vec,y=dgamma(my_vec,shape=5, scale=3),geom="line") # stats d functions
-qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
+y_var <- my_fun(x_var)
+
+plot(y_var~x_var,type="l")
+
+# now use many tiny segments
+x_var <- seq(1,100,by=0.1)
+y_var <- my_fun(x_var)
+plot(y_var~x_var,type="l")
+
+# built in stats density functions
+my_vec <- seq(1,100,by=0.1)
+plot(dgamma(my_vec,shape=5,scale=3),type="l")
 
 ```
+### Summary of quick plots in base r
 
+#### 1 variable
+- `hist(x)` # histogram of 1 continuous variable
+- `plot(density(x))` # smoothed density plot of 1 continuous variable
+- `barplot(x)` # simple bar plot with 1 continuous variable of bar heights
+- `barplot(table(x))` # simple bar plot of frequency counts in x 
+- `plot(table(x),type="h",lwd=10)` # histogram "bars" from plot function
+- `plot(d<stat(param1=a,param2=b), type="l")` # use for stats prob density
+
+#### 2 variables
+- `boxplot(y~x)` # continuous y variable, categorical x variable
+- `plot(y~x)` # simple scatter plot
+- `plot(y~x,type="l")` # use for evaluating functions
+- `plot(y~x,type="b")` # use for time series data
+
+#### 3 variables
+- `plot(y~x,cex=0.5*z)` # bubble plot of 3 continuous variables
+
+### Introduction to ggplot
+
+#### Components of a ggplot layer
+1. data (in a data frame)
+2. aesthetic mappings (variables are mapped to aesthetics)
+3. geom (the geometric used to draw the layer; has specific aesthetics)
+4. stat (takes raw data and transforms it for useful plotting)
+5. position (adjustment to prevent overplotting)
+
+---
+
+```
+p1 <- ggplot(data= <DATA>) +
+      aes(<MAPPINGS>) + 
+      <GEOM_FUNCTION>(aes(<MAPPINGS>),
+                stat=<STAT>,
+                position=<POSITION>) +
+      <COORDINATE_FUNCTION> +
+      <FACET_FUNCTION>
+
+print(p1)
+p1 + geom_annotate # will print contents of p1 with geom_annotate() added
+
+
+ggsave(plot=p1,
+       filename="MyPlot.pdf",
+       width=5,height=3,units="in",
+       dpi=300)
+```
+
+#### Template for ggplot components
 ### Themes and fonts
 
-```{r,warning=FALSE,message=FALSE}
+```{r,warning=FALSE,message=FALSE, eval=FALSE}
+library(ggthemes)
+d <- mpg
  p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + geom_point()
  print(p1)
  
@@ -102,9 +155,12 @@ qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
 
 ### Major theme modifications 
 
-```{r, warning=FALSE,message=FALSE}
+```{r, warning=FALSE,message=FALSE, eval=FALSE}
+d <- mpg
+ p1 <- ggplot(data=d, mapping=aes(x=displ,y=cty)) + geom_point()
+ print(p1)
  # use theme parameters to modify font and font size
- p1 + theme_classic(base_size=40,base_family="serif")
+ p1 + theme_classic(base_size=20,base_family="serif")
  # defaults: theme_grey, base_size=16,base_family="Helvetica")
  # font families (Mac): Times, Ariel, Monaco, Courier, Helvetica, serif,sans
  
@@ -113,12 +169,25 @@ qplot(x=my_vec,y=my_fun(my_vec),geom="line") # user-defined functions
        aes(x=fl,fill=fl) + 
        geom_bar()
  print(p2)
- p2 + coord_flip() + theme_grey(base_size=20,base_family="sans")
+ p2 + coord_flip() + theme_grey(base_size=25,base_family="sans")
+ 
+ # avoid this common mistake!
+  p2 <- ggplot(data=d) +
+       aes(x=fl,fill="goldenrod") + 
+       geom_bar()
+ print(p2)
+ 
+ # instead, apply fill and color to the geom, not to the original aes
+  p2 <- ggplot(data=d) +
+       aes(x=fl) + 
+       geom_bar(fill="goldenrod",color="black")
+ print(p2)
+ 
 ```
 
 ### Minor theme modifications
-```{r, warning=FALSE, message=FALSE}
-
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+d <- mpg
  p1 <- ggplot(data=d) +
        aes(x=displ,y=cty) + 
        geom_point(size=7,
