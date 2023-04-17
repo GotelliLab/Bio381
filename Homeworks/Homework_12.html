@@ -233,6 +233,7 @@ ul.task-list{list-style: none;}
 
 
 
+
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -254,6 +255,9 @@ outline: none;
 summary {
 display: list-item;
 }
+details > summary > p:only-child {
+display: inline;
+}
 pre code {
 padding: 0;
 }
@@ -272,23 +276,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -356,6 +354,20 @@ figure out how to add text annotations, lines and arrows to your graph?
 Can you figure out how to use custom colors that you have chosen for
 your fills and lines? Your resources for these explorations are google,
 Stack Overflow – and your TAs!</p>
+<p>Here are some more resources available to you that should guide you
+in making better visualizations:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://r-graph-gallery.com/">R Graph Gallery</a> : A
+collection of useful plot types and aesthetic design tips, plus the
+associated code for each plot so you can follow along easily!</p></li>
+<li><p><a href="https://r-charts.com/">R-Charts</a> : Similar to R Graph
+Gallery, but also has customization tips for base plotting as
+well.</p></li>
+<li><p><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top
+50 list</a> Slightly outdated, but contains many interesting plots and
+visualizations that might apply to your dataset, including some more
+interactive ones, such as animated plots.</p></li>
+</ol>
 </div>
 
 
