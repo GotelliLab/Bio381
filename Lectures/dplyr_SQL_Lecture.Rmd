@@ -7,6 +7,12 @@ output:
     theme: cerulean
 ---
 
+
+#SQL stands for Structured Query Language, and it's useful for storing and processing datasets. This is often used in a lot of other applications, for example I use it a lot when running GIS applications like ArcGIS Pro or ArcMaps, which usually doesn't have a dedicated way to interact with datasets except with SQL.
+
+#So, the first thing we're going to do is download the 
+
+
 Here's a link to the sample datasets that we'll be using-
 [Download](https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.4mw6m90b9)
 
