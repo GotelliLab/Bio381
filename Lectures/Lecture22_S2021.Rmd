@@ -28,14 +28,15 @@ g1 <- ggplot(data=d) +
 print(g1)
 
 g2 <- ggplot(data=d) +
-          aes(x=fl,fill=I("tomato"),color=I("black")) +
-          geom_bar(stat="count") + 
+          aes(x=fl) +
+          geom_bar(fill="tomato",color="black")+ 
           theme(legend.position="none")
 print(g2)
 
 g3 <- ggplot(data=d) +
-             aes(x=displ,fill=I("royalblue"),color=I("black")) + 
-             geom_histogram()
+             aes(x=displ) + 
+             geom_histogram(fill="royalblue",
+             color="black")
 print(g3)
  
   g4 <- ggplot(data=d) +
@@ -56,7 +57,7 @@ print(g3)
   
   g1 + g2 + plot_layout(ncol=2,widths=c(1,2))
   
-# add a spacer plot (under construction)
+# add a spacer plot 
   g1 + plot_spacer() + g2
   
 # use nested layouts
@@ -78,7 +79,8 @@ print(g3)
   (g1 | g2)/(g3 | g4)
   
   # Add title, etc. to a patchwork
-g1 + g2 + plot_annotation('This is a title', caption = 'made with patchwork')
+g1 + g2 + plot_annotation('This is a title', 
+                          caption = 'made with patchwork')
 
 # Change styling of patchwork elements
 g1 + g2 +
@@ -111,13 +113,15 @@ ggsave(filename="MyPlot.pdf",plot=g3, device="pdf",width=20,height=20,units="cm"
 #### Basic mapping of aesthetic variables
 ```{r}
 # mapping of a discrete variable to point color
-m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,color=class) + 
-      geom_point(size=3) 
+m1 <- ggplot(data=mpg) + 
+  aes(x=displ,y=cty,color=class) +
+  geom_point(size=3) 
 print(m1)
              
 # mapping of a discrete variable to point shape (<= 6)
-m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=class) + 
-      geom_point(size=3) 
+m1 <- ggplot(data=mpg) + 
+  aes(x=displ,y=cty,shape=class) + 
+  geom_point(size=3) 
 print(m1)
 
 # mapping of a discrete variable to point size (not advised)
@@ -138,16 +142,16 @@ m1 <- ggplot(data=mpg) +
 print(m1)
 
 # mapping two variables to different aesthetics
-m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=class,color=hwy) + 
+m1 <- ggplot(data=mpg) + aes(x=displ,y=cty,shape=class,color=hwy) + 
       geom_point(size=5) 
 print(m1)
 
 # use shape for smaller number of categories
-m1 <- ggplot(data=mpg) +                                   aes(x=displ,y=cty,shape=drv,color=fl) + 
-      geom_point(size=5) 
-
+m1 <- ggplot(data=mpg) + aes(x=displ,y=cty,shape=drv,color=fl) +  
+  geom_point(size=5)  
 # use all 3 (size, shape, color) to indicate 5 attributes!
-m1 <- ggplot(data=mpg) +                                   aes(x=displ,
+m1 <- ggplot(data=mpg) +
+          aes(x=displ,
           y=cty,shape=drv,
           color=fl,
           size=hwy) + 
@@ -157,7 +161,8 @@ print(m1)
 # mapping a variable to the same aesthetic in two different geoms
 m1 <- ggplot(data=mpg) + 
             aes(x=displ,y=cty,color=drv) + 
-            geom_point(size=2) +                                 geom_smooth(method="lm")
+            geom_point(size=2) +
+            geom_smooth(method="lm")
 print(m1)
 
 ```
@@ -191,7 +196,8 @@ m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=c
 m1 + facet_grid(.~class)
 
 # easy to switch to other geoms
-m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=cty,color=drv) + 
+m1 <- ggplot(data=mpg) +
+            aes(x=displ,y=cty,color=drv) + 
             geom_smooth(se=FALSE,method="lm") 
 
 m1 + facet_grid(.~class)
@@ -204,13 +210,12 @@ m1 <- ggplot(data=mpg) +
 m1 + facet_grid(.~class)
 
 # add a group and fill mapping for subgroups
-m1 <- ggplot(data=mpg) +                                         aes(x=displ,y=cty,group=drv,fill=drv) + 
+m1 <- ggplot(data=mpg) + aes(x=displ,y=cty,group=drv,fill=drv) + 
             geom_boxplot()
 
 m1 + facet_grid(.~class)
 
 
-d <- mpg # use built in mpg data frame
 
 ```
 #### Mapping aesthetics within geoms
