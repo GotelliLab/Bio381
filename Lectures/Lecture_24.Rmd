@@ -114,7 +114,7 @@ t(apply(m,1,sample))
   
 # function to choose a random number of elements
 # from each row and pick them in random order
-#apply(m,1,function(x) x[sample(length(x),size=sample(length(x)))])
+apply(m,1,function(x) sample(x,size=sample(length(x))))
 
 # thus, output from apply can be a matrix, vector, or a list!
 ```
