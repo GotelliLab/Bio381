@@ -16,30 +16,30 @@ If you have never used R before, I recommend you work through the beginning tuto
 
 Here is a collection of cheat-sheets and tips for programming and graphics in R. Most of these guides will not make sense in the beginning, but keep returning to them as you learn more R code, and you will start to pick up many useful methods.
 
-[Base R Cheat Sheet](BaseRCheatSheet.pdf)
+[Base R Cheat Sheet](BaseRCheatSheet.pdf)-Useful for setting working directories, reading in data, and basic vector/dataframe creation.
 
-[dplyr Cheat Sheet](dplyrCheatSheet.pdf)
+[dplyr Cheat Sheet](dplyrCheatSheet.pdf)-Used for data cleaning/transformation, including filtering, joining, and summarizing data. Part of Tidyverse.
 
-[ggplot Cheat Sheet](ggplot2-cheatsheet.pdf)
+[ggplot Cheat Sheet](ggplot2-cheatsheet.pdf)-A popular system for creating plots and visualizations separate from base R. Helpful tips on creating a variety of different plots and adjusting aesthetic components. Part of Tidyverse.
 
-[Nick's Color Functions and Palettes](https://gotellilab.github.io/GotelliLabMeetingHacks/NickGotelli/ColorPalettes.html)
+[Nick's Color Functions and Palettes](https://gotellilab.github.io/GotelliLabMeetingHacks/NickGotelli/ColorPalettes.html)- A collection of several blogs and postings with useful color palettes to use in R graphing.
 
-[Brewer Color Palettes](BrewerPalettes.pdf)
+[Brewer Color Palettes](BrewerPalettes.pdf)-A large package of sequential, diverging, and qualitative color palettes to enhance your figures and plots.
 
-[Color Chart](ColorChart.pdf)
+[Color Chart](ColorChart.pdf)-A list of the R Color codes for manual input of colors.
 
-[LaTeX Cheat Sheet](LaTeX-Cheat-Sheet.pdf)
+[LaTeX Cheat Sheet](LaTeX-Cheat-Sheet.pdf)-Reference sheet for LaTeX in creating and writing documents. 
 
-[R_Cheat_Data](R_Cheat_Data.pdf)
+[R_Cheat_Data](R_Cheat_Data.pdf)-"Ultimate R Cheat Sheet" with a grab-bag of useful commands and functions organized by task-type. 
 
-[rmarkdown-cheatsheet](rmarkdown-cheatsheet.pdf)
+[rmarkdown-cheatsheet](rmarkdown-cheatsheet.pdf)-Reference sheet for creating RMarkdown documents, adding text, and outputting as different file types.
 
-[rmarkdown-reference](rmarkdown-reference.pdf)
+[rmarkdown-reference](rmarkdown-reference.pdf)-Quick cheat-sheet for RMarkdown syntax and corresponding output.
 
-[rstudio-IDE-cheatsheet](rstudio-IDE-cheatsheet.pdf)
+[rstudio-IDE-cheatsheet](rstudio-IDE-cheatsheet.pdf)-Beginner's visual guide to the RStudio environment and various panels.
 
-[Rtips](Rtips.pdf)
+[Rtips](Rtips.pdf)-Long resource filled with useful tips and general workflow advice for working with RStudio, including data transformations, statistical analysis, and plotting.
 
-[Short-refcard](Short-refcard.pdf)
+[Short-refcard](Short-refcard.pdf)-Short cheat sheet with the most common functions used in base R.
 
-[Symbols and Lines](SymbolsAndLines.pdf)
+[Symbols and Lines](SymbolsAndLines.pdf)-RStudio base plot's numbering system for various symbol and line types.
