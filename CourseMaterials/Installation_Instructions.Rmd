@@ -89,7 +89,7 @@ git config --global user.name "Lauren"
 
 If you run into an error stating: "remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.", then please follow these intstructions:
 
-## Step 1 Creating a Personal Access Token on GitHub
+#### Step 1 Creating a Personal Access Token on GitHub
 
 From Github, go to Settings - > Developer Settings - > Personal Access Tokens - > Tokens (classic) - > Generate new token. Copy that token, and then try to commit a change (can be empty) in RStudio. When it asks for your username and password, fill in your username but use that newly generated token as your password instead. 
 

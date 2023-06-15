@@ -1641,6 +1641,19 @@ pop-up window)</li>
 <li>You can choose ‘authorize on browser,’ log in, and click allow
 access</li>
 </ul>
+<div id="troubleshooting-github-connection" class="section level4">
+<h4>Troubleshooting GitHub connection</h4>
+<p>If you run into an error stating: “remote: Support for password
+authentication was removed on August 13, 2021. Please use a personal
+access token instead.”, then please follow these intstructions:</p>
+</div>
+<div id="step-1-creating-a-personal-access-token-on-github" class="section level4">
+<h4>Step 1 Creating a Personal Access Token on GitHub</h4>
+<p>From Github, go to Settings - &gt; Developer Settings - &gt; Personal
+Access Tokens - &gt; Tokens (classic) - &gt; Generate new token. Copy
+that token, and then try to commit a change (can be empty) in RStudio.
+When it asks for your username and password, fill in your username but
+use that newly generated token as your password instead.</p>
 <p>You may need the following instructions for later, but not for the
 early part of the course:</p>
 <pre><code>## Navigating the Shell Lecture 24 (Windows Users)
@@ -1656,6 +1669,7 @@ ls
 * In this lecture (Lecture 25D Navigating the Shell), the command `r` does not work in cygwin. I believe it needs a path to the R.exe file, so I would advise windows users to skip this.  
 
 Please contact me you are having any additional issues installing these programs: lvash@uvm.edu</code></pre>
+</div>
 </div>
 
 
