@@ -16,16 +16,16 @@ show(gse) #Expression sets are simply collections of related experiments.
 
 #Accessing sample information, characteristics, etc.
 x<-pData(gse[[1]]) #Sample information
-#Subsetting information
+#Subset the dataset for just 200 rows
 x<-pData(phenoData(gse[[1]]))[1:5, ]
 
 #Accessing genetic annotation and ID
 y<-fData(gse[[1]]) #Gene annotation
-#Subsetting information
+#Subset the dataset for just 200 rows
 y<-pData(featureData(gse[[1]]))[1:200, c(1:2)]
 
 
 #Accessing genetic expression level data
 z<-exprs(gse[[1]]) #Expression data
-#Subsetting information
+#Subset the dataset for just 200 rows
 z<-exprs(gse[[1]])[1:200,]
