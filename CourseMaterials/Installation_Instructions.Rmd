@@ -72,26 +72,34 @@ For some reason, even after a successful installation, sometimes it shows some e
 * You can download it here: git-scm.com and then restart RStudio
 
 2) When you commit for the first time you will probably receive this message:
-`author identity unknown`   
+`author identity unknown` . We'll need to first introduce you to RStudio and Git with the following instructions.
+
 
 * You need to set your github email in RStudio (only once when you first commit) using this code (and your own github email and name):  
 
+From RStudio, open the Terminal tab (next to your Console tab), and type this in, filling in your email and username: 
 ```
-git config --global user.email "lvash@uvm.edu"
-git config --global user.name "Lauren"
+git config --global user.email "your.email.edu"
+git config --global user.name "Username"
 ```
 
-3) When you push for the first time it prompts you to log in (via a pop-up window)  
+3) Creating a Personal Access Token (PAT) on GitHub
+
+* From Github, go to Settings - > Developer Settings - > Personal Access Tokens - > Tokens (classic) - > Generate new token. Copy that token, and then try to commit a change (can be empty) in RStudio. When it asks for your username and password, fill in your username but use that newly generated token as your password instead. 
+
+
+4) You should now be able to commit changes in RStudio. When you push for the first time it may prompt you to log in (via a pop-up window)  
 
 * You can choose 'authorize on browser,' log in, and click allow access  
 
+
 #### Troubleshooting GitHub connection
 
-If you run into an error stating: "remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.", then please follow these intstructions:
+This is particular important to complete if you run into an error stating: "remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.".
 
-#### Step 1 Creating a Personal Access Token on GitHub
+If you continue to run into errors or are seeing an error like "Error: Bad Credentials (401)", then you should make sure that you have an updated Personal Access Token with the correct scopes. Here is one option to fix this:
 
-From Github, go to Settings - > Developer Settings - > Personal Access Tokens - > Tokens (classic) - > Generate new token. Copy that token, and then try to commit a change (can be empty) in RStudio. When it asks for your username and password, fill in your username but use that newly generated token as your password instead. 
+* First create a new PAT with the correct scopes and make sure to copy it. Then, use the "gitcreds" package to set your PAT. To do this, go to your RStudio's Console, type "install.packages("gitcreds")" and then wait for the installation. Once it's installed, type "gitcreds::gitcreds_set()" next. A message should pop up giving you some information about your current credentials. Hit the number corresponding to "Replace these credentials", and then input your fresh PAT and hit enter. 
 
 
 
