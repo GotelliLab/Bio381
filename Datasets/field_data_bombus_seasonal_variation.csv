@@ -1,0 +1,951 @@
+#/////////////////////////////////////,,,,,,,,,,
+# -----START OF METADATA -----,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# TITLE: Bumble Bee Disease Seasonal Variation Dataset,,,,,,,,,,
+# DATE: August 2016,,,,,,,,,,
+# AUTHOR: P. Alexander Burnham,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# AUTHOR EMAIL: pburnham@uvm.edu,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# OWNERSHIP: P. Alexander Burnham,,,,,,,,,,
+# COLLABORATORS: Samantha Alger Alison Brody and Nicholas Gotelli,,,,,,,,,,
+# FUNDING SOURCES: NAPPC,,,,,,,,,,
+# REPOSITORY: xxxxxxxxx,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# We collected samples to assay viruses (DWV and BQCV) and Nosema from around 300 bumblebees of various species from 5 sites at 4 different time points,,,,,,,,,,
+# SAMPLING LOCATIONS: Northern Vermont ,,,,,,,,,,
+# SAMPLING TIMES: May-September 2016,,,,,,,,,,
+# VARIABLE DESCRIPTION: One line for each column in the data set stating what it is and what the units of measurement are,,,,,,,,,,
+# id: Sample lab ID (one number to a sample),,,,,,,,,,
+# target_name: Name of the disease (DWV = deformed wing virus; BQCV = black queen cell virus; Nosema = Nosema spp.),,,,,,,,,,
+# pathogen_binary: Presence/absence for each disease (0 = absent; 1 = present),,,,,,,,,,
+# sampling_date: Date sampple was collected,,,,,,,,,,
+# site_code: Field site code (5 levels),,,,,,,,,,
+# field_id: ID collected in the field and mapped to a lab ID when moleculary work was done,,,,,,,,,,
+# bombus_spp: Species of bumblebee,,,,,,,,,,
+# host_plant: Common name of plant bee was caught on. (flight means the bee was caught in flight and not on a plant),,,,,,,,,,
+# bee_caste: Caste of the bee specimen (Male Worker and Queen),,,,,,,,,,
+# sampling_event: Four sameling events from may to september (1 2 3 and 4),,,,,,,,,,
+# pathogen_load: Pathogen load (genome copies per/bee for viruses and spores per/bee for Nosema) Values have been shuffled for the purposes of class use.,,,,,,,,,,
+#,,,,,,,,,,
+# MISSING DATA: NA,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# DATA TRACK CHANGES LOG (use this section to record any changes to the data set after it is created),,,,,,,,,,
+# DATE:              # CHANGES:,,,,,,,,,,
+# DATE:              # CHANGES:,,,,,,,,,,
+# DATE:              # CHANGES:,,,,,,,,,,
+# DATE:              # CHANGES:,,,,,,,,,,
+# ------------------------------------------------,,,,,,,,,,
+# ----- END OF METADATA -----,,,,,,,,,,
+#/////////////////////////////////////,,,,,,,,,,
+#,,,,,,,,,,
+#,,,,,,,,,,
+# ----- START OF DATA -----,,,,,,,,,,
+#,,,,,,,,,,
+id,target_name,pathogen_binary,sampling_date,site_code,field_id,bombus_spp,host_plant,bee_caste,sampling_event,pathogen_load
+1,BQCV,1,9/9/2020,BOST,6,impatiens,solidago,worker,4,2414168.805
+3,BQCV,1,9/10/2020,MUDGE,18,impatiens,crown vetch,worker,4,760793.2324
+4,BQCV,0,9/10/2020,MUDGE,11,impatiens,crown vetch,worker,4,0
+5,BQCV,0,9/9/2020,BOST,11,impatiens,solidago,male,4,0
+6,BQCV,1,9/10/2020,CIND,14,impatiens,knot weed,worker,4,124236.7921
+8,BQCV,1,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,413814.5638
+10,BQCV,1,9/10/2020,CIND,13,impatiens,red clover,worker,4,1028831.605
+11,BQCV,1,7/7/2020,BOST,38,impatiens,red clover,worker,2,307696378.8
+12,BQCV,0,9/10/2020,MUDGE,5,impatiens,crown vetch,worker,4,0
+13,BQCV,1,9/9/2020,BOST,12,impatiens,solidago,male,4,311873.0526
+15,BQCV,0,9/9/2020,BOST,18,impatiens,solidago,worker,4,0
+16,BQCV,1,9/9/2020,BOST,23,impatiens,solidago,male,4,1674951.391
+17,BQCV,1,9/10/2020,CIND,20,impatiens,red clover,worker,4,3214026.976
+18,BQCV,1,9/10/2020,CIND,11,impatiens,birdsfoot,worker,4,995592.63
+19,BQCV,0,9/10/2020,CIND,17,impatiens,red clover,worker,4,0
+20,BQCV,1,9/10/2020,CIND,16,impatiens,red clover,worker,4,200804.8542
+21,BQCV,1,9/9/2020,BOST,17,impatiens,solidago,worker,4,228085.8104
+22,BQCV,1,9/9/2020,BOST,7,impatiens,solidago,worker,4,7261151.315
+23,BQCV,1,7/7/2020,COL,22,impatiens,red clover,worker,2,817906.8276
+24,BQCV,1,7/7/2020,BOST,45,impatiens,red clover,worker,2,858658.6884
+25,BQCV,1,7/7/2020,BOST,46,impatiens,red clover,worker,2,1390213.258
+26,BQCV,NA,9/10/2020,CIND,19,impatiens,knot weed,worker,4,NA
+27,BQCV,1,9/9/2020,BOST,16,impatiens,solidago,worker,4,3847308.58
+28,BQCV,1,9/9/2020,BOST,10,impatiens,solidago,male,4,21802654.79
+29,BQCV,1,9/9/2020,BOST,20,impatiens,solidago,worker,4,4026207.454
+30,BQCV,0,9/10/2020,MUDGE,16,impatiens,crown vetch,worker,4,0
+31,BQCV,1,9/10/2020,MUDGE,2,impatiens,crown vetch,worker,4,3185000.456
+32,BQCV,1,9/9/2020,BOST,19,impatiens,solidago,worker,4,3473347.836
+33,BQCV,0,9/9/2020,BOST,5,impatiens,solidago,worker,4,0
+34,BQCV,1,7/7/2020,BOST,21,bimaculatus ,red clover,worker,2,5094918.618
+35,BQCV,1,9/10/2020,MUDGE,3,impatiens,crown vetch,worker,4,6633152.272
+36,BQCV,1,9/10/2020,CIND,5,impatiens,red clover,worker,4,1234024.118
+37,BQCV,1,9/9/2020,BOST,24,impatiens,solidago,male,4,7027623.46
+38,BQCV,1,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,1762561.063
+39,BQCV,1,7/7/2020,BOST,44,impatiens,red clover,worker,2,10269604.05
+40,BQCV,1,9/10/2020,MUDGE,9,impatiens,solidago,worker,4,65701945.97
+41,BQCV,1,9/10/2020,MUDGE,8,impatiens,solidago,worker,4,37212133.71
+42,BQCV,0,9/9/2020,BOST,29,vagans,solidago,male,4,0
+43,BQCV,1,9/9/2020,BOST,27,impatiens,solidago,male,4,1624012.205
+44,BQCV,1,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,3783885.421
+45,BQCV,1,9/10/2020,CIND,6,impatiens,red clover,worker,4,32725315.21
+46,BQCV,1,9/10/2020,MUDGE,19,impatiens,crown vetch,worker,4,7269982.917
+47,BQCV,NA,9/10/2020,MUDGE,10,impatiens,yellow flower need to ID,worker,4,NA
+48,BQCV,0,9/9/2020,BOST,25,impatiens,solidago,male,4,0
+49,BQCV,1,9/10/2020,MUDGE,6,impatiens,crown vetch,worker,4,3432824.36
+50,BQCV,0,9/10/2020,MUDGE,14,impatiens,crown vetch,worker,4,0
+51,BQCV,1,9/9/2020,BOST,28,impatiens,solidago,male,4,68403282513
+52,BQCV,1,9/9/2020,BOST,3,impatiens,solidago,worker,4,357451.842
+53,BQCV,1,9/9/2020,BOST,26,impatiens,solidago,male,4,300145.2793
+54,BQCV,1,7/6/2020,COL,8,impatiens,red clover,worker,2,474680.8072
+55,BQCV,1,9/10/2020,CIND,3,impatiens,red clover,worker,4,437668.8834
+56,BQCV,1,9/9/2020,BOST,9,impatiens,solidago,male,4,2636602.746
+57,BQCV,0,9/10/2020,MUDGE,13,impatiens,crown vetch,worker,4,0
+58,BQCV,1,9/10/2020,CIND,4,impatiens,red clover,worker,4,1814390.225
+59,BQCV,1,9/9/2020,BOST,4,impatiens,solidago,worker,4,2439802.105
+60,BQCV,1,9/9/2020,BOST,14,impatiens,solidago,male,4,662491.9458
+61,BQCV,NA,7/7/2020,COL,21,impatiens,red clover,worker,2,NA
+62,BQCV,1,9/10/2020,CIND,15,impatiens,red clover,worker,4,232765.7305
+63,BQCV,1,7/7/2020,BOST,42,impatiens,red clover,worker,2,56448.21361
+64,BQCV,1,9/9/2020,BOST,22,impatiens,solidago,male,4,2098794.506
+65,BQCV,1,9/9/2020,BOST,13,impatiens,solidago,male,4,1893760.92
+66,BQCV,1,9/9/2020,BOST,1,impatiens,solidago,worker,4,38104803.29
+67,BQCV,1,9/10/2020,MUDGE,17,impatiens,crown vetch,worker,4,26960547.94
+68,BQCV,1,7/6/2020,COL,11,impatiens,red clover,worker,2,3412470.299
+69,BQCV,1,7/6/2020,COL,9,impatiens,red clover,worker,2,17385564.6
+70,BQCV,1,9/9/2020,BOST,15,impatiens,solidago,male,4,3196258.556
+71,BQCV,1,9/9/2020,BOST,8,impatiens,solidago,male,4,7567444.996
+72,BQCV,1,9/10/2020,CIND,12,impatiens,red clover,worker,4,47458651.64
+74,BQCV,1,9/10/2020,MUDGE,7,impatiens,solidago,worker,4,957412.1103
+75,BQCV,0,9/9/2020,FLAN,31,impatiens,jewel weed,worker,4,0
+76,BQCV,1,9/9/2020,FLAN,7,impatiens,jewel weed,worker,4,319769949.3
+77,BQCV,1,9/10/2020,COL,47,impatiens,red clover,worker,4,4649809.637
+78,BQCV,1,9/9/2020,FLAN,24,impatiens,jewel weed,worker,4,8469089.989
+79,BQCV,1,8/4/2020,CIND,13,impatiens,red clover,worker,3,1277499.024
+80,BQCV,1,8/4/2020,CIND,2,impatiens,red clover,worker,3,19579679.97
+81,BQCV,1,9/9/2020,FLAN,30,impatiens,jewel weed,worker,4,84951961
+82,BQCV,NA,8/4/2020,CIND,21,impatiens,red clover,worker,3,NA
+83,BQCV,1,9/10/2020,COL,44,impatiens,red clover,worker,4,220529.8317
+84,BQCV,1,8/4/2020,MUDGE,4,impatiens,crown vetch,worker,3,160033.7979
+85,BQCV,1,8/4/2020,MUDGE,30,impatiens,crown vetch,worker,3,6257120.838
+86,BQCV,1,9/10/2020,COL,29,impatiens,red clover,worker,4,146487.4117
+87,BQCV,0,8/4/2020,MUDGE,33,impatiens,saint johns wort,worker,3,0
+88,BQCV,NA,8/4/2020,MUDGE,23,impatiens,crown vetch,worker,3,NA
+89,BQCV,1,8/4/2020,CIND,8,impatiens,red clover,worker,3,763450.072
+90,BQCV,1,9/9/2020,FLAN,4,impatiens,jewel weed,worker,4,4549276.551
+91,BQCV,1,9/10/2020,COL,20,impatiens,red clover,worker,4,603243.0984
+92,BQCV,0,8/4/2020,CIND,18,impatiens,red clover,worker,3,0
+93,BQCV,1,8/4/2020,MUDGE,6,impatiens,crown vetch,worker,3,47642.70823
+94,BQCV,1,9/10/2020,COL,15,impatiens,red clover,worker,4,326788.5041
+95,BQCV,1,9/9/2020,FLAN,2,impatiens,jewel weed,worker,4,179772.9241
+96,BQCV,1,9/9/2020,FLAN,26,impatiens,jewel weed,worker,4,1743474.371
+97,BQCV,1,8/4/2020,MUDGE,35,impatiens,saint johns wort,worker,3,630583.5509
+98,BQCV,1,9/9/2020,FLAN,18,impatiens,crown vetch,worker,4,33358264.69
+99,BQCV,1,9/10/2020,COL,35,impatiens,red clover,worker,4,6729052.162
+100,BQCV,1,9/9/2020,FLAN,19,impatiens,crown vetch,worker,4,13081173.46
+101,BQCV,1,9/10/2020,COL,10,impatiens,red clover,worker,4,326888.3201
+102,BQCV,1,9/9/2020,FLAN,36,impatiens,crown vetch,worker,4,1604929.842
+103,BQCV,1,8/4/2020,CIND,19,impatiens,red clover,worker,3,194967628.3
+104,BQCV,1,9/9/2020,FLAN,14,impatiens,thistle,worker,4,370163.5785
+105,BQCV,1,8/4/2020,CIND,22,impatiens,red clover,worker,3,2786786.027
+106,BQCV,1,9/9/2020,FLAN,6,impatiens,jewel weed,worker,4,2339482.676
+107,BQCV,1,8/4/2020,CIND,1,impatiens,red clover,worker,3,60166705.31
+108,BQCV,1,9/9/2020,FLAN,35,impatiens,crown vetch,worker,4,50080816.32
+109,BQCV,1,8/4/2020,MUDGE,5,impatiens,crown vetch,worker,3,2001908.368
+110,BQCV,1,8/4/2020,MUDGE,22,impatiens,crown vetch,worker,3,5471002.805
+111,BQCV,1,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,26657272.76
+112,BQCV,1,9/9/2020,FLAN,3,impatiens,jewel weed,worker,4,1953482.461
+113,BQCV,1,9/9/2020,FLAN,21,impatiens,jewel weed,worker,4,57992.60354
+114,BQCV,1,8/4/2020,MUDGE,26,impatiens,crown vetch,worker,3,236256.452
+115,BQCV,1,9/10/2020,COL,43,impatiens,red clover,worker,4,1592536.418
+116,BQCV,1,9/9/2020,FLAN,15,impatiens,solidago,worker,4,393426.1637
+117,BQCV,1,8/4/2020,MUDGE,9,impatiens,saint johns wort,worker,3,1029033.872
+118,BQCV,1,9/9/2020,FLAN,22,impatiens,jewel weed,worker,4,64821.90326
+119,BQCV,1,9/9/2020,FLAN,34,impatiens,solidago,worker,4,362856.5744
+120,BQCV,0,9/10/2020,COL,3,impatiens,red clover,worker,4,0
+121,BQCV,1,9/10/2020,COL,32,impatiens,red clover,worker,4,1714278.269
+122,BQCV,1,8/4/2020,MUDGE,34,impatiens,saint johns wort,worker,3,4187876.004
+123,BQCV,1,9/10/2020,COL,41,impatiens,red clover,worker,4,5659568.443
+124,BQCV,1,8/4/2020,MUDGE,27,impatiens,crown vetch,worker,3,29420088.72
+125,BQCV,1,7/7/2020,BOST,28,impatiens,red clover,worker,2,7410128.056
+126,BQCV,1,9/9/2020,FLAN,27,impatiens,jewel weed,worker,4,1198131.813
+127,BQCV,1,9/10/2020,COL,7,impatiens,red clover,worker,4,1535644.633
+128,BQCV,1,9/9/2020,FLAN,41,impatiens,jewel weed,worker,4,5552512.921
+129,BQCV,0,9/9/2020,FLAN,37,impatiens,crown vetch,worker,4,0
+131,BQCV,1,5/9/2020,CIND,24,impatiens,dandelion,queen,1,76405.36613
+132,BQCV,0,9/9/2020,FLAN,38,impatiens,crown vetch,worker,4,0
+133,BQCV,1,9/9/2020,FLAN,17,impatiens,flight,worker,4,6106706.089
+134,BQCV,0,9/10/2020,COL,34,impatiens,red clover,worker,4,0
+135,BQCV,0,5/9/2020,CIND,22,impatiens,dandelion,queen,1,0
+136,BQCV,1,7/7/2020,BOST,31,impatiens,red clover,worker,2,78963.49771
+137,BQCV,1,9/9/2020,FLAN,42,impatiens,jewel weed,worker,4,7618807.846
+138,BQCV,1,5/9/2020,CIND,19,impatiens,flight,queen,1,902648.3157
+140,BQCV,1,7/7/2020,BOST,11,fervidus,red clover,worker,2,843998381.3
+141,BQCV,1,5/9/2020,CIND,16,impatiens,dandelion,queen,1,704378.3151
+142,BQCV,1,5/9/2020,CIND,4,impatiens,dandelion,queen,1,2816998.172
+143,BQCV,1,9/9/2020,FLAN,10,impatiens,jewel weed,worker,4,61195.29512
+144,BQCV,1,9/10/2020,COL,6,impatiens,red clover,worker,4,5709983.477
+145,BQCV,1,9/10/2020,COL,38,impatiens,red clover,worker,4,1380674.89
+146,BQCV,1,9/9/2020,FLAN,13,impatiens,solidago,worker,4,796240.4438
+147,BQCV,1,9/10/2020,COL,24,impatiens,red clover,worker,4,11939810.56
+148,BQCV,1,9/10/2020,COL,33,impatiens,red clover,worker,4,527529.2194
+149,BQCV,1,9/9/2020,FLAN,28,impatiens,jewel weed,worker,4,1308993.111
+150,BQCV,1,9/9/2020,FLAN,12,impatiens,jewel weed,worker,4,1888117.527
+151,BQCV,1,9/9/2020,FLAN,40,impatiens,jewel weed,worker,4,3253650.592
+153,BQCV,1,9/9/2020,FLAN,8,impatiens,jewel weed,worker,4,5018574.565
+154,BQCV,1,9/9/2020,FLAN,20,impatiens,crown vetch,worker,4,1659515.569
+155,BQCV,1,9/10/2020,COL,28,impatiens,red clover,worker,4,4338755.212
+157,BQCV,1,9/10/2020,COL,2,impatiens,red clover,worker,4,2757942.481
+158,BQCV,1,9/10/2020,COL,30,impatiens,red clover,worker,4,223704.1475
+159,BQCV,1,9/9/2020,FLAN,39,impatiens,jewel weed,worker,4,53534138.95
+160,BQCV,0,5/9/2020,CIND,6,impatiens,dandelion,queen,1,0
+161,BQCV,1,9/9/2020,FLAN,33,impatiens,solidago,worker,4,81641.5397
+162,BQCV,1,9/10/2020,COL,16,impatiens,red clover,worker,4,177179.2346
+163,BQCV,1,9/10/2020,COL,45,impatiens,red clover,worker,4,2388458588
+164,BQCV,1,7/7/2020,BOST,22,impatiens,red clover,worker,2,643801.4517
+165,BQCV,0,9/10/2020,COL,8,impatiens,red clover,worker,4,0
+166,BQCV,1,9/10/2020,COL,26,impatiens,red clover,worker,4,2410337.162
+167,BQCV,1,9/10/2020,COL,27,impatiens,red clover,worker,4,42619.31413
+168,BQCV,1,5/9/2020,CIND,1,impatiens,dandelion,queen,1,5247608.911
+169,BQCV,1,7/7/2020,BOST,14,impatiens,red clover,queen,2,582762.4534
+170,BQCV,1,5/9/2020,CIND,2,impatiens,dandelion,queen,1,1292857.221
+171,BQCV,1,9/10/2020,COL,37,impatiens,red clover,worker,4,302378.4899
+172,BQCV,1,9/9/2020,FLAN,44,impatiens,jewel weed,worker,4,610212.478
+173,BQCV,1,5/9/2020,CIND,14,impatiens,dandelion,queen,1,1164478.736
+174,BQCV,1,5/9/2020,CIND,31,impatiens,flight,queen,1,61269.06858
+175,BQCV,1,5/17/2020,FLAN,4,impatiens,flight,queen,1,12337518.47
+176,BQCV,1,8/3/2020,FLAN,37,impatiens,crown vetch,worker,3,2986283.083
+177,BQCV,1,9/10/2020,COL,22,impatiens,red clover,worker,4,67527.50962
+178,BQCV,1,8/3/2020,FLAN,38,impatiens,crown vetch,worker,3,245765.2176
+179,BQCV,1,9/10/2020,COL,13,impatiens,red clover,worker,4,426157.4358
+180,BQCV,1,8/3/2020,FLAN,2,impatiens,crown vetch,worker,3,36457025372
+181,BQCV,NA,8/3/2020,BOST,22,impatiens,red clover,worker,3,NA
+183,BQCV,1,8/3/2020,FLAN,30,impatiens,crown vetch,worker,3,427933.9735
+184,BQCV,1,8/3/2020,BOST,17,impatiens,knot weed,male,3,8049923.967
+185,BQCV,1,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,355098.2834
+186,BQCV,0,9/10/2020,COL,19,impatiens,red clover,worker,4,0
+187,BQCV,1,9/10/2020,COL,1,impatiens,red clover,worker,4,9808910.744
+188,BQCV,1,9/10/2020,COL,42,impatiens,red clover,worker,4,540047.8296
+189,BQCV,1,8/3/2020,FLAN,5,impatiens,crown vetch,worker,3,31338.03199
+190,BQCV,1,8/3/2020,FLAN,26,impatiens,crown vetch,worker,3,74235.81861
+191,BQCV,1,8/3/2020,FLAN,29,impatiens,crown vetch,worker,3,4860884.17
+192,BQCV,1,7/6/2020,MUDGE,5,impatiens,crown vetch,worker,2,5394648.33
+193,BQCV,1,8/3/2020,FLAN,9,impatiens,crown vetch,worker,3,10923483.95
+194,BQCV,1,5/9/2020,CIND,10,impatiens,dandelion,queen,1,2754065.982
+195,BQCV,1,8/3/2020,FLAN,39,impatiens,crown vetch,worker,3,24848.74151
+239,BQCV,1,8/3/2020,FLAN,40,impatiens,crown vetch,worker,3,326788.5041
+240,BQCV,1,9/10/2020,COL,48,impatiens,red clover,worker,4,107934.2342
+242,BQCV,1,8/3/2020,BOST,13,impatiens,red clover,worker,3,122591.3186
+243,BQCV,1,8/3/2020,FLAN,6,impatiens,crown vetch,worker,3,308792.2399
+244,BQCV,1,9/10/2020,COL,14,impatiens,red clover,worker,4,1576721.004
+245,BQCV,1,8/3/2020,BOST,16,impatiens,red clover,worker,3,260594.4759
+246,BQCV,0,5/17/2020,FLAN,5,impatiens,flight,queen,1,0
+247,BQCV,1,5/17/2020,BOST,6,impatiens,dandelion,queen,1,450965.5599
+248,BQCV,1,5/17/2020,BOST,37,impatiens,flight,queen,1,718026.7561
+249,BQCV,1,5/17/2020,BOST,17,impatiens,dandelion,queen,1,623933.6988
+250,BQCV,1,7/11/2020,CIND,13,impatiens,red clover,worker,2,174070.5135
+251,BQCV,1,8/4/2020,MUDGE,29,impatiens,crown vetch,worker,3,61208.82373
+252,BQCV,0,8/3/2020,FLAN,35,impatiens,crown vetch,worker,3,0
+253,BQCV,1,8/3/2020,FLAN,11,impatiens,crown vetch,worker,3,618371.934
+254,BQCV,1,8/3/2020,FLAN,20,impatiens,crown vetch,worker,3,5701034.925
+261,BQCV,1,7/6/2020,MUDGE,4,impatiens,crown vetch,worker,2,434218.7072
+262,BQCV,1,8/3/2020,FLAN,27,impatiens,crown vetch,worker,3,1299436.995
+263,BQCV,1,5/17/2020,BOST,19,impatiens,flight,queen,1,5104085.509
+264,BQCV,0,5/17/2020,BOST,25,impatiens,flight,queen,1,0
+265,BQCV,1,8/3/2020,BOST,11,impatiens,red clover,worker,3,738805.2493
+266,BQCV,1,5/17/2020,BOST,3,impatiens,flight,queen,1,17980442.56
+267,BQCV,NA,8/4/2020,MUDGE,28,impatiens,crown vetch,worker,3,NA
+268,BQCV,1,8/3/2020,BOST,21,impatiens,red clover,worker,3,209169.4008
+269,BQCV,1,8/3/2020,FLAN,3,impatiens,crown vetch,worker,3,2122871.109
+270,BQCV,1,5/17/2020,BOST,12,impatiens,flight ,queen,1,39246481.72
+271,BQCV,1,9/10/2020,COL,12,impatiens,red clover,worker,4,245525.8
+272,BQCV,1,9/10/2020,COL,21,impatiens,red clover,worker,4,2487165.773
+273,BQCV,1,9/9/2020,FLAN,11,impatiens,jewel weed,worker,4,1256888.119
+274,BQCV,1,8/3/2020,BOST,18,impatiens,red clover,worker,3,585573.6525
+275,BQCV,1,8/3/2020,BOST,20,impatiens,red clover,worker,3,4503577.621
+276,BQCV,1,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,11464856.47
+276,BQCV,1,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,301055.0094
+277,BQCV,1,5/17/2020,BOST,32,impatiens,flight,queen,1,14676744.69
+277,BQCV,1,5/17/2020,BOST,32,impatiens,flight,queen,1,46938.5381
+278,BQCV,1,9/10/2020,COL,31,impatiens,red clover,worker,4,14842177.38
+278,BQCV,0,9/10/2020,COL,31,impatiens,red clover,worker,4,0
+279,BQCV,1,9/10/2020,COL,9,impatiens,red clover,worker,4,3581247.144
+279,BQCV,1,9/10/2020,COL,9,impatiens,red clover,worker,4,14730705.86
+280,BQCV,1,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,4908563.113
+280,BQCV,1,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,890305.1161
+282,BQCV,1,9/10/2020,COL,17,impatiens,red clover,worker,4,84437.53541
+282,BQCV,1,9/10/2020,COL,17,impatiens,red clover,worker,4,5271939.37
+284,BQCV,1,5/17/2020,FLAN,17,impatiens,mint,queen,1,52360.71536
+284,BQCV,1,5/17/2020,FLAN,17,impatiens,mint,queen,1,163841148.4
+285,BQCV,1,5/17/2020,BOST,10,impatiens,dandelion,queen,1,151227.4746
+286,BQCV,0,8/3/2020,FLAN,16,impatiens,crown vetch,worker,3,0
+288,BQCV,1,8/3/2020,BOST,4,impatiens,red clover,worker,3,24654207.84
+289,BQCV,NA,5/17/2020,FLAN,12,impatiens,dandelion,queen,1,NA
+290,BQCV,1,8/4/2020,MUDGE,2,impatiens,saint johns wort,worker,3,52360.71536
+291,BQCV,1,5/17/2020,BOST,20,impatiens,flight,queen,1,4033891.246
+293,BQCV,1,8/3/2020,BOST,19,impatiens,red clover,worker,3,2655300.769
+294,BQCV,1,8/3/2020,BOST,14,impatiens,red clover,worker,3,9095157.376
+295,BQCV,1,9/10/2020,COL,18,impatiens,flight,worker,4,6258156.771
+296,BQCV,1,5/17/2020,FLAN,2,impatiens,dandelion,queen,1,159667.1872
+297,BQCV,1,5/17/2020,BOST,4,impatiens,dandelion,queen,1,147160.5964
+298,BQCV,1,8/3/2020,BOST,6,impatiens,red clover,worker,3,5296788.705
+303,BQCV,1,9/9/2020,FLAN,32,impatiens,jewel weed,worker,4,127441.5235
+305,BQCV,1,5/17/2020,BOST,34,impatiens,flight,queen,1,94441.89648
+306,BQCV,1,8/3/2020,FLAN,14,impatiens,crown vetch,worker,3,5368945.289
+307,BQCV,1,8/3/2020,FLAN,33,impatiens,crown vetch,worker,3,929073.6026
+309,BQCV,1,5/17/2020,FLAN,1,impatiens,dandelion,queen,1,74898816.13
+310,BQCV,1,5/17/2020,FLAN,8,impatiens,flight,queen,1,313190.3742
+311,BQCV,1,8/3/2020,FLAN,18,impatiens,crown vetch,worker,3,20811964.2
+312,BQCV,1,8/3/2020,FLAN,15,impatiens,crown vetch,worker,3,370282.7155
+313,BQCV,1,8/4/2020,CIND,16,impatiens,red clover,worker,3,28088946.07
+314,BQCV,1,8/4/2020,CIND,3,impatiens,red clover,worker,3,2151307.082
+315,BQCV,1,8/4/2020,CIND,23,impatiens,red clover,worker,3,250610.6726
+316,BQCV,1,9/10/2020,COL,23,impatiens,red clover,worker,4,36033243.57
+317,BQCV,1,8/4/2020,CIND,15,impatiens,red clover,worker,3,100889.3857
+318,BQCV,1,8/3/2020,FLAN,13,impatiens,cr+H262own vetch,worker,3,22427345.12
+319,BQCV,1,8/4/2020,COL,11,impatiens,NA,worker,3,3106413.843
+321,BQCV,1,8/4/2020,COL,15,impatiens,jewlweed,worker,3,515859754.7
+324,BQCV,1,5/19/2020,MUDGE,29,impatiens,dandelion,queen,1,2655300.769
+325,BQCV,1,5/19/2020,COL,29,impatiens,dandelion,queen,1,53080779564
+327,BQCV,1,8/4/2020,COL,17,impatiens,red clover,worker,3,654161.4586
+328,BQCV,1,5/19/2020,COL,35,impatiens,dandelion,queen,1,13418152.92
+330,BQCV,1,5/19/2020,MUDGE,14,impatiens,dandelion,queen,1,796482.5687
+331,BQCV,1,5/19/2020,COL,28,impatiens,dandelion,queen,1,125927.9357
+332,BQCV,1,8/4/2020,COL,4,impatiens,red clover,worker,3,1337305.322
+333,BQCV,1,5/19/2020,MUDGE,45,impatiens,flight,queen,1,10763793.55
+334,BQCV,1,5/19/2020,COL,30,impatiens,flight,queen,1,850419.4097
+335,BQCV,1,5/19/2020,COL,32,impatiens,dandelion,queen,1,630146.3174
+336,BQCV,1,8/4/2020,COL,9,impatiens,red clover,worker,3,118549.1656
+337,BQCV,0,5/19/2020,COL,8,impatiens,flight,queen,1,0
+338,BQCV,0,8/4/2020,COL,5,impatiens,red clover,worker,3,0
+339,BQCV,1,5/19/2020,MUDGE,23,impatiens,dandelion,queen,1,352749.458
+340,BQCV,1,8/4/2020,COL,6,impatiens,red clover,worker,3,2318601.192
+341,BQCV,1,7/6/2020,FLAN,42,impatiens,red clover,worker,2,399109.5696
+342,BQCV,1,7/6/2020,FLAN,33,impatiens,crown vetch,worker,2,3274438.627
+343,BQCV,1,5/19/2020,COL,11,impatiens,dandelion,queen,1,292883.5181
+344,BQCV,1,5/17/2020,FLAN,6,vagans,dandelion,queen,1,187044.7005
+345,BQCV,1,7/6/2020,FLAN,3,impatiens,crown vetch,worker,2,22159974.91
+346,BQCV,1,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,3697555.576
+347,BQCV,1,7/6/2020,FLAN,5,impatiens,saint johns wort,worker,2,829342.4634
+348,BQCV,1,7/6/2020,FLAN,36,impatiens,crown vetch,worker,2,4674828.649
+358,BQCV,1,5/19/2020,COL,6,impatiens,dandelion,queen,1,465800.823
+359,BQCV,1,5/19/2020,COL,9,impatiens,dandelion,queen,1,648355682.6
+360,BQCV,1,7/6/2020,FLAN,15,impatiens,red clover,worker,2,545615.7883
+361,BQCV,1,5/19/2020,COL,27,impatiens,dandelion,queen,1,355371.8121
+362,BQCV,0,7/6/2020,FLAN,40,impatiens,saint johns wort,worker,2,0
+363,BQCV,1,5/17/2020,FLAN,18,impatiens,violet ,queen,1,2027129.258
+364,BQCV,1,7/6/2020,FLAN,53,impatiens,red clover,worker,2,2620980.728
+366,BQCV,1,7/6/2020,FLAN,56,impatiens,red clover,worker,2,13548387.37
+368,BQCV,NA,7/6/2020,FLAN,55,impatiens,red clover,queen,2,NA
+369,BQCV,1,5/17/2020,FLAN,24,bimaculatus,flight,queen,1,3238595.935
+370,BQCV,1,5/17/2020,FLAN,20,bimaculatus,violet ,queen,1,11384850.86
+371,BQCV,1,5/17/2020,FLAN,17,impatiens,mint,queen,1,531094.1246
+372,BQCV,1,5/19/2020,COL,31,impatiens,flight,queen,1,205182854.4
+373,BQCV,1,5/19/2020,COL,33,impatiens,dandelion,queen,1,1012992.437
+374,BQCV,1,8/4/2020,CIND,5,impatiens,red clover,worker,3,2616767.527
+376,BQCV,1,5/17/2020,BOST,27,impatiens,flight,queen,1,13289577.01
+377,BQCV,1,5/19/2020,COL,1,impatiens,dandelion,queen,1,1232911.193
+379,BQCV,1,7/6/2020,FLAN,34,impatiens,crown vetch,worker,2,2327661.105
+380,BQCV,1,7/6/2020,FLAN,12,impatiens,saint johns wort,worker,2,2575431.569
+381,BQCV,1,5/19/2020,COL,4,ternarius,dandelion,queen,1,6159383.031
+383,BQCV,0,5/17/2020,FLAN,22,bimaculatus,violet,queen,1,0
+384,BQCV,1,7/6/2020,FLAN,16,impatiens,red clover,worker,2,41570992.9
+1,DWV,1,9/9/2020,BOST,6,impatiens,solidago,worker,4,85329.54142
+3,DWV,1,9/10/2020,MUDGE,18,impatiens,crown vetch,worker,4,45153.02837
+4,DWV,0,9/10/2020,MUDGE,11,impatiens,crown vetch,worker,4,0
+5,DWV,0,9/9/2020,BOST,11,impatiens,solidago,male,4,0
+6,DWV,1,9/10/2020,CIND,14,impatiens,knot weed,worker,4,215750.2847
+8,DWV,1,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,27694.50213
+10,DWV,1,9/10/2020,CIND,13,impatiens,red clover,worker,4,44988.08297
+11,DWV,0,7/7/2020,BOST,38,impatiens,red clover,worker,2,0
+12,DWV,0,9/10/2020,MUDGE,5,impatiens,crown vetch,worker,4,0
+13,DWV,0,9/9/2020,BOST,12,impatiens,solidago,male,4,0
+15,DWV,0,9/9/2020,BOST,18,impatiens,solidago,worker,4,0
+16,DWV,0,9/9/2020,BOST,23,impatiens,solidago,male,4,0
+17,DWV,0,9/10/2020,CIND,20,impatiens,red clover,worker,4,0
+18,DWV,0,9/10/2020,CIND,11,impatiens,birdsfoot,worker,4,0
+19,DWV,0,9/10/2020,CIND,17,impatiens,red clover,worker,4,0
+20,DWV,1,9/10/2020,CIND,16,impatiens,red clover,worker,4,46865.1454
+21,DWV,0,9/9/2020,BOST,17,impatiens,solidago,worker,4,0
+22,DWV,0,9/9/2020,BOST,7,impatiens,solidago,worker,4,0
+23,DWV,1,7/7/2020,COL,22,impatiens,red clover,worker,2,38650.78998
+24,DWV,0,7/7/2020,BOST,45,impatiens,red clover,worker,2,0
+25,DWV,0,7/7/2020,BOST,46,impatiens,red clover,worker,2,0
+26,DWV,1,9/10/2020,CIND,19,impatiens,knot weed,worker,4,42594.79507
+27,DWV,0,9/9/2020,BOST,16,impatiens,solidago,worker,4,0
+28,DWV,0,9/9/2020,BOST,10,impatiens,solidago,male,4,0
+29,DWV,1,9/9/2020,BOST,20,impatiens,solidago,worker,4,188818.8759
+30,DWV,1,9/10/2020,MUDGE,16,impatiens,crown vetch,worker,4,1322198.956
+31,DWV,0,9/10/2020,MUDGE,2,impatiens,crown vetch,worker,4,0
+32,DWV,0,9/9/2020,BOST,19,impatiens,solidago,worker,4,0
+33,DWV,1,9/9/2020,BOST,5,impatiens,solidago,worker,4,41186.674
+34,DWV,1,7/7/2020,BOST,21,bimaculatus ,red clover,worker,2,31693.73363
+35,DWV,1,9/10/2020,MUDGE,3,impatiens,crown vetch,worker,4,18851.8983
+36,DWV,0,9/10/2020,CIND,5,impatiens,red clover,worker,4,0
+37,DWV,0,9/9/2020,BOST,24,impatiens,solidago,male,4,0
+38,DWV,1,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,40167.96608
+39,DWV,1,7/7/2020,BOST,44,impatiens,red clover,worker,2,187511.0816
+40,DWV,0,9/10/2020,MUDGE,9,impatiens,solidago,worker,4,0
+41,DWV,0,9/10/2020,MUDGE,8,impatiens,solidago,worker,4,0
+42,DWV,0,9/9/2020,BOST,29,vagans,solidago,male,4,0
+43,DWV,0,9/9/2020,BOST,27,impatiens,solidago,male,4,0
+44,DWV,0,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,0
+45,DWV,0,9/10/2020,CIND,6,impatiens,red clover,worker,4,0
+46,DWV,0,9/10/2020,MUDGE,19,impatiens,crown vetch,worker,4,0
+47,DWV,0,9/10/2020,MUDGE,10,impatiens,NA,worker,4,0
+48,DWV,0,9/9/2020,BOST,25,impatiens,solidago,male,4,0
+49,DWV,0,9/10/2020,MUDGE,6,impatiens,crown vetch,worker,4,0
+50,DWV,0,9/10/2020,MUDGE,14,impatiens,crown vetch,worker,4,0
+51,DWV,1,9/9/2020,BOST,28,impatiens,solidago,male,4,4063133.786
+52,DWV,1,9/9/2020,BOST,3,impatiens,solidago,worker,4,885190.483
+53,DWV,1,9/9/2020,BOST,26,impatiens,solidago,male,4,706340.965
+54,DWV,0,7/6/2020,COL,8,impatiens,red clover,worker,2,0
+55,DWV,0,9/10/2020,CIND,3,impatiens,red clover,worker,4,0
+56,DWV,0,9/9/2020,BOST,9,impatiens,solidago,male,4,0
+57,DWV,0,9/10/2020,MUDGE,13,impatiens,crown vetch,worker,4,0
+58,DWV,1,9/10/2020,CIND,4,impatiens,red clover,worker,4,351213.648
+59,DWV,1,9/9/2020,BOST,4,impatiens,solidago,worker,4,700860.781
+60,DWV,1,9/9/2020,BOST,14,impatiens,solidago,male,4,419316.2664
+61,DWV,1,7/7/2020,COL,21,impatiens,red clover,worker,2,144951.3914
+62,DWV,1,9/10/2020,CIND,15,impatiens,red clover,worker,4,126962.3309
+63,DWV,0,7/7/2020,BOST,42,impatiens,red clover,worker,2,0
+64,DWV,0,9/9/2020,BOST,22,impatiens,solidago,male,4,0
+65,DWV,1,9/9/2020,BOST,13,impatiens,solidago,male,4,124902.5636
+66,DWV,0,9/9/2020,BOST,1,impatiens,solidago,worker,4,0
+67,DWV,0,9/10/2020,MUDGE,17,impatiens,crown vetch,worker,4,0
+68,DWV,1,7/6/2020,COL,11,impatiens,red clover,worker,2,35694.63724
+69,DWV,0,7/6/2020,COL,9,impatiens,red clover,worker,2,0
+70,DWV,0,9/9/2020,BOST,15,impatiens,solidago,male,4,0
+71,DWV,0,9/9/2020,BOST,8,impatiens,solidago,male,4,0
+72,DWV,0,9/10/2020,CIND,12,impatiens,red clover,worker,4,0
+74,DWV,0,9/10/2020,MUDGE,7,impatiens,solidago,worker,4,0
+75,DWV,1,9/9/2020,FLAN,31,impatiens,jewel weed,worker,4,120464.6868
+76,DWV,0,9/9/2020,FLAN,7,impatiens,jewel weed,worker,4,0
+77,DWV,0,9/10/2020,COL,47,impatiens,red clover,worker,4,0
+78,DWV,1,9/9/2020,FLAN,24,impatiens,jewel weed,worker,4,42447.47228
+79,DWV,0,8/4/2020,CIND,13,impatiens,red clover,worker,3,0
+80,DWV,0,8/4/2020,CIND,2,impatiens,red clover,worker,3,0
+81,DWV,0,9/9/2020,FLAN,30,impatiens,jewel weed,worker,4,0
+82,DWV,0,8/4/2020,CIND,21,impatiens,red clover,worker,3,0
+83,DWV,1,9/10/2020,COL,44,impatiens,red clover,worker,4,50101.06941
+84,DWV,1,8/4/2020,MUDGE,4,impatiens,crown vetch,worker,3,100413.9397
+85,DWV,0,8/4/2020,MUDGE,30,impatiens,crown vetch,worker,3,0
+86,DWV,1,9/10/2020,COL,29,impatiens,red clover,worker,4,43112.50143
+87,DWV,0,8/4/2020,MUDGE,33,impatiens,saint johns wort,worker,3,0
+88,DWV,1,8/4/2020,MUDGE,23,impatiens,crown vetch,worker,3,87695.74884
+89,DWV,1,8/4/2020,CIND,8,impatiens,red clover,worker,3,63849.14521
+90,DWV,0,9/9/2020,FLAN,4,impatiens,jewel weed,worker,4,0
+91,DWV,0,9/10/2020,COL,20,impatiens,red clover,worker,4,0
+92,DWV,1,8/4/2020,CIND,18,impatiens,red clover,worker,3,10583123.59
+93,DWV,1,8/4/2020,MUDGE,6,impatiens,crown vetch,worker,3,256610.153
+94,DWV,1,9/10/2020,COL,15,impatiens,red clover,worker,4,53631.28972
+95,DWV,0,9/9/2020,FLAN,2,impatiens,jewel weed,worker,4,0
+96,DWV,0,9/9/2020,FLAN,26,impatiens,jewel weed,worker,4,0
+97,DWV,0,8/4/2020,MUDGE,35,impatiens,saint johns wort,worker,3,0
+98,DWV,1,9/9/2020,FLAN,18,impatiens,crown vetch,worker,4,406694.2946
+99,DWV,0,9/10/2020,COL,35,impatiens,red clover,worker,4,0
+100,DWV,0,9/9/2020,FLAN,19,impatiens,crown vetch,worker,4,0
+101,DWV,0,9/10/2020,COL,10,impatiens,red clover,worker,4,0
+102,DWV,0,9/9/2020,FLAN,36,impatiens,crown vetch,worker,4,0
+103,DWV,0,8/4/2020,CIND,19,impatiens,red clover,worker,3,0
+104,DWV,0,9/9/2020,FLAN,14,impatiens,thistle,worker,4,0
+105,DWV,1,8/4/2020,CIND,22,impatiens,red clover,worker,3,40086.70856
+106,DWV,0,9/9/2020,FLAN,6,impatiens,jewel weed,worker,4,0
+107,DWV,0,8/4/2020,CIND,1,impatiens,red clover,worker,3,0
+108,DWV,1,9/9/2020,FLAN,35,impatiens,crown vetch,worker,4,151121.6798
+109,DWV,0,8/4/2020,MUDGE,5,impatiens,crown vetch,worker,3,0
+110,DWV,0,8/4/2020,MUDGE,22,impatiens,crown vetch,worker,3,0
+111,DWV,0,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,0
+112,DWV,1,9/9/2020,FLAN,3,impatiens,jewel weed,worker,4,249829.5625
+113,DWV,0,9/9/2020,FLAN,21,impatiens,jewel weed,worker,4,0
+114,DWV,0,8/4/2020,MUDGE,26,impatiens,crown vetch,worker,3,0
+115,DWV,0,9/10/2020,COL,43,impatiens,red clover,worker,4,0
+116,DWV,0,9/9/2020,FLAN,15,impatiens,solidago,worker,4,0
+117,DWV,1,8/4/2020,MUDGE,9,impatiens,saint johns wort,worker,3,725963.376
+118,DWV,0,9/9/2020,FLAN,22,impatiens,jewel weed,worker,4,0
+119,DWV,1,9/9/2020,FLAN,34,impatiens,solidago,worker,4,47620.66336
+120,DWV,0,9/10/2020,COL,3,impatiens,red clover,worker,4,0
+121,DWV,1,9/10/2020,COL,32,impatiens,red clover,worker,4,7559114.182
+122,DWV,0,8/4/2020,MUDGE,34,impatiens,saint johns wort,worker,3,0
+123,DWV,0,9/10/2020,COL,41,impatiens,red clover,worker,4,0
+124,DWV,1,8/4/2020,MUDGE,27,impatiens,crown vetch,worker,3,30378.28692
+125,DWV,0,7/7/2020,BOST,28,impatiens,red clover,worker,2,0
+126,DWV,0,9/9/2020,FLAN,27,impatiens,jewel weed,worker,4,0
+127,DWV,1,9/10/2020,COL,7,impatiens,red clover,worker,4,889693.2953
+128,DWV,0,9/9/2020,FLAN,41,impatiens,jewel weed,worker,4,0
+129,DWV,1,9/9/2020,FLAN,37,impatiens,crown vetch,worker,4,20956.61133
+131,DWV,0,5/9/2020,CIND,24,impatiens,dandelion,queen,1,0
+132,DWV,0,9/9/2020,FLAN,38,impatiens,crown vetch,worker,4,0
+133,DWV,0,9/9/2020,FLAN,17,impatiens,flight,worker,4,0
+134,DWV,0,9/10/2020,COL,34,impatiens,red clover,worker,4,0
+135,DWV,0,5/9/2020,CIND,22,impatiens,dandelion,queen,1,0
+136,DWV,0,7/7/2020,BOST,31,impatiens,red clover,worker,2,0
+137,DWV,0,9/9/2020,FLAN,42,impatiens,jewel weed,worker,4,0
+138,DWV,1,5/9/2020,CIND,19,impatiens,flight,queen,1,30586.43443
+140,DWV,1,7/7/2020,BOST,11,fervidus,red clover,worker,2,78891.02641
+141,DWV,0,5/9/2020,CIND,16,impatiens,dandelion,queen,1,0
+142,DWV,0,5/9/2020,CIND,4,impatiens,dandelion,queen,1,0
+143,DWV,0,9/9/2020,FLAN,10,impatiens,jewel weed,worker,4,0
+144,DWV,0,9/10/2020,COL,6,impatiens,red clover,worker,4,0
+145,DWV,0,9/10/2020,COL,38,impatiens,red clover,worker,4,0
+146,DWV,0,9/9/2020,FLAN,13,impatiens,solidago,worker,4,0
+147,DWV,0,9/10/2020,COL,24,impatiens,red clover,worker,4,0
+148,DWV,0,9/10/2020,COL,33,impatiens,red clover,worker,4,0
+149,DWV,1,9/9/2020,FLAN,28,impatiens,jewel weed,worker,4,99333.68467
+150,DWV,0,9/9/2020,FLAN,12,impatiens,jewel weed,worker,4,0
+151,DWV,0,9/9/2020,FLAN,40,impatiens,jewel weed,worker,4,0
+153,DWV,1,9/9/2020,FLAN,8,impatiens,jewel weed,worker,4,378204.8284
+154,DWV,0,9/9/2020,FLAN,20,impatiens,crown vetch,worker,4,0
+155,DWV,0,9/10/2020,COL,28,impatiens,red clover,worker,4,0
+157,DWV,0,9/10/2020,COL,2,impatiens,red clover,worker,4,0
+158,DWV,0,9/10/2020,COL,30,impatiens,red clover,worker,4,0
+159,DWV,0,9/9/2020,FLAN,39,impatiens,jewel weed,worker,4,0
+160,DWV,1,5/9/2020,CIND,6,impatiens,dandelion,queen,1,184090.1021
+161,DWV,0,9/9/2020,FLAN,33,impatiens,solidago,worker,4,0
+162,DWV,1,9/10/2020,COL,16,impatiens,red clover,worker,4,1027736.914
+163,DWV,0,9/10/2020,COL,45,impatiens,red clover,worker,4,0
+164,DWV,0,7/7/2020,BOST,22,impatiens,red clover,worker,2,0
+165,DWV,0,9/10/2020,COL,8,impatiens,red clover,worker,4,0
+166,DWV,0,9/10/2020,COL,26,impatiens,red clover,worker,4,0
+167,DWV,0,9/10/2020,COL,27,impatiens,red clover,worker,4,0
+168,DWV,0,5/9/2020,CIND,1,impatiens,dandelion,queen,1,0
+169,DWV,0,7/7/2020,BOST,14,impatiens,red clover,queen,2,0
+170,DWV,0,5/9/2020,CIND,2,impatiens,dandelion,queen,1,0
+171,DWV,0,9/10/2020,COL,37,impatiens,red clover,worker,4,0
+172,DWV,NA,9/9/2020,FLAN,44,impatiens,jewel weed,worker,4,NA
+173,DWV,0,5/9/2020,CIND,14,impatiens,dandelion,queen,1,0
+174,DWV,0,5/9/2020,CIND,31,impatiens,flight,queen,1,0
+175,DWV,0,5/17/2020,FLAN,4,impatiens,flight,queen,1,0
+176,DWV,0,8/3/2020,FLAN,37,impatiens,crown vetch,worker,3,0
+177,DWV,0,9/10/2020,COL,22,impatiens,red clover,worker,4,0
+178,DWV,1,8/3/2020,FLAN,38,impatiens,crown vetch,worker,3,116785.6894
+179,DWV,0,9/10/2020,COL,13,impatiens,red clover,worker,4,0
+180,DWV,1,8/3/2020,FLAN,2,impatiens,crown vetch,worker,3,433402.5103
+181,DWV,0,8/3/2020,BOST,22,impatiens,red clover,worker,3,0
+183,DWV,1,8/3/2020,FLAN,30,impatiens,crown vetch,worker,3,2446585.608
+184,DWV,1,8/3/2020,BOST,17,impatiens,knot weed,male,3,58954.80399
+185,DWV,0,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,0
+186,DWV,0,9/10/2020,COL,19,impatiens,red clover,worker,4,0
+187,DWV,0,9/10/2020,COL,1,impatiens,red clover,worker,4,0
+188,DWV,0,9/10/2020,COL,42,impatiens,red clover,worker,4,0
+189,DWV,1,8/3/2020,FLAN,5,impatiens,crown vetch,worker,3,30205.36712
+190,DWV,1,8/3/2020,FLAN,26,impatiens,crown vetch,worker,3,556917.6084
+191,DWV,1,8/3/2020,FLAN,29,impatiens,crown vetch,worker,3,182881.4465
+192,DWV,0,7/6/2020,MUDGE,5,impatiens,crown vetch,worker,2,0
+193,DWV,0,8/3/2020,FLAN,9,impatiens,crown vetch,worker,3,0
+194,DWV,0,5/9/2020,CIND,10,impatiens,dandelion,queen,1,0
+195,DWV,0,8/3/2020,FLAN,39,impatiens,crown vetch,worker,3,0
+239,DWV,0,8/3/2020,FLAN,40,impatiens,crown vetch,worker,3,0
+240,DWV,0,9/10/2020,COL,48,impatiens,red clover,worker,4,0
+242,DWV,0,8/3/2020,BOST,13,impatiens,red clover,worker,3,0
+243,DWV,0,8/3/2020,FLAN,6,impatiens,crown vetch,worker,3,0
+244,DWV,0,9/10/2020,COL,14,impatiens,red clover,worker,4,0
+245,DWV,0,8/3/2020,BOST,16,impatiens,red clover,worker,3,0
+246,DWV,0,5/17/2020,FLAN,5,impatiens,flight,queen,1,0
+247,DWV,0,5/17/2020,BOST,6,impatiens,dandelion,queen,1,0
+248,DWV,1,5/17/2020,BOST,37,impatiens,flight,queen,1,61398.48145
+249,DWV,1,5/17/2020,BOST,17,impatiens,dandelion,queen,1,136116.3492
+250,DWV,0,7/11/2020,CIND,13,impatiens,red clover,worker,2,0
+251,DWV,0,8/4/2020,MUDGE,29,impatiens,crown vetch,worker,3,0
+252,DWV,1,8/3/2020,FLAN,35,impatiens,crown vetch,worker,3,720599.9244
+253,DWV,0,8/3/2020,FLAN,11,impatiens,crown vetch,worker,3,0
+254,DWV,1,8/3/2020,FLAN,20,impatiens,crown vetch,worker,3,1694945.559
+261,DWV,0,7/6/2020,MUDGE,4,impatiens,crown vetch,worker,2,0
+262,DWV,1,8/3/2020,FLAN,27,impatiens,crown vetch,worker,3,126422.8765
+263,DWV,1,5/17/2020,BOST,19,impatiens,flight,queen,1,51264.81554
+264,DWV,0,5/17/2020,BOST,25,impatiens,flight,queen,1,0
+265,DWV,1,8/3/2020,BOST,11,impatiens,red clover,worker,3,31909.13484
+266,DWV,0,5/17/2020,BOST,3,impatiens,flight,queen,1,0
+267,DWV,1,8/4/2020,MUDGE,28,impatiens,crown vetch,worker,3,1272806.155
+268,DWV,1,8/3/2020,BOST,21,impatiens,red clover,worker,3,99217.12906
+269,DWV,0,8/3/2020,FLAN,3,impatiens,crown vetch,worker,3,0
+270,DWV,0,5/17/2020,BOST,12,impatiens,flight ,queen,1,0
+271,DWV,0,9/10/2020,COL,12,impatiens,red clover,worker,4,0
+272,DWV,1,9/10/2020,COL,21,impatiens,red clover,worker,4,149054.0188
+273,DWV,0,9/9/2020,FLAN,11,impatiens,jewel weed,worker,4,0
+274,DWV,1,8/3/2020,BOST,18,impatiens,red clover,worker,3,193393.2597
+275,DWV,0,8/3/2020,BOST,20,impatiens,red clover,worker,3,0
+276,DWV,1,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,264516.9916
+276,DWV,0,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,0
+277,DWV,0,5/17/2020,BOST,32,impatiens,flight,queen,1,0
+277,DWV,0,5/17/2020,BOST,32,impatiens,flight,queen,1,0
+278,DWV,0,9/10/2020,COL,31,impatiens,red clover,worker,4,0
+278,DWV,1,9/10/2020,COL,31,impatiens,red clover,worker,4,347804.2181
+279,DWV,0,9/10/2020,COL,9,impatiens,red clover,worker,4,0
+279,DWV,0,9/10/2020,COL,9,impatiens,red clover,worker,4,0
+280,DWV,0,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,0
+280,DWV,1,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,66025.64989
+282,DWV,0,9/10/2020,COL,17,impatiens,red clover,worker,4,0
+282,DWV,0,9/10/2020,COL,17,impatiens,red clover,worker,4,0
+284,DWV,0,5/17/2020,FLAN,17,impatiens,mint,queen,1,0
+284,DWV,0,5/17/2020,FLAN,17,impatiens,mint,queen,1,0
+285,DWV,0,5/17/2020,BOST,10,impatiens,dandelion,queen,1,0
+286,DWV,1,8/3/2020,FLAN,16,impatiens,crown vetch,worker,3,747944.7387
+288,DWV,0,8/3/2020,BOST,4,impatiens,red clover,worker,3,0
+289,DWV,0,5/17/2020,FLAN,12,impatiens,dandelion,queen,1,0
+290,DWV,0,8/4/2020,MUDGE,2,impatiens,saint johns wort,worker,3,0
+291,DWV,1,5/17/2020,BOST,20,impatiens,flight,queen,1,19393.70938
+293,DWV,1,8/3/2020,BOST,19,impatiens,red clover,worker,3,61498.6531
+294,DWV,0,8/3/2020,BOST,14,impatiens,red clover,worker,3,0
+295,DWV,0,9/10/2020,COL,18,impatiens,flight,worker,4,0
+296,DWV,0,5/17/2020,FLAN,2,impatiens,dandelion,queen,1,0
+297,DWV,0,5/17/2020,BOST,4,impatiens,dandelion,queen,1,0
+298,DWV,0,8/3/2020,BOST,6,impatiens,red clover,worker,3,0
+303,DWV,0,9/9/2020,FLAN,32,impatiens,jewel weed,worker,4,0
+305,DWV,NA,5/17/2020,BOST,34,impatiens,flight,queen,1,NA
+306,DWV,0,8/3/2020,FLAN,14,impatiens,crown vetch,worker,3,0
+307,DWV,0,8/3/2020,FLAN,33,impatiens,crown vetch,worker,3,0
+309,DWV,1,5/17/2020,FLAN,1,impatiens,dandelion,queen,1,42326.31683
+310,DWV,1,5/17/2020,FLAN,8,impatiens,flight,queen,1,92128.35893
+311,DWV,1,8/3/2020,FLAN,18,impatiens,crown vetch,worker,3,396988.6571
+312,DWV,0,8/3/2020,FLAN,15,impatiens,crown vetch,worker,3,0
+313,DWV,0,8/4/2020,CIND,16,impatiens,red clover,worker,3,0
+314,DWV,1,8/4/2020,CIND,3,impatiens,red clover,worker,3,564461.3832
+315,DWV,1,8/4/2020,CIND,23,impatiens,red clover,worker,3,316181.1527
+316,DWV,0,9/10/2020,COL,23,impatiens,red clover,worker,4,0
+317,DWV,0,8/4/2020,CIND,15,impatiens,red clover,worker,3,0
+318,DWV,0,8/3/2020,FLAN,13,impatiens,crown vetch,worker,3,0
+319,DWV,0,8/4/2020,COL,11,impatiens,NA,worker,3,0
+321,DWV,1,8/4/2020,COL,15,impatiens,jewel weed,worker,3,140656.235
+324,DWV,0,5/19/2020,MUDGE,29,impatiens,dandelion,queen,1,0
+325,DWV,0,5/19/2020,COL,29,impatiens,dandelion,queen,1,0
+327,DWV,1,8/4/2020,COL,17,impatiens,red clover,worker,3,88245.25283
+328,DWV,0,5/19/2020,COL,35,impatiens,dandelion,queen,1,0
+330,DWV,0,5/19/2020,MUDGE,14,impatiens,dandelion,queen,1,0
+331,DWV,0,5/19/2020,COL,28,impatiens,dandelion,queen,1,0
+332,DWV,0,8/4/2020,COL,4,impatiens,red clover,worker,3,0
+333,DWV,1,5/19/2020,MUDGE,45,impatiens,flight,queen,1,67075.84986
+334,DWV,0,5/19/2020,COL,30,impatiens,flight,queen,1,0
+335,DWV,1,5/19/2020,COL,32,impatiens,dandelion,queen,1,104099.8413
+336,DWV,1,8/4/2020,COL,9,impatiens,red clover,worker,3,114227.3664
+337,DWV,0,5/19/2020,COL,8,impatiens,flight,queen,1,0
+338,DWV,1,8/4/2020,COL,5,impatiens,red clover,worker,3,122840.9351
+339,DWV,1,5/19/2020,MUDGE,23,impatiens,dandelion,queen,1,148468.5203
+340,DWV,0,8/4/2020,COL,6,impatiens,red clover,worker,3,0
+341,DWV,0,7/6/2020,FLAN,42,impatiens,red clover,worker,2,0
+342,DWV,1,7/6/2020,FLAN,33,impatiens,crown vetch,worker,2,85731.68389
+343,DWV,1,5/19/2020,COL,11,impatiens,dandelion,queen,1,45105.59106
+344,DWV,1,5/17/2020,FLAN,6,vagans,dandelion,queen,1,66219.96689
+345,DWV,0,7/6/2020,FLAN,3,impatiens,crown vetch,worker,2,0
+346,DWV,1,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,309097.5891
+347,DWV,1,7/6/2020,FLAN,5,impatiens,saint johns wort,worker,2,69652.52608
+348,DWV,1,7/6/2020,FLAN,36,impatiens,crown vetch,worker,2,68145.99764
+358,DWV,1,5/19/2020,COL,6,impatiens,dandelion,queen,1,145145.4611
+359,DWV,1,5/19/2020,COL,9,impatiens,dandelion,queen,1,703391.3516
+360,DWV,0,7/6/2020,FLAN,15,impatiens,red clover,worker,2,0
+361,DWV,1,5/19/2020,COL,27,impatiens,dandelion,queen,1,131111.6618
+362,DWV,1,7/6/2020,FLAN,40,impatiens,saint johns wort,worker,2,2088123.827
+363,DWV,0,5/17/2020,FLAN,18,impatiens,violet ,queen,1,0
+364,DWV,0,7/6/2020,FLAN,53,impatiens,red clover,worker,2,0
+366,DWV,0,7/6/2020,FLAN,56,impatiens,red clover,worker,2,0
+368,DWV,1,7/6/2020,FLAN,55,impatiens,red clover,queen,2,66036.57169
+369,DWV,0,5/17/2020,FLAN,24,bimaculatus,flight,queen,1,0
+370,DWV,1,5/17/2020,FLAN,20,bimaculatus,violet ,queen,1,403374.8131
+371,DWV,1,5/17/2020,FLAN,17,impatiens,mint,queen,1,3765789478
+372,DWV,0,5/19/2020,COL,31,impatiens,flight,queen,1,0
+373,DWV,1,5/19/2020,COL,33,impatiens,dandelion,queen,1,247958.4698
+374,DWV,0,8/4/2020,CIND,5,impatiens,red clover,worker,3,0
+376,DWV,1,5/17/2020,BOST,27,impatiens,flight,queen,1,608799.4372
+377,DWV,0,5/19/2020,COL,1,impatiens,dandelion,queen,1,0
+379,DWV,0,7/6/2020,FLAN,34,impatiens,crown vetch,worker,2,0
+380,DWV,0,7/6/2020,FLAN,12,impatiens,saint johns wort,worker,2,0
+381,DWV,0,5/19/2020,COL,4,ternarius,dandelion,queen,1,0
+383,DWV,0,5/17/2020,FLAN,22,bimaculatus,violet,queen,1,0
+384,DWV,0,7/6/2020,FLAN,16,impatiens,red clover,worker,2,0
+1,Nosema,NA,9/9/2020,BOST,6,impatiens,solidago,worker,4,NA
+3,Nosema,0,9/10/2020,MUDGE,18,impatiens,crown vetch,worker,4,0
+4,Nosema,1,9/10/2020,MUDGE,11,impatiens,crown vetch,worker,4,225000
+5,Nosema,NA,9/9/2020,BOST,11,impatiens,solidago,male,4,NA
+6,Nosema,0,9/10/2020,CIND,14,impatiens,knot weed,worker,4,0
+8,Nosema,NA,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,NA
+10,Nosema,0,9/10/2020,CIND,13,impatiens,red clover,worker,4,0
+11,Nosema,0,7/7/2020,BOST,38,impatiens,red clover,worker,2,0
+12,Nosema,0,9/10/2020,MUDGE,5,impatiens,crown vetch,worker,4,0
+13,Nosema,0,9/9/2020,BOST,12,impatiens,solidago,male,4,0
+15,Nosema,1,9/9/2020,BOST,18,impatiens,solidago,worker,4,50000
+16,Nosema,0,9/9/2020,BOST,23,impatiens,solidago,male,4,0
+17,Nosema,0,9/10/2020,CIND,20,impatiens,red clover,worker,4,0
+18,Nosema,0,9/10/2020,CIND,11,impatiens,birdsfoot,worker,4,0
+19,Nosema,0,9/10/2020,CIND,17,impatiens,red clover,worker,4,0
+20,Nosema,0,9/10/2020,CIND,16,impatiens,red clover,worker,4,0
+21,Nosema,0,9/9/2020,BOST,17,impatiens,solidago,worker,4,0
+22,Nosema,0,9/9/2020,BOST,7,impatiens,solidago,worker,4,0
+23,Nosema,0,7/7/2020,COL,22,impatiens,red clover,worker,2,0
+24,Nosema,0,7/7/2020,BOST,45,impatiens,red clover,worker,2,0
+25,Nosema,0,7/7/2020,BOST,46,impatiens,red clover,worker,2,0
+26,Nosema,0,9/10/2020,CIND,19,impatiens,knot weed,worker,4,0
+27,Nosema,0,9/9/2020,BOST,16,impatiens,solidago,worker,4,0
+28,Nosema,0,9/9/2020,BOST,10,impatiens,solidago,male,4,0
+29,Nosema,0,9/9/2020,BOST,20,impatiens,solidago,worker,4,0
+30,Nosema,0,9/10/2020,MUDGE,16,impatiens,crown vetch,worker,4,0
+31,Nosema,0,9/10/2020,MUDGE,2,impatiens,crown vetch,worker,4,0
+32,Nosema,0,9/9/2020,BOST,19,impatiens,solidago,worker,4,0
+33,Nosema,0,9/9/2020,BOST,5,impatiens,solidago,worker,4,0
+34,Nosema,NA,7/7/2020,BOST,21,bimaculatus ,red clover,worker,2,NA
+35,Nosema,0,9/10/2020,MUDGE,3,impatiens,crown vetch,worker,4,0
+36,Nosema,0,9/10/2020,CIND,5,impatiens,red clover,worker,4,0
+37,Nosema,0,9/9/2020,BOST,24,impatiens,solidago,male,4,0
+38,Nosema,0,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,0
+39,Nosema,1,7/7/2020,BOST,44,impatiens,red clover,worker,2,50000
+40,Nosema,1,9/10/2020,MUDGE,9,impatiens,solidago,worker,4,25000
+41,Nosema,0,9/10/2020,MUDGE,8,impatiens,solidago,worker,4,0
+42,Nosema,0,9/9/2020,BOST,29,vagans,solidago,male,4,0
+43,Nosema,1,9/9/2020,BOST,27,impatiens,solidago,male,4,25000
+44,Nosema,0,9/10/2020,MUDGE,15,impatiens,crown vetch,worker,4,0
+45,Nosema,1,9/10/2020,CIND,6,impatiens,red clover,worker,4,75000
+46,Nosema,0,9/10/2020,MUDGE,19,impatiens,crown vetch,worker,4,0
+47,Nosema,0,9/10/2020,MUDGE,10,impatiens,NA,worker,4,0
+48,Nosema,0,9/9/2020,BOST,25,impatiens,solidago,male,4,0
+49,Nosema,1,9/10/2020,MUDGE,6,impatiens,crown vetch,worker,4,1.00E+05
+50,Nosema,1,9/10/2020,MUDGE,14,impatiens,crown vetch,worker,4,2075000
+51,Nosema,1,9/9/2020,BOST,28,impatiens,solidago,male,4,25000
+52,Nosema,0,9/9/2020,BOST,3,impatiens,solidago,worker,4,0
+53,Nosema,0,9/9/2020,BOST,26,impatiens,solidago,male,4,0
+54,Nosema,0,7/6/2020,COL,8,impatiens,red clover,worker,2,0
+55,Nosema,0,9/10/2020,CIND,3,impatiens,red clover,worker,4,0
+56,Nosema,0,9/9/2020,BOST,9,impatiens,solidago,male,4,0
+57,Nosema,0,9/10/2020,MUDGE,13,impatiens,crown vetch,worker,4,0
+58,Nosema,0,9/10/2020,CIND,4,impatiens,red clover,worker,4,0
+59,Nosema,0,9/9/2020,BOST,4,impatiens,solidago,worker,4,0
+60,Nosema,0,9/9/2020,BOST,14,impatiens,solidago,male,4,0
+61,Nosema,0,7/7/2020,COL,21,impatiens,red clover,worker,2,0
+62,Nosema,NA,9/10/2020,CIND,15,impatiens,red clover,worker,4,NA
+63,Nosema,0,7/7/2020,BOST,42,impatiens,red clover,worker,2,0
+64,Nosema,1,9/9/2020,BOST,22,impatiens,solidago,male,4,50000
+65,Nosema,1,9/9/2020,BOST,13,impatiens,solidago,male,4,1550000
+66,Nosema,1,9/9/2020,BOST,1,impatiens,solidago,worker,4,25000
+67,Nosema,NA,9/10/2020,MUDGE,17,impatiens,crown vetch,worker,4,NA
+68,Nosema,1,7/6/2020,COL,11,impatiens,red clover,worker,2,75000
+69,Nosema,0,7/6/2020,COL,9,impatiens,red clover,worker,2,0
+70,Nosema,0,9/9/2020,BOST,15,impatiens,solidago,male,4,0
+71,Nosema,NA,9/9/2020,BOST,8,impatiens,solidago,male,4,NA
+72,Nosema,0,9/10/2020,CIND,12,impatiens,red clover,worker,4,0
+74,Nosema,0,9/10/2020,MUDGE,7,impatiens,solidago,worker,4,0
+75,Nosema,0,9/9/2020,FLAN,31,impatiens,jewel weed,worker,4,0
+76,Nosema,NA,9/9/2020,FLAN,7,impatiens,jewel weed,worker,4,NA
+77,Nosema,0,9/10/2020,COL,47,impatiens,red clover,worker,4,0
+78,Nosema,0,9/9/2020,FLAN,24,impatiens,jewel weed,worker,4,0
+79,Nosema,0,8/4/2020,CIND,13,impatiens,red clover,worker,3,0
+80,Nosema,0,8/4/2020,CIND,2,impatiens,red clover,worker,3,0
+81,Nosema,0,9/9/2020,FLAN,30,impatiens,jewel weed,worker,4,0
+82,Nosema,0,8/4/2020,CIND,21,impatiens,red clover,worker,3,0
+83,Nosema,0,9/10/2020,COL,44,impatiens,red clover,worker,4,0
+84,Nosema,0,8/4/2020,MUDGE,4,impatiens,crown vetch,worker,3,0
+85,Nosema,NA,8/4/2020,MUDGE,30,impatiens,crown vetch,worker,3,NA
+86,Nosema,1,9/10/2020,COL,29,impatiens,red clover,worker,4,50000
+87,Nosema,0,8/4/2020,MUDGE,33,impatiens,saint johns wort,worker,3,0
+88,Nosema,NA,8/4/2020,MUDGE,23,impatiens,crown vetch,worker,3,NA
+89,Nosema,0,8/4/2020,CIND,8,impatiens,red clover,worker,3,0
+90,Nosema,0,9/9/2020,FLAN,4,impatiens,jewel weed,worker,4,0
+91,Nosema,0,9/10/2020,COL,20,impatiens,red clover,worker,4,0
+92,Nosema,0,8/4/2020,CIND,18,impatiens,red clover,worker,3,0
+93,Nosema,0,8/4/2020,MUDGE,6,impatiens,crown vetch,worker,3,0
+94,Nosema,0,9/10/2020,COL,15,impatiens,red clover,worker,4,0
+95,Nosema,0,9/9/2020,FLAN,2,impatiens,jewel weed,worker,4,0
+96,Nosema,0,9/9/2020,FLAN,26,impatiens,jewel weed,worker,4,0
+97,Nosema,0,8/4/2020,MUDGE,35,impatiens,saint johns wort,worker,3,0
+98,Nosema,0,9/9/2020,FLAN,18,impatiens,crown vetch,worker,4,0
+99,Nosema,0,9/10/2020,COL,35,impatiens,red clover,worker,4,0
+100,Nosema,0,9/9/2020,FLAN,19,impatiens,crown vetch,worker,4,0
+101,Nosema,0,9/10/2020,COL,10,impatiens,red clover,worker,4,0
+102,Nosema,0,9/9/2020,FLAN,36,impatiens,crown vetch,worker,4,0
+103,Nosema,1,8/4/2020,CIND,19,impatiens,red clover,worker,3,2.00E+05
+104,Nosema,0,9/9/2020,FLAN,14,impatiens,thistle,worker,4,0
+105,Nosema,1,8/4/2020,CIND,22,impatiens,red clover,worker,3,4.00E+05
+106,Nosema,1,9/9/2020,FLAN,6,impatiens,jewel weed,worker,4,25000
+107,Nosema,0,8/4/2020,CIND,1,impatiens,red clover,worker,3,0
+108,Nosema,1,9/9/2020,FLAN,35,impatiens,crown vetch,worker,4,25000
+109,Nosema,0,8/4/2020,MUDGE,5,impatiens,crown vetch,worker,3,0
+110,Nosema,0,8/4/2020,MUDGE,22,impatiens,crown vetch,worker,3,0
+111,Nosema,1,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,1.00E+05
+112,Nosema,0,9/9/2020,FLAN,3,impatiens,jewel weed,worker,4,0
+113,Nosema,NA,9/9/2020,FLAN,21,impatiens,jewel weed,worker,4,NA
+114,Nosema,1,8/4/2020,MUDGE,26,impatiens,crown vetch,worker,3,25000
+115,Nosema,1,9/10/2020,COL,43,impatiens,red clover,worker,4,25000
+116,Nosema,0,9/9/2020,FLAN,15,impatiens,solidago,worker,4,0
+117,Nosema,1,8/4/2020,MUDGE,9,impatiens,saint johns wort,worker,3,275000
+118,Nosema,0,9/9/2020,FLAN,22,impatiens,jewel weed,worker,4,0
+119,Nosema,NA,9/9/2020,FLAN,34,impatiens,solidago,worker,4,NA
+120,Nosema,0,9/10/2020,COL,3,impatiens,red clover,worker,4,0
+121,Nosema,1,9/10/2020,COL,32,impatiens,red clover,worker,4,425000
+122,Nosema,0,8/4/2020,MUDGE,34,impatiens,saint johns wort,worker,3,0
+123,Nosema,0,9/10/2020,COL,41,impatiens,red clover,worker,4,0
+124,Nosema,0,8/4/2020,MUDGE,27,impatiens,crown vetch,worker,3,0
+125,Nosema,0,7/7/2020,BOST,28,impatiens,red clover,worker,2,0
+126,Nosema,0,9/9/2020,FLAN,27,impatiens,jewel weed,worker,4,0
+127,Nosema,0,9/10/2020,COL,7,impatiens,red clover,worker,4,0
+128,Nosema,0,9/9/2020,FLAN,41,impatiens,jewel weed,worker,4,0
+129,Nosema,0,9/9/2020,FLAN,37,impatiens,crown vetch,worker,4,0
+131,Nosema,1,5/9/2020,CIND,24,impatiens,dandelion,queen,1,475000
+132,Nosema,0,9/9/2020,FLAN,38,impatiens,crown vetch,worker,4,0
+133,Nosema,0,9/9/2020,FLAN,17,impatiens,flight,worker,4,0
+134,Nosema,1,9/10/2020,COL,34,impatiens,red clover,worker,4,50000
+135,Nosema,0,5/9/2020,CIND,22,impatiens,dandelion,queen,1,0
+136,Nosema,0,7/7/2020,BOST,31,impatiens,red clover,worker,2,0
+137,Nosema,1,9/9/2020,FLAN,42,impatiens,jewel weed,worker,4,3.00E+05
+138,Nosema,1,5/9/2020,CIND,19,impatiens,flight,queen,1,75000
+140,Nosema,0,7/7/2020,BOST,11,fervidus,red clover,worker,2,0
+141,Nosema,0,5/9/2020,CIND,16,impatiens,dandelion,queen,1,0
+142,Nosema,0,5/9/2020,CIND,4,impatiens,dandelion,queen,1,0
+143,Nosema,0,9/9/2020,FLAN,10,impatiens,jewel weed,worker,4,0
+144,Nosema,0,9/10/2020,COL,6,impatiens,red clover,worker,4,0
+145,Nosema,0,9/10/2020,COL,38,impatiens,red clover,worker,4,0
+146,Nosema,0,9/9/2020,FLAN,13,impatiens,solidago,worker,4,0
+147,Nosema,0,9/10/2020,COL,24,impatiens,red clover,worker,4,0
+148,Nosema,0,9/10/2020,COL,33,impatiens,red clover,worker,4,0
+149,Nosema,0,9/9/2020,FLAN,28,impatiens,jewel weed,worker,4,0
+150,Nosema,1,9/9/2020,FLAN,12,impatiens,jewel weed,worker,4,75000
+151,Nosema,NA,9/9/2020,FLAN,40,impatiens,jewel weed,worker,4,NA
+153,Nosema,0,9/9/2020,FLAN,8,impatiens,jewel weed,worker,4,0
+154,Nosema,0,9/9/2020,FLAN,20,impatiens,crown vetch,worker,4,0
+155,Nosema,0,9/10/2020,COL,28,impatiens,red clover,worker,4,0
+157,Nosema,0,9/10/2020,COL,2,impatiens,red clover,worker,4,0
+158,Nosema,1,9/10/2020,COL,30,impatiens,red clover,worker,4,25000
+159,Nosema,0,9/9/2020,FLAN,39,impatiens,jewel weed,worker,4,0
+160,Nosema,0,5/9/2020,CIND,6,impatiens,dandelion,queen,1,0
+161,Nosema,1,9/9/2020,FLAN,33,impatiens,solidago,worker,4,75000
+162,Nosema,1,9/10/2020,COL,16,impatiens,red clover,worker,4,25000
+163,Nosema,1,9/10/2020,COL,45,impatiens,red clover,worker,4,2.00E+05
+164,Nosema,0,7/7/2020,BOST,22,impatiens,red clover,worker,2,0
+165,Nosema,0,9/10/2020,COL,8,impatiens,red clover,worker,4,0
+166,Nosema,1,9/10/2020,COL,26,impatiens,red clover,worker,4,2325000
+167,Nosema,0,9/10/2020,COL,27,impatiens,red clover,worker,4,0
+168,Nosema,1,5/9/2020,CIND,1,impatiens,dandelion,queen,1,25000
+169,Nosema,1,7/7/2020,BOST,14,impatiens,red clover,queen,2,75000
+170,Nosema,1,5/9/2020,CIND,2,impatiens,dandelion,queen,1,125000
+171,Nosema,1,9/10/2020,COL,37,impatiens,red clover,worker,4,475000
+172,Nosema,0,9/9/2020,FLAN,44,impatiens,jewel weed,worker,4,0
+173,Nosema,0,5/9/2020,CIND,14,impatiens,dandelion,queen,1,0
+174,Nosema,0,5/9/2020,CIND,31,impatiens,flight,queen,1,0
+175,Nosema,0,5/17/2020,FLAN,4,impatiens,flight,queen,1,0
+176,Nosema,1,8/3/2020,FLAN,37,impatiens,crown vetch,worker,3,475000
+177,Nosema,0,9/10/2020,COL,22,impatiens,red clover,worker,4,0
+178,Nosema,0,8/3/2020,FLAN,38,impatiens,crown vetch,worker,3,0
+179,Nosema,0,9/10/2020,COL,13,impatiens,red clover,worker,4,0
+180,Nosema,0,8/3/2020,FLAN,2,impatiens,crown vetch,worker,3,0
+181,Nosema,0,8/3/2020,BOST,22,impatiens,red clover,worker,3,0
+183,Nosema,NA,8/3/2020,FLAN,30,impatiens,crown vetch,worker,3,NA
+184,Nosema,1,8/3/2020,BOST,17,impatiens,knot weed,male,3,125000
+185,Nosema,1,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,25000
+186,Nosema,0,9/10/2020,COL,19,impatiens,red clover,worker,4,0
+187,Nosema,0,9/10/2020,COL,1,impatiens,red clover,worker,4,0
+188,Nosema,0,9/10/2020,COL,42,impatiens,red clover,worker,4,0
+189,Nosema,0,8/3/2020,FLAN,5,impatiens,crown vetch,worker,3,0
+190,Nosema,0,8/3/2020,FLAN,26,impatiens,crown vetch,worker,3,0
+191,Nosema,1,8/3/2020,FLAN,29,impatiens,crown vetch,worker,3,175000
+192,Nosema,NA,7/6/2020,MUDGE,5,impatiens,crown vetch,worker,2,NA
+193,Nosema,1,8/3/2020,FLAN,9,impatiens,crown vetch,worker,3,125000
+194,Nosema,0,5/9/2020,CIND,10,impatiens,dandelion,queen,1,0
+195,Nosema,1,8/3/2020,FLAN,39,impatiens,crown vetch,worker,3,25000
+239,Nosema,0,8/3/2020,FLAN,40,impatiens,crown vetch,worker,3,0
+240,Nosema,0,9/10/2020,COL,48,impatiens,red clover,worker,4,0
+242,Nosema,0,8/3/2020,BOST,13,impatiens,red clover,worker,3,0
+243,Nosema,1,8/3/2020,FLAN,6,impatiens,crown vetch,worker,3,25000
+244,Nosema,1,9/10/2020,COL,14,impatiens,red clover,worker,4,25000
+245,Nosema,0,8/3/2020,BOST,16,impatiens,red clover,worker,3,0
+246,Nosema,0,5/17/2020,FLAN,5,impatiens,flight,queen,1,0
+247,Nosema,0,5/17/2020,BOST,6,impatiens,dandelion,queen,1,0
+248,Nosema,1,5/17/2020,BOST,37,impatiens,flight,queen,1,1250000
+249,Nosema,1,5/17/2020,BOST,17,impatiens,dandelion,queen,1,50000
+250,Nosema,1,7/11/2020,CIND,13,impatiens,red clover,worker,2,2.00E+05
+251,Nosema,1,8/4/2020,MUDGE,29,impatiens,crown vetch,worker,3,75000
+252,Nosema,1,8/3/2020,FLAN,35,impatiens,crown vetch,worker,3,125000
+253,Nosema,0,8/3/2020,FLAN,11,impatiens,crown vetch,worker,3,0
+254,Nosema,0,8/3/2020,FLAN,20,impatiens,crown vetch,worker,3,0
+261,Nosema,1,7/6/2020,MUDGE,4,impatiens,crown vetch,worker,2,25000
+262,Nosema,0,8/3/2020,FLAN,27,impatiens,crown vetch,worker,3,0
+263,Nosema,0,5/17/2020,BOST,19,impatiens,flight,queen,1,0
+264,Nosema,1,5/17/2020,BOST,25,impatiens,flight,queen,1,75000
+265,Nosema,1,8/3/2020,BOST,11,impatiens,red clover,worker,3,50000
+266,Nosema,1,5/17/2020,BOST,3,impatiens,flight,queen,1,150000
+267,Nosema,1,8/4/2020,MUDGE,28,impatiens,crown vetch,worker,3,425000
+268,Nosema,0,8/3/2020,BOST,21,impatiens,red clover,worker,3,0
+269,Nosema,0,8/3/2020,FLAN,3,impatiens,crown vetch,worker,3,0
+270,Nosema,NA,5/17/2020,BOST,12,impatiens,flight ,queen,1,NA
+271,Nosema,0,9/10/2020,COL,12,impatiens,red clover,worker,4,0
+272,Nosema,0,9/10/2020,COL,21,impatiens,red clover,worker,4,0
+273,Nosema,0,9/9/2020,FLAN,11,impatiens,jewel weed,worker,4,0
+274,Nosema,0,8/3/2020,BOST,18,impatiens,red clover,worker,3,0
+275,Nosema,0,8/3/2020,BOST,20,impatiens,red clover,worker,3,0
+276,Nosema,0,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,0
+276,Nosema,NA,8/3/2020,FLAN,4,impatiens,crown vetch,worker,3,NA
+277,Nosema,0,5/17/2020,BOST,32,impatiens,flight,queen,1,0
+277,Nosema,0,5/17/2020,BOST,32,impatiens,flight,queen,1,0
+278,Nosema,0,9/10/2020,COL,31,impatiens,red clover,worker,4,0
+278,Nosema,0,9/10/2020,COL,31,impatiens,red clover,worker,4,0
+279,Nosema,1,9/10/2020,COL,9,impatiens,red clover,worker,4,50000
+279,Nosema,0,9/10/2020,COL,9,impatiens,red clover,worker,4,0
+280,Nosema,0,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,0
+280,Nosema,0,8/3/2020,FLAN,8,impatiens,crown vetch,worker,3,0
+282,Nosema,0,9/10/2020,COL,17,impatiens,red clover,worker,4,0
+282,Nosema,NA,9/10/2020,COL,17,impatiens,red clover,worker,4,NA
+284,Nosema,1,5/17/2020,FLAN,17,impatiens,mint,queen,1,25000
+284,Nosema,NA,5/17/2020,FLAN,17,impatiens,mint,queen,1,NA
+285,Nosema,0,5/17/2020,BOST,10,impatiens,dandelion,queen,1,0
+286,Nosema,1,8/3/2020,FLAN,16,impatiens,crown vetch,worker,3,125000
+288,Nosema,0,8/3/2020,BOST,4,impatiens,red clover,worker,3,0
+289,Nosema,0,5/17/2020,FLAN,12,impatiens,dandelion,queen,1,0
+290,Nosema,0,8/4/2020,MUDGE,2,impatiens,saint johns wort,worker,3,0
+291,Nosema,1,5/17/2020,BOST,20,impatiens,flight,queen,1,1.00E+05
+293,Nosema,1,8/3/2020,BOST,19,impatiens,red clover,worker,3,50000
+294,Nosema,1,8/3/2020,BOST,14,impatiens,red clover,worker,3,25000
+295,Nosema,1,9/10/2020,COL,18,impatiens,flight,worker,4,25000
+296,Nosema,0,5/17/2020,FLAN,2,impatiens,dandelion,queen,1,0
+297,Nosema,0,5/17/2020,BOST,4,impatiens,dandelion,queen,1,0
+298,Nosema,1,8/3/2020,BOST,6,impatiens,red clover,worker,3,525000
+303,Nosema,NA,9/9/2020,FLAN,32,impatiens,jewel weed,worker,4,NA
+305,Nosema,1,5/17/2020,BOST,34,impatiens,flight,queen,1,25000
+306,Nosema,1,8/3/2020,FLAN,14,impatiens,crown vetch,worker,3,125000
+307,Nosema,1,8/3/2020,FLAN,33,impatiens,crown vetch,worker,3,125000
+309,Nosema,0,5/17/2020,FLAN,1,impatiens,dandelion,queen,1,0
+310,Nosema,0,5/17/2020,FLAN,8,impatiens,flight,queen,1,0
+311,Nosema,1,8/3/2020,FLAN,18,impatiens,crown vetch,worker,3,125000
+312,Nosema,1,8/3/2020,FLAN,15,impatiens,crown vetch,worker,3,150000
+313,Nosema,0,8/4/2020,CIND,16,impatiens,red clover,worker,3,0
+314,Nosema,0,8/4/2020,CIND,3,impatiens,red clover,worker,3,0
+315,Nosema,NA,8/4/2020,CIND,23,impatiens,red clover,worker,3,NA
+316,Nosema,0,9/10/2020,COL,23,impatiens,red clover,worker,4,0
+317,Nosema,0,8/4/2020,CIND,15,impatiens,red clover,worker,3,0
+318,Nosema,1,8/3/2020,FLAN,13,impatiens,crown vetch,worker,3,25000
+319,Nosema,0,8/4/2020,COL,11,impatiens,NA,worker,3,0
+321,Nosema,1,8/4/2020,COL,15,impatiens,jewel weed,worker,3,75000
+324,Nosema,0,5/19/2020,MUDGE,29,impatiens,dandelion,queen,1,0
+325,Nosema,0,5/19/2020,COL,29,impatiens,dandelion,queen,1,0
+327,Nosema,0,8/4/2020,COL,17,impatiens,red clover,worker,3,0
+328,Nosema,0,5/19/2020,COL,35,impatiens,dandelion,queen,1,0
+330,Nosema,1,5/19/2020,MUDGE,14,impatiens,dandelion,queen,1,50000
+331,Nosema,1,5/19/2020,COL,28,impatiens,dandelion,queen,1,475000
+332,Nosema,0,8/4/2020,COL,4,impatiens,red clover,worker,3,0
+333,Nosema,NA,5/19/2020,MUDGE,45,impatiens,flight,queen,1,NA
+334,Nosema,1,5/19/2020,COL,30,impatiens,flight,queen,1,75000
+335,Nosema,0,5/19/2020,COL,32,impatiens,dandelion,queen,1,0
+336,Nosema,0,8/4/2020,COL,9,impatiens,red clover,worker,3,0
+337,Nosema,0,5/19/2020,COL,8,impatiens,flight,queen,1,0
+338,Nosema,0,8/4/2020,COL,5,impatiens,red clover,worker,3,0
+339,Nosema,0,5/19/2020,MUDGE,23,impatiens,dandelion,queen,1,0
+340,Nosema,1,8/4/2020,COL,6,impatiens,red clover,worker,3,25000
+341,Nosema,0,7/6/2020,FLAN,42,impatiens,red clover,worker,2,0
+342,Nosema,1,7/6/2020,FLAN,33,impatiens,crown vetch,worker,2,125000
+343,Nosema,0,5/19/2020,COL,11,impatiens,dandelion,queen,1,0
+344,Nosema,NA,5/17/2020,FLAN,6,vagans,dandelion,queen,1,NA
+345,Nosema,0,7/6/2020,FLAN,3,impatiens,crown vetch,worker,2,0
+346,Nosema,NA,5/17/2020,FLAN,19,impatiens,woody yellow ,queen,1,NA
+347,Nosema,1,7/6/2020,FLAN,5,impatiens,saint johns wort,worker,2,25000
+348,Nosema,NA,7/6/2020,FLAN,36,impatiens,crown vetch,worker,2,NA
+358,Nosema,0,5/19/2020,COL,6,impatiens,dandelion,queen,1,0
+359,Nosema,0,5/19/2020,COL,9,impatiens,dandelion,queen,1,0
+360,Nosema,0,7/6/2020,FLAN,15,impatiens,red clover,worker,2,0
+361,Nosema,0,5/19/2020,COL,27,impatiens,dandelion,queen,1,0
+362,Nosema,1,7/6/2020,FLAN,40,impatiens,saint johns wort,worker,2,325000
+363,Nosema,0,5/17/2020,FLAN,18,impatiens,violet ,queen,1,0
+364,Nosema,0,7/6/2020,FLAN,53,impatiens,red clover,worker,2,0
+366,Nosema,1,7/6/2020,FLAN,56,impatiens,red clover,worker,2,525000
+368,Nosema,0,7/6/2020,FLAN,55,impatiens,red clover,queen,2,0
+369,Nosema,1,5/17/2020,FLAN,24,bimaculatus,flight,queen,1,1175000
+370,Nosema,0,5/17/2020,FLAN,20,bimaculatus,violet ,queen,1,0
+371,Nosema,0,5/17/2020,FLAN,17,impatiens,mint,queen,1,0
+372,Nosema,1,5/19/2020,COL,31,impatiens,flight,queen,1,75000
+373,Nosema,1,5/19/2020,COL,33,impatiens,dandelion,queen,1,25000
+374,Nosema,0,8/4/2020,CIND,5,impatiens,red clover,worker,3,0
+376,Nosema,0,5/17/2020,BOST,27,impatiens,flight,queen,1,0
+377,Nosema,0,5/19/2020,COL,1,impatiens,dandelion,queen,1,0
+379,Nosema,1,7/6/2020,FLAN,34,impatiens,crown vetch,worker,2,50000
+380,Nosema,1,7/6/2020,FLAN,12,impatiens,saint johns wort,worker,2,225000
+381,Nosema,1,5/19/2020,COL,4,ternarius,dandelion,queen,1,75000
+383,Nosema,0,5/17/2020,FLAN,22,bimaculatus,violet,queen,1,0
+384,Nosema,0,7/6/2020,FLAN,16,impatiens,red clover,worker,2,0
