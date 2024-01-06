@@ -1,7 +1,7 @@
 ---
-title: "Biology 381 - Computational Biology"
+title: "Biology 6100 - Computational Biology"
 author: "Course Syllabus"
-date: "Spring 2023"
+date: "Spring 2024"
 output:
   html_document: 
     highlight: tango
@@ -29,8 +29,6 @@ By appointment, in-person meetings or video conferences
 [gni@uvm.edu](mailto:gni@uvm.edu)   
 By appointment, in-person meetings or video conferences 
 
-
-[Video-conference web link](https://app.inspace.chat/space/3D1AE70150195F8B7890ADE9027FFC3E982F8A3F)
 
 ## Pre-Requisites
 * A personal laptop computer that you bring to all lecture and lab meetings
