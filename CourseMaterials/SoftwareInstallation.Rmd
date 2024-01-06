@@ -1,7 +1,7 @@
 ---
 title: "Software Installation"
-author: "Biology 381 - Computational Biology"
-date: "04 January 2023"
+author: "Biology 6100 - Computational Biology"
+date: "06 January 2024"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -37,12 +37,12 @@ GitHub is a free web-based repository for storing and updating your computer cod
 [register For GitHub](https://github.com/)
 
 ## R
-R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. The latest version of R (04 January 2023) is 4.2.2 ("Innocent and Trusting").   
+R is the basic computational language we will use in this class. We will use R not only for coding, but also for taking notes, displaying code, and creating slides and graphs. The latest version of R (6 January 2024) is 4.3.2 ("Eye Holes").   
 
 [download R](http://lib.stat.cmu.edu/R/CRAN/ )
 
 ## RStudio
-RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (04 January 2023) is RStudio 2022.12.0+353.
+RStudio is an IDE (Integrated Development Environment), which is a special editor that makes it much easier to use R and adds a number of useful features. **Make sure you have installed/updated R first before you install/update RStudio**. Choose either the Windows or Mac OS installer. The latest version of RStudio (6 January 2024) is RStudio 2023.12.0
 
 
 
