@@ -1,7 +1,7 @@
 ---
 title: "Software Installation"
 author: "Biology 6100 - Computational Biology"
-date: "06 January 2024"
+date: "Spring 2024"
 output:
   prettydoc::html_pretty:
     theme: hpstr
