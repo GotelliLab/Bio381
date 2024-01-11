@@ -1,7 +1,7 @@
 ---
-title: "Biology 381 - Computational Biology"
+title: "Biology 6100 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2023"
+date: "Spring 2024"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -10,7 +10,7 @@ output:
 Click here for [COMPLETE SET OF PANDEMIC-YEAR COURSE VIDEOS](https://ngotelli.github.io/Bio381Vids/) 
 
 
-This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2023.
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2024.
 
 ## Course Materials
 
@@ -28,6 +28,7 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
+<<<<<<< HEAD
 January 17  | [Introduction](Lectures/Lecture_01.html) | -  
 January 18  | - | [Homework #1](Homeworks/Homework_01.html)     
 January 19  | [GitHub](Lectures/Lecture_02.html) | -  
@@ -52,45 +53,71 @@ March 2  | [dplyr/SQL II](Lectures/dplyr_SQL_Lecture.html)  | [Homework #6](Home
 March 7  | Town Meeting Day Recess | -
 March 8  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework_07.html)
 March 9  | [Structured Programming I](Lectures/Lecture14_S2021.html)| -
+=======
+January 16  | [Introduction](Lectures/Lecture_01.xhtml) | -  
+January 17  | - | [Homework #1](Homeworks/Homework_01.html)             
+January 18  | [GitHub](Lectures/Lecture_02.xhtml) | -  
+January 23  | [Markdown](Lectures/Lecture_03.xhtml) | -
+January 24 | - |  [Homework #2](Homeworks/Homework_02.html)
+January 25  | [Regular Expressions](Lectures/Lecture_04.xhtml) | -
+January 30  | [Markdown II](Lectures/Lecture_05.xhtml) | - 
+January 31  |  -  | [Homework #3](Homeworks/Homework_03.html)
+February 1  | [LaTeX & Typora](Lectures/Lecture_06.xhtml) | - 
+February 6  | [Atomic Vectors I](Lectures/Lecture_07.xhtml) | - 
+February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
+February 8  | [Atomic Vectors II](Lectures/Lecture_08.xhtml)| - 
+February 13  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.xhtml) | -
+February 14  | -  | [Homework #5](Homeworks/Homework_05.html)
+February 15   | [Matrices, Lists, Data Frames II](Lectures/Lecture_09.xhtml) | -
+February 20 | [Data Curation](Lectures/Lecture_10.xhtml)| -
+February 21  | -  | [Catch Up Day]
+February 22 | [Probability Distributions](Lectures/Lecture_11.xhtml)| -
+February 27  |[Functions](Lectures/Lecture_12.html) | [(Experimental Designs)](Lectures/Lecture_12a.xhtml)
+February 28  | [dplyr/SQL](Lectures/dplyr_Lecture1.xhtml)  | -
+February 29  | [dplyr/SQL II](Lectures/dplyr_SQL_Lecture.xhtml)  | [Homework #6](Homeworks/Homework_06.html)
+March 5  | Town Meeting Day Recess | -
+March 6  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework_07.html)
+March 7  | [Structured Programming I](Lectures/Lecture14_S2021.xhtml)| -
+March 12 | Spring Recess | -
+March 13 | Spring Recess | -
+>>>>>>> dc17941997c70d8b087a71bf5f6e2a2b8aa54465
 March 14 | Spring Recess | -
-March 15 | Spring Recess | -
-March 16 | Spring Recess | -
-March 21  | [Structured Programming II](Lectures/Lecture15_S2021.html)| -
-March 22  | - | [Homework #8](Homeworks/Homework_08.html)
-March 23  | [Control Structures I](Lectures/Lecture16_S2021.html) | -
-March 28  | [Control Structures II](Lectures/Lecture17_S2021.html) | -
-March 29  | - | [Homework #9](Homeworks/Homework_09.html)
-March 30  | [Control Structures III](Lectures/Lecture18_S2021.html) | -
-April 4  | [Randomization Tests](Lectures/Lecture19_S2021) | -
-April 5  | - | [Homework #10](Homeworks/Homework_10.html)
-April 6  | [Batch Processing](Lectures/Lecture_20.html) | -
-April 11  | [ggplot I](Lectures/Lecture_21.html)  | -
-April 12  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
-April 13  | [ggplot II](Lectures/Lecture22_S2021.html) | -
-April 18 | [ggplot III](Lectures/Lecture23_S2021.html) | -
-April 19  | - | [Homework #12](Homeworks/Homework_12.html)
-April 20 | [Functional Programming](Lectures/Lecture_24.html) | -
-April 25  | [Github III](Lectures/Lecture25_S2021.html) | -
-April 26  | - | Catch-up Day
-April 27  | [Shell Commands](Lectures/Lecture25_S2021.html) | -
-May 2  | Lecture Spillover Day | -
-May 3  | Lecture Spillover Day | -
-May 4 | Lecture Spillover Day | - 
+March 19  | [Structured Programming II](Lectures/Lecture15_S2021.xhtml)| -
+March 20  | - | [Homework #8](Homeworks/Homework_08.html)
+March 21  | [Control Structures I](Lectures/Lecture16_S2021.xhtml) | -
+March 26  | [Control Structures II](Lectures/Lecture17_S2021.xhtml) | -
+March 27  | - | [Homework #9](Homeworks/Homework_09.html)
+March 28  | [Control Structures III](Lectures/Lecture18_S2021.xhtml) | -
+April 2  | [Randomization Tests](Lectures/Lecture19_S2021) | -
+April 3  | - | [Homework #10](Homeworks/Homework_10.xhtml)
+April 4  | [Batch Processing](Lectures/Lecture_20.xhtml) | -
+April 9  | [ggplot I](Lectures/Lecture_21.xhtml)  | -
+April 10  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
+April 11  | [ggplot II](Lectures/Lecture22_S2021.xhtml) | -
+April 16 | [ggplot III](Lectures/Lecture23_S2021.xhtml) | -
+April 17  | - | [Homework #12](Homeworks/Homework_12.html)
+April 18 | [Functional Programming](Lectures/Lecture_24.xhtml) | -
+April 23  | [Github III](Lectures/Lecture25_S2021.xhtml) | -
+April 24  | - | Catch-up Day
+April 25  | [Shell Commands](Lectures/Lecture25_S2021.xhtml) | -
+April 30  | Lecture Spillover Day | -
+May 1  | Lecture Spillover Day | -
+May 2 | Lecture Spillover Day | - 
 
 ___
 
 ### Important Dates
-- 23 January: Last day to add classes without instructor permission
-- 30 January: Add/Drop, Pass/No Pass, Audit Deadline
-- 3 April: Last day to withdraw
-- 21 April: Honors Day
-- 5 May: Last day of classes
-- 6,7,10 May: Reading days
-- 8,9,11,12 May: Final exam days
+- 22 January: Last day to add classes without instructor permission
+- 29 January: Add/Drop, Pass/No Pass, Audit Deadline
+- 1 April: Last day to withdraw
+- 19 April: Honors Day
+- 3 May: Last day of classes
+- 4,5,8 May: Reading days
+- 6,7,9,10 May: Final exam days
 
 ___
 
-### Meet The Class of 2023
+### Meet The Class of 2024
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
@@ -106,7 +133,7 @@ Mark Mullinger | [GitHub](https://github.com/mmuling)  [Portfolio](https://mmull
 George Ni | [GitHub](https://github.com/georgeni2442) [Portfolio](https://georgeni2442.github.io/TestRepo) | I used to train birds for falconry and science shows.
 David Piccirilli | [GitHub](https://github.com/dpicciri)  [Portfolio](https://dpicciri.github.io/PiccirilliBiol381) | My favorite Pokemon is Sylveon.
 Zoe Prue | [GitHub](https://github.com/zoe-prue)  [Portfolio](https://zoe-prue.github.io/PrueBio381) | One time I pet Helena Bonham Carter's dogs
-Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows, who accompany me to BCOR 102 lectures.
+Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows.
 Grace Smith | [GitHub](https://github.com/gracesmith20)  [Portfolio](https://gracesmith20.github.io/SmithBio381) | I used to work and live in Yellowstone NP!
 Jacob Sorrentino | [GitHub](https://github.com/jasorren)  [Portfolio](https://jasorren.github.io/SorrentinoBio381) | I founded the UVM Historical Fencing club.
 Kathleen Stutzman | [GitHub](https://github.com/kstutzma)  [Portfolio](https://kstutzma.github.io/StutzmanBIO381) | I have hiked all 46 High Peaks in the Adirondacks

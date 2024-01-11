@@ -1,7 +1,7 @@
 ---
 title: "Cheat Sheets & Programming Resources"
-author: "Biology 381 - Computational Biology"
-date: "2 January 2017"
+author: "Biology 6100 - Computational Biology"
+date: "Spring 2024"
 output:
   prettydoc::html_pretty:
     theme: hpstr
