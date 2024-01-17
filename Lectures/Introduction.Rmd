@@ -1,7 +1,7 @@
 ---
-title: 'Lecture #1: Introduction'
+title: 'Introduction'
 author: "Nicholas J. Gotelli"
-date: "17 January 2023"
+date: "16 January 2024"
 output:
   html_document:
     highlight: tango
