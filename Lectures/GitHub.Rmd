@@ -122,12 +122,11 @@ output:
 * git status
 * git pull
 
-## Check and refresh website to see changes
 
 
-### Review of basics (example demo)
+# Summary of workflow
 - check `status` of the local repo (uncommitted changes? local commits ahead of remote?)
-- `pull` any changes from the repo (incorporating changes pushed by others
+- `pull` any changes from the repo (incorporating changes pushed by others)
 - do some work (edit, create, delete files)
 - `stage changes` (local)
 - `commit changes` (local)
