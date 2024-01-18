@@ -99,9 +99,9 @@ output:
 # Basic workflow for git from the terminal
 
 ## Check things out before starting your work
-* git status (make sure your local repo is not ahead of the remote)
-* git pull (just in case there was a change made from another location)
-* git status  (ready to start working)
+* `git status` (make sure your local repo is not ahead of the remote)
+* `git pull` (just in case there was a change made from another location)
+* `git status`  (ready to start working)
 
 ## Make changes
 * modify files, including knitting new versions of html pages or pdfs
@@ -109,18 +109,18 @@ output:
 * add files
 
 ## Stage changes
-* git status
-* git add -A
-* git status
+* `git status`
+* `git add -A`
+* `git status`
 
 ## Commit changes
-* git commit -am 'write a brief informative commit message' (no caps or punctuation, present tense)
-* git status
+* `git commit -am 'write a brief informative commit message'` (no caps or punctuation, present tense)
+* `git status`
 
 ## Push changes up to GitHub
-* git push
-* git status
-* git pull
+* `git push`
+* `git status`
+* `git pull`
 
 
 
@@ -128,6 +128,6 @@ output:
 - check `status` of the local repo (uncommitted changes? local commits ahead of remote?)
 - `pull` any changes from the repo (incorporating changes pushed by others)
 - do some work (edit, create, delete files)
-- `stage changes` (local)
-- `commit changes` (local)
-- `push` changes from local repo to GitHub
+- `add` changes (local)
+- `commit` changes (local)
+- `push` changes (from local repo to GitHub)
