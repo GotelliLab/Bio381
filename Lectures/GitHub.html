@@ -386,75 +386,107 @@ collaborative project.</li>
 </ul>
 </div>
 </div>
-<div id="creating-a-github-repository-for-an-r-project" class="section level1">
-<h1>Creating a github repository for an r project</h1>
-<div id="set-up-the-repository-on-github" class="section level2">
-<h2>Set up the repository on GitHub</h2>
+<div id="creating-a-webpage-hosted-by-github-for-an-r-project" class="section level1">
+<h1>Creating a webpage hosted by github for an r project</h1>
+<div id="set-the-location-for-the-new-project" class="section level2">
+<h2>Set the location for the new project</h2>
 <ul>
-<li>go to your github site (<a href="https://github.com/MyGitHub" class="uri">https://github.com/MyGitHub</a>)</li>
-<li>log in to your github account (username, password)</li>
-<li>create a new repository by clicking the “+” button</li>
-<li>Name it (write down this name exactly)</li>
-<li>use buttons to include a read me statement</li>
-<li>initialize with a readme</li>
-<li>do NOT add a gitignore</li>
-<li>add a license (MIT is fine)</li>
+<li>from the Project pull-down (upper-right corner of RStudio window)
+choose <code>Close Project</code></li>
+<li>from the console run the command <code>getwd()</code></li>
+<li>from the <code>Session</code> menu set the working directory (choose
+directory) to where you want the new repository to be created</li>
+<li>from the console run the command <code>getwd()</code> a second time
+(to confirm new location)</li>
 </ul>
 </div>
-<div id="build-the-local-r-project-on-your-machine" class="section level2">
-<h2>Build the local r Project on your machine</h2>
+<div id="create-the-new-project-and-move-to-it" class="section level2">
+<h2>Create the new project and move to it</h2>
 <ul>
-<li>open Rstudio</li>
-<li>upper right use pulldown menu to create new project</li>
-<li>select “Version Control”</li>
-<li>select “Git”</li>
-<li>add ’*.pdf’ to gitignore or other files to not track</li>
+<li>from the console run command <code>library(devtools)</code></li>
+<li>from console run command <code>create_project(&quot;ProjectName&quot;)</code>
+This command creates the project and opens a new RStudio
+environment</li>
+<li>close the original RStudio environment and move to your new RStudio
+project window</li>
 </ul>
 </div>
-<div id="link-this-new-local-project-to-the-remote-repo-on-github" class="section level2">
-<h2>Link this new local project to the remote repo on GitHub</h2>
+<div id="add-git-functionality-to-the-new-project" class="section level2">
+<h2>Add git functionality to the new project</h2>
 <ul>
-<li>the RStudio set up is asking for your Repository URL</li>
-<li>go back to your GitHub repo</li>
-<li>click “clone or download” button</li>
-<li>click on the clipboard copy icon to copy the URL for this repo</li>
-<li>go back to RStudio</li>
-<li>paste with CTRL-V into the URL box</li>
-<li>give the name of the repo to be the same thing you called it on
-GitHub</li>
-<li>use browse button to find a location on your computer for this
-folder, or take the default on your desktop</li>
-<li>click “Create Project” to finish</li>
-<li>you are in your new project, which has .gitignore, LICENSE, and
-README.md files already</li>
+<li>from the console run the command <code>library(devtools)</code>
+Remember the <code>devtools</code> package is not open in your new
+project</li>
+<li>from the console run the command <code>use_git()</code></li>
+<li>respond affirmative to the question “Is it ok to commit them?”</li>
+<li>respond affirmative to the question “Restart now?”</li>
 </ul>
 </div>
-<div id="build-a-webpage-portal-in-your-project-that-will-be-hosted-by-github" class="section level2">
-<h2>Build a webpage portal in your project that will be hosted by
-GitHub</h2>
+<div id="set-up-and-link-your-local-git-repository-to-your-github-account" class="section level2">
+<h2>Set up and link your local git repository to your GitHub
+account</h2>
 <ul>
-<li>from the pulldown menu in Rstudio, select new markdown file</li>
-<li>change title to “Initial webpage set up” (or some such thing)</li>
-<li>save this file with file name “index” (RStudio will provide the .Rmd
-suffix)</li>
-<li>run CTRL-SHFT-K to “knit” the file</li>
+<li>after RStudio reopens, from the console run
+<code>library(devtools)</code></li>
+<li>from the console run the command <code>use_github()</code></li>
+<li>go to your GitHub site to admire your new repository!</li>
 </ul>
 </div>
-<div id="commit-these-changes-from-the-terminal" class="section level2">
-<h2>Commit these changes from the terminal</h2>
+<div id="clean-up-the-new-project" class="section level2">
+<h2>Clean up the new project</h2>
 <ul>
-<li>git status</li>
-<li>git add -A (stages changed files)</li>
-<li>git status</li>
+<li>Using the Delete icon in the file panel, remove the <code>R</code>
+folder</li>
+<li>click on the <code>.gitignore</code> file</li>
+<li>add line <code>gitignore</code> file: <code>*.Rproj</code></li>
+<li>optionally add lines <code>gitignore</code> file: <code>*.pdf</code>
+for other file types or individual files to ignore</li>
+<li>optionally add a license with
+use_mit_license(copyright=“YourName”)</li>
+</ul>
+</div>
+<div id="commit-changes-to-the-new-project" class="section level2">
+<h2>Commit changes to the new project</h2>
+<ul>
+<li>Click on the terminal tab to open a new terminal for a git
+commit</li>
+<li>display a list of changed files <code>git status</code></li>
+<li>stage the changes <code>git add -A</code></li>
+<li>display the staged changes <code>git status</code></li>
 <li>git commit -am ‘first commit’ (makes local commit)</li>
 <li>git status</li>
 <li>git push (push the changes up to the GitHub repo)</li>
 </ul>
 </div>
+</div>
+<div id="build-and-host-a-website-associated-with-your-new-repository" class="section level1">
+<h1>Build and host a website associated with your new repository</h1>
+<ul>
+<li></li>
+<li>from the pulldown menu in Rstudio, select a new markdown file
+<code>R Markdown...</code></li>
+<li>change title to “Initial webpage set up” (or some such thing)</li>
+<li>save this file with file name “index” (RStudio will provide the .Rmd
+suffix)</li>
+<li>run CTRL-SHFT-K to “knit” the file</li>
+</ul>
+<div id="commit-changes-from-the-terminal" class="section level2">
+<h2>Commit changes from the terminal</h2>
+<ul>
+<li>switch from <code>Console</code> to <code>Terminal</code> panel</li>
+<li><code>git status</code></li>
+<li><code>git add -A</code></li>
+<li><code>git status</code></li>
+<li><code>git commit -am &#39;add webpage&#39;</code></li>
+<li><code>git status</code></li>
+<li><code>git push</code></li>
+</ul>
+</div>
 <div id="host-the-index-webpage" class="section level2">
 <h2>Host the “index” webpage</h2>
 <ul>
-<li>Return to GitHub</li>
+<li>Return to GitHub public repository</li>
+<li>click on your name to go to your sign in</li>
 <li>Go to “Settings”</li>
 <li>Scroll down and under “Pages” and “Branch” change from “None” to
 “main”</li>
@@ -496,7 +528,7 @@ pdfs</li>
 </ul>
 </div>
 <div id="commit-changes" class="section level2">
-<h2>commit changes</h2>
+<h2>Commit changes</h2>
 <ul>
 <li>git commit -am ‘write a brief informative commit message’ (no caps
 or punctuation, present tense)</li>
@@ -504,7 +536,7 @@ or punctuation, present tense)</li>
 </ul>
 </div>
 <div id="push-changes-up-to-github" class="section level2">
-<h2>push changes up to GitHub</h2>
+<h2>Push changes up to GitHub</h2>
 <ul>
 <li>git push</li>
 <li>git status</li>
@@ -512,15 +544,7 @@ or punctuation, present tense)</li>
 </ul>
 </div>
 <div id="check-and-refresh-website-to-see-changes" class="section level2">
-<h2>check and refresh website to see changes</h2>
-<div id="set-up-simple-local-project-in-rstudio" class="section level3">
-<h3>Set up simple local project in RStudio</h3>
-<ul>
-<li>New Project</li>
-<li>Bio381ClassCode</li>
-<li>open repository with *.Rproj</li>
-</ul>
-</div>
+<h2>Check and refresh website to see changes</h2>
 <div id="review-of-basics-example-demo" class="section level3">
 <h3>Review of basics (example demo)</h3>
 <ul>

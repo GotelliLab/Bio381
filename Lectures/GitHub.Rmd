@@ -29,56 +29,65 @@ output:
 - `Push` Pushing a set of changes means copying them from your local repository up to GitHub.
 - `Pull(=fetch)` Pulling means copying the repository in its current state on GitHub down to your local repository. This would incorporate any changes that others have made (and pushed) in a collaborative project.
 
+# Creating a webpage hosted by github for an r project
 
+## Set the location for the new project
+* from the Project pull-down (upper-right corner of RStudio window) choose `Close Project`
+* from the console run the command `getwd()`
+* from the `Session` menu set the working directory (choose directory) to where you want the new repository to be created
+* from the console run the command `getwd()` a second time (to confirm new location)
 
-# Creating a github repository for an r project
+## Create the new project and move to it
+* from the console run command `library(devtools)`
+* from console run command `create_project("ProjectName")` This command creates the project and opens a new RStudio environment
+* close the original RStudio environment and move to your new RStudio project window
 
-## Set up the repository on GitHub
+## Add git functionality to the new project
+* from the console run the command `library(devtools)` Remember the `devtools` package is not open in your new project
+* from the console run the command `use_git()`
+* respond affirmative to the question "Is it ok to commit them?"
+* respond affirmative to the question "Restart now?"
 
-* go to your github site (https://github.com/MyGitHub)
-* log in to your github account (username, password)
-* create a new repository by clicking the "+" button
-* Name it (write down this name exactly)
-* use buttons to include a read me statement
-* initialize with a readme
-* do NOT add a gitignore
-* add a license (MIT is fine)
+## Set up and link your local git repository to your GitHub account
+* after RStudio reopens, from the console run `library(devtools)`
+* from the console run the command `use_github()`
+* go to your GitHub site to admire your new repository!
 
-## Build the local r Project on your machine
-* open Rstudio
-* upper right use pulldown menu to create new project
-* select "Version Control"
-* select "Git"
-* add '*.pdf' to gitignore or other files to not track
+## Clean up the new project
+* Using the Delete icon in the file panel, remove the `R` folder
+* click on the `.gitignore` file 
+* add line `gitignore` file: `*.Rproj` 
+* optionally add lines `gitignore` file: `*.pdf` for other file types or individual files to ignore
+* optionally add a license with use_mit_license(copyright="YourName")
 
-## Link this new local project to the remote repo on GitHub
-* the RStudio set up is asking for your Repository URL
-* go back to your GitHub repo
-* click "clone or download" button
-* click on the clipboard copy icon to copy the URL for this repo
-* go back to RStudio
-* paste with CTRL-V into the URL box
-* give the name of the repo to be the same thing you called it on GitHub
-* use browse button to find a location on your computer for this folder, or take the default on your desktop
-* click "Create Project" to finish
-* you are in your new project, which has .gitignore, LICENSE, and README.md files already
-
-## Build a webpage portal in your project that will be hosted by GitHub
-* from the pulldown menu in Rstudio, select new markdown file
-* change title to "Initial webpage set up" (or some such thing)
-* save this file with file name "index" (RStudio will provide the .Rmd suffix)
-* run CTRL-SHFT-K to "knit" the file
-
-## Commit these changes from the terminal
-* git status
-* git add -A (stages changed files)
-* git status
+## Commit changes to the new project
+* Click on the terminal tab to open a new terminal for a git commit
+* display a list of changed files `git status`
+* stage the changes `git add -A` 
+* display the staged changes `git status`
 * git commit -am 'first commit' (makes local commit)
 * git status
 * git push (push the changes up to the GitHub repo)
 
+# Build and host a website associated with your new repository
+* 
+* from the pulldown menu in Rstudio, select a new markdown file `R Markdown...`
+* change title to "Initial webpage set up" (or some such thing)
+* save this file with file name "index" (RStudio will provide the .Rmd suffix)
+* run CTRL-SHFT-K to "knit" the file
+
+## Commit changes from the terminal
+* switch from `Console` to `Terminal` panel
+* `git status`
+* `git add -A` 
+* `git status`
+* `git commit -am 'add webpage' `
+* `git status`
+* `git push` 
+
 ## Host the "index" webpage
-* Return to GitHub
+* Return to GitHub public repository
+* click on your name to go to your sign in
 * Go to "Settings"
 * Scroll down and under "Pages" and "Branch" change from "None" to "main"
 * Wait a minute (! could be very slow!!) and click the new link at "Your site is live at..."
@@ -104,21 +113,17 @@ output:
 * git add -A
 * git status
 
-## commit changes
+## Commit changes
 * git commit -am 'write a brief informative commit message' (no caps or punctuation, present tense)
 * git status
 
-## push changes up to GitHub
+## Push changes up to GitHub
 * git push
 * git status
 * git pull
 
-## check and refresh website to see changes
+## Check and refresh website to see changes
 
-### Set up simple local project in RStudio
-- New Project
-- Bio381ClassCode
-- open repository with *.Rproj
 
 ### Review of basics (example demo)
 - check `status` of the local repo (uncommitted changes? local commits ahead of remote?)
