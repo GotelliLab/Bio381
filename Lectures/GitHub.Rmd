@@ -95,8 +95,40 @@ output:
 * Note the address: https://UserName.github.io/RepoName/
 * Example: https://ngotelli.github.io/Trial/
 
+## Optional: rename "master" branch to "main" branch
+
+These instructions are modified from [Scott Hanselman's blog](  https://www.hanselman.com/blog/easily-rename-your-git-default-branch-from-master-to-main) 
+
+* from the github General page, find the box to change "master" to "main"
+
+
+* Now go to each of your local clones of this repository and run the following from the terminal prompt (`$` is the prompt before the command)
+
+```
+$ git checkout master
+$ git branch -m master main
+$ git fetch
+$ git branch --unset-upstream
+$ git branch -u origin/main
+$ git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+# git config --global init.defaultBranch main
+```
+These commands need to be issued only once for each local copy of the repository. These commands do the following:
+
+```
+1. Go to the master branch
+2. Rename master to main locally
+3. Get the latest commits from the server
+4. Remove the link to origin/master
+5. Add a link to origin/main
+6. Update the default branch to be origin/main
+7. Change git configuration to recognize main (may only need to be done once)
+```
+
+
 
 # Basic workflow for git from the terminal
+
 
 ## Check things out before starting your work
 * `git status` (make sure your local repo is not ahead of the remote)
@@ -122,8 +154,6 @@ output:
 * `git status`
 * `git pull`
 
-
-
 # Summary of workflow
 - check `status` of the local repo (uncommitted changes? local commits ahead of remote?)
 - `pull` any changes from the repo (incorporating changes pushed by others)
@@ -131,3 +161,5 @@ output:
 - `add` changes (local)
 - `commit` changes (local)
 - `push` changes (from local repo to GitHub)
+
+[1]: From the blog post https://www.hanselman.com/blog/easily-rename-your-git-default-branch-from-master-to-main

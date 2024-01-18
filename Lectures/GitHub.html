@@ -497,6 +497,34 @@ suffix)</li>
 <li>Example: <a href="https://ngotelli.github.io/Trial/" class="uri">https://ngotelli.github.io/Trial/</a></li>
 </ul>
 </div>
+<div id="optional-rename-master-branch-to-main-branch" class="section level2">
+<h2>Optional: rename “master” branch to “main” branch</h2>
+<p>These instructions are modified from <a href="https://www.hanselman.com/blog/easily-rename-your-git-default-branch-from-master-to-main">Scott
+Hanselman’s blog</a></p>
+<ul>
+<li><p>from the github General page, find the box to change “master” to
+“main”</p></li>
+<li><p>Now go to each of your local clones of this repository and run
+the following from the terminal prompt (<code>$</code> is the prompt
+before the command)</p></li>
+</ul>
+<pre><code>$ git checkout master
+$ git branch -m master main
+$ git fetch
+$ git branch --unset-upstream
+$ git branch -u origin/main
+$ git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+# git config --global init.defaultBranch main</code></pre>
+<p>These commands need to be issued only once for each local copy of the
+repository. These commands do the following:</p>
+<pre><code>1. Go to the master branch
+2. Rename master to main locally
+3. Get the latest commits from the server
+4. Remove the link to origin/master
+5. Add a link to origin/main
+6. Update the default branch to be origin/main
+7. Change git configuration to recognize main (may only need to be done once)</code></pre>
+</div>
 </div>
 <div id="basic-workflow-for-git-from-the-terminal" class="section level1">
 <h1>Basic workflow for git from the terminal</h1>
