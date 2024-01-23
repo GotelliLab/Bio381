@@ -37,8 +37,9 @@ ___
     * subscript `~<text>~`
     * superscript `^<text>^`
     * strikethrough `~~<text>~~`
-    * quotations `><text with no closing mark`
+    * quotations `>text with no closing mark`
     
+
 ### Spacing, manual breaks, lines
 - line spacing effects
 - two extra spaces at the end of a line for a manual break
@@ -225,6 +226,7 @@ print(rnorm(n=10, mean=10, sd=2))
 - `CTRL - SHIFT - ENTER` to source and echo the entire script
 - `CTRL - SHIFT - S` to source entire script without echoing console output
 - code to illustrate:
+
 ```{r}
 # First comment to explain what this program is doing.
 # Be expansive and describe it in great detail. This may seem trivial, but will become increasingly important as you create complex programs.
@@ -267,6 +269,7 @@ head(ranProd)
 
 # do other stuff..
 ```
+
 ### Converting `.R` files to `.html` (creating an R notebook)
 - use notebook script
 - roxygen comments ``#`

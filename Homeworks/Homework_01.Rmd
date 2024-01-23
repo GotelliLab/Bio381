@@ -1,7 +1,7 @@
 ---
 title: 'Homework #1'
 author: "Nicholas J. Gotelli"
-date: "18 January 2023"
+date: "17 January 2024"
 output: 
   html_document: 
     highlight: tango
@@ -12,7 +12,8 @@ The goal of this first exercise is to make sure that all of your software is ins
 
 Make sure everything is set up and working on the laptop that you will be using for this course. 
 
-Specifically, you should have the most current versions of R and RStudio installed. Within R, you need the `tinytex` package installed so that can create ("knit") pdf documents.
+Spe
+cifically, you should have the most current versions of R and RStudio installed. Within R, you need the `tinytex` package installed so that can create ("knit") pdf documents.
 
 You also need the latest version of [Typora](https://typora.io/) (a markdown editor), [Inkscape](https://inkscape.org/release/inkscape-1.1.1/),  a plain text editor (BBEdit for Macs, or Notepad++ for Windows). And you need to be signed up for a GitHub account and have handy your github user name and password. An installation and troubleshooting guide for the various programs is linked [here](Installation_Instructions.html). 
 
