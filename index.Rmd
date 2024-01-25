@@ -31,7 +31,7 @@ Date  | Lecture | Homework
 January 16  | [Introduction](Lectures/Introduction.html) | -  
 January 17  | - | [Homework #1](Homeworks/Homework_01.html)             
 January 18  | [GitHub](Lectures/GitHub.html) | -  
-January 23  | [Markdown](Lectures/Lecture_03.html) | -
+January 23  | [Markdown](Lectures/Markdown.html) | -
 January 24 | - |  [Homework #2](Homeworks/Homework_02.html)
 January 25  | [Regular Expressions](Lectures/Lecture_04.xhtml) | -
 January 30  | [Markdown II](Lectures/Lecture_05.xhtml) | - 
