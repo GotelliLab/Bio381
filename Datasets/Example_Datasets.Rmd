@@ -1,0 +1,29 @@
+---
+title: "Example Datasets"
+author: "George Ni"
+date: "2024-01-29"
+output: 
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Here are some links to example data sets for you to peruse and apply to your homework-this is intended to be used in place of your own personal data sets, but we highly encourage you to try to use your own data sets first. Applying these lessons to your own work will be more meaningful than using examples that may not be relevant to your own research. 
+
+# Links
+
+Name | Download | Description
+------------- | -------------- | ------------- 
+Bombus (Bumblebee) Seasonal Variation | [Download](Burnham_field_data_bombus_seasonal_variation_Dataset.csv)| We collected samples to assay viruses (DWV and BQCV) and Nosema from around 300 bumblebees of various species from 5 sites at 4 different time points
+Expression analysis of Danio rerio semaphorin6a and plexinA2 morpholino-injected embryos | [Download_1](Ebert_dataset.xlsx) [Download_2](Ebert_read.R) | Metadata is in File 1, File 2 has a script file that pulls in the dataset. 
+Plecoptera Counts| [Download](Hogan_Plecoptera_Dataset.xlsx)|Counts of stonefiles (Plecoptera) from museum collections and field collections.
+Effects of plant diversity on resistance of plant biomass|[Download](Li_Soil_Dataset.xlsx)|Plant dataset analyzing the effect of plant species on various soil conditions (moisture, organic matter, etc). 
+
+
+
+
