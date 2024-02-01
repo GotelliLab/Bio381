@@ -1,7 +1,7 @@
 ---
-title: 'Lecture #7: Atomic Vectors I'
+title: 'Atomic Vectors I'
 author: "Nicholas J. Gotelli"
-date: "07 February 2023"
+date: "1 February 2024"
 output:
   html_document:
     highlight: tango
@@ -112,6 +112,43 @@ is.logical(z)
 is.integer(z)
 
 ```
+
+### Specifying the elements of a matrix []
+
+```{r,eval=FALSE}
+# vector of character strings
+dogs <- c("chow","pug","beagle","greyhound","akita")
+
+# use number in brackets to refer to a single element in vector. First slot is "1"
+dogs[1] # picks first element
+dogs[5] # picks last element
+dogs[6] # NA, but not an error
+
+# pass the brackets a group of elements (= a vector) to subset the vector
+dogs[c(3,5)]
+
+# works fine with multiple repeats
+dogs[c(1,1,1,4)]
+
+# grab the entire list by leaving brackets blank (very useful with 2-D objects)
+dogs[]
+
+# pass function to calculate the element needed
+length(dogs)
+dogs[5]
+dogs[length(dogs)]
+
+# use negative numbers to EXCLUDE elements
+dogs[-1]
+
+# ok to use multiple negations
+dogs[c(-2,-4)]
+dogs[-c(2,4)]
+
+# can't mix positive and negative elements in brackets
+dogs[c(1,-5)]
+```
+
 ### Three Properties of a Vector
 
 #### Type
