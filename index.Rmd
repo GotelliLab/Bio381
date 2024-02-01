@@ -35,10 +35,10 @@ January 17  | - | [Homework #1](Homeworks/Homework_01.html)
 January 18  | [GitHub](Lectures/GitHub.html) | -  
 January 23  | [Markdown](Lectures/Markdown.html) | -
 January 24 | - |  [Homework #2](Homeworks/Homework_02.html)
-January 25  | [Regular Expressions](Lectures/RegularExpressions.html) | -
-January 30  | [Markdown II](Lectures/Lecture_05.xhtml) | - 
+January 25  | [Markdown II](Lectures/Markdown.html) | -
+January 30  | [Regular Expressions](Lectures/RegularExpressions.html) | - 
 January 31  |  -  | [Homework #3](Homeworks/Homework_03.html)
-February 1  | [LaTeX & Typora](Lectures/Lecture_06.xhtml) | - 
+February 1  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | - 
 February 6  | [Atomic Vectors I](Lectures/Lecture_07.xhtml) | - 
 February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
 February 8  | [Atomic Vectors II](Lectures/Lecture_08.xhtml)| - 
