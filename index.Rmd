@@ -39,7 +39,7 @@ January 25  | [Markdown II](Lectures/Markdown.html) | -
 January 30  | [Regular Expressions](Lectures/RegularExpressions.html) | - 
 January 31  |  -  | [Homework #3](Homeworks/Homework_03.html)
 February 1  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | - 
-February 6  | [Atomic Vectors I](Lectures/Lecture_07.xhtml) | - 
+February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.xhtml) | - 
 February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
 February 8  | [Atomic Vectors II](Lectures/Lecture_08.xhtml)| - 
 February 13  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.xhtml) | -
