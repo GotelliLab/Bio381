@@ -232,6 +232,14 @@ sum(a > 0.5)
 
 mean(a > 0.5)
 
+# Break down the result
+. <- a > 0.5
+print(.)
+. <- as.integer(.)
+print(.)
+print(sum(.))
+print(mean(.))
+
 #Qualifying exam question! Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?
 
 mean(rnorm(1000) > 2)

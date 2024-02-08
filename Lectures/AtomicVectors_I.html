@@ -681,9 +681,17 @@ graphics later</li>
 <span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a></span>
 <span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a><span class="fu">mean</span>(a <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
 <span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="co">#Qualifying exam question! Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?</span></span>
-<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>) <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code></pre></div>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="co"># Break down the result</span></span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a>. <span class="ot">&lt;-</span> a <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="fu">print</span>(.)</span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a>. <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(.)</span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a><span class="fu">print</span>(.)</span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sum</span>(.))</span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(.))</span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a><span class="co">#Qualifying exam question! Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?</span></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>) <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="vectorization" class="section level4">
 <h4>Vectorization</h4>
