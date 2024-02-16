@@ -42,23 +42,23 @@ February 1  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | -
 February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.html) | - 
 February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
 February 8  | [Atomic Vectors II](Lectures/AtomicVectors_II.html)| - 
-February 13  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.xhtml) | -
+February 13  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.html) | -
 February 14  | -  | [Homework #5](Homeworks/Homework_05.html)
-February 15   | [Matrices, Lists, Data Frames II](Lectures/Lecture_09.xhtml) | -
-February 20 | [Data Curation](Lectures/Lecture_10.xhtml)| -
-February 21  | -  | [Catch Up Day]
-February 22 | [Probability Distributions](Lectures/Lecture_11.xhtml)| -
+February 15   | [Matrices, Lists, Data Frames II](Lectures/Lecture_09.html) | -
+February 20 | [Probability Distributions](Lectures/Lecture_11.xhtml)| -
+February 21  | -  | [Homework # 6](Homeworks/Homework_07.html)
+February 22 | [Data Curation](Lectures/Lecture_10.xhtml)| -
 February 27  |[Functions](Lectures/Lecture_12.xhtml) | [(Experimental Designs)](Lectures/Lecture_12a.xhtml)
-February 28  | [dplyr/SQL](Lectures/dplyr_Lecture1.xhtml)  | -
-February 29  | [dplyr/SQL II](Lectures/dplyr_SQL_Lecture.xhtml)  | [Homework #6](Homeworks/Homework_06.html)
+February 28  |  | [Homework # 7](Homeworks/Homework_08.html) 
+February 29  | [Functions/Structured Programming](Lectures/)  |
 March 5  | Town Meeting Day Recess | -
-March 6  | **Portfolio Check #2** | [Homework #7](Homeworks/Homework_07.html)
+March 6  | **Portfolio Check #2** | [Homework #](Homeworks/???)
 March 7  | [Structured Programming I](Lectures/Lecture14_S2021.xhtml)| -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
 March 14 | Spring Recess | -
-March 19  | [Structured Programming II](Lectures/Lecture15_S2021.xhtml)| -
-March 20  | - | [Homework #8](Homeworks/Homework_08.html)
+March 19  | [dplyr/SQL](Lectures/dplyrlecture)| -
+March 20  | - | [Homework #8](Homeworks/Homework_06.html)
 March 21  | [Control Structures I](Lectures/Lecture16_S2021.xhtml) | -
 March 26  | [Control Structures II](Lectures/Lecture17_S2021.xhtml) | -
 March 27  | - | [Homework #9](Homeworks/Homework_09.html)
