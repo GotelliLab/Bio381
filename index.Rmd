@@ -42,10 +42,10 @@ February 1  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | -
 February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.html) | - 
 February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
 February 8  | [Atomic Vectors II](Lectures/AtomicVectors_II.html)| - 
-February 13  | [Matrices, Lists, Data Frames](Lectures/Lecture_09.html) | -
+February 13  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.html) | -
 February 14  | -  | [Homework #5](Homeworks/Homework_05.html)
-February 15   | [Matrices, Lists, Data Frames II](Lectures/Lecture_09.html) | -
-February 20 | [Probability Distributions](Lectures/Lecture_11.xhtml)| -
+February 15   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.html) | -
+February 20 | [Probability Distributions](Lectures/xProbabilityDistributionsI.html)| -
 February 21  | -  | [Homework # 6](Homeworks/Homework_07.html)
 February 22 | [Data Curation](Lectures/Lecture_10.xhtml)| -
 February 27  |[Functions](Lectures/Lecture_12.xhtml) | [(Experimental Designs)](Lectures/Lecture_12a.xhtml)
