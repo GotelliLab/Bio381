@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nicholas J. Gotelli" />
+<meta name="author" content="Nicholas J. Gotelli and Lauren V. Ash" />
 
-<meta name="date" content="2024-02-21" />
+<meta name="date" content="2023-03-02" />
 
 <title>Homework #6</title>
 
@@ -227,107 +227,6 @@ ul.task-list{list-style: none;}
 
 
 
-<style type="text/css">
-code {
-white-space: pre;
-}
-.sourceCode {
-overflow: visible;
-}
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-color: #aaaaaa;
-}
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
-div.sourceCode
-{ background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } 
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #204a87; } 
-code span.bn { color: #0000cf; } 
-code span.cf { color: #204a87; font-weight: bold; } 
-code span.ch { color: #4e9a06; } 
-code span.cn { color: #8f5902; } 
-code span.co { color: #8f5902; font-style: italic; } 
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.dt { color: #204a87; } 
-code span.dv { color: #0000cf; } 
-code span.er { color: #a40000; font-weight: bold; } 
-code span.ex { } 
-code span.fl { color: #0000cf; } 
-code span.fu { color: #204a87; font-weight: bold; } 
-code span.im { } 
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.kw { color: #204a87; font-weight: bold; } 
-code span.op { color: #ce5c00; font-weight: bold; } 
-code span.ot { color: #8f5902; } 
-code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #ce5c00; font-weight: bold; } 
-code span.ss { color: #4e9a06; } 
-code span.st { color: #4e9a06; } 
-code span.va { color: #000000; } 
-code span.vs { color: #4e9a06; } 
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
-
 
 
 
@@ -355,9 +254,6 @@ outline: none;
 summary {
 display: list-item;
 }
-details > summary > p:only-child {
-display: inline;
-}
 pre code {
 padding: 0;
 }
@@ -376,17 +272,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -428,194 +330,67 @@ display: none;
 
 
 <h1 class="title toc-ignore">Homework #6</h1>
-<h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">21 February 2024</h4>
+<h4 class="author">Nicholas J. Gotelli and Lauren V. Ash</h4>
+<h4 class="date">2 March 2023</h4>
 
 </div>
 
 
-<div id="simulating-and-fitting-data-distributions" class="section level3">
-<h3>Simulating and Fitting Data Distributions</h3>
-<p>This exercise teaches you how to compare a histogram of continuous
-(or integer) data to the probability density functions for different
-statistical distributions.</p>
+<div id="data-manipulations-using-the-dplyr-package" class="section level2">
+<h2>Data manipulations using the <code>dplyr</code> package</h2>
+<p>This homework assignment focus on data manipulation in
+<code>R</code>. Complete these problems using the <code>dplyr</code> and
+<code>tidyverse</code> packages.</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Run the sample code.</strong> Set up a new
-<code>.Rmd</code> file for this exercise. Copy and paste the code below
-into different code chunks, and then read the text and run the code
-chunks one at a time to see what they do. You probably won’t understand
-everything in the code, but this is a good start for seeing some
-realistic uses of <code>ggplot</code>. We will cover most of these
-details in the next few weeks.</p></li>
-<li><p><strong>Try it with your own data</strong>. Once the code is in
-and runs, try running this analysis on your own data (or data from your
-lab, or data from a published paper; if you’re stumped, check out
-publicly available data sets on <a href="https://datadryad.org/search">Dryad</a>, <a href="https://data.esa.org">ESA</a>, or the <a href="https://lternet.edu/">LTER Network</a>). Find a vector of data (of
-any size), set it up in a <code>.csv</code> file, and read the data into
-a data frame with this code chunk:</p></li>
+<li><p>Examine the structure of the iris data set. How many observations
+and variables are in the data set?</p></li>
+<li><p>Create a new data frame <code>iris1</code> that contains only the
+species <em>virginica</em> and <em>versicolor</em> with sepal lengths
+longer than 6 cm and sepal widths longer than 2.5 cm. How many
+observations and variables are in the data set?</p></li>
+<li><p>Now, create a <code>iris2</code> data frame from
+<code>iris1</code> that contains only the columns for Species,
+Sepal.Length, and Sepal.Width. How many observations and variables are
+in the data set?</p></li>
+<li><p>Create an <code>iris3</code> data frame from <code>iris2</code>
+that orders the observations from largest to smallest sepal length. Show
+the first 6 rows of this data set.</p></li>
+<li><p>Create an <code>iris4</code> data frame from <code>iris3</code>
+that creates a column with a sepal area (length * width) value for each
+observation. How many observations and variables are in the data
+set?</p></li>
+<li><p>Create <code>iris5</code> that calculates the average sepal
+length, the average sepal width, and the sample size of the entire
+<code>iris4</code> data frame and print <code>iris5</code>.</p></li>
+<li><p>Finally, create <code>iris6</code> that calculates the average
+sepal length, the average sepal width, and the sample size <em>for each
+species</em> of in the <code>iris4</code> data frame and print
+<code>iris6</code>.</p></li>
+<li><p>In these exercises, you have successively modified different
+versions of the data frame
+<code>iris1 iris2 iris3 iris4 iris5 iris6</code>. At each stage, the
+output data frame from one operation serves as the input fro the next. A
+more efficient way to do this is to use the pipe operator
+<code>%&gt;%</code> from the <code>tidyr</code> package. See if you can
+rework all of your previous statements (except for <code>iris5</code>)
+into an extended piping operation that uses <code>iris</code> as the
+input and generates <code>irisFinal</code> as the output.</p></li>
+<li><p>Create a ‘longer’ data frame using the original <code>iris</code>
+data set with three columns named “Species”, “Measure”, “Value”. The
+column “Species” will retain the species names of the data set. The
+column “Measure” will include whether the value corresponds to
+Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column
+“Value” will include the numerical values of those
+measurements.</p></li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;MyDataFile.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code></pre></div>
-<p>George will be able to help you if you are having trouble reading in
-the data.</p>
-<p>Once your data are in, go ahead and comment out the “fake data” that
-are simulated in the chunk below. At that point, if you compile the
-entire file, it should run all of the code on your own data. Be sure to
-add comments to the code and commentary to the <code>.Rmd</code> file so
-that you can go back to it later and understand and use the code in your
-work.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p><strong>Find best-fitting distribution</strong>. Take a look at
-the second-to-last graph which shows the histogram of your data and 4
-probability density curves (normal, uniform, exponential, gamma) that
-are fit to the data. Find the best-fitting distribution for your data.
-For most data sets, the gamma will probably fit best, but if you data
-set is small, it may be very hard to see much of a difference between
-the curves. The <code>beta</code> distribution in the final graph is
-somewhat special. It often fits the data pretty well, but that is
-because we have assumed the largest data point is the true upper bound,
-and everything is scaled to that. The fit of the uniform distribution
-also fixes the upper bound. The other curves (normal, exponential, and
-gamma) are more realistic because they do not have an upper
-bound.</p></li>
-<li><p><strong>Simulate a new data set</strong>. Using the best-fitting
-distribution, go back to the code and get the maximum likelihood
-parameters. Use those to simulate a new data set, with the same length
-as your original vector, and plot that in a histogram and add the
-probability density curve. Right below that, generate a fresh histogram
-plot of the original data, and also include the probability density
-curve.</p></li>
-</ol>
-<p>How do the two histogram profiles compare? Do you think the model is
-doing a good job of simulating realistic data that match your original
-measurements? Why or why not?</p>
-<p>If you have entered a large data frame with many columns, try running
-all of the code on a different variable to see how the simulation
-performs.</p>
-<p>Once we get a little bit more R coding under our belts, we will
-return to the problem of simulating data and use some of this code
-again.</p>
 <hr />
-<div id="open-libraries" class="section level4">
-<h4>Open libraries</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for graphics</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># for maximum likelihood estimation</span></span></code></pre></div>
 </div>
-<div id="read-in-data-vector" class="section level4">
-<h4>Read in data vector</h4>
-<p>To illustrate, we will generate some fake data here:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># quick and dirty, a truncated normal distribution to work on the solution set</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">3000</span>,<span class="at">mean=</span><span class="fl">0.2</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3000</span>,z)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">names</span>(z) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;myVar&quot;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>z <span class="ot">&lt;-</span> z[z<span class="sc">$</span>myVar<span class="sc">&gt;</span><span class="dv">0</span>,]</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">summary</span>(z<span class="sc">$</span>myVar)</span></code></pre></div>
-<p>In the third step of this exercise, you wil substitute in your own
-data for this fake data set. But for now, use the code chunks below to
-see how you fit different statistical distributions to a vector of
-observations, and then estimate the maximum likelihood parameters for
-each distribution.</p>
-</div>
-<div id="plot-histogram-of-data" class="section level4">
-<h4>Plot histogram of data</h4>
-<p>Plot a histogram of the data, using a modification of the code from
-lecture. Here we are switching from <code>qplot</code> to
-<code>ggplot</code> for more graphics options. We are also rescaling the
-y axis of the histogram from counts to density, so that the area under
-the histogram equals 1.0.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar, <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) </span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
-</div>
-<div id="add-empirical-density-curve" class="section level4">
-<h4>Add empirical density curve</h4>
-<p>Now modify the code to add in a kernel density plot of the data. This
-is an empirical curve that is fitted to the data. It does not assume any
-particular probability distribution, but it smooths out the shape of the
-histogram:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span>  p1 <span class="sc">+</span>  <span class="fu">geom_density</span>(<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>,<span class="at">size=</span><span class="fl">0.75</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
-</div>
-<div id="get-maximum-likelihood-parameters-for-normal" class="section level4">
-<h4>Get maximum likelihood parameters for <code>normal</code></h4>
-<p>Next, fit a normal distribution to your data and grab the maximum
-likelihood estimators of the two parameters of the normal, the mean and
-the variance:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>normPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">print</span>(normPars)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">str</span>(normPars)</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>] <span class="co"># note structure of getting a named attribute</span></span></code></pre></div>
-</div>
-<div id="plot-normal-probability-density" class="section level4">
-<h4>Plot <code>normal</code> probability density</h4>
-<p>Now let’s call the <code>dnorm</code> function inside ggplot’s
-<code>stat_function</code> to generate the probability density for the
-normal distribution. Read about <code>stat_function</code> in the help
-system to see how you can use this to add a smooth function to any
-ggplot. Note that we first get the maximum likelihood parameters for a
-normal distribution fitted to thse data by calling
-<code>fitdistr</code>. Then we pass those parameters
-(<code>meanML</code> and <code>sdML</code> to
-<code>stat_function</code>):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>meanML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>sdML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(z<span class="sc">$</span>myVar),<span class="at">len=</span><span class="fu">length</span>(z<span class="sc">$</span>myVar))</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a> stat <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dnorm, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> meanML, <span class="at">sd =</span> sdML))</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a> p1 <span class="sc">+</span> stat</span></code></pre></div>
-<p>Notice that the best-fitting normal distribution (red curve) for
-these data actually has a biased mean. That is because the data set has
-no negative values, so the normal distribution (which is symmetric) is
-not working well.</p>
-</div>
-<div id="plot-exponential-probability-density" class="section level4">
-<h4>Plot <code>exponential</code> probability density</h4>
-<p>Now let’s use the same template and add in the curve for the
-exponential:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>expoPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;exponential&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> expoPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>stat2 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dexp, <span class="at">colour=</span><span class="st">&quot;blue&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">rate=</span>rateML))</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2</span></code></pre></div>
-</div>
-<div id="plot-uniform-probability-density" class="section level4">
-<h4>Plot <code>uniform</code> probability density</h4>
-<p>For the uniform, we don’t need to use <code>fitdistr</code> because
-the maximum likelihood estimators of the two parameters are just the
-minimum and the maximum of the data:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>stat3 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dunif, <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">min=</span><span class="fu">min</span>(z<span class="sc">$</span>myVar), <span class="at">max=</span><span class="fu">max</span>(z<span class="sc">$</span>myVar)))</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3</span></code></pre></div>
-</div>
-<div id="plot-gamma-probability-density" class="section level4">
-<h4>Plot <code>gamma</code> probability density</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>gammaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;gamma&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>shapeML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>stat4 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dgamma, <span class="at">colour=</span><span class="st">&quot;brown&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape=</span>shapeML, <span class="at">rate=</span>rateML))</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3 <span class="sc">+</span> stat4</span></code></pre></div>
-</div>
-<div id="plot-beta-probability-density" class="section level4">
-<h4>Plot <code>beta</code> probability density</h4>
-<p>This one has to be shown in its own plot because the raw data must be
-rescaled so they are between 0 and 1, and then they can be compared to
-the beta.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>pSpecial <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar<span class="sc">/</span>(<span class="fu">max</span>(myVar <span class="sc">+</span> <span class="fl">0.1</span>)), <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">size=</span><span class="fl">0.75</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>betaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>z<span class="sc">$</span>myVar<span class="sc">/</span><span class="fu">max</span>(z<span class="sc">$</span>myVar <span class="sc">+</span> <span class="fl">0.1</span>),<span class="at">start=</span><span class="fu">list</span>(<span class="at">shape1=</span><span class="dv">1</span>,<span class="at">shape2=</span><span class="dv">2</span>),<span class="st">&quot;beta&quot;</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>shape1ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape1&quot;</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>shape2ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape2&quot;</span>]</span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>statSpecial <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dbeta, <span class="at">colour=</span><span class="st">&quot;orchid&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1=</span>shape1ML,<span class="at">shape2=</span>shape2ML))</span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>pSpecial <span class="sc">+</span> statSpecial</span></code></pre></div>
-</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p><a href="dplyr_Lecture1.html"><code>dplyr</code> lecture
+notes</a><br />
+<a href="https://gotellilab.github.io/Bio381/CheatSheets/dplyrCheatSheet.pdf"><code>dplyr</code>
+cheat sheet</a></p>
 </div>
 
 

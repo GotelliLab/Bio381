@@ -11,9 +11,9 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2024-02-21" />
+<meta name="date" content="2024-02-20" />
 
-<title>Homework #6</title>
+<title>Probability Distributions I</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -427,195 +427,301 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Homework #6</h1>
+<h1 class="title toc-ignore">Probability Distributions I</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">21 February 2024</h4>
+<h4 class="date">20 February 2024</h4>
 
 </div>
 
 
-<div id="simulating-and-fitting-data-distributions" class="section level3">
-<h3>Simulating and Fitting Data Distributions</h3>
-<p>This exercise teaches you how to compare a histogram of continuous
-(or integer) data to the probability density functions for different
-statistical distributions.</p>
+<div id="probability-distributions-in-r" class="section level3">
+<h3>Probability distributions in R</h3>
+<div id="discrete-distributions" class="section level4">
+<h4>Discrete distributions</h4>
+<ul>
+<li>Poisson
+<ul>
+<li>Range: [0,<span class="math inline">\(\infty\)</span>]</li>
+<li>Parameters: size = number of events, rate = <span class="math inline">\(\lambda\)</span></li>
+<li>Interpretation: Distribution of events that occur during a fixed
+time interval or sampling effort with a constant rate of independent
+events; resembles normal with large <span class="math inline">\(\lambda\)</span>, or exponential with small <span class="math inline">\(\lambda\)</span></li>
+</ul></li>
+<li>Binomial
+<ul>
+<li>Range: [0, # of trials]</li>
+<li>Parameters: size= number of trials; p = probability of positive
+outcome</li>
+<li>Interpretation: Distribution of number of successful independent
+dichotomous trials, with constant p</li>
+</ul></li>
+<li>Negative Binomial
+<ul>
+<li>Range: [0, <span class="math inline">\(\infty\)</span>]</li>
+<li>Parameters: size=number of successes; p = probability of
+success</li>
+<li>Interpretation: Distribution of number of failures in a series of
+independent Bernouli trials, each with p = probability of a success.
+Generates a discrete distribution that is more heterogeneous
+(“overdispersed”) than Poisson</li>
+</ul></li>
+</ul>
+</div>
+<div id="continuous-distributions" class="section level4">
+<h4>Continuous distributions</h4>
+<ul>
+<li>Uniform
+<ul>
+<li>Range: [min,max]</li>
+<li>Parameters: min = minimum boundary; max = maximum boundary</li>
+<li>Interpretation: Distribution of a value that is equally likely
+within a specified range</li>
+</ul></li>
+<li>Normal
+<ul>
+<li>Range: [<span class="math inline">\(-\infty,\infty\)</span>]</li>
+<li>Parameters: mean = central tendency; SD = standard deviation</li>
+<li>Interpretation: Symmetric bell-shaped curve with unbounded
+tails</li>
+</ul></li>
+<li>Gamma <span class="math inline">\(\Gamma\)</span>
+<ul>
+<li>Range: [0,<span class="math inline">\(\infty\)</span>]</li>
+<li>Parameters: shape, scale</li>
+<li>Interpretation: mean=<span class="math inline">\(shape*scale\)</span>, variance=<span class="math inline">\(shape*scale^2\)</span>; generates a variety of
+shapes (including normal and exponential) for positive continuous
+variables</li>
+</ul></li>
+<li>Beta <span class="math inline">\(\beta\)</span>
+<ul>
+<li>Range: [0,1] (can be rescaled to any range by simple multiplication
+and addition)</li>
+<li>Paramters: shape1, shape2</li>
+<li>Interpretation: if shape1 and shape 2 are integers, interpret as a
+coin toss, with shape1 = # of successes + 1, shape2 = # of failures + 1.
+Gives distribution of value of p, estimated from data, which can range
+from exponential through uniform through normal (but all are bounded).
+Setting shape1 and shape2 &lt;1 yields u-shaped distributions.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="the-grammar-of-probability-distributions-in-r" class="section level3">
+<h3>The “grammar” of probability distributions in R</h3>
+<ul>
+<li><code>d</code> gives probability density function</li>
+<li><code>p</code> gives cumulative distribution function</li>
+<li><code>q</code> gives quantile function (the inverse of
+<code>p</code>)</li>
+<li><code>r</code> gives random number generation</li>
+</ul>
+<p>Combine these with the base name of the function. For example
+<code>rbinom</code> gives a set of random values drawn from a binomial,
+whereas <code>dnorm</code> gives the density function for a normal
+distribution. There are many probability distributions available in R,
+but we will discuss only 7 of them.</p>
+<div id="poisson-distribution" class="section level4">
+<h4>Poisson distribution</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Poisson distribution</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># Discrete X &gt;= 0</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co"># Random events with a constant rate lambda</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co"># (observations per time or per unit area)</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># Parameter lambda &gt; 0</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co"># &quot;d&quot; function generates probability density</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span>hits,<span class="at">lambda=</span><span class="dv">1</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span>hits,<span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span>hits,<span class="at">lambda=</span><span class="dv">6</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span>hits,<span class="at">lambda=</span><span class="fl">0.2</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="fu">sum</span>(myVec)  <span class="co"># sum of density function = 1.0 (total area under curve)</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co"># for a Poisson distribution with lambda=2, </span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="co"># what is the probability that a single draw will yield X=0?</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co"># &quot;p&quot; function generates cumulative probability density; gives the </span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co"># &quot;lower tail&quot; cumulative area of the distribution</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">ppois</span>(<span class="at">q=</span>hits,<span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a><span class="co"># for a Poisson distribution with lambda=2, </span></span>
+<span id="cb1-43"><a href="#cb1-43" tabindex="-1"></a><span class="co"># what is the probability of getting 1 or fewer hits?</span></span>
+<span id="cb1-44"><a href="#cb1-44" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" tabindex="-1"></a><span class="fu">ppois</span>(<span class="at">q=</span><span class="dv">1</span>, <span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" tabindex="-1"></a><span class="co"># We could also get this through dpois</span></span>
+<span id="cb1-49"><a href="#cb1-49" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" tabindex="-1"></a>p_0</span>
+<span id="cb1-51"><a href="#cb1-51" tabindex="-1"></a>p_1 <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">1</span>,<span class="at">lambda=</span><span class="dv">2</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" tabindex="-1"></a>p_1</span>
+<span id="cb1-53"><a href="#cb1-53" tabindex="-1"></a>p_0 <span class="sc">+</span> p_1</span>
+<span id="cb1-54"><a href="#cb1-54" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" tabindex="-1"></a><span class="co"># The q function is the inverse of p</span></span>
+<span id="cb1-57"><a href="#cb1-57" tabindex="-1"></a><span class="co"># What is the number of hits corresponding to 50% of the probability mass</span></span>
+<span id="cb1-58"><a href="#cb1-58" tabindex="-1"></a><span class="fu">qpois</span>(<span class="at">p=</span><span class="fl">0.5</span>,<span class="at">lambda=</span><span class="fl">2.5</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">y=</span><span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">lambda=</span><span class="fl">2.5</span>),<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-60"><a href="#cb1-60" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" tabindex="-1"></a><span class="co"># but distribution is discrete, so this is not exact</span></span>
+<span id="cb1-62"><a href="#cb1-62" tabindex="-1"></a><span class="fu">ppois</span>(<span class="at">q=</span><span class="dv">2</span>,<span class="at">lambda=</span><span class="fl">2.5</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" tabindex="-1"></a><span class="co"># finally, we can simulate individual values from a poisson</span></span>
+<span id="cb1-65"><a href="#cb1-65" tabindex="-1"></a>ranPois <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">lambda=</span><span class="fl">2.5</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>ranPois,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb1-67"><a href="#cb1-67" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" tabindex="-1"></a><span class="co"># for real or simulated data, we can use the quantile</span></span>
+<span id="cb1-70"><a href="#cb1-70" tabindex="-1"></a><span class="co"># function to find the empirical  95% confidence interval on the data</span></span>
+<span id="cb1-71"><a href="#cb1-71" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>ranPois,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+</div>
+<div id="binomial-distribution" class="section level4">
+<h4>Binomial distribution</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># Binomial distribution</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># p = probability of a dichotomous outcome</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># size = number of trials</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># x = possible outcomes</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># outcome x is bounded between 0 and number of trials</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co"># use &quot;d&quot; binom for density function</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="at">x=</span>hits,<span class="at">size=</span><span class="dv">10</span>,<span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co"># and how does this compare to an actual simulation of 50 tosses of 100 coins?</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>myCoins <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">50</span>,<span class="at">size=</span><span class="dv">100</span>,<span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>myCoins,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>myCoins,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+</div>
+<div id="negative-binomial-distribution" class="section level4">
+<h4>Negative Binomial distribution</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># negative binomial: number of failures (values of MyVec)</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># in a series of (Bernouli) with p=probability of success </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># before a target number of successes (= size)</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># generates a discrete distribution that is more </span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co"># heterogeneous (&quot;overdispersed&quot;) than Poisson</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">40</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dnbinom</span>(<span class="at">x=</span>hits, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># geometric series is a special case where N= 1 success</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co"># each bar is a constant fraction 1 - &quot;prob&quot; of the bar before it</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>myVec <span class="ot">&lt;-</span> <span class="fu">dnbinom</span>(<span class="at">x=</span>hits, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span><span class="fl">0.1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>hits,<span class="at">y=</span>myVec,<span class="at">geom=</span><span class="st">&quot;col&quot;</span>,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co"># alternatively specify mean = mu of distribution and size, </span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co"># the dispersion parameter (small is more dispersed)</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co"># this gives us a poisson with a lambda value that varies</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co"># the dispersion parameter is the shape parameter in the gamma</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co"># as it increases, the distribution has a smaller variance</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co"># just simulate it directly</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>nbiRan <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">size=</span><span class="dv">10</span>,<span class="at">mu=</span><span class="dv">5</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="fu">qplot</span>(nbiRan,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>nbiRan <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">size=</span><span class="fl">0.1</span>,<span class="at">mu=</span><span class="dv">5</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="fu">qplot</span>(nbiRan,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="estimating-paramaters-from-data" class="section level3">
+<h3>estimating paramaters from data</h3>
+<p><code>p(data|hypothesis)</code> is the standard approach for null
+hypothesis tests.</p>
+<p>Model paramaters can be thought of as a hypothesis about the
+distribution of the data: <code>p(data|paramaters)</code></p>
+<p>This would be a goodness of fit test for data to a particular
+statistical distribution.</p>
+<p>More useful might be <code>p(paramaters|data)</code>. For a given set
+of data, what is the probability that a particular statistical
+distribution (such as a normal with a specified mean and standard
+deviation), provides a fit to these data?</p>
+<p>Clearly, we want paramaters that <em>maximize</em> this probability.
+The paramaters that fit this definition are <em>maximum likelihood
+estimators</em>.</p>
+<p>Here is a simple example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">104</span>,<span class="dv">99</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<p>For this procedure:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Run the sample code.</strong> Set up a new
-<code>.Rmd</code> file for this exercise. Copy and paste the code below
-into different code chunks, and then read the text and run the code
-chunks one at a time to see what they do. You probably won’t understand
-everything in the code, but this is a good start for seeing some
-realistic uses of <code>ggplot</code>. We will cover most of these
-details in the next few weeks.</p></li>
-<li><p><strong>Try it with your own data</strong>. Once the code is in
-and runs, try running this analysis on your own data (or data from your
-lab, or data from a published paper; if you’re stumped, check out
-publicly available data sets on <a href="https://datadryad.org/search">Dryad</a>, <a href="https://data.esa.org">ESA</a>, or the <a href="https://lternet.edu/">LTER Network</a>). Find a vector of data (of
-any size), set it up in a <code>.csv</code> file, and read the data into
-a data frame with this code chunk:</p></li>
+<li>Select a model that is appropriate for the data</li>
+<li>Use <code>fitdistr</code> to find maximum likelihood estimators for
+the paramaters.</li>
+<li>Use those paramaters to either plot the density function or simulate
+new data.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;MyDataFile.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code></pre></div>
-<p>George will be able to help you if you are having trouble reading in
-the data.</p>
-<p>Once your data are in, go ahead and comment out the “fake data” that
-are simulated in the chunk below. At that point, if you compile the
-entire file, it should run all of the code on your own data. Be sure to
-add comments to the code and commentary to the <code>.Rmd</code> file so
-that you can go back to it later and understand and use the code in your
-work.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p><strong>Find best-fitting distribution</strong>. Take a look at
-the second-to-last graph which shows the histogram of your data and 4
-probability density curves (normal, uniform, exponential, gamma) that
-are fit to the data. Find the best-fitting distribution for your data.
-For most data sets, the gamma will probably fit best, but if you data
-set is small, it may be very hard to see much of a difference between
-the curves. The <code>beta</code> distribution in the final graph is
-somewhat special. It often fits the data pretty well, but that is
-because we have assumed the largest data point is the true upper bound,
-and everything is scaled to that. The fit of the uniform distribution
-also fixes the upper bound. The other curves (normal, exponential, and
-gamma) are more realistic because they do not have an upper
-bound.</p></li>
-<li><p><strong>Simulate a new data set</strong>. Using the best-fitting
-distribution, go back to the code and get the maximum likelihood
-parameters. Use those to simulate a new data set, with the same length
-as your original vector, and plot that in a histogram and add the
-probability density curve. Right below that, generate a fresh histogram
-plot of the original data, and also include the probability density
-curve.</p></li>
-</ol>
-<p>How do the two histogram profiles compare? Do you think the model is
-doing a good job of simulating realistic data that match your original
-measurements? Why or why not?</p>
-<p>If you have entered a large data frame with many columns, try running
-all of the code on a different variable to see how the simulation
-performs.</p>
-<p>Once we get a little bit more R coding under our belts, we will
-return to the problem of simulating data and use some of this code
-again.</p>
-<hr />
-<div id="open-libraries" class="section level4">
-<h4>Open libraries</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for graphics</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># for maximum likelihood estimation</span></span></code></pre></div>
-</div>
-<div id="read-in-data-vector" class="section level4">
-<h4>Read in data vector</h4>
-<p>To illustrate, we will generate some fake data here:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># quick and dirty, a truncated normal distribution to work on the solution set</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">3000</span>,<span class="at">mean=</span><span class="fl">0.2</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3000</span>,z)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">names</span>(z) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;myVar&quot;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>z <span class="ot">&lt;-</span> z[z<span class="sc">$</span>myVar<span class="sc">&gt;</span><span class="dv">0</span>,]</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">summary</span>(z<span class="sc">$</span>myVar)</span></code></pre></div>
-<p>In the third step of this exercise, you wil substitute in your own
-data for this fake data set. But for now, use the code chunks below to
-see how you fit different statistical distributions to a vector of
-observations, and then estimate the maximum likelihood parameters for
-each distribution.</p>
-</div>
-<div id="plot-histogram-of-data" class="section level4">
-<h4>Plot histogram of data</h4>
-<p>Plot a histogram of the data, using a modification of the code from
-lecture. Here we are switching from <code>qplot</code> to
-<code>ggplot</code> for more graphics options. We are also rescaling the
-y axis of the histogram from counts to density, so that the area under
-the histogram equals 1.0.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar, <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) </span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
-</div>
-<div id="add-empirical-density-curve" class="section level4">
-<h4>Add empirical density curve</h4>
-<p>Now modify the code to add in a kernel density plot of the data. This
-is an empirical curve that is fitted to the data. It does not assume any
-particular probability distribution, but it smooths out the shape of the
-histogram:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span>  p1 <span class="sc">+</span>  <span class="fu">geom_density</span>(<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>,<span class="at">size=</span><span class="fl">0.75</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
-</div>
-<div id="get-maximum-likelihood-parameters-for-normal" class="section level4">
-<h4>Get maximum likelihood parameters for <code>normal</code></h4>
-<p>Next, fit a normal distribution to your data and grab the maximum
-likelihood estimators of the two parameters of the normal, the mean and
-the variance:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>normPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">print</span>(normPars)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">str</span>(normPars)</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>] <span class="co"># note structure of getting a named attribute</span></span></code></pre></div>
-</div>
-<div id="plot-normal-probability-density" class="section level4">
-<h4>Plot <code>normal</code> probability density</h4>
-<p>Now let’s call the <code>dnorm</code> function inside ggplot’s
-<code>stat_function</code> to generate the probability density for the
-normal distribution. Read about <code>stat_function</code> in the help
-system to see how you can use this to add a smooth function to any
-ggplot. Note that we first get the maximum likelihood parameters for a
-normal distribution fitted to thse data by calling
-<code>fitdistr</code>. Then we pass those parameters
-(<code>meanML</code> and <code>sdML</code> to
-<code>stat_function</code>):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>meanML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>sdML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(z<span class="sc">$</span>myVar),<span class="at">len=</span><span class="fu">length</span>(z<span class="sc">$</span>myVar))</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a> stat <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dnorm, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> meanML, <span class="at">sd =</span> sdML))</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a> p1 <span class="sc">+</span> stat</span></code></pre></div>
-<p>Notice that the best-fitting normal distribution (red curve) for
-these data actually has a biased mean. That is because the data set has
-no negative values, so the normal distribution (which is symmetric) is
-not working well.</p>
-</div>
-<div id="plot-exponential-probability-density" class="section level4">
-<h4>Plot <code>exponential</code> probability density</h4>
-<p>Now let’s use the same template and add in the curve for the
-exponential:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>expoPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;exponential&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> expoPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>stat2 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dexp, <span class="at">colour=</span><span class="st">&quot;blue&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">rate=</span>rateML))</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2</span></code></pre></div>
-</div>
-<div id="plot-uniform-probability-density" class="section level4">
-<h4>Plot <code>uniform</code> probability density</h4>
-<p>For the uniform, we don’t need to use <code>fitdistr</code> because
-the maximum likelihood estimators of the two parameters are just the
-minimum and the maximum of the data:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>stat3 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dunif, <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">min=</span><span class="fu">min</span>(z<span class="sc">$</span>myVar), <span class="at">max=</span><span class="fu">max</span>(z<span class="sc">$</span>myVar)))</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3</span></code></pre></div>
-</div>
-<div id="plot-gamma-probability-density" class="section level4">
-<h4>Plot <code>gamma</code> probability density</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>gammaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;gamma&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>shapeML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>stat4 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dgamma, <span class="at">colour=</span><span class="st">&quot;brown&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape=</span>shapeML, <span class="at">rate=</span>rateML))</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3 <span class="sc">+</span> stat4</span></code></pre></div>
-</div>
-<div id="plot-beta-probability-density" class="section level4">
-<h4>Plot <code>beta</code> probability density</h4>
-<p>This one has to be shown in its own plot because the raw data must be
-rescaled so they are between 0 and 1, and then they can be compared to
-the beta.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>pSpecial <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar<span class="sc">/</span>(<span class="fu">max</span>(myVar <span class="sc">+</span> <span class="fl">0.1</span>)), <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">size=</span><span class="fl">0.75</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>betaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>z<span class="sc">$</span>myVar<span class="sc">/</span><span class="fu">max</span>(z<span class="sc">$</span>myVar <span class="sc">+</span> <span class="fl">0.1</span>),<span class="at">start=</span><span class="fu">list</span>(<span class="at">shape1=</span><span class="dv">1</span>,<span class="at">shape2=</span><span class="dv">2</span>),<span class="st">&quot;beta&quot;</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>shape1ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape1&quot;</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>shape2ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape2&quot;</span>]</span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>statSpecial <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dbeta, <span class="at">colour=</span><span class="st">&quot;orchid&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1=</span>shape1ML,<span class="at">shape2=</span>shape2ML))</span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>pSpecial <span class="sc">+</span> statSpecial</span></code></pre></div>
-</div>
+<p>Here are a few data from Lauren Ash’s dissertation: snout-vent length
+(SVL) measurements for 6 specimens of green frogs (<em>Lithobates
+clamitans</em>) collected from Berlin Pond in 2016.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="at">x=</span>x,<span class="at">mean=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="at">sd=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>)   </span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a> </span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(<span class="at">x=</span>x,<span class="at">shape=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="at">rate=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
+<p>There is not much difference here.But now let’s add a weird outlier
+of a tiny value and see what happens</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>outlier <span class="ot">&lt;-</span> <span class="fl">0.050</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(frog_data,outlier)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="at">x=</span>x,<span class="at">mean=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="at">sd=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>)   </span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a> </span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(<span class="at">x=</span>x,<span class="at">shape=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="at">rate=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
 </div>
 
 

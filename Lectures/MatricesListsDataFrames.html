@@ -11,9 +11,8 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2023-03-08" />
 
-<title>Homework #7</title>
+<title>Matrices, Lists, &amp; Data Frames</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -226,6 +225,7 @@ ul.task-list{list-style: none;}
 </style>
 
 
+
 <style type="text/css">
 code {
 white-space: pre;
@@ -271,11 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -284,14 +284,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -305,13 +305,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; }
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -347,6 +354,9 @@ outline: none;
 summary {
 display: list-item;
 }
+details > summary > p:only-child {
+display: inline;
+}
 pre code {
 padding: 0;
 }
@@ -365,23 +375,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -422,195 +426,297 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Homework #7</h1>
+<h1 class="title toc-ignore">Matrices, Lists, &amp; Data Frames</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">8 March 2023</h4>
+<h4 class="date">13,15 February 2024</h4>
 
 </div>
 
 
-<div id="simulating-and-fitting-data-distributions" class="section level3">
-<h3>Simulating and Fitting Data Distributions</h3>
-<p>This exercise teaches you how to compare a histogram of continuous
-(or integer) data to the probability density functions for different
-statistical distributions.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Run the sample code.</strong> Set up a new
-<code>.Rmd</code> file for this exercise. Copy and paste the code below
-into different code chunks, and then read the text and run the code
-chunks one at a time to see what they do. You probably won’t understand
-everything in the code, but this is a good start for seeing some
-realistic uses of <code>ggplot</code>. We will cover most of these
-details in the next few weeks.</p></li>
-<li><p><strong>Try it with your own data</strong>. Once the code is in
-and runs, try running this analysis on your own data (or data from your
-lab, or data from a published paper; if you’re stumped, check out
-publicly available data sets on <a href="https://datadryad.org/search">Dryad</a>, <a href="https://data.esa.org">ESA</a>, or the <a href="https://lternet.edu/">LTER Network</a>). Find a vector of data (of
-any size), set it up in a <code>.csv</code> file, and read the data into
-a data frame with this code chunk:</p></li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;MyDataFile.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z)</span></code></pre></div>
-<p>Lauren &amp; Emily will be able to help you if you are having trouble
-reading in the data.</p>
-<p>Once your data are in, go ahead and comment out the “fake data” that
-are simulated in the chunk below. At that point, if you compile the
-entire file, it should run all of the code on your own data. Be sure to
-add comments to the code and commentary to the <code>.Rmd</code> file so
-that you can go back to it later and understand and use the code in your
-work.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p><strong>Find best-fitting distribution</strong>. Take a look at
-the second-to-last graph which shows the histogram of your data and 4
-probability density curves (normal, uniform, exponential, gamma) that
-are fit to the data. Find the best-fitting distribution for your data.
-For most data sets, the gamma will probably fit best, but if you data
-set is small, it may be very hard to see much of a difference between
-the curves. The <code>beta</code> distribution in the final graph is
-somewhat special. It often fits the data pretty well, but that is
-because we have assumed the largest data point is the true upper bound,
-and everything is scaled to that. The fit of the uniform distribution
-also fixes the upper bound. The other curves (normal, exponential, and
-gamma) are more realistic because they do not have an upper
-bound.</p></li>
-<li><p><strong>Simulate a new data set</strong>. Using the best-fitting
-distribution, go back to the code and get the maximum likelihood
-parameters. Use those to simulate a new data set, with the same length
-as your original vector, and plot that in a histogram and add the
-probability density curve. Right below that, generate a fresh histogram
-plot of the original data, and also include the probability density
-curve.</p></li>
-</ol>
-<p>How do the two histogram profiles compare? Do you think the model is
-doing a good job of simulating realistic data that match your original
-measurements? Why or why not?</p>
-<p>If you have entered a large data frame with many columns, try running
-all of the code on a different variable to see how the simulation
-performs.</p>
-<p>Once we get a little bit more R coding under our belts, we will
-return to the problem of simulating data and use some of this code
-again.</p>
-<hr />
-<div id="open-libraries" class="section level4">
-<h4>Open libraries</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for graphics</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># for maximum likelihood estimation</span></span></code></pre></div>
+<div id="matrices" class="section level3">
+<h3>Matrices</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># a matrix is an atomic vector that is organized into rows and columns</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">nrow=</span><span class="dv">4</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">print</span>(m)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="fu">print</span>(m)</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="fu">print</span>(m)</span></code></pre></div>
 </div>
-<div id="read-in-data-vector" class="section level4">
-<h4>Read in data vector</h4>
-<p>To illustrate, we will generate some fake data here:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quick and dirty, a truncated normal distribution to work on the solution set</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">3000</span>,<span class="at">mean=</span><span class="fl">0.2</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3000</span>,z)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(z) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;myVar&quot;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> z[z<span class="sc">$</span>myVar<span class="sc">&gt;</span><span class="dv">0</span>,]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(z)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(z<span class="sc">$</span>myVar)</span></code></pre></div>
-<p>In the third step of this exercise, you wil substitute in your own
-data for this fake data set. But for now, use the code chunks below to
-see how you fit different statistical distributions to a vector of
-observations, and then estimate the maximum likelihood parameters for
-each distribution.</p>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Lists are atomic vectors but each element </span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># can hold things of different types and different sizes</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>myList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,<span class="at">nrow=</span><span class="dv">4</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>), letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],pi)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">str</span>(myList)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">print</span>(myList)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># using [] gives you a single item, which is of type list</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>myList[<span class="dv">4</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>myList[<span class="dv">4</span>] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># no, can&#39;t subtract a number from a list!</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># single brackets gives you only the element in that slot, which is always of type list</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co"># to grab the object itself, use [[]]</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>myList[[<span class="dv">4</span>]]</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>myList[[<span class="dv">4</span>]] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># now we have the contents</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co"># if a list has 10 elements it is like a train with 10 cars</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co"># [[5]] gives you the contents of car #5</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="do">##[c(4,5,6)] gives you a little train with cars 4, 5, and 6</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co"># once the double bracket is called, you can access individual elements as before</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>myList[[<span class="dv">2</span>]]</span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>myList[[<span class="dv">2</span>]][<span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co"># name list items when they are created</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>myList2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Tester=</span><span class="cn">FALSE</span>,<span class="at">littleM=</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="at">nrow=</span><span class="dv">3</span>))</span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co"># named elements can be accessed with dollar sign</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a>myList2<span class="sc">$</span>littleM <span class="co"># show whole matrix</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>] <span class="co"># what does this give you?</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co"># The &quot;unlist&quot; strings everything back into</span></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co"># a single atomic vector; coercion is used if there are mixed data types</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a>unRolled <span class="ot">&lt;-</span> <span class="fu">unlist</span>(myList2)</span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="fu">print</span>(unRolled)</span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="co"># The most common use of list: output from a linear model is a list</span></span>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>yVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>xVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>myModel <span class="ot">&lt;-</span> <span class="fu">lm</span>(yVar<span class="sc">~</span>xVar)</span>
+<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>xVar,<span class="at">y=</span>yVar)</span>
+<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a><span class="co"># look at output in myModel</span></span>
+<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="fu">print</span>(myModel)</span>
+<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a><span class="co"># full results are in summary</span></span>
+<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(myModel))</span>
+<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a><span class="co"># drill down into summary to get what we want</span></span>
+<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(myModel))</span>
+<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients</span>
+<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients[<span class="st">&quot;xVar&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</span>
+<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</span>
+<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a><span class="co"># use unlist instead</span></span>
+<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">summary</span>(myModel))</span>
+<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="fu">print</span>(u)</span>
+<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>mySlope <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients2</span>
+<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a>myPval <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients8</span></code></pre></div>
 </div>
-<div id="plot-histogram-of-data" class="section level4">
-<h4>Plot histogram of data</h4>
-<p>Plot a histogram of the data, using a modification of the code from
-lecture. Here we are switching from <code>qplot</code> to
-<code>ggplot</code> for more graphics options. We are also rescaling the
-y axis of the histogram from counts to density, so that the area under
-the histogram equals 1.0.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar, <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
+<div id="data-frames" class="section level3">
+<h3>Data Frames</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># a data frame is a list of equal-lengthed vectors, each of which is a column</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>varA <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>varB <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Con&quot;</span>,<span class="st">&quot;LowN&quot;</span>,<span class="st">&quot;HighN&quot;</span>),<span class="at">each=</span><span class="dv">4</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>varC <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">12</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(varA,varB,varC,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">print</span>(dFrame)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">str</span>(dFrame)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># add another row with rbind</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># make sure you add a list, with each item corresponding to a column</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co"># newData &lt;- data.frame(list(varA=13,varB=&quot;HighN&quot;,varC=0.668),stringsAsFactors=FALSE)</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>newData <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">varA=</span><span class="dv">13</span>,<span class="at">varB=</span><span class="st">&quot;HighN&quot;</span>,<span class="at">varC=</span><span class="fl">0.668</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="fu">print</span>(newData)</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="fu">str</span>(newData)</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co"># now bind them</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">rbind</span>(dFrame,newData)</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="fu">str</span>(dFrame)</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="fu">tail</span>(dFrame)</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co"># adding another column is a little easier</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#newVar &lt;- data.frame(varD=runif(13))</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>newVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">13</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dFrame,newVar)</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="fu">head</span>(dFrame)</span></code></pre></div>
 </div>
-<div id="add-empirical-density-curve" class="section level4">
-<h4>Add empirical density curve</h4>
-<p>Now modify the code to add in a kernel density plot of the data. This
-is an empirical curve that is fitted to the data. It does not assume any
-particular probability distribution, but it smooths out the shape of the
-histogram:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span>  p1 <span class="sc">+</span>  <span class="fu">geom_density</span>(<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>,<span class="at">size=</span><span class="fl">0.75</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
+<div id="important-distinctions-between-lists-and-matrices" class="section level3">
+<h3>Important Distinctions Between Lists and Matrices</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># create a matrix and data frame with same structures</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>zMat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>zDframe <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(zMat) <span class="co"># coerce it</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">str</span>(zMat)    <span class="co"># an atomic vector with 2 dimensions</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="fu">str</span>(zDframe) <span class="co"># note horizontal layout of variabes!</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">head</span>(zDframe) <span class="co"># note automatic variable names</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">head</span>(zMat) <span class="co"># note identical layout</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># element referencing is the same in both</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>zMat[<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>zDframe[<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co"># so is column referencing</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>zMat[,<span class="dv">3</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>zDframe[,<span class="dv">3</span>]</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>zDframe<span class="sc">$</span>V3 <span class="co"># note use of $ and named variable column</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co"># and row referencing</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>zMat[<span class="dv">3</span>,]</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>zDframe[<span class="dv">3</span>,] <span class="co"># note variable names and row number shown</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co"># what happens if we reference only one dimension?</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>zMat[<span class="dv">2</span>] <span class="co"># takes the second element of atomic vector (column fill)</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>zDframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector (= column) from list</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>zDframe[<span class="st">&quot;V2&quot;</span>]</span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>zDframe<span class="sc">$</span>V2</span></code></pre></div>
 </div>
-<div id="get-maximum-likelihood-parameters-for-normal" class="section level4">
-<h4>Get maximum likelihood parameters for <code>normal</code></h4>
-<p>Next, fit a normal distribution to your data and grab the maximum
-likelihood estimators of the two parameters of the normal, the mean and
-the variance:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>normPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(normPars)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(normPars)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>] <span class="co"># note structure of getting a named attribute</span></span></code></pre></div>
+<div id="eliminating-missing-values" class="section level3">
+<h3>Eliminating missing values</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># use complete.cases with atomic vector</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">print</span>(zD)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">complete.cases</span>(zD)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>zD[<span class="fu">complete.cases</span>(zD)] <span class="co"># clean them out</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(zD)) <span class="co"># find NA slots</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># use with a matrix</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow=</span><span class="dv">5</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>m[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>m[<span class="dv">5</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="fu">print</span>(m)</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m),] </span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co"># now get complete cases for only certain columns!</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></span></code></pre></div>
 </div>
-<div id="plot-normal-probability-density" class="section level4">
-<h4>Plot <code>normal</code> probability density</h4>
-<p>Now let’s call the <code>dnorm</code> function inside ggplot’s
-<code>stat_function</code> to generate the probability density for the
-normal distribution. Read about <code>stat_function</code> in the help
-system to see how you can use this to add a smooth function to any
-ggplot. Note that we first get the maximum likelihood parameters for a
-normal distribution fitted to thse data by calling
-<code>fitdistr</code>. Then we pass those parameters
-(<code>meanML</code> and <code>sdML</code> to
-<code>stat_function</code>):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>meanML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sdML <span class="ot">&lt;-</span> normPars<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>xval <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(z<span class="sc">$</span>myVar),<span class="at">len=</span><span class="fu">length</span>(z<span class="sc">$</span>myVar))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> stat <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dnorm, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> meanML, <span class="at">sd =</span> sdML))</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a> p1 <span class="sc">+</span> stat</span></code></pre></div>
-<p>Notice that the best-fitting normal distribution (red curve) for
-these data actually has a biased mean. That is because the data set has
-no negative values, so the normal distribution (which is symmetric) is
-not working well.</p>
-</div>
-<div id="plot-exponential-probability-density" class="section level4">
-<h4>Plot <code>exponential</code> probability density</h4>
-<p>Now let’s use the same template and add in the curve for the
-exponential:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>expoPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;exponential&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> expoPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>stat2 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dexp, <span class="at">colour=</span><span class="st">&quot;blue&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">rate=</span>rateML))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2</span></code></pre></div>
-</div>
-<div id="plot-uniform-probability-density" class="section level4">
-<h4>Plot <code>uniform</code> probability density</h4>
-<p>For the uniform, we don’t need to use <code>fitdistr</code> because
-the maximum likelihood estimators of the two parameters are just the
-minimum and the maximum of the data:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>stat3 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dunif, <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">min=</span><span class="fu">min</span>(z<span class="sc">$</span>myVar), <span class="at">max=</span><span class="fu">max</span>(z<span class="sc">$</span>myVar)))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3</span></code></pre></div>
-</div>
-<div id="plot-gamma-probability-density" class="section level4">
-<h4>Plot <code>gamma</code> probability density</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gammaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(z<span class="sc">$</span>myVar,<span class="st">&quot;gamma&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>shapeML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>rateML <span class="ot">&lt;-</span> gammaPars<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>stat4 <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dgamma, <span class="at">colour=</span><span class="st">&quot;brown&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape=</span>shapeML, <span class="at">rate=</span>rateML))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> p1 <span class="sc">+</span> stat <span class="sc">+</span> stat2 <span class="sc">+</span> stat3 <span class="sc">+</span> stat4</span></code></pre></div>
-</div>
-<div id="plot-beta-probability-density" class="section level4">
-<h4>Plot <code>beta</code> probability density</h4>
-<p>This one has to be shown in its own plot because the raw data must be
-rescaled so they are between 0 and 1, and then they can be compared to
-the beta.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pSpecial <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>z, <span class="fu">aes</span>(<span class="at">x=</span>myVar<span class="sc">/</span>(<span class="fu">max</span>(myVar <span class="sc">+</span> <span class="fl">0.1</span>)), <span class="at">y=</span>..density..)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;grey60&quot;</span>,<span class="at">fill=</span><span class="st">&quot;cornsilk&quot;</span>,<span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">size=</span><span class="fl">0.75</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>betaPars <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>z<span class="sc">$</span>myVar<span class="sc">/</span><span class="fu">max</span>(z<span class="sc">$</span>myVar <span class="sc">+</span> <span class="fl">0.1</span>),<span class="at">start=</span><span class="fu">list</span>(<span class="at">shape1=</span><span class="dv">1</span>,<span class="at">shape2=</span><span class="dv">2</span>),<span class="st">&quot;beta&quot;</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>shape1ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape1&quot;</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>shape2ML <span class="ot">&lt;-</span> betaPars<span class="sc">$</span>estimate[<span class="st">&quot;shape2&quot;</span>]</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>statSpecial <span class="ot">&lt;-</span> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">x =</span> xval, <span class="at">y =</span> ..y..), <span class="at">fun =</span> dbeta, <span class="at">colour=</span><span class="st">&quot;orchid&quot;</span>, <span class="at">n =</span> <span class="fu">length</span>(z<span class="sc">$</span>myVar), <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1=</span>shape1ML,<span class="at">shape2=</span>shape2ML))</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>pSpecial <span class="sc">+</span> statSpecial</span></code></pre></div>
-</div>
+<div id="techniques-for-assignments-and-subsetting-matrices-and-data-frames" class="section level3">
+<h3>Techniques for assignments and subsetting matrices and data
+frames</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># same principle applied to both dimensions of a matrix</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">dimnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;Species&quot;</span>,LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(m)],<span class="at">sep=</span><span class="st">&quot;&quot;</span>),<span class="fu">paste</span>(<span class="st">&quot;Site&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(m),<span class="at">sep=</span><span class="st">&quot;&quot;</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">print</span>(m)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># subsetting based on elements</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co"># same subsetting based on character strings (but no negative elements)</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>m[<span class="fu">c</span>(<span class="st">&quot;SpeciesA&quot;</span>,<span class="st">&quot;SpeciesB&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Site3&quot;</span>,<span class="st">&quot;Site4&quot;</span>)]</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co"># use blanks before or after comma to indicate full rows or columns</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]    </span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>m[ ,<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co"># use logicals for more complex subsetting</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co"># e.g. select all columns for which the totals are &gt; 15</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co"># first try this logical</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="fu">colSums</span>(m) <span class="sc">&gt;</span> <span class="dv">15</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>m[ , <span class="fu">colSums</span>(m) <span class="sc">&gt;</span> <span class="dv">15</span>]</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co"># e.g. select all rows for which the row total is 22</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>m[<span class="fu">rowSums</span>(m)<span class="sc">==</span><span class="dv">22</span>, ]</span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co"># note == for logical equal and != for logical NOT equal</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>m[<span class="fu">rowSums</span>(m)<span class="sc">!=</span><span class="dv">22</span>, ]</span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="co"># e.g., choose all rows for which numbers for site 1 are less than 3</span></span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a><span class="co"># AND choose all columns for which the numbers for species A are less than 5</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="co"># first, try out this logical for rows</span></span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a>m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="sc">&lt;</span><span class="dv">3</span></span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co"># add this in and select with all columns</span></span>
+<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a>m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="sc">&lt;</span><span class="dv">3</span>, ]</span>
+<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="co"># and try this logical for columns</span></span>
+<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a>m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="sc">&lt;</span><span class="dv">5</span></span>
+<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a><span class="co"># add this in and select with all rows</span></span>
+<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a>m[ ,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="sc">&lt;</span><span class="dv">5</span>]</span>
+<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" tabindex="-1"></a><span class="co"># now combine both</span></span>
+<span id="cb6-47"><a href="#cb6-47" tabindex="-1"></a>m[m[ ,<span class="st">&quot;Site1&quot;</span>]<span class="sc">&lt;</span><span class="dv">3</span>,m[<span class="st">&quot;SpeciesA&quot;</span>, ]<span class="sc">&lt;</span><span class="dv">5</span>]</span>
+<span id="cb6-48"><a href="#cb6-48" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" tabindex="-1"></a><span class="co"># and compare with full m</span></span>
+<span id="cb6-50"><a href="#cb6-50" tabindex="-1"></a><span class="fu">print</span>(m)</span>
+<span id="cb6-51"><a href="#cb6-51" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" tabindex="-1"></a><span class="co"># caution! simple subscripting to a vector changes the data type!</span></span>
+<span id="cb6-54"><a href="#cb6-54" tabindex="-1"></a>z <span class="ot">&lt;-</span> m[<span class="dv">1</span>, ]</span>
+<span id="cb6-55"><a href="#cb6-55" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<span id="cb6-56"><a href="#cb6-56" tabindex="-1"></a><span class="fu">str</span>(z)</span>
+<span id="cb6-57"><a href="#cb6-57" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" tabindex="-1"></a><span class="co"># to keep this as a matrix, must add the drop=FALSE option</span></span>
+<span id="cb6-59"><a href="#cb6-59" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" tabindex="-1"></a>z2 <span class="ot">&lt;-</span> m[<span class="dv">1</span>, ,drop<span class="ot">=</span><span class="cn">FALSE</span>]</span>
+<span id="cb6-61"><a href="#cb6-61" tabindex="-1"></a><span class="fu">print</span>(z2)</span>
+<span id="cb6-62"><a href="#cb6-62" tabindex="-1"></a><span class="fu">str</span>(z2)</span>
+<span id="cb6-63"><a href="#cb6-63" tabindex="-1"></a></span>
+<span id="cb6-64"><a href="#cb6-64" tabindex="-1"></a><span class="co"># caution #2, always use both dimensions, or you will select a single matrix element</span></span>
+<span id="cb6-65"><a href="#cb6-65" tabindex="-1"></a></span>
+<span id="cb6-66"><a href="#cb6-66" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">runif</span>(<span class="dv">9</span>),<span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb6-67"><a href="#cb6-67" tabindex="-1"></a><span class="fu">print</span>(m2)</span>
+<span id="cb6-68"><a href="#cb6-68" tabindex="-1"></a>m2[<span class="dv">2</span>, ]</span>
+<span id="cb6-69"><a href="#cb6-69" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" tabindex="-1"></a><span class="co"># but now this will just pull the second element</span></span>
+<span id="cb6-71"><a href="#cb6-71" tabindex="-1"></a>m2[<span class="dv">2</span>]</span>
+<span id="cb6-72"><a href="#cb6-72" tabindex="-1"></a></span>
+<span id="cb6-73"><a href="#cb6-73" tabindex="-1"></a><span class="co"># probably should specify row and column indicators</span></span>
+<span id="cb6-74"><a href="#cb6-74" tabindex="-1"></a>m2[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb6-75"><a href="#cb6-75" tabindex="-1"></a><span class="co"># also use logicals for assignments, not just subsetting</span></span>
+<span id="cb6-76"><a href="#cb6-76" tabindex="-1"></a>m2[m2<span class="sc">&gt;</span><span class="fl">0.6</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb6-77"><a href="#cb6-77" tabindex="-1"></a><span class="fu">print</span>(m2)</span>
+<span id="cb6-78"><a href="#cb6-78" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" tabindex="-1"></a></span>
+<span id="cb6-80"><a href="#cb6-80" tabindex="-1"></a><span class="co"># A few changes for working with data frames:</span></span>
+<span id="cb6-81"><a href="#cb6-81" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" tabindex="-1"></a>data <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-83"><a href="#cb6-83" tabindex="-1"></a><span class="fu">str</span>(data)</span>
+<span id="cb6-84"><a href="#cb6-84" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" tabindex="-1"></a><span class="co"># the data frame is a list of vectors, so it is set up like a matrix</span></span>
+<span id="cb6-86"><a href="#cb6-86" tabindex="-1"></a>data[<span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb6-87"><a href="#cb6-87" tabindex="-1"></a></span>
+<span id="cb6-88"><a href="#cb6-88" tabindex="-1"></a><span class="co"># you can specify just the column names</span></span>
+<span id="cb6-89"><a href="#cb6-89" tabindex="-1"></a></span>
+<span id="cb6-90"><a href="#cb6-90" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]</span>
+<span id="cb6-91"><a href="#cb6-91" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span>
+<span id="cb6-92"><a href="#cb6-92" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" tabindex="-1"></a><span class="co"># or in matrix style</span></span>
+<span id="cb6-94"><a href="#cb6-94" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[ ,<span class="fu">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]</span>
+<span id="cb6-95"><a href="#cb6-95" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span>
+<span id="cb6-96"><a href="#cb6-96" tabindex="-1"></a></span>
+<span id="cb6-97"><a href="#cb6-97" tabindex="-1"></a></span>
+<span id="cb6-98"><a href="#cb6-98" tabindex="-1"></a><span class="co"># as before, with matrices, selecting only a single column changes it</span></span>
+<span id="cb6-99"><a href="#cb6-99" tabindex="-1"></a><span class="co"># from a data frame to a vector</span></span>
+<span id="cb6-100"><a href="#cb6-100" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[ ,<span class="st">&quot;county&quot;</span>]</span>
+<span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span></code></pre></div>
 </div>
 
 
