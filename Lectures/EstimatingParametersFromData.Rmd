@@ -195,113 +195,80 @@ qplot(nbiRan,color=I("black"),fill=I("goldenrod"))
 nbiRan <- rnbinom(n=1000,size=0.1,mu=5)
 qplot(nbiRan,color=I("black"),fill=I("goldenrod"))
 ```
+### estimating paramaters from data
+ `p(data|hypothesis)` is the standard approach for null hypothesis tests.
 
-#### Uniform distribution
+Model paramaters can be thought of as a hypothesis about the distribution of the data:  `p(data|paramaters)`
 
-```{r}
-#-------------------------------------------------
-# uniform
-# params specify minimum and maximum
+This would be a goodness of fit test for data to a particular statistical distribution.
 
-#runif for random data
-qplot(x=runif(n=100,min=0,max=5),color=I("black"),fill=I("goldenrod"))
-qplot(runif(n=1000,min=0,max=5),color=I("black"),fill=I("goldenrod"))
-#-------------------------------------------------
-```
-#### Normal distribution
+More useful might be `p(paramaters|data)`. For a given set of data, what is the probability that a particular statistical distribution (such as a normal with a specified mean and standard deviation), provides a fit to these data?
+
+Clearly, we want paramaters that *maximize* this probability. The paramaters that fit this definition are *maximum likelihood estimators*. 
+
+Here is a simple example:
 
 ```{r}
-# normal 
-myNorm <- rnorm(n=100,mean=100,sd=2)
-qplot(myNorm,color=I("black"),fill=I("goldenrod"))
+library(MASS)
+data <- c(100,100,104,99)
+z <- fitdistr(data,"normal")
+print(z)
+``` 
 
-# problems with normal when mean is small but zero is not allowed.
-myNorm <- rnorm(n=100,mean=2,sd=2)
-qplot(myNorm,color=I("black"),fill=I("goldenrod"))
-summary(myNorm)
-tossZeroes <- myNorm[myNorm>0]
-qplot(tossZeroes,color=I("black"),fill=I("goldenrod"))
-summary(tossZeroes)
-```
+For this procedure:
 
-#### Gamma distribution
+1. Select a model that is appropriate for the data
+2. Use `fitdistr` to find maximum likelihood estimators for the paramaters.
+3. Use those paramaters to either plot the density function or simulate new data.
 
-``` {r}
-#-------------------------------------------------
-# gamma distribution, continuous positive values, but bounded at 0
-
-myGamma <- rgamma(n=100,shape=1,scale=10)
-qplot(myGamma,color=I("black"),fill=I("goldenrod"))
-
-# gamma with shape= 1 is an exponential with scale = mean
-
-# shape <=1 gives a mode near zero; very small shape rounds to zero
-myGamma <- rgamma(n=100,shape=0.1,scale=1)
-qplot(myGamma,color=I("black"),fill=I("goldenrod"))
-
-# large shape parameters moves towards a normal
-myGamma <- rgamma(n=100,shape=20,scale=1)
-qplot(myGamma,color=I("black"),fill=I("goldenrod"))
-
-# scale parameter changes mean- and the variance!
-qplot(rgamma(n=100,shape=2,scale=100),color=I("black"),fill=I("goldenrod"))
-qplot(rgamma(n=100,shape=2,scale=10),color=I("black"),fill=I("goldenrod"))
-qplot(rgamma(n=100,shape=2,scale=1),color=I("black"),fill=I("goldenrod"))
-qplot(rgamma(n=100,shape=2,scale=0.1),color=I("black"),fill=I("goldenrod"))
-
-
-# unlike the normal, the two parameters affect both mean and variance
-
-# mean = shape*scale
-# variance= shape*scale^2
-```
-
-#### Beta distribution 
+Here are a few data from Lauren Ash's dissertation: snout-vent length (SVL) measurements for 6 specimens of green frogs (*Lithobates clamitans*) collected from Berlin Pond in 2016.
 
 ```{r}
-#-------------------------------------------------
 
-# beta distribution 
-# bounded at 0 and 1
-# analagous to a binomial, but result is a continuous distribution of probabilities
-# parameter shape1 = number of successes + 1
-# parameter shape2 = number of failures + 1
-# interpret these in terms of a coin you are tossing
+frog_data <- c(30.15,26.3,27.5,22.9,27.8,26.2)
 
-# shape1 = 1, shape2 = 1 = "no data"
-myBeta <- rbeta(n=1000,shape1=1,shape2=1)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+# get and print model parameters assuming a normal distribution
+z<- fitdistr(frog_data,"normal")
+print(z)
 
+# plot the density function for the normal and annotate the plot with the original data
+x <- 1:100
+g_density <- dnorm(x=x,mean=z$estimate["mean"],sd=z$estimate["sd"])
+qplot(x,g_density,geom="line") + annotate(geom="point",x=frog_data,y=0.001)   
+ 
+# now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr
+z<- fitdistr(frog_data,"gamma")
+print(z)
 
-# shape1 = 2, shape1 = 1 = "1 coin toss, comes up heads!"
-myBeta <- rbeta(n=1000,shape1=2,shape2=1)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-# two tosses, 1 head and 1 tail
-myBeta <- rbeta(n=1000,shape1=2,shape2=2)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-# two tosses, both heads
-myBeta <- rbeta(n=1000,shape1=2,shape2=1)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-# let's get more data
-myBeta <- rbeta(n=1000,shape1=20,shape2=20)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-myBeta <- rbeta(n=1000,shape1=500,shape2=500)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-# if the coin is biased
-myBeta <- rbeta(n=1000,shape1=1000,shape2=500)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-myBeta <- rbeta(n=1000,shape1=10,shape2=5)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
-
-# shape parameters less than 1.0 give us a u-shaped distribution
-myBeta <- rbeta(n=1000,shape1=0.1,shape2=0.1)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-myBeta <- rbeta(n=1000,shape1=0.5,shape2=0.2)
-qplot(myBeta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
+# plot the density function for the gamma and annotate the plot with the original data
+x <- 1:100
+g_density <- dgamma(x=x,shape=z$estimate["shape"],rate=z$estimate["rate"])
+qplot(x,g_density,geom="line") + annotate(geom="point",x=frog_data,y=0.001,color="red")   
 ```
+
+There is not much difference here.But now let's add a weird outlier of a tiny value and see what happens
+```{r}
+
+frog_data <- c(30.15,26.3,27.5,22.9,27.8,26.2)
+outlier <- 0.050
+frog_data <- c(frog_data,outlier)
+
+# get and print model parameters assuming a normal distribution
+z<- fitdistr(frog_data,"normal")
+print(z)
+
+# plot the density function for the normal and annotate the plot with the original data
+x <- 1:100
+g_density <- dnorm(x=x,mean=z$estimate["mean"],sd=z$estimate["sd"])
+qplot(x,g_density,geom="line") + annotate(geom="point",x=frog_data,y=0.001)   
+ 
+# now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr
+z<- fitdistr(frog_data,"gamma")
+print(z)
+
+# plot the density function for the gamma and annotate the plot with the original data
+x <- 1:100
+g_density <- dgamma(x=x,shape=z$estimate["shape"],rate=z$estimate["rate"])
+qplot(x,g_density,geom="line") + annotate(geom="point",x=frog_data,y=0.001,color="red")   
+```
+

@@ -648,80 +648,109 @@ but we will discuss only 7 of them.</p>
 <span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>nbiRan <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">size=</span><span class="fl">0.1</span>,<span class="at">mu=</span><span class="dv">5</span>)</span>
 <span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="fu">qplot</span>(nbiRan,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span></code></pre></div>
 </div>
+<div id="uniform-distribution" class="section level4">
+<h4>Uniform distribution</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># uniform</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># params specify minimum and maximum</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#runif for random data</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">5</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">runif</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">5</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span></code></pre></div>
 </div>
-<div id="estimating-paramaters-from-data" class="section level3">
-<h3>estimating paramaters from data</h3>
-<p><code>p(data|hypothesis)</code> is the standard approach for null
-hypothesis tests.</p>
-<p>Model paramaters can be thought of as a hypothesis about the
-distribution of the data: <code>p(data|paramaters)</code></p>
-<p>This would be a goodness of fit test for data to a particular
-statistical distribution.</p>
-<p>More useful might be <code>p(paramaters|data)</code>. For a given set
-of data, what is the probability that a particular statistical
-distribution (such as a normal with a specified mean and standard
-deviation), provides a fit to these data?</p>
-<p>Clearly, we want paramaters that <em>maximize</em> this probability.
-The paramaters that fit this definition are <em>maximum likelihood
-estimators</em>.</p>
-<p>Here is a simple example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">104</span>,<span class="dv">99</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(data,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
-<p>For this procedure:</p>
-<ol style="list-style-type: decimal">
-<li>Select a model that is appropriate for the data</li>
-<li>Use <code>fitdistr</code> to find maximum likelihood estimators for
-the paramaters.</li>
-<li>Use those paramaters to either plot the density function or simulate
-new data.</li>
-</ol>
-<p>Here are a few data from Lauren Ash’s dissertation: snout-vent length
-(SVL) measurements for 6 specimens of green frogs (<em>Lithobates
-clamitans</em>) collected from Berlin Pond in 2016.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">print</span>(z)</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="at">x=</span>x,<span class="at">mean=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="at">sd=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>)   </span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a> </span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="fu">print</span>(z)</span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(<span class="at">x=</span>x,<span class="at">shape=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="at">rate=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
-<p>There is not much difference here.But now let’s add a weird outlier
-of a tiny value and see what happens</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">30.15</span>,<span class="fl">26.3</span>,<span class="fl">27.5</span>,<span class="fl">22.9</span>,<span class="fl">27.8</span>,<span class="fl">26.2</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>outlier <span class="ot">&lt;-</span> <span class="fl">0.050</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>frog_data <span class="ot">&lt;-</span> <span class="fu">c</span>(frog_data,outlier)</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co"># get and print model parameters assuming a normal distribution</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">print</span>(z)</span>
+<div id="normal-distribution" class="section level4">
+<h4>Normal distribution</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># normal </span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>myNorm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">qplot</span>(myNorm,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># problems with normal when mean is small but zero is not allowed.</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>myNorm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">2</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">qplot</span>(myNorm,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">summary</span>(myNorm)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>tossZeroes <span class="ot">&lt;-</span> myNorm[myNorm<span class="sc">&gt;</span><span class="dv">0</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">qplot</span>(tossZeroes,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="fu">summary</span>(tossZeroes)</span></code></pre></div>
+</div>
+<div id="gamma-distribution" class="section level4">
+<h4>Gamma distribution</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co"># gamma distribution, continuous positive values, but bounded at 0</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">1</span>,<span class="at">scale=</span><span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co"># gamma with shape= 1 is an exponential with scale = mean</span></span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># plot the density function for the normal and annotate the plot with the original data</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="at">x=</span>x,<span class="at">mean=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;mean&quot;</span>],<span class="at">sd=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;sd&quot;</span>])</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>)   </span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a> </span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># now do the same for a gamma distribution, which has a shape and rate parameter as outputs from fitdistr</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(frog_data,<span class="st">&quot;gamma&quot;</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="fu">print</span>(z)</span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co"># plot the density function for the gamma and annotate the plot with the original data</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>g_density <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(<span class="at">x=</span>x,<span class="at">shape=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;shape&quot;</span>],<span class="at">rate=</span>z<span class="sc">$</span>estimate[<span class="st">&quot;rate&quot;</span>])</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="fu">qplot</span>(x,g_density,<span class="at">geom=</span><span class="st">&quot;line&quot;</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">x=</span>frog_data,<span class="at">y=</span><span class="fl">0.001</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># shape &lt;=1 gives a mode near zero; very small shape rounds to zero</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="fl">0.1</span>,<span class="at">scale=</span><span class="dv">1</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co"># large shape parameters moves towards a normal</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>myGamma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">20</span>,<span class="at">scale=</span><span class="dv">1</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="fu">qplot</span>(myGamma,<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co"># scale parameter changes mean- and the variance!</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">100</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">10</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">shape=</span><span class="dv">2</span>,<span class="at">scale=</span><span class="fl">0.1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co"># unlike the normal, the two parameters affect both mean and variance</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co"># mean = shape*scale</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co"># variance= shape*scale^2</span></span></code></pre></div>
+</div>
+<div id="beta-distribution" class="section level4">
+<h4>Beta distribution</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># beta distribution </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># bounded at 0 and 1</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># analagous to a binomial, but result is a continuous distribution of probabilities</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co"># parameter shape1 = number of successes + 1</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co"># parameter shape2 = number of failures + 1</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co"># interpret these in terms of a coin you are tossing</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co"># shape1 = 1, shape2 = 1 = &quot;no data&quot;</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">1</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co"># shape1 = 2, shape1 = 1 = &quot;1 coin toss, comes up heads!&quot;</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co"># two tosses, 1 head and 1 tail</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">2</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="co"># two tosses, both heads</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">2</span>,<span class="at">shape2=</span><span class="dv">1</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="co"># let&#39;s get more data</span></span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">20</span>,<span class="at">shape2=</span><span class="dv">20</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">500</span>,<span class="at">shape2=</span><span class="dv">500</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a><span class="co"># if the coin is biased</span></span>
+<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">1000</span>,<span class="at">shape2=</span><span class="dv">500</span>)</span>
+<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="dv">10</span>,<span class="at">shape2=</span><span class="dv">5</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a><span class="co"># shape parameters less than 1.0 give us a u-shaped distribution</span></span>
+<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="fl">0.1</span>,<span class="at">shape2=</span><span class="fl">0.1</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span>
+<span id="cb7-44"><a href="#cb7-44" tabindex="-1"></a>myBeta <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">shape1=</span><span class="fl">0.5</span>,<span class="at">shape2=</span><span class="fl">0.2</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" tabindex="-1"></a><span class="fu">qplot</span>(myBeta,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">color=</span><span class="fu">I</span>(<span class="st">&quot;black&quot;</span>),<span class="at">fill=</span><span class="fu">I</span>(<span class="st">&quot;goldenrod&quot;</span>))</span></code></pre></div>
+</div>
 </div>
 
 
