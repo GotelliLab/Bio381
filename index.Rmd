@@ -45,7 +45,7 @@ February 8  | [Atomic Vectors II](Lectures/AtomicVectors_II.html)| -
 February 13  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.html) | -
 February 14  | -  | [Homework #5](Homeworks/Homework_05.html)
 February 15   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.html) | -
-February 20 | [Probability Distributions](Lectures/xProbabilityDistributionsI.html)| -
+February 20 | [Probability Distributions](Lectures/ProbabilityDistributions.html)| -
 February 21  | -  | [Homework # 6](Homeworks/Homework_06.html)
 February 22 | [Data Curation](Lectures/Lecture_10.xhtml)| -
 February 27  |[Functions](Lectures/Lecture_12.xhtml) | [(Experimental Designs)](Lectures/Lecture_12a.xhtml)
