@@ -53,7 +53,7 @@ February 28  |  | [Homework # 7](Homeworks/Homework_08.html)
 February 29  | [Functions 2](https://ngotelli.github.io/Bio381Vids/)  | Lecture 13 
 March 5  | Town Meeting Day Recess | -
 March 6  | **Portfolio Check #2** | [Catch-Up Day](Homeworks/???)
-March 7  | [Structured Programming I](Lectures/Lecture14_S2021.xhtml)| -
+March 7  | [Control Structures I](Lectures/Lecture14_S2021.xhtml)| -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
 March 14 | Spring Recess | -
