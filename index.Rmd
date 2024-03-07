@@ -48,12 +48,12 @@ February 15   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFram
 February 20 | [Probability Distributions](Lectures/ProbabilityDistributions.html)| -
 February 21  | -  | [Homework # 6](Homeworks/Homework_06.html)
 February 22 | [Data Curation](Lectures/DataCuration.html)| -
-February 27  |[Functions](Lectures/Lecture_12.xhtml) | [(Experimental Designs)](Lectures/ExperimentalDesigns.html)
+February 27  |[Functions](Lectures/Functions.html) | [(Experimental Designs)](Lectures/ExperimentalDesigns.html)
 February 28  |  | [Homework # 7](Homeworks/Homework_08.html) 
 February 29  | [Functions 2](https://ngotelli.github.io/Bio381Vids/)  | Lecture 13 
 March 5  | Town Meeting Day Recess | -
 March 6  | **Portfolio Check #2** | [Catch-Up Day](Homeworks/???)
-March 7  | [Structured Programming I](Lectures/Lecture14_S2021.xhtml)| -
+March 7  | [Control Structures I](Lectures/ControlStructures_I.html)| -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
 March 14 | Spring Recess | -
