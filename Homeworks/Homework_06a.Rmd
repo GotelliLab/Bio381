@@ -1,5 +1,5 @@
 ---
-title: 'Homework #6'
+title: 'Homework #8'
 author: "Nicholas J. Gotelli and Lauren V. Ash"
 date: '2 March 2023'
 output:
