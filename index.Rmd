@@ -57,7 +57,7 @@ March 7  | [Control Structures I](Lectures/ControlStructures_I.html)| -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
 March 14 | Spring Recess | -
-March 19  | [dplyr/SQL](Lectures/dplyr_lecture1.html)| -
+March 19  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)| -
 March 20  | - | [Homework #8](Homeworks/Homework_06a.html)
 March 21  | [Control Structures I](Lectures/Lecture16_S2021.xhtml) | -
 March 26  | [Control Structures II](Lectures/Lecture17_S2021.xhtml) | -
