@@ -37,7 +37,10 @@ class(starwars)
 ```
 ### What is a tibble?    
 + "a modern take on data frames"   
-+ said to keep the great aspects of data frames and drops the frustrating ones (i.e. changing variable names, changing an input type)   
++ said to keep the great aspects of data frames and drops the frustrating ones (i.e. changing variable names, changing an input type) In general, tibbles do "less" as a tradeoff to make code simpler and less prone to crashing. A few examples of what they change from data frames: 
+
+Tibbles will never change the names of variables, and will never create row names. They also make printing easier, and so are often a good choice when working with large datasets and don't want to overload your console. 
+
 
 ```{r}
 glimpse(starwars) #more effective than str() in this case   
@@ -50,12 +53,12 @@ head(starwars) #looks a little different since it's a tibble (mentions dimension
 #dataClean <- starwars[complete.cases(starwars),] # removes all rows with NA values but doesn't work with lists
 
 # to get complete cases for just certain columns 
-starwarsClean <-starwars[complete.cases(starwars[,1:3]),]
+starwarsClean <-starwars[complete.cases(starwars[,1:10]),]
 
 
 # Check for NAs
-is.na(starwarsClean[1,1]) #useful for only a few observations since it returns a list of True/False
-anyNA(starwarsClean)
+is.na(starwarsClean[,1]) #useful for only a few observations since it returns a list of True/False
+anyNA(starwarsClean[,1:10])
 anyNA(starwars[,1:10]) # compared to our original dataset
 
 # What does our data look like now?
@@ -103,7 +106,7 @@ select(starwarsClean, name:species) # you can use variables names too
 select(starwarsClean, -(films:starships)) # you can subset everything except particular variables
 
 ## Rearrange columns
-select(starwarsClean, name, gender, species, everything()) # using the everything() helper function is useful if you have a few variables to move to the beginning
+select(starwarsClean, homeworld, name, gender, species, everything()) # using the everything() helper function is useful if you have a few variables to move to the beginning
 select(starwarsClean, contains("color")) ## other helpers include: ends_with, starts_with, matches (reg ex), num_range
 
 ## Renaming columns
@@ -189,13 +192,15 @@ wideSW <- starwarsClean %>%
   pivot_wider(names_from = sex, values_from = height, values_fill = NA)
 wideSW
 
-starwars %>%
+pivotSW<-starwars %>%
   select(name, homeworld) %>%
   group_by(homeworld) %>%
   mutate(rn = row_number()) %>%
   ungroup() %>%
   pivot_wider(names_from = homeworld, values_from = name) %>%
   select(-rn)
+
+pivotSW
 
 ## make data set longer
 glimpse(wideSW)

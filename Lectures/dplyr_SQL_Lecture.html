@@ -357,11 +357,26 @@ display: none;
 </div>
 
 
+<p>#SQL stands for Structured Query Language, and it’s useful for
+storing and processing datasets. This is often used in a lot of other
+applications, for example I use it a lot when running GIS applications
+like ArcGIS Pro or ArcMaps, which usually doesn’t have a dedicated way
+to interact with datasets except with SQL.</p>
+<p>#So, the first thing we’re going to do is download the data</p>
 <p>Here’s a link to the sample datasets that we’ll be using- <a href="https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.4mw6m90b9">Download</a></p>
 <pre class="r"><code>#Installing Packages
-library(sqldf)
-library(dplyr)
+library(sqldf)</code></pre>
+<pre><code>## Warning: package &#39;RSQLite&#39; was built under R version 4.2.3</code></pre>
+<pre class="r"><code>library(dplyr)
 library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.2.3</code></pre>
 <div id="take-a-look-at-the-datasets-first" class="section level1">
 <h1>Take a look at the datasets first</h1>
 <pre class="r"><code>head(species_clean)
