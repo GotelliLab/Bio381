@@ -1,7 +1,7 @@
 ---
-title: 'For Loops II'
+title: 'Lecture #18: Control Structures III'
 author: "Nicholas J. Gotelli"
-date: "28 March 2024"
+date: "6 April 2021"
 output:
   html_document:
     highlight: tango
@@ -23,6 +23,7 @@ output:
 # output: vector n with population sizes > 0 
 #         until extinction, then NA 
 #------------------------------------------------- 
+library(tcltk)
 library(ggplot2)
 ran_walk <- function(times=100,n1=50,lambda=1.00,noise_sd=10) {
                 n <- rep(NA,times)  # create output vector
@@ -33,6 +34,7 @@ ran_walk <- function(times=100,n1=50,lambda=1.00,noise_sd=10) {
                   if(n[i + 1] <=0) {
                     n[i + 1] <- NA
                     cat("Population extinction at time",i-1,"\n")
+                     tkbell()
                     break}
                 }
 

@@ -80,3 +80,8 @@ Plain text files are the common currency of all computational tools, and a plain
 The "free" versions of this software will be fine for our use in this course.
 
 
+## Strategic Coding Practices - Spring 2024
+
+Here is a zip file containing an R project and associated files that we will use for learning some new tools for scaling up our work. Unzip the file on your desktop and then read the instructions in the `READ_ME.txt` file. 
+
+[StrategicCodingPractices.zip](StrategicCodingPractices.zip)

@@ -1,0 +1,165 @@
+---
+title: 'For Loops I'
+author: "Nicholas J. Gotelli"
+date: "21 March 2024"
+output:
+  html_document: 
+    highlight: tango
+    theme: united
+    keep_md: yes
+  pdf_document: default
+---
+### `for` loops
+* The workhorse function for doing repetitive tasks
+* Universal in all computer languages
+* Controversial in R
+    - often not necessary (use vectorized operations!)
+    - very slow with binding operations (c,rbind,cbind,list) 
+    - many operations can be handled by special family of `apply` functions
+    
+#### Anatomy of a `for` loop
+```
+for (var in seq) { # start of for loop
+
+# body of for loop 
+
+} # end of for loop
+
+var is a counter variable that will hold the current value of the loop
+seq is an integer vector (or a vector of character strings) that defines the starting and ending values of the loop
+```
+It is traditional in the statistics literature to use variables `i,j,k` to indicate counters. e.g.
+
+$$A = \sum_{i=1}^S n_i$$
+
+You can also use `t` for time, but remember that `t()` is also an R function that transposes a matrix. R is smart enough to recognize the difference, but it could cause problems for others.
+
+There are many ways to indicate the sequence, and the length of our loops will almost always be related to the size of a vector that we are working with. 
+
+We will only illustrate one way, because it is universal and applies to all for loops. 
+
+```{r}
+for (i in 1:5) {
+  cat("stuck in a loop","\n")
+  cat(3 + 2,"\n")
+  cat(runif(1),"\n")
+}
+print(i)
+```
+
+
+  Instead, we want to use a counter variable that maps to the position of each element
+ 
+```{r}
+my_dogs <- c("chow","akita","malamute","husky","samoyed")
+for (i in 1:length(my_dogs)){
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
+}
+```
+
+This is the typical way we make a loop. One potential hazard is if the vector we are working with is empty
+```{r}
+my_bad_dogs <- NULL
+for (i in 1:length(my_bad_dogs)){
+  cat("i =",i,"my_bad_dogs[i] =" ,my_bad_dogs[i],"\n")
+}
+
+
+```
+So, a safer way is to use `seq_along` function:
+
+```{r}
+for (i in seq_along(my_dogs)){
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
+}
+```
+
+But notice now what happens when the vector is empty:
+
+```{r}
+
+# This time we correctly skip my_bad_dogs and do not make the loop
+for (i in seq_along(my_bad_dogs)){
+  cat("i =",i,"my_bad_dogs[i] =" ,my_bad_dogs[i],"\n")
+}
+```
+
+
+
+Alternatively, we may have a constant that we use to define the length of the vector:
+
+```{r, eval=TRUE}
+zz <- 5
+for (i in seq_len(zz)){
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
+}
+
+  
+```
+
+#### Tip #1: Don't do things in the loop if you do not need to!
+```{r, eval=TRUE}
+for (i in 1:length(my_dogs)){
+  my_dogs[i] <- toupper(my_dogs[i])
+  cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
+}
+
+my_dogs <- tolower(my_dogs)
+```
+
+#### Tip #2: Do not change object dimensions (`cbind,rbind,c,list`) in the loop!
+```{r, eval=TRUE}
+my_dat <- runif(1)
+for (i in 2:10) {
+  temp <- runif(1) 
+  my_dat <- c(my_dat,temp) # do not change vector size in the loop!
+  cat("loop number =",i,"vector element =", my_dat[i],"\n")
+}
+print(my_dat)
+```
+
+#### Tip #3: Do not write a loop if you can vectorize an operation
+```{r, eval=TRUE}
+my_dat <- 1:10
+for (i in seq_along(my_dat)) {
+  my_dat[i] <-  my_dat[i] + my_dat[i]^2
+  cat("loop number =",i,"vector element =", my_dat[i],"\n")
+}
+
+# No loop is needed here!
+z <- 1:10
+z <- z + z^2
+print(z)
+
+
+```
+#### Tip #4: Always be alert to the distinction between the counter variable `i` and the vector element `z[i]`
+```{r, eval=TRUE}
+z <- c(10,2,4)
+for (i in seq_along(z)) {
+  cat("i =",i,"z[i] = ",z[i],"\n")
+}
+# What is value of i at this point?
+print(i)
+```
+
+#### Tip #5: Use `next` to skip certain elements in the loop
+
+```{r, eval=TRUE}
+z <- 1:20
+# What if we want to work with only the odd-numbered elements?
+
+for (i in seq_along(z)) {
+  if(i %% 2==0) next
+  print(i)
+}
+
+# Another method, probably faster (why?)
+z <- 1:20
+zsub <- z[z %% 2!=0] # contrast with logical expression in previous if statement!
+length(z)
+for (i in seq_along(zsub)) {
+  cat("i = ",i,"zsub[i] = ",zsub[i],"\n")
+}
+```
+
