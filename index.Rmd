@@ -59,8 +59,8 @@ March 13 | Spring Recess | -
 March 14 | Spring Recess | -
 March 19  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)| -
 March 20  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homework #8](Homeworks/Homework_06a.html)
-March 21  | [Control Structures I](Lectures/Lecture16_S2021.xhtml) | -
-March 26  | [Control Structures II](Lectures/Lecture17_S2021.xhtml) | -
+March 21  | [For Loops I](Lectures/ForLoops_I.html) | -
+March 26  | [For Loops II](Lectures/Lecture17_S2021.xhtml) | -
 March 27  | - | [Homework #9](Homeworks/Homework_09.html)
 March 28  | [Control Structures III](Lectures/Lecture18_S2021.xhtml) | -
 April 2  | [Randomization Tests](Lectures/Lecture19_S2021) | -
