@@ -233,6 +233,7 @@ ul.task-list{list-style: none;}
 
 
 
+
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -254,6 +255,9 @@ outline: none;
 summary {
 display: list-item;
 }
+details > summary > p:only-child {
+display: inline;
+}
 pre code {
 padding: 0;
 }
@@ -272,23 +276,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -339,7 +337,7 @@ display: none;
 <div id="organizing-code-with-structured-programming" class="section level3">
 <h3>Organizing Code With Structured Programming</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the code that you worked on in Homework #8 (creating fake
+<li><p>Use the code that you worked on in Homework #7 (creating fake
 data sets), and re-organize it following the principles of structured
 programming. Do all the work in a single chunk in your R markdown file,
 just as if you were writing a single R script. Start with all of your
