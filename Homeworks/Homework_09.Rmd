@@ -18,6 +18,6 @@ output:
 3. Optional. If time permits and you have the skills, try putting your program inside of a for loop and repeat the analysis with a different stochastic data set (each time you call a function that invokes the random number generator, it will create a new set of data for you to process). Can you create a data structure to store the summary statistics created in each pass through the loop? If not, your program will work, but it will only show the results from the final replicate (the previous results will be written over each time you traverse the loop).
 
 -----
-[Structured Programming I Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture14_S2021.html)    
+[Structured Programming I Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Functions.html)    
 [Structured Programming II Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture15_S2021.html)
 
