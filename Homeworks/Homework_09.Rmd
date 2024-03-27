@@ -19,5 +19,5 @@ output:
 
 -----
 [Structured Programming I Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Functions.html)    
-[Structured Programming II Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture15_S2021.html)
+[Structured Programming II Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/ForLoops_I.html)
 
