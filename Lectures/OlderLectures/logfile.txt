@@ -1,0 +1,12 @@
+INFO [2024-04-03 16:34:06] 
+TRACE [2024-04-03 16:34:06] 
+DEBUG [2024-04-03 16:34:06] 
+INFO [2024-04-03 16:34:06] add your message here
+INFO [2024-04-03 16:34:06] mix messages and code. pi = 3.14159265358979
+DEBUG [2024-04-03 16:34:06] running file #1
+DEBUG [2024-04-03 16:34:07] running file #2
+DEBUG [2024-04-03 16:34:08] running file #3
+DEBUG [2024-04-03 16:34:09] running file #4
+DEBUG [2024-04-03 16:34:10] running file #5
+INFO [2024-04-03 16:34:11] read input
+INFO [2024-04-03 16:34:11] source functions

@@ -12,11 +12,22 @@ output:
 ### Batch Processing
 
 
-1. Repeat the exercise from the Batch Processing Lecture (5 April), but do it using real data sets rather than purely simulated. Check with folks in your lab to see if there are multiple data sets available for analysis, or ask Nick, Lauren, or Emily for suggestions for other data sources. Stick to simple data analyses and graphics, but try to set it up as a batch process that will work on multiple files and save summary results to a common file.
+Using an example dataset of breeding landbirds in North America, apply your lecture notes on barracudar and functions to analyze abundance and species richness at a particular site. 
 
-If you can only find a single data set, then simulate a couple of others by following the methods in Homework #6 by selecting appropriate statistical distributions and estimating parameters for those from the real data.
+###### Data Download 
 
-Hopefully, this exercise will contribute to some actual work that you are trying to do in your research!  
+1. To start, go to this [link](https://data.neonscience.org/data-products/DP1.10003.001) and scroll down to "Download Data". From there, Sort by Site to download the "BART" dataset for years 2013-2023. In this compressed folder, you should see a list of six folders organized by year in the file name. Store that for now somewhere on your desktop.   
+
+From there, follow the instructions from last week's lectures on barracudar functions to create a new project, storing the dataset in a "Original Data" folder. 
+
+2. Within each year's folder, you will only be using a  file from each year labeled "countdata" in its title. Using for loops, iterate through each year's folders to gather the file names of these "countdata" .csv files. 
+
+3. Starting with pseudo-code, generate functions for 1) Cleaning the data for any empty/missing cases, 2) Extract the year from each file name, 3) Calculate Abundance for each year, 4) Calculate Species Richness. 
+
+4. Create an initial empty data frame to hold the above summary statistics-you should have 4 columns, one for the file name, one for abundance, one for species richness, and one for year. 
+
+5. Using a for loop, run your created functions as a batch process for each folder, changing the working directory as necessary to read in the correct files, calculating summary statistics with your created functions, and then writing them out into your summary statistics data frame. 
+
 
 -----------------------------
 

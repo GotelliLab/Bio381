@@ -233,6 +233,7 @@ ul.task-list{list-style: none;}
 
 
 
+
 <style type="text/css">
 .main-container {
 max-width: 940px;
@@ -254,6 +255,9 @@ outline: none;
 summary {
 display: list-item;
 }
+details > summary > p:only-child {
+display: inline;
+}
 pre code {
 padding: 0;
 }
@@ -272,23 +276,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -338,21 +336,40 @@ display: none;
 
 <div id="batch-processing" class="section level3">
 <h3>Batch Processing</h3>
+<p>Using an example dataset of breeding landbirds in North America,
+apply your lecture notes on barracudar and functions to analyze
+abundance and species richness at a particular site.</p>
+<div id="data-download" class="section level6">
+<h6>Data Download</h6>
 <ol style="list-style-type: decimal">
-<li>Repeat the exercise from the Batch Processing Lecture (5 April), but
-do it using real data sets rather than purely simulated. Check with
-folks in your lab to see if there are multiple data sets available for
-analysis, or ask Nick, Lauren, or Emily for suggestions for other data
-sources. Stick to simple data analyses and graphics, but try to set it
-up as a batch process that will work on multiple files and save summary
-results to a common file.</li>
+<li>To start, go to this <a href="https://data.neonscience.org/data-products/DP1.10003.001">link</a>
+and scroll down to “Download Data”. From there, Sort by Site to download
+the “BART” dataset for years 2013-2023. In this compressed folder, you
+should see a list of six folders organized by year in the file name.
+Store that for now somewhere on your desktop.</li>
 </ol>
-<p>If you can only find a single data set, then simulate a couple of
-others by following the methods in Homework #6 by selecting appropriate
-statistical distributions and estimating parameters for those from the
-real data.</p>
-<p>Hopefully, this exercise will contribute to some actual work that you
-are trying to do in your research!</p>
+<p>From there, follow the instructions from last week’s lectures on
+barracudar functions to create a new project, storing the dataset in a
+“Original Data” folder.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Within each year’s folder, there should be a variety of files
+that you won’t be using at this point. There should be a file from each
+year labeled “countdata” in its title. Using for loops, iterate through
+each year’s folders to gather the file names of these “countdata” .csv
+files.</p></li>
+<li><p>Starting with pseudo-code, generate functions for 1) Cleaning the
+data for any empty/missing cases, 2) Extract the year from each file
+name, 3) Calculate Abundance for each year, 4) Calculate Species
+Richness.</p></li>
+<li><p>Create an initial empty dataframe to hold the above summary
+statistics-you should have 4 columns, one for the file name, one for
+abundance, one for species richness, and one for year.</p></li>
+<li><p>Using a for loop, run your created functions as a batch process
+for each folder, changing the working directory as necessary to extract
+the correct files, calculating summary statistics with your created
+functions, and then writing them out into your summary statistics
+dataframe.</p></li>
+</ol>
 <hr />
 <p>Use the remainder of the lab period to continue work on Homework 10,
 if you did not complete it last week:</p>
@@ -386,6 +403,7 @@ is responsible for this difference?</p></li>
 Processing Lecture Notes</a><br />
 <a href="https://gotellilab.github.io/Bio381/Lectures/Lecture19_S2021.html">Randomization
 Tests Lecture Notes</a></p>
+</div>
 </div>
 
 
