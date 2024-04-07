@@ -62,11 +62,11 @@ March 20  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homewo
 March 21  | [For Loops I](Lectures/ForLoops_I.html) | -
 March 26  | [For Loops II](Lectures/Lecture17_S2021.xhtml) | -
 March 27  | - | [Homework #9](Homeworks/Homework_09.html)
-March 28  | [Control Structures III](Lectures/Lecture18_S2021.xhtml) | -
-April 2  | [Randomization Tests](Lectures/Lecture19_S2021) | -
+March 28  | [Strategic Coding Practices I](CourseMaterials/StrategicCodingPractices.zip) | -
+April 2  | [Strategic Coding Practices II](CourseMaterials/StrategicCodingPractices.zip)  | -
 April 3  | - | [Homework #10](Homeworks/Homework_10.html)
-April 4  | [Batch Processing](Lectures/Lecture_20.xhtml) | -
-April 9  | [ggplot I](Lectures/Lecture_21.xhtml)  | -
+April 4  | [ggplot I](Lectures/ggplot_I.html) | -
+April 9  | [ggplot II](Lectures/Lecture_21.xhtml)  | -
 April 10  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
 April 11  | [ggplot II](Lectures/Lecture22_S2021.xhtml) | -
 April 16 | [ggplot III](Lectures/Lecture23_S2021.xhtml) | -
