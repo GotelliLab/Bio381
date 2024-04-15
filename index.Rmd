@@ -60,21 +60,21 @@ March 14 | Spring Recess | -
 March 19  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)| -
 March 20  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homework #8](Homeworks/Homework_06a.html)
 March 21  | [For Loops I](Lectures/ForLoops_I.html) | -
-March 26  | [For Loops II](Lectures/Lecture17_S2021.xhtml) | -
+March 26  | [For Loops II](Lectures/ForLoops_II.html) | -
 March 27  | - | [Homework #9](Homeworks/Homework_09.html)
 March 28  | [Strategic Coding Practices I](CourseMaterials/StrategicCodingPractices.zip) | -
 April 2  | [Strategic Coding Practices II](CourseMaterials/StrategicCodingPractices.zip)  | -
 April 3  | - | [Homework #10](Homeworks/Homework_10.html)
 April 4  | [ggplot I](Lectures/ggplot_I.html) | -
-April 9  | [ggplot II](Lectures/Lecture_21.xhtml)  | -
+April 9  | [ggplot II](Lectures/ggplot_II.html)  | -
 April 10  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
-April 11  | [ggplot II](Lectures/Lecture22_S2021.xhtml) | -
-April 16 | [ggplot III](Lectures/Lecture23_S2021.xhtml) | -
+April 11  | [ggplot III](Lectures/ggplot_III.xhtml) | -
+April 16 | [ggplot IV](Lectures/ggplot_III.xhtml) | -
 April 17  | - | [Homework #12](Homeworks/Homework_12.html)
 April 18 | [Functional Programming](Lectures/Lecture_24.xhtml) | -
-April 23  | [Github III](Lectures/Lecture25_S2021.xhtml) | -
+April 23  | [Shell Commands](Lectures/Lecture25_S2021.xhtml) | -
 April 24  | - | Catch-up Day
-April 25  | [Shell Commands](Lectures/Lecture25_S2021.xhtml) | -
+April 25  | - | Catch-up Day
 April 30  | Lecture Spillover Day | -
 May 1  | Lecture Spillover Day | -
 May 2 | Lecture Spillover Day | - 
