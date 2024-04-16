@@ -18,11 +18,10 @@ knitr::opts_chunk$set(echo = TRUE,
 
 #### Installing `colorblindr`
 ```{r eval = F}
-install.packages("remotes")
-library(remotes)
-remotes::install_github("clauswilke/colorblindr") 
-# update all of the recommended packages when prompted
-# if an error is generated, re-start RStudio and re-run this line of code
+devtools::install_github("wilkelab/cowplot")
+install.packages("colorspace", repos = "http://R-Forge.R-project.org")
+devtools::install_github("clauswilke/colorblindr")
+
 ```
 
 
@@ -30,9 +29,7 @@ remotes::install_github("clauswilke/colorblindr")
 ```{r, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(ggthemes)
-library(patchwork)
 library(colorblindr)
-library(cowplot)
 library(colorspace)
 library(wesanderson)
 library(ggsci)
@@ -311,7 +308,7 @@ p4 + scale_fill_viridis_c(option="inferno")
 #desaturated viridis
 p4 <- p4 + geom_tile() + scale_fill_viridis_c() 
 p4des<-edit_colors(p4, desaturate)
-ggdraw(p4des)
+plot(p4des)
 
 ```
 
