@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ### Different function types in R
 ```{r}
-# different kinds of functions
+
 z <- 1:10
 
 
@@ -24,6 +24,9 @@ z <- 1:10
 mean(z)
 
 # "in-fix" functions
+z + 100
+
+# equivalent "pre-fix" functions
 `+`(z,100)
 
 # user-defined functions
@@ -63,14 +66,15 @@ print(m)
 #### `for loop` solution
 ```{r}
 # create a vector of lists to hold the output
-output <- vector("numeric",nrow(m))
+output <- vector("list",nrow(m))
 str(output)
+print(output)
 
 # run the function in a for loop for each
 # row of the matrix
 
 for (i in seq_len(nrow(m))) {
-  output[[i]] <- my_fun(m[i,])
+  output[i] <- my_fun(m[i,])
 }
 
 print(output)
@@ -85,7 +89,9 @@ print(output)
 # ... optional arguments to FUN
 
 # apply function my_fun to each row of m
-row_out <- apply(m,1,my_fun)
+row_out <- apply(X=m,
+                 MARGIN=1,
+                 FUN=my_fun)
 print(row_out)
 
 # apply function my_fun to each column of m
@@ -114,7 +120,7 @@ t(apply(m,1,sample))
   
 # function to choose a random number of elements
 # from each row and pick them in random order
-apply(m,1,function(x) x[sample(1:length(x),size=sample(1:length(x),size=1))])
+apply(m,1,function(x) x[sample(seq_along(x),size=sample(seq_along(x),size=1))])
 
 # thus, output from apply can be a matrix, vector, or a list!
 ```
@@ -127,13 +133,9 @@ df <- data.frame(x=runif(20),y=runif(20),z=runif(20))
 
 ### `for loop` solution
 ```{r}
-# OK, but note that elements are zero
-output <- vector("numeric",ncol(df))
+output <- vector("list",ncol(df))
 print(output)
 
-# probably safer
-output <- rep(NA,ncol(df))
-print(output)
 
 for (i in seq_len(ncol(df))) {
   output[i] <- sd(df[,i])/mean(df[,i])
@@ -153,7 +155,8 @@ print(output)
 
 # note that output is always a list!
 # note that names are retained from columns of data frame
-summary_out <- lapply(df,function(x) sd(x)/mean(x))
+summary_out <- lapply(X=df,
+                      FUN=function(x) sd(x)/mean(x))
 print(summary_out)
 
 # sapply tries to simplify output to vector or matrix (s(implify)apply)
@@ -171,7 +174,7 @@ head(df2)
 
 #### `for loop` solution
 ```{r}
-output2 <- rep(NA,ncol(df2))
+output2 <- vector("list",ncol(df2))
 for (i in seq_len(ncol(df2))) {
   if(!is.numeric(df2[,i])) next
     output2[i] <- sd(df2[,i])/mean(df2[,i])
@@ -198,7 +201,7 @@ print(z) # note difference in output length!
 print(df2)
 g <- unique(df2$treatment)
 print(g)
-out_g <- rep(NA,length(g))
+out_g <- vector("list",length(g))
 names(out_g) <- g
 print(out_g)
 for (i in seq_along(g)){
@@ -262,7 +265,8 @@ list_out[[1]]
 # n is the number of times the operation is to be repeated
 # expr is a function (base, or user-defined), or an expression (like an anonymous function, but without the function(x) header; just the bare code for execution).
 
-z_out <- replicate(n=5,pop_gen())
+z_out <- replicate(n=5,
+                   expr=pop_gen())
 print(z_out)
 ```
 
@@ -298,7 +302,7 @@ head(df_out)
 # FUN is the function to be used (note it is listed first!)
 #...arguments to vectorize over(vectors or lists)
 #MoreArgs list of additional arguments that are constant in all of the different runs
-df_out$s <- mapply(function(a, c, z) c*(a^z), df$a,df$c,df$z)
+df_out$s <- mapply(FUN=function(a, c, z) c*(a^z), df$a,df$c,df$z)
 
 head(df_out)
 ```

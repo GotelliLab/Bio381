@@ -237,7 +237,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -436,48 +436,50 @@ display: none;
 
 <div id="different-function-types-in-r" class="section level3">
 <h3>Different function types in R</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># different kinds of functions</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># built-in functions (&quot;prefix&quot; functions)</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">mean</span>(z)</span></code></pre></div>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># built-in functions (&quot;prefix&quot; functions)</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">mean</span>(z)</span></code></pre></div>
 <pre><code>## [1] 5.5</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># &quot;in-fix&quot; functions</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="st">`</span><span class="at">+</span><span class="st">`</span>(z,<span class="dv">100</span>)</span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>z <span class="sc">+</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>##  [1] 101 102 103 104 105 106 107 108 109 110</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># user-defined functions</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># FUNCTION my_fun</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># description: calculate maximum of sin of x + x</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># inputs: numeric vector</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># outputs: 1-element numeric vector</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="do">########################################</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">5</span>)) {</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x)</span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="fu">return</span>(z)</span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>} <span class="co"># end of my_fun</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="fu">my_fun</span>()</span></code></pre></div>
-<pre><code>## [1] 0.9156859</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">my_fun</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># equivalent &quot;pre-fix&quot; functions</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="st">`</span><span class="at">+</span><span class="st">`</span>(z,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##  [1] 101 102 103 104 105 106 107 108 109 110</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># user-defined functions</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># FUNCTION my_fun</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># description: calculate maximum of sin of x + x</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># inputs: numeric vector</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co"># outputs: 1-element numeric vector</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="do">########################################</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">5</span>)) {</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x)</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="fu">return</span>(z)</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>} <span class="co"># end of my_fun</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="fu">my_fun</span>()</span></code></pre></div>
+<pre><code>## [1] 1.819547</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">my_fun</span>(z)</span></code></pre></div>
 <pre><code>## [1] 9.455979</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># anonymous functions</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># unnamed, used for simple calculations, usually with a single input, by convention called x</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span> <span class="co"># anonymous function</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># anonymous functions</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co"># unnamed, used for simple calculations, usually with a single input, by convention called x</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span> <span class="co"># anonymous function</span></span></code></pre></div>
 <pre><code>## function(x) x + 3</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span> (<span class="dv">10</span>) <span class="co"># try to provide input</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span> (<span class="dv">10</span>) <span class="co"># try to provide input</span></span></code></pre></div>
 <pre><code>## function(x) x + 3 (10)</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="dv">10</span>) <span class="co"># use of parentheses to call</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="dv">10</span>) <span class="co"># use of parentheses to call</span></span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 </div>
 <div id="first-task-apply-a-function-to-each-row-or-column-of-a-matrix" class="section level3">
 <h3>First Task: Apply a function to each row (or column of a matrix</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">print</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="fu">print</span>(m)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    2    3    4
 ## [2,]    5    6    7    8
@@ -486,39 +488,72 @@ display: none;
 ## [5,]   17   18   19   20</code></pre>
 <div id="for-loop-solution" class="section level4">
 <h4><code>for loop</code> solution</h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co"># create a vector of lists to hold the output</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;numeric&quot;</span>,<span class="fu">nrow</span>(m))</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="fu">str</span>(output)</span></code></pre></div>
-<pre><code>##  num [1:5] 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># run the function in a for loop for each</span></span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="co"># row of the matrix</span></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(m))) {</span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>  output[[i]] <span class="ot">&lt;-</span> <span class="fu">my_fun</span>(m[i,])</span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>}</span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
-<pre><code>## [1]  3.243198  8.989358 11.463427 15.712097
-## [5] 20.912945</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># create a vector of lists to hold the output</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,<span class="fu">nrow</span>(m))</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="fu">str</span>(output)</span></code></pre></div>
+<pre><code>## List of 5
+##  $ : NULL
+##  $ : NULL
+##  $ : NULL
+##  $ : NULL
+##  $ : NULL</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
+<pre><code>## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co"># run the function in a for loop for each</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co"># row of the matrix</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(m))) {</span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">my_fun</span>(m[i,])</span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>}</span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 3.243198
+## 
+## [[2]]
+## [1] 8.989358
+## 
+## [[3]]
+## [1] 11.46343
+## 
+## [[4]]
+## [1] 15.7121
+## 
+## [[5]]
+## [1] 20.91295</code></pre>
 </div>
 <div id="apply-solution" class="section level4">
 <h4><code>apply</code> solution</h4>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># using the apply function to do the same thing</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co"># apply(X,MARGIN,FUN,...)</span></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co"># X = vector or an array (= matrix)</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co"># MARGIN 1=row,2=column, c(1,2)=rows and columns</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co"># ... optional arguments to FUN</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co"># apply function my_fun to each row of m</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>row_out <span class="ot">&lt;-</span> <span class="fu">apply</span>(m,<span class="dv">1</span>,my_fun)</span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="fu">print</span>(row_out)</span></code></pre></div>
-<pre><code>## [1]  3.243198  8.989358 11.463427 15.712097
-## [5] 20.912945</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co"># apply function my_fun to each column of m</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">2</span>,my_fun)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="co"># using the apply function to do the same thing</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="co"># apply(X,MARGIN,FUN,...)</span></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co"># X = vector or an array (= matrix)</span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co"># MARGIN 1=row,2=column, c(1,2)=rows and columns</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co"># ... optional arguments to FUN</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co"># apply function my_fun to each row of m</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a>row_out <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X=</span>m,</span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a>                 <span class="at">MARGIN=</span><span class="dv">1</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a>                 <span class="at">FUN=</span>my_fun)</span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="fu">print</span>(row_out)</span></code></pre></div>
+<pre><code>## [1]  3.243198  8.989358 11.463427 15.712097 20.912945</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="co"># apply function my_fun to each column of m</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">2</span>,my_fun)</span></code></pre></div>
 <pre><code>## [1] 16.03860 17.24901 19.14988 20.91295</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="co"># apply function my_fun to each element of m</span></span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),my_fun)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="co"># apply function my_fun to each element of m</span></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),my_fun)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]
 ## [1,]  1.841471  2.909297  3.141120  3.243198
 ## [2,]  4.041076  5.720585  7.656987  8.989358
@@ -528,12 +563,11 @@ display: none;
 </div>
 <div id="apply-solutions-with-anonymous-function" class="section level4">
 <h4><code>apply</code> solutions with anonymous function</h4>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
-<pre><code>## [1]  3.243198  8.989358 11.463427 15.712097
-## [5] 20.912945</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">2</span>,<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
+<pre><code>## [1]  3.243198  8.989358 11.463427 15.712097 20.912945</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">2</span>,<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
 <pre><code>## [1] 16.03860 17.24901 19.14988 20.91295</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="cf">function</span>(x) <span class="fu">max</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> x))</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]
 ## [1,]  1.841471  2.909297  3.141120  3.243198
 ## [2,]  4.041076  5.720585  7.656987  8.989358
@@ -543,297 +577,314 @@ display: none;
 </div>
 <div id="what-happens-to-output-of-variable-length" class="section level4">
 <h4>What happens to output of variable length?</h4>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="co"># first, modification of code to simply reshuffle the order of the elements</span></span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,sample)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="co"># first, modification of code to simply reshuffle the order of the elements</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,sample)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    2    8   10   13   17
-## [2,]    3    7   11   15   18
-## [3,]    4    6    9   16   19
-## [4,]    1    5   12   14   20</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="co"># caution! array output is each vector is in a column! to preserve original matrix dimensions, we need to transpose</span></span>
-<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(m,<span class="dv">1</span>,sample))</span></code></pre></div>
+## [1,]    4    8    9   13   17
+## [2,]    2    6   10   16   20
+## [3,]    1    5   12   14   19
+## [4,]    3    7   11   15   18</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="co"># caution! array output is each vector is in a column! to preserve original matrix dimensions, we need to transpose</span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(m,<span class="dv">1</span>,sample))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    4    1    3    2
-## [2,]    5    8    7    6
+## [1,]    4    2    3    1
+## [2,]    8    7    5    6
 ## [3,]    9   12   11   10
-## [4,]   13   14   16   15
-## [5,]   18   20   17   19</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="co"># function to choose a random number of elements</span></span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="co"># from each row and pick them in random order</span></span>
-<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,<span class="cf">function</span>(x) x[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x),<span class="at">size=</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x),<span class="at">size=</span><span class="dv">1</span>))])</span></code></pre></div>
+## [4,]   14   15   13   16
+## [5,]   20   19   18   17</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="co"># function to choose a random number of elements</span></span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="co"># from each row and pick them in random order</span></span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="fu">apply</span>(m,<span class="dv">1</span>,<span class="cf">function</span>(x) x[<span class="fu">sample</span>(<span class="fu">seq_along</span>(x),<span class="at">size=</span><span class="fu">sample</span>(<span class="fu">seq_along</span>(x),<span class="at">size=</span><span class="dv">1</span>))])</span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 3 1 4 2
+## [1] 2
 ## 
 ## [[2]]
-## [1] 5 8 6
+## [1] 5
 ## 
 ## [[3]]
-## [1] 11
+## [1] 10 11
 ## 
 ## [[4]]
-## [1] 13 15 16 14
+## [1] 14 16 15
 ## 
 ## [[5]]
-## [1] 18 19 20 17</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="co"># thus, output from apply can be a matrix, vector, or a list!</span></span></code></pre></div>
+## [1] 17 19 20 18</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="co"># thus, output from apply can be a matrix, vector, or a list!</span></span></code></pre></div>
 </div>
 </div>
 <div id="second-task-apply-a-function-to-every-column-of-a-data-frame" class="section level3">
 <h3>Second Task: Apply a function to every column of a data frame</h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">z=</span><span class="fu">runif</span>(<span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">z=</span><span class="fu">runif</span>(<span class="dv">20</span>))</span></code></pre></div>
 </div>
 <div id="for-loop-solution-1" class="section level3">
 <h3><code>for loop</code> solution</h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="co"># OK, but note that elements are zero</span></span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;numeric&quot;</span>,<span class="fu">ncol</span>(df))</span>
-<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
-<pre><code>## [1] 0 0 0</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="co"># probably safer</span></span>
-<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="fu">ncol</span>(df))</span>
-<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
-<pre><code>## [1] NA NA NA</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(df))) {</span>
-<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df[,i])<span class="sc">/</span><span class="fu">mean</span>(df[,i])</span>
-<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>}</span>
-<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
-<pre><code>## [1] 0.4438153 0.7418472 0.5438914</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,<span class="fu">ncol</span>(df))</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
+<pre><code>## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(df))) {</span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df[,i])<span class="sc">/</span><span class="fu">mean</span>(df[,i])</span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a>}</span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a><span class="fu">print</span>(output)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 0.7002532
+## 
+## [[2]]
+## [1] 0.505736
+## 
+## [[3]]
+## [1] 0.6383289</code></pre>
 <div id="lapply-solution" class="section level4">
 <h4><code>lapply</code> solution</h4>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="co"># using lapply to do the same thing</span></span>
-<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="co"># lapply(X,FUN,...)</span></span>
-<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a><span class="co"># X is a vector (atomic or list)</span></span>
-<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a><span class="co"># FUN is a function applied to each element of the list</span></span>
-<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a><span class="co"># (note that a data frame is a list of vectors!)</span></span>
-<span id="cb47-6"><a href="#cb47-6" tabindex="-1"></a><span class="co"># ... additional inputs to FUN</span></span>
-<span id="cb47-7"><a href="#cb47-7" tabindex="-1"></a></span>
-<span id="cb47-8"><a href="#cb47-8" tabindex="-1"></a><span class="co"># note that output is always a list!</span></span>
-<span id="cb47-9"><a href="#cb47-9" tabindex="-1"></a><span class="co"># note that names are retained from columns of data frame</span></span>
-<span id="cb47-10"><a href="#cb47-10" tabindex="-1"></a>summary_out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df,<span class="cf">function</span>(x) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
-<span id="cb47-11"><a href="#cb47-11" tabindex="-1"></a><span class="fu">print</span>(summary_out)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="co"># using lapply to do the same thing</span></span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a><span class="co"># lapply(X,FUN,...)</span></span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a><span class="co"># X is a vector (atomic or list)</span></span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a><span class="co"># FUN is a function applied to each element of the list</span></span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a><span class="co"># (note that a data frame is a list of vectors!)</span></span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a><span class="co"># ... additional inputs to FUN</span></span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a><span class="co"># note that output is always a list!</span></span>
+<span id="cb49-9"><a href="#cb49-9" tabindex="-1"></a><span class="co"># note that names are retained from columns of data frame</span></span>
+<span id="cb49-10"><a href="#cb49-10" tabindex="-1"></a>summary_out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="at">X=</span>df,</span>
+<span id="cb49-11"><a href="#cb49-11" tabindex="-1"></a>                      <span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
+<span id="cb49-12"><a href="#cb49-12" tabindex="-1"></a><span class="fu">print</span>(summary_out)</span></code></pre></div>
 <pre><code>## $x
-## [1] 0.4438153
+## [1] 0.7002532
 ## 
 ## $y
-## [1] 0.7418472
+## [1] 0.505736
 ## 
 ## $z
-## [1] 0.5438914</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="co"># sapply tries to simplify output to vector or matrix (s(implify)apply)</span></span>
-<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a><span class="co"># vapply requires specified output formats (v(erify)apply)</span></span>
-<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a><span class="co"># these are special cases of lapply</span></span></code></pre></div>
+## [1] 0.6383289</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="co"># sapply tries to simplify output to vector or matrix (s(implify)apply)</span></span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a><span class="co"># vapply requires specified output formats (v(erify)apply)</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a><span class="co"># these are special cases of lapply</span></span></code></pre></div>
 </div>
 </div>
 <div id="challenge-what-if-not-all-dataframe-columns-are-of-same-type" class="section level3">
 <h3>Challenge: what if not all dataframe columns are of same type?</h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Treatment&quot;</span>),<span class="at">each=</span>(<span class="fu">nrow</span>(df)<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a><span class="fu">print</span>(treatment)</span></code></pre></div>
-<pre><code>##  [1] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-##  [4] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-##  [7] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-## [10] &quot;Control&quot;   &quot;Treatment&quot; &quot;Treatment&quot;
-## [13] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
-## [16] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Treatment&quot;</span>),<span class="at">each=</span>(<span class="fu">nrow</span>(df)<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a><span class="fu">print</span>(treatment)</span></code></pre></div>
+<pre><code>##  [1] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
+##  [7] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Treatment&quot; &quot;Treatment&quot;
+## [13] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
 ## [19] &quot;Treatment&quot; &quot;Treatment&quot;</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(treatment,df)</span>
-<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code></pre></div>
-<pre><code>##   treatment         x          y         z
-## 1   Control 0.2547722 0.91491095 0.4348272
-## 2   Control 0.3424536 0.27626056 0.4749515
-## 3   Control 0.3209075 0.24193371 0.9286189
-## 4   Control 0.7348048 0.93575626 0.4357673
-## 5   Control 0.6780792 0.09771456 0.8208148
-## 6   Control 0.7949568 0.78925101 0.4521005</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(treatment,df)</span>
+<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code></pre></div>
+<pre><code>##   treatment         x         y           z
+## 1   Control 0.3437174 0.6298936 0.721444447
+## 2   Control 0.5348902 0.4551289 0.004926618
+## 3   Control 0.2009957 0.7191109 0.443968084
+## 4   Control 0.7556148 0.8937989 0.747296319
+## 5   Control 0.1728344 0.3208117 0.284701721
+## 6   Control 0.7274820 0.1915238 0.261690479</code></pre>
 <div id="for-loop-solution-2" class="section level4">
 <h4><code>for loop</code> solution</h4>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a>output2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="fu">ncol</span>(df2))</span>
-<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(df2))) {</span>
-<span id="cb54-3"><a href="#cb54-3" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(df2[,i])) <span class="cf">next</span></span>
-<span id="cb54-4"><a href="#cb54-4" tabindex="-1"></a>    output2[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df2[,i])<span class="sc">/</span><span class="fu">mean</span>(df2[,i])</span>
-<span id="cb54-5"><a href="#cb54-5" tabindex="-1"></a>}</span>
-<span id="cb54-6"><a href="#cb54-6" tabindex="-1"></a><span class="fu">print</span>(output2)</span></code></pre></div>
-<pre><code>## [1]        NA 0.4438153 0.7418472 0.5438914</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a>output2 <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,<span class="fu">ncol</span>(df2))</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(df2))) {</span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(df2[,i])) <span class="cf">next</span></span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a>    output2[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df2[,i])<span class="sc">/</span><span class="fu">mean</span>(df2[,i])</span>
+<span id="cb56-5"><a href="#cb56-5" tabindex="-1"></a>}</span>
+<span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a><span class="fu">print</span>(output2)</span></code></pre></div>
+<pre><code>## [[1]]
+## NULL
+## 
+## [[2]]
+## [1] 0.7002532
+## 
+## [[3]]
+## [1] 0.505736
+## 
+## [[4]]
+## [1] 0.6383289</code></pre>
 </div>
 <div id="lapply-solution-1" class="section level4">
 <h4><code>lapply</code> solution</h4>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="fu">lapply</span>(df2,<span class="cf">function</span>(x) <span class="cf">if</span>(<span class="fu">is.numeric</span>(x)) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="fu">lapply</span>(df2,<span class="cf">function</span>(x) <span class="cf">if</span>(<span class="fu">is.numeric</span>(x)) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span></code></pre></div>
 <pre><code>## $treatment
 ## NULL
 ## 
 ## $x
-## [1] 0.4438153
+## [1] 0.7002532
 ## 
 ## $y
-## [1] 0.7418472
+## [1] 0.505736
 ## 
 ## $z
-## [1] 0.5438914</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="co"># if you wanted the output as a vector, you could </span></span>
-<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a><span class="co"># just unlist it:</span></span>
-<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df2,<span class="cf">function</span>(x) <span class="cf">if</span>(<span class="fu">is.numeric</span>(x)) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
-<span id="cb58-4"><a href="#cb58-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">unlist</span>(z)</span>
-<span id="cb58-5"><a href="#cb58-5" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="#cb58-6" tabindex="-1"></a><span class="fu">print</span>(z) <span class="co"># note difference in output length!</span></span></code></pre></div>
+## [1] 0.6383289</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="co"># if you wanted the output as a vector, you could </span></span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="co"># just unlist it:</span></span>
+<span id="cb60-3"><a href="#cb60-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df2,<span class="cf">function</span>(x) <span class="cf">if</span>(<span class="fu">is.numeric</span>(x)) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
+<span id="cb60-4"><a href="#cb60-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb60-5"><a href="#cb60-5" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" tabindex="-1"></a><span class="fu">print</span>(z) <span class="co"># note difference in output length!</span></span></code></pre></div>
 <pre><code>##         x         y         z 
-## 0.4438153 0.7418472 0.5438914</code></pre>
+## 0.7002532 0.5057360 0.6383289</code></pre>
 </div>
 </div>
 <div id="third-task-splitapplycombine-for-groups-in-a-data-frame" class="section level3">
 <h3>Third Task: split/apply/combine for groups in a data frame</h3>
 <div id="for-loop-solution-3" class="section level4">
 <h4><code>for loop</code> solution</h4>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="co"># use df2 for this, and split over two groups</span></span>
-<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="fu">print</span>(df2)</span></code></pre></div>
-<pre><code>##    treatment           x          y           z
-## 1    Control 0.254772183 0.91491095 0.434827197
-## 2    Control 0.342453568 0.27626056 0.474951484
-## 3    Control 0.320907467 0.24193371 0.928618907
-## 4    Control 0.734804786 0.93575626 0.435767337
-## 5    Control 0.678079246 0.09771456 0.820814768
-## 6    Control 0.794956818 0.78925101 0.452100466
-## 7    Control 0.274224231 0.51461480 0.067654239
-## 8    Control 0.702716094 0.04784328 0.746068342
-## 9    Control 0.505271831 0.10424181 0.296318864
-## 10   Control 0.514771622 0.43266759 0.007157544
-## 11 Treatment 0.007825543 0.26689356 0.470530338
-## 12 Treatment 0.681315086 0.04783136 0.675219565
-## 13 Treatment 0.451615860 0.03911934 0.106796667
-## 14 Treatment 0.656664893 0.47911911 0.856965703
-## 15 Treatment 0.723736481 0.61704510 0.599344030
-## 16 Treatment 0.817730436 0.51541178 0.535199916
-## 17 Treatment 0.973161046 0.53057413 0.538392198
-## 18 Treatment 0.673220339 0.34221836 0.213627292
-## 19 Treatment 0.266306612 0.03037253 0.443048790
-## 20 Treatment 0.500130370 0.66877678 0.336739486</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">unique</span>(df2<span class="sc">$</span>treatment)</span>
-<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a><span class="fu">print</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="co"># use df2 for this, and split over two groups</span></span>
+<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a><span class="fu">print</span>(df2)</span></code></pre></div>
+<pre><code>##    treatment          x          y           z
+## 1    Control 0.34371741 0.62989363 0.721444447
+## 2    Control 0.53489016 0.45512892 0.004926618
+## 3    Control 0.20099574 0.71911094 0.443968084
+## 4    Control 0.75561480 0.89379892 0.747296319
+## 5    Control 0.17283439 0.32081174 0.284701721
+## 6    Control 0.72748198 0.19152384 0.261690479
+## 7    Control 0.14812962 0.41992728 0.567787609
+## 8    Control 0.74415099 0.77424611 0.377900523
+## 9    Control 0.17409913 0.24451019 0.424386381
+## 10   Control 0.99237534 0.37696611 0.681151240
+## 11 Treatment 0.51196455 0.64333535 0.141829346
+## 12 Treatment 0.38081205 0.93975118 0.691572952
+## 13 Treatment 0.29794789 0.62070544 0.002144055
+## 14 Treatment 0.19757312 0.56188505 0.362501313
+## 15 Treatment 0.32807447 0.71077295 0.886197438
+## 16 Treatment 0.13831668 0.95868716 0.048113963
+## 17 Treatment 0.18724433 0.64726378 0.646868369
+## 18 Treatment 0.05261586 0.07960326 0.310137121
+## 19 Treatment 0.30174116 0.42630563 0.358023607
+## 20 Treatment 0.94769913 0.05085979 0.967008865</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">unique</span>(df2<span class="sc">$</span>treatment)</span>
+<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a><span class="fu">print</span>(g)</span></code></pre></div>
 <pre><code>## [1] &quot;Control&quot;   &quot;Treatment&quot;</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a>out_g <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="fu">length</span>(g))</span>
-<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a><span class="fu">names</span>(out_g) <span class="ot">&lt;-</span> g</span>
-<span id="cb64-3"><a href="#cb64-3" tabindex="-1"></a><span class="fu">print</span>(out_g)</span></code></pre></div>
-<pre><code>##   Control Treatment 
-##        NA        NA</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(g)){</span>
-<span id="cb66-2"><a href="#cb66-2" tabindex="-1"></a>  df_sub <span class="ot">&lt;-</span> df2[df2<span class="sc">$</span>treatment<span class="sc">==</span>g[i],]</span>
-<span id="cb66-3"><a href="#cb66-3" tabindex="-1"></a>  out_g[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df_sub<span class="sc">$</span>x)<span class="sc">/</span><span class="fu">mean</span>(df_sub<span class="sc">$</span>x)</span>
-<span id="cb66-4"><a href="#cb66-4" tabindex="-1"></a>}</span>
-<span id="cb66-5"><a href="#cb66-5" tabindex="-1"></a><span class="fu">print</span>(out_g)</span></code></pre></div>
-<pre><code>##   Control Treatment 
-## 0.4019826 0.4866048</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a>out_g <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,<span class="fu">length</span>(g))</span>
+<span id="cb66-2"><a href="#cb66-2" tabindex="-1"></a><span class="fu">names</span>(out_g) <span class="ot">&lt;-</span> g</span>
+<span id="cb66-3"><a href="#cb66-3" tabindex="-1"></a><span class="fu">print</span>(out_g)</span></code></pre></div>
+<pre><code>## $Control
+## NULL
+## 
+## $Treatment
+## NULL</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(g)){</span>
+<span id="cb68-2"><a href="#cb68-2" tabindex="-1"></a>  df_sub <span class="ot">&lt;-</span> df2[df2<span class="sc">$</span>treatment<span class="sc">==</span>g[i],]</span>
+<span id="cb68-3"><a href="#cb68-3" tabindex="-1"></a>  out_g[i] <span class="ot">&lt;-</span> <span class="fu">sd</span>(df_sub<span class="sc">$</span>x)<span class="sc">/</span><span class="fu">mean</span>(df_sub<span class="sc">$</span>x)</span>
+<span id="cb68-4"><a href="#cb68-4" tabindex="-1"></a>}</span>
+<span id="cb68-5"><a href="#cb68-5" tabindex="-1"></a><span class="fu">print</span>(out_g)</span></code></pre></div>
+<pre><code>## $Control
+## [1] 0.647389
+## 
+## $Treatment
+## [1] 0.7528956</code></pre>
 </div>
 <div id="tapply-solution" class="section level4">
 <h4><code>tapply</code> solution</h4>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="co"># using tapply to do the same thing (t(agged)apply)</span></span>
-<span id="cb68-2"><a href="#cb68-2" tabindex="-1"></a><span class="co"># tapply(X,INDEX,FUN...)</span></span>
-<span id="cb68-3"><a href="#cb68-3" tabindex="-1"></a><span class="co"># X is a vector (atomic or list) to be subset</span></span>
-<span id="cb68-4"><a href="#cb68-4" tabindex="-1"></a><span class="co"># index is a list of factors (or character strings) # with one or more groups</span></span>
-<span id="cb68-5"><a href="#cb68-5" tabindex="-1"></a><span class="co"># FUN is a function applied to each element of the different subsetted groups</span></span>
-<span id="cb68-6"><a href="#cb68-6" tabindex="-1"></a><span class="co"># ... additional inputs to FUN</span></span>
-<span id="cb68-7"><a href="#cb68-7" tabindex="-1"></a></span>
-<span id="cb68-8"><a href="#cb68-8" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X=</span>df2<span class="sc">$</span>x,</span>
-<span id="cb68-9"><a href="#cb68-9" tabindex="-1"></a>            <span class="at">INDEX=</span>df2<span class="sc">$</span>treatment,</span>
-<span id="cb68-10"><a href="#cb68-10" tabindex="-1"></a>            <span class="at">FUN=</span> <span class="cf">function</span>(x) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
-<span id="cb68-11"><a href="#cb68-11" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="co"># using tapply to do the same thing (t(agged)apply)</span></span>
+<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a><span class="co"># tapply(X,INDEX,FUN...)</span></span>
+<span id="cb70-3"><a href="#cb70-3" tabindex="-1"></a><span class="co"># X is a vector (atomic or list) to be subset</span></span>
+<span id="cb70-4"><a href="#cb70-4" tabindex="-1"></a><span class="co"># index is a list of factors (or character strings) # with one or more groups</span></span>
+<span id="cb70-5"><a href="#cb70-5" tabindex="-1"></a><span class="co"># FUN is a function applied to each element of the different subsetted groups</span></span>
+<span id="cb70-6"><a href="#cb70-6" tabindex="-1"></a><span class="co"># ... additional inputs to FUN</span></span>
+<span id="cb70-7"><a href="#cb70-7" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="#cb70-8" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X=</span>df2<span class="sc">$</span>x,</span>
+<span id="cb70-9"><a href="#cb70-9" tabindex="-1"></a>            <span class="at">INDEX=</span>df2<span class="sc">$</span>treatment,</span>
+<span id="cb70-10"><a href="#cb70-10" tabindex="-1"></a>            <span class="at">FUN=</span> <span class="cf">function</span>(x) <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x))</span>
+<span id="cb70-11"><a href="#cb70-11" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
 <pre><code>##   Control Treatment 
-## 0.4019826 0.4866048</code></pre>
+## 0.6473890 0.7528956</code></pre>
 </div>
 </div>
 <div id="fourth-task-replicate-a-stochastic-process" class="section level3">
 <h3>Fourth Task: Replicate a stochastic process</h3>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
-<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a><span class="co"># FUNCTION pop_gen</span></span>
-<span id="cb70-3"><a href="#cb70-3" tabindex="-1"></a><span class="co"># description: generate a stochastic population track of varying length</span></span>
-<span id="cb70-4"><a href="#cb70-4" tabindex="-1"></a><span class="co"># inputs: number of time steps</span></span>
-<span id="cb70-5"><a href="#cb70-5" tabindex="-1"></a><span class="co"># outputs: population track</span></span>
-<span id="cb70-6"><a href="#cb70-6" tabindex="-1"></a><span class="do">########################################</span></span>
-<span id="cb70-7"><a href="#cb70-7" tabindex="-1"></a>pop_gen <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">z=</span><span class="fu">sample.int</span>(<span class="at">n=</span><span class="dv">10</span>,<span class="at">size=</span><span class="dv">1</span>)) {</span>
-<span id="cb70-8"><a href="#cb70-8" tabindex="-1"></a></span>
-<span id="cb70-9"><a href="#cb70-9" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">runif</span>(z)</span>
-<span id="cb70-10"><a href="#cb70-10" tabindex="-1"></a></span>
-<span id="cb70-11"><a href="#cb70-11" tabindex="-1"></a><span class="fu">return</span>(n) <span class="co"># note returns a numeric vector of stochastic length</span></span>
-<span id="cb70-12"><a href="#cb70-12" tabindex="-1"></a></span>
-<span id="cb70-13"><a href="#cb70-13" tabindex="-1"></a>} <span class="co"># end of pop_gen</span></span>
-<span id="cb70-14"><a href="#cb70-14" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
-<span id="cb70-15"><a href="#cb70-15" tabindex="-1"></a><span class="fu">pop_gen</span>()</span></code></pre></div>
-<pre><code>## [1] 0.95530093 0.20199371 0.03836228 0.73909498
-## [5] 0.66631962</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
+<span id="cb72-2"><a href="#cb72-2" tabindex="-1"></a><span class="co"># FUNCTION pop_gen</span></span>
+<span id="cb72-3"><a href="#cb72-3" tabindex="-1"></a><span class="co"># description: generate a stochastic population track of varying length</span></span>
+<span id="cb72-4"><a href="#cb72-4" tabindex="-1"></a><span class="co"># inputs: number of time steps</span></span>
+<span id="cb72-5"><a href="#cb72-5" tabindex="-1"></a><span class="co"># outputs: population track</span></span>
+<span id="cb72-6"><a href="#cb72-6" tabindex="-1"></a><span class="do">########################################</span></span>
+<span id="cb72-7"><a href="#cb72-7" tabindex="-1"></a>pop_gen <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">z=</span><span class="fu">sample.int</span>(<span class="at">n=</span><span class="dv">10</span>,<span class="at">size=</span><span class="dv">1</span>)) {</span>
+<span id="cb72-8"><a href="#cb72-8" tabindex="-1"></a></span>
+<span id="cb72-9"><a href="#cb72-9" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">runif</span>(z)</span>
+<span id="cb72-10"><a href="#cb72-10" tabindex="-1"></a></span>
+<span id="cb72-11"><a href="#cb72-11" tabindex="-1"></a><span class="fu">return</span>(n) <span class="co"># note returns a numeric vector of stochastic length</span></span>
+<span id="cb72-12"><a href="#cb72-12" tabindex="-1"></a></span>
+<span id="cb72-13"><a href="#cb72-13" tabindex="-1"></a>} <span class="co"># end of pop_gen</span></span>
+<span id="cb72-14"><a href="#cb72-14" tabindex="-1"></a><span class="co"># --------------------------------------</span></span>
+<span id="cb72-15"><a href="#cb72-15" tabindex="-1"></a><span class="fu">pop_gen</span>()</span></code></pre></div>
+<pre><code>## [1] 0.8973278 0.7961064 0.8234210</code></pre>
 <div id="for-loop-solution-4" class="section level4">
 <h4><code>for loop</code> solution</h4>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a>n_reps <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb72-2"><a href="#cb72-2" tabindex="-1"></a>list_out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,n_reps)</span>
-<span id="cb72-3"><a href="#cb72-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n_reps)){</span>
-<span id="cb72-4"><a href="#cb72-4" tabindex="-1"></a>  list_out[i] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">pop_gen</span>())</span>
-<span id="cb72-5"><a href="#cb72-5" tabindex="-1"></a>}</span>
-<span id="cb72-6"><a href="#cb72-6" tabindex="-1"></a><span class="fu">head</span>(list_out)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a>n_reps <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb74-2"><a href="#cb74-2" tabindex="-1"></a>list_out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>,n_reps)</span>
+<span id="cb74-3"><a href="#cb74-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n_reps)){</span>
+<span id="cb74-4"><a href="#cb74-4" tabindex="-1"></a>  list_out[i] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">pop_gen</span>())</span>
+<span id="cb74-5"><a href="#cb74-5" tabindex="-1"></a>}</span>
+<span id="cb74-6"><a href="#cb74-6" tabindex="-1"></a><span class="fu">head</span>(list_out)</span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 0.17318853 0.18084333 0.88538193 0.49366331
-## [5] 0.17207025 0.07713438
+## [1] 0.60898594 0.53337703 0.05124666 0.04348487
 ## 
 ## [[2]]
-## [1] 0.5965573 0.9882292 0.4898204
+## [1] 0.12999383 0.05408197 0.57473016 0.89431283 0.41180011 0.15169174
 ## 
 ## [[3]]
-##  [1] 0.32066550 0.26943731 0.89201570 0.60597907
-##  [5] 0.53324066 0.09471638 0.93935432 0.20040656
-##  [9] 0.18037320 0.56047996
+## [1] 0.11634136 0.50246158 0.98615429 0.09878491 0.62002932
 ## 
 ## [[4]]
-## [1] 0.7202279
+##  [1] 0.67910263 0.34204406 0.05628528 0.34372485 0.02030269 0.87279350
+##  [7] 0.29442896 0.42683621 0.35281380 0.58967030
 ## 
 ## [[5]]
-## [1] 0.11531877 0.67090005 0.72205687 0.90115421
-## [5] 0.89707560 0.20310620 0.08343244
+## [1] 0.66173870 0.28451090 0.86614756 0.01959473 0.02101956 0.85420066 0.86374020
+## [8] 0.17521777 0.36844665
 ## 
 ## [[6]]
-## [1] 0.3099944 0.5132391 0.9141447 0.7157319
-## [5] 0.8825400 0.5218307 0.7426166 0.8751325
-## [9] 0.8431464</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a>list_out[[<span class="dv">1</span>]]</span></code></pre></div>
-<pre><code>## [1] 0.17318853 0.18084333 0.88538193 0.49366331
-## [5] 0.17207025 0.07713438</code></pre>
+## [1] 0.3670532 0.3670359 0.8168022 0.5683305</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a>list_out[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## [1] 0.60898594 0.53337703 0.05124666 0.04348487</code></pre>
 </div>
 <div id="replicate-solution" class="section level4">
 <h4><code>replicate</code> solution</h4>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a><span class="co"># using replicate to do the same thing</span></span>
-<span id="cb76-2"><a href="#cb76-2" tabindex="-1"></a><span class="co"># tapply(n,expr)</span></span>
-<span id="cb76-3"><a href="#cb76-3" tabindex="-1"></a><span class="co"># n is the number of times the operation is to be repeated</span></span>
-<span id="cb76-4"><a href="#cb76-4" tabindex="-1"></a><span class="co"># expr is a function (base, or user-defined), or an expression (like an anonymous function, but without the function(x) header; just the bare code for execution).</span></span>
-<span id="cb76-5"><a href="#cb76-5" tabindex="-1"></a></span>
-<span id="cb76-6"><a href="#cb76-6" tabindex="-1"></a>z_out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n=</span><span class="dv">5</span>,<span class="fu">pop_gen</span>())</span>
-<span id="cb76-7"><a href="#cb76-7" tabindex="-1"></a><span class="fu">print</span>(z_out)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a><span class="co"># using replicate to do the same thing</span></span>
+<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a><span class="co"># tapply(n,expr)</span></span>
+<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a><span class="co"># n is the number of times the operation is to be repeated</span></span>
+<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a><span class="co"># expr is a function (base, or user-defined), or an expression (like an anonymous function, but without the function(x) header; just the bare code for execution).</span></span>
+<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="#cb78-6" tabindex="-1"></a>z_out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n=</span><span class="dv">5</span>,</span>
+<span id="cb78-7"><a href="#cb78-7" tabindex="-1"></a>                   <span class="at">expr=</span><span class="fu">pop_gen</span>())</span>
+<span id="cb78-8"><a href="#cb78-8" tabindex="-1"></a><span class="fu">print</span>(z_out)</span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 0.52242510 0.42645416 0.67491322 0.67157531
-## [5] 0.02505061 0.14900588
+## [1] 0.4700268 0.2383525 0.9179890 0.4538925 0.6387242 0.1778628 0.9864297
+## [8] 0.1361962
 ## 
 ## [[2]]
-## [1] 0.7463064 0.4361419 0.5184003 0.7712994
-## [5] 0.5139711 0.1297553 0.4475179 0.7144761
+## [1] 0.85915089 0.81042543 0.51162153 0.62003409 0.98086956 0.02896508 0.61743934
+## [8] 0.59968311
 ## 
 ## [[3]]
-## [1] 0.72789530 0.42170475 0.91339709 0.02492674
-## [5] 0.37506119 0.63723422 0.15375092 0.12632867
-## [9] 0.46262911
+## [1] 0.8144989 0.9054334 0.7789177 0.7137298 0.5831239 0.2394626
 ## 
 ## [[4]]
-## [1] 0.9564838 0.2092370
+## [1] 0.2643001 0.5526793 0.2192592 0.7917156 0.8635831 0.4441547 0.7135660
+## [8] 0.8508986
 ## 
 ## [[5]]
-## [1] 0.6371331</code></pre>
+## [1] 0.02207686 0.56349712 0.51500743 0.02296962 0.31242775</code></pre>
 </div>
 </div>
 <div id="fifth-task-sweep-a-function-with-all-parameter-combinations" class="section level3">
 <h3>Fifth Task: Sweep a function with all parameter combinations</h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a><span class="co"># use previous example of parameter sweep for </span></span>
-<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a><span class="co"># species area function S=cA^z</span></span>
-<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a><span class="co"># this has parameters c, z, and A as inputs</span></span>
-<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a></span>
-<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a><span class="co"># first, let&#39;s set up a data frame</span></span>
-<span id="cb78-6"><a href="#cb78-6" tabindex="-1"></a><span class="co"># with all parameter combiinations</span></span>
-<span id="cb78-7"><a href="#cb78-7" tabindex="-1"></a>a_pars <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb78-8"><a href="#cb78-8" tabindex="-1"></a>c_pars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">125</span>)</span>
-<span id="cb78-9"><a href="#cb78-9" tabindex="-1"></a>z_pars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.16</span>,<span class="fl">0.26</span>,<span class="fl">0.30</span>)</span>
-<span id="cb78-10"><a href="#cb78-10" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">a=</span>a_pars,<span class="at">c=</span>c_pars,<span class="at">z=</span>z_pars)</span>
-<span id="cb78-11"><a href="#cb78-11" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" tabindex="-1"></a><span class="co"># use previous example of parameter sweep for </span></span>
+<span id="cb80-2"><a href="#cb80-2" tabindex="-1"></a><span class="co"># species area function S=cA^z</span></span>
+<span id="cb80-3"><a href="#cb80-3" tabindex="-1"></a><span class="co"># this has parameters c, z, and A as inputs</span></span>
+<span id="cb80-4"><a href="#cb80-4" tabindex="-1"></a></span>
+<span id="cb80-5"><a href="#cb80-5" tabindex="-1"></a><span class="co"># first, let&#39;s set up a data frame</span></span>
+<span id="cb80-6"><a href="#cb80-6" tabindex="-1"></a><span class="co"># with all parameter combiinations</span></span>
+<span id="cb80-7"><a href="#cb80-7" tabindex="-1"></a>a_pars <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb80-8"><a href="#cb80-8" tabindex="-1"></a>c_pars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">125</span>)</span>
+<span id="cb80-9"><a href="#cb80-9" tabindex="-1"></a>z_pars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.16</span>,<span class="fl">0.26</span>,<span class="fl">0.30</span>)</span>
+<span id="cb80-10"><a href="#cb80-10" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">a=</span>a_pars,<span class="at">c=</span>c_pars,<span class="at">z=</span>z_pars)</span>
+<span id="cb80-11"><a href="#cb80-11" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##   a   c   z
 ## 1 1 100 0.1
 ## 2 2 100 0.1
@@ -843,12 +894,12 @@ display: none;
 ## 6 6 100 0.1</code></pre>
 <div id="for-loop-solution-5" class="section level4">
 <h4><code>for loop</code> solution</h4>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" tabindex="-1"></a>df_out <span class="ot">&lt;-</span><span class="fu">cbind</span>(df,<span class="at">s=</span><span class="cn">NA</span>)</span>
-<span id="cb80-2"><a href="#cb80-2" tabindex="-1"></a></span>
-<span id="cb80-3"><a href="#cb80-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(df))) {</span>
-<span id="cb80-4"><a href="#cb80-4" tabindex="-1"></a>  df_out<span class="sc">$</span>s[i] <span class="ot">&lt;-</span> df<span class="sc">$</span>c[i]<span class="sc">*</span>(df<span class="sc">$</span>a[i]<span class="sc">^</span>df<span class="sc">$</span>z[i])</span>
-<span id="cb80-5"><a href="#cb80-5" tabindex="-1"></a>}</span>
-<span id="cb80-6"><a href="#cb80-6" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a>df_out <span class="ot">&lt;-</span><span class="fu">cbind</span>(df,<span class="at">s=</span><span class="cn">NA</span>)</span>
+<span id="cb82-2"><a href="#cb82-2" tabindex="-1"></a></span>
+<span id="cb82-3"><a href="#cb82-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(df))) {</span>
+<span id="cb82-4"><a href="#cb82-4" tabindex="-1"></a>  df_out<span class="sc">$</span>s[i] <span class="ot">&lt;-</span> df<span class="sc">$</span>c[i]<span class="sc">*</span>(df<span class="sc">$</span>a[i]<span class="sc">^</span>df<span class="sc">$</span>z[i])</span>
+<span id="cb82-5"><a href="#cb82-5" tabindex="-1"></a>}</span>
+<span id="cb82-6"><a href="#cb82-6" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
 <pre><code>##   a   c   z        s
 ## 1 1 100 0.1 100.0000
 ## 2 2 100 0.1 107.1773
@@ -859,14 +910,14 @@ display: none;
 </div>
 <div id="mapply-solution" class="section level4">
 <h4><code>mapply</code> solution</h4>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a><span class="co"># using mapply to do the same thing (m(ultiple)apply)</span></span>
-<span id="cb82-2"><a href="#cb82-2" tabindex="-1"></a><span class="co"># mapply(FUN,...,MoreArgs)</span></span>
-<span id="cb82-3"><a href="#cb82-3" tabindex="-1"></a><span class="co"># FUN is the function to be used (note it is listed first!)</span></span>
-<span id="cb82-4"><a href="#cb82-4" tabindex="-1"></a><span class="co">#...arguments to vectorize over(vectors or lists)</span></span>
-<span id="cb82-5"><a href="#cb82-5" tabindex="-1"></a><span class="co">#MoreArgs list of additional arguments that are constant in all of the different runs</span></span>
-<span id="cb82-6"><a href="#cb82-6" tabindex="-1"></a>df_out<span class="sc">$</span>s <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="cf">function</span>(a, c, z) c<span class="sc">*</span>(a<span class="sc">^</span>z), df<span class="sc">$</span>a,df<span class="sc">$</span>c,df<span class="sc">$</span>z)</span>
-<span id="cb82-7"><a href="#cb82-7" tabindex="-1"></a></span>
-<span id="cb82-8"><a href="#cb82-8" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a><span class="co"># using mapply to do the same thing (m(ultiple)apply)</span></span>
+<span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a><span class="co"># mapply(FUN,...,MoreArgs)</span></span>
+<span id="cb84-3"><a href="#cb84-3" tabindex="-1"></a><span class="co"># FUN is the function to be used (note it is listed first!)</span></span>
+<span id="cb84-4"><a href="#cb84-4" tabindex="-1"></a><span class="co">#...arguments to vectorize over(vectors or lists)</span></span>
+<span id="cb84-5"><a href="#cb84-5" tabindex="-1"></a><span class="co">#MoreArgs list of additional arguments that are constant in all of the different runs</span></span>
+<span id="cb84-6"><a href="#cb84-6" tabindex="-1"></a>df_out<span class="sc">$</span>s <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="at">FUN=</span><span class="cf">function</span>(a, c, z) c<span class="sc">*</span>(a<span class="sc">^</span>z), df<span class="sc">$</span>a,df<span class="sc">$</span>c,df<span class="sc">$</span>z)</span>
+<span id="cb84-7"><a href="#cb84-7" tabindex="-1"></a></span>
+<span id="cb84-8"><a href="#cb84-8" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
 <pre><code>##   a   c   z        s
 ## 1 1 100 0.1 100.0000
 ## 2 2 100 0.1 107.1773
@@ -877,11 +928,11 @@ display: none;
 </div>
 <div id="the-correct-solution" class="section level4">
 <h4>the correct solution</h4>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a><span class="co"># no need for loops or mapply for this simple </span></span>
-<span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a><span class="co"># function. We can just vectorize it with a single line of code!</span></span>
-<span id="cb84-3"><a href="#cb84-3" tabindex="-1"></a></span>
-<span id="cb84-4"><a href="#cb84-4" tabindex="-1"></a>df_out<span class="sc">$</span>s <span class="ot">&lt;-</span> df_out<span class="sc">$</span>c<span class="sc">*</span>(df_out<span class="sc">$</span>a<span class="sc">^</span>df_out<span class="sc">$</span>z)</span>
-<span id="cb84-5"><a href="#cb84-5" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a><span class="co"># no need for loops or mapply for this simple </span></span>
+<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a><span class="co"># function. We can just vectorize it with a single line of code!</span></span>
+<span id="cb86-3"><a href="#cb86-3" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="#cb86-4" tabindex="-1"></a>df_out<span class="sc">$</span>s <span class="ot">&lt;-</span> df_out<span class="sc">$</span>c<span class="sc">*</span>(df_out<span class="sc">$</span>a<span class="sc">^</span>df_out<span class="sc">$</span>z)</span>
+<span id="cb86-5"><a href="#cb86-5" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
 <pre><code>##   a   c   z        s
 ## 1 1 100 0.1 100.0000
 ## 2 2 100 0.1 107.1773
