@@ -54,6 +54,50 @@ function(x) x + 3 (10) # try to provide input
 (function(x) x + 3) (10) # use of parentheses to call
 ```
 
+### Functions that call functions
+
+```{r}
+# first create some short user-defined functions
+my_sum <- function(a,b) a + b
+my_dif <- function(a,b) a - b
+my_mult <- function(a,b) a*b
+
+# we already know that built in functions can be called directly from within a function
+
+funct_1 <- function(a=3,b=2) sum(a,b)
+funct_1()
+
+funct_2 <- function(a=3,b=2) my_sum(a,b)
+funct_2()
+
+funct_3 <- function(a=3,b=2) my_mult(a,b)
+funct_3()
+# each time we want to use a different one of the "my" functions, we have to create a new function to call it. 
+
+# now pass data AND another function into a function as parameters:
+
+algebra <- function(x=my_sum,a=3,b=2) x(a,b)
+
+algebra(x=my_sum)
+algebra(x=my_dif)
+algebra(x=my_mult)
+
+
+# This also works for passing in built-in functions
+algebra(x=sum)
+
+# but this will not work
+# algebra(x=mean)
+
+# problem: all the functions called must use same inputs
+# most r functions work on a single vector
+algebra_vec <- function(x=mean,a=1:10) x(a)
+  algebra_vec(x=sqrt)
+  algebra_vec(x=mean)
+  algebra_vec(x=sd)
+```
+
+
 
 ### First Task: Apply a function to each row (or column of a matrix
 
@@ -251,7 +295,7 @@ pop_gen()
 n_reps <- 20
 list_out <- vector("list",n_reps)
 for(i in seq_len(n_reps)){
-  list_out[i] <- list(pop_gen())
+  list_out[i] <- pop_gen()
 }
 head(list_out)
 list_out[[1]]
@@ -261,7 +305,7 @@ list_out[[1]]
 
 ```{r}
 # using replicate to do the same thing
-# tapply(n,expr)
+# replicate(n,expr)
 # n is the number of times the operation is to be repeated
 # expr is a function (base, or user-defined), or an expression (like an anonymous function, but without the function(x) header; just the bare code for execution).
 
@@ -307,7 +351,7 @@ df_out$s <- mapply(FUN=function(a, c, z) c*(a^z), df$a,df$c,df$z)
 head(df_out)
 ```
 
-#### the correct solution
+#### the "correct" solution
 ```{r}
 # no need for loops or mapply for this simple 
 # function. We can just vectorize it with a single line of code!

@@ -68,7 +68,7 @@ ___
 #### Useful options with `ls`
 - `ls -a` shows all including hidden files
 - `ls -l` long format with lots of detail
-- `lf -R` recursively list subdirectories (careful!)
+- `ls -R` recursively list subdirectories (careful!)
 - `ls -1` list one item per line (useful for programming)
 - `ls -G` list files and directories in color
 - `ls -F` use symbols for different file types
