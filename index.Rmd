@@ -1,16 +1,16 @@
 ---
 title: "Biology 6100 - Computational Biology"
 author: "Nicholas J. Gotelli"
-date: "Spring 2024"
+date: "Spring 2025"
 output:
   prettydoc::html_pretty:
     theme: hpstr
     highlight: github
 ---
-Click here for [COMPLETE SET OF PANDEMIC-YEAR COURSE VIDEOS](https://ngotelli.github.io/Bio381Vids/) 
+Click here for [COMPLETE SET OF SPRING 2020 PANDEMIC-YEAR COURSE VIDEOS](https://ngotelli.github.io/Bio381Vids/) 
 
 
-This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2024.
+This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2025.
 
 ## Course Materials
 
@@ -30,65 +30,65 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-January 16  | [Introduction](Lectures/Introduction.html) | -  
-January 17  | - | [Homework #1](Homeworks/Homework_01.html)             
-January 18  | [GitHub](Lectures/GitHub.html) | -  
-January 23  | [Markdown](Lectures/Markdown.html) | -
-January 24 | - |  [Homework #2](Homeworks/Homework_02.html)
-January 25  | [Markdown II](Lectures/Markdown.html) | -
-January 30  | [Regular Expressions](Lectures/RegularExpressions.html) | - 
-January 31  |  -  | [Homework #3](Homeworks/Homework_03.html)
-February 1  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | - 
-February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.html) | - 
-February 7  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
-February 8  | [Atomic Vectors II](Lectures/AtomicVectors_II.html)| - 
-February 13  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.html) | -
-February 14  | -  | [Homework #5](Homeworks/Homework_05.html)
-February 15   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.html) | -
-February 20 | [Probability Distributions](Lectures/ProbabilityDistributions.html)| -
-February 21  | -  | [Homework # 6](Homeworks/Homework_06.html)
-February 22 | [Data Curation](Lectures/DataCuration.html)| -
-February 27  |[Functions](Lectures/Functions.html) | [(Experimental Designs)](Lectures/ExperimentalDesigns.html)
-February 28  |  | [Homework # 7](Homeworks/Homework_08.html) 
-February 29  | [Functions 2](https://ngotelli.github.io/Bio381Vids/)  | Lecture 13 
-March 5  | Town Meeting Day Recess | -
-March 6  | **Portfolio Check #2** | [Catch-Up Day](Homeworks/???)
-March 7  | [Control Structures I](Lectures/ControlStructures_I.html)| -
+January 14  | [Introduction](Lectures/Introduction.html) | -  
+January 15  | - | [Homework #1](Homeworks/Homework_01.html)             
+January 26  | [GitHub](Lectures/GitHub.html) | -  
+January 21  | [Markdown](Lectures/Markdown.html) | -
+January 22 | - |  [Homework #2](Homeworks/Homework_02.html)
+January 23  | [Markdown II](Lectures/Markdown.html) | -
+January 28  | [Regular Expressions](Lectures/RegularExpressions.html) | - 
+January 29  |  -  | [Homework #3](Homeworks/Homework_03.html)
+January 30  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | - 
+February 4  | [Atomic Vectors II](Lectures/AtomicVectors_II.html) | - 
+February 5  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
+February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.html)| - 
+February 11  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.html) | -
+February 12  | -  | [Homework #5](Homeworks/Homework_05.html)
+February 13   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.html) | -
+February 18 | [Probability Distributions](Lectures/ProbabilityDistributions.html)| -
+February 19  | -  | [Homework # 6](Homeworks/Homework_06.html)
+February 20 | [Data Curation](Lectures/DataCuration.html)| -
+February 25  |[Functions](Lectures/Functions.html) | [(Experimental Designs)](Lectures/ExperimentalDesigns.html)
+February 26  |  | [Homework # 7](Homeworks/Homework_08.html) 
+February 27  | [Functions 2](https://ngotelli.github.io/Bio381Vids/)  | Lecture 13 
+March 4  | Town Meeting Day Recess | -
+March 5  | **Portfolio Check #2** | [Catch-Up Day](Homeworks/???)
+March 6  | [Control Structures I](Lectures/ControlStructures_I.html)| -
+March 11 | Spring Recess | -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
-March 14 | Spring Recess | -
-March 19  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)| -
-March 20  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homework #8](Homeworks/Homework_06a.html)
-March 21  | [For Loops I](Lectures/ForLoops_I.html) | -
-March 26  | [For Loops II](Lectures/ForLoops_II.html) | -
-March 27  | - | [Homework #9](Homeworks/Homework_09.html)
-March 28  | [Strategic Coding Practices I](CourseMaterials/StrategicCodingPractices.zip) | -
-April 2  | [Strategic Coding Practices II](CourseMaterials/StrategicCodingPractices.zip)  | -
-April 3  | - | [Homework #10](Homeworks/Homework_10.html)
-April 4  | [ggplot I](Lectures/ggplot_I.html) | -
-April 9  | [ggplot II](Lectures/ggplot_II.html)  | -
-April 10  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
-April 11  | [ggplot III](Lectures/ggplot_III.html) | -
-April 16 | [ggplot IV](Lectures/ggplot_III.html) | -
-April 17  | - | [Homework #12](Homeworks/Homework_12.html)
-April 18 | [Functional Programming](Lectures/Lecture_24.xhtml) | -
-April 23  | [Shell Commands](Lectures/Lecture25_S2021.xhtml) | -
+March 18  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)| -
+March 19  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homework #8](Homeworks/Homework_06a.html)
+March 20  | [For Loops I](Lectures/ForLoops_I.html) | -
+March 25 | [For Loops II](Lectures/ForLoops_II.html) | -
+March 26  | - | [Homework #9](Homeworks/Homework_09.html)
+March 27  | [Strategic Coding Practices I](CourseMaterials/StrategicCodingPractices.zip) | -
+April 1  | [Strategic Coding Practices II](CourseMaterials/StrategicCodingPractices.zip)  | -
+April 2  | - | [Homework #10](Homeworks/Homework_10.html)
+April 3  | [ggplot I](Lectures/ggplot_I.html) | -
+April 8  | [ggplot II](Lectures/ggplot_II.html)  | -
+April 9  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.html)
+April 10  | [ggplot III](Lectures/ggplot_III.html) | -
+April 15 | [ggplot IV](Lectures/ggplot_III.html) | -
+April 16  | - | [Homework #12](Homeworks/Homework_12.html)
+April 17 | [Functional Programming](Lectures/Lecture_24.xhtml) | -
+April 22  | [Shell Commands](Lectures/Lecture25_S2021.xhtml) | -
+April 23  | - | Catch-up Day
 April 24  | - | Catch-up Day
-April 25  | - | Catch-up Day
+April 29  | Lecture Spillover Day | -
 April 30  | Lecture Spillover Day | -
-May 1  | Lecture Spillover Day | -
-May 2 | Lecture Spillover Day | - 
+May 1 | Lecture Spillover Day | - 
 
 ___
 
 ### Important Dates
-- 22 January: Last day to add classes without instructor permission
-- 29 January: Add/Drop, Pass/No Pass, Audit Deadline
-- 1 April: Last day to withdraw
-- 19 April: Honors Day
-- 3 May: Last day of classes
-- 4,5,8 May: Reading days
-- 6,7,9,10 May: Final exam days
+- 17 January: Last day to add classes without instructor permission
+- 27 January: Add/Drop, Pass/No Pass, Audit Deadline
+- 28 March: Last day to withdraw
+- 18 April: Honors Day
+- 2 May: Last day of classes
+- 3,3,7 May: Reading days
+- 5,6,8,9 May: Final exam days
 
 ___
 
