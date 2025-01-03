@@ -96,30 +96,31 @@ ___
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
-Carlos Amissah | [GitHub](https://github.com/carlosamissah)  [Portfolio](https://carlosamissah.github.io/try-again/) | I love Ghana jollof
-Anushka Canfield | [GitHub](https://github.com/ACanfield7)  [Portfolio](https://acanfield7.github.io/CanfieldBiol6100) | I don't know the day I was born. My birthdate is an educated guess. 
-Emily Dombrowski | [GitHub](https://github.com/emilydombrowski)  [Portfolio](https://emilydombrowski.github.io/comp_bio_24/) | I have a pug named Penelope!!!
-Madelynn Edwards | [GitHub](https://github.com/Medwards13)  [Portfolio](https://medwards13.github.io/EdwardsBIO6100/) | I love bugs! 
-Gwen Ellis | [GitHub](https://github.com/g-ellis)  [Portfolio](https://g-ellis.github.io/Bio6100) | I was a junior Olympian in cross country!
-Nicole Gorman | [GitHub](https://github.com/NicoleRGorman)  [Portfolio](https://nicolergorman.github.io/ComputationalBiology) | My favorite movie is Shawshank Redemption. 
+Juliana Barbosa Torreao Dau | | 
+Taylor Bean|  |  
+Claire Benning |  | 
+Isaac Buabeng |  | 
+Audrey Commerford |  |
+Lauren Connolly| | 
+Silas Decker  |  | 
 Nick Gotelli | [GitHub](https://github.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows.
-Kyle Grasso | [GitHub](https://github.com/KyleGrasso)  [Portfolio](https://kylegrasso.github.io/GrassoBio6100) | I can solve a Rubik's Cube and I also know how to juggle. Unfortunately, I can't do both at the same time.
-Rachel Hall | [Github](https://github.com/rachelkhall) [Portfolio](https://rachelkhall.github.io/Bio6100) | I am from Charlotte, North Carolina and my undergrad was at NC State University studying Textile Engineering with a minor in Chemical Engineering. 
-Chika Ikpechukwu | [GitHub](https://github.com/cikpechu)  [Portfolio](https://cikpechu.github.io/ComputationalBiology/) | I love dancing
-Alexander Kissonergis | [GitHub](https://github.com/beatlesnstuff)  [Portfolio](https://beetlesnstuff.github.io/computationalBiology/) | I enjoy climbing. 
-Teresa Mungazi | [GitHub](https://github.com/EconTerrie)  [Portfolio](https://econterrie.github.io/MungaziBio6100) | 
+Rei Jia |  |
+Robert Jones |  | 
+Nick Maurizi |  | 
+Sydney Miller |  | 
+Graham Montague |  | 
 George Ni | [GitHub](https://github.com/georgeni2442) [Portfolio](https://georgeni2442.github.io/TestRepo) | I used to train birds for falconry and science shows.
-Maryam Nouri-Aiin | [GitHub](https://github.com/Maryam-Nouri-Aiin)  [Portfolio](https://maryam-nouriaiin.github.io/NouriAiinBio381) | my house plants :)
-Megan O'Connor| [GitHub](https://github.com/meganeoc)  [Portfolio](https://meganeoc.github.io/O-Connor_Biol6100/) | When I interned at an aquarium I got to take care of/hang out with an octopus named Pepper!
-Frances Oppenheimer | [GitHub](https://github.com/FOpp14)  [Portfolio](https://fopp14.github.io/OppenheimerBio6100/) | I'm the director of punk music at WRUV
-Daniel Penados-Richter | [GitHub](https://github.com/DanielPR23)  [Portfolio](https://danielpr23.github.io/DanielPenadosBio6100/) | I like to cook. My grill chicken is particularly good! 
-Nicole Phelan | [GitHub](https://github.com/nicolephelan)  [Portfolio](https://nicolephelan.github.io/PhelanBIOL6100) | During my free time I like to bake
-Molly Ratliff | [GitHub](https://github.com/maratlif)  [Portfolio](https://maratlif.github.io/RatliffBio6100) | I am from Michigan
-Ely Remes | [GitHub](https://github.com/Ely-Remes)  [Portfolio](https://ely-remes.github.io/RemesBiol6100/) | I teach skiing
-Chanchal Saratkar | [GitHub](https://github.com/csaratkar)  [Portfolio](https://csaratkar.github.io/SaratkarBio6100) | I like to collect animal specimens. 
-Shelby Scarfo | [GitHub](https://github.com/ShelbySarfo)  [Portfolio](https://shelbyscarfo.github.io/ScarfoBio6100Portfolio/) | I have lived in every state in New England.
-Jenner Smith | [GitHub](https://github.com/mjennersmith)[Portfolio](https://mjennersmith.github.io/BIO6100)|
-Kelsey Soule | [GitHub](https://github.com/kelseysoule)  [Portfolio](https://kelseysoule.github.io/SouleComputationalBiology/) | My favorite ice cream flavor is banana.
-Alexander Steiner | [GitHub](https://github.com/aksteiner)  [Portfolio](https://github.com/aksteiner/SteinerBio381) | I am an identical twin.
+Leslie Paredes Torres|  | 
+Emma Privett | | 
+Lamija Semic | | 
+Isabelle Smith |  | 
+Sarah Stover | | 
+Sage Sularz | | 
+Jay Sullivan| | 
+Vincent Tamakloe | | 
+Sam Troast | |
+Maggie Trout |  | 
+Maddie Winer | | 
+Nicolas Sapata | | 
 
 
