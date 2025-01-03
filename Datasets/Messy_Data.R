@@ -20,8 +20,8 @@ set.seed(24)
 
 test<-test%>%
   make_missing(cols="pathogen_binary", messiness=0.4)%>%
-  add_special_chars(cols=c("bombus_spp", "host_plant"))%>%
-  add_whitespace(cols="bee_caste", messiness=0.5)
+  add_special_chars(cols=c("bombus_spp", "host_plant", "site_code"))%>%
+  add_whitespace(cols=c("bee_caste", "target_name"), messiness=0.5)
 
 messy<-test[1:20,] 
 

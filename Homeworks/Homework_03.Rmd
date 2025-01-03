@@ -113,7 +113,9 @@ Lasneo, 55, 3.3
 ```
 
 
-8. Now, using the skills you've just been practicing, open up this .csv file and paste it to your text editor: [Bombus File] this is a messy and truncated version of a dataset collected by Dr. Alex Burnham that recorded pathogen load in groups of Bombus species. 
+8. Now, using the skills you've just been practicing, find the .csv file I sent to you through email and paste it to your text editor. This is a messy and truncated version of a dataset collected by Dr. Alex Burnham that recorded pathogen load in groups of bumblebees. Look through it and use regular expressions to clean this dataset. 
+
+
 -------------------------
 ## More resources
 
