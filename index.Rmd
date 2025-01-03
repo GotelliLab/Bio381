@@ -96,7 +96,6 @@ ___
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
-<<<<<<< HEAD
 Juliana Barbosa Torreao Dau | | 
 Taylor Bean|  |  
 Claire Benning |  | 
