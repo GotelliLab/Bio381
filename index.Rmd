@@ -30,9 +30,9 @@ ___
 
 Date  | Lecture | Homework
 ------------- |----------- | -------------
-January 14  | [Introduction](Lectures/Introduction.htmlx) | -  
-January 15  | - | [Homework #1](Homeworks/Homework_01.htmlx)             
-January 26  | [GitHub](Lectures/GitHub.htmlx) | -  
+January 14  | [Introduction](Lectures/Introduction.html) | -  
+January 15  | - | [Homework #1](Homeworks/Homework_01.html)             
+January 26  | [GitHub](Lectures/GitHub.html) | -  
 January 21  | [Markdown](Lectures/Markdown.htmlx) | -
 January 22 | - |  [Homework #2](Homeworks/Homework_02.htmlx)
 January 23  | [Markdown II](Lectures/Markdown.htmlx) | -
@@ -92,7 +92,7 @@ ___
 
 ___
 
-### Meet The Class of 2024
+### Meet The Class of 2025
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
