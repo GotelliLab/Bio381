@@ -1,21 +1,21 @@
 ﻿"id","target_name","pathogen_binary","sampling_date","site_code","field_id","bombus_spp","host_plant","bee_caste","sampling_event","pathogen_load"
-1,"BQCV",1,"9/9/2020","BOST",6,"imp*)ati$ens","%s-olid(ago","worker ",4,2414168.805
-3,"BQCV ",NA,"9/10/2020","MUDGE",18,"impatiens","c!rown ve-!tch","worker ",4,760793.2324
-4,"BQCV ",NA,"9/10/2020","MUDG&E",11,"im&patiens","c$r%o&wn @vetch","worker",4,0
-5,"BQCV ",NA,"9/9/2020","BOST",11,"imp%atiens","sol)ida.go","male   ",4,0
-6,"BQCV ",1,"9/10/2020","%CI_ND",14,"-(-i@(mp#a&^t*iens","k*no%t! w%eed","worker ",4,124236.7921
-8,"BQCV ",1,"9/10/2020","MUDG@E",4,"im))patie@ns","cro$&w$n$ v$et(ch","worker",4,413814.5638
-10,"BQCV ",NA,"9/10/2020","C(IND",13,"impat-ie!n$s","%r!ed% clo)ver","worker",4,1028831.605
-11,"BQCV ",NA,"7/7/2020","B#OS+!T",38,".impati+ens","r.ed c$(lo(ver","worker ",2,307696378.8
-12,"BQCV ",NA,"9/10/2020","MUDGE",5,"_^i!mp*atiens","c+rown ve+tch","worker ",4,0
-13,"BQCV ",1,"9/9/2020","BOST",12,"impatien+s","soli.d(#*a(go","male ",4,311873.0526
-15,"BQCV",0,"9/9/2020","B-OST",18,"_im#patie-ns","so&lid%ag)o","worker  ",4,0
-16,"BQCV",NA,"9/9/2020","BOST",23,"impa!ti+e(@ns","%s!)oli!dago","male ",4,1674951.391
-17,"BQCV",NA,"9/10/2020","CI_ND",20,"i%mpa#tiens","red cl$over","worker",4,3214026.976
-18,"BQCV",NA,"9/10/2020","*(C#I-ND",11,"i^m+pat#iens","bi#_rd+s+fo_o_t","worker ",4,995592.63
-19,"BQCV",NA,"9/10/2020","C%IN!!D",17,"i%mp#atiens","%re(d+ @+.clover","worker ",4,0
-20,"BQCV",NA,"9/10/2020","!CIND",16,"imp(atiens","^#red c_love.^r","worker ",4,200804.8542
-21,"BQCV ",NA,"9/9/2020","BOS#T",17,"impatiens","s.olid@ago","worker   ",4,228085.8104
-22,"BQCV",1,"9/9/2020","BOS%T",7,"im#p$a!ti^ens","solidago","worker ",4,7261151.315
-23,"BQCV ",1,"7/7/2020","_COL",22,")impati^ens","red&& c*lov#er","worker   ",2,817906.8276
-24,"BQCV",NA,"7/7/2020","BOST",45,"im$)pati$e_ns","r)ed_ #c+l)$ov@er","worker  ",2,858658.6884
+1,"BQCV",1,"9/9/2020","BOST",6,"imp*atiens","solidago","worker ",4,2414168.805
+3,"BQCV",NA,"9/10/2020","MUDGE",18,"impatiens","c!rown vetch","worker ",4,760793.2324
+4,"BQCV",NA,"9/10/2020","MUDGE",11,"im&patiens","c$rown vetch","worker",4,0
+5,"BQCV",NA,"9/9/2020","BOST",11,"impatiens","sol)idago","male ",4,0
+6,"BQCV",NA,"9/10/2020","CIND",14,"-i@mp#a^tiens","k*no%t w%eed","worker ",4,124236.7921
+8,"BQCV",NA,"9/10/2020","MUDGE",4,"impatiens","crown v$et(ch","worker",4,413814.5638
+10,"BQCV",1,"9/10/2020","CIND",13,"impatien$s","red clover","worker",4,1028831.605
+11,"BQCV",NA,"7/7/2020","BOST",38,"impatiens","red clover","worker",2,307696378.8
+12,"BQCV",NA,"9/10/2020","MUDGE",5,"_imp*atiens","c+rown vetch","worker",4,0
+13,"BQCV",1,"9/9/2020","BOST",12,"impatien+s","solid#ago","male",4,311873.0526
+15,"BQCV",0,"9/9/2020","BOST",18,"_impatiens","solidag)o","worker ",4,0
+16,"BQCV",NA,"9/9/2020","BOST",23,"impati+e(ns","s!olidago","male",4,1674951.391
+17,"BQCV",NA,"9/10/2020","CIND",20,"impa#tiens","red cl$over","worker",4,3214026.976
+18,"BQCV",1,"9/10/2020","CIND",11,"i^m+patiens","bi_rdsfoo_t","worker ",4,995592.63
+19,"BQCV",NA,"9/10/2020","CIND",17,"i%mpatiens","red+ @clover","worker",4,0
+20,"BQCV",1,"9/10/2020","CIND",16,"imp(atiens","#red c_lover","worker",4,200804.8542
+21,"BQCV",1,"9/9/2020","BOST",17,"impatiens","solid@ago","worker ",4,228085.8104
+22,"BQCV",1,"9/9/2020","BOST",7,"impati^ens","solidago","worker",4,7261151.315
+23,"BQCV",NA,"7/7/2020","COL",22,")impati^ens","red clov#er","worker ",2,817906.8276
+24,"BQCV",1,"7/7/2020","BOST",45,"impatiens","red_ cl)over","worker",2,858658.6884
