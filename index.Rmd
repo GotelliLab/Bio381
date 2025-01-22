@@ -96,29 +96,30 @@ ___
 
 Student  | GitHub and Portfolio Links | Fun Fact
 ------------- | -------------- | ------------- 
-Juliana Barbosa Torreao Dau | | 
-Taylor Bean|  |  
-Claire Benning |  | 
-Isaac Buabeng |  | 
-Audrey Commerford |  |
-Lauren Connolly| | 
-Silas Decker  |  | 
+Juliana Barbosa Torreao Dau |[GitHub](https://julianadau.github.io/Assignments/) | I love to paint using watercolor.
+Taylor Bean| [GitHub](https://tebean.github.io/BeanBio6100/index.html)  |  I have 2 axolotls named Neil and Oscar
+Claire Benning | [GitHub](https://clbenning.github.io/BenningBio6100/) | My max speed alpine skiing is 52 mph
+Isaac Buabeng |[GitHub](https://ikb001.github.io/BuabengBIO381/)  |I speak four languages (three fluently, the other so so!) and enjoy trying different types of food! 
+Audrey Commerford |[GitHub](https://accommerford.github.io/CommerfordBIOL6100/)  | I’ve seen 29 wild orchid species in New England, and my goal is to see them all
+Lauren Connolly| [GitHub](https://laurenconnolly.github.io/PracticeRepo/index.html) |  I live in Vermont and I have never been skiing
+Laura Costello|[GitHub](https://quietlymagical.github.io/LauraWebsite/)|
+Silas Decker  | [GitHub](https://silasdecker.github.io/test_2025/) |I love soil, specifically microbes within  
 Nick Gotelli | [GitHub](https://xgithub.com/GotelliLab)  [Portfolio](http://www.uvm.edu/~ngotelli/homepage.html) | For the past 40 years, I have owned and raised pure-bred, show-quality chow chows.
-Rei Jia |  |
-Robert Jones |  | 
-Nick Maurizi |  | 
-Sydney Miller |  | 
-Graham Montague |  | 
+Rei Jia |  |My parents were in a National Geographic documentary 
+Robert Jones | [GitHub](https://frankosecundo.github.io/YAR/) | I was briefly the Northern most human in the state of Alaska
+Nick Maurizi | [GitHub](https://nicholas-maurizi.github.io/mywebsite/) | I love mountain biking
+Sydney Miller |[GitHub](https://sydmil.github.io/Test-2025/)  | I weave textiles!
+Graham Montague | [GitHub](https://graham-montague.github.io/MontagueCompBio/)  | I night snorkeled with American Eels last summer in Lake Champlain!
 George Ni | [GitHub](https://xgithub.com/georgeni2442) [Portfolio](https://xgeorgeni2442.github.io/TestRepo) | I used to train birds for falconry and science shows.
-Leslie Paredes Torres|  | 
-Emma Privett | | 
-Lamija Semic | | 
-Isabelle Smith |  | 
-Sarah Stover | | 
-Sage Sularz | | 
-Jay Sullivan| | 
-Vincent Tamakloe | | 
-Sam Troast | |
-Maggie Trout |  | 
-Maddie Winer | | 
-Nicolas Sapata | | 
+Leslie Paredes Torres| [GitHub](https://leslieparedes.github.io/Test_2025/) | I used to be a dolphin trainer 
+Emma Privett |[GitHub](https://emmaprivett.github.io/PrivettBiol6100/) |  I have an among us tattoo!
+Lamija Semic |[GitHub](https://lamijasemic.github.io/SemicBio6100/) | I study the Colorado potato beetle!
+Isabelle Smith |[GitHub](https://isabelle-smith.github.io/SmithBio6100/) | I have never broken a bone
+Sarah Stover | | My mom is a twin and so am I 
+Sage Sularz |[GitHub](https://sagesularz.github.io/Biol1600_Sularz/) | I love to travel and have visited 6/7 continents (so far!)
+Jay Sullivan| [GitHub](https://jay-sullivan.github.io/Alpha/) | I have been sailing for a little more than a decade.
+Vincent Tamakloe | [GitHub](https://vince-tkloe.github.io/TamakloeCompBio/index.html) |I love soccer, and I am pretty good at it 
+Sam Troast | [GitHub](https://stroast.github.io/Lab_2_ComBio/) |I'm an identical twin
+Maggie Trout | [GitHub](https://annellatr.github.io/TroutBio6100/) |I went to an arts school for middle and high school 
+Maddie Winer | [GitHub](https://02maddie.github.io/test2025/) | I have been vegan for the past 3 years.
+Nicolas Sapata |[GitHub](https://noahmattheis.github.io/MattheisBIOL6100/)| I really like statistics but it takes me a long time to process the data (in my head).
