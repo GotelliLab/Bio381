@@ -33,8 +33,8 @@ Date  | Lecture | Homework
 January 14  | [Introduction](Lectures/Introduction.html) | -  
 January 15  | - | [Homework #1](Homeworks/Homework_01.html)             
 January 26  | [GitHub](Lectures/GitHub.html) | -  
-January 21  | [Markdown](Lectures/Markdown.htmlx) | -
-January 22 | - |  [Homework #2](Homeworks/Homework_02.htmlx)
+January 21  | [Markdown](Lectures/Markdown.html) | -
+January 22 | - |  [Homework #2](Homeworks/Homework_02.html)
 January 23  | [Markdown II](Lectures/Markdown.htmlx) | -
 January 28  | [Regular Expressions](Lectures/RegularExpressions.htmlx) | - 
 January 29  |  -  | [Homework #3](Homeworks/Homework_03.htmlx)
