@@ -387,7 +387,7 @@ hard
 to repair.
 
 SEARCH: \n
-REPLACE: (replace with nothing)
+REPLACE: (replace with single space)
 RESULT: 
 Cutting and pasting from pdf is a mess. Sentences are all chopped up. It is hard to repair. </code></pre>
 <ul>
@@ -479,7 +479,7 @@ xxx,LastWord     x.
 
 SEARCH: \w+,\s*\w+.*
 SEARCH: \w+,\s*(\w+)(.*)
-REPLACE: MY WORD: \1\s LEFTOVER: \2
+REPLACE: MY WORD: \1 LEFTOVER: \2
 RESULT:
 MY WORD: MyWord LEFTOVER:  OtherJunk. ,
 MY WORD: MyWord2 LEFTOVER:
@@ -549,7 +549,7 @@ ALTERNATE SEARCH:
 ALTERNATE SEARCH: (with capture):
 (.*),(\w+),(\w+),(\w+)$
 REPLACE:
-\2\s\4
+\2 \4
 RESULT:
 MyFirstWord MyLastWord
 FirstKeeper LastKeeper
