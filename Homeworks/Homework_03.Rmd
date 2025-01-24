@@ -113,7 +113,13 @@ Lasneo, 55, 3.3
 ```
 
 
-8. Now, using the skills you've just been practicing, find the .csv file I sent to you through email and paste it to your text editor. This is a messy and truncated version of a dataset collected by Dr. Alex Burnham that recorded pathogen load in groups of bumblebees. Look through it and use regular expressions to clean this dataset. 
+8. Now, using the skills you've just been practicing, find the .csv file I sent to you through email and paste it to your text editor. This is a messy and truncated version of a dataset collected by Dr. Alex Burnham that recorded pathogen load in groups of bumblebees. Look through it and use regular expressions and data manipulation to clean this dataset. 
+
+## Hints
+
+* Look at the pathogen_binary column-what input are you expecting to see in this column? 
+* What are the main errors in bombus_spp and host_plant? 
+* Is there anything visibly wrong with bee_caste? 
 
 
 -------------------------
