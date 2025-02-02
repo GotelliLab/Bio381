@@ -1,0 +1,291 @@
+---
+title: "Strategic Coding Practices"
+author: "Nicholas J. Gotelli"
+date: "2025-02-02"
+output: 
+  html_document: 
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,eval=FALSE)
+```
+
+# Organize Project: `add_folders()`
+
+```{r}
+# add_folder(folder_names=NULL)
+add_folder() # create typical folders for workflow
+add_folder("MyUniqueFolder") # use for your own groupings
+```
+
+* will not overwrite existing folders
+* will include hidden `.keep` file for github functionality
+
+## OriginalData 
+
+* start with primary `.csv` files or text files 
+* for large files, rasters or images give links and meta data
+* never ever edit anything in original data folder!
+
+### Embed Your MetaData In Your DataFile:` metadata_template()`
+
+```{r}
+# metadata_template(file=NULL)
+metadata_template(file="OriginalData/MyData.csv")
+```
+
+* Show real-world example with Lauren Ash amphibian data (2017)
+* Update with Gwen Ellis genetic analysis (2025)
+
+## CleanedData
+
+* copy everything from Original Data folder and only do editing here
+* “dirty” data cannot be opened or read
+* not all data cleaning can be easily documented
+* additional cleaning and wrangling after texts are created
+
+## Scripts
+*  contains standard R scripts
+*  may contain only a single MainScript.R with global variables and function calls
+
+## Functions
+*  contains scripts for user-defined functions
+*  these functions may be contained in a single script
+*  more portability and ease of programming to create a single script for each function
+
+## Plots
+*  contains `.jpg`, `.tiff`, other image files created with code
+*  do not save images by using RStudio GUI interface
+*  learn to use `ggsave()` command in ggplot2 for saving graphical output
+*  use letters, not numbers, to name consecutive images or tables
+*  figure_a, figure_b, table_a, table_b
+*  these will be later converted to numbered tables and figures in your final manuscript
+
+## Outputs
+*  should be used only to create and store summary `.csv` files that contain contents of final tables or stats numbers to be used in manuscript
+*  do not use `.csv` files to "pass data" to other parts of project
+*  first set up output as a data frame before passing to function
+
+### Store summary results in table: `data_table_template()`
+
+```{r}
+# data_table_template(data_frame=NULL,file_name=NULL)
+data_table_template(data_frame=NULL,file_name="Outputs/TableA.csv")
+```
+
+### Pad zeroes in file names or variable names: `create_padded_labels()`
+
+```{r}
+# create_padded_labels <- function(n=6,
+#                                 string="Toy", 
+#                                 suffix=NULL)
+create_padded_labels(n=10,string="Species",suffix=".txt")
+```
+
+## DataObjects
+
+* Folder to hold a serialized data object
+* Use to store intermediate results that may be difficult or time-consuming to repeat
+* Do not use `.csv` files for this purpose
+* Do not use `save()` or `load()` for this purpose
+
+```{r}
+x <- runif(10) # an object to save
+saveRDS(object=x,
+        file="DataObjects/x.rds") # save to disk
+restored_x <- readRDS(file="DataObjects/x.rds") # reopen to new name
+
+y <- rnorm(3)
+z <- pi
+bundle <- list(x,y,z) # save multiple objects in a single list
+saveRDS(object=bundle,
+        file="DataObjects/bundle.rds") 
+restored_bundle <- readRDS(file="DataObjects/bundle.rds")
+restored_bundle$y # reference named list items
+restored_bundle[[3]] # reference content of item number in a list
+```
+## Markdown
+
+* Use this folder to store `.Rmd` markdown scripts, local image files they may call, and markdown outputs (`.html`, `.pdf` files)
+
+# Use Logging System
+
+* Creates a `logfile.txt` plain text file in project root
+* Store meta-data about your system
+* Organize and decorate output
+* Use consecutive logs to probe errors
+
+## Create Log File 
+
+```{r}
+set_up_log()
+# set_up_log(my_logfile='logfile.txt',
+#            user_seed=NULL,
+#            console_echo=FALSE,
+#            overwrite_log=TRUE)
+```
+
+* inspect initial log for system information and seed
+
+## Supply user-defined random number seed
+
+```{r}
+set_up_log(user_seed=100)
+# inspect log then restore default set-up
+set_up_log()
+```
+
+
+
+## Toggle the log console to echo log messages to screen
+
+```{r}
+echo_log_console(TRUE) # show log messages also on screen
+# echo_log_console(toggle=FALSE)
+```
+
+## Basic log function `l()`
+
+```{r}
+l() # plain log entry
+
+
+l('log message that is echoed to the screen')
+echo_log_console(FALSE)
+l('this message only shows in the log file')
+l()
+```
+
+
+# Add an 'old school' progress bar to your `for loop`: `show_progress(bar)`
+
+```{r}
+#show_progress_bar(index=i,counter=10,increment=1)
+for (k in 1:100) {
+  show_progress_bar(k)
+  Sys.sleep(0.075)
+}
+l('end of loop')
+
+# Note that the progress bar also pinpoints errors
+for (k in 1:100) {
+  show_progress_bar(k)
+  Sys.sleep(0.075)
+  # if(k==52)print(ghost) # this throws an error!
+}
+l('end of loop with error')
+
+# Adjust parameters of progress bar for longer loops
+for (k in 1:1000) {
+  show_progress_bar(index=k,counter=50,dot=5)
+  Sys.sleep(0.0075)
+}
+l('end of long loop')
+
+# Add a timer for long loops (from pracma package)
+tic()
+for (k in 1:10) {
+  show_progress_bar(k)
+  Sys.sleep(1)
+}
+toc()
+l('end of timed loop')
+```
+
+# Coding with User-Defined Functions
+
+## A template for user-defined functions:`build_function()`
+```{r}
+# build_function <- function (function_name=NULL,
+#                            file_prefix=NULL,
+#                            file_suffix=NULL)
+build_function("fit_regression") # creates an R script template for the function
+source("Functions/FitRegression.R") # sources that script to load function in memory
+```
+
+## Punctuation conventions for names
+* snake_case
+* camelCase
+* PascalCase
+* kebab-case
+* SCREAMING_SNAKE_CASE
+
+```{r}
+# Open the file in Functions folder: FitRegression.R
+fit_regression() # runs the new function with its default values
+```
+
+##  Anatomy of A User-Defined Function
+* function name
+* named input parameters
+* function body
+* function output (optional return() statement)
+
+## Features of a Good Function
+* Has a verb-based descriptive name
+* Has few inputs (< 3)
+* Does one thing in isolation
+* Is short (no scrolling)
+* Returns one thing (could be a list)
+* Uses only data from input parameters and/or locally created variables
+* Does not use global variables
+* Does not (usually) create or change global variables ->>
+* Sets up default values, ideally based on random number generator
+
+## Functional Programming
+* Step 1: Create Pseudocode: describe project with a list of major steps (<6)
+   + Select Recipes
+   + Write Shopping List
+   + Buy Groceries
+   + Cook Meal
+   + Serve Meal
+   + Clean Up
+
+* Step 2: Each list item becomes a function
+    + select_recipes()
+    + write_shopping_list()
+    + cook_meal()
+    + serve_meal()
+    + clean_up()
+
+* Step 3: Create function templates as a batch operation
+
+```{r}
+build_function(c("select_recipes",
+                 "write_shopping_list",
+                 "buy_groceries",
+                 "cook_meal",
+                 "serve_meal",
+                 "clean_up"))
+```
+* Step 4: Source all function templates as a batch operation
+
+```{r}
+source_batch("Functions")
+```
+
+* Step 5: Run each function template
+
+```{r}
+select_recipes()
+write_shopping_list()
+buy_groceries()
+cook_meal()
+serve_meal()
+clean_up()
+```
+
+* Step 6: Create inputs and outputs for each function
+* Step 7: Code and test functions separately
+* Step 8: Link functions through shared inputs and outputs
+* Step 9: In main program call functions, create outputs, pass inputs
+
+```{r}
+# recipe_list <- select_recipe(cook_books,websites)
+# shopping_list <- write_shopping_list(recipe_list,pantry_items)
+# groceries <- buy_groceries(shopping_list)
+# meal <- cook_meal(recipe_list,groceries)
+# dirty_dishes <- serve_meal(meal,clean_dishes,utensils)
+# clean_up(dirty_dishes,utensils)
+```
