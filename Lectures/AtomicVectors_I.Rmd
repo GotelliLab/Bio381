@@ -1,7 +1,7 @@
 ---
 title: 'Atomic Vectors I'
 author: "Nicholas J. Gotelli"
-date: "1 February 2024"
+date: "28 January 2025"
 output:
   html_document:
     highlight: tango
