@@ -171,8 +171,6 @@ z[c("b","c")]
 # & and (vector)
 # | or (vector)
 # xor(x,y)
-# && and (only for first element)
-# || or (only for first element)
 
 x <- 1:5
 y <- c(1:3,7,7)
@@ -182,7 +180,11 @@ x == 1 & y == 7
 x == 1 | y == 7
 x == 3 | y == 3
 xor(x==3, y==3)
-x == 3 && y == 3
+# common errors with logicals
+# = versus ==
+z2 <- 5
+z2 == 4 | 6  # gives wrong answer
+z2 == 4 | z2 == 6
 ```
 
 ### Subscripting with missing values

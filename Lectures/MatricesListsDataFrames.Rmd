@@ -17,13 +17,13 @@ output:
 
 my_vec <- 1:12
 
-m <- matrix(data=myvec,nrow=4)
+m <- matrix(data=my_vec,nrow=4)
 print(m)
 
-m <- matrix(data=myvec,ncol=3)
+m <- matrix(data=my_vec,ncol=3)
 print(m)
 
-m <- matrix(data=myvec,ncol=3,byrow=TRUE)
+m <- matrix(data=my_vec,ncol=3,byrow=TRUE)
 print(m)
 ```
 ### Lists
@@ -32,21 +32,21 @@ print(m)
 # Lists are atomic vectors but each element 
 # can hold things of different types and different sizes
 
-myList <- list(1:10, matrix(1:8,nrow=4,byrow=TRUE), letters[1:3],pi)
-str(myList)
-print(myList)
+my_list <- list(1:10, matrix(1:8,nrow=4,byrow=TRUE), letters[1:3],pi)
+str(my_list)
+print(my_list)
 
 
 # using [] gives you a single item, which is of type list
-myList[4]
-myList[4] - 3 # no, can't subtract a number from a list!
+my_list[4]
+my_list[4] - 3 # no, can't subtract a number from a list!
 
 
 # single brackets gives you only the element in that slot, which is always of type list
 
 # to grab the object itself, use [[]]
-myList[[4]]
-myList[[4]] - 3 # now we have the contents
+my_list[[4]]
+my_list[[4]] - 3 # now we have the contents
 
 # if a list has 10 elements it is like a train with 10 cars
 # [[5]] gives you the contents of car #5
@@ -54,53 +54,53 @@ myList[[4]] - 3 # now we have the contents
 
 # once the double bracket is called, you can access individual elements as before
 
-myList[[2]]
-myList[[2]][4,1]
+my_list[[2]]
+my_list[[2]][4,1]
 
 # name list items when they are created
 
-myList2 <- list(Tester=FALSE,littleM=matrix(1:9,nrow=3))
+my_list2 <- list(tester=FALSE,little_m=matrix(1:9,nrow=3))
 
 # named elements can be accessed with dollar sign
 
-myList2$littleM[2,3] # get row 2, column3
-myList2$littleM # show whole matrix
-myList2$littleM[2,] # show second row, all columns
-myList2$littleM[2] # what does this give you?
+my_list2$little_m[2,3] # get row 2, column3
+my_list2$little_m # show whole matrix
+my_list2$little_m[2,] # show second row, all columns
+my_list2$little_m[2] # what does this give you?
 
 # The "unlist" strings everything back into
 # a single atomic vector; coercion is used if there are mixed data types
-unRolled <- unlist(myList2)
-print(unRolled)
+unrolled <- unlist(my_list2)
+print(unrolled)
 
 
 # The most common use of list: output from a linear model is a list
 
 library(ggplot2)
-yVar <- runif(10)
-xVar <- runif(10)
-myModel <- lm(yVar~xVar)
-qplot(x=xVar,y=yVar)
+y_var <- runif(10)
+x_var <- runif(10)
+my_model <- lm(y_var~x_var)
+qplot(x=x_var,y=y_var)
 
 # look at output in myModel
-print(myModel)
+print(my_model)
 
 # full results are in summary
-print(summary(myModel))
+print(summary(my_model))
 
 # drill down into summary to get what we want
-str(summary(myModel))
-summary(myModel)$coefficients
-summary(myModel)$coefficients["xVar","Pr(>|t|)"]
-summary(myModel)$coefficients[2,4]
+str(summary(my_model))
+summary(my_model)$coefficients
+summary(my_model)$coefficients["x_var","Pr(>|t|)"]
+summary(my_model)$coefficients[2,4]
 
 # use unlist instead
 
-u <- unlist(summary(myModel))
+u <- unlist(summary(my_model))
 print(u)
 
-mySlope <- u$coefficients2
-myPval <- u$coefficients8
+my_slope <- u$coefficients2
+my_pval <- u$coefficients8
 
 ```
 
@@ -109,33 +109,33 @@ myPval <- u$coefficients8
 ```{r,eval=FALSE}
 # a data frame is a list of equal-lengthed vectors, each of which is a column
 
-varA <- 1:12
-varB <- rep(c("Con","LowN","HighN"),each=4)
-varC <- runif(12)
-dFrame <- data.frame(varA,varB,varC,stringsAsFactors=FALSE)
-print(dFrame)
-str(dFrame)
+var_a <- 1:12
+var_b <- rep(c("Con","LowN","HighN"),each=4)
+var_c <- runif(12)
+d_frame <- data.frame(var_a,var_b,var_c)
+print(d_frame)
+str(d_frame)
 
 # add another row with rbind
 # make sure you add a list, with each item corresponding to a column
 
 # newData <- data.frame(list(varA=13,varB="HighN",varC=0.668),stringsAsFactors=FALSE)
-newData <- list(varA=13,varB="HighN",varC=0.668)
-print(newData)
-str(newData)
+new_data <- list(var_a=13,var_b="HighN",var_c=0.668)
+print(new_data)
+str(new_data)
 
 # now bind them
-dFrame <- rbind(dFrame,newData)
-str(dFrame)
-tail(dFrame)
+d_frame <- rbind(d_frame,new_data)
+str(d_frame)
+tail(d_rame)
 
 
 # adding another column is a little easier
 
 #newVar <- data.frame(varD=runif(13))
-newVar <- runif(13)
-dFrame <- cbind(dFrame,newVar)
-head(dFrame)
+new_var <- runif(13)
+d_frame <- cbind(d_frame,new_var)
+head(d_frame)
 
 ```
 
@@ -144,46 +144,48 @@ head(dFrame)
 ```{r, eval=FALSE}
 
 # create a matrix and data frame with same structures
-zMat <- matrix(data=1:30,ncol=3,byrow=TRUE)
-zDframe <- as.data.frame(zMat) # coerce it
+z_mat <- matrix(data=1:30,ncol=3,byrow=TRUE)
+z_dframe <- as.data.frame(z_mat) # coerce it
 
-str(zMat)    # an atomic vector with 2 dimensions
-str(zDframe) # note horizontal layout of variabes!
+str(z_mat)    # an atomic vector with 2 dimensions
+str(z_dframe) # note horizontal layout of variabes!
 
-head(zDframe) # note automatic variable names
-head(zMat) # note identical layout
+head(z_dframe) # note automatic variable names
+head(z_mat) # note identical layout
 
 # element referencing is the same in both
-zMat[3,3]
-zDframe[3,3]
+z_mat[3,3]
+z_dframe[3,3]
 
 # so is column referencing
 
-zMat[,3]
-zDframe[,3]
-zDframe$V3 # note use of $ and named variable column
+z_mat[,3]
+z_dframe[,3]
+z_dframe$V3 # note use of $ and named variable column
 # and row referencing
-zMat[3,]
-zDframe[3,] # note variable names and row number shown
+z_mat[3,]
+z_dframe[3,] # note variable names and row number shown
 
 # what happens if we reference only one dimension?
 
-zMat[2] # takes the second element of atomic vector (column fill)
-zDframe[2] # takes second atomic vector (= column) from list
-zDframe["V2"]
-zDframe$V2
+z_mat[2] # takes the second element of atomic vector (column fill)
+z_dframe[2] # takes second atomic vector (= column) from list
+z_dframe["V2"]
+z_dframe$V2
 ```
 
 ### Eliminating missing values
 ```{r, eval=FALSE}
 # use complete.cases with atomic vector
-print(zD)
+zd <- runif(10)
+zd[c(5,7)] <- NA
+print(zd)
 
-complete.cases(zD)
+complete.cases(zd)
 
-zD[complete.cases(zD)] # clean them out
+zD[complete.cases(zd)] # clean them out
 
-which(!complete.cases(zD)) # find NA slots
+which(!complete.cases(zd)) # find NA slots
 
 # use with a matrix
 
@@ -287,7 +289,7 @@ print(m2)
 
 # A few changes for working with data frames:
 
-data <-read.csv(file="antcountydata.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+data <-read.csv(file="antcountydata.csv",header=TRUE,sep=",")
 str(data)
 
 # the data frame is a list of vectors, so it is set up like a matrix
@@ -295,17 +297,17 @@ data[3,2]
 
 # you can specify just the column names
 
-dataNames <- data[c("state","county")]
+data_names <- data[c("state","county")]
 str(dataNames)
 
 # or in matrix style
-dataNames <- data[ ,c("county", "ecoregion")]
-str(dataNames)
+data_names <- data[ ,c("county", "ecoregion")]
+str(data_names)
 
 
 # as before, with matrices, selecting only a single column changes it
 # from a data frame to a vector
-dataNames <- data[ ,"county"]
-str(dataNames)
+data_names <- data[ ,"county"]
+str(data_names)
 
 ```

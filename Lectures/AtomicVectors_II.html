@@ -577,18 +577,20 @@ display: none;
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co"># &amp; and (vector)</span></span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># | or (vector)</span></span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># xor(x,y)</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># &amp;&amp; and (only for first element)</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co"># || or (only for first element)</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">2</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>x <span class="sc">!=</span> <span class="dv">2</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> y <span class="sc">==</span> <span class="dv">7</span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> y <span class="sc">==</span> <span class="dv">7</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">==</span> <span class="dv">3</span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="fu">xor</span>(x<span class="sc">==</span><span class="dv">3</span>, y<span class="sc">==</span><span class="dv">3</span>)</span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">3</span> <span class="sc">&amp;&amp;</span> y <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">2</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>x <span class="sc">!=</span> <span class="dv">2</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> y <span class="sc">==</span> <span class="dv">7</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> y <span class="sc">==</span> <span class="dv">7</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">==</span> <span class="dv">3</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="fu">xor</span>(x<span class="sc">==</span><span class="dv">3</span>, y<span class="sc">==</span><span class="dv">3</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co"># common errors with logicals</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co"># = versus ==</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>z2 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>z2 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">|</span> <span class="dv">6</span>  <span class="co"># gives wrong answer</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>z2 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">|</span> z2 <span class="sc">==</span> <span class="dv">6</span></span></code></pre></div>
 </div>
 <div id="subscripting-with-missing-values" class="section level3">
 <h3>Subscripting with missing values</h3>

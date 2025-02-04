@@ -236,7 +236,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -247,7 +247,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -439,13 +439,13 @@ display: none;
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">nrow=</span><span class="dv">4</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>my_vec,<span class="at">nrow=</span><span class="dv">4</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">print</span>(m)</span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>my_vec,<span class="at">ncol=</span><span class="dv">3</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="fu">print</span>(m)</span>
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>myvec,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span>my_vec,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="fu">print</span>(m)</span></code></pre></div>
 </div>
 <div id="lists" class="section level3">
@@ -453,21 +453,21 @@ display: none;
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Lists are atomic vectors but each element </span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># can hold things of different types and different sizes</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>myList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,<span class="at">nrow=</span><span class="dv">4</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>), letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],pi)</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">str</span>(myList)</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">print</span>(myList)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,<span class="at">nrow=</span><span class="dv">4</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>), letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],pi)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">str</span>(my_list)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">print</span>(my_list)</span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># using [] gives you a single item, which is of type list</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>myList[<span class="dv">4</span>]</span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>myList[<span class="dv">4</span>] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># no, can&#39;t subtract a number from a list!</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>my_list[<span class="dv">4</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>my_list[<span class="dv">4</span>] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># no, can&#39;t subtract a number from a list!</span></span>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># single brackets gives you only the element in that slot, which is always of type list</span></span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co"># to grab the object itself, use [[]]</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>myList[[<span class="dv">4</span>]]</span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>myList[[<span class="dv">4</span>]] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># now we have the contents</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>my_list[[<span class="dv">4</span>]]</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>my_list[[<span class="dv">4</span>]] <span class="sc">-</span> <span class="dv">3</span> <span class="co"># now we have the contents</span></span>
 <span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a></span>
 <span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co"># if a list has 10 elements it is like a train with 10 cars</span></span>
 <span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co"># [[5]] gives you the contents of car #5</span></span>
@@ -475,143 +475,145 @@ display: none;
 <span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co"># once the double bracket is called, you can access individual elements as before</span></span>
 <span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>myList[[<span class="dv">2</span>]]</span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>myList[[<span class="dv">2</span>]][<span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>my_list[[<span class="dv">2</span>]]</span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>my_list[[<span class="dv">2</span>]][<span class="dv">4</span>,<span class="dv">1</span>]</span>
 <span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a></span>
 <span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co"># name list items when they are created</span></span>
 <span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>myList2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Tester=</span><span class="cn">FALSE</span>,<span class="at">littleM=</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="at">nrow=</span><span class="dv">3</span>))</span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>my_list2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">tester=</span><span class="cn">FALSE</span>,<span class="at">little_m=</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="at">nrow=</span><span class="dv">3</span>))</span>
 <span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co"># named elements can be accessed with dollar sign</span></span>
 <span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span></span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a>myList2<span class="sc">$</span>littleM <span class="co"># show whole matrix</span></span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span></span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>myList2<span class="sc">$</span>littleM[<span class="dv">2</span>] <span class="co"># what does this give you?</span></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>my_list2<span class="sc">$</span>little_m[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># get row 2, column3</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a>my_list2<span class="sc">$</span>little_m <span class="co"># show whole matrix</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>my_list2<span class="sc">$</span>little_m[<span class="dv">2</span>,] <span class="co"># show second row, all columns</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>my_list2<span class="sc">$</span>little_m[<span class="dv">2</span>] <span class="co"># what does this give you?</span></span>
 <span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a></span>
 <span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co"># The &quot;unlist&quot; strings everything back into</span></span>
 <span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co"># a single atomic vector; coercion is used if there are mixed data types</span></span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a>unRolled <span class="ot">&lt;-</span> <span class="fu">unlist</span>(myList2)</span>
-<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="fu">print</span>(unRolled)</span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a>unrolled <span class="ot">&lt;-</span> <span class="fu">unlist</span>(my_list2)</span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="fu">print</span>(unrolled)</span>
 <span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a></span>
 <span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a></span>
 <span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="co"># The most common use of list: output from a linear model is a list</span></span>
 <span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a></span>
 <span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>yVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>xVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>myModel <span class="ot">&lt;-</span> <span class="fu">lm</span>(yVar<span class="sc">~</span>xVar)</span>
-<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>xVar,<span class="at">y=</span>yVar)</span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>y_var <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>x_var <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_var<span class="sc">~</span>x_var)</span>
+<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>x_var,<span class="at">y=</span>y_var)</span>
 <span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a></span>
 <span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a><span class="co"># look at output in myModel</span></span>
-<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="fu">print</span>(myModel)</span>
+<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="fu">print</span>(my_model)</span>
 <span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a></span>
 <span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a><span class="co"># full results are in summary</span></span>
-<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(myModel))</span>
+<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(my_model))</span>
 <span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a></span>
 <span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a><span class="co"># drill down into summary to get what we want</span></span>
-<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(myModel))</span>
-<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients</span>
-<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients[<span class="st">&quot;xVar&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</span>
-<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="fu">summary</span>(myModel)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</span>
+<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(my_model))</span>
+<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="fu">summary</span>(my_model)<span class="sc">$</span>coefficients</span>
+<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a><span class="fu">summary</span>(my_model)<span class="sc">$</span>coefficients[<span class="st">&quot;x_var&quot;</span>,<span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</span>
+<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="fu">summary</span>(my_model)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>]</span>
 <span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a></span>
 <span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a><span class="co"># use unlist instead</span></span>
 <span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">summary</span>(myModel))</span>
+<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">summary</span>(my_model))</span>
 <span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="fu">print</span>(u)</span>
 <span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>mySlope <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients2</span>
-<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a>myPval <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients8</span></code></pre></div>
+<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>my_slope <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients2</span>
+<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a>my_pval <span class="ot">&lt;-</span> u<span class="sc">$</span>coefficients8</span></code></pre></div>
 </div>
 <div id="data-frames" class="section level3">
 <h3>Data Frames</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># a data frame is a list of equal-lengthed vectors, each of which is a column</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>varA <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>varB <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Con&quot;</span>,<span class="st">&quot;LowN&quot;</span>,<span class="st">&quot;HighN&quot;</span>),<span class="at">each=</span><span class="dv">4</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>varC <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">12</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(varA,varB,varC,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">print</span>(dFrame)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">str</span>(dFrame)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>var_a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>var_b <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Con&quot;</span>,<span class="st">&quot;LowN&quot;</span>,<span class="st">&quot;HighN&quot;</span>),<span class="at">each=</span><span class="dv">4</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>var_c <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">12</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>d_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(var_a,var_b,var_c)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">print</span>(d_frame)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">str</span>(d_frame)</span>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># add another row with rbind</span></span>
 <span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># make sure you add a list, with each item corresponding to a column</span></span>
 <span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co"># newData &lt;- data.frame(list(varA=13,varB=&quot;HighN&quot;,varC=0.668),stringsAsFactors=FALSE)</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>newData <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">varA=</span><span class="dv">13</span>,<span class="at">varB=</span><span class="st">&quot;HighN&quot;</span>,<span class="at">varC=</span><span class="fl">0.668</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="fu">print</span>(newData)</span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="fu">str</span>(newData)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">var_a=</span><span class="dv">13</span>,<span class="at">var_b=</span><span class="st">&quot;HighN&quot;</span>,<span class="at">var_c=</span><span class="fl">0.668</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="fu">print</span>(new_data)</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="fu">str</span>(new_data)</span>
 <span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a></span>
 <span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co"># now bind them</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">rbind</span>(dFrame,newData)</span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="fu">str</span>(dFrame)</span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="fu">tail</span>(dFrame)</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>d_frame <span class="ot">&lt;-</span> <span class="fu">rbind</span>(d_frame,new_data)</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="fu">str</span>(d_frame)</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="fu">tail</span>(d_rame)</span>
 <span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a></span>
 <span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
 <span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co"># adding another column is a little easier</span></span>
 <span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a></span>
 <span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#newVar &lt;- data.frame(varD=runif(13))</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>newVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">13</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dFrame,newVar)</span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="fu">head</span>(dFrame)</span></code></pre></div>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>new_var <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">13</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>d_frame <span class="ot">&lt;-</span> <span class="fu">cbind</span>(d_frame,new_var)</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="fu">head</span>(d_frame)</span></code></pre></div>
 </div>
 <div id="important-distinctions-between-lists-and-matrices" class="section level3">
 <h3>Important Distinctions Between Lists and Matrices</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># create a matrix and data frame with same structures</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>zMat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>zDframe <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(zMat) <span class="co"># coerce it</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>z_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>z_dframe <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(z_mat) <span class="co"># coerce it</span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">str</span>(zMat)    <span class="co"># an atomic vector with 2 dimensions</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="fu">str</span>(zDframe) <span class="co"># note horizontal layout of variabes!</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">str</span>(z_mat)    <span class="co"># an atomic vector with 2 dimensions</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="fu">str</span>(z_dframe) <span class="co"># note horizontal layout of variabes!</span></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">head</span>(zDframe) <span class="co"># note automatic variable names</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">head</span>(zMat) <span class="co"># note identical layout</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">head</span>(z_dframe) <span class="co"># note automatic variable names</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">head</span>(z_mat) <span class="co"># note identical layout</span></span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># element referencing is the same in both</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>zMat[<span class="dv">3</span>,<span class="dv">3</span>]</span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>zDframe[<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>z_mat[<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>z_dframe[<span class="dv">3</span>,<span class="dv">3</span>]</span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co"># so is column referencing</span></span>
 <span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>zMat[,<span class="dv">3</span>]</span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>zDframe[,<span class="dv">3</span>]</span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>zDframe<span class="sc">$</span>V3 <span class="co"># note use of $ and named variable column</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>z_mat[,<span class="dv">3</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>z_dframe[,<span class="dv">3</span>]</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>z_dframe<span class="sc">$</span>V3 <span class="co"># note use of $ and named variable column</span></span>
 <span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co"># and row referencing</span></span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>zMat[<span class="dv">3</span>,]</span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>zDframe[<span class="dv">3</span>,] <span class="co"># note variable names and row number shown</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>z_mat[<span class="dv">3</span>,]</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>z_dframe[<span class="dv">3</span>,] <span class="co"># note variable names and row number shown</span></span>
 <span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co"># what happens if we reference only one dimension?</span></span>
 <span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>zMat[<span class="dv">2</span>] <span class="co"># takes the second element of atomic vector (column fill)</span></span>
-<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>zDframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector (= column) from list</span></span>
-<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>zDframe[<span class="st">&quot;V2&quot;</span>]</span>
-<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>zDframe<span class="sc">$</span>V2</span></code></pre></div>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>z_mat[<span class="dv">2</span>] <span class="co"># takes the second element of atomic vector (column fill)</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>z_dframe[<span class="dv">2</span>] <span class="co"># takes second atomic vector (= column) from list</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>z_dframe[<span class="st">&quot;V2&quot;</span>]</span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>z_dframe<span class="sc">$</span>V2</span></code></pre></div>
 </div>
 <div id="eliminating-missing-values" class="section level3">
 <h3>Eliminating missing values</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># use complete.cases with atomic vector</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">print</span>(zD)</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">complete.cases</span>(zD)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>zd <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>zd[<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">print</span>(zd)</span>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>zD[<span class="fu">complete.cases</span>(zD)] <span class="co"># clean them out</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="fu">complete.cases</span>(zd)</span>
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(zD)) <span class="co"># find NA slots</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>zD[<span class="fu">complete.cases</span>(zd)] <span class="co"># clean them out</span></span>
 <span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># use with a matrix</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(zd)) <span class="co"># find NA slots</span></span>
 <span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow=</span><span class="dv">5</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>m[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>m[<span class="dv">5</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="fu">print</span>(m)</span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m),] </span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co"># use with a matrix</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow=</span><span class="dv">5</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>m[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>m[<span class="dv">5</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="fu">print</span>(m)</span>
 <span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co"># now get complete cases for only certain columns!</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></span></code></pre></div>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m),] </span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co"># now get complete cases for only certain columns!</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),] <span class="co"># drops row 1</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]),] <span class="co"># no drops</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)]),] <span class="co"># drops row 4</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>m[<span class="fu">complete.cases</span>(m[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),] <span class="co"># drops 1&amp;4</span></span></code></pre></div>
 </div>
 <div id="techniques-for-assignments-and-subsetting-matrices-and-data-frames" class="section level3">
 <h3>Techniques for assignments and subsetting matrices and data
@@ -697,7 +699,7 @@ frames</h3>
 <span id="cb6-79"><a href="#cb6-79" tabindex="-1"></a></span>
 <span id="cb6-80"><a href="#cb6-80" tabindex="-1"></a><span class="co"># A few changes for working with data frames:</span></span>
 <span id="cb6-81"><a href="#cb6-81" tabindex="-1"></a></span>
-<span id="cb6-82"><a href="#cb6-82" tabindex="-1"></a>data <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-82"><a href="#cb6-82" tabindex="-1"></a>data <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;antcountydata.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
 <span id="cb6-83"><a href="#cb6-83" tabindex="-1"></a><span class="fu">str</span>(data)</span>
 <span id="cb6-84"><a href="#cb6-84" tabindex="-1"></a></span>
 <span id="cb6-85"><a href="#cb6-85" tabindex="-1"></a><span class="co"># the data frame is a list of vectors, so it is set up like a matrix</span></span>
@@ -705,18 +707,18 @@ frames</h3>
 <span id="cb6-87"><a href="#cb6-87" tabindex="-1"></a></span>
 <span id="cb6-88"><a href="#cb6-88" tabindex="-1"></a><span class="co"># you can specify just the column names</span></span>
 <span id="cb6-89"><a href="#cb6-89" tabindex="-1"></a></span>
-<span id="cb6-90"><a href="#cb6-90" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]</span>
+<span id="cb6-90"><a href="#cb6-90" tabindex="-1"></a>data_names <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;county&quot;</span>)]</span>
 <span id="cb6-91"><a href="#cb6-91" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span>
 <span id="cb6-92"><a href="#cb6-92" tabindex="-1"></a></span>
 <span id="cb6-93"><a href="#cb6-93" tabindex="-1"></a><span class="co"># or in matrix style</span></span>
-<span id="cb6-94"><a href="#cb6-94" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[ ,<span class="fu">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]</span>
-<span id="cb6-95"><a href="#cb6-95" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span>
+<span id="cb6-94"><a href="#cb6-94" tabindex="-1"></a>data_names <span class="ot">&lt;-</span> data[ ,<span class="fu">c</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;ecoregion&quot;</span>)]</span>
+<span id="cb6-95"><a href="#cb6-95" tabindex="-1"></a><span class="fu">str</span>(data_names)</span>
 <span id="cb6-96"><a href="#cb6-96" tabindex="-1"></a></span>
 <span id="cb6-97"><a href="#cb6-97" tabindex="-1"></a></span>
 <span id="cb6-98"><a href="#cb6-98" tabindex="-1"></a><span class="co"># as before, with matrices, selecting only a single column changes it</span></span>
 <span id="cb6-99"><a href="#cb6-99" tabindex="-1"></a><span class="co"># from a data frame to a vector</span></span>
-<span id="cb6-100"><a href="#cb6-100" tabindex="-1"></a>dataNames <span class="ot">&lt;-</span> data[ ,<span class="st">&quot;county&quot;</span>]</span>
-<span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="fu">str</span>(dataNames)</span></code></pre></div>
+<span id="cb6-100"><a href="#cb6-100" tabindex="-1"></a>data_names <span class="ot">&lt;-</span> data[ ,<span class="st">&quot;county&quot;</span>]</span>
+<span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="fu">str</span>(data_names)</span></code></pre></div>
 </div>
 
 
