@@ -357,8 +357,27 @@ display: none;
 </div>
 
 
-<div id="organize-project-add_folders" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Organize Project:
+<div id="code-folding" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Code folding</h1>
+<ul>
+<li>create script</li>
+<li>use markdown headings with 4 dashes —-</li>
+<li>show headers and subheaders</li>
+<li>show folding and outline</li>
+</ul>
+</div>
+<div id="code-snippets" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Code snippets</h1>
+<ul>
+<li>Tools -&gt; edit code snippets</li>
+<li>m.simple_script</li>
+</ul>
+<pre><code># Script description
+# 2025-02-04
+# Nicholas J. Gotelli</code></pre>
+</div>
+<div id="organize-project-add_folders" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Organize Project:
 <code>add_folders()</code></h1>
 <pre class="r"><code># add_folder(folder_names=NULL)
 add_folder() # create typical folders for workflow
@@ -368,15 +387,15 @@ add_folder(&quot;MyUniqueFolder&quot;) # use for your own groupings</code></pre>
 <li>will include hidden <code>.keep</code> file for github
 functionality</li>
 </ul>
-<div id="originaldata" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> OriginalData</h2>
+<div id="originaldata" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> OriginalData</h2>
 <ul>
 <li>start with primary <code>.csv</code> files or text files</li>
 <li>for large files, rasters or images give links and meta data</li>
 <li>never ever edit anything in original data folder!</li>
 </ul>
-<div id="embed-your-metadata-in-your-datafilemetadata_template" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Embed Your MetaData
+<div id="embed-your-metadata-in-your-datafilemetadata_template" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Embed Your MetaData
 In Your DataFile:<code>metadata_template()</code></h3>
 <pre class="r"><code># metadata_template(file=NULL)
 metadata_template(file=&quot;OriginalData/MyData.csv&quot;)</code></pre>
@@ -386,8 +405,8 @@ metadata_template(file=&quot;OriginalData/MyData.csv&quot;)</code></pre>
 </ul>
 </div>
 </div>
-<div id="cleaneddata" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> CleanedData</h2>
+<div id="cleaneddata" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> CleanedData</h2>
 <ul>
 <li>copy everything from Original Data folder and only do editing
 here</li>
@@ -396,16 +415,16 @@ here</li>
 <li>additional cleaning and wrangling after texts are created</li>
 </ul>
 </div>
-<div id="scripts" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Scripts</h2>
+<div id="scripts" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Scripts</h2>
 <ul>
 <li>contains standard R scripts</li>
 <li>may contain only a single MainScript.R with global variables and
 function calls</li>
 </ul>
 </div>
-<div id="functions" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Functions</h2>
+<div id="functions" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Functions</h2>
 <ul>
 <li>contains scripts for user-defined functions</li>
 <li>these functions may be contained in a single script</li>
@@ -413,8 +432,8 @@ function calls</li>
 for each function</li>
 </ul>
 </div>
-<div id="plots" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Plots</h2>
+<div id="plots" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Plots</h2>
 <ul>
 <li>contains <code>.jpg</code>, <code>.tiff</code>, other image files
 created with code</li>
@@ -427,8 +446,8 @@ graphical output</li>
 final manuscript</li>
 </ul>
 </div>
-<div id="outputs" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Outputs</h2>
+<div id="outputs" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Outputs</h2>
 <ul>
 <li>should be used only to create and store summary <code>.csv</code>
 files that contain contents of final tables or stats numbers to be used
@@ -437,14 +456,14 @@ in manuscript</li>
 project</li>
 <li>first set up output as a data frame before passing to function</li>
 </ul>
-<div id="store-summary-results-in-table-data_table_template" class="section level3" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Store summary
+<div id="store-summary-results-in-table-data_table_template" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Store summary
 results in table: <code>data_table_template()</code></h3>
 <pre class="r"><code># data_table_template(data_frame=NULL,file_name=NULL)
 data_table_template(data_frame=NULL,file_name=&quot;Outputs/TableA.csv&quot;)</code></pre>
 </div>
-<div id="pad-zeroes-in-file-names-or-variable-names-create_padded_labels" class="section level3" number="1.6.2">
-<h3><span class="header-section-number">1.6.2</span> Pad zeroes in file
+<div id="pad-zeroes-in-file-names-or-variable-names-create_padded_labels" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Pad zeroes in file
 names or variable names: <code>create_padded_labels()</code></h3>
 <pre class="r"><code># create_padded_labels &lt;- function(n=6,
 #                                 string=&quot;Toy&quot;, 
@@ -452,8 +471,8 @@ names or variable names: <code>create_padded_labels()</code></h3>
 create_padded_labels(n=10,string=&quot;Species&quot;,suffix=&quot;.txt&quot;)</code></pre>
 </div>
 </div>
-<div id="dataobjects" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> DataObjects</h2>
+<div id="dataobjects" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> DataObjects</h2>
 <ul>
 <li>Folder to hold a serialized data object</li>
 <li>Use to store intermediate results that may be difficult or
@@ -469,15 +488,15 @@ restored_x &lt;- readRDS(file=&quot;DataObjects/x.rds&quot;) # reopen to new nam
 
 y &lt;- rnorm(3)
 z &lt;- pi
-bundle &lt;- list(x,y,z) # save multiple objects in a single list
+bundle &lt;- list(x=x,y=y,z=z) # save multiple objects in a single list
 saveRDS(object=bundle,
         file=&quot;DataObjects/bundle.rds&quot;) 
 restored_bundle &lt;- readRDS(file=&quot;DataObjects/bundle.rds&quot;)
 restored_bundle$y # reference named list items
 restored_bundle[[3]] # reference content of item number in a list</code></pre>
 </div>
-<div id="markdown" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Markdown</h2>
+<div id="markdown" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Markdown</h2>
 <ul>
 <li>Use this folder to store <code>.Rmd</code> markdown scripts, local
 image files they may call, and markdown outputs (<code>.html</code>,
@@ -485,8 +504,8 @@ image files they may call, and markdown outputs (<code>.html</code>,
 </ul>
 </div>
 </div>
-<div id="use-logging-system" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Use Logging System</h1>
+<div id="use-logging-system" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Use Logging System</h1>
 <ul>
 <li>Creates a <code>logfile.txt</code> plain text file in project
 root</li>
@@ -494,8 +513,8 @@ root</li>
 <li>Organize and decorate output</li>
 <li>Use consecutive logs to probe errors</li>
 </ul>
-<div id="create-log-file" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Create Log File</h2>
+<div id="create-log-file" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Create Log File</h2>
 <pre class="r"><code>set_up_log()
 # set_up_log(my_logfile=&#39;logfile.txt&#39;,
 #            user_seed=NULL,
@@ -505,21 +524,21 @@ root</li>
 <li>inspect initial log for system information and seed</li>
 </ul>
 </div>
-<div id="supply-user-defined-random-number-seed" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Supply user-defined
+<div id="supply-user-defined-random-number-seed" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Supply user-defined
 random number seed</h2>
 <pre class="r"><code>set_up_log(user_seed=100)
 # inspect log then restore default set-up
 set_up_log()</code></pre>
 </div>
-<div id="toggle-the-log-console-to-echo-log-messages-to-screen" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Toggle the log
+<div id="toggle-the-log-console-to-echo-log-messages-to-screen" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Toggle the log
 console to echo log messages to screen</h2>
 <pre class="r"><code>echo_log_console(TRUE) # show log messages also on screen
 # echo_log_console(toggle=FALSE)</code></pre>
 </div>
-<div id="basic-log-function-l" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Basic log function
+<div id="basic-log-function-l" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Basic log function
 <code>l()</code></h2>
 <pre class="r"><code>l() # plain log entry
 
@@ -529,9 +548,18 @@ echo_log_console(FALSE)
 l(&#39;this message only shows in the log file&#39;)
 l()</code></pre>
 </div>
+<div id="retain-logs-for-debugging-purposes" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Retain logs for
+debugging purposes</h2>
+<pre class="r"><code>set_up_log(overwrite_log=FALSE)
+l(&#39;new message&#39;)
+l()
+
+set_up_log()</code></pre>
 </div>
-<div id="add-an-old-school-progress-bar-to-your-for-loop-show_progressbar" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Add an ‘old school’
+</div>
+<div id="add-an-old-school-progress-bar-to-your-for-loop-show_progressbar" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Add an ‘old school’
 progress bar to your <code>for loop</code>:
 <code>show_progress(bar)</code></h1>
 <pre class="r"><code>#show_progress_bar(index=i,counter=10,increment=1)
@@ -565,11 +593,11 @@ for (k in 1:10) {
 toc()
 l(&#39;end of timed loop&#39;)</code></pre>
 </div>
-<div id="coding-with-user-defined-functions" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Coding with
+<div id="coding-with-user-defined-functions" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Coding with
 User-Defined Functions</h1>
-<div id="a-template-for-user-defined-functionsbuild_function" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> A template for
+<div id="a-template-for-user-defined-functionsbuild_function" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> A template for
 user-defined functions:<code>build_function()</code></h2>
 <pre class="r"><code># build_function &lt;- function (function_name=NULL,
 #                            file_prefix=NULL,
@@ -577,8 +605,8 @@ user-defined functions:<code>build_function()</code></h2>
 build_function(&quot;fit_regression&quot;) # creates an R script template for the function
 source(&quot;Functions/FitRegression.R&quot;) # sources that script to load function in memory</code></pre>
 </div>
-<div id="punctuation-conventions-for-names" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Punctuation
+<div id="punctuation-conventions-for-names" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Punctuation
 conventions for names</h2>
 <ul>
 <li>snake_case</li>
@@ -590,8 +618,8 @@ conventions for names</h2>
 <pre class="r"><code># Open the file in Functions folder: FitRegression.R
 fit_regression() # runs the new function with its default values</code></pre>
 </div>
-<div id="anatomy-of-a-user-defined-function" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Anatomy of A
+<div id="anatomy-of-a-user-defined-function" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Anatomy of A
 User-Defined Function</h2>
 <ul>
 <li>function name</li>
@@ -600,8 +628,8 @@ User-Defined Function</h2>
 <li>function output (optional return() statement)</li>
 </ul>
 </div>
-<div id="features-of-a-good-function" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Features of a Good
+<div id="features-of-a-good-function" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Features of a Good
 Function</h2>
 <ul>
 <li>Has a verb-based descriptive name</li>
@@ -617,8 +645,8 @@ variables</li>
 generator</li>
 </ul>
 </div>
-<div id="functional-programming" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Functional
+<div id="functional-programming" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Functional
 Programming</h2>
 <ul>
 <li>Step 1: Create Pseudocode: describe project with a list of major

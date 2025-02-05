@@ -10,6 +10,21 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,eval=FALSE)
 ```
+# Code folding
+* create script
+* use markdown headings with 4 dashes ----
+* show headers and subheaders
+* show folding and outline
+
+# Code snippets
+* Tools -> edit code snippets
+* m.simple_script
+
+```
+# Script description
+# `r Sys.Date()`
+# Nicholas J. Gotelli
+```
 
 # Organize Project: `add_folders()`
 
@@ -98,7 +113,7 @@ restored_x <- readRDS(file="DataObjects/x.rds") # reopen to new name
 
 y <- rnorm(3)
 z <- pi
-bundle <- list(x,y,z) # save multiple objects in a single list
+bundle <- list(x=x,y=y,z=z) # save multiple objects in a single list
 saveRDS(object=bundle,
         file="DataObjects/bundle.rds") 
 restored_bundle <- readRDS(file="DataObjects/bundle.rds")
@@ -157,6 +172,14 @@ l('this message only shows in the log file')
 l()
 ```
 
+## Retain logs for debugging purposes
+```{r}
+set_up_log(overwrite_log=FALSE)
+l('new message')
+l()
+
+set_up_log()
+```
 
 # Add an 'old school' progress bar to your `for loop`: `show_progress(bar)`
 

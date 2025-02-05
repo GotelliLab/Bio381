@@ -62,8 +62,8 @@ March 19  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.htmlx) | [Homew
 March 20  | [For Loops I](Lectures/ForLoops_I.htmlx) | -
 March 25 | [For Loops II](Lectures/ForLoops_II.htmlx) | -
 March 26  | - | [Homework #9](Homeworks/Homework_09.htmlx)
-March 27  | [Strategic Coding Practices I](CourseMaterials/StrategicCodingPractices.zip) | -
-April 1  | [Strategic Coding Practices II](CourseMaterials/StrategicCodingPractices.zip)  | -
+March 27  | [Strategic Coding Practices I](StrategicCodingPractices.html) | -
+April 1  | [Strategic Coding Practices II](StrategicCodingPractices.html)  | -
 April 2  | - | [Homework #10](Homeworks/Homework_10.htmlx)
 April 3  | [ggplot I](Lectures/ggplot_I.htmlx) | -
 April 8  | [ggplot II](Lectures/ggplot_II.htmlx)  | -
