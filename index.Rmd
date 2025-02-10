@@ -39,12 +39,12 @@ January 23  | [Regular Expressions](Lectures/RegularExpressions.html) | -
 January 28  | [Atomic Vectors I](Lectures/AtomicVectors_I.html) | - 
 January 29  |  -  | [Homework #3](Homeworks/Homework_03.html)
 January 30  | [Atomic Vectors II](Lectures/AtomicVectors_II.html) | - 
-February 4  | [Atomic Vectors II](Lectures/AtomicVectors_II.htmlx) | - 
+February 4  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.html) | - 
 February 5  | **Portfolio Check #1**  | [Homework #4](Homeworks/Homework_04.html)
-February 6  | [Atomic Vectors II](Lectures/AtomicVectors_II.htmlx)| - 
-February 11  | [Matrices, Lists, Data Frames](Lectures/MatricesListsDataFrames.htmlx) | -
+February 6  | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.html)| - 
+February 11  | [Functions I](Lectures/Functions.htmlx) | -
 February 12  | -  | [Homework #5](Homeworks/Homework_05.htmlx)
-February 13   | [Matrices, Lists, Data Frames II](Lectures/MatricesListsDataFrames.htmlx) | -
+February 13   | [Functions II](Lectures/Functions.htmlx) | -
 February 18 | [Probability Distributions](Lectures/ProbabilityDistributions.htmlx)| -
 February 19  | -  | [Homework # 6](Homeworks/Homework_06.htmlx)
 February 20 | [Data Curation](Lectures/DataCuration.htmlx)| -

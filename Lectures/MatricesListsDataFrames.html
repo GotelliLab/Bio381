@@ -428,7 +428,7 @@ display: none;
 
 <h1 class="title toc-ignore">Matrices, Lists, &amp; Data Frames</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">13,15 February 2024</h4>
+<h4 class="date">6,11 February 2025</h4>
 
 </div>
 
@@ -719,6 +719,71 @@ frames</h3>
 <span id="cb6-99"><a href="#cb6-99" tabindex="-1"></a><span class="co"># from a data frame to a vector</span></span>
 <span id="cb6-100"><a href="#cb6-100" tabindex="-1"></a>data_names <span class="ot">&lt;-</span> data[ ,<span class="st">&quot;county&quot;</span>]</span>
 <span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="fu">str</span>(data_names)</span></code></pre></div>
+</div>
+<div id="data-curation" class="section level2">
+<h2>Data curation</h2>
+<ul>
+<li>GitHub repository<br />
+</li>
+<li>Metadata<br />
+</li>
+<li><a href="https://gotellilab.github.io/Bio381/Scripts/Feb02/ExcelDataTemplate.xlsx">Metadata
+template</a><br />
+</li>
+<li>Example of Lauren’s data</li>
+</ul>
+</div>
+<div id="exporting-and-importing-data" class="section level2">
+<h2>Exporting and importing data</h2>
+<p>First create a tiny data set in Excel:</p>
+<pre><code># comments at the top
+# beaucoup metadata
+ID, Treatment, Biomass, Notes
+1, Control, 30.3, 
+2, HighN, 13.0, 
+3, HighN, NA, broken scale
+4, Control, 35.3,</code></pre>
+<ul>
+<li>Save as .csv</li>
+<li>Inspect in RStudio Editor</li>
+</ul>
+<div id="use-read.table-to-bring-in-data" class="section level3">
+<h3>Use <code>read.table</code> to bring in data</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;path/to/data.csv&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                    <span class="at">header=</span><span class="cn">TRUE</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                    <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                    <span class="at">comment.char=</span><span class="st">&quot;#&quot;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co"># inspect object</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="fu">str</span>(my_data)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co"># now add a column</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>my_data<span class="sc">$</span>newVar <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">4</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code></pre></div>
+</div>
+<div id="use-write.table-to-export-to-a-data-file" class="section level3">
+<h3>Use <code>write.table</code> to export to a data file</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x=</span>my_data,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;Path/To/OutputFileName.csv&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>            <span class="at">HEADER=</span><span class="cn">TRUE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>But this is not a good way to save or share data objects if we are
+working in R. Some researchers use the <code>save()</code> function,
+which preserves the whole environment, but once it is restored with
+<code>load()</code>, the variable names cannot be changed. It is better
+to use `saveRDS().</p>
+</div>
+<div id="saverds-useful-when-you-are-working-only-in-r" class="section level3">
+<h3><code>saveRDS()</code>: useful when you are working only in R</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">saveRDS</span>(my_data, <span class="at">file=</span><span class="st">&quot;Path/To/FileName.RDS&quot;</span>) <span class="co"># .RDS suffix is not required, but good for clarity</span></span></code></pre></div>
+<p>This only saves a single R object as a binary, but remember, you can
+bundle up many things into a single list!</p>
+<p>Use <code>readRDS()</code> to restore it.</p>
+</div>
+<div id="readrds" class="section level3">
+<h3><code>readRDS()</code></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>data_in <span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;FileName.RDS&quot;</span>) </span></code></pre></div>
+</div>
 </div>
 
 
