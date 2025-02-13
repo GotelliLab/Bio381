@@ -248,7 +248,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -498,35 +498,35 @@ output</li>
 <div id="a-sample-function-for-hardy-weinberg-equilibrium" class="section level3">
 <h3>A Sample Function For Hardy-Weinberg Equilibrium</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># FUNCTION: HardyWeinberg</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># FUNCTION: hardy_weinberg</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># input: an allele frequency p (0,1)</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span></span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#------------------------------------------------- </span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>HardyWeinberg <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>hardy_weinberg <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  q <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> p</span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  fAA <span class="ot">&lt;-</span> p<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  fAB <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>p<span class="sc">*</span>q</span>
 <span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  fBB <span class="ot">&lt;-</span> q<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a> vecOut <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a> <span class="fu">return</span>(vecOut)</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a> vec_out <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a> <span class="fu">return</span>(vec_out)</span>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>}</span>
 <span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a> <span class="fu">HardyWeinberg</span>()</span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a> <span class="fu">HardyWeinberg</span>(<span class="at">p=</span><span class="fl">0.5</span>) <span class="co"># pass to the parameter the value p</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a> <span class="fu">hardy_weinberg</span>()</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a> <span class="fu">hardy_weinberg</span>(<span class="at">p=</span><span class="fl">0.5</span>) <span class="co"># pass to the parameter the value p</span></span>
 <span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a> <span class="co"># print(p) # error because p does not exist in the global environment</span></span>
 <span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a> pp <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># variable pp is stored in global environment</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a> <span class="fu">HardyWeinberg</span>(<span class="at">p=</span>pp) <span class="co"># pass contents of variable pp to function parameter p</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a> <span class="fu">hardy_weinberg</span>(<span class="at">p=</span>pp) <span class="co"># pass contents of variable pp to function parameter p</span></span>
 <span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a> <span class="fu">print</span>(pp) <span class="co"># variable pp is still stored in memory</span></span></code></pre></div>
 </div>
 <div id="use-multiple-return-statements-for-different-possible-return-values" class="section level3">
 <h3>Use Multiple <code>return()</code> Statements For Different Possible
 Return Values</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># FUNCTION: HardyWeinberg2</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># FUNCTION: hardy_weinberg2</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># input: an allele frequency p (0,1)</span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span></span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#------------------------------------------------- </span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>HardyWeinberg2<span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>hardy_weinberg2<span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  <span class="cf">if</span> (p <span class="sc">&gt;</span> <span class="fl">1.0</span> <span class="sc">|</span> p <span class="sc">&lt;</span> <span class="fl">0.0</span>) {</span>
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Function failure: p must be &gt;= 0.0 and &lt;= 1.0&quot;</span>)</span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  }</span>
@@ -534,23 +534,23 @@ Return Values</h3>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  fAA <span class="ot">&lt;-</span> p<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  fAB <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>p<span class="sc">*</span>q</span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  fBB <span class="ot">&lt;-</span> q<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a> vecOut <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a> <span class="fu">return</span>(vecOut)</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a> vec_out <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a> <span class="fu">return</span>(vec_out)</span>
 <span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>  }</span>
 <span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  <span class="fu">HardyWeinberg2</span>()</span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>  <span class="fu">HardyWeinberg2</span>(<span class="fl">1.1</span>) <span class="co"># OK, print error to screen</span></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>  z <span class="ot">&lt;-</span> <span class="fu">HardyWeinberg2</span>(<span class="fl">1.1</span>) <span class="co"># uggh no error printed</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  <span class="fu">hardy_weinberg2</span>()</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>  <span class="fu">hardy_weinberg2</span>(<span class="fl">1.1</span>) <span class="co"># OK, print error to screen</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>  z <span class="ot">&lt;-</span> <span class="fu">hardy_weinberg2</span>(<span class="fl">1.1</span>) <span class="co"># uggh no error printed</span></span>
 <span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>  <span class="fu">print</span>(z) <span class="co"># Error message was saved to variable z!</span></span></code></pre></div>
 </div>
 <div id="use-stop-for-true-error-trapping" class="section level3">
 <h3>Use <code>Stop</code> For True Error Trapping</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">##################################################  </span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># FUNCTION: HardyWeinberg3</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># FUNCTION: hardy_weinberg3</span></span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># input: an allele frequency p (0,1)</span></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># output: p and the frequencies of the 3 genotypes AA, AB, BB</span></span>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#-------------------------------------------------</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>HardyWeinberg3<span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>hardy_weinberg3<span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="fu">runif</span>(<span class="dv">1</span>)) {</span>
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="cf">if</span> (p <span class="sc">&gt;</span> <span class="fl">1.0</span> <span class="sc">|</span> p <span class="sc">&lt;</span> <span class="fl">0.0</span>) {</span>
 <span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Function failure: p must be &gt;= 0.0 and &lt;= 1.0&quot;</span>)</span>
 <span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  }</span>
@@ -558,12 +558,12 @@ Return Values</h3>
 <span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  fAA <span class="ot">&lt;-</span> p<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  fAB <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>p<span class="sc">*</span>q</span>
 <span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  fBB <span class="ot">&lt;-</span> q<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a> vecOut <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a> <span class="fu">return</span>(vecOut)</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a> vec_out <span class="ot">&lt;-</span> <span class="fu">signif</span>(<span class="fu">c</span>(<span class="at">p=</span>p,<span class="at">AA=</span>fAA,<span class="at">AB=</span>fAB,<span class="at">BB=</span>fBB),<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a> <span class="fu">return</span>(vec_out)</span>
 <span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  }</span>
 <span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="do">##################################################  </span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">HardyWeinberg3</span>()</span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#  z &lt;- HardyWeinberg3(1.1) </span></span></code></pre></div>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">hardy_weinberg3</span>()</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#  z &lt;- hardy_weinberg3(1.1) </span></span></code></pre></div>
 </div>
 <div id="scoping-in-functions" class="section level3">
 <h3>Scoping In Functions</h3>
@@ -575,71 +575,71 @@ or passed to function through parameters</li>
 <li>functions “can” see variables in global environment</li>
 <li>global environment cannot see variables in function environment</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>myFunc <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>,<span class="at">b=</span><span class="dv">4</span>) {</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>my_func <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>,<span class="at">b=</span><span class="dv">4</span>) {</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  z <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="fu">return</span>(z)</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>}</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="fu">myFunc</span>()</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="fu">my_func</span>()</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>myFuncBad <span class="ot">&lt;-</span><span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>) {</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>my_funcBad <span class="ot">&lt;-</span><span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>) {</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  z <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
 <span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  <span class="fu">return</span>(z)</span>
 <span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>}</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="fu">myFuncBad</span>() <span class="co"># crashes because it can&#39;t find b</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="fu">my_func_bad</span>() <span class="co"># crashes because it can&#39;t find b</span></span>
 <span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="fu">myFuncBad</span>() <span class="co"># OK now because b exists as a global variable</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="fu">my_func_bad</span>() <span class="co"># OK now because b exists as a global variable</span></span>
 <span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a></span>
 <span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co"># But it is fine to create variables locally</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>myFuncOK <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>) {</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>my_func_ok <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">a=</span><span class="dv">3</span>) {</span>
 <span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>  bb <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>  z <span class="ot">&lt;-</span> a <span class="sc">+</span> bb</span>
 <span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  <span class="fu">return</span>(z)</span>
 <span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>}</span>
 <span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="fu">myFuncOK</span>() <span class="co"># no problems now</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="fu">my_func_ok</span>() <span class="co"># no problems now</span></span>
 <span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="fu">print</span>(bb) <span class="co"># but this variable is still hidden from the global environment</span></span></code></pre></div>
 </div>
 <div id="simple-regression-function" class="section level3">
 <h3>Simple regression function</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># FUNCTION: fitLinear </span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># FUNCTION: fit_linear </span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># fits simple regression line</span></span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># inputs: numeric vector of predictor (x) and response (y)</span></span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># outputs: slope and p-value</span></span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#------------------------------------------------- </span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>fitLinear <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">20</span>)) {</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  myMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x) <span class="co"># fit the model</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  myOut <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">slope=</span><span class="fu">summary</span>(myMod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],</span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>             <span class="at">pValue=</span><span class="fu">summary</span>(myMod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>fit_linear <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">20</span>)) {</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  my_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x) <span class="co"># fit the model</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  my_out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">slope=</span><span class="fu">summary</span>(my_mod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>             <span class="at">p_value=</span><span class="fu">summary</span>(my_mod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])</span>
 <span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">x=</span>x,<span class="at">y=</span>y) <span class="co"># quick and dirty plot to check output</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="fu">return</span>(myOut)</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="fu">return</span>(my_out)</span>
 <span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>}</span>
 <span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="fu">fitLinear</span>()</span></code></pre></div>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="fu">fit_linear</span>()</span></code></pre></div>
 </div>
 <div id="creating-a-more-complex-default-value" class="section level3">
 <h3>Creating a more complex default value</h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co"># FUNCTION: fitLinear2       </span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co"># FUNCTION: fit_linear2       </span></span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co"># fits simple regression line</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># inputs: numeric vector of predictor (x) and response (y)</span></span>
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co"># outputs: slope and p-value</span></span>
 <span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#------------------------------------------------- </span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>fitLinear2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="cn">NULL</span>) {</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>fit_linear2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">p=</span><span class="cn">NULL</span>) {</span>
 <span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(p)) {</span>
 <span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>     p <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">20</span>),<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">20</span>))</span>
 <span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  }</span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>  myMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(p<span class="sc">$</span>x<span class="sc">~</span>p<span class="sc">$</span>y) <span class="co"># fit the model</span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>  myOut <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">slope=</span><span class="fu">summary</span>(myMod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],</span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>             <span class="at">pValue=</span><span class="fu">summary</span>(myMod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>  my_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(p<span class="sc">$</span>x<span class="sc">~</span>p<span class="sc">$</span>y) <span class="co"># fit the model</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>  my_out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">slope=</span><span class="fu">summary</span>(my_mod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>],</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>             <span class="at">p_value=</span><span class="fu">summary</span>(my_mod)<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">4</span>])</span>
 <span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">x=</span>p<span class="sc">$</span>x,<span class="at">y=</span>p<span class="sc">$</span>y) <span class="co"># quick and dirty plot to check output</span></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>  <span class="fu">return</span>(myOut)</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>  <span class="fu">return</span>(my_out)</span>
 <span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>}</span>
 <span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a><span class="do">##################################################</span></span>
-<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="fu">fitLinear2</span>()</span>
-<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>myPars <span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">y=</span><span class="fu">runif</span>(<span class="dv">10</span>))</span>
-<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="fu">fitLinear2</span>(myPars)</span></code></pre></div>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="fu">fit_linear2</span>()</span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>my_pars <span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">y=</span><span class="fu">sort</span>(<span class="fu">runif</span>(<span class="dv">10</span>)))</span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="fu">fit_linear2</span>(my_pars)</span></code></pre></div>
 </div>
 <div id="using-do.call-to-pass-a-list-of-parameters-to-a-function" class="section level1">
 <h1>Using <code>do.call</code> To Pass A List Of Parameters To A
