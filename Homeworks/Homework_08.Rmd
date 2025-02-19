@@ -1,7 +1,7 @@
 ---
-title: 'Homework #7'
+title: 'Homework #6'
 author: "Nicholas J. Gotelli"
-date: '22 March 2023'
+date: '19 February 2025'
 output:
   html_document:
     highlight: tango
@@ -20,7 +20,8 @@ output:
 
 5. Try running your analysis multiple times to get a feeling for how variable the results are with the same parameters, but different sets of random numbers.
 
-6. Now begin adjusting the means of the different groups. Given the sample sizes you have chosen, how small can the differences between the groups be (the "effect size") for you to still detect a significant pattern (p < 0.05)?
+6. Now, using a series of for loops, adjust the parameters of your data to explore how they might impact your results/analysis, and store the results of your for loops into an object so you can view it. For example, what happens if you were to start with a small sample size and then re-run your analysis? Would you still get a significant result? What if you were to increase that sample size by 5, or 10? How small can your sample size be before you detect a significant pattern (p < 0.05)? How small can the differences between the groups be (the "effect size") for you to still detect a significant pattern?  
+
 
 7. Alternatively, for the effect sizes you originally hypothesized, what is the minimum sample size you would need in order to detect a statistically significant effect? Again, run the model a few times with the same parameter set to get a feeling for the effect of random variation in the data.
 

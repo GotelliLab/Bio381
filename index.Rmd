@@ -46,7 +46,7 @@ February 11  | [Functions I](Lectures/Functions.html) | -
 February 12  | -  | [Homework #5](Homeworks/Homework_05.html)
 February 13   | [Functions II](Lectures/Functions.html) | -
 February 18 | [Control Structures](Lectures/ControlStructures_I.html)| -
-February 19  | -  | [Homework # 6](Homeworks/Homework_06.htmlx)
+February 19  | -  | [Homework # 6](Homeworks/Homework_08.html)
 February 20 | [Data Curation](Lectures/DataCuration.htmlx)| -
 February 25  |[Functions](Lectures/Functions.htmlx) | [(Experimental Designs)](Lectures/ExperimentalDesigns.htmlx)
 February 26  |  | [Homework # 7](Homeworks/Homework_08.htmlx) 
