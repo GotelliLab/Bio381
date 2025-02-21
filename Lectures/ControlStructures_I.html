@@ -11,9 +11,9 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2024-03-07" />
+<meta name="date" content="2025-02-18" />
 
-<title>Control Structures I</title>
+<title>Control Structures</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -237,7 +237,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -248,7 +248,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -427,9 +427,9 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Control Structures I</h1>
+<h1 class="title toc-ignore">Control Structures</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">7 March 2024</h4>
+<h4 class="date">18 February 2025</h4>
 
 </div>
 
@@ -604,7 +604,7 @@ purposes.</p>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">table</span>(z)</span></code></pre></div>
 <pre><code>## z
 ## lowerTail    nonSig upperTail 
-##        28       946        26</code></pre>
+##        21       953        26</code></pre>
 <p>Here is how I would probably do this</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>z1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;nonSig&quot;</span>,<span class="dv">1000</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>z1[pVals<span class="sc">&lt;=</span><span class="fl">0.025</span>] <span class="ot">&lt;-</span> <span class="st">&quot;lowerTail&quot;</span></span>
@@ -612,7 +612,7 @@ purposes.</p>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">table</span>(z1)</span></code></pre></div>
 <pre><code>## z1
 ## lowerTail    nonSig upperTail 
-##        28       946        26</code></pre>
+##        21       953        26</code></pre>
 </div>
 
 

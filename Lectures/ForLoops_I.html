@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicholas J. Gotelli" />
 
-<meta name="date" content="2024-03-21" />
+<meta name="date" content="2025-02-20" />
 
 <title>For Loops I</title>
 
@@ -248,7 +248,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -429,7 +429,7 @@ display: none;
 
 <h1 class="title toc-ignore">For Loops I</h1>
 <h4 class="author">Nicholas J. Gotelli</h4>
-<h4 class="date">21 March 2024</h4>
+<h4 class="date">20 February 2025</h4>
 
 </div>
 
@@ -476,19 +476,19 @@ to all for loops.</p>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## stuck in a loop 
 ## 5 
-## 0.5616766 
+## 0.9023937 
 ## stuck in a loop 
 ## 5 
-## 0.4326963 
+## 0.2153223 
 ## stuck in a loop 
 ## 5 
-## 0.604849 
+## 0.4528563 
 ## stuck in a loop 
 ## 5 
-## 0.7496482 
+## 0.4190538 
 ## stuck in a loop 
 ## 5 
-## 0.2151667</code></pre>
+## 0.9628416</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">print</span>(i)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>Instead, we want to use a counter variable that maps to the position
@@ -558,18 +558,18 @@ length of the vector:</p>
 <span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  my_dat <span class="ot">&lt;-</span> <span class="fu">c</span>(my_dat,temp) <span class="co"># do not change vector size in the loop!</span></span>
 <span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;loop number =&quot;</span>,i,<span class="st">&quot;vector element =&quot;</span>, my_dat[i],<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## loop number = 2 vector element = 0.2174434 
-## loop number = 3 vector element = 0.563367 
-## loop number = 4 vector element = 0.8625764 
-## loop number = 5 vector element = 0.2639413 
-## loop number = 6 vector element = 0.6354729 
-## loop number = 7 vector element = 0.6397322 
-## loop number = 8 vector element = 0.1105476 
-## loop number = 9 vector element = 0.5726199 
-## loop number = 10 vector element = 0.993259</code></pre>
+<pre><code>## loop number = 2 vector element = 0.7974154 
+## loop number = 3 vector element = 0.8843106 
+## loop number = 4 vector element = 0.92673 
+## loop number = 5 vector element = 0.8038083 
+## loop number = 6 vector element = 0.1413325 
+## loop number = 7 vector element = 0.2744049 
+## loop number = 8 vector element = 0.9630595 
+## loop number = 9 vector element = 0.3426371 
+## loop number = 10 vector element = 0.2745097</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">print</span>(my_dat)</span></code></pre></div>
-<pre><code>##  [1] 0.3814199 0.2174434 0.5633670 0.8625764 0.2639413 0.6354729 0.6397322
-##  [8] 0.1105476 0.5726199 0.9932590</code></pre>
+<pre><code>##  [1] 0.6334711 0.7974154 0.8843106 0.9267300 0.8038083 0.1413325 0.2744049
+##  [8] 0.9630595 0.3426371 0.2745097</code></pre>
 </div>
 <div id="tip-3-do-not-write-a-loop-if-you-can-vectorize-an-operation" class="section level4">
 <h4>Tip #3: Do not write a loop if you can vectorize an operation</h4>
