@@ -237,7 +237,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -272,11 +272,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -285,14 +285,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -469,9 +469,9 @@ operations<br />
 </div>
 <div id="start-with-a-built-in-dataset" class="section level3">
 <h3>Start with a built-in dataset</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(starwars)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data</span>(starwars)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">class</span>(starwars)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 </div>
 <div id="what-is-a-tibble" class="section level3">
@@ -480,10 +480,16 @@ operations<br />
 <li>“a modern take on data frames”<br />
 </li>
 <li>said to keep the great aspects of data frames and drops the
-frustrating ones (i.e. changing variable names, changing an input
-type)</li>
+frustrating ones (i.e. changing variable names, changing an input type)
+In general, tibbles do “less” as a tradeoff to make code simpler and
+less prone to crashing. A few examples of what they change from data
+frames:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(starwars) <span class="co">#more effective than str() in this case   </span></span></code></pre></div>
+<p>Tibbles will never change the names of variables, and will never
+create row names. They also make printing easier, and so are often a
+good choice when working with large datasets and don’t want to overload
+your console.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">glimpse</span>(starwars) <span class="co">#more effective than str() in this case   </span></span></code></pre></div>
 <pre><code>## Rows: 87
 ## Columns: 14
 ## $ name       &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;R2-D2&quot;, &quot;Darth Vader&quot;, &quot;Leia Or…
@@ -497,42 +503,69 @@ type)</li>
 ## $ gender     &lt;chr&gt; &quot;masculine&quot;, &quot;masculine&quot;, &quot;masculine&quot;, &quot;masculine&quot;, &quot;femini…
 ## $ homeworld  &lt;chr&gt; &quot;Tatooine&quot;, &quot;Tatooine&quot;, &quot;Naboo&quot;, &quot;Tatooine&quot;, &quot;Alderaan&quot;, &quot;T…
 ## $ species    &lt;chr&gt; &quot;Human&quot;, &quot;Droid&quot;, &quot;Droid&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Huma…
-## $ films      &lt;list&gt; &lt;&quot;The Empire Strikes Back&quot;, &quot;Revenge of the Sith&quot;, &quot;Return…
+## $ films      &lt;list&gt; &lt;&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the J…
 ## $ vehicles   &lt;list&gt; &lt;&quot;Snowspeeder&quot;, &quot;Imperial Speeder Bike&quot;&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, &quot;Imp…
 ## $ starships  &lt;list&gt; &lt;&quot;X-wing&quot;, &quot;Imperial shuttle&quot;&gt;, &lt;&gt;, &lt;&gt;, &quot;TIE Advanced x1&quot;,…</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars) <span class="co">#looks a little different since it&#39;s a tibble (mentions dimensions and also states variable type)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">head</span>(starwars) <span class="co">#looks a little different since it&#39;s a tibble (mentions dimensions and also states variable type)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 14
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-## 2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
-## 3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
-## 4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-## 5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-## 6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+## 2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+## 3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+## 4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+## 5 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+## 6 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 <div id="cleaning-up-our-data" class="section level3">
 <h3>Cleaning up our data</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># complete.cases is not part of dplyr, but it is very useful!</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dataClean &lt;- starwars[complete.cases(starwars),] # removes all rows with NA values but doesn&#39;t work with lists</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># to get complete cases for just certain columns </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>starwarsClean <span class="ot">&lt;-</span>starwars[<span class="fu">complete.cases</span>(starwars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]),]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for NAs</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(starwarsClean[<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co">#useful for only a few observations since it returns a list of True/False</span></span></code></pre></div>
-<pre><code>##       name
-## [1,] FALSE</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(starwarsClean)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># complete.cases is not part of dplyr, but it is very useful!</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#dataClean &lt;- starwars[complete.cases(starwars),] # removes all rows with NA values but doesn&#39;t work with lists</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># to get complete cases for just certain columns </span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>starwarsClean <span class="ot">&lt;-</span>starwars[<span class="fu">complete.cases</span>(starwars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]),]</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co"># Check for NAs</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="fu">is.na</span>(starwarsClean[,<span class="dv">1</span>]) <span class="co">#useful for only a few observations since it returns a list of True/False</span></span></code></pre></div>
+<pre><code>##        name
+##  [1,] FALSE
+##  [2,] FALSE
+##  [3,] FALSE
+##  [4,] FALSE
+##  [5,] FALSE
+##  [6,] FALSE
+##  [7,] FALSE
+##  [8,] FALSE
+##  [9,] FALSE
+## [10,] FALSE
+## [11,] FALSE
+## [12,] FALSE
+## [13,] FALSE
+## [14,] FALSE
+## [15,] FALSE
+## [16,] FALSE
+## [17,] FALSE
+## [18,] FALSE
+## [19,] FALSE
+## [20,] FALSE
+## [21,] FALSE
+## [22,] FALSE
+## [23,] FALSE
+## [24,] FALSE
+## [25,] FALSE
+## [26,] FALSE
+## [27,] FALSE
+## [28,] FALSE
+## [29,] FALSE</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">anyNA</span>(starwarsClean[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(starwars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]) <span class="co"># compared to our original dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">anyNA</span>(starwars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]) <span class="co"># compared to our original dataset</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What does our data look like now?</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(starwarsClean) <span class="co"># the list columns are still there but no NAs in columns 1-10</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># What does our data look like now?</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">glimpse</span>(starwarsClean) <span class="co"># the list columns are still there but no NAs in columns 1-10</span></span></code></pre></div>
 <pre><code>## Rows: 29
 ## Columns: 14
 ## $ name       &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;Darth Vader&quot;, &quot;Leia Organa&quot;, &quot;Owen Lars&quot;…
@@ -546,242 +579,237 @@ type)</li>
 ## $ gender     &lt;chr&gt; &quot;masculine&quot;, &quot;masculine&quot;, &quot;feminine&quot;, &quot;masculine&quot;, &quot;feminin…
 ## $ homeworld  &lt;chr&gt; &quot;Tatooine&quot;, &quot;Tatooine&quot;, &quot;Alderaan&quot;, &quot;Tatooine&quot;, &quot;Tatooine&quot;,…
 ## $ species    &lt;chr&gt; &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Huma…
-## $ films      &lt;list&gt; &lt;&quot;The Empire Strikes Back&quot;, &quot;Revenge of the Sith&quot;, &quot;Return…
+## $ films      &lt;list&gt; &lt;&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the J…
 ## $ vehicles   &lt;list&gt; &lt;&quot;Snowspeeder&quot;, &quot;Imperial Speeder Bike&quot;&gt;, &lt;&gt;, &quot;Imperial Sp…
 ## $ starships  &lt;list&gt; &lt;&quot;X-wing&quot;, &quot;Imperial shuttle&quot;&gt;, &quot;TIE Advanced x1&quot;, &lt;&gt;, &lt;&gt;,…</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwarsClean)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">head</span>(starwarsClean)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 14
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-## 2 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-## 3 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-## 4 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-## 5 Beru Whites…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-## 6 Biggs Darkl…    183    84 black   light   brown      24   male  mascu… Tatooi…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+## 2 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+## 3 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+## 4 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+## 5 Beru Whi…    165    75 brown      light      blue            47   fema… femin…
+## 6 Biggs Da…    183    84 black      light      brown           24   male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 <div id="filter-picksubset-observations-by-their-values" class="section level3">
 <h3><code>filter()</code>: Pick/subset observations by their values</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">### uses &gt;, &gt;=, &lt;, &lt;=,!=, == (not just one!) for comparisons   </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Logical operators: &amp; | !</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># filter automatically excludes NAs, have to ask for them specifically </span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(starwarsClean, gender <span class="sc">==</span> <span class="st">&quot;masculine&quot;</span> <span class="sc">&amp;</span> height <span class="sc">&lt;</span> <span class="dv">180</span>) <span class="co"># you can also use commas in place of &amp;   </span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="do">### uses &gt;, &gt;=, &lt;, &lt;=,!=, == (not just one!) for comparisons   </span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="do">### Logical operators: &amp; | !</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co"># filter automatically excludes NAs, have to ask for them specifically </span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="fu">filter</span>(starwarsClean, gender <span class="sc">==</span> <span class="st">&quot;masculine&quot;</span> <span class="sc">&amp;</span> height <span class="sc">&lt;</span> <span class="dv">180</span>) <span class="co"># you can also use commas in place of &amp;   </span></span></code></pre></div>
 <pre><code>## # A tibble: 8 × 14
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Luke Skywal…    172    77 blond   fair    blue         19 male  mascu… Tatooi…
-## 2 Owen Lars       178   120 brown,… light   blue         52 male  mascu… Tatooi…
-## 3 Wedge Antil…    170    77 brown   fair    hazel        21 male  mascu… Corell…
-## 4 Palpatine       170    75 grey    pale    yellow       82 male  mascu… Naboo  
-## 5 Lando Calri…    177    79 black   dark    brown        31 male  mascu… Socorro
-## 6 Lobot           175    79 none    light   blue         37 male  mascu… Bespin 
-## 7 Wicket Syst…     88    20 brown   brown   brown         8 male  mascu… Endor  
-## 8 Darth Maul      175    80 none    red     yellow       54 male  mascu… Dathom…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(starwars, gender <span class="sc">==</span> <span class="st">&quot;masculine&quot;</span>, height <span class="sc">&lt;</span><span class="dv">180</span>, height <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="co"># can add multiple conditions for the same variable   </span></span></code></pre></div>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+## 2 Owen Lars    178   120 brown, gr… light      blue              52 male  mascu…
+## 3 Wedge An…    170    77 brown      fair       hazel             21 male  mascu…
+## 4 Palpatine    170    75 grey       pale       yellow            82 male  mascu…
+## 5 Lando Ca…    177    79 black      dark       brown             31 male  mascu…
+## 6 Lobot        175    79 none       light      blue              37 male  mascu…
+## 7 Wicket S…     88    20 brown      brown      brown              8 male  mascu…
+## 8 Darth Ma…    175    80 none       red        yellow            54 male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">filter</span>(starwars, gender <span class="sc">==</span> <span class="st">&quot;masculine&quot;</span>, height <span class="sc">&lt;</span><span class="dv">180</span>, height <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="co"># can add multiple conditions for the same variable   </span></span></code></pre></div>
 <pre><code>## # A tibble: 17 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue         19 male  mascu… Tatooi…
-##  2 C-3PO          167    75 &lt;NA&gt;    gold    yellow      112 none  mascu… Tatooi…
-##  3 Owen Lars      178   120 brown,… light   blue         52 male  mascu… Tatooi…
-##  4 Greedo         173    74 &lt;NA&gt;    green   black        44 male  mascu… Rodia  
-##  5 Jabba Desi…    175  1358 &lt;NA&gt;    green-… orange      600 herm… mascu… Nal Hu…
-##  6 Wedge Anti…    170    77 brown   fair    hazel        21 male  mascu… Corell…
-##  7 Palpatine      170    75 grey    pale    yellow       82 male  mascu… Naboo  
-##  8 Lando Calr…    177    79 black   dark    brown        31 male  mascu… Socorro
-##  9 Lobot          175    79 none    light   blue         37 male  mascu… Bespin 
-## 10 Nien Nunb      160    68 none    grey    black        NA male  mascu… Sullust
-## 11 Finis Valo…    170    NA blond   fair    blue         91 male  mascu… Corusc…
-## 12 Watto          137    NA black   blue, … yellow       NA male  mascu… Toydar…
-## 13 Sebulba        112    40 none    grey, … orange       NA male  mascu… Malast…
-## 14 Darth Maul     175    80 none    red     yellow       54 male  mascu… Dathom…
-## 15 Gasgano        122    NA none    white,… black        NA male  mascu… Troiken
-## 16 Ben Quadin…    163    65 none    grey, … orange       NA male  mascu… Tund   
-## 17 Eeth Koth      171    NA black   brown   brown        NA male  mascu… Iridon…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(starwars, eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>)) <span class="co"># we can use %in% for a few conditions, similar to ==</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue              19 male  mascu…
+##  2 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+##  3 Owen La…    178   120 brown, gr… light      blue              52 male  mascu…
+##  4 Greedo      173    74 &lt;NA&gt;       green      black             44 male  mascu…
+##  5 Jabba D…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
+##  6 Wedge A…    170    77 brown      fair       hazel             21 male  mascu…
+##  7 Palpati…    170    75 grey       pale       yellow            82 male  mascu…
+##  8 Lando C…    177    79 black      dark       brown             31 male  mascu…
+##  9 Lobot       175    79 none       light      blue              37 male  mascu…
+## 10 Nien Nu…    160    68 none       grey       black             NA male  mascu…
+## 11 Finis V…    170    NA blond      fair       blue              91 male  mascu…
+## 12 Watto       137    NA black      blue, grey yellow            NA male  mascu…
+## 13 Sebulba     112    40 none       grey, red  orange            NA male  mascu…
+## 14 Darth M…    175    80 none       red        yellow            54 male  mascu…
+## 15 Gasgano     122    NA none       white, bl… black             NA male  mascu…
+## 16 Ben Qua…    163    65 none       grey, gre… orange            NA male  mascu…
+## 17 Eeth Ko…    171    NA black      brown      brown             NA male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">filter</span>(starwars, eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>)) <span class="co"># we can use %in% for a few conditions, similar to ==</span></span></code></pre></div>
 <pre><code>## # A tibble: 40 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  3 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  4 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  5 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  6 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  7 Wilhuff Ta…    180    NA auburn… fair    blue       64   male  mascu… Eriadu 
-##  8 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-##  9 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## 10 Jek Tono P…    180   110 brown   fair    blue       NA   male  mascu… Bestin…
-## # … with 30 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  3 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  4 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  5 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  6 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  7 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…
+##  8 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+##  9 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## 10 Jek Ton…    180   110 brown      fair       blue            NA   &lt;NA&gt;  &lt;NA&gt;  
+## # ℹ 30 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 <div id="arrange-reorder-rows" class="section level3">
 <h3><code>arrange()</code>: Reorder rows</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, <span class="at">by =</span> height) <span class="co">#default is ascending order   </span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, <span class="at">by =</span> height) <span class="co">#default is ascending order   </span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Wicket Sys…     88  20   brown   brown   brown         8 male  mascu… Endor  
-##  2 Leia Organa    150  49   brown   light   brown        19 fema… femin… Aldera…
-##  3 Beru White…    165  75   brown   light   blue         47 fema… femin… Tatooi…
-##  4 Padmé Amid…    165  45   brown   light   brown        46 fema… femin… Naboo  
-##  5 Barriss Of…    166  50   black   yellow  blue         40 fema… femin… Mirial 
-##  6 Wedge Anti…    170  77   brown   fair    hazel        21 male  mascu… Corell…
-##  7 Palpatine      170  75   grey    pale    yellow       82 male  mascu… Naboo  
-##  8 Luminara U…    170  56.2 black   yellow  blue         58 fema… femin… Mirial 
-##  9 Luke Skywa…    172  77   blond   fair    blue         19 male  mascu… Tatooi…
-## 10 Lobot          175  79   none    light   blue         37 male  mascu… Bespin 
-## # … with 19 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, <span class="at">by =</span> <span class="fu">desc</span>(height)) <span class="co">#we can use desc() to change that</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Wicket …     88  20   brown      brown      brown              8 male  mascu…
+##  2 Leia Or…    150  49   brown      light      brown             19 fema… femin…
+##  3 Beru Wh…    165  75   brown      light      blue              47 fema… femin…
+##  4 Barriss…    166  50   black      yellow     blue              40 fema… femin…
+##  5 Wedge A…    170  77   brown      fair       hazel             21 male  mascu…
+##  6 Palpati…    170  75   grey       pale       yellow            82 male  mascu…
+##  7 Luminar…    170  56.2 black      yellow     blue              58 fema… femin…
+##  8 Luke Sk…    172  77   blond      fair       blue              19 male  mascu…
+##  9 Lobot       175  79   none       light      blue              37 male  mascu…
+## 10 Darth M…    175  80   none       red        yellow            54 male  mascu…
+## # ℹ 19 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, <span class="at">by =</span> <span class="fu">desc</span>(height)) <span class="co">#we can use desc() to change that</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Ki-Adi-Mun…    198    82 white   pale    yellow     92   male  mascu… Cerea  
-##  4 Jar Jar Bi…    196    66 none    orange  orange     52   male  mascu… Naboo  
-##  5 Dooku          193    80 white   fair    brown     102   male  mascu… Serenno
-##  6 Bossk          190   113 none    green   red        53   male  mascu… Trando…
-##  7 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  8 Mace Windu     188    84 none    dark    brown      72   male  mascu… Haruun…
-##  9 Plo Koon       188    80 none    orange  black      22   male  mascu… Dorin  
-## 10 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-## # … with 19 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, height, <span class="fu">desc</span>(mass)) <span class="co"># each additional column used to break ties with the preceding column</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Ki-Adi-…    198    82 white      pale       yellow          92   male  mascu…
+##  4 Jar Jar…    196    66 none       orange     orange          52   male  mascu…
+##  5 Dooku       193    80 white      fair       brown          102   male  mascu…
+##  6 Bossk       190   113 none       green      red             53   male  mascu…
+##  7 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  8 Mace Wi…    188    84 none       dark       brown           72   male  mascu…
+##  9 Plo Koon    188    80 none       orange     black           22   male  mascu…
+## 10 Padmé A…    185    45 brown      light      brown           46   fema… femin…
+## # ℹ 19 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">arrange</span>(starwarsClean, height, <span class="fu">desc</span>(mass)) <span class="co"># each additional column used to break ties with the preceding column</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Wicket Sys…     88  20   brown   brown   brown         8 male  mascu… Endor  
-##  2 Leia Organa    150  49   brown   light   brown        19 fema… femin… Aldera…
-##  3 Beru White…    165  75   brown   light   blue         47 fema… femin… Tatooi…
-##  4 Padmé Amid…    165  45   brown   light   brown        46 fema… femin… Naboo  
-##  5 Barriss Of…    166  50   black   yellow  blue         40 fema… femin… Mirial 
-##  6 Wedge Anti…    170  77   brown   fair    hazel        21 male  mascu… Corell…
-##  7 Palpatine      170  75   grey    pale    yellow       82 male  mascu… Naboo  
-##  8 Luminara U…    170  56.2 black   yellow  blue         58 fema… femin… Mirial 
-##  9 Luke Skywa…    172  77   blond   fair    blue         19 male  mascu… Tatooi…
-## 10 Darth Maul     175  80   none    red     yellow       54 male  mascu… Dathom…
-## # … with 19 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>starwars1<span class="ot">&lt;-</span> <span class="fu">arrange</span>(starwars, height) <span class="co"># missing values are at the end; note we haven&#39;t been assigning anything to a variable, just printing (until now) </span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(starwars1)</span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Wicket …     88  20   brown      brown      brown              8 male  mascu…
+##  2 Leia Or…    150  49   brown      light      brown             19 fema… femin…
+##  3 Beru Wh…    165  75   brown      light      blue              47 fema… femin…
+##  4 Barriss…    166  50   black      yellow     blue              40 fema… femin…
+##  5 Wedge A…    170  77   brown      fair       hazel             21 male  mascu…
+##  6 Palpati…    170  75   grey       pale       yellow            82 male  mascu…
+##  7 Luminar…    170  56.2 black      yellow     blue              58 fema… femin…
+##  8 Luke Sk…    172  77   blond      fair       blue              19 male  mascu…
+##  9 Darth M…    175  80   none       red        yellow            54 male  mascu…
+## 10 Lobot       175  79   none       light      blue              37 male  mascu…
+## # ℹ 19 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>starwars1<span class="ot">&lt;-</span> <span class="fu">arrange</span>(starwars, height) <span class="co"># missing values are at the end; note we haven&#39;t been assigning anything to a variable, just printing (until now) </span></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="fu">tail</span>(starwars1)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 14
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Arvel Crynyd     NA    NA brown   fair    brown        NA male  mascu… &lt;NA&gt;   
-## 2 Finn             NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
-## 3 Rey              NA    NA brown   light   hazel        NA fema… femin… &lt;NA&gt;   
-## 4 Poe Dameron      NA    NA brown   light   brown        NA male  mascu… &lt;NA&gt;   
-## 5 BB8              NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
-## 6 Captain Pha…     NA    NA unknown unknown unknown      NA &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;   
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Arvel Cr…     NA    NA brown      fair       brown             NA male  mascu…
+## 2 Finn          NA    NA black      dark       dark              NA male  mascu…
+## 3 Rey           NA    NA brown      light      hazel             NA fema… femin…
+## 4 Poe Dame…     NA    NA brown      light      brown             NA male  mascu…
+## 5 BB8           NA    NA none       none       black             NA none  mascu…
+## 6 Captain …     NA    NA none       none       unknown           NA fema… femin…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 <div id="select-choose-variables-by-their-names" class="section level3">
 <h3><code>select()</code>: Choose variables by their names</h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## All of these do the same thing (subset)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>starwarsClean[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,] <span class="co"># using base R</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="do">## All of these do the same thing (subset)</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>starwarsClean[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,] <span class="co"># using base R</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 14
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># you can use numbers to subset</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># you can use numbers to subset</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 10
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, name<span class="sc">:</span>species) <span class="co"># you can use variables names too</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## # ℹ 19 more rows
+## # ℹ 1 more variable: homeworld &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, name<span class="sc">:</span>species) <span class="co"># you can use variables names too</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 11
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, 1 more variable: species &lt;chr&gt;, and abbreviated variable
-## #   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="sc">-</span>(films<span class="sc">:</span>starships)) <span class="co"># you can subset everything except particular variables</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## # ℹ 19 more rows
+## # ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="sc">-</span>(films<span class="sc">:</span>starships)) <span class="co"># you can subset everything except particular variables</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 11
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, 1 more variable: species &lt;chr&gt;, and abbreviated variable
-## #   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Rearrange columns</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, name, gender, species, <span class="fu">everything</span>()) <span class="co"># using the everything() helper function is useful if you have a few variables to move to the beginning</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## # ℹ 19 more rows
+## # ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="do">## Rearrange columns</span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, homeworld, name, gender, species, <span class="fu">everything</span>()) <span class="co"># using the everything() helper function is useful if you have a few variables to move to the beginning</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 14
-##    name        gender species height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex  
-##    &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
-##  1 Luke Skywa… mascu… Human      172    77 blond   fair    blue       19   male 
-##  2 Darth Vader mascu… Human      202   136 none    white   yellow     41.9 male 
-##  3 Leia Organa femin… Human      150    49 brown   light   brown      19   fema…
-##  4 Owen Lars   mascu… Human      178   120 brown,… light   blue       52   male 
-##  5 Beru White… femin… Human      165    75 brown   light   blue       47   fema…
-##  6 Biggs Dark… mascu… Human      183    84 black   light   brown      24   male 
-##  7 Obi-Wan Ke… mascu… Human      182    77 auburn… fair    blue-g…    57   male 
-##  8 Anakin Sky… mascu… Human      188    84 blond   fair    blue       41.9 male 
-##  9 Chewbacca   mascu… Wookiee    228   112 brown   unknown blue      200   male 
-## 10 Han Solo    mascu… Human      180    80 brown   fair    brown      29   male 
-## # … with 19 more rows, 4 more variables: homeworld &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="fu">contains</span>(<span class="st">&quot;color&quot;</span>)) <span class="do">## other helpers include: ends_with, starts_with, matches (reg ex), num_range</span></span></code></pre></div>
+##    homeworld name    gender species height  mass hair_color skin_color eye_color
+##    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    
+##  1 Tatooine  Luke S… mascu… Human      172    77 blond      fair       blue     
+##  2 Tatooine  Darth … mascu… Human      202   136 none       white      yellow   
+##  3 Alderaan  Leia O… femin… Human      150    49 brown      light      brown    
+##  4 Tatooine  Owen L… mascu… Human      178   120 brown, gr… light      blue     
+##  5 Tatooine  Beru W… femin… Human      165    75 brown      light      blue     
+##  6 Tatooine  Biggs … mascu… Human      183    84 black      light      brown    
+##  7 Stewjon   Obi-Wa… mascu… Human      182    77 auburn, w… fair       blue-gray
+##  8 Tatooine  Anakin… mascu… Human      188    84 blond      fair       blue     
+##  9 Kashyyyk  Chewba… mascu… Wookiee    228   112 brown      unknown    blue     
+## 10 Corellia  Han So… mascu… Human      180    80 brown      fair       brown    
+## # ℹ 19 more rows
+## # ℹ 5 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">select</span>(starwarsClean, <span class="fu">contains</span>(<span class="st">&quot;color&quot;</span>)) <span class="do">## other helpers include: ends_with, starts_with, matches (reg ex), num_range</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 3
 ##    hair_color    skin_color eye_color
 ##    &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;    
@@ -795,9 +823,9 @@ type)</li>
 ##  8 blond         fair       blue     
 ##  9 brown         unknown    blue     
 ## 10 brown         fair       brown    
-## # … with 19 more rows</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Renaming columns</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwars, <span class="at">haircolor =</span> hair_color) <span class="co"># select can rename but only keeps specified variable; actual name of the column comes after stating new name</span></span></code></pre></div>
+## # ℹ 19 more rows</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="do">## Renaming columns</span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a><span class="fu">select</span>(starwars, <span class="at">haircolor =</span> hair_color) <span class="co"># select can rename but only keeps specified variable; actual name of the column comes after stating new name</span></span></code></pre></div>
 <pre><code>## # A tibble: 87 × 1
 ##    haircolor    
 ##    &lt;chr&gt;        
@@ -811,79 +839,78 @@ type)</li>
 ##  8 &lt;NA&gt;         
 ##  9 black        
 ## 10 auburn, white
-## # … with 77 more rows</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(starwarsClean,  <span class="at">haircolor =</span> hair_color) <span class="co"># keeps all the variables</span></span></code></pre></div>
+## # ℹ 77 more rows</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="fu">rename</span>(starwarsClean,  <span class="at">haircolor =</span> hair_color) <span class="co"># keeps all the variables</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 14
-##    name        height  mass hairc…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​haircolor, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+##    name      height  mass haircolor skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sky…    172    77 blond     fair       blue            19   male  mascu…
+##  2 Darth Va…    202   136 none      white      yellow          41.9 male  mascu…
+##  3 Leia Org…    150    49 brown     light      brown           19   fema… femin…
+##  4 Owen Lars    178   120 brown, g… light      blue            52   male  mascu…
+##  5 Beru Whi…    165    75 brown     light      blue            47   fema… femin…
+##  6 Biggs Da…    183    84 black     light      brown           24   male  mascu…
+##  7 Obi-Wan …    182    77 auburn, … fair       blue-gray       57   male  mascu…
+##  8 Anakin S…    188    84 blond     fair       blue            41.9 male  mascu…
+##  9 Chewbacca    228   112 brown     unknown    blue           200   male  mascu…
+## 10 Han Solo     180    80 brown     fair       brown           29   male  mascu…
+## # ℹ 19 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 <div id="mutate-create-new-variables-with-functions-of-existing-variables" class="section level3">
 <h3><code>mutate()</code>: Create new variables with functions of
 existing variables</h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s create a new column that is a height divided by mass</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(starwarsClean, <span class="at">ratio =</span> height<span class="sc">/</span>mass) <span class="co"># note we use arithmetic operators </span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="co"># Let&#39;s create a new column that is a height divided by mass</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="fu">mutate</span>(starwarsClean, <span class="at">ratio =</span> height<span class="sc">/</span>mass) <span class="co"># note we use arithmetic operators </span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 15
-##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, 5 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, ratio &lt;dbl&gt;, and abbreviated variable
-## #   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>starwars_lbs <span class="ot">&lt;-</span> <span class="fu">mutate</span>(starwarsClean, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># now let&#39;s convert kg to lbs</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars_lbs) <span class="co"># mass_lbs is now the last variable of the tibble</span></span></code></pre></div>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+## # ℹ 19 more rows
+## # ℹ 6 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;, ratio &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>starwars_lbs <span class="ot">&lt;-</span> <span class="fu">mutate</span>(starwarsClean, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># now let&#39;s convert kg to lbs</span></span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a><span class="fu">head</span>(starwars_lbs) <span class="co"># mass_lbs is now the last variable of the tibble</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 15
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-## 2 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-## 3 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-## 4 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-## 5 Beru Whites…    165    75 brown   light   blue       47   fema… femin… Tatooi…
-## 6 Biggs Darkl…    183    84 black   light   brown      24   male  mascu… Tatooi…
-## # … with 5 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, mass_lbs &lt;dbl&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(starwars_lbs, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, mass_lbs, <span class="fu">everything</span>()) <span class="co"># we can bring it to the beginning using select</span></span></code></pre></div>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+## 2 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+## 3 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+## 4 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+## 5 Beru Whi…    165    75 brown      light      blue            47   fema… femin…
+## 6 Biggs Da…    183    84 black      light      brown           24   male  mascu…
+## # ℹ 6 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;, mass_lbs &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="fu">select</span>(starwars_lbs, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, mass_lbs, <span class="fu">everything</span>()) <span class="co"># we can bring it to the beginning using select</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 15
-##    name        height  mass mass_…¹ hair_…² skin_…³ eye_c…⁴ birth…⁵ sex   gender
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Luke Skywa…    172    77    169. blond   fair    blue       19   male  mascu…
-##  2 Darth Vader    202   136    299. none    white   yellow     41.9 male  mascu…
-##  3 Leia Organa    150    49    108. brown   light   brown      19   fema… femin…
-##  4 Owen Lars      178   120    264  brown,… light   blue       52   male  mascu…
-##  5 Beru White…    165    75    165  brown   light   blue       47   fema… femin…
-##  6 Biggs Dark…    183    84    185. black   light   brown      24   male  mascu…
-##  7 Obi-Wan Ke…    182    77    169. auburn… fair    blue-g…    57   male  mascu…
-##  8 Anakin Sky…    188    84    185. blond   fair    blue       41.9 male  mascu…
-##  9 Chewbacca      228   112    246. brown   unknown blue      200   male  mascu…
-## 10 Han Solo       180    80    176  brown   fair    brown      29   male  mascu…
-## # … with 19 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
-## #   names ¹​mass_lbs, ²​hair_color, ³​skin_color, ⁴​eye_color, ⁵​birth_year</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If we only wanted the new variable</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(starwarsClean, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># just keep the new variable</span></span></code></pre></div>
+##    name   height  mass mass_lbs hair_color skin_color eye_color birth_year sex  
+##    &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+##  1 Luke …    172    77     169. blond      fair       blue            19   male 
+##  2 Darth…    202   136     299. none       white      yellow          41.9 male 
+##  3 Leia …    150    49     108. brown      light      brown           19   fema…
+##  4 Owen …    178   120     264  brown, gr… light      blue            52   male 
+##  5 Beru …    165    75     165  brown      light      blue            47   fema…
+##  6 Biggs…    183    84     185. black      light      brown           24   male 
+##  7 Obi-W…    182    77     169. auburn, w… fair       blue-gray       57   male 
+##  8 Anaki…    188    84     185. blond      fair       blue            41.9 male 
+##  9 Chewb…    228   112     246. brown      unknown    blue           200   male 
+## 10 Han S…    180    80     176  brown      fair       brown           29   male 
+## # ℹ 19 more rows
+## # ℹ 6 more variables: gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="co"># If we only wanted the new variable</span></span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a><span class="fu">transmute</span>(starwarsClean, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># just keep the new variable</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 1
 ##    mass_lbs
 ##       &lt;dbl&gt;
@@ -897,8 +924,8 @@ existing variables</h3>
 ##  8     185.
 ##  9     246.
 ## 10     176 
-## # … with 19 more rows</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(starwarsClean, mass, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># you can mention variables you want to keep in the new dataset</span></span></code></pre></div>
+## # ℹ 19 more rows</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="fu">transmute</span>(starwarsClean, mass, <span class="at">mass_lbs=</span>mass<span class="sc">*</span><span class="fl">2.2</span>) <span class="co"># you can mention variables you want to keep in the new dataset</span></span></code></pre></div>
 <pre><code>## # A tibble: 29 × 2
 ##     mass mass_lbs
 ##    &lt;dbl&gt;    &lt;dbl&gt;
@@ -912,55 +939,54 @@ existing variables</h3>
 ##  8    84     185.
 ##  9   112     246.
 ## 10    80     176 
-## # … with 19 more rows</code></pre>
+## # ℹ 19 more rows</code></pre>
 </div>
 <div id="summarize-and-group_by-collapse-many-values-down-to-a-single-summary" class="section level3">
 <h3><code>summarize()</code> and <code>group_by()</code>: Collapse many
 values down to a single summary</h3>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(starwarsClean, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height)) <span class="co"># gives summary statistics for entire tibble</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="fu">summarize</span>(starwarsClean, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height)) <span class="co"># gives summary statistics for entire tibble</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   meanHeight
 ##        &lt;dbl&gt;
-## 1       178.</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># working with NAs</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(starwars, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height)) <span class="co"># does not calculate mean if NAs are present</span></span></code></pre></div>
+## 1       179.</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="co"># working with NAs</span></span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a><span class="fu">summarize</span>(starwars, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height)) <span class="co"># does not calculate mean if NAs are present</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   meanHeight
 ##        &lt;dbl&gt;
 ## 1         NA</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(starwars, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">TotalNumber =</span> <span class="fu">n</span>()) <span class="co"># n() is a useful function in determining sample size</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="fu">summarize</span>(starwars, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">TotalNumber =</span> <span class="fu">n</span>()) <span class="co"># n() is a useful function in determining sample size</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   meanHeight TotalNumber
 ##        &lt;dbl&gt;       &lt;int&gt;
-## 1       174.          87</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(starwarsClean, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height), <span class="at">number =</span> <span class="fu">n</span>() ) <span class="co">#na.rm not necessary since we are working with a clean dataset</span></span></code></pre></div>
+## 1       175.          87</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="fu">summarize</span>(starwarsClean, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height), <span class="at">number =</span> <span class="fu">n</span>() ) <span class="co">#na.rm not necessary since we are working with a clean dataset</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   meanHeight number
 ##        &lt;dbl&gt;  &lt;int&gt;
-## 1       178.     29</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use group_by for maximum usefulness</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>starwarsGenders<span class="ot">&lt;-</span> <span class="fu">group_by</span>(starwars, gender)</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwarsGenders) <span class="co"># now we see the groups mentioned at the top of the tibble</span></span></code></pre></div>
+## 1       179.     29</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="co"># use group_by for maximum usefulness</span></span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a>starwarsGenders<span class="ot">&lt;-</span> <span class="fu">group_by</span>(starwars, gender)</span>
+<span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a><span class="fu">head</span>(starwarsGenders) <span class="co"># now we see the groups mentioned at the top of the tibble</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 14
 ## # Groups:   gender [2]
-##   name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-## 1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-## 2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
-## 3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
-## 4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-## 5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-## 6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-## # … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-## #   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-## #   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(starwarsGenders, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">number =</span> <span class="fu">n</span>() ) <span class="co"># now we can compare height and sample size between groups</span></span></code></pre></div>
+##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+## 2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+## 3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+## 4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+## 5 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+## 6 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="fu">summarize</span>(starwarsGenders, <span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">number =</span> <span class="fu">n</span>() ) <span class="co"># now we can compare height and sample size between groups</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   gender    meanHeight number
 ##   &lt;chr&gt;          &lt;dbl&gt;  &lt;int&gt;
-## 1 feminine        165.     17
+## 1 feminine        167.     17
 ## 2 masculine       177.     66
-## 3 &lt;NA&gt;            181.      4</code></pre>
+## 3 &lt;NA&gt;            175       4</code></pre>
 </div>
 <div id="what-is-piping" class="section level3">
 <h3>What is piping?</h3>
@@ -976,98 +1002,68 @@ there are meaningful intermediate objects<br />
 <li>formatting: should always have a space before it and usually
 followed by a new line (usually automatic indent)</li>
 </ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm=</span>T), <span class="at">number=</span><span class="fu">n</span>()) <span class="co"># so much cleaner! notice we lost a bunch of groups with the clean dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a>    <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href="#cb69-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">meanHeight =</span> <span class="fu">mean</span>(height, <span class="at">na.rm=</span>T), <span class="at">number=</span><span class="fu">n</span>()) <span class="co"># so much cleaner! notice we lost a bunch of groups with the clean dataset</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   gender    meanHeight number
 ##   &lt;chr&gt;          &lt;dbl&gt;  &lt;int&gt;
-## 1 feminine        166.      6
+## 1 feminine        169       6
 ## 2 masculine       181.     23</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="do">## case_when() is useful for multiple ifelse statements</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sp =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span> <span class="sc">~</span> <span class="st">&quot;Human&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Non-Human&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, sp, <span class="fu">everything</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="do">## case_when() is useful for multiple ifelse statements</span></span>
+<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="#cb71-4" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
+<span id="cb71-5"><a href="#cb71-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sp =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span> <span class="sc">~</span> <span class="st">&quot;Human&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Non-Human&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb71-6"><a href="#cb71-6" tabindex="-1"></a>  <span class="fu">select</span>(name, sp, <span class="fu">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 29 × 15
-##    name  sp    height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-##    &lt;chr&gt; &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-##  1 Luke… Human    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-##  2 Dart… Human    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-##  3 Leia… Human    150    49 brown   light   brown      19   fema… femin… Aldera…
-##  4 Owen… Human    178   120 brown,… light   blue       52   male  mascu… Tatooi…
-##  5 Beru… Human    165    75 brown   light   blue       47   fema… femin… Tatooi…
-##  6 Bigg… Human    183    84 black   light   brown      24   male  mascu… Tatooi…
-##  7 Obi-… Human    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-##  8 Anak… Human    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-##  9 Chew… Non-…    228   112 brown   unknown blue      200   male  mascu… Kashyy…
-## 10 Han … Human    180    80 brown   fair    brown      29   male  mascu… Corell…
-## # … with 19 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(films) <span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sp =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span> <span class="sc">~</span> <span class="st">&quot;Human&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Non-Human&quot;</span>),</span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(films, <span class="st">&quot;A New Hope&quot;</span>) <span class="sc">~</span> <span class="st">&quot;OG&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Later&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name,sp, status, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(status) <span class="sc">%&gt;%</span></span>
-<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  {starwarsOGstatus <span class="ot">&lt;&lt;-</span> .}</span></code></pre></div>
-<pre><code>## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(starwarsOGstatus)</span></code></pre></div>
+##    name      sp    height  mass hair_color skin_color eye_color birth_year sex  
+##    &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+##  1 Luke Sky… Human    172    77 blond      fair       blue            19   male 
+##  2 Darth Va… Human    202   136 none       white      yellow          41.9 male 
+##  3 Leia Org… Human    150    49 brown      light      brown           19   fema…
+##  4 Owen Lars Human    178   120 brown, gr… light      blue            52   male 
+##  5 Beru Whi… Human    165    75 brown      light      blue            47   fema…
+##  6 Biggs Da… Human    183    84 black      light      brown           24   male 
+##  7 Obi-Wan … Human    182    77 auburn, w… fair       blue-gray       57   male 
+##  8 Anakin S… Human    188    84 blond      fair       blue            41.9 male 
+##  9 Chewbacca Non-…    228   112 brown      unknown    blue           200   male 
+## 10 Han Solo  Human    180    80 brown      fair       brown           29   male 
+## # ℹ 19 more rows
+## # ℹ 6 more variables: gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a>starwarsClean <span class="sc">%&gt;%</span></span>
+<span id="cb73-2"><a href="#cb73-2" tabindex="-1"></a>  <span class="fu">group_by</span>(films) <span class="sc">%&gt;%</span></span>
+<span id="cb73-3"><a href="#cb73-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb73-4"><a href="#cb73-4" tabindex="-1"></a>    <span class="at">sp =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span> <span class="sc">~</span> <span class="st">&quot;Human&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Non-Human&quot;</span>),</span>
+<span id="cb73-5"><a href="#cb73-5" tabindex="-1"></a>    <span class="at">status =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(films, <span class="st">&quot;A New Hope&quot;</span>) <span class="sc">~</span> <span class="st">&quot;OG&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Later&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb73-6"><a href="#cb73-6" tabindex="-1"></a>  <span class="fu">select</span>(name,sp, status, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb73-7"><a href="#cb73-7" tabindex="-1"></a>  <span class="fu">arrange</span>(status) <span class="sc">%&gt;%</span></span>
+<span id="cb73-8"><a href="#cb73-8" tabindex="-1"></a>  {starwarsOGstatus <span class="ot">&lt;&lt;-</span> .}</span></code></pre></div>
+<pre><code>## Warning: There were 13 warnings in `mutate()`.
+## The first warning was:
+## ℹ In argument: `status = case_when(str_detect(films, &quot;A New Hope&quot;) ~ &quot;OG&quot;, TRUE
+##   ~ &quot;Later&quot;)`.
+## ℹ In group 1: `films = &lt;&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the
+##   Jedi&quot;, &quot;Revenge of the Sith&quot;, &quot;The Force Awakens&quot;&gt;`.
+## Caused by warning in `stri_detect_regex()`:
+## ! argument is not an atomic vector; coercing
+## ℹ Run `dplyr::last_dplyr_warnings()` to see the 12 remaining warnings.</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="fu">tail</span>(starwarsOGstatus)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 16
 ## # Groups:   films [6]
-##   name    sp    status height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-## 1 Beru W… Human OG        165    75 brown   light   blue         47 fema… femin…
-## 2 Biggs … Human OG        183    84 black   light   brown        24 male  mascu…
-## 3 Obi-Wa… Human OG        182    77 auburn… fair    blue-g…      57 male  mascu…
-## 4 Chewba… Non-… OG        228   112 brown   unknown blue        200 male  mascu…
-## 5 Han So… Human OG        180    80 brown   fair    brown        29 male  mascu…
-## 6 Wedge … Human OG        170    77 brown   fair    hazel        21 male  mascu…
-## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-## #   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="do">## long to wide format and vice-versa</span></span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(starwarsClean)</span></code></pre></div>
+##   name      sp    status height  mass hair_color skin_color eye_color birth_year
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;
+## 1 Beru Whi… Human OG        165    75 brown      light      blue              47
+## 2 Biggs Da… Human OG        183    84 black      light      brown             24
+## 3 Obi-Wan … Human OG        182    77 auburn, w… fair       blue-gray         57
+## 4 Chewbacca Non-… OG        228   112 brown      unknown    blue             200
+## 5 Han Solo  Human OG        180    80 brown      fair       brown             29
+## 6 Wedge An… Human OG        170    77 brown      fair       hazel             21
+## # ℹ 7 more variables: sex &lt;chr&gt;, gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a><span class="do">## long to wide format and vice-versa</span></span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a><span class="fu">glimpse</span>(starwarsClean)</span></code></pre></div>
 <pre><code>## Rows: 29
 ## Columns: 14
 ## $ name       &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;Darth Vader&quot;, &quot;Leia Organa&quot;, &quot;Owen Lars&quot;…
@@ -1081,14 +1077,14 @@ followed by a new line (usually automatic indent)</li>
 ## $ gender     &lt;chr&gt; &quot;masculine&quot;, &quot;masculine&quot;, &quot;feminine&quot;, &quot;masculine&quot;, &quot;feminin…
 ## $ homeworld  &lt;chr&gt; &quot;Tatooine&quot;, &quot;Tatooine&quot;, &quot;Alderaan&quot;, &quot;Tatooine&quot;, &quot;Tatooine&quot;,…
 ## $ species    &lt;chr&gt; &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Huma…
-## $ films      &lt;list&gt; &lt;&quot;The Empire Strikes Back&quot;, &quot;Revenge of the Sith&quot;, &quot;Return…
+## $ films      &lt;list&gt; &lt;&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the J…
 ## $ vehicles   &lt;list&gt; &lt;&quot;Snowspeeder&quot;, &quot;Imperial Speeder Bike&quot;&gt;, &lt;&gt;, &quot;Imperial Sp…
 ## $ starships  &lt;list&gt; &lt;&quot;X-wing&quot;, &quot;Imperial shuttle&quot;&gt;, &quot;TIE Advanced x1&quot;, &lt;&gt;, &lt;&gt;,…</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make data set wider</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>wideSW <span class="ot">&lt;-</span> starwarsClean <span class="sc">%&gt;%</span> </span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name,sex, height) <span class="sc">%&gt;%</span></span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sex, <span class="at">values_from =</span> height, <span class="at">values_fill =</span> <span class="cn">NA</span>)</span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>wideSW</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a><span class="co"># make data set wider</span></span>
+<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a>wideSW <span class="ot">&lt;-</span> starwarsClean <span class="sc">%&gt;%</span> </span>
+<span id="cb79-3"><a href="#cb79-3" tabindex="-1"></a>  <span class="fu">select</span>(name,sex, height) <span class="sc">%&gt;%</span></span>
+<span id="cb79-4"><a href="#cb79-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sex, <span class="at">values_from =</span> height, <span class="at">values_fill =</span> <span class="cn">NA</span>)</span>
+<span id="cb79-5"><a href="#cb79-5" tabindex="-1"></a>wideSW</span></code></pre></div>
 <pre><code>## # A tibble: 29 × 3
 ##    name                male female
 ##    &lt;chr&gt;              &lt;int&gt;  &lt;int&gt;
@@ -1096,53 +1092,55 @@ followed by a new line (usually automatic indent)</li>
 ##  2 Darth Vader          202     NA
 ##  3 Leia Organa           NA    150
 ##  4 Owen Lars            178     NA
-##  5 Beru Whitesun lars    NA    165
+##  5 Beru Whitesun Lars    NA    165
 ##  6 Biggs Darklighter    183     NA
 ##  7 Obi-Wan Kenobi       182     NA
 ##  8 Anakin Skywalker     188     NA
 ##  9 Chewbacca            228     NA
 ## 10 Han Solo             180     NA
-## # … with 19 more rows</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, homeworld) <span class="sc">%&gt;%</span></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(homeworld) <span class="sc">%&gt;%</span></span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rn =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeworld, <span class="at">values_from =</span> name) <span class="sc">%&gt;%</span></span>
-<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rn)</span></code></pre></div>
+## # ℹ 19 more rows</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a>pivotSW<span class="ot">&lt;-</span>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="#cb81-2" tabindex="-1"></a>  <span class="fu">select</span>(name, homeworld) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="#cb81-3" tabindex="-1"></a>  <span class="fu">group_by</span>(homeworld) <span class="sc">%&gt;%</span></span>
+<span id="cb81-4"><a href="#cb81-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rn =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb81-5"><a href="#cb81-5" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb81-6"><a href="#cb81-6" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeworld, <span class="at">values_from =</span> name) <span class="sc">%&gt;%</span></span>
+<span id="cb81-7"><a href="#cb81-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rn)</span>
+<span id="cb81-8"><a href="#cb81-8" tabindex="-1"></a></span>
+<span id="cb81-9"><a href="#cb81-9" tabindex="-1"></a>pivotSW</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 49
-##    Tatooine   Naboo Alder…¹ Stewjon Eriadu Kashy…² Corel…³ Rodia Nal H…⁴ Besti…⁵
-##    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  
-##  1 Luke Skyw… R2-D2 Leia O… Obi-Wa… Wilhu… Chewba… Han So… Gree… Jabba … Jek To…
-##  2 C-3PO      Palp… Bail P… &lt;NA&gt;    &lt;NA&gt;   Tarfful Wedge … &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  3 Darth Vad… Jar … Raymus… &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  4 Owen Lars  Roos… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  5 Beru Whit… Rugo… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  6 R5-D4      Ric … &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  7 Biggs Dar… Quar… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  8 Anakin Sk… Greg… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-##  9 Shmi Skyw… Cordé &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-## 10 Cliegg La… Dormé &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-## 11 &lt;NA&gt;       Padm… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   
-## # … with 39 more variables: `NA` &lt;chr&gt;, Kamino &lt;chr&gt;, Trandosha &lt;chr&gt;,
-## #   Socorro &lt;chr&gt;, Bespin &lt;chr&gt;, `Mon Cala` &lt;chr&gt;, Chandrila &lt;chr&gt;,
-## #   Endor &lt;chr&gt;, Sullust &lt;chr&gt;, `Cato Neimoidia` &lt;chr&gt;, Coruscant &lt;chr&gt;,
-## #   Toydaria &lt;chr&gt;, Malastare &lt;chr&gt;, Dathomir &lt;chr&gt;, Ryloth &lt;chr&gt;,
-## #   Vulpter &lt;chr&gt;, Troiken &lt;chr&gt;, Tund &lt;chr&gt;, `Haruun Kal` &lt;chr&gt;, Cerea &lt;chr&gt;,
-## #   `Glee Anselm` &lt;chr&gt;, Iridonia &lt;chr&gt;, Iktotch &lt;chr&gt;, Quermia &lt;chr&gt;,
-## #   Dorin &lt;chr&gt;, Champala &lt;chr&gt;, Geonosis &lt;chr&gt;, Mirial &lt;chr&gt;, Serenno &lt;chr&gt;, …</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make data set longer</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wideSW)</span></code></pre></div>
+##    Tatooine    Naboo Alderaan Stewjon Eriadu Kashyyyk Corellia Rodia `Nal Hutta`
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      
+##  1 Luke Skywa… R2-D2 Leia Or… Obi-Wa… Wilhu… Chewbac… Han Solo Gree… Jabba Desi…
+##  2 C-3PO       Palp… Bail Pr… &lt;NA&gt;    &lt;NA&gt;   Tarfful  Wedge A… &lt;NA&gt;  &lt;NA&gt;       
+##  3 Darth Vader Padm… Raymus … &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  4 Owen Lars   Jar … &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  5 Beru White… Roos… &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  6 R5-D4       Rugo… &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  7 Biggs Dark… Ric … &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  8 Anakin Sky… Quar… &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+##  9 Shmi Skywa… Greg… &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+## 10 Cliegg Lars Cordé &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+## 11 &lt;NA&gt;        Dormé &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;       
+## # ℹ 40 more variables: `Bestine IV` &lt;chr&gt;, `NA` &lt;chr&gt;, Kamino &lt;chr&gt;,
+## #   Trandosha &lt;chr&gt;, Socorro &lt;chr&gt;, Bespin &lt;chr&gt;, `Mon Cala` &lt;chr&gt;,
+## #   Chandrila &lt;chr&gt;, Endor &lt;chr&gt;, Sullust &lt;chr&gt;, `Cato Neimoidia` &lt;chr&gt;,
+## #   Coruscant &lt;chr&gt;, Toydaria &lt;chr&gt;, Malastare &lt;chr&gt;, Dathomir &lt;chr&gt;,
+## #   Ryloth &lt;chr&gt;, `Aleen Minor` &lt;chr&gt;, Vulpter &lt;chr&gt;, Troiken &lt;chr&gt;,
+## #   Tund &lt;chr&gt;, `Haruun Kal` &lt;chr&gt;, Cerea &lt;chr&gt;, `Glee Anselm` &lt;chr&gt;,
+## #   Iridonia &lt;chr&gt;, Iktotch &lt;chr&gt;, Quermia &lt;chr&gt;, Dorin &lt;chr&gt;, …</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a><span class="do">## make data set longer</span></span>
+<span id="cb83-2"><a href="#cb83-2" tabindex="-1"></a><span class="fu">glimpse</span>(wideSW)</span></code></pre></div>
 <pre><code>## Rows: 29
 ## Columns: 3
 ## $ name   &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;Darth Vader&quot;, &quot;Leia Organa&quot;, &quot;Owen Lars&quot;, &quot;B…
 ## $ male   &lt;int&gt; 172, 202, NA, 178, NA, 183, 182, 188, 228, 180, 170, 170, 183, …
 ## $ female &lt;int&gt; NA, NA, 150, NA, 165, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>wideSW <span class="sc">%&gt;%</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span> male<span class="sc">:</span>female,</span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;sex&quot;</span>,</span>
-<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span> <span class="st">&quot;height&quot;</span>,</span>
-<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_drop_na =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a>wideSW <span class="sc">%&gt;%</span></span>
+<span id="cb85-2"><a href="#cb85-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span> male<span class="sc">:</span>female,</span>
+<span id="cb85-3"><a href="#cb85-3" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;sex&quot;</span>,</span>
+<span id="cb85-4"><a href="#cb85-4" tabindex="-1"></a>               <span class="at">values_to=</span> <span class="st">&quot;height&quot;</span>,</span>
+<span id="cb85-5"><a href="#cb85-5" tabindex="-1"></a>               <span class="at">values_drop_na =</span> T)</span></code></pre></div>
 <pre><code>## # A tibble: 29 × 3
 ##    name               sex    height
 ##    &lt;chr&gt;              &lt;chr&gt;   &lt;int&gt;
@@ -1150,13 +1148,13 @@ followed by a new line (usually automatic indent)</li>
 ##  2 Darth Vader        male      202
 ##  3 Leia Organa        female    150
 ##  4 Owen Lars          male      178
-##  5 Beru Whitesun lars female    165
+##  5 Beru Whitesun Lars female    165
 ##  6 Biggs Darklighter  male      183
 ##  7 Obi-Wan Kenobi     male      182
 ##  8 Anakin Skywalker   male      188
 ##  9 Chewbacca          male      228
 ## 10 Han Solo           male      180
-## # … with 19 more rows</code></pre>
+## # ℹ 19 more rows</code></pre>
 <p></font></p>
 </div>
 

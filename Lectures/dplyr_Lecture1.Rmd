@@ -76,9 +76,11 @@ head(starwarsClean)
 
 filter(starwarsClean, gender == "masculine" & height < 180) # you can also use commas in place of &   
 
+
 filter(starwars, gender == "masculine", height <180, height > 100) # can add multiple conditions for the same variable   
 
 filter(starwars, eye_color %in% c("blue", "brown")) # we can use %in% for a few conditions, similar to ==
+
 ```
 
 
