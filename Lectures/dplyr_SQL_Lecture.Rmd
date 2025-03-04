@@ -10,12 +10,7 @@ output:
 
 #SQL stands for Structured Query Language, and it's useful for storing and processing datasets. This is often used in a lot of other applications, for example I use it a lot when running GIS applications like ArcGIS Pro or ArcMaps, which usually doesn't have a dedicated way to interact with datasets except with SQL.
 
-#So, the first thing we're going to do is download the data 
-
-
-Here's a link to the sample datasets that we'll be using-
-[Download](https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.4mw6m90b9)
-
+#We're going to be using the site_by_species.csv and site_by_variables.csv. The first has every row being a site, and the presence/absence of each species as a separate column. The second has every row being a site, and the columns being various environmental conditions/predictors.
 
 ```{r message=FALSE}
 #Installing Packages
@@ -257,7 +252,7 @@ full<-full_join(edit_species, edit_var, by="Site")
 SQL method
 ```{r}
 query="
-SELECT BIO1_Annual_mean_temperature, BIO12_Annual_precipitation
+SELECT *
 FROM edit_var
 INNER JOIN edit_species ON edit_var.Site = edit_species.Site
 "
@@ -269,7 +264,7 @@ x<-sqldf(query)
 # left join keeps all rows from the first table and adds
 # data from second table for matches and NAs for mismatches (n = 500 rows = row number in Orders table)
 query="
-SELECT BIO1_Annual_mean_temperature, BIO12_Annual_precipitation
+SELECT *
 FROM edit_var
 LEFT JOIN edit_species ON edit_var.Site = edit_species.Site
 "

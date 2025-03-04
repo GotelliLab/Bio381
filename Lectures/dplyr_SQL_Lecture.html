@@ -362,21 +362,29 @@ storing and processing datasets. This is often used in a lot of other
 applications, for example I use it a lot when running GIS applications
 like ArcGIS Pro or ArcMaps, which usually doesn’t have a dedicated way
 to interact with datasets except with SQL.</p>
-<p>#So, the first thing we’re going to do is download the data</p>
-<p>Here’s a link to the sample datasets that we’ll be using- <a href="https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.4mw6m90b9">Download</a></p>
+<p>#We’re going to be using the site_by_species.csv and
+site_by_variables.csv. The first has every row being a site, and the
+presence/absence of each species as a separate column. The second has
+every row being a site, and the columns being various environmental
+conditions/predictors.</p>
 <pre class="r"><code>#Installing Packages
 library(sqldf)</code></pre>
-<pre><code>## Warning: package &#39;RSQLite&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>library(dplyr)
-library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.2.3</code></pre>
-<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 4.4.2</code></pre>
+<pre><code>## Warning: package &#39;gsubfn&#39; was built under R version 4.4.2</code></pre>
+<pre><code>## Warning: package &#39;proto&#39; was built under R version 4.4.2</code></pre>
+<pre><code>## Warning: package &#39;RSQLite&#39; was built under R version 4.4.2</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.4.1</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.4.1</code></pre>
 <div id="take-a-look-at-the-datasets-first" class="section level1">
 <h1>Take a look at the datasets first</h1>
 <pre class="r"><code>head(species_clean)
@@ -615,8 +623,9 @@ ALTER TABLE species_wide
 ADD new_column VARCHAR
 &quot;
 sqldf(query)</code></pre>
-<pre><code>## Warning in result_fetch(res@ptr, n = n): SQL statements must be issued with
-## dbExecute() or dbSendStatement() instead of dbGetQuery() or dbSendQuery().</code></pre>
+<pre><code>## Warning in result_fetch(res@ptr, n = n): `dbGetQuery()`, `dbSendQuery()` and
+## `dbFetch()` should only be used with `SELECT` queries. Did you mean
+## `dbExecute()`, `dbSendStatement()` or `dbGetRowsAffected()`?</code></pre>
 <pre><code>## data frame with 0 columns and 0 rows</code></pre>
 </div>
 </div>
@@ -725,7 +734,7 @@ inner&lt;-inner_join(edit_species, edit_var, by=&quot;Site&quot;)</code></pre>
 full&lt;-full_join(edit_species, edit_var, by=&quot;Site&quot;)</code></pre>
 <p>SQL method</p>
 <pre class="r"><code>query=&quot;
-SELECT BIO1_Annual_mean_temperature, BIO12_Annual_precipitation
+SELECT *
 FROM edit_var
 INNER JOIN edit_species ON edit_var.Site = edit_species.Site
 &quot;
@@ -734,7 +743,7 @@ x&lt;-sqldf(query)</code></pre>
 # left join keeps all rows from the first table and adds
 # data from second table for matches and NAs for mismatches (n = 500 rows = row number in Orders table)
 query=&quot;
-SELECT BIO1_Annual_mean_temperature, BIO12_Annual_precipitation
+SELECT *
 FROM edit_var
 LEFT JOIN edit_species ON edit_var.Site = edit_species.Site
 &quot;
