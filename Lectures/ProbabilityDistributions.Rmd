@@ -79,7 +79,7 @@ Combine these with the base name of the function. For example `rbinom` gives a s
 # Output: a ggplot histogram
 library(ggplot2)
 my_histo <- function(df=NULL) {
-  if(is.null(df)) df=data.frame(x=runif(1000))  
+  if(is.null(df)) df=data.frame(x=runif(1000)) else df <- data.frame(x=x) 
   p1 <- ggplot(data=df) +
   aes(x=x) +
   geom_histogram(color="black",fill="goldenrod")

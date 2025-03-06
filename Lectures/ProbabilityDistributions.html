@@ -536,7 +536,7 @@ but we will discuss only 7 of them.</p>
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co"># Output: a ggplot histogram</span></span>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>my_histo <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df=</span><span class="cn">NULL</span>) {</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(df)) df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">1000</span>))  </span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(df)) df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">1000</span>)) <span class="cf">else</span> df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x) </span>
 <span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>df) <span class="sc">+</span></span>
 <span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>x) <span class="sc">+</span></span>
 <span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;goldenrod&quot;</span>)</span>
