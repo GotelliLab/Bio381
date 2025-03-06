@@ -61,6 +61,35 @@ knitr::opts_chunk$set(eval = FALSE)
 
 Combine these with the base name of the function. For example `rbinom` gives a set of random values drawn from a binomial, whereas `dnorm` gives the density function for a normal distribution. There are many probability distributions available in R, but we will discuss only 7 of them.
 
+#### Build a plotting function
+
+```{r}
+############################
+# Function: my_histo
+# Purpose: creates a ggplot histogram
+# Requires: ggplot
+# Input: a numeric vector
+# Output: a ggplot histogram
+
+############################
+# Function: my_histo
+# Purpose: creates a ggplot histogram
+# Requires: ggplot
+# Input: a numeric vector
+# Output: a ggplot histogram
+library(ggplot2)
+my_histo <- function(df=NULL) {
+  if(is.null(df)) df=data.frame(x=runif(1000))  
+  p1 <- ggplot(data=df) +
+  aes(x=x) +
+  geom_histogram(color="black",fill="goldenrod")
+ print(p1)   
+                                  
+}
+my_histo()
+```
+
+
 #### Poisson distribution
 
 ```{r}
