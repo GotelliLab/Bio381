@@ -53,11 +53,11 @@ February 26  |  | [dplyr/SQL](Lectures/dplyr_Lecture1.html)
 February 27  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.html) | [Homework #8](Homeworks/Homework_06a.html)  | |
 March 4  | Town Meeting Day Recess | -
 March 5  | **Portfolio Check #2** | [Catch-Up Day](Homeworks/???)
-March 6  | [Control Structures I](Lectures/ControlStructures_I.htmlx)| -
+March 6  | [Probability Distributions I](Lectures/ProbabilityDistributions.htmlx)| -
 March 11 | Spring Recess | -
 March 12 | Spring Recess | -
 March 13 | Spring Recess | -
-March 18  | [dplyr/SQL](Lectures/dplyr_Lecture1.htmlx)| -
+March 18  | [Probability Distributions II](Lectures/ProbabilityDistributions.htmlx)| -
 March 19  | [dplyr+SQL lecture notes](Lectures/dplyr_SQL_Lecture.htmlx) | [Homework #8](Homeworks/Homework_06a.htmlx)
 March 20  | [For Loops I](Lectures/ForLoops_I.htmlx) | -
 March 25 | [For Loops II](Lectures/ForLoops_II.htmlx) | -
