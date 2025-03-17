@@ -172,12 +172,14 @@ my_pdf(x=hits,y=my_vec,data_type="disc")
 my_vec <- dpois(x=hits,lambda=2)
 my_pdf(x=hits,y=my_vec,data_type="disc")
 
-hits <- 0:15
-my_pdf(x=hits,y=my_vec,data_type="disc")
-
-hits <- 0:15
-my_pdf(x=hits,y=my_vec,data_type="disc")
 sum(my_vec)  # sum of density function = 1.0 (total area under curve)
+
+# sum is not quite 1 because we need more elements in hits:
+hits <- 0:15
+my_vec <- dpois(x=hits, lambda=2)
+my_pdf(x=hits,y=my_vec,data_type="disc")
+sum(my_vec)
+# now the sum is correct
 
 # for a Poisson distribution with lambda=2, 
 # what is the probability that a single draw will yield X=0?
@@ -246,7 +248,7 @@ my_pdf(x=0:10,y=my_vec,data_type="disc")
 
 my_coins <- rbinom(n=50,size=100,prob=0.5)
 my_histo(x=my_coins,data_type="disc")
-quantile(x=my_oins,probs=c(0.025,0.975))
+quantile(x=my_coins,probs=c(0.025,0.975))
 
 ```
 
@@ -364,25 +366,20 @@ my_histo(x=rgamma(n=100,shape=2,scale=0.1),data_type="cont")
 
 # shape1 = 1, shape2 = 1 = "no data"
 my_beta <- rbeta(n=1000,shape1=1,shape2=1)
-qplot(my_beta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
+my_histo(x=my_beta,data_type="cont")
 
 # shape1 = 2, shape1 = 1 = "1 coin toss, comes up heads!"
 my_beta <- rbeta(n=1000,shape1=2,shape2=1)
-qplot(my_beta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
+my_histo(x=my_beta,data_type="cont")
 # two tosses, 1 head and 1 tail
 my_beta <- rbeta(n=1000,shape1=2,shape2=2)
-qplot(my_beta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
+my_histo(x=my_beta,data_type="cont")
 # two tosses, both heads
 my_beta <- rbeta(n=1000,shape1=2,shape2=1)
-qplot(my_beta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
+my_histo(x=my_beta,data_type="cont")
 # let's get more data
 my_beta <- rbeta(n=1000,shape1=20,shape2=20)
-qplot(my_beta,xlim=c(0,1),color=I("black"),fill=I("goldenrod"))
-
+my_histo(x=my_beta,data_type="cont")
 my_beta <- rbeta(n=1000,shape1=500,shape2=500)
 my_histo(x=my_beta,data_type="cont")
 
