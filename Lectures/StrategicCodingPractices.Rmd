@@ -216,6 +216,18 @@ toc()
 l('end of timed loop')
 ```
 
+## Use the Log Message to Interrogate Objects for Debugging
+```{r}
+library(pryr)
+set_up_log(overwrite=FALSE)
+for (i in 1:100) {
+  show_progress_bar()
+  l(paste('memory_used=',trunc(mem_used()/10^6),
+          " MB;"," i=",i,sep=''))
+  z <- runif(n=10^i)
+}
+```
+
 # Coding with User-Defined Functions
 
 ## A template for user-defined functions:`build_function()`

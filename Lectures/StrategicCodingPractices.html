@@ -373,7 +373,7 @@ display: none;
 <li>m.simple_script</li>
 </ul>
 <pre><code># Script description
-# 2025-02-04
+# 2025-03-19
 # Nicholas J. Gotelli</code></pre>
 </div>
 <div id="organize-project-add_folders" class="section level1" number="3">
@@ -592,6 +592,18 @@ for (k in 1:10) {
 }
 toc()
 l(&#39;end of timed loop&#39;)</code></pre>
+<div id="use-the-log-message-to-interrogate-objects-for-debugging" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Use the Log Message
+to Interrogate Objects for Debugging</h2>
+<pre class="r"><code>library(pryr)
+set_up_log(overwrite=FALSE)
+for (i in 1:100) {
+  show_progress_bar()
+  l(paste(&#39;memory_used=&#39;,trunc(mem_used()/10^6),
+          &quot; MB;&quot;,&quot; i=&quot;,i,sep=&#39;&#39;))
+  z &lt;- runif(n=10^i)
+}</code></pre>
+</div>
 </div>
 <div id="coding-with-user-defined-functions" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Coding with
