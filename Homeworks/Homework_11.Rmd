@@ -1,7 +1,7 @@
 ---
 title: 'Homework #11'
 author: "Nicholas J. Gotelli"
-date: '12 April 2023'
+date: '26 March 2025'
 output:
   html_document:
     highlight: tango
@@ -9,10 +9,13 @@ output:
   pdf_document: default
 ---
 
+### Strategic Coding Practices
+The purpose of today's lab is to use the `upscaler` tools to create the skeleton of a large project and then create some user-defined functions and a MainScript.R to execute everything.
+
+In brief, you will download 10 years of data on breeding land birds. For each yearly data sheet, you will extract abundance and species richness for each year. You will run a simple regression model of S vs. total abundance and write the regression summary statistics to a .csv file. You will also create a histogram, across years, of the abundance and a separate histogram of species richness. Although we haven't covered much detail on ggplot graphics yet, you have enough sample code from previous exercises to create these kind of plots. You will set up a log file, do all of your work with separate user-defined functions, and execute those functions from a single script called MainScript.R. You will store your function files and output files in the appropriate subfolders in your project.
+
+When your work is finished you will compress your entire project folder. In Mac, you can write click on your folder and select the compress option. You may have to do this with a separate application in Windows. This will create a single file called `ProjectName.zip`. Post this single zip file of your entire project to your homework page. In other words, you won't be posting all of the individual files and plots that you create in this exercize, but they will all be contained in the zip file that you will post.
 ### Batch Processing
-
-
-Using an example dataset of breeding landbirds in North America, apply your lecture notes on barracudar and functions to analyze abundance and species richness at a particular site. 
 
 ###### Data Download 
 
@@ -42,5 +45,3 @@ Use the remainder of the lab period to continue work on Homework 10, if you did 
 5. For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?
 
 --------
-[Batch Processing Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture20_S2021)   
-[Randomization Tests Lecture Notes](https://gotellilab.github.io/Bio381/Lectures/Lecture19_S2021.html)
