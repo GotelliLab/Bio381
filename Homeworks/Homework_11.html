@@ -364,16 +364,11 @@ Processing</p>
 <div id="data-download" class="section level2">
 <h2>Data Download</h2>
 <ol style="list-style-type: decimal">
-<li>To start, go to this <a href="https://data.neonscience.org/data-products/DP1.10003.001">link</a>
+<li><p>To start, go to this <a href="https://data.neonscience.org/data-products/DP1.10003.001">link</a>
 and scroll down to “Download Data”. From there, Sort by Site to download
-the “BART” dataset for years 2013-2023. In this compressed folder, you
-should see a list of six folders organized by year in the file name.
-Store that for now somewhere on your desktop.</li>
-</ol>
-<p>From there, follow the instructions from last week’s lectures on
-barracudar functions to create a new project, storing the dataset in a
-“Original Data” folder.</p>
-<ol start="2" style="list-style-type: decimal">
+the “BART” site dataset for years 2013-2023. In this compressed folder,
+you should see a list of six folders organized by year in the file name.
+Store that for now somewhere on your desktop.</p></li>
 <li><p>Within each year’s folder, you will only be using a file from
 each year labeled “countdata” in its title. Using for loops, iterate
 through each year’s folders to gather the file names of these
@@ -382,10 +377,13 @@ through each year’s folders to gather the file names of these
 data for any empty/missing cases, 2) Extract the year from each file
 name, 3) Calculate Abundance for each year (Total number of individuals
 found), 4) Calculate Species Richness for each year(Number of unique
-species found)</p></li>
+species found), 5) Run a simple regression model for Species Richness
+(S) vs. Abundance for every year, 6) Generate histograms for both
+Abundance and Species Richness (S) and store the plots</p></li>
 <li><p>Create an initial empty data frame to hold the above summary
-statistics-you should have 4 columns, one for the file name, one for
-abundance, one for species richness, and one for year.</p></li>
+statistics-you should have columns for the file name, one for abundance,
+one for species richness, one for year, and the regression model summary
+statistics.</p></li>
 <li><p>Using a for loop, run your created functions as a batch process
 for each folder, changing the working directory as necessary to read in
 the correct files, calculating summary statistics with your created
