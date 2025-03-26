@@ -61,7 +61,7 @@ March 18  | [Probability Distributions II](Lectures/ProbabilityDistributions.htm
 March 19  |  |[Homework #8](Homeworks/Homework_06.html)
 March 20  | [Strategic Coding Practices](Lectures/StrategicCodingPractices.html) | -
 March 25 | [Strategic Coding Practices II](Lectures/StrategicCodingPractices.html) | -
-March 26  | - | [Homework #9](Homeworks/Homework_09.htmlx)
+March 26  | - | [Homework #9](Homeworks/Homework_11.html)
 March 27  | [-](Lectures/StrategicCodingPractices.htmlx) | -
 April 1  | [-](Lectures/StrategicCodingPractices.htmlx)  | -
 April 2  | - | [Homework #10](Homeworks/Homework_10.htmlx)
