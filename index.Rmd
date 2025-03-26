@@ -59,8 +59,8 @@ March 12 | Spring Recess | -
 March 13 | Spring Recess | -
 March 18  | [Probability Distributions II](Lectures/ProbabilityDistributions.html)| -
 March 19  |  |[Homework #8](Homeworks/Homework_06.html)
-March 20  | [Strategic Coding Practices](StrategicCodingPractices.htmlx) | -
-March 25 | [Strategic Coding Practices II](StrategicCodingPractices.htmlx) | -
+March 20  | [Strategic Coding Practices](StrategicCodingPractices.html) | -
+March 25 | [Strategic Coding Practices II](StrategicCodingPractices.html) | -
 March 26  | - | [Homework #9](Homeworks/Homework_09.htmlx)
 March 27  | [-](Lectures/StrategicCodingPractices.htmlx) | -
 April 1  | [-](Lectures/StrategicCodingPractices.htmlx)  | -
