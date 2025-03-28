@@ -13,6 +13,11 @@ output:
 
 1. For this exercise, use your newly-developed `ggplot` chops to create some nice graphs from your own data (If you do not have a good data frame to use for graphics, use one of the many built-in data frames from R (other than `mpg`, which we are using in class)). Experiment with different themes, theme base sizes, aesthetics, mappings, and faceting. When you are finished, try exporting them to high quality pdfs, jpgs, eps files, or other formats that you would use for submission to a journal.
 
+#Ridgeline
+#Beeswarm
+#2-D Density plot 
+
+
 In this exercise, I encourage you to improve your graphics with elements that we have not (yet) covered in ggplot. For example, can you change the labels on a facet plot so that they are more informative than the variable names that are supplied from your data frame? Can you figure out how to add text annotations, lines and arrows to your graph? Can you figure out how to use custom colors that you have chosen for your fills and lines? Your resources for these explorations are google, Stack Overflow -- and your TAs!
 
 Here are some more resources available to you that should guide you in making better visualizations: 
