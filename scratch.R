@@ -117,7 +117,7 @@ fonts()
 # Use the font in ggplot
 ggplot(mpg, aes(x = fl, y = cty,fill=fl)) +
   geom_boxplot() +
-   theme_modern_rc()
+   theme_linedraw(base_size=20,base_family="Noteworthy")
   # theme_linedraw(base_size=25,base_family = "serif")
 
 # built in themes
