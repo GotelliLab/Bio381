@@ -15,7 +15,7 @@ The purpose of today's lab is to use the `upscaler` tools to create the skeleton
 In brief, you will download 10 years of data on breeding land birds. For each yearly data sheet, you will extract abundance and species richness for each year. You will run a simple regression model of S vs. total abundance and write the regression summary statistics to a .csv file. You will also create a histogram, across years, of the abundance and a separate histogram of species richness. Although we haven't covered much detail on ggplot graphics yet, you have enough sample code from previous exercises to create these kind of plots. You will set up a log file, do all of your work with separate user-defined functions, and execute those functions from a single script called MainScript.R. You will store your function files and output files in the appropriate subfolders in your project.
 
 When your work is finished you will compress your entire project folder. In Mac, you can write click on your folder and select the compress option. You may have to do this with a separate application in Windows. This will create a single file called `ProjectName.zip`. Post this single zip file of your entire project to your homework page. In other words, you won't be posting all of the individual files and plots that you create in this exercise, but they will all be contained in the zip file that you will post.
-### Batch Processing
+
 
 ## Data Download 
 
@@ -23,9 +23,9 @@ When your work is finished you will compress your entire project folder. In Mac,
 
 2. Within each year's folder, you will only be using a  file from each year labeled "countdata" in its title. Using for loops, iterate through each year's folders to gather the file names of these "countdata" .csv files. 
 
-3. Starting with pseudo-code, generate functions for 1) Cleaning the data for any empty/missing cases, 2) Extract the year from each file name, 3) Calculate Abundance for each year (Total number of individuals found), 4) Calculate Species Richness for each year(Number of unique species found), 5) Run a simple regression model for Species Richness (S) vs. Abundance for every year, 6) Generate histograms for both Abundance and Species Richness (S) and store the plots 
+3. Starting with pseudo-code, generate functions for 1) Cleaning the data for any empty/missing cases, 2) Extract the year from each file name, 3) Calculate Abundance for each year (Total number of individuals found), 4) Calculate Species Richness for each year(Number of unique species found), 5) Run a simple regression model for Species Richness (S) vs. Abundance using data from every year, 6) Generate histograms for both Abundance and Species Richness (S) for every year and store the plots.
 
-4. Create an initial empty data frame to hold the above summary statistics-you should have columns for the file name, one for abundance, one for species richness, one for year, and the regression model summary statistics.  
+4. Create an initial empty data frame to hold the above summary statistics-you should have columns for the file name, one for abundance, one for species richness, and one for year. You should also have a separate dataframe with only the regression model summary statistics.  
 
 5. Using a for loop, run your created functions as a batch process for each folder, changing the working directory as necessary to read in the correct files, calculating summary statistics with your created functions, and then writing them out into your summary statistics data frame. 
 
