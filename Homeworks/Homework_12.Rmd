@@ -24,6 +24,8 @@ You can make any combination of four plots from the list below:
 * Scatter Pie Plot
 * Waffle Plot
 * Tree Map
+* 2-D Density Plot
+* Dendrogram
 
 Here are some more resources available to you that should guide you in making better visualizations: 
 
