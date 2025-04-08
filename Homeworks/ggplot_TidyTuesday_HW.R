@@ -17,14 +17,14 @@ song_features<-tuesdata$audio_features
 
 #Beeswarm Plot-typically used to present individual data points without overlap. Used when you want to show the overall distribution of a variable and the individual data points.
 #Ex. Plot of "Danceability/Energy/Speechiness", maybe the color is separated by decades?
-decades<-billboard%>%
-  mutate(Date=mdy(week_id), Year=year(Date))%>%
-  mutate(Decade=round(Year/10)*10)%>%
-  left_join(song_features, by="song_id")%>%
-  filter(!is.na(danceability))
+decades<-billboard%>% #First create a new dataframe called decades
+  mutate(Date=mdy(week_id), Year=year(Date))%>% #Using lubridate, we'll convert the week_id class into a date object. We'll also use the year() function to extract year from that subsequent Date column.
+  mutate(Decade=round(Year/10)*10)%>% #Using the round function, we can floor the years to each relevant decade 
+  left_join(song_features, by="song_id")%>% #Combining the billboard df to the song features dataframe
+  filter(!is.na(danceability)) #Then a quick cleaning for any NA's in the metric we're concerned with-let's say danceability for our purposes.
 
 
-song_features<-song_features%>%
+song_features<-song_features%>% #Same thing here, we're going to clean song_features for danceability
   filter(!is.na(danceability))
 
 #Create a beeswarm plot of Danceability for each decade
@@ -54,20 +54,13 @@ density2d<-ggplot(data=decades,aes(danceability, tempo))+geom_bin_2d()+scale_fil
 density2d
 
 
-#Dendrogram-To visualize this and still be readable, let's first filter songs by decades and get the top 3 songs from each decade. Then we'll cluster it by danceability
+#Dendrogram-To visualize this and still be readable, let's first filter songs by decades and get songs that have 
 
-#So first group by decades
-#Filter the dataset for peak_position < 3 
-#Go ahead and only remove columns (url,week_id, week_position, Date, previous_week_position, weeks_on_chart,Year, peak_position) from the dataset
-#Get the distinct songs from the dataset
-#Slice for just the first 10 songs 
 
-decades_dendro<-decades%>%
-  group_by(Decade)%>%
-  filter(peak_position<3)%>%
-  group_by(song.x)%>%
-  mutate(Instance=instance)%>%
-  select(-c(url,week_id, week_position, Date, previous_week_position, weeks_on_chart,Year, peak_position))%>%
+decades_dendro<-decades%>% #Creating a new df
+  group_by(Decade)%>%  #group by Decade first
+  filter(peak_position<2)%>% #Filter the songs for the ones that have had top 3 listings at some point in that decade 
+  select(-c(url,week_id, week_position, Date, previous_week_position, weeks_on_chart,Year, peak_position))%>% #Select out the columns that we don't want/need
   distinct()%>%
   ungroup()%>%
   slice(1:10)
