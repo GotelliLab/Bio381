@@ -67,7 +67,7 @@ April 1  | [ggplot II](Lectures/ggplot_II.html)  | -
 April 2  | - | [Catch-up Day]()
 April 3  | [ggplot III](Lectures/ggplot_III.html) | -
 April 8  | [ggplot III](Lectures/ggplot_III.html)  | -
-April 9  | **Portfolio Check #3** | [Homework #10](Homeworks/Homework_12.htmlx)
+April 9  | **Portfolio Check #3** | [Homework #10](Homeworks/Homework_12.html)
 April 10  | [ggplot IV](Lectures/ggplot_IV.html) | -
 April 15 | [Functional Programming](Lectures/ggplot_III.htmlx) | -
 April 16  | - | [Homework #12](Homeworks/Homework_12.htmlx)
