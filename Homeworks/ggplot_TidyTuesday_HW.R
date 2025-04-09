@@ -4,7 +4,7 @@ library(tidyverse)
 library(lubridate)
 library(ggbeeswarm)
 library(ggridges)
-
+library(tidytuesdayR)
 
 tuesdata <- tidytuesdayR::tt_load('2021-09-14') #Use tidytuesdayR::tt_load() to find the correct weeks dataset that you want to use
 
