@@ -70,7 +70,7 @@ April 8  | [ggplot III](Lectures/ggplot_III.html)  | -
 April 9  | **Portfolio Check #3** | [Homework #10](Homeworks/Homework_12.html)
 April 10  | [ggplot IV](Lectures/ggplot_IV.html) | -
 April 15 | [Functional Programming](Lectures/ggplot_III.htmlx) | -
-April 16  | - | [Homework #12](Homeworks/Homework_12.htmlx)
+April 16  | - |
 April 17 | [File Batch Processing I](Lectures/Lecture_24.xhtmlx) | -
 April 22  | [File Batch Processing II](Lectures/Lecture25_S2021.xhtmlx) | -
 April 23  | - | Catch-up Day
