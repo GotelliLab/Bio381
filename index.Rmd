@@ -62,17 +62,17 @@ March 19  |  |[Homework #8](Homeworks/Homework_06.html)
 March 20  | [Strategic Coding Practices](Lectures/StrategicCodingPractices.html) | -
 March 25 | [Strategic Coding Practices II](Lectures/StrategicCodingPractices.html) | -
 March 26  | - | [Homework #9](Homeworks/Homework_11.html)
-March 27  | [-](Lectures/StrategicCodingPractices.htmlx) | -
-April 1  | [-](Lectures/StrategicCodingPractices.htmlx)  | -
-April 2  | - | [Homework #10](Homeworks/Homework_10.htmlx)
-April 3  | [ggplot I](Lectures/ggplot_I.htmlx) | -
-April 8  | [ggplot II](Lectures/ggplot_II.htmlx)  | -
-April 9  | **Portfolio Check #3** | [Homework #11](Homeworks/Homework_11.htmlx)
-April 10  | [ggplot III](Lectures/ggplot_III.htmlx) | -
-April 15 | [ggplot IV](Lectures/ggplot_III.htmlx) | -
-April 16  | - | [Homework #12](Homeworks/Homework_12.htmlx)
-April 17 | [Functional Programming](Lectures/Lecture_24.xhtmlx) | -
-April 22  | [Shell Commands](Lectures/Lecture25_S2021.xhtmlx) | -
+March 27  | [ggplot I](Lectures/ggplot_I.html) | -
+April 1  | [ggplot II](Lectures/ggplot_II.html)  | -
+April 2  | - | [Catch-up Day]()
+April 3  | [ggplot III](Lectures/ggplot_III.html) | -
+April 8  | [ggplot III](Lectures/ggplot_III.html)  | -
+April 9  | **Portfolio Check #3** | [Homework #10](Homeworks/Homework_12.html)
+April 10  | [ggplot IV](Lectures/ggplot_IV.html) | -
+April 15 | [Functional Programming](Lectures/ggplot_III.htmlx) | -
+April 16  | - |
+April 17 | [File Batch Processing I](Lectures/Lecture_24.xhtmlx) | -
+April 22  | [File Batch Processing II](Lectures/Lecture25_S2021.xhtmlx) | -
 April 23  | - | Catch-up Day
 April 24  | - | Catch-up Day
 April 29  | Lecture Spillover Day | -
