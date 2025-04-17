@@ -74,7 +74,7 @@ April 16  | - |
 April 17 | [File Batch Processing I](Lectures/Lecture_24.xhtmlx) | -
 April 22  | [File Batch Processing II](Lectures/Lecture25_S2021.xhtmlx) | -
 April 23  | - | Catch-up Day
-April 24  | - | Catch-up Day
+April 24  | [File Batch Processing III](Lectures/Lecture25_S2021.xhtmlx) | -
 April 29  | Lecture Spillover Day | -
 April 30  | Lecture Spillover Day | -
 May 1 | Lecture Spillover Day | - 
