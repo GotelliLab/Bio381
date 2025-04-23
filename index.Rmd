@@ -69,12 +69,12 @@ April 3  | [ggplot III](Lectures/ggplot_III.html) | -
 April 8  | [ggplot III](Lectures/ggplot_III.html)  | -
 April 9  | **Portfolio Check #3** | [Homework #10](Homeworks/Homework_12.html)
 April 10  | [ggplot IV](Lectures/ggplot_IV.html) | -
-April 15 | [Functional Programming](Lectures/ggplot_III.htmlx) | -
+April 15 | [Functional Programming](Lectures/Functional_Programming.html) | -
 April 16  | - |
-April 17 | [File Batch Processing I](Lectures/Lecture_24.xhtmlx) | -
-April 22  | [File Batch Processing II](Lectures/Lecture25_S2021.xhtmlx) | -
+April 17 | [File Batch Processing I](Lectures/FileBatchProcessing.html) | -
+April 22  | [File Batch Processing II](Lectures/FileBatchProcessing.html) | -
 April 23  | - | Catch-up Day
-April 24  | [File Batch Processing III](Lectures/Lecture25_S2021.xhtmlx) | -
+April 24  | [File Batch Processing III](Lectures/FileBatchProcessing.html) | -
 April 29  | Lecture Spillover Day | -
 April 30  | Lecture Spillover Day | -
 May 1 | Lecture Spillover Day | - 

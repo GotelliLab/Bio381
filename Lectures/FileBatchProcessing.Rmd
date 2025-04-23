@@ -1,0 +1,227 @@
+---
+title: "File Batch Processing"
+author: "Nicholas J. Gotelli"
+date: "17 22 24 April"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval=FALSE, echo = TRUE)
+```
+
+## Set Up Project
+- create a new project
+- using the `upscaler` package create folders from the console in project with `add_folder()`
+- inside the `CleanedData` folder, manually create a new folder called `ToyDataFiles`
+
+## Build Function `create_toy_data_files`
+- from the console, run `build_function("create_toy_data_files")
+- in the Function folder, open the script `CreateToyDataFiles.R` and add code:
+
+```{r}
+# --------------------------------------
+# FUNCTION create_toy_data_files
+# required packages: none
+# description: build set of toy .csv files
+# inputs: number of files,max rows,max col
+# outputs: a set of .csv files in a new subfolder
+########################################
+create_toy_data_files <- function(nrow=NULL,
+                               ncol=NULL,
+                               nfiles=NULL){
+  
+  # assign parameter defaults
+  if (is.null(nrow) | is.null(ncol) | is.null(nfiles)){
+    nrow=10
+    ncol=9
+    nfiles=6
+  }
+  
+  # build file labels
+  file_labels <- upscaler::create_padded_labels(n=nfiles,
+                                      string="Toy_Data",
+                                      suffix=".csv") 
+  
+  # run for loop
+  
+  for (i in 1:nfiles) {
+    df <- as.data.frame(matrix(runif(nrow*ncol),
+                               nrow=nrow,
+                               ncol=ncol))
+    write.table(df,file=paste("CleanedData/ToyDataFiles/",
+                              file_labels[i],sep=""),
+                              sep=",")
+    
+  }
+  
+  
+  
+  
+  return()
+  
+} # end of function CreateToyDataFiles
+# --------------------------------------
+# create_toy_data_files()
+
+```
+
+## Build Function `crunch_data()`
+- from the console, run `build_function("crunch_data")
+- in the Function folder, open the script `CrunchData.R` and add code:
+
+```{r}
+# --------------------------------------
+# FUNCTION crunch_data
+# required packages: none
+# description: operate on a single data frame
+# inputs: df = dataframe
+#         crunch_cols = numeric list of columns to use
+#.        param_names = character list of output labels
+# outputs: results = list of output values 
+########################################
+crunch_data <- function(df=NULL,
+                        crunch_cols=NULL,
+                        param_names=NULL){
+
+# assign parameter defaults
+if (is.null(df) | is.null(crunch_cols) | is.null(param_names)) {
+  df <- data.frame(runif(10),runif(10),runif(10))
+  crunch_cols <- list(2,3)
+  param_names <- list("avg","skew","weird")
+}
+
+# function body
+
+avg <- mean(df[,crunch_cols[[1]]])
+skew <- sum(df[,crunch_cols[[1]]] - avg)^3/nrow(df)
+weird <- sum(df[,crunch_cols[[1]]]) + 
+  sum(df[,crunch_cols[[2]]]) + pi
+
+results <- list(avg,skew,weird)
+names(results) <- param_names
+
+return(results)
+
+} # end of function crunch_data
+# --------------------------------------
+   # crunch_data()
+```
+
+## Build Function `filebatchr()`
+- from the console, run `build_function("filebatchr")
+- in the Function folder, open the script `Filebatchr.R` and add code:
+```{r}
+# --------------------------------------
+# FUNCTION filebatchr
+# required packages: none
+# description: use for loop for batch processing
+# inputs: file_names = list of file names
+#         crunch_cols = list of columns to analyze in df
+#         param_names = list of names of output objects
+#.        fun = name of operations function
+# outputs: output_df with rows for each data file
+########################################
+filebatchr <- function(file_names=NULL,
+                          fun=NULL,
+                          crunch_cols=NULL,
+                          param_names=NULL){
+
+  if(is.null(file_names)) return(print("no input"))
+  
+output_df <- as.data.frame(matrix(rep(NA,length(file_names)*length(param_names)),nrow=length(file_names),ncol=length(param_names)))
+names(output_df)=param_names
+  
+  nobs <- rep(NA,length(file_names))
+  for (i in 1:length(file_names)) {
+    df <- read.table(file=file_names[[i]],
+                     header=TRUE,
+                     sep=",")
+    . <- fun(df=df,
+             crunch_cols=unlist(crunch_cols),
+             param_names=param_names)
+    
+    output_df[i,] <- .
+    nobs[i] <- nrow(df)
+  }
+  output_df
+  # add initial metadata columns (ID,filename,nobs)
+  output_df <- cbind(ID=1:length(file_names),file=basename(unlist(file_names)),nobs=nobs,output_df)
+  
+
+
+
+
+return(output_df)
+
+} # end of function filebatchr
+# --------------------------------------
+ # filebatchr(file_names=file_names,
+               # fun=crunch_data,
+               # crunch_cols=crunch_cols,
+               # param_names=param_names)
+```
+
+## Create script `MainScript.R`
+- from the root of your project directory, create a new script `MainScript.R` and save it at the root.
+- fill this script with the following code:
+
+```{r}
+# filebatchr() for operating on batch files
+# NJG and Spring 2025 Bio 6100 class
+# 15 April 2025
+
+library(upscaler)
+library(ggplot2)
+set_up_log()
+source_batch(folder="Functions")
+# create_toy_data_files(nrow=15,
+#                       ncol=10,
+#                       nfiles=8)
+
+# create global variables
+file_names <- as.list(list.files(pattern="\\.csv$",
+           path="CleanedData/ToyDataFiles",
+           full.names=TRUE))
+crunch_cols <- list(4,5)
+param_names <- list("avg","skew","weird")
+
+
+
+# use lapply to run it all with two lines of code!
+z <- lapply(file_names,read.table,sep=",")
+final <- lapply(z,crunch_data)
+
+# do the work in a for loop
+output_df <- as.data.frame(matrix(rep(NA,length(file_names)*length(param_names)),nrow=length(file_names),ncol=length(param_names)))
+names(output_df)=param_names
+nobs <- rep(NA,length(file_names)) # empty vector for row counts
+for (i in 1:length(file_names)) {
+  df <- read.table(file=file_names[[i]],
+                   header=TRUE,
+                   sep=",")
+  . <- crunch_data(df=df,
+                   crunch_cols=unlist(crunch_cols),
+                   param_names=param_names)
+
+  output_df[i,] <- .
+  nobs[i] <- nrow(df)
+}
+output_df
+# add initial metadata columns (ID,filename,nobs)
+output_df <- cbind(ID=1:length(file_names),file=basename(unlist(file_names)),nobs=nobs,output_df)
+
+output_df
+
+
+
+# filebatchr(file_names=file_names,
+#                fun=crunch_data,
+#                crunch_cols=crunch_cols,
+#                param_names=param_names)
+```
+
+Once the toy data files have been built, and the global variables assigned at the top of the script the code can be executed in 3 different ways, with the following lines of code from the MainScript:
+
+- with the lapply function (uses only 2 lines of code)
+- with the for loop (which allows you to see the components)
+- with the batchr function (which puts that for loop in a function)
