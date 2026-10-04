@@ -47,7 +47,7 @@ Name your project `StrategicCodingTIBS` and use the *Browse...* button to place 
 
 #### Download the script for the workshop and save it in the project
 
-Go to this link http://example.com to download the script that we will be using. Save this script in the root of your project folder. Do NOT execute this script. We will step through it in the workshop.
+Go to this link https://gotellilab.github.io/Bio381/Scripts/StrategicCodingWorkshopScriptTIBS14Oct2026.R to download the script that we will be using. Save this script in the root of your project folder. Do NOT execute this script. We will step through it in the workshop.
 
 #### Bonus github instruction
 

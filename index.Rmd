@@ -13,9 +13,10 @@ Click here for [COMPLETE SET OF SPRING 2020 PANDEMIC-YEAR COURSE VIDEOS](https:/
 This site contains course materials, scripts, homeworks, and resources for Computational Biology, Spring 2025.
 
 ## Course Materials
-[TIBS Workshop Script 14 October 2026](Scripts/StrategicCodingWorkshopScriptTIBS140ct2026.R)
 
-[TIBS Workshop Installation 14 October 2026](Scripts/StrategicCodingSetupTIBS140ct2026.html)
+[TIBS Workshop Installation 14 October 2026](Scripts/StrategicCodingSetupTIBS14Oct2026.html)
+
+[TIBS Workshop Script 14 October 2026](Scripts/StrategicCodingWorkshopScriptTIBS14Oct2026.R)
 
 [Goiania Workshop Script 3 June 2025](CourseMaterials/StrategicCodingWorkshopScript.R)
 
