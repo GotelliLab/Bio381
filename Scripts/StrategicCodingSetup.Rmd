@@ -1,0 +1,55 @@
+---
+title: ''
+output: 
+  html_document: 
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## TIBS Training Course
+### Strategic Coding Practices: Reproducible Coding For Large Open-Ended Projects
+
+### Instructor: Nicholas J. Gotelli
+
+### Dates & times
+#### Day 1:  Wednesday, 14 October 2026
+- 14:00-16:00 UTC + 17:00–19:00 UTC
+
+#### Day 2:  Thursday, 15 October 2026
+- 14:00-16:00 UTC
+
+### Installation & set-up
+
+For this workshop, you should have internet access and recent versions of R and RStudio installed on your computer. 
+
+#### Install packages
+
+We will be using 3 packages from the CRAN library (*pracma*, *pryr*, and *devtools*) and one package from my github repository (*upscaler*). The *upscaler* package contains several functions that will streamline our workflow for modular programming. You only have to install these packages once on your computer, and then you can use them with the *library* command.
+
+Open RStudio and issue the following commands, one line at a time, from the console (lower left pane, with the `>` prompt)
+
+```{r eval=FALSE}
+install.packages("pracma")
+install.packages("pryr")
+install.packages("devtools")
+library(devtools)
+install_github("ngotelli/upscaler")
+```
+
+#### Set up a new project for the workshop
+
+From the RStudio menu bar, select *File -> New Project... -> New Directory -> New Project -> Directory Name*. 
+
+Name your project `StrategicCodingTIBS` and use the *Browse...* button to place it on your desktop or somewhere convenient. We will be doing all of work inside of this project.
+
+#### Download the script for the workshop and save it in the project
+
+Go to this link http://example.com to download the script that we will be using. Save this script in the root of your project folder. Do NOT execute this script. We will step through it in the workshop.
+
+#### Bonus github instruction
+
+If we have extra time at the end of the course, we will use it to learn how to work with github repositories and R. For this material, you will have an account (free) with github. You can register for a github account here https://github.com/. If we do not have time for this, you can work through the github lecture notes and coding materials from my course website https://gotellilab.github.io/Bio381/Lectures/GitHub.html.
+
