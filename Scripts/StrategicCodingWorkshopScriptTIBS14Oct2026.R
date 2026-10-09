@@ -25,14 +25,16 @@
 # first...
 # install libraries ----
 install.packages("pracma")
-install.packages("pryr")
+install.packages("lobstr")
 install.packages("devtools")
+install.packages("pak")
 
 # load libraries ----
 library(pracma)
-library(pryr)
+library(lobstr)
 library(devtools)
-install_github("ngotelli/upscaler")
+library(pak)
+pak("ngotelli/upscaler")
 help(package="upscaler")
 library(upscaler)
 
@@ -217,7 +219,7 @@ l('end of timed loop')
 
 # 6.1 Use the Log Message to Interrogate Objects for Debugging
 # pass parameter values to a log message
-library(pryr)
+library(lobstr)
 set_up_log(overwrite=FALSE)
 for (i in 1:100) {
   show_progress_bar()

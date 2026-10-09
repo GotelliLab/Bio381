@@ -33,10 +33,11 @@ Open RStudio and issue the following commands, one line at a time, from the cons
 
 ```{r eval=FALSE}
 install.packages("pracma")
-install.packages("pryr")
+install.packages("lobstr")
 install.packages("devtools")
-library(devtools)
-install_github("ngotelli/upscaler")
+install.packages("pak")
+library(pak)
+pak("ngotelli/upscaler")
 ```
 
 #### Set up a new project for the workshop
